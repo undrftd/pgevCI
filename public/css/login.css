@@ -1,0 +1,112 @@
+body {
+  background-color: #27ae60;
+  color: white;
+}
+
+.container {
+  position: relative;
+  top: 50%;
+  transform: translateY(5%);
+}
+
+h1 {
+  font-family: 'League-Gothic';
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 5em;
+}
+
+#user-name, #user-password {
+  width: 75%;
+  margin: 0 auto;
+  border: none;
+  box-shadow: none;
+  border-bottom: 4px solid white;
+  border-radius: 0px;
+  padding: 1em 1em 1em 0em;
+  padding-left: none;
+  background-color: #27ae60;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 1.3em;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+
+#user-name:hover, #user-name:focus, #user-password:hover, #user-password:focus {
+  opacity: 1;
+  width: 78%;
+}
+
+.btn-custom {
+  display: block;
+  color: #27ae60;
+  font-family: 'Roboto';
+  background-color: white;
+  padding: 15px;
+  width: 27%;
+  border-radius: 0px;
+  font-size: 1.1em;
+  margin: 0 auto;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #97e7b9;
+  border-bottom: 8px solid #97e7b9;
+}
+
+.btn-custom:hover {
+  color: #27ae60;
+  width: 28%;
+  border-bottom: 8px solid #6edd9e;
+}
+
+.action-buttons button {
+  display: inline-block;
+  margin: 0 auto;
+  margin: 2%;
+}
+
+
+hr {
+  border: 1px solid white;
+}
+
+p {
+  font-family: 'Roboto';
+  text-align: center;
+  font-size: 1em;
+}
+
+@media(max-width:768px) {
+
+  .btn-custom {
+    display: block;
+    color: #27ae60;
+    font-family: 'Roboto';
+    background-color: white;
+    padding: 15px;
+    width: 75%;
+    border-radius: 0px;
+    font-size: 1.1em;
+    transition: all 0.4s ease-in-out;
+    margin: 0 auto;
+  }
+
+  .btn-custom:hover {
+    color: #27ae60;
+    width: 76%;
+  }
+
+}
+
+@font-face {
+    font-family: 'League-Gothic';
+    src: url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fontsLeagueGothic-Regular.eot?#iefix') format('embedded-opentype'),
+         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.woff') format('woff'),
+         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.ttf')  format('truetype'),
+         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.svg#svgFontName') format('svg');
+    }
+
+.form-control::-webkit-input-placeholder { color: white;}
+.form-control:-moz-placeholder { color: white; }
+.form-control::-moz-placeholder { color: white; }
+.form-control:-ms-input-placeholder { color: white; }
