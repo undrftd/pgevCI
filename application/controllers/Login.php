@@ -34,7 +34,7 @@ class Login extends CI_Controller
             );
         
             $this->session->set_userdata($data);
-            redirect('user/home');
+            redirect('user_home');
         }
         else if(($valid && $isAdmin) && $isActive == false)  //Deactivated Admin
         {
@@ -87,6 +87,6 @@ class Login extends CI_Controller
                 }
             }
          $this->session->sess_destroy();
-        $this->index();
+        redirect('login/');
     }    
 }
