@@ -1,6 +1,6 @@
 <?php $this->load->view('includes/adticket_header'); ?>
 
-<?php $this->load->view('includes/navigation'); ?>
+<?php $this->load->view('includes/admin_navigation'); ?>
 
 <?php $this->load->view($main_content); ?>
 

@@ -1,6 +1,6 @@
 <?php $this->load->view('includes/adaccounts_header'); ?>
 
-<?php $this->load->view('includes/navigation'); ?>
+<?php $this->load->view('includes/admin_navigation'); ?>
 
 <?php $this->load->view($main_content); ?>
 
