@@ -1,6 +1,6 @@
 <?php
 
-class Admin_Accounts extends CI_Controller {
+class Admin_Accounts extends MY_Controller {
 
  	function index()
     {

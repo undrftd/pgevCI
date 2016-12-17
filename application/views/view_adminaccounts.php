@@ -145,6 +145,8 @@
                         <td class="action-button">
                           <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                          <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
+                        </td>
                         </td>
                       <?php endforeach; ?>
                     </tr>
