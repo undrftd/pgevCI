@@ -14,9 +14,9 @@ class Login extends CI_Controller
         $this->load->model('model_accounts');
         $valid = $this->model_accounts->validate();
         $isAdmin = $this->model_accounts->check_role();
+        $isActive = $this->model_accounts->check_active();
 
-
-        if($valid && $isAdmin)
+        if($valid && $isAdmin && $isActive)
         {
             $data = array(
                 'userid' => $this->input->post('userid'),
@@ -26,7 +26,7 @@ class Login extends CI_Controller
             $this->session->set_userdata($data); 
             redirect('admin/ticketing');
         }
-        else if($valid && $isAdmin == false) 
+        else if($valid && $isActive && $isAdmin == false) 
         {
             $data = array(
                 'userid' => $this->input->post('userid'),
@@ -34,12 +34,32 @@ class Login extends CI_Controller
             );
         
             $this->session->set_userdata($data);
-            redirect('site/user');
+            redirect('user/home');
+        }
+        else if($valid && $isAdmin && $isActive == false)
+        {
+            $data = array(
+                'userid' => $this->input->post('userid'),
+                'is_logged_in' => true
+            );
+
+            $this->session->set_userdata($data); 
+            redirect('admin/deactivated');
+        }
+        else if($valid && ($isActive && $isAdmin) == false) 
+        {
+            $data = array(
+                'userid' => $this->input->post('userid'),
+                'is_logged_in' => true
+            );
+        
+            $this->session->set_userdata($data);
+            redirect('user/deactivated');
         }
         else if($valid == false && $isAdmin == false){
             
             $data['main_content'] = 'view_login';
-            $data['message'] = "Invalid username or passwordInvalid username or passwordInvalid username or passwordInvalid username or passwordInvalid username or passwordInvalid username or passwordInvalid username or passwordInvalid username or passwordInvalid username or passwordInvalid username or passwordInvalid username or passwordInvalid username or password";
+            $data['message'] = "";
             
             $this->load->view('includes/login_template', $data);
         }
