@@ -16,7 +16,7 @@ class Login extends CI_Controller
         $isAdmin = $this->model_accounts->check_role();
         $isActive = $this->model_accounts->check_active();
 
-        if($valid && $isAdmin && $isActive)
+        if($valid && $isAdmin && $isActive) // Active Admin
         {
             $data = array(
                 'userid' => $this->input->post('userid'),
@@ -26,7 +26,7 @@ class Login extends CI_Controller
             $this->session->set_userdata($data); 
             redirect('admin/ticketing');
         }
-        else if($valid && $isActive && $isAdmin == false) 
+        else if(($valid && $isActive) && $isAdmin == false)  // Active User
         {
             $data = array(
                 'userid' => $this->input->post('userid'),
@@ -36,7 +36,7 @@ class Login extends CI_Controller
             $this->session->set_userdata($data);
             redirect('user/home');
         }
-        else if($valid && $isAdmin && $isActive == false)
+        else if(($valid && $isAdmin) && $isActive == false)  //Deactivated Admin
         {
             $data = array(
                 'userid' => $this->input->post('userid'),
@@ -44,9 +44,9 @@ class Login extends CI_Controller
             );
 
             $this->session->set_userdata($data); 
-            redirect('admin/deactivated');
+            redirect('admin/accdeact');
         }
-        else if($valid && ($isActive && $isAdmin) == false) 
+        else if($valid && ($isActive && $isAdmin) == false) //Deactivated User
         {
             $data = array(
                 'userid' => $this->input->post('userid'),
@@ -54,9 +54,10 @@ class Login extends CI_Controller
             );
         
             $this->session->set_userdata($data);
-            redirect('user/deactivated');
+            redirect('user/accdeact');
         }
-        else if($valid == false && $isAdmin == false){
+        else if($valid == false) //Invalid Account
+        {
             
             $data['main_content'] = 'view_login';
             $data['message'] = "";
@@ -64,4 +65,4 @@ class Login extends CI_Controller
             $this->load->view('includes/login_template', $data);
         }
     }      
-    }
+}

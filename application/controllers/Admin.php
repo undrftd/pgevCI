@@ -17,4 +17,10 @@ class Admin extends CI_Controller {
     	$data['main_content'] = 'view_adminaccounts';
 		$this->load->view('includes/adaccounts_template', $data);
     }
+
+    function accdeact()
+    {
+    	$data['main_content'] = 'view_accountdeact';
+		$this->load->view('includes/accdeact_template', $data);
+    }
 }
