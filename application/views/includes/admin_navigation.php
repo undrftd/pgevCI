@@ -25,7 +25,7 @@
                 <a href="<?php echo site_url("admin/accounts"); ?>">Accounts</a>
             </li>
             <li>
-                <a href="admin-landing.html">Sign Out</a>
+                <a href="<?php echo site_url("login/signout"); ?>">Sign Out</a>
             </li>
           </ul>
       </div>
