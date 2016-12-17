@@ -11,7 +11,9 @@ class Admin extends CI_Controller {
     function accounts()
     {
     	$this->load->model('model_accounts');
-    	$data['query'] = $this->model_accounts->display_acc();
+    	$data['users'] = $this->model_accounts->display_users();
+    	$data['admin'] = $this->model_accounts->display_admin();
+    	$data['deact'] = $this->model_accounts->display_deact();
     	$data['main_content'] = 'view_adminaccounts';
 		$this->load->view('includes/adaccounts_template', $data);
     }

@@ -93,8 +93,8 @@
                         <th><br>Contact Number</th>
                         <th><br>Action</th>
                     </tr>
-                    <?php foreach($query as $row): ?>
                     
+                    <?php foreach($users as $row): ?>
                     <tr>
                         <td><?php echo $row->firstname; ?></td>
                         <td><?php echo $row->lastname; ?></td>
@@ -107,7 +107,8 @@
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                           <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
                         </td>
-                        <?php endforeach; ?>
+                    
+                    <?php endforeach; ?>
                     </tr>
                   
 
@@ -126,39 +127,26 @@
                     <tr>
                         <th><br>First Name</th>
                         <th><br>Last Name</th>
-                        <th><br>Username</th>
-                        <th><br>Password</th>
+                        <th><br>User ID</th>
                         <th><br>Address</th>
                         <th><br>E-mail Address</th>
                         <th><br>Contact Number</th>
                         <th><br>Action</th>
                     </tr>
 
+                    <?php foreach($admin as $row): ?>
                     <tr>
-                        <td>Gemille</td>
-                        <td>Polintan</td>
-                        <td>G</td>
-                        <td>gems123</td>
-                        <td>456 G. Cleveland St.</td>
-                        <td>gempolintan@gmail.com</td>
-                        <td>09166321641</td>
+                        <td><?php echo $row->firstname; ?></td>
+                        <td><?php echo $row->lastname; ?></td>
+                        <td><?php echo $row->userid; ?></td>
+                        <td><?php echo $row->address; ?></td>
+                        <td><?php echo $row->email; ?></td>
+                        <td><?php echo $row->contactnum; ?></td>
                         <td class="action-button">
                           <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                         </td>
-                    </tr>
-                    <tr>
-                      <td>Mildred</td>
-                      <td>Duran</td>
-                      <td>xiaoyu</td>
-                      <td>dredlim</td>
-                      <td>215 G. Cleveland St.</td>
-                      <td>mildredduran@gmail.com</td>
-                      <td>09156623589</td>
-                      <td class="action-button">
-                        <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                      </td>
+                      <?php endforeach; ?>
                     </tr>
 
                   </table>
@@ -177,40 +165,27 @@
                         <th><br>First Name</th>
                         <th><br>Last Name</th>
                         <th><br>Username</th>
-                        <th><br>Password</th>
                         <th><br>Address</th>
                         <th><br>E-mail Address</th>
                         <th><br>Contact Number</th>
                         <th><br>Action</th>
                     </tr>
 
+                    <?php foreach($deact as $row): ?>
                     <tr>
-                        <td>John</td>
-                        <td>Aliswag</td>
-                        <td>jaliswag</td>
-                        <td>j123</td>
-                        <td>1004 G. Cleveland St.</td>
-                        <td>jmaliswag@gmail.com</td>
-                        <td>09152264263</td>
+                        <td><?php echo $row->firstname; ?></td>
+                        <td><?php echo $row->lastname; ?></td>
+                        <td><?php echo $row->userid; ?></td>
+                        <td><?php echo $row->address; ?></td>
+                        <td><?php echo $row->email; ?></td>
+                        <td><?php echo $row->contactnum; ?></td>
                         <td class="action-button">
                           <a href="admin-accounts.html"><button type="button" class="btn btn-custom-2">Reactivate</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                         </td>
+                    <?php endforeach; ?>
                     </tr>
-                    <tr>
-                      <td>Dina Angeline</td>
-                      <td>Smith</td>
-                      <td>dangelie</td>
-                      <td>angel123</td>
-                      <td>413 G. Cleveland St.</td>
-                      <td>dinasmith@gmail.com</td>
-                      <td>0914565264</td>
-                      <td class="action-button">
-                        <a href="admin-accounts.html"><button type="button" class="btn btn-custom-2">Reactivate</button></a>
-                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                      </td>
-                    </tr>
-
+                  
                   </table>
 
                 </div>
