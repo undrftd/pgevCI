@@ -24,7 +24,7 @@ class Login extends CI_Controller
             );
 
             $this->session->set_userdata($data); 
-            redirect('admin/ticketing');
+            redirect('admin_ticketing');
         }
         else if(($valid && $isActive) && $isAdmin == false)  // Active User
         {
@@ -44,7 +44,7 @@ class Login extends CI_Controller
             );
 
             $this->session->set_userdata($data); 
-            redirect('admin/accdeact');
+            redirect('login/admindeact');
         }
         else if($valid && ($isActive && $isAdmin) == false) //Deactivated User
         {
@@ -54,7 +54,7 @@ class Login extends CI_Controller
             );
         
             $this->session->set_userdata($data);
-            redirect('user/accdeact');
+            redirect('login/userdeact');
         }
         else if($valid == false) //Invalid Account
         {
@@ -64,7 +64,19 @@ class Login extends CI_Controller
             
             $this->load->view('includes/login_template', $data);
         }
-    }  
+    } 
+
+    function userdeact()
+    {
+        $data['main_content'] = 'view_userdeact';
+        $this->load->view('includes/accdeact_template', $data);
+    } 
+
+    function admindeact()
+    {
+        $data['main_content'] = 'view_admindeact';
+        $this->load->view('includes/accdeact_template', $data);
+    }
 
     function signout()
     {
