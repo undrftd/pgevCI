@@ -22,7 +22,7 @@
                 <a href="admin-forms.html">Forms</a>
             </li>
             <li>
-                <a href="<?php echo site_url("Admin_Accounts"); ?>">Accounts</a>
+                <a href="<?php echo site_url("admin_accounts"); ?>">Accounts</a>
             </li>
             <li>
                 <a href="<?php echo site_url("login/signout"); ?>">Sign Out</a>
