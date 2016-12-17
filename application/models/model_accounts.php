@@ -2,6 +2,12 @@
 
 class Model_accounts extends CI_Model {
 
+    function display_acc()
+    {
+       $query = $this->db->select('*')->from('accounts')->get();
+       return $query->result();      
+    }
+
     function validate() 
     {
 

@@ -83,60 +83,33 @@
                 <div class="table-responsive">
 
                   <table class="table table-hover" id="tracking-table">
-
+                    
                     <tr>
                         <th><br>First Name</th>
                         <th><br>Last Name</th>
-                        <th><br>Username</th>
-                        <th><br>Password</th>
+                        <th><br>User ID</th>
                         <th><br>Address</th>
                         <th><br>E-mail Address</th>
                         <th><br>Contact Number</th>
                         <th><br>Action</th>
                     </tr>
-
+                    <?php foreach($query as $row): ?>
+                    
                     <tr>
-                        <td>Marc Jeanne</td>
-                        <td>Aliswag</td>
-                        <td>mhmmmarc</td>
-                        <td>marc123</td>
-                        <td>619 G. Cleveland St.</td>
-                        <td>marcmaliswag@gmail.com</td>
-                        <td>09174959064</td>
+                        <td><?php echo $row->firstname; ?></td>
+                        <td><?php echo $row->lastname; ?></td>
+                        <td><?php echo $row->userid; ?></td>
+                        <td><?php echo $row->address; ?></td>
+                        <td><?php echo $row->email; ?></td>
+                        <td><?php echo $row->contactnum; ?></td>
                         <td class="action-button">
                           <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                           <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
                         </td>
+                        <?php endforeach; ?>
                     </tr>
-                    <tr>
-                      <td>Dino Angelo</td>
-                      <td>Galapon</td>
-                      <td>onidchan</td>
-                      <td>onid024</td>
-                      <td>1876 G. Cleveland St.</td>
-                      <td>dinoggalapon@gmail.com</td>
-                      <td>09065715254</td>
-                      <td class="action-button">
-                        <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Howell Henre</td>
-                      <td>Manongsong</td>
-                      <td>Alesana</td>
-                      <td>alisana</td>
-                      <td>158 G. Cleveland St.</td>
-                      <td>howellhmanongson@gmail.com</td>
-                      <td>09174959064</td>
-                      <td class="action-button">
-                        <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
-                      </td>
-                    </tr>
+                  
 
                   </table>
 
