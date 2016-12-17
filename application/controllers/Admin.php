@@ -7,4 +7,9 @@ class Admin extends CI_Controller {
     	$data['main_content'] = 'view_adminticketing';
 		$this->load->view('includes/adticket_template', $data);
     }
+
+    function accounts()
+    {
+    	$data['main_content'] = 'view_adminaccounts';
+    }
 }
