@@ -2,19 +2,19 @@
 
 class Model_accounts extends CI_Model {
 
-    function display_users()
+    function get_users()
     {
        $users = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
        return $users->result();      
     }
 
-    function display_admin()
+    function get_admin()
     {
        $admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
        return $admin->result();      
     }
 
-    function display_deact()
+    function get_deact()
     {
        $deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
        return $deact->result();      
