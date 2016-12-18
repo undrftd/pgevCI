@@ -60,8 +60,7 @@ class Login extends CI_Controller
         {
             
             $data['main_content'] = 'view_login';
-            $data['message'] = "";
-            
+            $data['message'] = "THE USERNAME AND PASSWORD YOU ENTERED DID NOT MATCH OUR RECORDS. PLEASE DOUBLE-CHECK AND TRY AGAIN.";
             $this->load->view('includes/login_template', $data);
         }
     } 

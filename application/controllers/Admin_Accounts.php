@@ -23,11 +23,11 @@ class Admin_Accounts extends MY_Controller {
     {
     	$this->load->model('model_accounts');
 
-    	if($query = $this->model_accounts->create_account()) {
-				
-				redirect('admin_accounts');
-    }
-}
+    	if($query = $this->model_accounts->create_account()) 
+    	{
+			redirect('admin_accounts');
+    	}
+	}
     
  
 	

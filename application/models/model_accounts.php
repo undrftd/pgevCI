@@ -63,23 +63,18 @@ class Model_accounts extends CI_Model {
         
         if($query->num_rows() == 1)
         {
-        
             return true;    
         }
         else 
         {
-            
             return false;
         }
     }
 
     function create_account() 
     {
-        $role = $_POST['role'];
-        
-    
-
-        $new_account_insert_data = array(
+        // $role = $_POST['role'];
+         $new_account_insert_data = array(
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
             'userid' => $this->input->post('userid'),
