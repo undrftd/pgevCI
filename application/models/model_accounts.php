@@ -72,4 +72,29 @@ class Model_accounts extends CI_Model {
             return false;
         }
     }
+
+    function create_account() 
+    {
+        $new_account_insert_data = array(
+            'firstname' => $this->input->post('firstname'),
+            'lastname' => $this->input->post('lastname'),
+            'userid' => $this->input->post('userid'),
+            'password' => $this->input->post('password'),
+            'address' => $this->input->post('address'),
+            'email' => $this->input->post('email'),
+            'contactnum' => $this->input->post('contactnum'),
+            'role' => $this->input->post('role')
+        );
+        
+        $insert = $this->db->insert('accounts', $new_account_insert_data);
+        return $insert;
+    }
+
+    /*function deactivate() 
+    {
+        $id=$_GET['userid'];
+        $this->db->set('0', $isActive);
+        $this->db->where('userid', $id);
+        $this->db->update('accounts');
+    }*/
 }
