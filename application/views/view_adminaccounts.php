@@ -2,7 +2,7 @@
         <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
         <br>
         <br>
-        <?php foreach($users as $row): ?>
+       
         <div class="modal fade" id="delete-modal" role="dialog">
 
             <div class="modal-dialog">
@@ -28,7 +28,7 @@
                     <div class="signin">
                         <div class="modal-body text-center">
                             <p> Are you sure you want to deactivate this user from the system? </p><br>
-                            <a href="<?php echo base_url()."admin_accounts/acc_deactivate?id=".$row->userid ?>"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <a href="#"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -36,7 +36,6 @@
 
             </div>
         </div>
-        <?php endforeach; ?>
         <div class="header-style">
           <h1> User Accounts </h1>
         </div>
@@ -46,7 +45,7 @@
           <div class="portlet-header">
 
           <form class="form-inline">
-            <a href="<?php echo base_url(); ?>admin_accounts/create"><button type="button" class="btn btn-custom-1">+ Add a user</button></a>
+            <a href="<?php echo base_url(); ?>admin_accounts/adduser"><button type="button" class="btn btn-custom-1">+ Add a user</button></a>
             <div class="form-group">
               <input class="form-control" id="sel1" type="text" placeholder="Search for a user...">
             </div>

@@ -32,37 +32,38 @@
 
               <div class="information">
                   <div class="form-group">
-                    <h4> User Credentials </h4>
+                  <form action="<?php echo base_url(); ?>admin_accounts/createuser" method="POST">
+                  <h4> User Credentials </h4>
                   <br>
                   <p> First Name </p>
-                  <input class="form-control" id="sel1" type="text" placeholder="">
+                  <input name="firstname" class="form-control" id="sel1" type="text" placeholder="">
                   <br>
                   <p> Last Name </p>
-                  <input class="form-control" id="sel1" type="text" placeholder="">
+                  <input name="lastname" class="form-control" id="sel1" type="text" placeholder="">
                   <br>
                   <p> Username </p>
-                  <input class="form-control" id="sel1" type="text" placeholder="">
+                  <input name="userid" class="form-control" id="sel1" type="text" placeholder="">
                   <br>
                   <p> Password </p>
-                  <input class="form-control" id="sel1" type="password" placeholder="">
+                  <input name="password" class="form-control" id="sel1" type="password" placeholder="">
                   <br>
                   <p> Address </p>
-                  <input class="form-control" id="sel1" type="text" placeholder="">
+                  <input name="address" class="form-control" id="sel1" type="text" placeholder="">
                   <br>
                   <p> E-mail Address </p>
-                  <input class="form-control" id="sel1" type="email" placeholder="">
+                  <input name="email" class="form-control" id="sel1" type="email" placeholder="">
                   <br>
                   <p> Contact Number </p>
-                  <input class="form-control" id="sel1" type="text" placeholder="">
+                  <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="">
                   <br>
                   <p> Role </p>
-                  <select class="form-control" id="sel1">
+                  <select name="role" class="form-control" id="sel1">
                     <option>Choose a role</option>
-                    <option>Homeowner</option>
-                    <option>Administrator</option>
+                    <option value= "0">Homeowner</option>
+                    <option value= "1">Administrator</option>
                   </select>
                   <br><br>
-                  <a href="#"><button type="button" class="btn btn-custom">Add user</button></a>
+                  <a href="#"><button type="submit" class="btn btn-custom">Add user</button></a>
                 </div>
               </div>
               <br>

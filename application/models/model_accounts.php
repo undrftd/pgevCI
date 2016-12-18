@@ -75,6 +75,10 @@ class Model_accounts extends CI_Model {
 
     function create_account() 
     {
+        $role = $_POST['role'];
+        
+    
+
         $new_account_insert_data = array(
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
