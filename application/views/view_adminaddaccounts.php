@@ -45,7 +45,7 @@
                   <p> Username </p>
                   <input name="username" class="form-control" id="sel1" type="text" placeholder="">
                   <?php if(!empty($message)){ ?>
-                  <center><p><?php echo $message; ?></p>
+                  <center><p style="color:red"><?php echo $message; ?></p>
                   <?php } ?>
                   <p> Password </p>
                   <input name="password" class="form-control" id="sel1" type="password" placeholder="">
