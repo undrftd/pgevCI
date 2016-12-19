@@ -112,7 +112,6 @@
                   
 
                   </table>
-                  <?php echo $this->pagination->create_links(); ?>
 
                 </div>
 
@@ -152,7 +151,7 @@
                     </tr>
 
                   </table>
-                    <?php echo $this->pagination->create_links(); ?>
+
                 </div>
 
               </div>
@@ -189,7 +188,7 @@
                     </tr>
                   
                   </table>
-<?php echo $this->pagination->create_links(); ?>
+
                 </div>
 
               </div>
