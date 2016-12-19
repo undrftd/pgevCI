@@ -19,7 +19,7 @@ class Login extends CI_Controller
         if($valid && $isAdmin && $isActive) // Active Admin
         {
             $data = array(
-                'userid' => $this->input->post('userid'),
+                'username' => $this->input->post('username'),
                 'is_logged_in' => true
             );
 
@@ -29,7 +29,7 @@ class Login extends CI_Controller
         else if(($valid && $isActive) && $isAdmin == false)  // Active User
         {
             $data = array(
-                'userid' => $this->input->post('userid'),
+                'username' => $this->input->post('username'),
                 'is_logged_in' => true
             );
         
@@ -39,7 +39,7 @@ class Login extends CI_Controller
         else if(($valid && $isAdmin) && $isActive == false)  //Deactivated Admin
         {
             $data = array(
-                'userid' => $this->input->post('userid'),
+                'username' => $this->input->post('username'),
                 'is_logged_in' => true
             );
 
@@ -49,7 +49,7 @@ class Login extends CI_Controller
         else if($valid && ($isActive && $isAdmin) == false) //Deactivated User
         {
             $data = array(
-                'userid' => $this->input->post('userid'),
+                'username' => $this->input->post('username'),
                 'is_logged_in' => true
             );
         

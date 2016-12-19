@@ -86,7 +86,7 @@
                     <tr>
                         <th><br>First Name</th>
                         <th><br>Last Name</th>
-                        <th><br>User ID</th>
+                        <th><br>Username</th>
                         <th><br>Address</th>
                         <th><br>E-mail Address</th>
                         <th><br>Contact Number</th>
@@ -97,7 +97,7 @@
                     <tr>
                         <td><?php echo $row->firstname; ?></td>
                         <td><?php echo $row->lastname; ?></td>
-                        <td><?php echo $row->userid; ?></td>
+                        <td><?php echo $row->username; ?></td>
                         <td><?php echo $row->address; ?></td>
                         <td><?php echo $row->email; ?></td>
                         <td><?php echo $row->contactnum; ?></td>
@@ -126,7 +126,7 @@
                     <tr>
                         <th><br>First Name</th>
                         <th><br>Last Name</th>
-                        <th><br>User ID</th>
+                        <th><br>Username</th>
                         <th><br>Address</th>
                         <th><br>E-mail Address</th>
                         <th><br>Contact Number</th>
@@ -137,7 +137,7 @@
                     <tr>
                         <td><?php echo $row->firstname; ?></td>
                         <td><?php echo $row->lastname; ?></td>
-                        <td><?php echo $row->userid; ?></td>
+                        <td><?php echo $row->username; ?></td>
                         <td><?php echo $row->address; ?></td>
                         <td><?php echo $row->email; ?></td>
                         <td><?php echo $row->contactnum; ?></td>
@@ -176,7 +176,7 @@
                     <tr>
                         <td><?php echo $row->firstname; ?></td>
                         <td><?php echo $row->lastname; ?></td>
-                        <td><?php echo $row->userid; ?></td>
+                        <td><?php echo $row->username; ?></td>
                         <td><?php echo $row->address; ?></td>
                         <td><?php echo $row->email; ?></td>
                         <td><?php echo $row->contactnum; ?></td>

@@ -23,7 +23,7 @@ class Model_accounts extends CI_Model {
     function validate() 
     {
 
-        $this->db->where('userid', $this->input->post('userid'));
+        $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $query = $this->db->get('accounts');
 
@@ -36,7 +36,7 @@ class Model_accounts extends CI_Model {
     function check_role() 
     {
         
-        $this->db->where('userid', $this->input->post('userid'));
+        $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $this->db->where('role', 1);
         $query = $this->db->get('accounts');
@@ -56,7 +56,7 @@ class Model_accounts extends CI_Model {
     function check_active() 
     {
         
-        $this->db->where('userid', $this->input->post('userid'));
+        $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $this->db->where('isActive', 1);
         $query = $this->db->get('accounts');
@@ -71,13 +71,27 @@ class Model_accounts extends CI_Model {
         }
     }
 
+    function checkExisting($username) 
+    {
+        $this->db->where('username', $this->input->post('username'));
+        $query = $this->db->get('accounts');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();    
+        }
+        else 
+        {
+            return $query->result();
+        }
+    }
+
     function create_account() 
     {
-        // $role = $_POST['role'];
-         $new_account_insert_data = array(
+        $new_account_insert_data = array(
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
-            'userid' => $this->input->post('userid'),
+            'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
             'address' => $this->input->post('address'),
             'email' => $this->input->post('email'),
@@ -85,15 +99,24 @@ class Model_accounts extends CI_Model {
             'role' => $this->input->post('role')
         );
         
-        $insert = $this->db->insert('accounts', $new_account_insert_data);
-        return $insert;
+        if($this->model_accounts->checkExisting($new_account_insert_data['username']))
+        {
+            $data['main_content'] = 'view_adminaddaccounts';
+            $data['message'] = "Username already exists!";
+            $this->load->view('includes/admin_addaccount_template', $data);
+        }
+        else
+        {
+            $insert = $this->db->insert('accounts', $new_account_insert_data);
+            return $insert;
+        }
     }
 
     /*function deactivate() 
     {
-        $id=$_GET['userid'];
+        $id=$_GET['username'];
         $this->db->set('0', $isActive);
-        $this->db->where('userid', $id);
+        $this->db->where('username', $id);
         $this->db->update('accounts');
     }*/
 }

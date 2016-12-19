@@ -33,6 +33,7 @@
               <div class="information">
                   <div class="form-group">
                   <form action="<?php echo base_url(); ?>admin_accounts/createuser" method="POST">
+                  
                   <h4> User Credentials </h4>
                   <br>
                   <p> First Name </p>
@@ -42,8 +43,10 @@
                   <input name="lastname" class="form-control" id="sel1" type="text" placeholder="">
                   <br>
                   <p> Username </p>
-                  <input name="userid" class="form-control" id="sel1" type="text" placeholder="">
-                  <br>
+                  <input name="username" class="form-control" id="sel1" type="text" placeholder="">
+                  <?php if(!empty($message)){ ?>
+                  <center><p><?php echo $message; ?></p>
+                  <?php } ?>
                   <p> Password </p>
                   <input name="password" class="form-control" id="sel1" type="password" placeholder="">
                   <br>

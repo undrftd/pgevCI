@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group">
-              <input type="text" name="userid" class="form-control" id="user-name" aria-label="..." placeholder="Enter your username">
+              <input type="text" name="username" class="form-control" id="user-name" aria-label="..." placeholder="Enter your username">
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->
 
