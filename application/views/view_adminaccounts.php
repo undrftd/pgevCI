@@ -212,16 +212,4 @@
 
   </div>
 
-  <br><br>
-
-  <br><br>
-
-    </div>
-
-  </div>
-
-  <br>
-
-</div>
-
 </div>

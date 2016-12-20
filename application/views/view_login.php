@@ -20,7 +20,7 @@
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
-  
+
       <?php if(!empty($message)){ ?>
         <center><strong class ="header" style="color:white; font-family: Times New Roman"><?php echo $message; ?></strong>
       <?php } ?>
@@ -33,7 +33,7 @@
          <button type="submit" class="btn btn-custom">Sign In</button>
 
           <button type="button" class="btn btn-custom">Forgot your password?</button>
-        
+
         </div>
       </form>
 
