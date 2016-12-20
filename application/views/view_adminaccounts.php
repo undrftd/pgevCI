@@ -114,94 +114,13 @@
 
               <?php endforeach; ?>
               </tr>
-
-
+          
             </table>
-
+         
           </div>
 
-<<<<<<< HEAD
-          <div class="portlet-body">
+        </div>
 
-            <div class="tab-content">
-
-              <div class="tab-pane fade in active" id="portlet_tab1">
-
-                <div class="table-responsive">
-
-                  <table class="table table-hover" id="tracking-table">
-                    
-                    <tr>
-                        <th><br>First Name</th>
-                        <th><br>Last Name</th>
-                        <th><br>Username</th>
-                        <th><br>Address</th>
-                        <th><br>E-mail Address</th>
-                        <th><br>Contact Number</th>
-                        <th><br>Action</th>
-                    </tr>
-                    
-                    <?php foreach($users as $row): ?>
-                    <tr>
-                        <td><?php echo $row->firstname; ?></td>
-                        <td><?php echo $row->lastname; ?></td>
-                        <td><?php echo $row->username; ?></td>
-                        <td><?php echo $row->address; ?></td>
-                        <td><?php echo $row->email; ?></td>
-                        <td><?php echo $row->contactnum; ?></td>
-                        <td class="action-button">
-                          <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                          <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
-                        </td>
-                    
-                    <?php endforeach; ?>
-                    </tr>
-                  
-
-                  </table>
-                  
-
-                </div>
-
-              </div>
-
-              <div class="tab-pane fade" id="portlet_tab2">
-
-                <div class="table-responsive">
-
-                  <table class="table table-hover" id="tracking-table">
-
-                    <tr>
-                        <th><br>First Name</th>
-                        <th><br>Last Name</th>
-                        <th><br>Username</th>
-                        <th><br>Address</th>
-                        <th><br>E-mail Address</th>
-                        <th><br>Contact Number</th>
-                        <th><br>Action</th>
-                    </tr>
-
-                    <?php foreach($admin as $row): ?>
-                    <tr>
-                        <td><?php echo $row->firstname; ?></td>
-                        <td><?php echo $row->lastname; ?></td>
-                        <td><?php echo $row->username; ?></td>
-                        <td><?php echo $row->address; ?></td>
-                        <td><?php echo $row->email; ?></td>
-                        <td><?php echo $row->contactnum; ?></td>
-                        <td class="action-button">
-                          <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                          <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
-                        </td>
-                        </td>
-                      <?php endforeach; ?>
-                    </tr>
-
-                  </table>
-                    
-                </div>
 
         <div class="tab-pane fade" id="portlet_tab2">
 
@@ -236,51 +155,16 @@
                   <td class="action-button mobile-important">
                     <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-3">View More</button></a>
                   </td>
+
                 <?php endforeach; ?>
               </tr>
 
             </table>
-
-<<<<<<< HEAD
-              <div class="tab-pane fade" id="portlet_tab3">
-
-                <div class="table-responsive">
-
-                  <table class="table table-hover" id="tracking-table">
-
-                    <tr>
-                        <th><br>First Name</th>
-                        <th><br>Last Name</th>
-                        <th><br>Username</th>
-                        <th><br>Address</th>
-                        <th><br>E-mail Address</th>
-                        <th><br>Contact Number</th>
-                        <th><br>Action</th>
-                    </tr>
-
-                    <?php foreach($deact as $row): ?>
-                    <tr>
-                        <td><?php echo $row->firstname; ?></td>
-                        <td><?php echo $row->lastname; ?></td>
-                        <td><?php echo $row->username; ?></td>
-                        <td><?php echo $row->address; ?></td>
-                        <td><?php echo $row->email; ?></td>
-                        <td><?php echo $row->contactnum; ?></td>
-                        <td class="action-button">
-                          <a href="admin-accounts.html"><button type="button" class="btn btn-custom-2">Reactivate</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    <?php endforeach; ?>
-                    </tr>
-                  
-                  </table>
-                
-                </div>
-=======
+         
           </div>
->>>>>>> origin/master
 
         </div>
+
 
         <div class="tab-pane fade" id="portlet_tab3">
 
@@ -315,6 +199,7 @@
                   <td class="action-button mobile-important">
                     <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-3">View More</button></a>
                   </td>
+
               <?php endforeach; ?>
               </tr>
 
@@ -327,8 +212,6 @@
       </div>
 
     </div>
-
-  </div>
 
   <br><br>
 
