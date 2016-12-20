@@ -319,10 +319,10 @@ table td {
 
 @font-face {
     font-family: 'League-Gothic';
-    src: url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fontsLeagueGothic-Regular.eot?#iefix') format('embedded-opentype'),
-         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.woff') format('woff'),
-         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.ttf')  format('truetype'),
-         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.svg#svgFontName') format('svg');
+    src: url('LeagueGothic-Regular.eot?#iefix') format('embedded-opentype'),
+         url('LeagueGothic-Regular.woff') format('woff'),
+         url('LeagueGothic-Regular.ttf') format('truetype'),
+         url('LeagueGothic-Regular.svg#svgFontName') format('svg');
     }
 
 th {
