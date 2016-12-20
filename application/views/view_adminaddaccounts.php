@@ -66,7 +66,7 @@
                     <option value= "1">Administrator</option>
                   </select>
                   <br><br>
-                  <a href="#"><button type="submit" class="btn btn-custom">Add user</button></a>
+                  <button type="submit" class="btn btn-custom">Add user</button></a>
                 </div>
               </div>
               <br>
