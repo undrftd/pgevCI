@@ -76,6 +76,18 @@ p {
   font-size: 1em;
 }
 
+.error-message {
+  padding: 20px;
+  padding-bottom: 30px;
+  background-color: white;
+  color: #27ae60;
+  width: 59%;
+  margin: 0 auto;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
 @media(max-width:768px) {
 
   .btn-custom {
@@ -94,6 +106,10 @@ p {
   .btn-custom:hover {
     color: #27ae60;
     width: 76%;
+  }
+
+  .error-message {
+    width: 75%;
   }
 
 }

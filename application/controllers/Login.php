@@ -1,14 +1,14 @@
 <?php
 
-class Login extends CI_Controller 
+class Login extends CI_Controller
 {
 
     function index()
     {
         $data['main_content'] = 'view_login';
-        $this->load->view('includes/login_template', $data);    
+        $this->load->view('includes/login_template', $data);
     }
-    
+
     function validate_login()
     {
         $this->load->model('model_accounts');
@@ -23,7 +23,7 @@ class Login extends CI_Controller
                 'is_logged_in' => true
             );
 
-            $this->session->set_userdata($data); 
+            $this->session->set_userdata($data);
             redirect('admin_ticketing');
         }
         else if(($valid && $isActive) && $isAdmin == false)  // Active User
@@ -32,7 +32,7 @@ class Login extends CI_Controller
                 'username' => $this->input->post('username'),
                 'is_logged_in' => true
             );
-        
+
             $this->session->set_userdata($data);
             redirect('user_home');
         }
@@ -43,7 +43,7 @@ class Login extends CI_Controller
                 'is_logged_in' => true
             );
 
-            $this->session->set_userdata($data); 
+            $this->session->set_userdata($data);
             redirect('login/admindeact');
         }
         else if($valid && ($isActive && $isAdmin) == false) //Deactivated User
@@ -52,24 +52,24 @@ class Login extends CI_Controller
                 'username' => $this->input->post('username'),
                 'is_logged_in' => true
             );
-        
+
             $this->session->set_userdata($data);
             redirect('login/userdeact');
         }
         else if($valid == false) //Invalid Account
         {
-            
+
             $data['main_content'] = 'view_login';
-            $data['message'] = "THE USERNAME AND PASSWORD YOU ENTERED DID NOT MATCH OUR RECORDS. PLEASE DOUBLE-CHECK AND TRY AGAIN.";
+            $data['message'] = "The username and password you entered did not match our records. Please double-check and try again. ";
             $this->load->view('includes/login_template', $data);
         }
-    } 
+    }
 
     function userdeact()
     {
         $data['main_content'] = 'view_userdeact';
         $this->load->view('includes/accdeact_template', $data);
-    } 
+    }
 
     function admindeact()
     {
@@ -87,5 +87,5 @@ class Login extends CI_Controller
             }
          $this->session->sess_destroy();
         redirect('login/');
-    }    
+    }
 }

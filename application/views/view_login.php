@@ -20,12 +20,13 @@
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
-  
+
+      </br>
+
       <?php if(!empty($message)){ ?>
-        <center><strong class ="header" style="color:white; font-family: Times New Roman"><?php echo $message; ?></strong>
+        <p class ="error-message"> <span class="glyphicon glyphicon-ban-circle btn-lg"></span> <br><?php echo $message; ?><br></p>
       <?php } ?>
 
-        </br>
         </br>
         <!-- Standard button -->
         <div class="action-buttons text-center">
@@ -33,7 +34,7 @@
          <button type="submit" class="btn btn-custom">Sign In</button>
 
           <button type="button" class="btn btn-custom">Forgot your password?</button>
-        
+
         </div>
       </form>
 

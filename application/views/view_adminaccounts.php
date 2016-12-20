@@ -87,7 +87,7 @@
               <tr>
                   <th><br>First Name</th>
                   <th><br>Last Name</th>
-                  <th><br>User ID</th>
+                  <th><br>Username</th>
                   <th><br>Address</th>
                   <th class="not-important"><br>E-mail Address</th>
                   <th class="not-important"><br>Contact Number</th>
@@ -114,9 +114,9 @@
 
               <?php endforeach; ?>
               </tr>
-          
+
             </table>
-         
+
           </div>
 
         </div>
@@ -131,7 +131,7 @@
               <tr>
                   <th><br>First Name</th>
                   <th><br>Last Name</th>
-                  <th><br>User ID</th>
+                  <th><br>Username</th>
                   <th><br>Address</th>
                   <th class="not-important"><br>E-mail Address</th>
                   <th class="not-important"><br>Contact Number</th>
@@ -160,7 +160,7 @@
               </tr>
 
             </table>
-         
+
           </div>
 
         </div>
@@ -213,16 +213,6 @@
 
     </div>
 
-  <br><br>
-
-  <br><br>
-
-    </div>
-
   </div>
-
-  <br>
-
-</div>
 
 </div>
