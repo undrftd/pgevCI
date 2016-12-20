@@ -208,14 +208,16 @@ table th {
   color: white;
   text-align: center;
   font-weight: 400;
+  position: relative;
 }
 
 table {
   text-align: center;
+  overflow: hidden;
 }
 
 table tr {
-  height: 75px;
+  height: 100px;
 }
 
 table td {
@@ -325,19 +327,45 @@ table td {
     margin-bottom: 20px;
   }
 
-#sel1 {
+  .form-inline .form-group {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+.form-group #sel1 {
     width: 100%;
     margin: 0 auto;
   }
 
+.not-important {
+    display: none;
+  }
+
 }
+
+@media(max-width:1550px) {
+  .not-important {
+      display: none;
+    }
+
+  .mobile-important {
+      display: run-in;
+    }
+}
+
+@media(min-width:1550) {
+  .mobile-important {
+      display: none;
+    }
+}
+
 
 @font-face {
     font-family: 'League-Gothic';
-    src: url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fontsLeagueGothic-Regular.eot?#iefix') format('embedded-opentype'),
-         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.woff') format('woff'),
-         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.ttf')  format('truetype'),
-         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.svg#svgFontName') format('svg');
+    src: url('LeagueGothic-Regular.eot?#iefix') format('embedded-opentype'),
+         url('LeagueGothic-Regular.woff') format('woff'),
+         url('LeagueGothic-Regular.ttf') format('truetype'),
+         url('LeagueGothic-Regular.svg#svgFontName') format('svg');
     }
 
 th {
