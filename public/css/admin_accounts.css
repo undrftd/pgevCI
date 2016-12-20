@@ -208,16 +208,14 @@ table th {
   color: white;
   text-align: center;
   font-weight: 400;
-  position: relative;
 }
 
 table {
   text-align: center;
-  overflow: hidden;
 }
 
 table tr {
-  height: 100px;
+  height: 75px;
 }
 
 table td {
