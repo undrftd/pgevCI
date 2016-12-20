@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-  font-family: 'League-Gothic';
+  font-family: 'League-Gothic', sans-serif;
   text-transform: uppercase;
   text-align: center;
   font-size: 5em;
@@ -23,12 +23,12 @@ h1 {
   box-shadow: none;
   border-bottom: 4px solid white;
   border-radius: 0px;
-  padding: 1em 1em 1em 0em;
+  padding: 1px 1px 1px 0px;
   padding-left: none;
   background-color: #27ae60;
   color: white;
   font-family: 'Roboto';
-  font-size: 1.3em;
+  font-size: 1.2em;
   opacity: 0.9;
   transition: all 0.3s ease-in-out;
 }
@@ -100,10 +100,10 @@ p {
 
 @font-face {
     font-family: 'League-Gothic';
-    src: url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fontsLeagueGothic-Regular.eot?#iefix') format('embedded-opentype'),
-         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.woff') format('woff'),
-         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.ttf')  format('truetype'),
-         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.svg#svgFontName') format('svg');
+    src: url('LeagueGothic-Regular.eot?#iefix') format('embedded-opentype'),
+         url('LeagueGothic-Regular.woff') format('woff'),
+         url('LeagueGothic-Regular.ttf') format('truetype'),
+         url('LeagueGothic-Regular.svg#svgFontName') format('svg');
     }
 
 .form-control::-webkit-input-placeholder { color: white;}
