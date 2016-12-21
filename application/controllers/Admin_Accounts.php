@@ -5,11 +5,37 @@ class Admin_Accounts extends MY_Controller {
  	function index()
     {
     	$this->load->model('model_accounts');
-    	$data['users'] = $this->model_accounts->get_users();
+    	/*$data['users'] = $this->model_accounts->get_users();
     	$data['admin'] = $this->model_accounts->get_admin();
     	$data['deact'] = $this->model_accounts->get_deact();
     	$data['main_content'] = 'view_adminaccounts';
-		$this->load->view('includes/admin_accounts_template', $data);
+		$this->load->view('includes/admin_accounts_template', $data);*/
+
+        $query2 = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
+        $config['base_url'] = site_url('admin_accounts/index');
+        $config['total_rows'] = $query2->num_rows();
+        $config['per_page'] =  20;
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+        $this->pagination->initialize($config);  
+        
+        $data['users'] = $this->model_accounts->get_users($config['per_page'], $this->uri->segment(3));
+        $data['admin'] = $this->model_accounts->get_admin($config['per_page'], $this->uri->segment(3));
+        $data['deact'] = $this->model_accounts->get_deact($config['per_page'], $this->uri->segment(3));
+        $data['main_content'] = 'view_adminaccounts';
+        $this->load->view('includes/admin_accounts_template', $data);
     }
 
     function adduser()
