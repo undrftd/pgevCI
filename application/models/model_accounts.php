@@ -71,7 +71,7 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function checkExisting($username) 
+    /*function checkExisting($username) 
     {
         $this->db->where('username', $this->input->post('username'));
         $query = $this->db->get('accounts');
@@ -84,7 +84,7 @@ class Model_accounts extends CI_Model {
         {
             return $query->result();
         }
-    }
+    }*/
 
     function create_account() 
     {
@@ -98,8 +98,10 @@ class Model_accounts extends CI_Model {
             'contactnum' => $this->input->post('contactnum'),
             'role' => $this->input->post('role')
         );
-        
-        if($this->model_accounts->checkExisting($new_account_insert_data['username']))
+         $insert = $this->db->insert('accounts', $new_account_insert_data);
+         return $insert;
+    }
+        /*if($this->model_accounts->checkExisting($new_account_insert_data['username']))
         {
             $data['main_content'] = 'view_adminaddaccounts';
             $data['message'] = "Username already exists!";
@@ -107,10 +109,9 @@ class Model_accounts extends CI_Model {
         }
         else
         {
-            $insert = $this->db->insert('accounts', $new_account_insert_data);
-            return $insert;
+           
         }
-    }
+    }*/
 
     /*function deactivate() 
     {

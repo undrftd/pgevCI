@@ -1,4 +1,4 @@
-<div id="page-content-wrapper">
+      <div id="page-content-wrapper">
         <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
         <br>
         <br>
@@ -38,34 +38,49 @@
                   <br>
                   <p> First Name </p>
                   <input name="firstname" class="form-control" id="sel1" type="text" placeholder="">
+                     <center><?php echo form_error('firstname'); ?> </center>
                   <br>
+
                   <p> Last Name </p>
                   <input name="lastname" class="form-control" id="sel1" type="text" placeholder="">
+                      <center><?php echo form_error('lastname'); ?></center>
                   <br>
+                  
                   <p> Username </p>
                   <input name="username" class="form-control" id="sel1" type="text" placeholder="">
-                  <?php if(!empty($message)){ ?>
-                  <center><p style="color:red"><?php echo $message; ?></p>
-                  <?php } ?>
+                      <center><?php echo form_error('username'); ?> </center>
+                  <br>
+
                   <p> Password </p>
                   <input name="password" class="form-control" id="sel1" type="password" placeholder="">
+                     <center><?php echo form_error('password'); ?> </center>
                   <br>
+                  
                   <p> Address </p>
                   <input name="address" class="form-control" id="sel1" type="text" placeholder="">
+                      <center><?php echo form_error('address'); ?> </center> 
                   <br>
+
                   <p> E-mail Address </p>
                   <input name="email" class="form-control" id="sel1" type="email" placeholder="">
+                      <center><?php echo form_error('email'); ?> </center>
                   <br>
+
                   <p> Contact Number </p>
                   <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="">
+                      <center><?php echo form_error('contactnum'); ?> </center>
                   <br>
+
                   <p> Role </p>
                   <select name="role" class="form-control" id="sel1">
-                    <option>Choose a role</option>
+                    <option value= "" selected hidden>Choose a role</option>
                     <option value= "0">Homeowner</option>
                     <option value= "1">Administrator</option>
                   </select>
-                  <br><br>
+                    <center> <?php echo form_error('role'); ?> </center>
+                  <br>
+                  <br>
+
                   <button type="submit" class="btn btn-custom">Add user</button></a>
                 </div>
               </div>
