@@ -187,7 +187,7 @@
               <tr>
                   <td><?php echo $row->firstname; ?></td>
                   <td><?php echo $row->lastname; ?></td>
-                  <td><?php echo $row->Username; ?></td>
+                  <td><?php echo $row->username; ?></td>
                   <td><?php echo $row->address; ?></td>
                   <td class="action-button not-important"><?php echo $row->email; ?></td>
                   <td class="action-button not-important"><?php echo $row->contactnum; ?></td>
