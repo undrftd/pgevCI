@@ -15,13 +15,13 @@ class Admin_Accounts extends MY_Controller {
     function adduser()
     {
     	$data['main_content'] = 'view_adminaddaccounts';
-		$this->load->view('includes/admin_addaccount_template', $data);	
-    	$this->load->model('model_accounts');	
-	}	
+		$this->load->view('includes/admin_addaccount_template', $data);
+    	$this->load->model('model_accounts');
+	}
 
 	function createuser()
     {
-        $this->form_validation->set_error_delimiters('<div style="color: red" class="error">','</div>'); //for design improvement: SWAG
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>'); //for design improvement: SWAG
         $this->form_validation->set_message('is_unique', '{field} already exists!');
 
         $this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
@@ -38,11 +38,11 @@ class Admin_Accounts extends MY_Controller {
         if ($this->form_validation->run() == FALSE)
         {
             $data['main_content'] = 'view_adminaddaccounts';
-            $this->load->view('includes/admin_addaccount_template', $data); 
+            $this->load->view('includes/admin_addaccount_template', $data);
         }
         else
         {
-            if($query = $this->model_accounts->create_account()) 
+            if($query = $this->model_accounts->create_account())
              {
                 redirect('admin_accounts');
              }
@@ -51,14 +51,14 @@ class Admin_Accounts extends MY_Controller {
 
     	/*$this->load->model('model_accounts');
 
-    	if($query = $this->model_accounts->create_account()) 
+    	if($query = $this->model_accounts->create_account())
     	{
 			redirect('admin_accounts');
     	}*/
 	}
-    
- 
-	
+
+
+
 	/*function acc_deactivate()
     {
     	if(isset($_GET['userid']))
@@ -69,4 +69,4 @@ class Admin_Accounts extends MY_Controller {
        		redirect('admin_accounts');
     	}
 	}*/
-}	
+}
