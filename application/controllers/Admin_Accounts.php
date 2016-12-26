@@ -5,7 +5,7 @@ class Admin_Accounts extends MY_Controller {
  	function index()
     {
     	$this->load->model('model_accounts');
-
+        //homeowner pagination
         $query = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
         $config['base_url'] = site_url('admin_accounts/index');
         $config['total_rows'] = $query->num_rows();
@@ -27,7 +27,7 @@ class Admin_Accounts extends MY_Controller {
         $this->pagination->initialize($config);  
         $data['paginglinks'] = $this->pagination->create_links(); 
 
-
+        //admin pagination
         $query2 = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
         $config2['base_url'] = site_url('admin_accounts/index');
         $config2['total_rows'] = $query2->num_rows();
@@ -49,7 +49,8 @@ class Admin_Accounts extends MY_Controller {
         $this->pagination->initialize($config2);  
         $data['paginglinks2'] = $this->pagination->create_links(); 
 
-        $query3 = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
+        //deactivated pagination
+        $query3 = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
         $config3['base_url'] = site_url('admin_accounts/index');
         $config3['total_rows'] = $query3->num_rows();
         $config3['per_page'] =  10;
