@@ -33,42 +33,42 @@
               <div class="information">
                   <div class="form-group">
                   <form action="<?php echo base_url(); ?>admin_accounts/createuser" method="POST">
-                  
+
                   <h4> User Credentials </h4>
                   <br>
                   <p> First Name </p>
                   <input name="firstname" class="form-control" id="sel1" type="text" placeholder="">
-                     <center><?php echo form_error('firstname'); ?> </center>
+                     <p class="error"><?php echo form_error('firstname'); ?> </p>
                   <br>
 
                   <p> Last Name </p>
                   <input name="lastname" class="form-control" id="sel1" type="text" placeholder="">
-                      <center><?php echo form_error('lastname'); ?></center>
+                      <p class="error"><?php echo form_error('lastname'); ?></p>
                   <br>
-                  
+
                   <p> Username </p>
                   <input name="username" class="form-control" id="sel1" type="text" placeholder="">
-                      <center><?php echo form_error('username'); ?> </center>
+                      <p class="error"><?php echo form_error('username'); ?></p>
                   <br>
 
                   <p> Password </p>
                   <input name="password" class="form-control" id="sel1" type="password" placeholder="">
-                     <center><?php echo form_error('password'); ?> </center>
+                     <p class="error"><?php echo form_error('password'); ?> </p>
                   <br>
-                  
+
                   <p> Address </p>
                   <input name="address" class="form-control" id="sel1" type="text" placeholder="">
-                      <center><?php echo form_error('address'); ?> </center> 
+                      <p class="error"><?php echo form_error('address'); ?></p>
                   <br>
 
                   <p> E-mail Address </p>
                   <input name="email" class="form-control" id="sel1" type="email" placeholder="">
-                      <center><?php echo form_error('email'); ?> </center>
+                    <p class="error"><?php echo form_error('email'); ?> </p>
                   <br>
 
                   <p> Contact Number </p>
                   <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="">
-                      <center><?php echo form_error('contactnum'); ?> </center>
+                      <p class="error"><?php echo form_error('contactnum'); ?> </p>
                   <br>
 
                   <p> Role </p>
@@ -77,7 +77,7 @@
                     <option value= "0">Homeowner</option>
                     <option value= "1">Administrator</option>
                   </select>
-                    <center> <?php echo form_error('role'); ?> </center>
+                    <p class="error"> <?php echo form_error('role'); ?></p>
                   <br>
                   <br>
 
