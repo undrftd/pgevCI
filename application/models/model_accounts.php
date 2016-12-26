@@ -71,20 +71,6 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    /*function checkExisting($username) 
-    {
-        $this->db->where('username', $this->input->post('username'));
-        $query = $this->db->get('accounts');
-
-        if($query->num_rows() > 0)
-        {
-            return $query->result();    
-        }
-        else 
-        {
-            return $query->result();
-        }
-    }*/
 
     function create_account() 
     {
@@ -101,18 +87,7 @@ class Model_accounts extends CI_Model {
          $insert = $this->db->insert('accounts', $new_account_insert_data);
          return $insert;
     }
-        /*if($this->model_accounts->checkExisting($new_account_insert_data['username']))
-        {
-            $data['main_content'] = 'view_adminaddaccounts';
-            $data['message'] = "Username already exists!";
-            $this->load->view('includes/admin_addaccount_template', $data);
-        }
-        else
-        {
-           
-        }
-    }*/
-
+      
     /*function deactivate() 
     {
         $id=$_GET['username'];

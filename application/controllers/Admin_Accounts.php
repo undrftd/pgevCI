@@ -21,13 +21,13 @@ class Admin_Accounts extends MY_Controller {
 
 	function createuser()
     {
-        $this->form_validation->set_error_delimiters('<div class="error">','</div>'); //for design improvement: SWAG
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>'); 
         $this->form_validation->set_message('is_unique', '{field} already exists!');
 
         $this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
         $this->form_validation->set_rules('lastname', 'Last Name', 'required|alpha');
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
-        $this->form_validation->set_rules('password', 'Password', 'required');//min_length[8]
+        $this->form_validation->set_rules('password', 'Password', 'required'); //min_length[8]
         $this->form_validation->set_rules('address', 'Address', 'required');
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
         $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
@@ -47,14 +47,6 @@ class Admin_Accounts extends MY_Controller {
                 redirect('admin_accounts');
              }
         }
-
-
-    	/*$this->load->model('model_accounts');
-
-    	if($query = $this->model_accounts->create_account())
-    	{
-			redirect('admin_accounts');
-    	}*/
 	}
 
 
