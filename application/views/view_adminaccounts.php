@@ -116,7 +116,7 @@
               </tr>
 
             </table>
-            <?php echo $this->pagination->create_links(); ?>
+            <?php echo $paginglinks; ?>
           </div>
 
         </div>
@@ -160,7 +160,7 @@
               </tr>
 
             </table>
-              <?php echo $this->pagination->create_links(); ?>
+            <?php echo $paginglinks2; ?>
           </div>
 
         </div>
@@ -204,7 +204,7 @@
               </tr>
 
             </table>
-              <?php echo $this->pagination->create_links(); ?>
+            <?php echo $paginglinks3; ?>
           </div>
 
         </div>
