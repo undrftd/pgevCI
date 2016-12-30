@@ -63,13 +63,21 @@
           Homeowner </a>
         </li>
         <li>
-          <a href="<?php echo base_url(); ?>admin_accounts/administrator">
+          <a href="<?php echo base_url(); ?>admin_accounts/administrator" id="not-important">
           Administrator </a>
         </li>
         <li>
-          <a href="<?php echo base_url(); ?>admin_accounts/deactivated">
+          <a href="<?php echo base_url(); ?>admin_accounts/deactivated" id="not-important">
           Deactivated </a>
         </li>
+        <li class="dropdown" id="dropdown-mobile">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Others
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo base_url(); ?>admin_accounts/administrator">Administrator </a></li>
+            <li><a href="<?php echo base_url(); ?>admin_accounts/deactivated">Deactivated </a></li>
+          </ul>
+        </li>
       </ul>
 
     </div>
@@ -116,9 +124,9 @@
               </tr>
 
             </table>
-           <center><?php echo $homeownerlinks; ?></center>
+           <center><div id="pagination-link"><?php echo $homeownerlinks; ?></div></center>
           </div>
- 
+
        </div>
 
       </div>

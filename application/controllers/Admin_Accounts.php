@@ -5,7 +5,7 @@ class Admin_Accounts extends MY_Controller {
  	function homeowner()
     {
     	$this->load->model('model_accounts');
-        
+
         $query = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
         $config['base_url'] = site_url('admin_accounts/homeowner');
         $config['total_rows'] = $query->num_rows();
@@ -26,14 +26,14 @@ class Admin_Accounts extends MY_Controller {
         $config['first_tagl_close'] = "</li>";
         $config['last_tag_open'] = "<li>";
         $config['last_tagl_close'] = "</li>";
-        $this->pagination->initialize($config);  
-        $data['homeownerlinks'] = $this->pagination->create_links(); 
+        $this->pagination->initialize($config);
+        $data['homeownerlinks'] = $this->pagination->create_links();
 
         $data['users'] = $this->model_accounts->get_users($config['per_page'], $this->uri->segment(3));
         $data['main_content'] = 'view_adminaccounts';
         $this->load->view('includes/admin_accounts_template', $data);
     }
-    
+
     function administrator()
     {
         $this->load->model('model_accounts');
@@ -58,7 +58,7 @@ class Admin_Accounts extends MY_Controller {
         $config_admin['last_tag_open'] = "<li>";
         $config_admin['last_tagl_close'] = "</li>";
         $this->pagination->initialize($config_admin);
-        $data['adminlinks'] = $this->pagination->create_links(); 
+        $data['adminlinks'] = $this->pagination->create_links();
 
         $data['admin'] = $this->model_accounts->get_admin($config_admin['per_page'], $this->uri->segment(3));
         $data['main_content'] = 'view_adminaccounts_admin';
@@ -87,7 +87,7 @@ class Admin_Accounts extends MY_Controller {
         $config_deact['first_tagl_close'] = "</li>";
         $config_deact['last_tag_open'] = "<li>";
         $config_deact['last_tagl_close'] = "</li>";
-        $this->pagination->initialize($config_deact);  
+        $this->pagination->initialize($config_deact);
         $data['deactlinks'] = $this->pagination->create_links();
 
         $data['deact'] = $this->model_accounts->get_deact($config_deact['per_page'], $this->uri->segment(3));
@@ -104,7 +104,7 @@ class Admin_Accounts extends MY_Controller {
 
 	function createuser()
     {
-        $this->form_validation->set_error_delimiters('<div class="error">','</div>'); 
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');
 
         $this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
