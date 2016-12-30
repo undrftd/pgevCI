@@ -2,22 +2,46 @@
 
 class Model_accounts extends CI_Model {
 
-    function get_users()
+    function get_users($limit, $offset)
     {
+       $this->db->limit($limit,$offset);
        $users = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
-       return $users->result();      
+       if($users->num_rows() > 1)
+        {
+            return $users->result();  
+        } 
+        else
+        {
+            return $users->result();
+        }     
     }
 
-    function get_admin()
+    function get_admin($limit, $offset)
     {
+       $this->db->limit($limit,$offset);
        $admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
-       return $admin->result();      
+       if($admin->num_rows() > 1)
+        {
+            return $admin->result();  
+        } 
+        else
+        {
+            return $admin->result();
+        }        
     }
 
-    function get_deact()
+    function get_deact($limit, $offset)
     {
+       $this->db->limit($limit,$offset);
        $deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
-       return $deact->result();      
+       if($deact->num_rows() > 1)
+       {
+            return $deact->result();  
+       } 
+       else
+       {
+            return $deact->result();
+       }           
     }
 
     function validate() 

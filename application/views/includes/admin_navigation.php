@@ -22,7 +22,7 @@
                 <a href="admin-forms.html">Forms</a>
             </li>
             <li>
-                <a href="<?php echo site_url("admin_accounts"); ?>" class="<?php if($this->uri->uri_string() == 'admin_accounts') { echo 'active'; } ?>">Accounts</a>
+                <a href="<?php echo site_url("admin_accounts/homeowner"); ?>" class="<?php if($this->uri->uri_string() == 'admin_accounts/homeowner') { echo 'active'; } ?>">Accounts</a>
             </li>
             <li>
                 <a href="<?php echo site_url("login/signout"); ?>">Sign Out</a>

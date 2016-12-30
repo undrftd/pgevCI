@@ -58,11 +58,11 @@
     <div class="portlet-title">
 
       <ul class="nav nav-tabs" id="myTab">
-        <li class="active">
+        <li>
           <a href="<?php echo base_url(); ?>admin_accounts/homeowner">
           Homeowner </a>
         </li>
-        <li>
+        <li  class="active">
           <a href="<?php echo base_url(); ?>admin_accounts/administrator">
           Administrator </a>
         </li>
@@ -95,7 +95,7 @@
                   <th class="mobile-important"><br>Action</th>
               </tr>
 
-              <?php foreach($users as $row): ?>
+              <?php foreach($admin as $row): ?>
               <tr>
                   <td><?php echo $row->firstname; ?></td>
                   <td><?php echo $row->lastname; ?></td>
@@ -112,14 +112,18 @@
                     <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-3">View More</button></a>
                   </td>
 
-              <?php endforeach; ?>
+                <?php endforeach; ?>
               </tr>
 
             </table>
-           <center><?php echo $homeownerlinks; ?></center>
+            <center><?php echo $adminlinks; ?></center>
           </div>
- 
-       </div>
+
+        </div>
+
+
+
+        </div>
 
       </div>
 
