@@ -62,14 +62,22 @@
           <a href="<?php echo base_url(); ?>admin_accounts/homeowner">
           Homeowner </a>
         </li>
-        <li >
-          <a href="<?php echo base_url(); ?>admin_accounts/administrator">
+        <li>
+          <a href="<?php echo base_url(); ?>admin_accounts/administrator" id="not-important">
           Administrator </a>
         </li>
-        <li  class="active">
-          <a href="<?php echo base_url(); ?>admin_accounts/deactivated">
+        <li class="active">
+          <a href="<?php echo base_url(); ?>admin_accounts/deactivated" id="not-important">
           Deactivated </a>
         </li>
+        <li class="dropdown" id="dropdown-mobile">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Others
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo base_url(); ?>admin_accounts/administrator">Administrator </a></li>
+            <li><a href="<?php echo base_url(); ?>admin_accounts/deactivated">Deactivated </a></li>
+          </ul>
+        </li>
       </ul>
 
     </div>
@@ -118,10 +126,6 @@
             </table>
             <center><?php echo $deactlinks;?></center>
           </div>
-
-        </div>
-
-
 
         </div>
 
