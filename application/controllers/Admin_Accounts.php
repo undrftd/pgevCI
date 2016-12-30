@@ -135,11 +135,11 @@ class Admin_Accounts extends MY_Controller {
     function search_homeowner()
     {
          $this->load->model('model_accounts');
-         $firstname = $this->input->post('search');
+         $searchquery = $this->input->post('search');
 
-         if(isset($firstname) and !empty($firstname))
+         if(isset($searchquery) and !empty($searchquery))
          {
-            $data['users'] = $this->model_accounts->search_homeowner($firstname);
+            $data['users'] = $this->model_accounts->search_homeowner($searchquery);
             $data['main_content'] = 'view_adminaccounts';
             $data['homeownerlinks']='';
             $this->load->view('includes/admin_accounts_template', $data);

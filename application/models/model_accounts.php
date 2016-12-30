@@ -116,9 +116,9 @@ class Model_accounts extends CI_Model {
     {
         $this->db->select('*')->from('accounts')->where('role', 0)-> where('isActive', 1);
         $this->db->like('username',$searchquery);
-        /*$this->db->or_like('lastname',$searchquery);
-        $this->db->or_like('username',$searchquery);
-        $this->db->or_like('address',$searchquery);*/
+        //$this->db->or_like('lastname',$searchquery);
+       // $this->db->or_like('username',$searchquery);
+       // $this->db->or_like('address',$searchquery); 
        // $this->db->from('accounts');
         //$this->db->like('firstname',$firstname);
        $query = $this->db->get();
