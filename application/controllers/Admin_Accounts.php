@@ -132,6 +132,21 @@ class Admin_Accounts extends MY_Controller {
         }
 	}
 
+    function search_homeowner()
+    {
+         $this->load->model('model_accounts');
+         $firstname = $this->input->post('search');
+
+         if(isset($firstname) and !empty($firstname))
+         {
+            $data['users'] = $this->model_accounts->search_homeowner($firstname);
+            $data['main_content'] = 'view_adminaccounts';
+            $data['homeownerlinks']='';
+            $this->load->view('includes/admin_accounts_template', $data);
+         }
+
+    }
+
 
 
 	/*function acc_deactivate()

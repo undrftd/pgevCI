@@ -111,6 +111,28 @@ class Model_accounts extends CI_Model {
          $insert = $this->db->insert('accounts', $new_account_insert_data);
          return $insert;
     }
+
+    function search_homeowner($searchquery)
+    {
+        $this->db->select('*')->from('accounts')->where('role', 0)-> where('isActive', 1);
+        $this->db->like('username',$searchquery);
+        /*$this->db->or_like('lastname',$searchquery);
+        $this->db->or_like('username',$searchquery);
+        $this->db->or_like('address',$searchquery);*/
+       // $this->db->from('accounts');
+        //$this->db->like('firstname',$firstname);
+       $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+
+    }
       
     /*function deactivate() 
     {
