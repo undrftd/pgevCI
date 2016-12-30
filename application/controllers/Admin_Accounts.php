@@ -144,6 +144,10 @@ class Admin_Accounts extends MY_Controller {
             $data['homeownerlinks']='';
             $this->load->view('includes/admin_accounts_template', $data);
          }
+         else
+        {
+            redirect('admin_accounts/homeowner');
+        }
 
     }
 
