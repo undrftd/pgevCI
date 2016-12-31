@@ -95,7 +95,6 @@ class Model_accounts extends CI_Model {
         }
     }
 
-
     function create_account() 
     {
         $new_account_insert_data = array(
@@ -115,16 +114,46 @@ class Model_accounts extends CI_Model {
     function search_homeowner($searchquery)
     {
       $this->db->select('*')->from('accounts');
-      $this->db->where('(role= 0 AND isActive= 1)',NULL,FALSE);
-      $this->db->where('(firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
-      //$this->db->where('firstname LIKE "%'.$searchquery .'%"');
-     // $this->db->or_where('lastname LIKE "%'.$searchquery .'%"');
-     // $this->db->or_where('username LIKE "%'.$searchquery .'%"');
-     // $this->db->or_where('address LIKE "%'.$searchquery .'%"');
-     // $this->db->where('username', 'LIKE', '%' . $searchquery . '%');
-     // $this->db->where('address', 'LIKE', '%' . $searchquery . '%');
+      $this->db->where('(role = 0 AND isActive = 1)',NULL,FALSE);
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
-      print_r($this->db->last_query());
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+
+    }
+
+    function search_admin($searchquery)
+    {
+      $this->db->select('*')->from('accounts');
+      $this->db->where('(role = 1 AND isActive = 1)',NULL,FALSE);
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+
+    }
+
+    function search_deact($searchquery)
+    {
+      $this->db->select('*')->from('accounts');
+      $this->db->where('(isActive = 0)',NULL,FALSE);
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      $query = $this->db->get();
+      
 
         if($query->num_rows() > 0)
         {

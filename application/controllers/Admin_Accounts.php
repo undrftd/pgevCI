@@ -9,7 +9,7 @@ class Admin_Accounts extends MY_Controller {
         $query = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
         $config['base_url'] = site_url('admin_accounts/homeowner');
         $config['total_rows'] = $query->num_rows();
-        $config['per_page'] =  50;
+        $config['per_page'] =  20;
         $config_deact['num_links'] = 5;
         $config['use_page_numbers'] = TRUE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -40,7 +40,7 @@ class Admin_Accounts extends MY_Controller {
         $query_admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
         $config_admin['base_url'] = site_url('admin_accounts/administrator');
         $config_admin['total_rows'] = $query_admin->num_rows();
-        $config_admin['per_page'] =  50;
+        $config_admin['per_page'] =  20;
         $config_deact['num_links'] = 5;
         $config_admin['use_page_numbers'] = TRUE;
         $config_admin['full_tag_open'] = "<ul class='pagination'>";
@@ -70,7 +70,7 @@ class Admin_Accounts extends MY_Controller {
         $query_deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
         $config_deact['base_url'] = site_url('admin_accounts/deactivated');
         $config_deact['total_rows'] = $query_deact->num_rows();
-        $config_deact['per_page'] =  50;
+        $config_deact['per_page'] =  20;
         $config_deact['num_links'] = 5;
         $config_deact['use_page_numbers'] = TRUE;
         $config_deact['full_tag_open'] = "<ul class='pagination'>";
@@ -139,9 +139,32 @@ class Admin_Accounts extends MY_Controller {
 
          if(isset($searchquery) and !empty($searchquery))
          {
-            $data['users'] = $this->model_accounts->search_homeowner($searchquery);
+            $query =   $this->db->select('*')->from('accounts')->where('(role = 0 AND isActive = 1)',NULL,FALSE)->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get();
+            $config['base_url'] = site_url('admin_accounts/search_homeowner');
+            $config['total_rows'] = $query->num_rows();
+            $config['per_page'] =  15;
+            $config_deact['num_links'] = 5;
+            $config['use_page_numbers'] = TRUE;
+            $config['full_tag_open'] = "<ul class='pagination'>";
+            $config['full_tag_close'] ="</ul>";
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+            $config['next_tag_open'] = "<li>";
+            $config['next_tagl_close'] = "</li>";
+            $config['prev_tag_open'] = "<li>";
+            $config['prev_tagl_close'] = "</li>";
+            $config['first_tag_open'] = "<li>";
+            $config['first_tagl_close'] = "</li>";
+            $config['last_tag_open'] = "<li>";
+            $config['last_tagl_close'] = "</li>";
+            $this->pagination->initialize($config);
+            $data['homeownerlinks'] = $this->pagination->create_links();
+
+            $data['users'] = $this->model_accounts->search_homeowner($searchquery, $config['per_page'], $this->uri->segment(3));
             $data['main_content'] = 'view_adminaccounts';
-            $data['homeownerlinks']='';
+            
             $this->load->view('includes/admin_accounts_template', $data);
          }
          else
@@ -151,6 +174,43 @@ class Admin_Accounts extends MY_Controller {
 
     }
 
+    function search_admin()
+    {
+         $this->load->model('model_accounts');
+         $searchquery = $this->input->post('search');
+
+         if(isset($searchquery) and !empty($searchquery))
+         {
+            $data['admin'] = $this->model_accounts->search_admin($searchquery);
+            $data['main_content'] = 'view_adminaccounts_admin';
+            $data['adminlinks']='';
+            $this->load->view('includes/admin_accounts_template', $data);
+         }
+         else
+        {
+            redirect('admin_accounts/administrator');
+        }
+
+    }
+
+    function search_deact()
+    {
+         $this->load->model('model_accounts');
+         $searchquery = $this->input->post('search');
+
+         if(isset($searchquery) and !empty($searchquery))
+         {
+            $data['deact'] = $this->model_accounts->search_deact($searchquery);
+            $data['main_content'] = 'view_adminaccounts_deact';
+            $data['deactlinks']='';
+            $this->load->view('includes/admin_accounts_template', $data);
+         }
+         else
+        {
+            redirect('admin_accounts/deactivated');
+        }
+
+    }
 
 
 	/*function acc_deactivate()
