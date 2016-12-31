@@ -114,14 +114,17 @@ class Model_accounts extends CI_Model {
 
     function search_homeowner($searchquery)
     {
-        $this->db->select('*')->from('accounts')->where('role', 0)-> where('isActive', 1);
-        $this->db->like('username',$searchquery);
-        //$this->db->or_like('lastname',$searchquery);
-       // $this->db->or_like('username',$searchquery);
-       // $this->db->or_like('address',$searchquery); 
-       // $this->db->from('accounts');
-        //$this->db->like('firstname',$firstname);
-       $query = $this->db->get();
+      $this->db->select('*')->from('accounts');
+      $this->db->where('(role= 0 AND isActive= 1)',NULL,FALSE);
+      $this->db->where('(firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      //$this->db->where('firstname LIKE "%'.$searchquery .'%"');
+     // $this->db->or_where('lastname LIKE "%'.$searchquery .'%"');
+     // $this->db->or_where('username LIKE "%'.$searchquery .'%"');
+     // $this->db->or_where('address LIKE "%'.$searchquery .'%"');
+     // $this->db->where('username', 'LIKE', '%' . $searchquery . '%');
+     // $this->db->where('address', 'LIKE', '%' . $searchquery . '%');
+      $query = $this->db->get();
+      print_r($this->db->last_query());
 
         if($query->num_rows() > 0)
         {
