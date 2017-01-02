@@ -6,9 +6,8 @@ class Admin_Accounts extends MY_Controller {
     {
     	$this->load->model('model_accounts');
 
-        $query = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
         $config['base_url'] = site_url('admin_accounts/homeowner');
-        $config['total_rows'] = $query->num_rows();
+        $config['total_rows'] = $this->model_accounts->count_homeowner();
         $config['per_page'] =  20;
         $config_deact['num_links'] = 5;
         $config['use_page_numbers'] = TRUE;
@@ -37,9 +36,9 @@ class Admin_Accounts extends MY_Controller {
     function administrator()
     {
         $this->load->model('model_accounts');
-        $query_admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
+        
         $config_admin['base_url'] = site_url('admin_accounts/administrator');
-        $config_admin['total_rows'] = $query_admin->num_rows();
+        $config_admin['total_rows'] = $this->model_accounts->count_admin();
         $config_admin['per_page'] =  20;
         $config_deact['num_links'] = 5;
         $config_admin['use_page_numbers'] = TRUE;
@@ -67,9 +66,10 @@ class Admin_Accounts extends MY_Controller {
 
     function deactivated()
     {
-        $query_deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
+        $this->load->model('model_accounts');
+
         $config_deact['base_url'] = site_url('admin_accounts/deactivated');
-        $config_deact['total_rows'] = $query_deact->num_rows();
+        $config_deact['total_rows'] = $this->model_accounts->count_deact();
         $config_deact['per_page'] =  20;
         $config_deact['num_links'] = 5;
         $config_deact['use_page_numbers'] = TRUE;
@@ -135,16 +135,16 @@ class Admin_Accounts extends MY_Controller {
     function search_homeowner()
     {
          $this->load->model('model_accounts');
-         $searchquery = $this->input->post('search');
 
          if(isset($searchquery) and !empty($searchquery))
          {
-            $query =   $this->db->select('*')->from('accounts')->where('(role = 0 AND isActive = 1)',NULL,FALSE)->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get();
-            $config['base_url'] = site_url('admin_accounts/search_homeowner');
-            $config['total_rows'] = $query->num_rows();
+            $config['base_url'] = site_url('admin_accounts/search_homeowner?search' . $searchquery);
+            $config['total_rows'] = $this->model_accounts->countuser_search($searchquery);
             $config['per_page'] =  15;
-            $config_deact['num_links'] = 5;
+            $config['num_links'] = 5;
             $config['use_page_numbers'] = TRUE;
+            $config['page_query_string'] = TRUE;
+            $config['enable_query_strings'] = TRUE;
             $config['full_tag_open'] = "<ul class='pagination'>";
             $config['full_tag_close'] ="</ul>";
             $config['num_tag_open'] = '<li>';
