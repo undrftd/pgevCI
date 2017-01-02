@@ -111,6 +111,25 @@ class Model_accounts extends CI_Model {
          return $insert;
     }
 
+    /*function search_handler($searchquery)
+    {
+        if($searchquery)
+        {
+             $this->session->set_userdata('search', $searchquery);
+             return $searchquery;
+        }
+        else if($this->session->userdata('search'))
+        {
+            $searchquery = $this->session->userdata('search');
+            return $searchquery;
+        }
+        else
+        {
+            $searchquery ="";
+            return $searchquery;
+        }
+    }*/
+
     function search_homeowner($searchquery)
     {
       $this->db->select('*')->from('accounts');
