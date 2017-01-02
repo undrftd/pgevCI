@@ -135,6 +135,7 @@ class Admin_Accounts extends MY_Controller {
     function search_homeowner()
     {
          $this->load->model('model_accounts');
+         $searchquery = $this->input->post('search', TRUE);
 
          if(isset($searchquery) and !empty($searchquery))
          {
