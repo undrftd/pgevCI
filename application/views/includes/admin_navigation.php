@@ -22,7 +22,7 @@
                 <a href="admin-forms.html">Forms</a>
             </li>
             <li>
-                <a href="<?php echo site_url("admin_accounts/homeowner"); ?>" class="<?php if($this->uri->segment(2) == 'homeowner' OR $this->uri->segment(2) == 'administrator' OR $this->uri->segment(2) == 'deactivated' OR $this->uri->segment(2) == 'adduser' OR $this->uri->segment(2) == 'search_homeowner' OR $this->uri->segment(2) == 'search_admin' OR $this->uri->segment(2) == 'search_deact' ) { echo 'active'; } ?>">Accounts</a>
+                <a href="<?php echo site_url("admin_accounts/homeowner"); ?>" class="<?php if($this->uri->segment(2) == 'homeowner' OR $this->uri->segment(2) == 'administrator' OR $this->uri->segment(2) == 'deactivated' OR $this->uri->segment(2) == 'adduser' OR $this->uri->segment(2) == 'search_homeowner' OR $this->uri->segment(2) == 'search_admin' OR $this->uri->segment(2) == 'search_deact' OR $this->uri->segment(2) == 'viewmore') { echo 'active'; } ?>">Accounts</a>
             </li>
             <li>
                 <a href="<?php echo site_url("login/signout"); ?>">Sign Out</a>
