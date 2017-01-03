@@ -4,8 +4,6 @@ class Admin_Accounts extends MY_Controller {
 
  	function homeowner()
     {
-    	$this->load->model('model_accounts');
-
         $config['base_url'] = site_url('admin_accounts/homeowner');
         $config['total_rows'] = $this->model_accounts->count_homeowner();
         $config['per_page'] =  20;
@@ -35,8 +33,6 @@ class Admin_Accounts extends MY_Controller {
 
     function administrator()
     {
-        $this->load->model('model_accounts');
-        
         $config_admin['base_url'] = site_url('admin_accounts/administrator');
         $config_admin['total_rows'] = $this->model_accounts->count_admin();
         $config_admin['per_page'] =  20;
@@ -66,8 +62,6 @@ class Admin_Accounts extends MY_Controller {
 
     function deactivated()
     {
-        $this->load->model('model_accounts');
-
         $config_deact['base_url'] = site_url('admin_accounts/deactivated');
         $config_deact['total_rows'] = $this->model_accounts->count_deact();
         $config_deact['per_page'] =  20;
@@ -99,7 +93,6 @@ class Admin_Accounts extends MY_Controller {
     {
     	$data['main_content'] = 'view_adminaddaccounts';
 		$this->load->view('includes/admin_addaccount_template', $data);
-    	$this->load->model('model_accounts');
 	}
 
 	function createuser()
@@ -115,8 +108,6 @@ class Admin_Accounts extends MY_Controller {
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
         $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
         $this->form_validation->set_rules('role', 'Role', 'required');
-
-        $this->load->model('model_accounts');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -134,7 +125,6 @@ class Admin_Accounts extends MY_Controller {
 
     function search_homeowner()
     {
-         $this->load->model('model_accounts');
          $searchquery = $this->input->get('search', TRUE);
          $searchmodelquery = $this->model_accounts->search_homeowner($searchquery);
 
@@ -179,7 +169,6 @@ class Admin_Accounts extends MY_Controller {
 
     function search_admin()
     {
-         $this->load->model('model_accounts');
          $searchquery = $this->input->get('search', TRUE);
          $searchmodelquery = $this->model_accounts->search_admin($searchquery);
 
@@ -223,7 +212,6 @@ class Admin_Accounts extends MY_Controller {
 
     function search_deact()
     {
-         $this->load->model('model_accounts');
          $searchquery = $this->input->get('search');
          $searchmodelquery = $this->model_accounts->search_deact($searchquery);
 
@@ -264,6 +252,12 @@ class Admin_Accounts extends MY_Controller {
 
     }
 
+    function viewmore($userid)
+    {
+        $data['view'] = $this->model_accounts->viewmore_user($userid);
+        $data['main_content'] = 'view_adminviewmore';
+        $this->load->view('includes/admin_viewmore_template', $data);
+    }
 
 	/*function acc_deactivate()
     {

@@ -64,7 +64,6 @@ class Model_accounts extends CI_Model {
 
     function validate() 
     {
-
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $query = $this->db->get('accounts');
@@ -81,7 +80,6 @@ class Model_accounts extends CI_Model {
 
     function check_role() 
     {
-        
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $this->db->where('role', 1);
@@ -100,7 +98,6 @@ class Model_accounts extends CI_Model {
 
     function check_active() 
     {
-        
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $this->db->where('isActive', 1);
@@ -232,6 +229,14 @@ class Model_accounts extends CI_Model {
         }
 
     }
+    
+    public function viewmore_user($userid)
+    {
+         $query= $this->db->select('*')->where('userid', $userid)->get('accounts',1); 
+         return $query->row();
+    }
+
+  
       
     /*function deactivate() 
     {
