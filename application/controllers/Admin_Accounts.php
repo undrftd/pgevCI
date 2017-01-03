@@ -29,7 +29,7 @@ class Admin_Accounts extends MY_Controller {
         $data['homeownerlinks'] = $this->pagination->create_links();
 
         $data['users'] = $this->model_accounts->get_users($config['per_page'], $this->uri->segment(3));
-        $data['main_content'] = 'view_adminaccounts';
+        $data['main_content'] = 'view_adminaccounts_user';
         $this->load->view('includes/admin_accounts_template', $data);
     }
 
@@ -41,7 +41,7 @@ class Admin_Accounts extends MY_Controller {
         $config_admin['total_rows'] = $this->model_accounts->count_admin();
         $config_admin['per_page'] =  20;
         $config_deact['num_links'] = 5;
-        $config_admin['use_page_numbers'] = TRUE;
+        $config_admin['use_page_numbers'] = FALSE;
         $config_admin['full_tag_open'] = "<ul class='pagination'>";
         $config_admin['full_tag_close'] ="</ul>";
         $config_admin['num_tag_open'] = '<li>';
@@ -72,7 +72,7 @@ class Admin_Accounts extends MY_Controller {
         $config_deact['total_rows'] = $this->model_accounts->count_deact();
         $config_deact['per_page'] =  20;
         $config_deact['num_links'] = 5;
-        $config_deact['use_page_numbers'] = TRUE;
+        $config_deact['use_page_numbers'] = FALSE;
         $config_deact['full_tag_open'] = "<ul class='pagination'>";
         $config_deact['full_tag_close'] ="</ul>";
         $config_deact['num_tag_open'] = '<li>';
@@ -166,7 +166,7 @@ class Admin_Accounts extends MY_Controller {
             $data['homeownerlinks'] = $this->pagination->create_links();
             
             $data['users'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
-            $data['main_content'] = 'view_adminaccounts';
+            $data['main_content'] = 'view_adminaccounts_user';
             
             $this->load->view('includes/admin_accounts_template', $data);
         }
