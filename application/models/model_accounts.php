@@ -6,7 +6,7 @@ class Model_accounts extends CI_Model {
     {
        $this->db->limit($limit,$offset);
        $users = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
-       if($users->num_rows() > 1)
+       if($users->num_rows() > 0)
         {
             return $users->result();  
         } 
@@ -26,7 +26,7 @@ class Model_accounts extends CI_Model {
     {
        $this->db->limit($limit,$offset);
        $admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
-       if($admin->num_rows() > 1)
+       if($admin->num_rows() > 0)
         {
             return $admin->result();  
         } 
@@ -46,7 +46,7 @@ class Model_accounts extends CI_Model {
     {
        $this->db->limit($limit,$offset);
        $deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
-       if($deact->num_rows() > 1)
+       if($deact->num_rows() > 0)
        {
             return $deact->result();  
        } 
@@ -73,6 +73,10 @@ class Model_accounts extends CI_Model {
         {
             return true;    
         }
+        else
+        {
+            return false;
+        }
     }
 
     function check_role() 
@@ -90,7 +94,6 @@ class Model_accounts extends CI_Model {
         }
         else 
         {
-            
             return false;
         }
     }
@@ -138,7 +141,25 @@ class Model_accounts extends CI_Model {
          return $query->num_rows();
     }
 
-    /*function search_handler($searchquery)
+    function countadmin_search($searchquery)
+    {
+         $query = $this->db->select('*')
+                            ->from('accounts')
+                            ->where('(role = 1 AND isActive = 1)',NULL,FALSE)
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+         return $query->num_rows();
+    }
+
+    function countdeact_search($searchquery)
+    {
+         $query = $this->db->select('*')
+                            ->from('accounts')
+                            ->where('(isActive = 0)',NULL,FALSE)
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+         return $query->num_rows();
+    }
+
+    function search_handler($searchquery)
     {
         if($searchquery)
         {
@@ -155,7 +176,7 @@ class Model_accounts extends CI_Model {
             $searchquery ="";
             return $searchquery;
         }
-    }*/
+    }
 
     function search_homeowner($searchquery)
     {
@@ -163,6 +184,7 @@ class Model_accounts extends CI_Model {
       $this->db->where('(role = 0 AND isActive = 1)',NULL,FALSE);
       $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
+      print_r($this->db->last_query());
 
         if($query->num_rows() > 0)
         {

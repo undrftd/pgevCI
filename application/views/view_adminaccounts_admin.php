@@ -45,7 +45,7 @@
 
     <div class="portlet-header">
 
-    <form class="form-inline" method="POST" action="<?php echo base_url(); ?>admin_accounts/search_admin">
+    <form class="form-inline" action="<?php echo base_url(); ?>admin_accounts/search_admin" method="GET">
       <a href="<?php echo base_url(); ?>admin_accounts/adduser"><button type="button" class="btn btn-custom-1">+ Add a user</button></a>
       <div class="form-group">
         <input class="form-control" name ="search" id="sel1" type="text" placeholder="Search for a user...">
