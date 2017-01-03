@@ -6,12 +6,11 @@ class Admin_Accounts extends MY_Controller {
     {
     	$this->load->model('model_accounts');
 
-        $query = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
         $config['base_url'] = site_url('admin_accounts/homeowner');
-        $config['total_rows'] = $query->num_rows();
-        $config['per_page'] =  50;
-        $config_deact['num_links'] = 5;
-        $config['use_page_numbers'] = TRUE;
+        $config['total_rows'] = $this->model_accounts->count_homeowner();
+        $config['per_page'] =  20;
+        $config['num_links'] = 5;
+        $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
         $config['full_tag_close'] ="</ul>";
         $config['num_tag_open'] = '<li>';
@@ -37,10 +36,10 @@ class Admin_Accounts extends MY_Controller {
     function administrator()
     {
         $this->load->model('model_accounts');
-        $query_admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
+        
         $config_admin['base_url'] = site_url('admin_accounts/administrator');
-        $config_admin['total_rows'] = $query_admin->num_rows();
-        $config_admin['per_page'] =  50;
+        $config_admin['total_rows'] = $this->model_accounts->count_admin();
+        $config_admin['per_page'] =  20;
         $config_deact['num_links'] = 5;
         $config_admin['use_page_numbers'] = TRUE;
         $config_admin['full_tag_open'] = "<ul class='pagination'>";
@@ -67,10 +66,11 @@ class Admin_Accounts extends MY_Controller {
 
     function deactivated()
     {
-        $query_deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
+        $this->load->model('model_accounts');
+
         $config_deact['base_url'] = site_url('admin_accounts/deactivated');
-        $config_deact['total_rows'] = $query_deact->num_rows();
-        $config_deact['per_page'] =  50;
+        $config_deact['total_rows'] = $this->model_accounts->count_deact();
+        $config_deact['per_page'] =  20;
         $config_deact['num_links'] = 5;
         $config_deact['use_page_numbers'] = TRUE;
         $config_deact['full_tag_open'] = "<ul class='pagination'>";
@@ -132,6 +132,137 @@ class Admin_Accounts extends MY_Controller {
         }
 	}
 
+    function search_homeowner()
+    {
+         $this->load->model('model_accounts');
+         $searchquery = $this->input->get('search', TRUE);
+         $searchmodelquery = $this->model_accounts->search_homeowner($searchquery);
+
+         if(isset($searchquery) and !empty($searchquery))
+         {
+            $config['base_url'] = site_url('admin_accounts/search_homeowner/');
+            //$config['first_url'] = $config['base_url'].'?'.http_build_query($_GET);
+            $config['reuse_query_string'] = TRUE;    
+            //if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
+            $config['total_rows'] = $this->model_accounts->countuser_search($searchquery);
+            $config['per_page'] =  20;
+            $config['num_links'] = 5;
+            $config['use_page_numbers'] = FALSE;
+            $config['full_tag_open'] = "<ul class='pagination'>";
+            $config['full_tag_close'] ="</ul>";
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+            $config['next_tag_open'] = "<li>";
+            $config['next_tagl_close'] = "</li>";
+            $config['prev_tag_open'] = "<li>";
+            $config['prev_tagl_close'] = "</li>";
+            $config['first_tag_open'] = "<li>";
+            $config['first_tagl_close'] = "</li>";
+            $config['last_tag_open'] = "<li>";
+            $config['last_tagl_close'] = "</li>";
+            $this->pagination->initialize($config);
+            $data['homeownerlinks'] = $this->pagination->create_links();
+            
+            $data['users'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+            $data['main_content'] = 'view_adminaccounts';
+            
+            $this->load->view('includes/admin_accounts_template', $data);
+        }
+        else
+        {
+           redirect('admin_accounts/homeowner');
+        }
+
+    }
+
+    function search_admin()
+    {
+         $this->load->model('model_accounts');
+         $searchquery = $this->input->get('search', TRUE);
+         $searchmodelquery = $this->model_accounts->search_admin($searchquery);
+
+         if(isset($searchquery) and !empty($searchquery))
+         {
+            $config['base_url'] = site_url('admin_accounts/search_admin/');
+            //$config['first_url'] = $config['base_url'].'?'.http_build_query($_GET);
+            $config['reuse_query_string'] = TRUE;    //if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
+            $config['total_rows'] = $this->model_accounts->countadmin_search($searchquery);
+            $config['per_page'] =  20;
+            $config['num_links'] = 5;
+            $config['use_page_numbers'] = FALSE;
+            $config['full_tag_open'] = "<ul class='pagination'>";
+            $config['full_tag_close'] ="</ul>";
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+            $config['next_tag_open'] = "<li>";
+            $config['next_tagl_close'] = "</li>";
+            $config['prev_tag_open'] = "<li>";
+            $config['prev_tagl_close'] = "</li>";
+            $config['first_tag_open'] = "<li>";
+            $config['first_tagl_close'] = "</li>";
+            $config['last_tag_open'] = "<li>";
+            $config['last_tagl_close'] = "</li>";
+            $this->pagination->initialize($config);
+            $data['adminlinks'] = $this->pagination->create_links();
+            
+            //$data['users'] = $this->model_accounts->search_homeowner();
+            $data['admin'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+            $data['main_content'] = 'view_adminaccounts_admin';
+            
+            $this->load->view('includes/admin_accounts_template', $data);
+        }
+        else
+        {
+           redirect('admin_accounts/homeowner');
+        }
+    }
+
+    function search_deact()
+    {
+         $this->load->model('model_accounts');
+         $searchquery = $this->input->get('search');
+         $searchmodelquery = $this->model_accounts->search_deact($searchquery);
+
+         if(isset($searchquery) and !empty($searchquery))
+         {
+            $config['base_url'] = site_url('admin_accounts/search_deact/');
+            //$config['first_url'] = $config['base_url'].'?'.http_build_query($_GET);
+            $config['reuse_query_string'] = TRUE;    //if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
+            $config['total_rows'] = $this->model_accounts->countdeact_search($searchquery);
+            $config['per_page'] =  20;
+            $config['num_links'] = 5;
+            $config['use_page_numbers'] = FALSE;
+            $config['full_tag_open'] = "<ul class='pagination'>";
+            $config['full_tag_close'] ="</ul>";
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+            $config['next_tag_open'] = "<li>";
+            $config['next_tagl_close'] = "</li>";
+            $config['prev_tag_open'] = "<li>";
+            $config['prev_tagl_close'] = "</li>";
+            $config['first_tag_open'] = "<li>";
+            $config['first_tagl_close'] = "</li>";
+            $config['last_tag_open'] = "<li>";
+            $config['last_tagl_close'] = "</li>";
+            $this->pagination->initialize($config);
+            $data['deactlinks'] = $this->pagination->create_links();
+
+            $data['deact'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+            $data['main_content'] = 'view_adminaccounts_deact';
+            $this->load->view('includes/admin_accounts_template', $data);
+         }
+         else
+         {
+            redirect('admin_accounts/deactivated');
+         }
+
+    }
 
 
 	/*function acc_deactivate()
