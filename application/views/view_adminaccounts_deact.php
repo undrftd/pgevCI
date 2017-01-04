@@ -84,6 +84,14 @@
 
     <div class="portlet-body">
 
+      <div class="success-message text-center" id="prompt-message">
+        <h3> Hello, Admin... </h3>
+        <p> Your have successfully added or edited or deleted or deactivated a user. </p><br>
+        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+      </div>
+
+      <br>
+
       <div class="tab-content">
 
         <div class="tab-pane fade in active" id="portlet_tab1">
@@ -99,8 +107,7 @@
                   <th><br>Address</th>
                   <th class="not-important"><br>E-mail Address</th>
                   <th class="not-important"><br>Contact Number</th>
-                  <th class="not-important"><br>Action</th>
-                  <th class="mobile-important"><br>Action</th>
+                  <th><br>Action</th>
               </tr>
 
               <?php foreach($deact as $row): ?>
@@ -111,12 +118,7 @@
                   <td><?php echo $row->address; ?></td>
                   <td class="action-button not-important"><?php echo $row->email; ?></td>
                   <td class="action-button not-important"><?php echo $row->contactnum; ?></td>
-                  <td class="action-button not-important">
-                    <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                    <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
-                  </td>
-                  <td class="action-button mobile-important">
+                  <td class="action-button">
                     <a href="<?php echo base_url() ."admin_accounts/viewmore_deact/". $row->userid ?>"><button type="button" class="btn btn-custom-3">View More</button></a>
                   </td>
 

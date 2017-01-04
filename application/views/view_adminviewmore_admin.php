@@ -11,7 +11,7 @@
                     <div class="signin">
                         <div class="modal-body text-center">
                             <p> Are you sure you want to remove this user from the system? </p><br>
-                            <a href="<?php echo base_url() ."admin_accounts/acc_delete/" . $view->userid?>""> <button type="submit" class="btn btn-custom-1">Yes</button>
+                            <a href="<?php echo base_url() ."admin_accounts/acc_delete/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                           <option value="0">Homeowner</option>
                           <option value= "1">Administrator</option>
                         </select>
-                        <p class="error"> <?php echo form_error('role'); ?></p> 
+                        <p class="error"> <?php echo form_error('role'); ?></p>
                       </fieldset>
                       <br><br>
                       <input class="btn btn-custom" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>

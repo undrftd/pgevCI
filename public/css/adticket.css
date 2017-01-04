@@ -173,18 +173,6 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.btn-custom-4 {
-  color: white;
-  font-family: 'Roboto';
-  background-color: #595959;
-  padding: 4px;
-  width: 100px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  opacity: 0.9;
-  transition: all 0.3s ease-in-out;
-}
-
 p {
   font-size: 1.2em;
   font-family: 'Roboto';
@@ -235,16 +223,13 @@ table td {
 }
 
 .modal-content {
-    padding: 25px 20px 25px 20px;
+    padding: 35px 30px 35px 30px;
     border: none;
 }
 
-
 .modal-body p {
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 1em;
-  color: #4a4a4a;
+  font-weight: 300;
 }
 
 .modal-body button {
@@ -265,21 +250,6 @@ table td {
   border-color: #e1e1e1;
   height: 52px;
   width: 100%;
-}
-
-#dropdown-mobile {
-  display: none;
-}
-
-.success-message {
-  border: 1px solid #27ae60;
-  padding: 15px;
-  color: #696969;
-}
-
-.success-message h3 {
-  font-weight: 700;
-  font-style: italic;
 }
 
 @media(min-width:768px) {
@@ -308,6 +278,7 @@ table td {
        position: relative;
        margin-right: 10px;
    }
+
 }
 
 @media(max-width:768px) {
@@ -339,48 +310,11 @@ table td {
     margin-bottom: 20px;
   }
 
-  #page-content-wrapper h1 {
-     border-bottom: 2px solid #27ae60;
-     width: 60%;
-     border-left: none;
-     font-family: 'League-Gothic', sans-serif;
-     text-transform: uppercase;
-     font-size: 3em;
-     padding-bottom: 10px;
-     padding-left: 0px;
-     margin: 0 auto;
-     text-align: center;
-     margin-bottom: 20px;
-  }
-
-  .form-inline .form-group {
-    display: block;
-    margin-bottom: 20px;
-  }
-
-.form-group #sel1 {
+#sel1 {
     width: 100%;
     margin: 0 auto;
   }
 
-.not-important {
-    display: none;
-  }
-
-#not-important {
-    display: none;
-  }
-
-#dropdown-mobile {
-  display: inline-block;
-}
-
-}
-
-@media(max-width:1550px) {
-  .not-important {
-      display: none;
-    }
 }
 
 @font-face {
@@ -419,7 +353,7 @@ Licensed under MIT
 .portlet {
 	background: #fff;
 	padding: 20px;
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -486,7 +420,6 @@ Licensed under MIT
 	padding: 6px 10px 13px;
 	color: #444;
   font-size: 12px;
-  display: inline-block;
 }
 
 .portlet-title > .nav-tabs > li.active,
@@ -504,4 +437,56 @@ Licensed under MIT
 	color: #333;
 	background: #fff;
 	border: 0;
+}
+
+
+
+
+
+.btn-custom-4 {
+  color: white;
+  font-family: 'Roboto';
+  background-color: #e74c3c;
+  padding: 4px;
+  width: 100px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  border: none;
+
+	animation-name: flash;
+	animation-duration: 0.8s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	//Firefox 1+
+	-webkit-animation-name: flash;
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	//Safari 3-4
+	-moz-animation-name: flash;
+	-moz-animation-duration: 0.8s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+@keyframes flash {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1.0; }
+}
+
+//Firefox 1+
+@-webkit-keyframes flash {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1.0; }
+}
+
+//Safari 3-4
+@-moz-keyframes flash {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1.0; }
 }

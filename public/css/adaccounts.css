@@ -208,14 +208,16 @@ table th {
   color: white;
   text-align: center;
   font-weight: 400;
+  position: relative;
 }
 
 table {
   text-align: center;
+  overflow: hidden;
 }
 
 table tr {
-  height: 75px;
+  height: 100px;
 }
 
 table td {
@@ -267,21 +269,6 @@ table td {
   width: 100%;
 }
 
-#dropdown-mobile {
-  display: none;
-}
-
-.success-message {
-  border: 1px solid #27ae60;
-  padding: 15px;
-  color: #696969;
-}
-
-.success-message h3 {
-  font-weight: 700;
-  font-style: italic;
-}
-
 @media(min-width:768px) {
    #wrapper {
        padding-left: 200px;
@@ -308,6 +295,7 @@ table td {
        position: relative;
        margin-right: 10px;
    }
+
 }
 
 @media(max-width:768px) {
@@ -367,21 +355,24 @@ table td {
     display: none;
   }
 
-#not-important {
-    display: none;
-  }
-
-#dropdown-mobile {
-  display: inline-block;
-}
-
 }
 
 @media(max-width:1550px) {
   .not-important {
       display: none;
     }
+
+  .mobile-important {
+      display: run-in;
+    }
 }
+
+@media(min-width:1550) {
+  .mobile-important {
+      display: none;
+    }
+}
+
 
 @font-face {
     font-family: 'League-Gothic';
@@ -419,7 +410,7 @@ Licensed under MIT
 .portlet {
 	background: #fff;
 	padding: 20px;
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -486,7 +477,6 @@ Licensed under MIT
 	padding: 6px 10px 13px;
 	color: #444;
   font-size: 12px;
-  display: inline-block;
 }
 
 .portlet-title > .nav-tabs > li.active,

@@ -45,12 +45,12 @@
 
     <div class="portlet-header">
 
-    <form class="form-inline" action="<?php echo base_url(); ?>admin_accounts/search_homeowner/" method="GET">
+    <form class="form-inline">
       <a href="<?php echo base_url(); ?>admin_accounts/adduser"><button type="button" class="btn btn-custom-1">+ Add a user</button></a>
       <div class="form-group">
-        <input class="form-control" name="search" id="sel1" type="text" placeholder="Search for a user...">
+        <input class="form-control" id="sel1" type="text" placeholder="Search for a user...">
       </div>
-      <button type="submit" class="btn btn-custom">Search</button><br><br><br>
+      <a href="admin-accounts.html"><button type="button" class="btn btn-custom">Search</button></a><br><br><br>
     </form>
 
     </div>
@@ -84,14 +84,6 @@
 
     <div class="portlet-body">
 
-      <div class="success-message text-center" id="prompt-message">
-        <h3> Hello, Admin... </h3>
-        <p> Your have successfully added or edited or deleted or deactivated a user. </p><br>
-        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-      </div>
-
-      <br>
-
       <div class="tab-content">
 
         <div class="tab-pane fade in active" id="portlet_tab1">
@@ -107,7 +99,8 @@
                   <th><br>Address</th>
                   <th class="not-important"><br>E-mail Address</th>
                   <th class="not-important"><br>Contact Number</th>
-                  <th><br>Action</th>
+                  <th class="not-important"><br>Action</th>
+                  <th class="mobile-important"><br>Action</th>
               </tr>
 
               <?php foreach($users as $row): ?>
@@ -118,8 +111,13 @@
                   <td><?php echo $row->address; ?></td>
                   <td class="action-button not-important"><?php echo $row->email; ?></td>
                   <td class="action-button not-important"><?php echo $row->contactnum; ?></td>
-                  <td class="action-button">
-                    <a href="<?php echo base_url() ."admin_accounts/viewmore_user/". $row->userid ?>"> <button type="button" class="btn btn-custom-3">View More</button></a>
+                  <td class="action-button not-important">
+                    <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
+                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                    <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
+                  </td>
+                  <td class="action-button mobile-important">
+                    <a href="admin-accounts-edit.html"><button type="button" class="btn btn-custom-3">View More</button></a>
                   </td>
 
               <?php endforeach; ?>

@@ -1,16 +1,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script>
-
-        $(document).ready(function(){
-            $("#close-button").click(function(){
-                $("#prompt-message").fadeOut(400);
-            });
-        });
-
-    </script>
-
     <script src="js/bootstrap.min.js">
         $('#myModal').modal() // initialized with defaults
     </script>
