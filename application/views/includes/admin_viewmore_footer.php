@@ -8,7 +8,21 @@
             document.getElementById("myFieldset").disabled = false;
             var elem = document.getElementById("edit-button");
             if (elem.value=="Edit") elem.value = "Save Changes";
+            $("#edit-button").click(function(){
+                $("#edit-button").hide();
+            });
         }
+
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+            $("#edit-button").click(function(){
+                $("#saveButton").show();
+            });
+        });
+
     </script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->

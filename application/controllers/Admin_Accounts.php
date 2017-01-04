@@ -95,16 +95,22 @@ class Admin_Accounts extends MY_Controller {
 		$this->load->view('includes/admin_addaccount_template', $data);
 	}
 
+    function alpha_dash_space($str)
+    {
+        return ( ! preg_match("/^([a-z ])+$/i", $str)) ? FALSE : TRUE;
+    } 
+
 	function createuser()
     {
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');
+        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
 
-        $this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
-        $this->form_validation->set_rules('lastname', 'Last Name', 'required|alpha');
+        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
         $this->form_validation->set_rules('password', 'Password', 'required'); //min_length[8]
-        $this->form_validation->set_rules('address', 'Address', 'required');
+        $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
         $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
         $this->form_validation->set_rules('role', 'Role', 'required');
@@ -118,7 +124,7 @@ class Admin_Accounts extends MY_Controller {
         {
             if($query = $this->model_accounts->create_account())
              {
-                redirect('admin_accounts');
+                redirect('admin_accounts/homeowner');
              }
         }
 	}
@@ -252,21 +258,129 @@ class Admin_Accounts extends MY_Controller {
 
     }
 
-    function viewmore($userid)
+    function viewmore_user($userid)
     {
         $data['view'] = $this->model_accounts->viewmore_user($userid);
-        $data['main_content'] = 'view_adminviewmore';
+        $data['main_content'] = 'view_adminviewmore_user';
         $this->load->view('includes/admin_viewmore_template', $data);
     }
 
-	/*function acc_deactivate()
+    function viewmore_admin($userid)
     {
-    	if(isset($_GET['userid']))
-    	{
-        	$id=$_GET['userid'];
-        	$this->load->model('model_accounts');
-        	$this->model_accounts->deactivate($id);
-       		redirect('admin_accounts');
-    	}
-	}*/
+        $data['view'] = $this->model_accounts->viewmore_user($userid);
+        $data['main_content'] = 'view_adminviewmore_admin';
+        $this->load->view('includes/admin_viewmore_template', $data);
+    }
+    
+    function viewmore_deact($userid)
+    {
+        $data['view'] = $this->model_accounts->viewmore_user($userid);
+        $data['main_content'] = 'view_adminviewmore_deact';
+        $this->load->view('includes/admin_viewmore_template', $data);
+    }
+
+    function acc_delete($userid)
+    {
+        $this->model_accounts->acc_delete($userid);
+        redirect('admin_accounts/homeowner');
+    }
+
+    function acc_updateuser($userid)
+    {
+       $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_message('is_unique', '{field} already exists!');
+        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+
+        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
+        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+        $this->form_validation->set_rules('role', 'Role', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['main_content'] = 'view_adminviewmore_user';
+            $this->load->view('includes/admin_viewmore_template', $data);
+        }
+        else
+        {
+            if($query = $this->model_accounts->acc_update($userid))
+             {
+                redirect('admin_accounts/homeowner');
+             }
+        }
+    }
+
+    function acc_updateadmin($userid)
+    {
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_message('is_unique', '{field} already exists!');
+        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+
+        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
+        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+        $this->form_validation->set_rules('role', 'Role', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['main_content'] = 'view_adminviewmore_admin';
+            $this->load->view('includes/admin_viewmore_template', $data);
+        }
+        else
+        {
+            if($query = $this->model_accounts->acc_update($userid))
+             {
+                redirect('admin_accounts/administrator');
+             }
+        }
+    }
+    function acc_updatedeact($userid)
+    {
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_message('is_unique', '{field} already exists!');
+        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+
+        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('password', 'Password', 'required'); //min_length[8]
+        $this->form_validation->set_rules('address', 'Address', 'required');
+        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+        $this->form_validation->set_rules('role', 'Role', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['main_content'] = 'view_adminviewmore_deact';
+            $this->load->view('includes/admin_viewmore_template', $data);
+        }
+        else
+        {
+            if($query = $this->model_accounts->acc_update())
+             {
+                redirect('admin_accounts/deactivated');
+             }
+        }
+    }
+
+	function acc_deact($userid)
+    {
+        $this->model_accounts->acc_deact($userid);
+        redirect('admin_accounts/deactivated');
+    }
+
+    function acc_reactivate($userid)
+    {
+        $this->model_accounts->acc_reactivate($userid);
+        redirect('admin_accounts/deactivated');
+    }
 }

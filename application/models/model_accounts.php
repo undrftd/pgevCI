@@ -236,13 +236,46 @@ class Model_accounts extends CI_Model {
          return $query->row();
     }
 
+     public function acc_delete($userid)
+    {
+        $this->db->select('*')->where('userid', $userid); 
+        $delete = $this->db->delete('accounts');
+        return $delete;
+    }
+
+    function acc_update($userid)
+    {
+         $account_update_data = array(
+            'firstname' => $this->input->post('firstname'),
+            'lastname' => $this->input->post('lastname'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
+            'address' => $this->input->post('address'),
+            'email' => $this->input->post('email'),
+            'contactnum' => $this->input->post('contactnum'),
+            'role' => $this->input->post('role')
+        );
+
+         $this->db->select('*')->where('userid', $userid); 
+         $update = $this->db->update('accounts', $account_update_data);
+         return $update;
+    }
   
       
-    /*function deactivate() 
+    function acc_deact($userid) 
     {
-        $id=$_GET['username'];
-        $this->db->set('0', $isActive);
-        $this->db->where('username', $id);
-        $this->db->update('accounts');
-    }*/
+        $account_deact_data = array('isActive' => 0);
+        $this->db->select('*')->where('userid', $userid); 
+        $deact = $this->db->update('accounts', $account_deact_data);
+        return $deact;
+    }
+
+    function acc_reactivate($userid) 
+    {
+        $account_react_data = array('isActive' => 1);
+        $this->db->select('*')->where('userid', $userid); 
+        $reactivate = $this->db->update('accounts', $account_react_data);
+        return $reactivate;
+    }
+
 }

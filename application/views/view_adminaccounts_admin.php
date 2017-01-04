@@ -117,7 +117,7 @@
                     <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
                   </td>
                   <td class="action-button mobile-important">
-                    <a href="<?php echo base_url() ."admin_accounts/viewmore/". $row->userid ?>"><button type="button" class="btn btn-custom-3">View More</button></a>
+                    <a href="<?php echo base_url() ."admin_accounts/viewmore_admin/". $row->userid ?>"><button type="button" class="btn btn-custom-3">View More</button></a>
                   </td>
 
                 <?php endforeach; ?>

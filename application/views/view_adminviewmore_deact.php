@@ -11,7 +11,7 @@
                     <div class="signin">
                         <div class="modal-body text-center">
                             <p> Are you sure you want to remove this user from the system? </p><br>
-                            <button type="submit" class="btn btn-custom-1">Yes</button>
+                            <a href="<?php echo base_url() ."admin_accounts/acc_delete/" . $view->userid?>""> <button type="submit" class="btn btn-custom-1">Yes</button>
                             <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -27,8 +27,8 @@
                 <div class="modal-content">
                     <div class="signin">
                         <div class="modal-body text-center">
-                            <p> Are you sure you want to deactivate this user from the system? </p><br>
-                            <a href="admin-accounts.html"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <p> Are you sure you want to reactivate this user from the system? </p><br>
+                            <a href="<?php echo base_url() ."admin_accounts/acc_reactivate/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -65,42 +65,56 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
 
               <div class="information">
-                <form>
+                <form action="<?php echo base_url() ."admin_accounts/acc_updatedeact/" . $view->userid ;?>" method="POST">
                   <fieldset id="myFieldset" disabled>
                   <div class="form-group">
                     <h4> User Credentials </h4>
                         <br>
                         <p> First Name </p>
-                        <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->firstname ?>">
+                        <input name ="firstname" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->firstname ?>">
+                        <p class="error"><?php echo form_error('firstname'); ?> </p>
                         <br>
+
                         <p> Last Name </p>
-                        <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->lastname ?>">
+                        <input name="lastname" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->lastname ?>">
+                        <p class="error"><?php echo form_error('lastname'); ?></p>
                         <br>
+
                         <p> Username </p>
-                        <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->username; ?>">
+                        <input name="username" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->username; ?>">
+                        <p class="error"><?php echo form_error('username'); ?></p>
                         <br>
+
                         <p> Address </p>
-                        <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->address; ?>">
+                        <input name="address" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->address; ?>">
+                        <p class="error"><?php echo form_error('address'); ?></p>
                         <br>
+
                         <p> E-mail Address </p>
-                        <input class="form-control" id="sel1" type="email" placeholder="" value="<?php echo $view->email ?>">
+                        <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo $view->email ?>">
+                        <p class="error"><?php echo form_error('email'); ?> </p>
                         <br>
+
                         <p> Contact Number </p>
-                        <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->contactnum; ?>">
+                        <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->contactnum; ?>">
+                        <p class="error"><?php echo form_error('contactnum'); ?> </p>
                         <br>
+
                         <p> Role </p>
-                        <select class="form-control" id="sel1">
-                          <option value="" selected hidden> <?php if($view->role == 0) { echo "Homeowner"; } else { echo "Administrator";  } ?> </option>
+                        <select name ="role" class="form-control" id="sel1">
+                          <option value=<?php if($view->role == 0) { echo "1"; } else { echo "0";  } ?>"" selected hidden> <?php if($view->role == 0) { echo "Homeowner"; } else { echo "Administrator";  } ?> </option>
                           <option value="0">Homeowner</option>
                           <option value= "1">Administrator</option>
-                        </select> 
+                        </select>
+                        <p class="error"> <?php echo form_error('role'); ?></p> 
                       </fieldset>
+                      <br><br>
+                      <input class="btn btn-custom" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
                     </form>
-                        <br><br>
-                        <input class="btn btn-custom" type="button" value="Edit" onclick="undisableField()" id="edit-button"></input><br>
+                        <button class="btn btn-custom" onclick="undisableField()" id="edit-button">Edit</button>
+                        <br>
                         <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button><br><br>
-                        <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
-
+                        <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Reactivate </button>
                 </div>
               </div>
             </div>

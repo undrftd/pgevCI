@@ -138,6 +138,13 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+.error {
+  font-style: italic;
+  color: #e74c3c;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
 .btn-custom-1 {
   display: block;
   color: #4a4a4a;
