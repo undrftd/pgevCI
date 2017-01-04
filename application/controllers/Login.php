@@ -20,7 +20,6 @@ class Login extends CI_Controller
         {
             $data = array(
                 'username' => $this->input->post('username'),
-                 'name'   => $user->name,
                 'is_logged_in' => true
             );
 

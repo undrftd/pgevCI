@@ -124,6 +124,7 @@ class Admin_Accounts extends MY_Controller {
         {
             if($query = $this->model_accounts->create_account())
              {
+                $this->session->set_flashdata('update', 'You have successfully added an account.');
                 redirect('admin_accounts/homeowner');
              }
         }
