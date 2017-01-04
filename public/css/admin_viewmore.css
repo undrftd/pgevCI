@@ -1,0 +1,291 @@
+body {
+   overflow-x: hidden;
+   font-family: 'Roboto', sans-serif;
+}
+
+/* Toggle Styles */
+
+#wrapper {
+   padding-left: 0;
+   -webkit-transition: all 0.5s ease;
+   -moz-transition: all 0.5s ease;
+   -o-transition: all 0.5s ease;
+   transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+   padding-left: 200px;
+}
+
+#sidebar-wrapper {
+   z-index: 1000;
+   position: fixed;
+   left: 1px;
+   width: 0;
+   height: 100%;
+   margin-left: -100px;
+   overflow-y: auto;
+   background: #27ae60;
+   -webkit-transition: all 0.5s ease;
+   -moz-transition: all 0.5s ease;
+   -o-transition: all 0.5s ease;
+   transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+   width: 270px;
+}
+
+#page-content-wrapper {
+   width: 100%;
+   position: absolute;
+   padding: 20px;
+}
+
+#page-content-wrapper h1 {
+   border-left: 15px solid #27ae60;
+   font-family: 'League-Gothic', sans-serif;
+   text-transform: uppercase;
+   font-size: 4.45em;
+   padding-left: 10px;
+}
+
+#page-content-wrapper h2 {
+   font-family: 'League-Gothic', sans-serif;
+   font-size: 3.25em;
+}
+
+#wrapper.toggled #page-content-wrapper {
+   position: absolute;
+   margin-right: -370px;
+}
+
+.row {
+  width: 100%;
+}
+
+.information {
+    padding: 30px;
+    background: white;
+    font-family: 'Roboto';
+    font-size: 1.1em;
+    -webkit-box-shadow: 2px 4px 13px -1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 2px 4px 13px -1px rgba(0,0,0,0.43);
+    box-shadow: 2px 4px 13px -1px rgba(0,0,0,0.43);
+    width: 100%;
+}
+
+.information p {
+  color: #4a4a4a;
+  font-size: 1.1em;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+   position: absolute;
+   top: 0;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   background: #27ae60;
+   font-family: 'Roboto', sans-serif;
+}
+
+.sidebar-nav li {
+   line-height: 60px;
+   text-indent: 100px;
+}
+
+.sidebar-nav li a {
+   display: block;
+   text-decoration: none;
+   color: #ecf0f1;
+   transition: all ease-in-out 0.3s;
+   font-size: 13px;
+}
+
+.sidebar-nav li a:hover {
+   text-decoration: none;
+   color: #fff;
+   background: rgba(255,255,255,0.2);
+}
+
+.active {
+   background: rgba(255,255,255,0.2);
+}
+
+
+.menu-toggle {
+   float: right;
+}
+
+.table-responsive, a {
+   font-family: 'Roboto';
+}
+
+.btn-custom {
+  display: block;
+  color: white;
+  font-family: 'Roboto';
+  background-color: #27ae60;
+  padding: 10px;
+  width: 100%;
+  border-radius: 0;
+  font-size: 0.9em;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+
+.error {
+  font-style: italic;
+  color: #e74c3c;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+.btn-custom-1 {
+  display: block;
+  color: #4a4a4a;
+  font-family: 'Roboto';
+  background-color: #e1e1e1;
+  padding: 15px;
+  width: 170px;
+  border-radius: 0;
+  font-size: 1em;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-custom-2 {
+  display: block;
+  color: white;
+  font-family: 'Roboto';
+  background-color: #27ae60;
+  padding: 15px;
+  width: 170px;
+  border-radius: 0;
+  font-size: 1em;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-custom-3 {
+  color: #4a4a4a;
+  font-family: 'Roboto';
+  background-color: #e1e1e1;
+  padding: 10px;
+  width: 100%;
+  border-radius: 0;
+  font-size: 0.9em;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-custom-4 {
+  color: white;
+  font-family: 'Roboto';
+  background-color: #595959;
+  padding: 10px;
+  width: 100%;
+  border-radius: 0;
+  font-size: 0.9em;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+
+p {
+  font-size: 1.2em;
+  font-family: 'Roboto';
+  font-weight: 300;
+}
+
+.article-date {
+  font-style: italic;
+}
+
+#sel1 {
+  border-radius: 2px;
+  color: #696969;
+  box-shadow: none;
+  border: 1px solid #e1e1e1;
+  height: 40px;
+}
+
+.form-group {
+    color: #696969;
+}
+
+.form-group label {
+  font-weight: 400;
+}
+
+.form-group p {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.modal-content {
+    padding: 25px 20px 25px 20px;
+    border: none;
+}
+
+
+.modal-body p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: #4a4a4a;
+}
+
+.modal-body button {
+  display: inline-block;
+  margin: 1%;
+}
+
+@media(min-width:768px) {
+   #wrapper {
+       padding-left: 200px;
+   }
+
+   #wrapper.toggled {
+       padding-left: 0;
+   }
+
+   #sidebar-wrapper {
+       width: 270px;
+   }
+
+   #wrapper.toggled #sidebar-wrapper {
+       width: 0;
+   }
+
+   #page-content-wrapper {
+       padding: 20px;
+       position: relative;
+   }
+
+   #wrapper.toggled #page-content-wrapper {
+       position: relative;
+       margin-right: 0;
+   }
+}
+
+@media(max-width:768px) {
+
+  body {
+    margin: 0 auto;
+    margin-left: 15px;
+  }
+
+}
+
+@font-face {
+    font-family: 'League-Gothic';
+    src: url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fontsLeagueGothic-Regular.eot?#iefix') format('embedded-opentype'),
+         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.woff') format('woff'),
+         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.ttf')  format('truetype'),
+         url('C:/Users/Y50-70/Desktop/UST 4ISC/Parkwood Front-End/fonts/LeagueGothic-Regular.svg#svgFontName') format('svg');
+    }

@@ -4,8 +4,6 @@ class Admin_Accounts extends MY_Controller {
 
  	function homeowner()
     {
-    	$this->load->model('model_accounts');
-
         $config['base_url'] = site_url('admin_accounts/homeowner');
         $config['total_rows'] = $this->model_accounts->count_homeowner();
         $config['per_page'] =  20;
@@ -35,8 +33,6 @@ class Admin_Accounts extends MY_Controller {
 
     function administrator()
     {
-        $this->load->model('model_accounts');
-        
         $config_admin['base_url'] = site_url('admin_accounts/administrator');
         $config_admin['total_rows'] = $this->model_accounts->count_admin();
         $config_admin['per_page'] =  20;
@@ -66,8 +62,6 @@ class Admin_Accounts extends MY_Controller {
 
     function deactivated()
     {
-        $this->load->model('model_accounts');
-
         $config_deact['base_url'] = site_url('admin_accounts/deactivated');
         $config_deact['total_rows'] = $this->model_accounts->count_deact();
         $config_deact['per_page'] =  20;
@@ -99,24 +93,27 @@ class Admin_Accounts extends MY_Controller {
     {
     	$data['main_content'] = 'view_adminaddaccounts';
 		$this->load->view('includes/admin_addaccount_template', $data);
-    	$this->load->model('model_accounts');
 	}
+
+    function alpha_dash_space($str)
+    {
+        return ( ! preg_match("/^([a-z ])+$/i", $str)) ? FALSE : TRUE;
+    } 
 
 	function createuser()
     {
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');
+        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
 
-        $this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
-        $this->form_validation->set_rules('lastname', 'Last Name', 'required|alpha');
+        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
         $this->form_validation->set_rules('password', 'Password', 'required'); //min_length[8]
-        $this->form_validation->set_rules('address', 'Address', 'required');
+        $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
         $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
         $this->form_validation->set_rules('role', 'Role', 'required');
-
-        $this->load->model('model_accounts');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -127,14 +124,13 @@ class Admin_Accounts extends MY_Controller {
         {
             if($query = $this->model_accounts->create_account())
              {
-                redirect('admin_accounts');
+                redirect('admin_accounts/homeowner');
              }
         }
 	}
 
     function search_homeowner()
     {
-         $this->load->model('model_accounts');
          $searchquery = $this->input->get('search', TRUE);
          $searchmodelquery = $this->model_accounts->search_homeowner($searchquery);
 
@@ -179,7 +175,6 @@ class Admin_Accounts extends MY_Controller {
 
     function search_admin()
     {
-         $this->load->model('model_accounts');
          $searchquery = $this->input->get('search', TRUE);
          $searchmodelquery = $this->model_accounts->search_admin($searchquery);
 
@@ -223,7 +218,6 @@ class Admin_Accounts extends MY_Controller {
 
     function search_deact()
     {
-         $this->load->model('model_accounts');
          $searchquery = $this->input->get('search');
          $searchmodelquery = $this->model_accounts->search_deact($searchquery);
 
@@ -264,15 +258,129 @@ class Admin_Accounts extends MY_Controller {
 
     }
 
-
-	/*function acc_deactivate()
+    function viewmore_user($userid)
     {
-    	if(isset($_GET['userid']))
-    	{
-        	$id=$_GET['userid'];
-        	$this->load->model('model_accounts');
-        	$this->model_accounts->deactivate($id);
-       		redirect('admin_accounts');
-    	}
-	}*/
+        $data['view'] = $this->model_accounts->viewmore_user($userid);
+        $data['main_content'] = 'view_adminviewmore_user';
+        $this->load->view('includes/admin_viewmore_template', $data);
+    }
+
+    function viewmore_admin($userid)
+    {
+        $data['view'] = $this->model_accounts->viewmore_user($userid);
+        $data['main_content'] = 'view_adminviewmore_admin';
+        $this->load->view('includes/admin_viewmore_template', $data);
+    }
+    
+    function viewmore_deact($userid)
+    {
+        $data['view'] = $this->model_accounts->viewmore_user($userid);
+        $data['main_content'] = 'view_adminviewmore_deact';
+        $this->load->view('includes/admin_viewmore_template', $data);
+    }
+
+    function acc_delete($userid)
+    {
+        $this->model_accounts->acc_delete($userid);
+        redirect('admin_accounts/homeowner');
+    }
+
+    function acc_updateuser($userid)
+    {
+       $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_message('is_unique', '{field} already exists!');
+        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+
+        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
+        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+        $this->form_validation->set_rules('role', 'Role', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['main_content'] = 'view_adminviewmore_user';
+            $this->load->view('includes/admin_viewmore_template', $data);
+        }
+        else
+        {
+            if($query = $this->model_accounts->acc_update($userid))
+             {
+                redirect('admin_accounts/homeowner');
+             }
+        }
+    }
+
+    function acc_updateadmin($userid)
+    {
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_message('is_unique', '{field} already exists!');
+        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+
+        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
+        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+        $this->form_validation->set_rules('role', 'Role', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['main_content'] = 'view_adminviewmore_admin';
+            $this->load->view('includes/admin_viewmore_template', $data);
+        }
+        else
+        {
+            if($query = $this->model_accounts->acc_update($userid))
+             {
+                redirect('admin_accounts/administrator');
+             }
+        }
+    }
+    function acc_updatedeact($userid)
+    {
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_message('is_unique', '{field} already exists!');
+        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+
+        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('password', 'Password', 'required'); //min_length[8]
+        $this->form_validation->set_rules('address', 'Address', 'required');
+        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+        $this->form_validation->set_rules('role', 'Role', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['main_content'] = 'view_adminviewmore_deact';
+            $this->load->view('includes/admin_viewmore_template', $data);
+        }
+        else
+        {
+            if($query = $this->model_accounts->acc_update())
+             {
+                redirect('admin_accounts/deactivated');
+             }
+        }
+    }
+
+	function acc_deact($userid)
+    {
+        $this->model_accounts->acc_deact($userid);
+        redirect('admin_accounts/deactivated');
+    }
+
+    function acc_reactivate($userid)
+    {
+        $this->model_accounts->acc_reactivate($userid);
+        redirect('admin_accounts/deactivated');
+    }
 }

@@ -82,6 +82,7 @@
                   <br>
 
                   <button type="submit" class="btn btn-custom">Add user</button></a>
+                  </form>
                 </div>
               </div>
               <br>

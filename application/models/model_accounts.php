@@ -64,7 +64,6 @@ class Model_accounts extends CI_Model {
 
     function validate() 
     {
-
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $query = $this->db->get('accounts');
@@ -81,7 +80,6 @@ class Model_accounts extends CI_Model {
 
     function check_role() 
     {
-        
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $this->db->where('role', 1);
@@ -100,7 +98,6 @@ class Model_accounts extends CI_Model {
 
     function check_active() 
     {
-        
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $this->db->where('isActive', 1);
@@ -232,12 +229,53 @@ class Model_accounts extends CI_Model {
         }
 
     }
-      
-    /*function deactivate() 
+    
+    public function viewmore_user($userid)
     {
-        $id=$_GET['username'];
-        $this->db->set('0', $isActive);
-        $this->db->where('username', $id);
-        $this->db->update('accounts');
-    }*/
+         $query= $this->db->select('*')->where('userid', $userid)->get('accounts',1); 
+         return $query->row();
+    }
+
+     public function acc_delete($userid)
+    {
+        $this->db->select('*')->where('userid', $userid); 
+        $delete = $this->db->delete('accounts');
+        return $delete;
+    }
+
+    function acc_update($userid)
+    {
+         $account_update_data = array(
+            'firstname' => $this->input->post('firstname'),
+            'lastname' => $this->input->post('lastname'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
+            'address' => $this->input->post('address'),
+            'email' => $this->input->post('email'),
+            'contactnum' => $this->input->post('contactnum'),
+            'role' => $this->input->post('role')
+        );
+
+         $this->db->select('*')->where('userid', $userid); 
+         $update = $this->db->update('accounts', $account_update_data);
+         return $update;
+    }
+  
+      
+    function acc_deact($userid) 
+    {
+        $account_deact_data = array('isActive' => 0);
+        $this->db->select('*')->where('userid', $userid); 
+        $deact = $this->db->update('accounts', $account_deact_data);
+        return $deact;
+    }
+
+    function acc_reactivate($userid) 
+    {
+        $account_react_data = array('isActive' => 1);
+        $this->db->select('*')->where('userid', $userid); 
+        $reactivate = $this->db->update('accounts', $account_react_data);
+        return $reactivate;
+    }
+
 }
