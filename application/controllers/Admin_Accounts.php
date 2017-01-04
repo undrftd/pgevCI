@@ -204,7 +204,6 @@ class Admin_Accounts extends MY_Controller {
             $this->pagination->initialize($config);
             $data['adminlinks'] = $this->pagination->create_links();
             
-            //$data['users'] = $this->model_accounts->search_homeowner();
             $data['admin'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $data['main_content'] = 'view_adminaccounts_admin';
             
@@ -281,11 +280,12 @@ class Admin_Accounts extends MY_Controller {
 
     function acc_delete($userid)
     {
+        $this->session->set_flashdata('update', 'You have successfully deleted the account.');
         $this->model_accounts->acc_delete($userid);
         redirect('admin_accounts/homeowner');
     }
 
-    function acc_updateuser($userid)
+    function acc_updateuser($userid)    
     {
        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -293,7 +293,7 @@ class Admin_Accounts extends MY_Controller {
 
         $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
         $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
         $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
         $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
@@ -309,6 +309,7 @@ class Admin_Accounts extends MY_Controller {
         {
             if($query = $this->model_accounts->acc_update($userid))
              {
+                $this->session->set_flashdata('update', 'You have successfully updated the account.');
                 redirect('admin_accounts/homeowner');
              }
         }
@@ -322,7 +323,7 @@ class Admin_Accounts extends MY_Controller {
 
         $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
         $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
         $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
         $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
@@ -338,6 +339,7 @@ class Admin_Accounts extends MY_Controller {
         {
             if($query = $this->model_accounts->acc_update($userid))
              {
+                $this->session->set_flashdata('update', 'You have successfully updated the account.');
                 redirect('admin_accounts/administrator');
              }
         }
@@ -350,8 +352,7 @@ class Admin_Accounts extends MY_Controller {
 
         $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
         $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
-        $this->form_validation->set_rules('password', 'Password', 'required'); //min_length[8]
+        $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
         $this->form_validation->set_rules('address', 'Address', 'required');
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
         $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
@@ -365,8 +366,9 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            if($query = $this->model_accounts->acc_update())
+            if($query = $this->model_accounts->acc_update($userid))
              {
+                $this->session->set_flashdata('update', 'You have successfully updated the account.');
                 redirect('admin_accounts/deactivated');
              }
         }
@@ -375,11 +377,13 @@ class Admin_Accounts extends MY_Controller {
 	function acc_deact($userid)
     {
         $this->model_accounts->acc_deact($userid);
+        $this->session->set_flashdata('update', 'You have successfully deactivated the account.');
         redirect('admin_accounts/deactivated');
     }
 
     function acc_reactivate($userid)
     {
+        $this->session->set_flashdata('update', 'You have successfully reactivated the account.');
         $this->model_accounts->acc_reactivate($userid);
         redirect('admin_accounts/deactivated');
     }

@@ -84,11 +84,13 @@
 
     <div class="portlet-body">
 
+    <?php if ($this->session->flashdata('update')){ ?>
       <div class="success-message text-center" id="prompt-message">
         <h3> Hello, Admin... </h3>
-        <p> Your have successfully added or edited or deleted or deactivated a user. </p><br>
+        <p> <?php echo $this->session->flashdata('update'); ?> </p><br>
         <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
       </div>
+    <?php } ?>
 
       <br>
 

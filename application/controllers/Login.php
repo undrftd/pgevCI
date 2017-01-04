@@ -20,6 +20,7 @@ class Login extends CI_Controller
         {
             $data = array(
                 'username' => $this->input->post('username'),
+                 'name'   => $user->name,
                 'is_logged_in' => true
             );
 
@@ -58,7 +59,6 @@ class Login extends CI_Controller
         }
         else if($valid == false) //Invalid Account
         {
-
             $data['main_content'] = 'view_login';
             $data['message'] = "The username and password you entered did not match our records. Please double-check and try again. ";
             $this->load->view('includes/login_template', $data);
