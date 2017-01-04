@@ -86,7 +86,7 @@
 
       <div class="success-message text-center" id="prompt-message">
         <h3> Hello, Admin... </h3>
-        <p> Your have successfully added or edited or deleted or deactivated a user. </p><br>
+        <p> Your have successfully reactivated a user. </p><br>
         <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
       </div>
 
