@@ -67,9 +67,20 @@ class Model_accounts extends CI_Model {
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
         $query = $this->db->get('accounts');
+        $result = $query->row();
 
         if($query->num_rows() == 1)
         {
+         $data = array(
+                'username' => $result->username, 
+                'password' => $result->password,
+                'firstname' => $result->firstname,
+                'lastname' => $result->lastname,
+                'address' => $result->address,
+                'role' => $result->role,
+                'is_logged_in' => true
+            );
+            $this->session->set_userdata($data);
             return true;    
         }
         else
@@ -84,10 +95,20 @@ class Model_accounts extends CI_Model {
         $this->db->where('password', $this->input->post('password'));
         $this->db->where('role', 1);
         $query = $this->db->get('accounts');
-        
+        $result = $query->row();
+
         if($query->num_rows() == 1)
         {
-        
+             $data = array(
+                'username' => $result->username, 
+                'password' => $result->password,
+                'firstname' => $result->firstname,
+                'lastname' => $result->lastname,
+                'address' => $result->address,
+                'role' => $result->role,
+                'is_logged_in' => true
+            );
+            $this->session->set_userdata($data);
             return true;    
         }
         else 
@@ -102,9 +123,20 @@ class Model_accounts extends CI_Model {
         $this->db->where('password', $this->input->post('password'));
         $this->db->where('isActive', 1);
         $query = $this->db->get('accounts');
-        
+        $result = $query->row();
+
         if($query->num_rows() == 1)
         {
+            $data = array(
+                'username' => $result->username, 
+                'password' => $result->password,
+                'firstname' => $result->firstname,
+                'lastname' => $result->lastname,
+                'address' => $result->address,
+                'role' => $result->role,
+                'is_logged_in' => true
+            );
+            $this->session->set_userdata($data);
             return true;    
         }
         else 
@@ -154,25 +186,6 @@ class Model_accounts extends CI_Model {
                             ->where('(isActive = 0)',NULL,FALSE)
                             ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
          return $query->num_rows();
-    }
-
-    function search_handler($searchquery)
-    {
-        if($searchquery)
-        {
-             $this->session->set_userdata('search', $searchquery);
-             return $searchquery;
-        }
-        else if($this->session->userdata('search'))
-        {
-            $searchquery = $this->session->userdata('search');
-            return $searchquery;
-        }
-        else
-        {
-            $searchquery ="";
-            return $searchquery;
-        }
     }
 
     function search_homeowner($searchquery)
