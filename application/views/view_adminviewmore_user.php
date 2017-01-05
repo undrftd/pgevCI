@@ -11,7 +11,7 @@
                     <div class="signin">
                         <div class="modal-body text-center">
                             <p> Are you sure you want to remove this user from the system? </p><br>
-                            <a href="<?php echo base_url() ."admin_accounts/acc_delete/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <a href="<?php echo base_url() ."admin_accounts/accdelete_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                     <div class="signin">
                         <div class="modal-body text-center">
                             <p> Are you sure you want to deactivate this user from the system? </p><br>
-                            <a href="<?php echo base_url() ."admin_accounts/acc_deact/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <a href="<?php echo base_url() ."admin_accounts/accdeact_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 
               <div class="information">
-                <form action="<?php echo base_url() ."admin_accounts/acc_updateuser/" . $view->userid ;?>" method="POST">
+                <form action="<?php echo base_url() ."admin_accounts/accupdate_user/" . $view->userid ;?>" method="POST">
                   <fieldset id="myFieldset" disabled>
                   <div class="form-group">
                     <h4> User Credentials </h4>

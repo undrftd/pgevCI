@@ -304,9 +304,8 @@ class Admin_Accounts extends MY_Controller {
         }  
     }
 
-    function acc_delete($userid)
+    function accdelete_user($userid)
     {
-       //print_r($this->session->userdata); 
         if($userid != $this->session->userdata('userid'))
         {
             $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
@@ -315,12 +314,42 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('feedback', 'You can not delete your own account.');
+            $this->session->set_flashdata('fail', 'You can not delete your own account.');
             redirect('admin_accounts/homeowner');
         }
     }
+    
+    function accdelete_admin($userid)
+    {
+        if($userid != $this->session->userdata('userid'))
+        {
+            $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
+            $this->model_accounts->acc_delete($userid);
+            redirect('admin_accounts/administrator');
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'You can not delete your own account.');
+            redirect('admin_accounts/administrator');
+        }  
+    }
 
-    function acc_updateuser($userid)    
+    function accdelete_deact($userid)
+    {
+        if($userid != $this->session->userdata('userid'))
+        {
+            $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
+            $this->model_accounts->acc_delete($userid);
+            redirect('admin_accounts/deactivated');
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'You can not delete your own account.');
+            redirect('admin_accounts/deactivated');
+        }  
+    }
+
+    function accupdate_user($userid)    
     {
        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -350,7 +379,7 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function acc_updateadmin($userid)
+    function accupdate_admin($userid)
     {
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -379,7 +408,7 @@ class Admin_Accounts extends MY_Controller {
              }
         }
     }
-    function acc_updatedeact($userid)
+    function accupdate_deact($userid)
     {
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -409,11 +438,34 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-	function acc_deact($userid)
+	function accdeact_user($userid)
     {
-        $this->model_accounts->acc_deact($userid);
-        $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
-        redirect('admin_accounts/deactivated');
+        if($userid != $this->session->userdata('userid'))
+        {
+            $this->model_accounts->acc_deact($userid);
+            $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
+            redirect('admin_accounts/homeowner');
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'You can not deactivate your own account.');
+            redirect('admin_accounts/homeowner');
+        }
+    }
+
+    function accdeact_admin($userid)
+    {
+        if($userid != $this->session->userdata('userid'))
+        {
+            $this->model_accounts->acc_deact($userid);
+            $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
+            redirect('admin_accounts/administrator');
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'You can not deactivate your own account.');
+            redirect('admin_accounts/administrator');
+        }
     }
 
     function acc_reactivate($userid)
