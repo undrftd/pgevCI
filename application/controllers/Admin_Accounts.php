@@ -282,9 +282,17 @@ class Admin_Accounts extends MY_Controller {
     function acc_delete($userid)
     {
        //print_r($this->session->userdata); 
-        $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
-        $this->model_accounts->acc_delete($userid);
-        redirect('admin_accounts/homeowner');
+        if($userid != $this->session->userdata('userid'))
+        {
+            $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
+            $this->model_accounts->acc_delete($userid);
+            redirect('admin_accounts/homeowner');
+        }
+        else
+        {
+            $this->session->set_flashdata('feedback', 'You can not delete your own account.');
+            redirect('admin_accounts/homeowner');
+        }
     }
 
     function acc_updateuser($userid)    

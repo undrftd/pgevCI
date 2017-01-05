@@ -72,6 +72,7 @@ class Model_accounts extends CI_Model {
         if($query->num_rows() == 1)
         {
          $data = array(
+                'userid' => $result->userid, 
                 'username' => $result->username, 
                 'password' => $result->password,
                 'firstname' => $result->firstname,
@@ -100,6 +101,7 @@ class Model_accounts extends CI_Model {
         if($query->num_rows() == 1)
         {
              $data = array(
+                'userid' => $result->userid, 
                 'username' => $result->username, 
                 'password' => $result->password,
                 'firstname' => $result->firstname,
@@ -128,6 +130,7 @@ class Model_accounts extends CI_Model {
         if($query->num_rows() == 1)
         {
             $data = array(
+                'userid' => $result->userid, 
                 'username' => $result->username, 
                 'password' => $result->password,
                 'firstname' => $result->firstname,
@@ -262,7 +265,6 @@ class Model_accounts extends CI_Model {
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
             'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
             'address' => $this->input->post('address'),
             'email' => $this->input->post('email'),
             'contactnum' => $this->input->post('contactnum'),
