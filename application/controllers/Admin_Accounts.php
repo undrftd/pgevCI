@@ -273,7 +273,6 @@ class Admin_Accounts extends MY_Controller {
         }  
     }
 
-
     function viewmore_admin($userid)
     {
         if($this->model_accounts->url_check($userid))
