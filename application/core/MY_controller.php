@@ -7,6 +7,7 @@ class MY_Controller extends CI_Controller
         parent::__construct();
         $this->is_logged_in();
         $this->load->model('model_accounts');
+        $this->load->model('model_dues');
     }
 
     function is_logged_in() 
