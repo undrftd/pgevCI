@@ -249,13 +249,31 @@ class Model_accounts extends CI_Model {
 
     }
     
-    public function viewmore_user($userid)
+    function viewmore_user($userid)
     {
          $query= $this->db->select('*')->where('userid', $userid)->get('accounts',1); 
          return $query->row();
     }
 
-     public function acc_delete($userid)
+    function url_check($userid)
+    {
+        $query= $this->db->select('userid')->where('userid', $userid)->get('accounts',1); 
+        
+        foreach($query->result() as $row):
+        
+            if($userid == $row->userid)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        
+        endforeach;
+    }
+
+    function acc_delete($userid)
     {
         $this->db->select('*')->where('userid', $userid); 
         $delete = $this->db->delete('accounts');

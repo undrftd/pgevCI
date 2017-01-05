@@ -260,23 +260,48 @@ class Admin_Accounts extends MY_Controller {
 
     function viewmore_user($userid)
     {
-        $data['view'] = $this->model_accounts->viewmore_user($userid);
-        $data['main_content'] = 'view_adminviewmore_user';
-        $this->load->view('includes/admin_viewmore_template', $data);
+        if($this->model_accounts->url_check($userid))
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['main_content'] = 'view_adminviewmore_user';
+            $this->load->view('includes/admin_viewmore_template', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'There is no account associated with that User ID. Please double-check the User ID.');
+            redirect('admin_accounts/homeowner');
+        }  
     }
+
 
     function viewmore_admin($userid)
     {
-        $data['view'] = $this->model_accounts->viewmore_user($userid);
-        $data['main_content'] = 'view_adminviewmore_admin';
-        $this->load->view('includes/admin_viewmore_template', $data);
+        if($this->model_accounts->url_check($userid))
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['main_content'] = 'view_adminviewmore_admin';
+            $this->load->view('includes/admin_viewmore_template', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'There is no account associated with that User ID. Please double-check the User ID.');
+            redirect('admin_accounts/administrator');
+        }  
     }
     
     function viewmore_deact($userid)
     {
-        $data['view'] = $this->model_accounts->viewmore_user($userid);
-        $data['main_content'] = 'view_adminviewmore_deact';
-        $this->load->view('includes/admin_viewmore_template', $data);
+        if($this->model_accounts->url_check($userid))
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['main_content'] = 'view_adminviewmore_deact';
+            $this->load->view('includes/admin_viewmore_template', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'There is no account associated with that User ID. Please double-check the User ID.');
+            redirect('admin_accounts/deactivated');
+        }  
     }
 
     function acc_delete($userid)

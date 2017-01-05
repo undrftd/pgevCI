@@ -92,6 +92,14 @@
       </div>
     <?php } ?>
 
+    <?php if ($this->session->flashdata('fail')){ ?>
+      <div class="success-message text-center" id="prompt-message">
+        <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+        <p> <?php echo $this->session->flashdata('fail'); ?> </p><br>
+        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+      </div>
+    <?php } ?>
+
       <br>
 
       <div class="tab-content">
