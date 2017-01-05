@@ -77,6 +77,7 @@ class Model_accounts extends CI_Model {
                 'password' => $result->password,
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
+                'email' => $result->email,
                 'address' => $result->address,
                 'role' => $result->role,
                 'is_logged_in' => true
@@ -106,6 +107,7 @@ class Model_accounts extends CI_Model {
                 'password' => $result->password,
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
+                'email' => $result->email,
                 'address' => $result->address,
                 'role' => $result->role,
                 'is_logged_in' => true
@@ -135,6 +137,7 @@ class Model_accounts extends CI_Model {
                 'password' => $result->password,
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
+                'email' => $result->email,
                 'address' => $result->address,
                 'role' => $result->role,
                 'is_logged_in' => true
