@@ -22,12 +22,10 @@ class Login extends CI_Controller
     }
     else if(($valid && $isActive) && $isAdmin == false)  // Active User
     {
-
         redirect('user_home');
     }
     else if(($valid && $isAdmin) && $isActive == false)  //Deactivated Admin
     {
-
         redirect('login/admindeact');
     }
     else if($valid && ($isActive && $isAdmin) == false) //Deactivated User
