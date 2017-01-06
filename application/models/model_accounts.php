@@ -251,13 +251,61 @@ class Model_accounts extends CI_Model {
     
     function viewmore_user($userid)
     {
-         $query= $this->db->select('*')->where('userid', $userid)->get('accounts',1); 
+         $query= $this->db->select('*')->where('userid', $userid)->where('role', 0)->get('accounts',1); 
          return $query->row();
     }
 
-    function url_check($userid)
+    function viewmore_admin($userid)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->get('accounts',1); 
+         $query= $this->db->select('*')->where('userid', $userid)->where('role', 1)->get('accounts',1); 
+         return $query->row();
+    }
+
+    function viewmore_deact($userid)
+    {
+         $query= $this->db->select('*')->where('userid', $userid)->where('isActive', 0)->get('accounts',1); 
+         return $query->row();
+    }
+
+    function url_check_user($userid)
+    {
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->get('accounts',1); 
+        
+        foreach($query->result() as $row):
+        
+            if($userid == $row->userid)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        
+        endforeach;
+    }
+
+    function url_check_admin($userid)
+    {
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->get('accounts',1); 
+        
+        foreach($query->result() as $row):
+        
+            if($userid == $row->userid)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        
+        endforeach;
+    }
+
+    function url_check_deact($userid)
+    {
+        $query= $this->db->select('userid')->where('userid', $userid)->where('isActive', 0)->get('accounts',1); 
         
         foreach($query->result() as $row):
         

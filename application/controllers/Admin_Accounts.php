@@ -260,7 +260,7 @@ class Admin_Accounts extends MY_Controller {
 
     function viewmore_user($userid)
     {
-        if($this->model_accounts->url_check($userid))
+        if($this->model_accounts->url_check_user($userid))
         {
             $data['view'] = $this->model_accounts->viewmore_user($userid);
             $data['main_content'] = 'view_adminviewmore_user';
@@ -275,9 +275,9 @@ class Admin_Accounts extends MY_Controller {
 
     function viewmore_admin($userid)
     {
-        if($this->model_accounts->url_check($userid))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['view'] = $this->model_accounts->viewmore_admin($userid);
             $data['main_content'] = 'view_adminviewmore_admin';
             $this->load->view('includes/admin_viewmore_template', $data);
         }
@@ -290,9 +290,9 @@ class Admin_Accounts extends MY_Controller {
     
     function viewmore_deact($userid)
     {
-        if($this->model_accounts->url_check($userid))
+        if($this->model_accounts->url_check_deact($userid))
         {
-            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['view'] = $this->model_accounts->viewmore_deact($userid);
             $data['main_content'] = 'view_adminviewmore_deact';
             $this->load->view('includes/admin_viewmore_template', $data);
         }
@@ -305,7 +305,7 @@ class Admin_Accounts extends MY_Controller {
 
     function accdelete_user($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_user($userid))
         {
             $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
             $this->model_accounts->acc_delete($userid);
@@ -313,29 +313,37 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not delete your own account.');
+            $this->session->set_flashdata('fail', 'You can not delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/homeowner');
         }
     }
     
     function accdelete_admin($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
-            $this->model_accounts->acc_delete($userid);
-            redirect('admin_accounts/administrator');
+            if($userid != $this->session->userdata('userid'))
+            {
+                $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
+                $this->model_accounts->acc_delete($userid);
+                redirect('admin_accounts/administrator');
+            }
+            else
+            {
+                $this->session->set_flashdata('fail', 'You can not delete your own account.');
+                redirect('admin_accounts/administrator');
+            }
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not delete your own account.');
+            $this->session->set_flashdata('fail', 'You can not delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
         }  
     }
 
     function accdelete_deact($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_deact($userid))
         {
             $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
             $this->model_accounts->acc_delete($userid);
@@ -343,7 +351,7 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not delete your own account.');
+            $this->session->set_flashdata('fail', 'You can not delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/deactivated');
         }  
     }
@@ -439,7 +447,7 @@ class Admin_Accounts extends MY_Controller {
 
 	function accdeact_user($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_user($userid))
         {
             $this->model_accounts->acc_deact($userid);
             $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
@@ -447,30 +455,46 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not deactivate your own account.');
+            $this->session->set_flashdata('fail', 'You can not deactivate a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/homeowner');
         }
     }
 
     function accdeact_admin($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            $this->model_accounts->acc_deact($userid);
-            $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
-            redirect('admin_accounts/administrator');
+            if($userid != $this->session->userdata('userid'))
+            {
+                $this->model_accounts->acc_deact($userid);
+                $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
+                redirect('admin_accounts/administrator');
+            }
+            else
+            {
+                $this->session->set_flashdata('fail', 'You can not deactivate your own account.');
+                redirect('admin_accounts/administrator');
+            }
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not deactivate your own account.');
+            $this->session->set_flashdata('fail', 'You can not deactivate a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
         }
     }
 
     function acc_reactivate($userid)
     {
-        $this->session->set_flashdata('feedback', 'You have successfully reactivated the account.');
-        $this->model_accounts->acc_reactivate($userid);
-        redirect('admin_accounts/deactivated');
+        if($this->model_accounts->url_check_deact($userid))
+        {
+            $this->session->set_flashdata('feedback', 'You have successfully reactivated the account.');
+            $this->model_accounts->acc_reactivate($userid);
+            redirect('admin_accounts/deactivated');
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'You can not reactivate a non-existent account. Please double-check the User ID.');
+            redirect('admin_accounts/deactivated');
+        }
     }
 }
