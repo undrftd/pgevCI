@@ -285,7 +285,7 @@ class Model_accounts extends CI_Model {
 
     function url_check_user($userid)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->get('accounts',1); 
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1); 
         
         foreach($query->result() as $row):
         
@@ -303,7 +303,7 @@ class Model_accounts extends CI_Model {
 
     function url_check_admin($userid)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->get('accounts',1); 
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts',1); 
         
         foreach($query->result() as $row):
         
