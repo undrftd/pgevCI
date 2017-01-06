@@ -1,0 +1,105 @@
+<div id="page-content-wrapper">
+        <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
+        <br>
+        <br>
+
+        <div class="modal fade" id="delete-modal" role="dialog">
+
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="signin">
+                        <div class="modal-body text-center">
+                            <p> Are you sure you want to remove this from the list? </p><br><br>
+                            <button type="submit" class="btn btn-custom-1">Yes</button>
+                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="header-style">
+          <h1> Homeowner's Monthly Dues </h1>
+        </div>
+
+        <div class="portlet">
+
+          <div class="portlet-header">
+
+          <form class="form-inline">
+            <div class="form-group">
+              <input class="form-control" id="sel1" type="text" placeholder="Search for a homeowner...">
+            </div>
+            <a href="admin-accounts-add.html"><button type="button" class="btn btn-custom">Search</button></a><br><br>
+          </form>
+
+          </div>
+
+          <div class="portlet-title">
+
+            <div class="caption caption-red">
+              <span class="caption-subject bold font-yellow-crusta uppercase">
+              Balance </span>
+            </div>
+
+          </div>
+
+          <div class="portlet-body">
+
+            <div class="tab-content">
+
+              <div class="tab-pane fade in active" id="portlet_tab1">
+
+                <div class="table-responsive">
+
+                  <table class="table table-hover" id="tracking-table">
+
+                    <tr>
+                        <th><br>Homeowner's Name</th>
+                        <th><br>Address</th>
+                        <th><br>Monthly Dues</th>
+                        <th><br>Arrears</th>
+                        <th><br>Total Balance</th>
+                        <th><br>Action</th>
+                    </tr>
+
+                    <?php foreach ($accounts as $row):?>
+                    <tr>
+                        <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
+                        <td><?php echo $row->address; ?></td>
+                        <td><?php echo "₱" . " " . $row->monthly_dues; ?></td>
+                        <td><?php echo "₱" . " " . $row->arrears; ?></td>
+                        <td><?php echo "₱" . " "; echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
+                        <td class="action-button">
+                          <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
+                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                        </td>
+                    </tr>
+                  <?php endforeach; ?>
+
+                  </table>
+                  <center><div id="pagination-link"><?php echo $accountlinks; ?></div></center>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <br><br>
+
+        <br><br>
+
+          </div>
+
+        </div>
+
+        <br>
+
+      </div>

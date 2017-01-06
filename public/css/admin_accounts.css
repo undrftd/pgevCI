@@ -277,7 +277,17 @@ table td {
   color: #696969;
 }
 
-.success-message h3 {
+.error-message {
+  border: 1px solid #e74c3c;
+  padding: 15px;
+  color: #696969;
+}
+
+.error-message button {
+  background-color: #e74c3c;
+}
+
+.success-message h3, .error-message h3 {
   font-weight: 700;
   font-style: italic;
 }
