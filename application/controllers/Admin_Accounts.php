@@ -260,7 +260,7 @@ class Admin_Accounts extends MY_Controller {
 
     function viewmore_user($userid)
     {
-        if($this->model_accounts->url_check($userid))
+        if($this->model_accounts->url_check_user($userid))
         {
             $data['view'] = $this->model_accounts->viewmore_user($userid);
             $data['main_content'] = 'view_adminviewmore_user';
@@ -275,11 +275,21 @@ class Admin_Accounts extends MY_Controller {
 
     function viewmore_admin($userid)
     {
-        if($this->model_accounts->url_check($userid))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            $data['view'] = $this->model_accounts->viewmore_user($userid);
-            $data['main_content'] = 'view_adminviewmore_admin';
-            $this->load->view('includes/admin_viewmore_template', $data);
+            if($userid != $this->session->userdata('userid'))
+            {
+                $data['view'] = $this->model_accounts->viewmore_admin($userid);
+                $data['main_content'] = 'view_adminviewmore_admin';
+                $this->load->view('includes/admin_viewmore_template', $data);
+            }
+            else
+            {
+                /*$data['view'] = $this->model_accounts->viewmore_admin($userid);
+                $data['main_content'] = 'view_adminviewmore_own';
+                $this->load->view('includes/admin_viewmore_template', $data);*/
+                redirect('admin_profile');
+            }
         }
         else
         {
@@ -290,9 +300,9 @@ class Admin_Accounts extends MY_Controller {
     
     function viewmore_deact($userid)
     {
-        if($this->model_accounts->url_check($userid))
+        if($this->model_accounts->url_check_deact($userid))
         {
-            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $data['view'] = $this->model_accounts->viewmore_deact($userid);
             $data['main_content'] = 'view_adminviewmore_deact';
             $this->load->view('includes/admin_viewmore_template', $data);
         }
@@ -305,7 +315,7 @@ class Admin_Accounts extends MY_Controller {
 
     function accdelete_user($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_user($userid))
         {
             $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
             $this->model_accounts->acc_delete($userid);
@@ -313,29 +323,37 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not delete your own account.');
+            $this->session->set_flashdata('fail', 'You cannot delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/homeowner');
         }
     }
     
     function accdelete_admin($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
-            $this->model_accounts->acc_delete($userid);
-            redirect('admin_accounts/administrator');
+            if($userid != $this->session->userdata('userid'))
+            {
+                $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
+                $this->model_accounts->acc_delete($userid);
+                redirect('admin_accounts/administrator');
+            }
+            else
+            {
+                $this->session->set_flashdata('fail', 'You cannot delete your own account.');
+                redirect('admin_accounts/administrator');
+            }
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not delete your own account.');
+            $this->session->set_flashdata('fail', 'You cannot delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
         }  
     }
 
     function accdelete_deact($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_deact($userid))
         {
             $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
             $this->model_accounts->acc_delete($userid);
@@ -343,103 +361,134 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not delete your own account.');
+            $this->session->set_flashdata('fail', 'You cannot delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/deactivated');
         }  
     }
 
     function accupdate_user($userid)    
     {
-       $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-        $this->form_validation->set_message('is_unique', '{field} already exists!');
-        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
-
-        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
-        $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
-        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
-        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
-        $this->form_validation->set_rules('role', 'Role', 'required');
-
-        if ($this->form_validation->run() == FALSE)
+        if($this->model_accounts->url_check_user($userid))
         {
-            $data['view'] = $this->model_accounts->viewmore_user($userid);
-            $data['main_content'] = 'view_adminviewmore_user';
-            $this->load->view('includes/admin_viewmore_template', $data);
+            $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+            $this->form_validation->set_message('is_unique', '{field} already exists!');
+            $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+
+            $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+            $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
+            $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
+            $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
+            $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+            $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+            $this->form_validation->set_rules('role', 'Role', 'required');
+
+            if ($this->form_validation->run() == FALSE)
+            {
+                $data['view'] = $this->model_accounts->viewmore_user($userid);
+                $data['main_content'] = 'view_adminviewmore_user';
+                $this->load->view('includes/admin_viewmore_template', $data);
+            }
+            else
+            {
+                if($query = $this->model_accounts->acc_update($userid))
+                 {
+                    $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
+                    redirect('admin_accounts/homeowner');
+                 }
+            }
         }
         else
         {
-            if($query = $this->model_accounts->acc_update($userid))
-             {
-                $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
-                redirect('admin_accounts/homeowner');
-             }
+            $this->session->set_flashdata('fail', 'You cannot update a non-existent account. Please double-check the User ID.');
+            redirect('admin_accounts/homeowner');
         }
     }
 
     function accupdate_admin($userid)
     {
-        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-        $this->form_validation->set_message('is_unique', '{field} already exists!');
-        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
-
-        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
-        $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
-        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
-        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
-        $this->form_validation->set_rules('role', 'Role', 'required');
-
-        if ($this->form_validation->run() == FALSE)
+        if($this->model_accounts->url_check_admin($userid))
         {
-            $data['view'] = $this->model_accounts->viewmore_user($userid);
-            $data['main_content'] = 'view_adminviewmore_admin';
-            $this->load->view('includes/admin_viewmore_template', $data);
+            if($userid != $this->session->userdata('userid'))
+            {
+                $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+                $this->form_validation->set_message('is_unique', '{field} already exists!');
+                $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+
+                $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+                $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
+                $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
+                $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
+                $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+                $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+                $this->form_validation->set_rules('role', 'Role', 'required');
+
+                if ($this->form_validation->run() == FALSE)
+                {
+                    $data['view'] = $this->model_accounts->viewmore_admin($userid);
+                    $data['main_content'] = 'view_adminviewmore_admin';
+                    $this->load->view('includes/admin_viewmore_template', $data);
+                }
+                else
+                {
+                    if($query = $this->model_accounts->acc_update($userid))
+                     {
+                        $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
+                        redirect('admin_accounts/administrator');
+                     }
+                }
+            }
+            else
+            {
+                redirect('admin_profile');  
+            }
         }
         else
         {
-            if($query = $this->model_accounts->acc_update($userid))
-             {
-                $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
-                redirect('admin_accounts/administrator');
-             }
+            $this->session->set_flashdata('fail', 'You cannot update a non-existent account. Please double-check the User ID.');
+            redirect('admin_accounts/administrator');
         }
     }
     function accupdate_deact($userid)
     {
-        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-        $this->form_validation->set_message('is_unique', '{field} already exists!');
-        $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
-
-        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
-        $this->form_validation->set_rules('address', 'Address', 'required');
-        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
-        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
-        $this->form_validation->set_rules('role', 'Role', 'required');
-
-        if ($this->form_validation->run() == FALSE)
+        if($this->model_accounts->url_check_deact($userid))
         {
-            $data['view'] = $this->model_accounts->viewmore_user($userid);
-            $data['main_content'] = 'view_adminviewmore_deact';
-            $this->load->view('includes/admin_viewmore_template', $data);
+            $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+            $this->form_validation->set_message('is_unique', '{field} already exists!');
+            $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+
+            $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
+            $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
+            $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
+            $this->form_validation->set_rules('address', 'Address', 'required');
+            $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+            $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+            $this->form_validation->set_rules('role', 'Role', 'required');
+
+            if ($this->form_validation->run() == FALSE)
+            {
+                $data['view'] = $this->model_accounts->viewmore_deact($userid);
+                $data['main_content'] = 'view_adminviewmore_deact';
+                $this->load->view('includes/admin_viewmore_template', $data);
+            }
+            else
+            {
+                if($query = $this->model_accounts->acc_update($userid))
+                 {
+                    $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
+                    redirect('admin_accounts/deactivated');
+                 }
+            }
         }
         else
         {
-            if($query = $this->model_accounts->acc_update($userid))
-             {
-                $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
-                redirect('admin_accounts/deactivated');
-             }
+            $this->session->set_flashdata('fail', 'You cannot update a non-existent account. Please double-check the User ID.');
+            redirect('admin_accounts/deactivated');
         }
     }
 
 	function accdeact_user($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_user($userid))
         {
             $this->model_accounts->acc_deact($userid);
             $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
@@ -447,30 +496,46 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not deactivate your own account.');
+            $this->session->set_flashdata('fail', 'You cannot deactivate a non-existent or an already deactivated account. Please double-check the User ID.');
             redirect('admin_accounts/homeowner');
         }
     }
 
     function accdeact_admin($userid)
     {
-        if($userid != $this->session->userdata('userid'))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            $this->model_accounts->acc_deact($userid);
-            $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
-            redirect('admin_accounts/administrator');
+            if($userid != $this->session->userdata('userid'))
+            {
+                $this->model_accounts->acc_deact($userid);
+                $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
+                redirect('admin_accounts/administrator');
+            }
+            else
+            {
+                $this->session->set_flashdata('fail', 'You cannot deactivate your own account.');
+                redirect('admin_accounts/administrator');
+            }
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You can not deactivate your own account.');
+            $this->session->set_flashdata('fail', 'You cannot deactivate a non-existent or an already deactivated account. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
         }
     }
 
     function acc_reactivate($userid)
     {
-        $this->session->set_flashdata('feedback', 'You have successfully reactivated the account.');
-        $this->model_accounts->acc_reactivate($userid);
-        redirect('admin_accounts/deactivated');
+        if($this->model_accounts->url_check_deact($userid))
+        {
+            $this->session->set_flashdata('feedback', 'You have successfully reactivated the account.');
+            $this->model_accounts->acc_reactivate($userid);
+            redirect('admin_accounts/deactivated');
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'You cannot reactivate a non-existent or active account. Please double-check the User ID.');
+            redirect('admin_accounts/deactivated');
+        }
     }
 }

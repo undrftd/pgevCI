@@ -82,6 +82,7 @@ class Model_accounts extends CI_Model {
                 'lastname' => $result->lastname,
                 'email' => $result->email,
                 'address' => $result->address,
+                'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
             );
@@ -112,6 +113,7 @@ class Model_accounts extends CI_Model {
                 'lastname' => $result->lastname,
                 'email' => $result->email,
                 'address' => $result->address,
+                'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
             );
@@ -142,6 +144,7 @@ class Model_accounts extends CI_Model {
                 'lastname' => $result->lastname,
                 'email' => $result->email,
                 'address' => $result->address,
+                'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
             );
@@ -254,13 +257,74 @@ class Model_accounts extends CI_Model {
     
     function viewmore_user($userid)
     {
-         $query= $this->db->select('*')->where('userid', $userid)->get('accounts',1); 
+         $query= $this->db->select('*')->where('userid', $userid)->where('role', 0)->get('accounts',1); 
          return $query->row();
     }
 
-    function url_check($userid)
+    function viewmore_admin($userid)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->get('accounts',1); 
+         $query= $this->db->select('*')->where('userid', $userid)->where('role', 1)->get('accounts',1); 
+         return $query->row();
+    }
+
+    function viewmore_deact($userid)
+    {
+         $query= $this->db->select('*')->where('userid', $userid)->where('isActive', 0)->get('accounts',1); 
+         return $query->row();
+    }
+
+    function url_check_myaccount($userid)
+    {
+        
+        if($userid == $this->session->userdata('userid'))
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+
+    function url_check_user($userid)
+    {
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1); 
+        
+        foreach($query->result() as $row):
+        
+            if($userid == $row->userid)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        
+        endforeach;
+    }
+
+    function url_check_admin($userid)
+    {
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts',1); 
+        
+        foreach($query->result() as $row):
+        
+            if($userid == $row->userid)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        
+        endforeach;
+    }
+
+    function url_check_deact($userid)
+    {
+        $query= $this->db->select('userid')->where('userid', $userid)->where('isActive', 0)->get('accounts',1); 
         
         foreach($query->result() as $row):
         
@@ -298,6 +362,24 @@ class Model_accounts extends CI_Model {
          $this->db->select('*')->where('userid', $userid); 
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
+    }
+
+    function myaccount_update($userid)
+    {
+         $account_update_data = array(
+            'firstname' => $this->input->post('firstname'),
+            'lastname' => $this->input->post('lastname'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('username'),
+            'address' => $this->input->post('address'),
+            'email' => $this->input->post('email'),
+            'contactnum' => $this->input->post('contactnum'),
+        );
+         $this->session->set_userdata($account_update_data);
+         $this->db->select('*')->where('userid', $userid); 
+         $update = $this->db->update('accounts', $account_update_data);
+         return $update;
+
     }
   
       
