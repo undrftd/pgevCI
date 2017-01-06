@@ -6,6 +6,7 @@ class Model_accounts extends CI_Model {
     {
        $this->db->limit($limit,$offset);
        $users = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
+       
        if($users->num_rows() > 0)
         {
             return $users->result();  
@@ -26,6 +27,7 @@ class Model_accounts extends CI_Model {
     {
        $this->db->limit($limit,$offset);
        $admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
+       
        if($admin->num_rows() > 0)
         {
             return $admin->result();  
@@ -46,6 +48,7 @@ class Model_accounts extends CI_Model {
     {
        $this->db->limit($limit,$offset);
        $deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
+       
        if($deact->num_rows() > 0)
        {
             return $deact->result();  

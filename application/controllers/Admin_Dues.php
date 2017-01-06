@@ -2,9 +2,9 @@
 
 class Admin_Dues extends MY_Controller{
 
-	function index()
+	function homeownerdues()
     {
-    	$config['base_url'] = site_url('admin_dues/index');
+    	$config['base_url'] = site_url('admin_dues/homeowner');
         $config['total_rows'] = $this->model_dues->count_accounts();
         $config['per_page'] =  20;
         $config['num_links'] = 5;
@@ -24,9 +24,9 @@ class Admin_Dues extends MY_Controller{
         $config['last_tag_open'] = "<li>";
         $config['last_tagl_close'] = "</li>";
         $this->pagination->initialize($config);
-        $data['accountlinks'] = $this->pagination->create_links();
+        $data['homeownerlinks'] = $this->pagination->create_links();
 
-        $data['accounts'] = $this->model_dues->get_accounts($config['per_page'], $this->uri->segment(3));
+        $data['accounts'] = $this->model_dues->get_users($config['per_page'], $this->uri->segment(3));
     	$data['main_content'] ='view_admindues';
     	$this->load->view('includes/admin_dues_template', $data);
     }
