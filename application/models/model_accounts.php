@@ -79,6 +79,7 @@ class Model_accounts extends CI_Model {
                 'lastname' => $result->lastname,
                 'email' => $result->email,
                 'address' => $result->address,
+                'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
             );
@@ -109,6 +110,7 @@ class Model_accounts extends CI_Model {
                 'lastname' => $result->lastname,
                 'email' => $result->email,
                 'address' => $result->address,
+                'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
             );
@@ -139,6 +141,7 @@ class Model_accounts extends CI_Model {
                 'lastname' => $result->lastname,
                 'email' => $result->email,
                 'address' => $result->address,
+                'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
             );
@@ -267,6 +270,19 @@ class Model_accounts extends CI_Model {
          return $query->row();
     }
 
+    function url_check_myaccount($userid)
+    {
+        
+        if($userid == $this->session->userdata('userid'))
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+
     function url_check_user($userid)
     {
         $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->get('accounts',1); 
@@ -343,6 +359,24 @@ class Model_accounts extends CI_Model {
          $this->db->select('*')->where('userid', $userid); 
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
+    }
+
+    function myaccount_update($userid)
+    {
+         $account_update_data = array(
+            'firstname' => $this->input->post('firstname'),
+            'lastname' => $this->input->post('lastname'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('username'),
+            'address' => $this->input->post('address'),
+            'email' => $this->input->post('email'),
+            'contactnum' => $this->input->post('contactnum'),
+        );
+         $this->session->set_userdata($account_update_data);
+         $this->db->select('*')->where('userid', $userid); 
+         $update = $this->db->update('accounts', $account_update_data);
+         return $update;
+
     }
   
       
