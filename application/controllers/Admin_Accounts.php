@@ -98,7 +98,7 @@ class Admin_Accounts extends MY_Controller {
     function alpha_dash_space($str)
     {
         return ( ! preg_match("/^([a-z ])+$/i", $str)) ? FALSE : TRUE;
-    } 
+    }
 
 	function createuser()
     {
@@ -139,7 +139,7 @@ class Admin_Accounts extends MY_Controller {
          {
             $config['base_url'] = site_url('admin_accounts/search_homeowner/');
             //$config['first_url'] = $config['base_url'].'?'.http_build_query($_GET);
-            $config['reuse_query_string'] = TRUE;    
+            $config['reuse_query_string'] = TRUE;
             //if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
             $config['total_rows'] = $this->model_accounts->countuser_search($searchquery);
             $config['per_page'] =  20;
@@ -161,10 +161,10 @@ class Admin_Accounts extends MY_Controller {
             $config['last_tagl_close'] = "</li>";
             $this->pagination->initialize($config);
             $data['homeownerlinks'] = $this->pagination->create_links();
-            
+
             $data['users'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $data['main_content'] = 'view_adminaccounts_user';
-            
+
             $this->load->view('includes/admin_accounts_template', $data);
         }
         else
@@ -204,10 +204,10 @@ class Admin_Accounts extends MY_Controller {
             $config['last_tagl_close'] = "</li>";
             $this->pagination->initialize($config);
             $data['adminlinks'] = $this->pagination->create_links();
-            
+
             $data['admin'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $data['main_content'] = 'view_adminaccounts_admin';
-            
+
             $this->load->view('includes/admin_accounts_template', $data);
         }
         else
@@ -271,7 +271,7 @@ class Admin_Accounts extends MY_Controller {
         $data['main_content'] = 'view_adminviewmore_admin';
         $this->load->view('includes/admin_viewmore_template', $data);
     }
-    
+
     function viewmore_deact($userid)
     {
         $data['view'] = $this->model_accounts->viewmore_user($userid);
@@ -281,7 +281,7 @@ class Admin_Accounts extends MY_Controller {
 
     function acc_delete($userid)
     {
-       //print_r($this->session->userdata); 
+       //print_r($this->session->userdata);
         if($userid != $this->session->userdata('userid'))
         {
             $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
@@ -290,12 +290,12 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('feedback', 'You can not delete your own account.');
+            $this->session->set_flashdata('feedback-error', 'You can not delete your own account.');
             redirect('admin_accounts/homeowner');
         }
     }
 
-    function acc_updateuser($userid)    
+    function acc_updateuser($userid)
     {
        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');

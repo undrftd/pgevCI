@@ -83,7 +83,7 @@
     </div>
 
     <div class="portlet-body">
-     
+
     <?php if ($this->session->flashdata('feedback')){ ?>
       <div class="success-message text-center" id="prompt-message">
         <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
@@ -91,6 +91,15 @@
         <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
       </div>
     <?php } ?>
+
+    <?php if ($this->session->flashdata('feedback-error')){ ?>
+      <div class="error-message text-center" id="prompt-message">
+        <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+        <p> <?php echo $this->session->flashdata('feedback-error'); ?> </p><br>
+        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+      </div>
+    <?php } ?>
+
       <br>
 
       <div class="tab-content">
