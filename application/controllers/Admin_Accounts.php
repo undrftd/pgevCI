@@ -277,9 +277,18 @@ class Admin_Accounts extends MY_Controller {
     {
         if($this->model_accounts->url_check_admin($userid))
         {
-            $data['view'] = $this->model_accounts->viewmore_admin($userid);
-            $data['main_content'] = 'view_adminviewmore_admin';
-            $this->load->view('includes/admin_viewmore_template', $data);
+            if($userid != $this->session->userdata('userid'))
+            {
+                $data['view'] = $this->model_accounts->viewmore_admin($userid);
+                $data['main_content'] = 'view_adminviewmore_admin';
+                $this->load->view('includes/admin_viewmore_template', $data);
+            }
+            else
+            {
+                $data['view'] = $this->model_accounts->viewmore_admin($userid);
+                $data['main_content'] = 'view_adminviewmore_own';
+                $this->load->view('includes/admin_viewmore_template', $data);
+            }
         }
         else
         {
