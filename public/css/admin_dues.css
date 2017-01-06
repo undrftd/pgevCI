@@ -173,18 +173,6 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.btn-custom-4 {
-  color: white;
-  font-family: 'Roboto';
-  background-color: #595959;
-  padding: 4px;
-  width: 100px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  opacity: 0.9;
-  transition: all 0.3s ease-in-out;
-}
-
 p {
   font-size: 1.2em;
   font-family: 'Roboto';
@@ -235,16 +223,13 @@ table td {
 }
 
 .modal-content {
-    padding: 25px 20px 25px 20px;
+    padding: 35px 30px 35px 30px;
     border: none;
 }
 
-
 .modal-body p {
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 1em;
-  color: #4a4a4a;
+  font-weight: 300;
 }
 
 .modal-body button {
@@ -265,31 +250,6 @@ table td {
   border-color: #e1e1e1;
   height: 52px;
   width: 100%;
-}
-
-#dropdown-mobile {
-  display: none;
-}
-
-.success-message {
-  border: 1px solid #27ae60;
-  padding: 15px;
-  color: #696969;
-}
-
-.error-message {
-  border: 1px solid #e74c3c;
-  padding: 15px;
-  color: #696969;
-}
-
-.error-message button {
-  background-color: #e74c3c;
-}
-
-.success-message h3, .error-message h3 {
-  font-weight: 700;
-  font-style: italic;
 }
 
 @media(min-width:768px) {
@@ -318,6 +278,7 @@ table td {
        position: relative;
        margin-right: 10px;
    }
+
 }
 
 @media(max-width:768px) {
@@ -349,48 +310,11 @@ table td {
     margin-bottom: 20px;
   }
 
-  #page-content-wrapper h1 {
-     border-bottom: 2px solid #27ae60;
-     width: 60%;
-     border-left: none;
-     font-family: 'League-Gothic', sans-serif;
-     text-transform: uppercase;
-     font-size: 3em;
-     padding-bottom: 10px;
-     padding-left: 0px;
-     margin: 0 auto;
-     text-align: center;
-     margin-bottom: 20px;
-  }
-
-  .form-inline .form-group {
-    display: block;
-    margin-bottom: 20px;
-  }
-
-.form-group #sel1 {
+#sel1 {
     width: 100%;
     margin: 0 auto;
   }
 
-.not-important {
-    display: none;
-  }
-
-#not-important {
-    display: none;
-  }
-
-#dropdown-mobile {
-  display: inline-block;
-}
-
-}
-
-@media(max-width:1550px) {
-  .not-important {
-      display: none;
-    }
 }
 
 @font-face {
@@ -417,71 +341,71 @@ Licensed under MIT
 ***/
 
 .content {
-  padding: 30px;
-  background: #e1e1e1;
+	padding: 30px;
+	background: #e1e1e1;
 }
 
 .margin-bottom-30 {
-  margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 /* Portlet */
 .portlet {
-  background: #fff;
-  padding: 20px;
-  width: 100%;
+	background: #fff;
+	padding: 20px;
+  width: 95%;
   margin: 0 auto;
 }
 
 .portlet.portlet-bordered {
-  border: 1px solid #eee;
+	border: 1px solid #eee;
 }
 
 /* Portlet Title */
 .portlet-title {
-  padding: 0;
-    min-height: 40px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 18px;
+	padding: 0;
+  	min-height: 40px;
+  	border-bottom: 1px solid #eee;
+  	margin-bottom: 18px;
 }
 
 .caption {
-  float: left;
-  display: inline-block;
-  font-size: 18px;
-  line-height: 18px;
+	float: left;
+	display: inline-block;
+	font-size: 18px;
+	line-height: 18px;
   text-transform: uppercase;
 }
 
 .caption.caption-red .caption-subject,
 .caption.caption-red i {
-  color: #27ae60;
-  font-weight: 200;
+	color: #27ae60;
+	font-weight: 200;
 }
 
 .caption-subject {
-  color: #666;
-  font-size: 16px;
-  font-weight: 600;
+	color: #666;
+	font-size: 16px;
+	font-weight: 600;
 }
 
 .caption-helper {
-  padding: 0;
-  margin: 0;
-  line-height: 13px;
-  color: #9eacb4;
-  font-size: 13px;
-  font-weight: 400;
+	padding: 0;
+	margin: 0;
+	line-height: 13px;
+	color: #9eacb4;
+	font-size: 13px;
+	font-weight: 400;
 }
 
 
 /* Tab */
 .portlet-title > .nav-tabs {
-  background: none;
-  margin: 0;
-  float: left;
-  display: inline-block;
-  border: 0;
+	background: none;
+	margin: 0;
+	float: right;
+	display: inline-block;
+	border: 0;
 }
 
 .portlet-title > .nav-tabs > li {
@@ -501,17 +425,17 @@ Licensed under MIT
 
 .portlet-title > .nav-tabs > li.active,
 .portlet-title > .nav-tabs > li.active:hover {
-    border-bottom: 4px solid #27ae60;
-    position: relative;
+  	border-bottom: 4px solid #27ae60;
+  	position: relative;
   }
 
   .portlet-title > .nav-tabs > li:hover {
-    border-bottom: 4px solid #59d98e;
+  	border-bottom: 4px solid #59d98e;
   }
 
 .portlet-title > .nav-tabs > li.active > a,
 .portlet-title > .nav-tabs > li:hover > a {
-  color: #333;
-  background: #fff;
-  border: 0;
+	color: #333;
+	background: #fff;
+	border: 0;
 }
