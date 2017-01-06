@@ -13,7 +13,7 @@
                 <a href="admin-announcement.html">Announcements</a>
             </li>
             <li>
-                <a href="<?php echo site_url("admin_dues"); ?>" class="<?php if($this->uri->uri_string()  == 'admin_dues') { echo 'active'; } ?>">Dues</a>
+                <a href="<?php echo site_url("admin_dues/homeownerdues"); ?>" class="<?php if($this->uri->uri_string()  == 'admin_dues/homeownerdues') { echo 'active'; } ?>">Dues</a>
             </li>
             <li>
                 <a href="admin-court.html">Reservation</a>

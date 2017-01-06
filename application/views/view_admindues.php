@@ -10,7 +10,7 @@
                 <div class="modal-content">
                     <div class="signin">
                         <div class="modal-body text-center">
-                            <p> Are you sure you want to remove this from the list? </p><br><br>
+                            <p> Are you sure you want to clear this user's dues? </p><br><br>
                             <button type="submit" class="btn btn-custom-1">Yes</button>
                             <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
@@ -44,6 +44,17 @@
               Balance </span>
             </div>
 
+              <ul class="nav nav-tabs">
+                <li class="active">
+                  <a href="#portlet_tab1" data-toggle="tab">
+                  Homeowner </a>
+                </li>
+                <li>
+                  <a href="#portlet_tab2" data-toggle="tab">
+                  Administrator </a>
+                </li>
+              </ul>
+
           </div>
 
           <div class="portlet-body">
@@ -74,13 +85,72 @@
                         <td><?php echo "₱" . " "; echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
                         <td class="action-button">
                           <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Clear Dues </button>
                         </td>
                     </tr>
                   <?php endforeach; ?>
 
                   </table>
-                  <center><div id="pagination-link"><?php echo $accountlinks; ?></div></center>
+                  <center><div id="pagination-link"><?php echo $homeownerlinks; ?></div></center>
+
+                  </table>
+
+                </div>
+
+              </div>
+
+              <div class="tab-pane fade" id="portlet_tab2">
+
+                <div class="table-responsive">
+
+                  <table class="table table-hover" id="tracking-table">
+
+                    <tr>
+                        <th><br>Homeowner's Name</th>
+                        <th><br>Address</th>
+                        <th><br>Monthly Dues</th>
+                        <th><br>Arrears</th>
+                        <th><br>Total Balance</th>
+                        <th><br>Action</th>
+                    </tr>
+
+                    <tr>
+                        <td>Marc Jeanne M. Aliswag</td>
+                        <td>619 G. Cleveland St.</td>
+                        <td>P 0</td>
+                        <td>P 0</td>
+                        <td>P 0</td>
+                        <td class="action-button">
+                          <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
+                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Dino Angelo G. Galapon</td>
+                        <td>1876 G. Cleveland St.</td>
+                        <td>P 2,000</td>
+                        <td>P 5,000</td>
+                        <td>P 7,000</td>
+                        <td class="action-button">
+                          <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
+                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Howell Henre Manongsong</td>
+                        <td>158 G. Cleveland St.</td>
+                        <td>P 1,500</td>
+                        <td>P 1,000</td>
+                        <td>P 2,500</td>
+                        <td class="action-button">
+                          <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
+                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                        </td>
+                    </tr>
+
+                  </table>
 
                 </div>
 
