@@ -10,7 +10,7 @@
                 <div class="modal-content">
                     <div class="signin">
                         <div class="modal-body text-center">
-                            <p> Are you sure you want to clear this user's dues? </p><br><br>
+                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br><br>
                             <button type="submit" class="btn btn-custom-1">Yes</button>
                             <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
@@ -18,6 +18,24 @@
                 </div>
 
             </div>
+        </div>
+
+        <div class="modal fade" id="start-modal" role="dialog">
+
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="signin">
+                        <div class="modal-body text-center">
+                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to start billing the administrators? </p><br>
+                            <a href="#"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
         <div class="header-style">
@@ -62,7 +80,7 @@
             <div class="row">
 
               <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-3">
-                <button type="button" class="btn btn-custom-4">Start Billing</button>
+                <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#start-modal">Start Billing</button>
               </div>
 
               <div class="col-xs-12 col-sm-12 col-md-4">
