@@ -12,5 +12,11 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
+
+    <script>
+        if(window.location.hash.substr(1) == 'delete'){
+            $('delete').modal('show');
+        }
+</script>
   </body>
 </html>

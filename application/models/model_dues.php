@@ -61,7 +61,7 @@ class Model_dues extends CI_Model {
     function cleardues_user($userid)
     {
         $query = $this->db->select('*')->from('accounts')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1);
-        
+
         foreach($query->result() as $row):
             $data = array(
                     'monthly_dues' => '0',

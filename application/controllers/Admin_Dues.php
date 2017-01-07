@@ -68,7 +68,6 @@ class Admin_Dues extends MY_Controller{
 
     function cleardues($userid)
     {
-        $data['dues'] = $this->model_dues->cleardues_user($userid);
         $data['main_content'] ='view_admindues_user';
         $this->load->view('includes/admin_dues_template', $data); 
     }
