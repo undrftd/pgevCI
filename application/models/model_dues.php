@@ -24,7 +24,7 @@ class Model_dues extends CI_Model {
 
         if($accounts->num_rows() > 0)
         {
-            return $account->result();
+            return $accounts->result();
         }
         else
         {

@@ -2,11 +2,11 @@
 
 class Admin_Dues extends MY_Controller{
 
-	function homeownerdues()
+	function homeowner()
     {
     	$config['base_url'] = site_url('admin_dues/homeowner');
         $config['total_rows'] = $this->model_dues->count_user();
-        $config['per_page'] =  20;
+        $config['per_page'] =  5;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -27,15 +27,15 @@ class Admin_Dues extends MY_Controller{
         $data['homeownerlinks'] = $this->pagination->create_links();
 
         $data['users'] = $this->model_dues->get_users($config['per_page'], $this->uri->segment(3));
-    	$data['main_content'] ='view_admindues';
+    	$data['main_content'] ='view_admindues_user';
     	$this->load->view('includes/admin_dues_template', $data);
     }
 
-    function admindues()
+    function administrator()
     {
         $config['base_url'] = site_url('admin_dues/administrator');
         $config['total_rows'] = $this->model_dues->count_admin();
-        $config['per_page'] =  20;
+        $config['per_page'] =  5;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -56,7 +56,7 @@ class Admin_Dues extends MY_Controller{
         $data['adminlinks'] = $this->pagination->create_links();
 
         $data['admin'] = $this->model_dues->get_admin($config['per_page'], $this->uri->segment(3));
-        $data['main_content'] ='view_admindues';
+        $data['main_content'] ='view_admindues_admin';
         $this->load->view('includes/admin_dues_template', $data); 
     }
 }

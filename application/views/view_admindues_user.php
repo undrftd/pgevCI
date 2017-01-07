@@ -46,11 +46,11 @@
 
               <ul class="nav nav-tabs">
                 <li class="active">
-                  <a href="#portlet_tab1" data-toggle="tab">
+                  <a href="<?php echo base_url(); ?>admin_dues/homeowner">
                   Homeowner </a>
                 </li>
                 <li>
-                  <a href="#portlet_tab2" data-toggle="tab">
+                  <a href="<?php echo base_url(); ?>admin_dues/administrator">
                   Administrator </a>
                 </li>
               </ul>
