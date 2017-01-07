@@ -25,6 +25,16 @@
 
     </script>
 
+    <script>
+
+        $(document).ready(function(){
+            $("#close-button").click(function(){
+                $("#prompt-message").fadeOut(400);
+            });
+        });
+
+    </script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js">
         $('#myModal').modal() // initialized with defaults
