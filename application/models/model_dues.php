@@ -5,7 +5,7 @@ class Model_dues extends CI_Model {
 	function get_users($limit, $offset)
     {
     	$this->db->limit($limit, $offset);
-    	$accounts = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role', 0)->get(); //->where('isActive', 1)
+    	$accounts = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role', 0)->get(); 
 
     	if($accounts->num_rows() > 0)
     	{
@@ -17,10 +17,31 @@ class Model_dues extends CI_Model {
     	}
     }
 
-	function count_accounts()
+    function get_admin($limit, $offset)
+    {
+        $this->db->limit($limit, $offset);
+        $accounts = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role', 1)->get();
+
+        if($accounts->num_rows() > 0)
+        {
+            return $account->result();
+        }
+        else
+        {
+            return $accounts->result();
+        }
+    }
+
+	function count_user()
     {
     	$query = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role', 0)->get(); //->where('isActive', 1)
     	return $query->num_rows();
+    }
+
+    function count_admin()
+    {
+        $query = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role', 1)->get(); //->where('isActive', 1)
+        return $query->num_rows();
     }
 
 }

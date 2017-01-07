@@ -92,7 +92,7 @@
                         <th><br>Action</th>
                     </tr>
 
-                    <?php foreach ($accounts as $row):?>
+                    <?php foreach ($users as $row):?>
                     <tr>
                         <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
                         <td><?php echo $row->address; ?></td>
@@ -108,63 +108,6 @@
 
                   </table>
                   <center><div id="pagination-link"><?php echo $homeownerlinks; ?></div></center>
-
-                  </table>
-
-                </div>
-
-              </div>
-
-              <div class="tab-pane fade" id="portlet_tab2">
-
-                <div class="table-responsive">
-
-                  <table class="table table-hover" id="tracking-table">
-
-                    <tr>
-                        <th><br>Homeowner's Name</th>
-                        <th><br>Address</th>
-                        <th><br>Monthly Dues</th>
-                        <th><br>Arrears</th>
-                        <th><br>Total Balance</th>
-                        <th><br>Action</th>
-                    </tr>
-
-                    <tr>
-                        <td>Marc Jeanne M. Aliswag</td>
-                        <td>619 G. Cleveland St.</td>
-                        <td>P 0</td>
-                        <td>P 0</td>
-                        <td>P 0</td>
-                        <td class="action-button">
-                          <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Dino Angelo G. Galapon</td>
-                        <td>1876 G. Cleveland St.</td>
-                        <td>P 2,000</td>
-                        <td>P 5,000</td>
-                        <td>P 7,000</td>
-                        <td class="action-button">
-                          <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Howell Henre Manongsong</td>
-                        <td>158 G. Cleveland St.</td>
-                        <td>P 1,500</td>
-                        <td>P 1,000</td>
-                        <td>P 2,500</td>
-                        <td class="action-button">
-                          <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
 
                   </table>
 
