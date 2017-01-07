@@ -173,6 +173,21 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+.btn-custom-4 {
+  color: white;
+  font-family: 'Roboto';
+  background-color: white;
+  border: 2px solid #27ae60;
+  padding: 15px;
+  width: 200px;
+  border-radius: 0px;
+  font-size: 0.95em;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+  color: #27ae60;
+  font-weight: 700;
+}
+
 p {
   font-size: 1.2em;
   font-family: 'Roboto';
@@ -195,7 +210,7 @@ table th {
   background-color: #27ae60;
   color: white;
   text-align: center;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 table {
@@ -249,7 +264,7 @@ table td {
   box-shadow: none;
   border-color: #e1e1e1;
   height: 52px;
-  width: 100%;
+  width: 400px;
 }
 
 @media(min-width:768px) {
@@ -281,7 +296,21 @@ table td {
 
 }
 
-@media(max-width:768px) {
+@media(max-width:768px), (max-width:1024px) {
+
+  #page-content-wrapper h1 {
+     border-bottom: 2px solid #27ae60;
+     width: 60%;
+     border-left: none;
+     font-family: 'League-Gothic', sans-serif;
+     text-transform: uppercase;
+     font-size: 3em;
+     padding-bottom: 10px;
+     padding-left: 0px;
+     margin: 0 auto;
+     text-align: center;
+     margin-bottom: 20px;
+  }
 
 .btn-custom {
     color: white;
@@ -312,9 +341,38 @@ table td {
 
 #sel1 {
     width: 100%;
-    margin: 0 auto;
+    margin-bottom: 20px;
   }
 
+.not-important {
+  display: none;
+}
+
+.btn-custom-4 {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.row {
+  width: 100%;
+  margin: 0 auto;
+}
+
+th {
+  white-space: nowrap;
+}
+
+table {
+  font-size: 0.95em;
+  white-space: nowrap;
+}
+
+}
+
+@media(max-width:1550px) {
+  .not-important {
+    display: none;
+  }
 }
 
 @font-face {

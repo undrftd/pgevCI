@@ -207,7 +207,7 @@ table th {
   background-color: #27ae60;
   color: white;
   text-align: center;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 table {
@@ -383,6 +383,14 @@ table td {
 
 #dropdown-mobile {
   display: inline-block;
+}
+
+th {
+  white-space: nowrap;
+}
+
+table {
+  font-size: 0.95em;
 }
 
 }

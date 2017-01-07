@@ -28,19 +28,19 @@
 
           <div class="portlet-header">
 
-          <form class="form-inline">
-            <div class="form-group">
-              <input class="form-control" id="sel1" type="text" placeholder="Search for a homeowner...">
-            </div>
-            <a href="admin-accounts-add.html"><button type="button" class="btn btn-custom">Search</button></a><br><br>
-          </form>
+            <form class="form-inline">
+                <input class="form-control" id="sel1" type="text" placeholder="Search for a homeowner...">
+                <a href="admin-accounts-add.html"><button type="button" class="btn btn-custom">Search</button></a><br><br>
+            </form>
 
           </div>
+
+          <br>
 
           <div class="portlet-title">
 
             <div class="caption caption-red">
-              <span class="caption-subject bold font-yellow-crusta uppercase">
+              <span class="caption-subject bold font-yellow-crusta uppercase not-important">
               Balance </span>
             </div>
 
@@ -58,7 +58,19 @@
           </div>
 
           <div class="portlet-body">
-            
+
+            <div class="row">
+
+              <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-3">
+                <button type="button" class="btn btn-custom-4">Start Billing</button>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <button type="button" class="btn btn-custom-4">Edit Monthly Dues Rates</button>
+              </div>
+
+            </div>
+
             <?php if ($this->session->flashdata('feedback')){ ?>
               <div class="success-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
@@ -85,9 +97,9 @@
 
                     <tr>
                         <th><br>Homeowner's Name</th>
-                        <th><br>Address</th>
-                        <th><br>Monthly Dues</th>
-                        <th><br>Arrears</th>
+                        <th class="not-important"><br>Address</th>
+                        <th class="not-important"><br>Monthly Dues</th>
+                        <th class="not-important"><br>Arrears</th>
                         <th><br>Total Balance</th>
                         <th><br>Action</th>
                     </tr>
@@ -95,9 +107,9 @@
                     <?php foreach ($admin as $row):?>
                     <tr>
                         <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
-                        <td><?php echo $row->address; ?></td>
-                        <td><?php echo "₱" . " " . $row->monthly_dues; ?></td>
-                        <td><?php echo "₱" . " " . $row->arrears; ?></td>
+                        <td class="not-important"><?php echo $row->address; ?></td>
+                        <td class="not-important"><?php echo "₱" . " " . $row->monthly_dues; ?></td>
+                        <td class="not-important"><?php echo "₱" . " " . $row->arrears; ?></td>
                         <td><?php echo "₱" . " "; echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
                         <td class="action-button">
                           <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
