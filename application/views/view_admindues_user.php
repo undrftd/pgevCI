@@ -116,8 +116,8 @@
                     <tr>
                         <th><br>Homeowner's Name</th>
                         <th class="not-important"><br>Address</th>
-                        <th class="not-important"><br>Monthly Dues</th>
-                        <th class="not-important"><br>Arrears</th>
+                        <th><br>Monthly Dues</th>
+                        <th><br>Arrears</th>
                         <th><br>Total Balance</th>
                         <th><br>Months Unpaid </th>
                         <th><br>Action</th>
@@ -127,10 +127,10 @@
                     <tr>
                         <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
                         <td class="not-important"><?php echo $row->address; ?></td>
-                        <td class="not-important"><?php echo "₱" . " " . $row->monthly_dues; ?></td>
-                        <td class="not-important"><?php echo "₱" . " " . $row->arrears; ?></td>
-                        <td><?php echo "₱" . " "; echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
-                        <td>1</td>
+                        <td ><?php echo "₱" . " " . $row->monthly_dues; ?></td>
+                        <td ><?php echo "₱" . " " . $row->arrears; ?></td>
+                        <td><?php echo "₱" . " ";  echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
+                        <td><?php if( $row->arrears >  0) { echo $row->arrears / $row->monthly_dues; } else { echo "0";}  ?></td>
                         <td class="action-button">
                           <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Clear Dues </button>
