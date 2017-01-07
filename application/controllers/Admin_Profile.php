@@ -41,14 +41,14 @@ class Admin_Profile extends MY_Controller{
 	            if($query = $this->model_accounts->myaccount_update($userid))
 	             {
 	                $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
-	                redirect('admin_accounts/homeowner');
+	                redirect('admin_profile');
 	             }
 	        }
 	    }
 	    else
 	    {
 	    	$this->session->set_flashdata('fail', 'You can only edit your own account.');
-	        redirect('admin_accounts/homeowner');
+	        redirect('admin_profile');
 	    }
 	}
 

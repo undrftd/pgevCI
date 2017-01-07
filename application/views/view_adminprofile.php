@@ -27,11 +27,21 @@
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 
+            <?php if ($this->session->flashdata('feedback')){ ?>
               <div class="success-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
                 <p> You have successfully edited your account.  </p><br>
                 <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
               </div>
+            <?php } ?>
+
+            <?php if ($this->session->flashdata('fail')){ ?>
+              <div class="error-message text-center" id="prompt-message">
+                <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+                <p> <?php echo $this->session->flashdata('fail'); ?> </p><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+              </div>
+            <?php } ?>
 
               <br>
 
