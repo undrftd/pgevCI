@@ -20,14 +20,20 @@
 
               </div>
 
-              <br>
-
             </div>
 
             <div class="clearfix visible-md-block"></div>
             <div class="clearfix visible-sm-block"></div>
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+
+              <div class="success-message text-center" id="prompt-message">
+                <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+                <p> You have successfully edited your account.  </p><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+              </div>
+
+              <br>
 
               <div class="information">
                 <form action="<?php echo base_url() ."admin_profile/update_account/" . $this->session->userdata('userid') ;?>" method="POST">
