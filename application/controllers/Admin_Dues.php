@@ -59,4 +59,17 @@ class Admin_Dues extends MY_Controller{
         $data['main_content'] ='view_admindues_admin';
         $this->load->view('includes/admin_dues_template', $data); 
     }
+
+    function billstart()
+    {
+        $this->model_dues->billstart_user();
+        redirect('admin_dues/homeowner');         
+    }
+
+    function cleardues($userid)
+    {
+        $data['dues'] = $this->model_dues->cleardues_user($userid);
+        $data['main_content'] ='view_admindues_user';
+        $this->load->view('includes/admin_dues_template', $data); 
+    }
 }

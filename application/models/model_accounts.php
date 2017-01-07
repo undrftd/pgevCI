@@ -379,7 +379,6 @@ class Model_accounts extends CI_Model {
          $this->db->select('*')->where('userid', $userid); 
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
-
     }
   
       
