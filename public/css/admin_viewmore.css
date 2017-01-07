@@ -152,7 +152,6 @@ body {
   padding: 4px;
   width: 100px;
   border-radius: 20px;
-<<<<<<< HEAD
   font-size: 0.9em;
   opacity: 0.9;
   transition: all 0.3s ease-in-out;
@@ -177,11 +176,6 @@ body {
   padding: 10px;
   width: 100%;
   border-radius: 0px;
-=======
->>>>>>> origin/master
-  font-size: 0.9em;
-  opacity: 0.9;
-  transition: all 0.3s ease-in-out;
 }
 
 p {
