@@ -46,16 +46,16 @@ class Model_dues extends CI_Model {
 
     function billstart_user()
     {
-        $query = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role',0)->get();
+        $query = $this->db->select('*')->from('accounts')->where('role', 0)->where('isActive', 1)->get();
         
         foreach($query->result() as $row):
             $data = array(
                    'monthly_dues' => '800',
                    'arrears' => $row->arrears + '800'
                 );
-        endforeach;
-       
+        $this->db->where('role', 0)->where('isActive', 1);
         $this->db->update('accounts',$data);
+        endforeach;
     }
 
     function cleardues_user($userid)
