@@ -66,7 +66,7 @@ class Model_dues extends CI_Model {
                 );
             
 
-        if($row->arrears && $row->monthly_dues == 0)
+        if($row->arrears == 0 && $row->monthly_dues == 0)
         {
             $this->db->where('role', 0)->where('isActive', 1)->where('userid', $row->userid);
             $this->db->update('accounts',$data);
@@ -78,7 +78,7 @@ class Model_dues extends CI_Model {
             $this->db->where('role', 0)->where('isActive', 1)->where('userid', $row->userid);
             $this->db->update('accounts',$data2);
         }
-        else if(($row->arrears == 0 && $row->monthly_dues > 0) || ($row->arrears && $row->monthly_dues > 0))
+        else if(($row->arrears == 0 && $row->monthly_dues > 0) || ($row->arrears > 0 && $row->monthly_dues > 0))
         {  
 
             $this->db->where('role', 0)->where('isActive', 1)->where('userid', $row->userid);
