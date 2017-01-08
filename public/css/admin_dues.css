@@ -142,7 +142,7 @@ body {
   font-family: 'Roboto';
   background-color: #e1e1e1;
   padding: 15px;
-  width: 170px;
+  width: 150px;
   border-radius: 0;
   font-size: 1em;
   opacity: 0.9;
@@ -176,13 +176,16 @@ body {
 .btn-custom-4 {
   color: white;
   font-family: 'Roboto';
-  background-color: #595959;
-  padding: 4px;
-  width: 100px;
-  border-radius: 20px;
-  font-size: 0.9em;
+  background-color: white;
+  border: 2px solid #27ae60;
+  padding: 15px;
+  width: 200px;
+  border-radius: 0px;
+  font-size: 0.95em;
   opacity: 0.9;
   transition: all 0.3s ease-in-out;
+  color: #27ae60;
+  font-weight: 700;
 }
 
 p {
@@ -235,15 +238,15 @@ table td {
 }
 
 .modal-content {
-    padding: 25px 20px 25px 20px;
+    padding: 35px 30px 35px 30px;
     border: none;
 }
-
 
 .modal-body p {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 1em;
+  font-size: 1.1em;
+  font-style: italic;
   color: #4a4a4a;
 }
 
@@ -264,32 +267,7 @@ table td {
   box-shadow: none;
   border-color: #e1e1e1;
   height: 52px;
-  width: 100%;
-}
-
-#dropdown-mobile {
-  display: none;
-}
-
-.success-message {
-  border: 1px solid #27ae60;
-  padding: 15px;
-  color: #696969;
-}
-
-.error-message {
-  border: 1px solid #e74c3c;
-  padding: 15px;
-  color: #696969;
-}
-
-.error-message button {
-  background-color: #e74c3c;
-}
-
-.success-message h3, .error-message h3 {
-  font-weight: 700;
-  font-style: italic;
+  width: 400px;
 }
 
 @media(min-width:768px) {
@@ -318,36 +296,10 @@ table td {
        position: relative;
        margin-right: 10px;
    }
+
 }
 
-@media(max-width:768px) {
-
-.btn-custom {
-    color: white;
-    font-family: 'Roboto';
-    background-color: #27ae60;
-    padding: 15px;
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 0;
-    font-size: 1em;
-    opacity: 0.9;
-    transition: all 0.3s ease-in-out;
-  }
-
-.btn-custom-1 {
-    color: #4a4a4a;
-    font-family: 'Roboto';
-    background-color: #e1e1e1;
-    padding: 15px;
-    width: 100%;
-    border-radius: 0;
-    font-size: 1em;
-    opacity: 0.9;
-    transition: all 0.3s ease-in-out;
-    margin: 0 auto;
-    margin-bottom: 20px;
-  }
+@media(max-width:768px), (max-width:1024px) {
 
   #page-content-wrapper h1 {
      border-bottom: 2px solid #27ae60;
@@ -363,26 +315,50 @@ table td {
      margin-bottom: 20px;
   }
 
-  .form-inline .form-group {
-    display: block;
+.btn-custom {
+    color: white;
+    font-family: 'Roboto';
+    background-color: #27ae60;
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 0;
+    font-size: 1em;
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
+  }
+
+.btn-custom-1 {
+    color: #4a4a4a;
+    font-family: 'Roboto';
+    background-color: #e1e1e1;
+    padding: 10px;
+    width: 100%;
+    border-radius: 0;
+    font-size: 1em;
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
+    margin: 0 auto;
     margin-bottom: 20px;
   }
 
-.form-group #sel1 {
+#sel1 {
     width: 100%;
-    margin: 0 auto;
+    margin-bottom: 20px;
   }
 
 .not-important {
-    display: none;
-  }
+  display: none;
+}
 
-#not-important {
-    display: none;
-  }
+.btn-custom-4 {
+  width: 100%;
+  margin-top: 10px;
+}
 
-#dropdown-mobile {
-  display: inline-block;
+.row {
+  width: 100%;
+  margin: 0 auto;
 }
 
 th {
@@ -391,14 +367,15 @@ th {
 
 table {
   font-size: 0.95em;
+  white-space: nowrap;
 }
 
 }
 
 @media(max-width:1550px) {
   .not-important {
-      display: none;
-    }
+    display: none;
+  }
 }
 
 @font-face {
@@ -437,7 +414,7 @@ Licensed under MIT
 .portlet {
 	background: #fff;
 	padding: 20px;
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -487,22 +464,22 @@ Licensed under MIT
 .portlet-title > .nav-tabs {
 	background: none;
 	margin: 0;
-	float: left;
+	float: right;
 	display: inline-block;
 	border: 0;
 }
 
 .portlet-title > .nav-tabs > li {
-	background: none;
-	margin: 0;
-	border: 0;
+  background: none;
+  margin: 0;
+  border: 0;
 }
 
 .portlet-title > .nav-tabs > li > a {
-	background: none;
-	border: 0;
-	padding: 6px 10px 13px;
-	color: #444;
+  background: none;
+  border: 0;
+  padding: 6px 10px 13px;
+  color: #444;
   font-size: 12px;
   display: inline-block;
 }

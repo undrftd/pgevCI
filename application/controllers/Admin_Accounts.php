@@ -285,9 +285,6 @@ class Admin_Accounts extends MY_Controller {
             }
             else
             {
-                /*$data['view'] = $this->model_accounts->viewmore_admin($userid);
-                $data['main_content'] = 'view_adminviewmore_own';
-                $this->load->view('includes/admin_viewmore_template', $data);*/
                 redirect('admin_profile');
             }
         }

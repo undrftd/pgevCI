@@ -132,7 +132,7 @@
                     <a href="<?php echo base_url() ."admin_accounts/viewmore_admin/". $row->userid ?>"><button type="button" class="btn btn-custom-3">View More</button></a>
                   </td>
 
-                <?php endforeach; ?>
+                
               </tr>
 
             </table>
