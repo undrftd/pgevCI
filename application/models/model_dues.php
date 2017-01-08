@@ -34,13 +34,13 @@ class Model_dues extends CI_Model {
 
 	function count_user()
     {
-    	$query = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role', 0)->get(); //->where('isActive', 1)
+    	$query = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role', 0)->get(); 
     	return $query->num_rows();
     }
 
     function count_admin()
     {
-        $query = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role', 1)->get(); //->where('isActive', 1)
+        $query = $this->db->select('*')->from('accounts')->where('isActive', 1)->where('role', 1)->get();
         return $query->num_rows();
     }
 
@@ -49,12 +49,32 @@ class Model_dues extends CI_Model {
         $query = $this->db->select('*')->from('accounts')->where('role', 0)->where('isActive', 1)->get();
         
         foreach($query->result() as $row):
+            
             $data = array(
+                   'monthly_dues' => '800',
+                   'arrears' => '0',
+                );
+
+            $data2 = array(
                    'monthly_dues' => '800',
                    'arrears' => $row->arrears + '800'
                 );
-        $this->db->where('role', 0)->where('isActive', 1);
-        $this->db->update('accounts',$data);
+            
+
+        if($row->arrears && $row->monthly_dues == 0)
+        {
+            $this->db->where('role', 0)->where('isActive', 1)->where('userid', $row->userid);
+            $this->db->update('accounts',$data);
+
+            print_r($this->db->last_query());
+        }
+        else if($row->arrears == 0 && $row->monthly_dues > 0 || $row->arrears && $row->monthly_dues > 0)
+        {  
+            $this->db->where('role', 0)->where('isActive', 1);
+            $this->db->update('accounts',$data2); 
+
+            print_r($this->db->last_query());
+        }
         endforeach;
     }
 

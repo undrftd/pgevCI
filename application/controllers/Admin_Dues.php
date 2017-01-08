@@ -62,8 +62,7 @@ class Admin_Dues extends MY_Controller{
 
     function billstart()
     {
-        $this->model_dues->billstart_user();
-        redirect('admin_dues/homeowner');         
+        $this->model_dues->billstart_user();  
     }
 
     function cleardues($userid)
