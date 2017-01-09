@@ -83,8 +83,6 @@ class Model_dues extends CI_Model {
 
             $this->db->where('role', 0)->where('isActive', 1)->where('userid', $row->userid);
             $this->db->update('accounts',$data3); 
-
-            print_r($this->db->last_query());
         }
         endforeach;
     }
@@ -98,8 +96,7 @@ class Model_dues extends CI_Model {
     function cleardues_user($userid)
     {
         $query = $this->db->select('*')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts', 1);
-      
-        foreach($query->result() as $row):
+        $row = $query->row();
             
             $data = array(
                     'monthly_dues' => '0',
@@ -121,15 +118,12 @@ class Model_dues extends CI_Model {
                 $this->db->where('userid', $userid);
                 $this->db->update('accounts', $data2);
             }
-
-        endforeach;
     }
 
     function cleararrears_user($userid)
     {
         $query = $this->db->select('*')->where('userid', $userid)->where('role', 0)->where('isActive',1)->get('accounts', 1);
-
-        foreach($query->result() as $row):
+        $row = $query->row();
 
             $data = array(
                     'monthly_dues' => '0',
@@ -151,8 +145,6 @@ class Model_dues extends CI_Model {
                 $this->db->where('userid', $userid);
                 $this->db->update('accounts', $data2);
             }
-
-        endforeach;
     }
 
     function updatedues_user($userid)

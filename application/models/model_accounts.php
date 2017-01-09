@@ -82,8 +82,8 @@ class Model_accounts extends CI_Model {
                 'lastname' => $result->lastname,
                 'email' => $result->email,
                 'address' => $result->address,
-                'monthly_dues' => $result->monthly_dues;
-                'arrears' => $result->arrears;
+                'monthly_dues' => $result->monthly_dues,
+                'arrears' => $result->arrears,
                 'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
@@ -115,8 +115,8 @@ class Model_accounts extends CI_Model {
                 'lastname' => $result->lastname,
                 'email' => $result->email,
                 'address' => $result->address,
-                'monthly_dues' => $result->monthly_dues;
-                'arrears' => $result->arrears;
+                'monthly_dues' => $result->monthly_dues,
+                'arrears' => $result->arrears,
                 'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
@@ -148,8 +148,8 @@ class Model_accounts extends CI_Model {
                 'lastname' => $result->lastname,
                 'email' => $result->email,
                 'address' => $result->address,
-                'monthly_dues' => $result->monthly_dues;
-                'arrears' => $result->arrears;
+                'monthly_dues' => $result->monthly_dues,
+                'arrears' => $result->arrears,
                 'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
