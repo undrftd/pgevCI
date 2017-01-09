@@ -88,18 +88,18 @@
 
     <div class="portlet-body">
 
-    <?php if ($this->session->flashdata('feedback')){ ?>
+    <?php if ($this->session->flashdata('accountsfeedback')){ ?>
       <div class="success-message text-center" id="prompt-message">
         <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-        <p> <?php echo $this->session->flashdata('feedback'); ?> </p><br>
+        <p> <?php echo $this->session->flashdata('accountsfeedback'); ?> </p><br>
         <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
       </div>
     <?php } ?>
 
-    <?php if ($this->session->flashdata('fail')){ ?>
+    <?php if ($this->session->flashdata('accountsfail')){ ?>
       <div class="error-message text-center" id="prompt-message">
         <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-        <p> <?php echo $this->session->flashdata('fail'); ?> </p><br>
+        <p> <?php echo $this->session->flashdata('accountsfail'); ?> </p><br>
         <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
       </div>
     <?php } ?>

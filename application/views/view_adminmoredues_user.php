@@ -60,18 +60,18 @@
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 
-              <?php if ($this->session->flashdata('feedback')){ ?>
+              <?php if ($this->session->flashdata('duesfeedback')){ ?>
                 <div class="success-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-                  <p> You have successfully edited the account's monthly due.  </p><br>
+                  <p> <?php echo $this->session->flashdata('duesfeedback'); ?> </p><br>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
               <?php } ?>
 
-              <?php if ($this->session->flashdata('fail')){ ?>
+              <?php if ($this->session->flashdata('duesfail')){ ?>
                 <div class="error-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-                  <p> <?php echo $this->session->flashdata('fail'); ?> </p><br>
+                  <p> <?php echo $this->session->flashdata('duesfail'); ?> </p><br>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
               <?php } ?>
@@ -79,7 +79,7 @@
               <br>
 
               <div class="information">
-                <form action="#" method="POST">
+                <form action="<?php echo base_url() ."admin_dues/updatedues_user/" . $view->userid ;?>" method="POST">
 
                   <fieldset id="myFieldset" disabled>
                   <div class="form-group">
@@ -89,19 +89,18 @@
                         <input disabled name ="firstname" class="form-control" id="sel1"type="text" placeholder="" value="<?php echo $view->firstname . " " . $view->lastname ?>">
                         <p class="error"><?php echo form_error('firstname'); ?> </p>
                         <br>
-
                         <p> Address </p>
                         <input disabled name="address" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->address; ?>">
                         <p class="error"><?php echo form_error('address'); ?></p>
                         <br>
-                        <p> Monthly Dues </p>
-                        <input name="email" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo "₱ " . $view->monthly_dues ?>">
-                        <p class="error"><?php echo form_error('email'); ?> </p>
+                        <p> Monthly Dues (₱) </p>
+                        <input name="monthly_dues" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->monthly_dues ?>">
+                        <p class="error"><?php echo form_error('monthly_dues'); ?> </p>
                         <br>
 
-                        <p> Arrears </p>
-                        <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo "₱ " . $view->arrears; ?>">
-                        <p class="error"><?php echo form_error('contactnum'); ?> </p>
+                        <p> Arrears (₱) </p>
+                        <input name="arrears" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->arrears; ?>">
+                        <p class="error"><?php echo form_error('arrears'); ?> </p>
 
                       </fieldset>
                       <br><br>

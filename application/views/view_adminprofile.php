@@ -26,18 +26,18 @@
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 
-            <?php if ($this->session->flashdata('feedback')){ ?>
+            <?php if ($this->session->flashdata('profilefeedback')){ ?>
               <div class="success-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-                <p> You have successfully edited your account.  </p><br>
+                <p> <?php echo $this->session->flashdata('profilefeedback'); ?>  </p><br>
                 <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
               </div>
             <?php } ?>
 
-            <?php if ($this->session->flashdata('fail')){ ?>
+            <?php if ($this->session->flashdata('profilefail')){ ?>
               <div class="error-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-                <p> <?php echo $this->session->flashdata('fail'); ?> </p><br>
+                <p> <?php echo $this->session->flashdata('profilefail'); ?> </p><br>
                 <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
               </div>
             <?php } ?>

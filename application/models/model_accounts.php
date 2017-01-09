@@ -275,7 +275,6 @@ class Model_accounts extends CI_Model {
 
     function url_check_myaccount($userid)
     {
-        
         if($userid == $this->session->userdata('userid'))
         {
             return TRUE;

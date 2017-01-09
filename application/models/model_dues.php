@@ -89,9 +89,15 @@ class Model_dues extends CI_Model {
         endforeach;
     }
 
+    function viewmore_user($userid)
+    {
+         $query = $this->db->select('*')->where('userid', $userid)->where('role', 0)->get('accounts', 1); 
+         return $query->row();
+    }
+
     function cleardues_user($userid)
     {
-        $query = $this->db->select('*')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1);
+        $query = $this->db->select('*')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts', 1);
       
         foreach($query->result() as $row):
             
@@ -102,21 +108,64 @@ class Model_dues extends CI_Model {
 
             $data2 = array(
                     'monthly_dues' => '0',
-                    'arrears' => '0'  ,
+                    'arrears' => '0',
                 );
-         
-         if($row->monthly_dues > 0 && $row->arrears > 0)
-         {
-            $this->db->select('*')->where('userid', $userid);
-            $this->db->update('accounts', $data);
-            print_r($this->db->last_query());
-         }   
-         else if ($row->monthly_dues > 0 && $row->arrears == 0)
-         {
-            $this->db->select('*')->where('userid', $userid);
-            $this->db->update('accounts', $data2);
-            print_r($this->db->last_query());
-         }
+             
+            if($row->monthly_dues > 0 && $row->arrears > 0)
+            {
+                $this->db->where('userid', $userid);
+                $this->db->update('accounts', $data);
+                print_r($this->db->last_query());
+            }   
+            else if (($row->monthly_dues > 0 && $row->arrears == 0) || ($row->monthly_dues == 0 && $row->arrears == 0))
+            {
+                $this->db->where('userid', $userid);
+                $this->db->update('accounts', $data2);
+                print_r($this->db->last_query());
+            }
+
         endforeach;
+    }
+
+    function cleararrears_user($userid)
+    {
+        $query = $this->db->select('*')->where('userid', $userid)->where('role', 0)->where('isActive',1)->get('accounts', 1);
+
+        foreach($query->result() as $row):
+
+            $data = array(
+                    'monthly_dues' => '0',
+                    'arrears' => '0',
+                );
+
+            $data2 = array(
+                    'monthly_dues' => $row->monthly_dues,
+                    'arrears' => '0',
+                );
+
+            if($row->monthly_dues == 0 && $row->arrears > 0)
+            {
+                $this->db->where('userid', $userid);
+                $this->db->update('accounts', $data);
+            }
+            else if ($row->monthly_dues > 0 && $row->arrears > 0)
+            {
+                $this->db->where('userid', $userid);
+                $this->db->update('accounts', $data2);
+            }
+
+        endforeach;
+    }
+
+    function updatedues_user($userid)
+    {
+            $update_dues_data = array(
+                'monthly_dues' => $this->input->post('monthly_dues'),    
+                'arrears' => $this->input->post('arrears'),
+                );
+
+            $this->db->where('userid',$userid);
+            $update = $this->db->update('accounts', $update_dues_data);
+            return $update;
     }
 }

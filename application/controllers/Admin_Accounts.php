@@ -102,9 +102,9 @@ class Admin_Accounts extends MY_Controller {
         $this->form_validation->set_message('is_unique', '{field} already exists!');
         $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
 
-        $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|is_unique[accounts.username]');
         $this->form_validation->set_rules('password', 'Password', 'required'); //min_length[8]
         $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
@@ -119,7 +119,7 @@ class Admin_Accounts extends MY_Controller {
         {
             if($query = $this->model_accounts->create_account())
              {
-                $this->session->set_flashdata('feedback', 'You have successfully added an account.');
+                $this->session->set_flashdata('accountsfeedback', 'You have successfully added an account.');
                 redirect('admin_accounts/homeowner');
              }
         }
@@ -257,7 +257,7 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'There is no account associated with that User ID. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'There is no account associated with that User ID. Please double-check the User ID.');
             redirect('admin_accounts/homeowner');
         }
     }
@@ -278,7 +278,7 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'There is no account associated with that User ID. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'There is no account associated with that User ID. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
         }
     }
@@ -292,7 +292,7 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'There is no account associated with that User ID. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'There is no account associated with that User ID. Please double-check the User ID.');
             redirect('admin_accounts/deactivated');
         }
     }
@@ -301,13 +301,13 @@ class Admin_Accounts extends MY_Controller {
     {
         if($this->model_accounts->url_check_user($userid))
         {
-            $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
+            $this->session->set_flashdata('accountsfeedback', 'You have successfully deleted the account.');
             $this->model_accounts->acc_delete($userid);
             redirect('admin_accounts/homeowner');
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You cannot delete a non-existent account. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'You cannot delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/homeowner');
         }
     }
@@ -318,19 +318,19 @@ class Admin_Accounts extends MY_Controller {
         {
             if($userid != $this->session->userdata('userid'))
             {
-                $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
+                $this->session->set_flashdata('accountsfeedback', 'You have successfully deleted the account.');
                 $this->model_accounts->acc_delete($userid);
                 redirect('admin_accounts/administrator');
             }
             else
             {
-                $this->session->set_flashdata('fail', 'You cannot delete your own account.');
+                $this->session->set_flashdata('accountsfail', 'You cannot delete your own account.');
                 redirect('admin_accounts/administrator');
             }
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You cannot delete a non-existent account. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'You cannot delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
         }
     }
@@ -339,13 +339,13 @@ class Admin_Accounts extends MY_Controller {
     {
         if($this->model_accounts->url_check_deact($userid))
         {
-            $this->session->set_flashdata('feedback', 'You have successfully deleted the account.');
+            $this->session->set_flashdata('accountsfeedback', 'You have successfully deleted the account.');
             $this->model_accounts->acc_delete($userid);
             redirect('admin_accounts/deactivated');
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You cannot delete a non-existent account. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'You cannot delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/deactivated');
         }
     }
@@ -358,9 +358,9 @@ class Admin_Accounts extends MY_Controller {
             $this->form_validation->set_message('is_unique', '{field} already exists!');
             $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
 
-            $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
-            $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-            $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
+            $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
+            $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']');
             $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
             $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
             $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
@@ -375,14 +375,14 @@ class Admin_Accounts extends MY_Controller {
             {
                 if($query = $this->model_accounts->acc_update($userid))
                  {
-                    $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
+                    $this->session->set_flashdata('accountsfeedback', 'You have successfully updated the account.');
                     redirect('admin_accounts/homeowner');
                  }
             }
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You cannot update a non-existent account. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'You cannot update a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/homeowner');
         }
     }
@@ -397,9 +397,9 @@ class Admin_Accounts extends MY_Controller {
                 $this->form_validation->set_message('is_unique', '{field} already exists!');
                 $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
 
-                $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
-                $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-                $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
+                $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
+                $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
+                $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']');
                 $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
                 $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
                 $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
@@ -414,7 +414,7 @@ class Admin_Accounts extends MY_Controller {
                 {
                     if($query = $this->model_accounts->acc_update($userid))
                      {
-                        $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
+                        $this->session->set_flashdata('accountsfeedback', 'You have successfully updated the account.');
                         redirect('admin_accounts/administrator');
                      }
                 }
@@ -426,7 +426,7 @@ class Admin_Accounts extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You cannot update a non-existent account. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'You cannot update a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
         }
     }
@@ -438,9 +438,9 @@ class Admin_Accounts extends MY_Controller {
             $this->form_validation->set_message('is_unique', '{field} already exists!');
             $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
 
-            $this->form_validation->set_rules('firstname', 'First Name', 'required|callback_alpha_dash_space');
-            $this->form_validation->set_rules('lastname', 'Last Name', 'required|callback_alpha_dash_space');
-            $this->form_validation->set_rules('username', 'Username', 'required|edit_unique[accounts.username.'.$userid.']');
+            $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
+            $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']');
             $this->form_validation->set_rules('address', 'Address', 'required');
             $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
             $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
@@ -455,14 +455,14 @@ class Admin_Accounts extends MY_Controller {
             {
                 if($query = $this->model_accounts->acc_update($userid))
                  {
-                    $this->session->set_flashdata('feedback', 'You have successfully updated the account.');
+                    $this->session->set_flashdata('accountsfeedback', 'You have successfully updated the account.');
                     redirect('admin_accounts/deactivated');
                  }
             }
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You cannot update a non-existent account. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'You cannot update a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/deactivated');
         }
     }
@@ -472,12 +472,12 @@ class Admin_Accounts extends MY_Controller {
         if($this->model_accounts->url_check_user($userid))
         {
             $this->model_accounts->acc_deact($userid);
-            $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
+            $this->session->set_flashdata('accountsfeedback', 'You have successfully deactivated the account.');
             redirect('admin_accounts/homeowner');
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You cannot deactivate a non-existent or an already deactivated account. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'You cannot deactivate a non-existent or an already deactivated account. Please double-check the User ID.');
             redirect('admin_accounts/homeowner');
         }
     }
@@ -489,18 +489,18 @@ class Admin_Accounts extends MY_Controller {
             if($userid != $this->session->userdata('userid'))
             {
                 $this->model_accounts->acc_deact($userid);
-                $this->session->set_flashdata('feedback', 'You have successfully deactivated the account.');
+                $this->session->set_flashdata('accountsfeedback', 'You have successfully deactivated the account.');
                 redirect('admin_accounts/administrator');
             }
             else
             {
-                $this->session->set_flashdata('fail', 'You cannot deactivate your own account.');
+                $this->session->set_flashdata('accountsfail', 'You cannot deactivate your own account.');
                 redirect('admin_accounts/administrator');
             }
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You cannot deactivate a non-existent or an already deactivated account. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'You cannot deactivate a non-existent or an already deactivated account. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
         }
     }
@@ -509,13 +509,13 @@ class Admin_Accounts extends MY_Controller {
     {
         if($this->model_accounts->url_check_deact($userid))
         {
-            $this->session->set_flashdata('feedback', 'You have successfully reactivated the account.');
+            $this->session->set_flashdata('accountsfeedback', 'You have successfully reactivated the account.');
             $this->model_accounts->acc_reactivate($userid);
             redirect('admin_accounts/deactivated');
         }
         else
         {
-            $this->session->set_flashdata('fail', 'You cannot reactivate a non-existent or active account. Please double-check the User ID.');
+            $this->session->set_flashdata('accountsfail', 'You cannot reactivate a non-existent or active account. Please double-check the User ID.');
             redirect('admin_accounts/deactivated');
         }
     }

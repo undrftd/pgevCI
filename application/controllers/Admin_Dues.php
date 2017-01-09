@@ -66,19 +66,44 @@ class Admin_Dues extends MY_Controller{
 
     function viewdues_user($userid)
     {
-        $data['view'] = $this->model_accounts->viewmore_user($userid);
+        $data['view'] = $this->model_dues->viewmore_user($userid);
         $this->template->load('admin_template', 'view_adminmoredues_user', $data);
     }
 
     function cleardues_user($userid)
     {
         $this->model_dues->cleardues_user($userid);
-        redirect('admin_dues/homeowner');
+        $this->session->set_flashdata('duesfeedback', 'You have successfully cleared the user\'s monthly dues.');
+        
+        $data['view'] = $this->model_dues->viewmore_user($userid);
+        $this->template->load('admin_template', 'view_adminmoredues_user', $data);
     }
 
     function cleararrears_user($userid)
     {
-        $this->model_dues->cleardues_user($userid);
-        redirect('admin_dues/homeowner');
+        $this->model_dues->cleararrears_user($userid);
+        $this->session->set_flashdata('duesfeedback', 'You have successfully cleared the user\'s arrears.');
+        $data['view'] = $this->model_dues->viewmore_user($userid);
+        $this->template->load('admin_template', 'view_adminmoredues_user', $data);
+    }
+
+    function updatedues_user($userid)
+    {
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+
+        $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|numeric');
+        $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|numeric');
+
+        if($this->form_validation->run() == FALSE)
+        {
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $this->template->load('admin_template', 'view_adminmoredues_user', $data);
+        }
+        else if($query = $this->model_dues->updatedues_user($userid))
+        {
+            $this->session->set_flashdata('duesfeedback', 'You have successfully updated the user\'s dues.');
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
+            $this->template->load('admin_template', 'view_adminmoredues_user', $data);
+        }
     }
 }
