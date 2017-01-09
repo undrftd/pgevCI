@@ -53,10 +53,9 @@
 
             <div class="tab-content">
 
-
               <div class="tab-pane fade in active" id="portlet_tab1">
 
-                <p> Total: 3 pending tickets (1 emergency ticket) </p>
+                <p class="ticket-summary"> Total: 3 pending tickets (1 emergency ticket) </p>
 
                 <div class="table-responsive">
 
@@ -65,7 +64,7 @@
                     <tr>
                       <th><br>Ticket ID</th>
                       <th><br>Type of Request</th>
-                      <th><br>Homeowner's Name</th>
+                      <th class="not-important"><br>Homeowner's Name</th>
                       <th><br>Date Created</th>
                       <th><br>Action</th>
                     </tr>
@@ -73,7 +72,7 @@
                     <tr>
                         <td>0006</td>
                         <td>Monthly Dues</td>
-                        <td>Gemille Polintan</td>
+                        <td class="not-important">Gemille Polintan</td>
                         <td>11/20/2016 13:48:00 PM</td>
                         <td class="action-button">
                           <a href="admin-tickets-open.html"><button type="button" class="btn btn-custom-2">Open</button></a>
@@ -83,7 +82,7 @@
                     <tr>
                         <td>0007</td>
                         <td>Lost and Found</td>
-                        <td>Mildred Duran </td>
+                        <td class="not-important">Mildred Duran </td>
                         <td>11/21/2016 8:52:00 AM</td>
                         <td class="action-button">
                           <a href="admin-tickets.html"><button type="button" class="btn btn-custom-2">Open</button></a>
@@ -93,10 +92,10 @@
                     <tr>
                         <td>0008</td>
                         <td>Robbery</td>
-                        <td>Dino Galapon </td>
+                        <td class="not-important">Dino Galapon </td>
                         <td>11/21/2016 2:12:00 PM</td>
                         <td class="action-button">
-                          <a href="admin-tickets.html"><button type="button" class="btn btn-custom-2">Open</button></a>
+                          <a href="admin-tickets.html"><button type="button" class="btn btn-custom-9">Open</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                         </td>
                     </tr>

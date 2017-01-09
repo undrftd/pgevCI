@@ -20,7 +20,7 @@
 	    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/main.css">
  	</head>
-	
+
 
    <body>
 
@@ -57,60 +57,17 @@
                     <a href="<?php echo site_url("login/signout"); ?>">Sign Out</a>
                 </li>
               </ul>
-            </div>        
-       		
-       		<div id="contents"><?= $contents ?></div>  
-       	 		
+            </div>
+
+       		<div id="contents"><?= $contents ?></div>
+
        	 	<div id="footer">
        	 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+						<script type="text/javascript" src="<?php echo base_url('/public/js/main.js'); ?>"></script>
         		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         		<!-- Include all compiled plugins (below), or include individual files as needed -->
-                <script>
-
-                    $(document).ready(function(){
-                        $("#close-button").click(function(){
-                            $("#prompt-message").fadeOut(400);
-                        });
-                    });
-
-                </script>
-
-        		 <script src="js/bootstrap.min.js">
-           			 $('#myModal').modal() // initialized with defaults
-        		</script>
-
-
-    		    <!-- Menu Toggle Script -->
-    		    <script>
-    		        $("#menu-toggle").click(function (e) {
-    		            e.preventDefault();
-    		            $("#wrapper").toggleClass("toggled");
-    		        });
-    		    </script>
-
-                 <script>
-                        function undisableField() {
-                        document.getElementById("myFieldset").disabled = false;
-                        var elem = document.getElementById("edit-button");
-                        if (elem.value=="Edit") elem.value = "Save Changes";
-                        $("#edit-button").click(function(){
-                            $("#edit-button").hide();
-                        });
-                    }
-
-                </script>
-
-                <script>
-
-                    $(document).ready(function(){
-                        $("#edit-button").click(function(){
-                            $("#saveButton").show();
-                        });
-                    });
-
-                </script>
-    		    
         	</div>
+
         </div>
 	</body>
 

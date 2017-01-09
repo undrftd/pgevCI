@@ -51,7 +51,6 @@
 
                   <p> Note: Before editing another user's account, be sure to inform them of what you are about to change for them to be aware.
                   </p>
-                  <br>
 
               </div>
 
@@ -61,9 +60,27 @@
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 
+              <?php if ($this->session->flashdata('feedback')){ ?>
+                <div class="success-message text-center" id="prompt-message">
+                  <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+                  <p> You have successfully edited the account's monthly due.  </p><br>
+                  <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+                </div>
+              <?php } ?>
+
+              <?php if ($this->session->flashdata('fail')){ ?>
+                <div class="error-message text-center" id="prompt-message">
+                  <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+                  <p> <?php echo $this->session->flashdata('fail'); ?> </p><br>
+                  <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+                </div>
+              <?php } ?>
+
+              <br>
+
               <div class="information">
                 <form action="#" method="POST">
-                  
+
                   <fieldset id="myFieldset" disabled>
                   <div class="form-group">
                     <h4> Billing Information </h4>
@@ -97,6 +114,8 @@
                 </div>
               </div>
             </div>
+            <br>
+            <br>
           </div>
         </div>
 

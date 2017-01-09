@@ -2,7 +2,7 @@
         <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
         <br>
         <br>
-        
+
         <div class="modal fade" id="start-modal" role="dialog">
 
             <div class="modal-dialog">
@@ -60,12 +60,16 @@
 
             <div class="row">
 
-              <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-3">
-                <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#start-modal">Start Billing</button>
-              </div>
+              <div class="dues-buttons">
 
-              <div class="col-xs-12 col-sm-12 col-md-4">
-                <button type="button" class="btn btn-custom-4">Edit Monthly Dues Rates</button>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                  <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#start-modal">Start Billing</button>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                  <button type="button" class="btn btn-custom-4">Edit Rates</button>
+                </div>
+
               </div>
 
             </div>

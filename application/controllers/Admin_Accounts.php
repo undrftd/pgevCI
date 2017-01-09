@@ -82,7 +82,7 @@ class Admin_Accounts extends MY_Controller {
         $this->pagination->initialize($config_deact);
         $data['deactlinks'] = $this->pagination->create_links();
 
-        $data['deact'] = $this->model_accounts->get_deact($config_deact['per_page'], $this->uri->segment(3));  
+        $data['deact'] = $this->model_accounts->get_deact($config_deact['per_page'], $this->uri->segment(3));
         $this->template->load('admin_template', 'view_adminaccounts_deact', $data);
     }
 
@@ -94,7 +94,7 @@ class Admin_Accounts extends MY_Controller {
     function alpha_dash_space($str)
     {
         return ( ! preg_match("/^([a-z ])+$/i", $str)) ? FALSE : TRUE;
-    } 
+    }
 
 	function createuser()
     {
@@ -113,7 +113,7 @@ class Admin_Accounts extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->template->load('admin_template', 'view_adminaddaccounts', $data);
+            $this->template->load('admin_template', 'view_adminaddaccounts');
         }
         else
         {
@@ -134,7 +134,7 @@ class Admin_Accounts extends MY_Controller {
          {
             $config['base_url'] = site_url('admin_accounts/search_homeowner/');
             //$config['first_url'] = $config['base_url'].'?'.http_build_query($_GET);
-            $config['reuse_query_string'] = TRUE;    
+            $config['reuse_query_string'] = TRUE;
             //if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
             $config['total_rows'] = $this->model_accounts->countuser_search($searchquery);
             $config['per_page'] =  20;
@@ -156,7 +156,7 @@ class Admin_Accounts extends MY_Controller {
             $config['last_tagl_close'] = "</li>";
             $this->pagination->initialize($config);
             $data['homeownerlinks'] = $this->pagination->create_links();
-            
+
             $data['users'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_adminaccounts_user', $data);
         }
@@ -197,7 +197,7 @@ class Admin_Accounts extends MY_Controller {
             $config['last_tagl_close'] = "</li>";
             $this->pagination->initialize($config);
             $data['adminlinks'] = $this->pagination->create_links();
-            
+
             $data['admin'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_adminaccounts_admin', $data);
         }
@@ -259,7 +259,7 @@ class Admin_Accounts extends MY_Controller {
         {
             $this->session->set_flashdata('fail', 'There is no account associated with that User ID. Please double-check the User ID.');
             redirect('admin_accounts/homeowner');
-        }  
+        }
     }
 
     function viewmore_admin($userid)
@@ -269,7 +269,7 @@ class Admin_Accounts extends MY_Controller {
             if($userid != $this->session->userdata('userid'))
             {
                 $data['view'] = $this->model_accounts->viewmore_admin($userid);
-                $this->template->load('admin_template', 'view_adminviewmore_admin', $data); 
+                $this->template->load('admin_template', 'view_adminviewmore_admin', $data);
             }
             else
             {
@@ -280,21 +280,21 @@ class Admin_Accounts extends MY_Controller {
         {
             $this->session->set_flashdata('fail', 'There is no account associated with that User ID. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
-        }  
+        }
     }
-    
+
     function viewmore_deact($userid)
     {
         if($this->model_accounts->url_check_deact($userid))
         {
             $data['view'] = $this->model_accounts->viewmore_deact($userid);
-            $this->template->load('admin_template', 'view_adminviewmore_deact', $data); 
+            $this->template->load('admin_template', 'view_adminviewmore_deact', $data);
         }
         else
         {
             $this->session->set_flashdata('fail', 'There is no account associated with that User ID. Please double-check the User ID.');
             redirect('admin_accounts/deactivated');
-        }  
+        }
     }
 
     function accdelete_user($userid)
@@ -311,7 +311,7 @@ class Admin_Accounts extends MY_Controller {
             redirect('admin_accounts/homeowner');
         }
     }
-    
+
     function accdelete_admin($userid)
     {
         if($this->model_accounts->url_check_admin($userid))
@@ -332,7 +332,7 @@ class Admin_Accounts extends MY_Controller {
         {
             $this->session->set_flashdata('fail', 'You cannot delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/administrator');
-        }  
+        }
     }
 
     function accdelete_deact($userid)
@@ -347,10 +347,10 @@ class Admin_Accounts extends MY_Controller {
         {
             $this->session->set_flashdata('fail', 'You cannot delete a non-existent account. Please double-check the User ID.');
             redirect('admin_accounts/deactivated');
-        }  
+        }
     }
 
-    function accupdate_user($userid)    
+    function accupdate_user($userid)
     {
         if($this->model_accounts->url_check_user($userid))
         {
@@ -421,7 +421,7 @@ class Admin_Accounts extends MY_Controller {
             }
             else
             {
-                redirect('admin_profile');  
+                redirect('admin_profile');
             }
         }
         else

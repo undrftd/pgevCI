@@ -91,7 +91,6 @@ body {
    padding: 0;
    list-style: none;
    background: #27ae60;
-   font-family: 'Roboto', sans-serif;
 }
 
 .sidebar-nav li {
@@ -104,11 +103,11 @@ body {
    text-decoration: none;
    color: #ecf0f1;
    transition: all ease-in-out 0.3s;
-   font-size: 13px;
+   font-size: 12px;
+   font-family: 'Roboto', sans-serif;
 }
 
 .sidebar-nav li a:hover {
-   text-decoration: none;
    color: #fff;
    background: rgba(255,255,255,0.2);
 }
@@ -137,6 +136,8 @@ body {
   font-size: 1em;
   opacity: 1;
   transition: all 0.3s ease-in-out;
+  border: 2px solid #27ae60;
+  font-weight: 700;
 }
 
 .btn-custom-1 {
@@ -149,7 +150,9 @@ body {
   border-radius: 0;
   font-size: 1em;
   opacity: 1;
+  font-weight: 700;
   transition: all 0.4s ease-in-out;
+  border: 2px solid #e1e1e1;
 }
 
 .btn-custom-2 {
@@ -161,7 +164,9 @@ body {
   border-radius: 20px;
   font-size: 0.9em;
   opacity: 1;
+  font-weight: 700;
   transition: all 0.4s ease-in-out;
+  border: 2px solid #27ae60;
 }
 
 .btn-custom-3 {
@@ -173,7 +178,9 @@ body {
   border-radius: 20px;
   font-size: 0.9em;
   opacity: 1;
+  font-weight: 700;
   transition: all 0.4s ease-in-out;
+  border: 2px solid #e1e1e1;
 }
 
 .btn-custom-4 {
@@ -182,13 +189,19 @@ body {
   background-color: white;
   border: 2px solid #27ae60;
   padding: 15px;
-  width: 200px;
-  border-radius: 0px;
+  width: 55%;
+  border-radius: 30px;
   font-size: 0.95em;
   opacity: 1;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in;
   color: #27ae60;
   font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn-custom-4:hover {
+  color: white;
+  background-color: #27ae60;
 }
 
 .btn-custom-5 {
@@ -202,6 +215,8 @@ body {
   font-size: 0.9em;
   opacity: 1;
   transition: all 0.4s ease-in-out;
+  border: 2px solid #27ae60;
+  font-weight: 700;
 }
 
 .btn-custom-6 {
@@ -214,6 +229,8 @@ body {
   font-size: 0.9em;
   opacity: 1;
   transition: all 0.4s ease-in-out;
+  font-weight: 700;
+  border: 2px solid #e1e1e1;
 }
 
 .btn-custom-7 {
@@ -225,6 +242,14 @@ body {
   border-radius: 0px;
   transition: all 0.4s ease-in-out;
   opacity: 1;
+  font-weight: 700;
+  border: 2px solid #595959;
+}
+
+.btn-custom-7:hover {
+  background-color: #333333;
+  color: white;
+  border: 2px solid #333333;
 }
 
 .btn-custom-8 {
@@ -238,6 +263,66 @@ body {
   transition: all 0.4s ease-in-out;
   height: 52px;
   width: 100px;
+  border: 2px solid #27ae60;
+}
+
+.btn-custom-9 {
+  color: white;
+  font-family: 'Roboto';
+  background-color: #e74c3c;
+  padding: 4px;
+  width: 100px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  border: none;
+
+	animation-name: flash;
+	animation-duration: 0.8s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	//Firefox 1+
+	-webkit-animation-name: flash;
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	//Safari 3-4
+	-moz-animation-name: flash;
+	-moz-animation-duration: 0.8s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+@keyframes flash {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1.0; }
+}
+
+//Firefox 1+
+@-webkit-keyframes flash {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1.0; }
+}
+
+//Safari 3-4
+@-moz-keyframes flash {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1.0; }
+}
+
+
+.btn-custom:hover, .btn-custom-2:hover, .btn-custom-5:hover, .btn-custom-8:hover {
+  color: #27ae60;
+  background-color: white;
+}
+
+.btn-custom-1:hover, .btn-custom-3:hover, .btn-custom-6:hover {
+  border: 2px solid #4a4a4a;
+  background-color: #e1e1e1;
 }
 
 .admin-message p {
@@ -330,6 +415,14 @@ table td {
   margin-right: 3%;
 }
 
+.ticket-summary {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  font-style: italic;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
 #sel1 {
   border-radius: 0;
   color: #696969;
@@ -375,8 +468,15 @@ table td {
   margin-bottom: 30px;
 }
 
-button:hover {
-  opacity: 0.8;
+.error {
+  font-style: italic;
+  color: #e74c3c;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+.dues-buttons {
+  text-align: center;
 }
 
 @media(min-width:768px) {
@@ -607,6 +707,7 @@ Licensed under MIT
 .portlet-title > .nav-tabs > li.active:hover {
   	border-bottom: 4px solid #27ae60;
   	position: relative;
+    font-weight: 700;
   }
 
   .portlet-title > .nav-tabs > li:hover {
