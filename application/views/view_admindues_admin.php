@@ -48,7 +48,7 @@
 
             <form>
               <div id="search-group">
-                <input class="form-control" name="search "id="sel1" type="text" placeholder="Search for a homeowner...">
+                <input class="form-control" name="search "id="sel1" type="text" placeholder="Search for a user...">
                   <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                 </input>
               </div>
