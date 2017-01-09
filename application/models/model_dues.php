@@ -115,13 +115,11 @@ class Model_dues extends CI_Model {
             {
                 $this->db->where('userid', $userid);
                 $this->db->update('accounts', $data);
-                print_r($this->db->last_query());
             }   
             else if (($row->monthly_dues > 0 && $row->arrears == 0) || ($row->monthly_dues == 0 && $row->arrears == 0))
             {
                 $this->db->where('userid', $userid);
                 $this->db->update('accounts', $data2);
-                print_r($this->db->last_query());
             }
 
         endforeach;
