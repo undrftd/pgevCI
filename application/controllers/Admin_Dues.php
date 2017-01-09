@@ -78,4 +78,10 @@ class Admin_Dues extends MY_Controller{
         $this->model_dues->cleardues_user($userid);
         redirect('admin_dues/homeowner');
     }
+
+    function cleararrears_user($userid)
+    {
+        $this->model_dues->cleardues_user($userid);
+        redirect('admin_dues/homeowner');
+    }
 }

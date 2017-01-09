@@ -2,24 +2,7 @@
         <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
         <br>
         <br>
-
-        <div class="modal fade" id="delete-modal" role="dialog">
-
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="signin">
-                        <div class="modal-body text-center">
-                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br><br>
-                            <a href="#"><button type="submit" class="btn btn-custom-1">Yes</button>
-                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
+        
         <div class="modal fade" id="start-modal" role="dialog">
 
             <div class="modal-dialog">

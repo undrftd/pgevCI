@@ -11,7 +11,7 @@
                     <div class="signin">
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br>
-                            <a href="#"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <a href="<?php echo base_url() ."admin_dues/cleardues_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                     <div class="signin">
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's arrears? </p><br>
-                            <a href="#"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <a href="<?php echo base_url() ."admin_dues/cleararrears_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
