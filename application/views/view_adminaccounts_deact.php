@@ -45,13 +45,17 @@
 
     <div class="portlet-header">
 
-    <form class="form-inline" action="<?php echo base_url(); ?>admin_accounts/search_deact/" method="GET">
-      <a href="<?php echo base_url(); ?>admin_accounts/adduser"><button type="button" class="btn btn-custom-1">+ Add a user</button></a>
-      <div class="form-group">
-        <input class="form-control" name ="search" id="sel1" type="text" placeholder="Search for a user...">
+    <form action="<?php echo base_url(); ?>admin_accounts/search_deact/" method="GET">
+      <div class="form-group" id="search-group">
+        <input class="form-control" name="search" id="sel1" type="text" placeholder="Search for a user...">
+          <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        </input>
       </div>
-      <button type="submit" class="btn btn-custom">Search</button><br><br><br>
     </form>
+
+    <br>
+
+    <a href="<?php echo base_url(); ?>admin_accounts/adduser"><button type="button" class="btn btn-custom-1">+ Add a user</button></a>
 
     </div>
 

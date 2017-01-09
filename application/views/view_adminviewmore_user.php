@@ -12,7 +12,7 @@
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to remove this user from the system? </p><br>
                             <a href="<?php echo base_url() ."admin_accounts/accdelete_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to deactivate this user from the system? </p><br>
                             <a href="<?php echo base_url() ."admin_accounts/accdeact_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,6 @@
 
                   <p> Note: Before editing another user's account, be sure to inform them of what you are about to change for them to be aware.
                   </p>
-                  <br>
 
               </div>
 
@@ -106,12 +105,12 @@
                         <p class="error"> <?php echo form_error('role'); ?></p>
                       </fieldset>
                       <br><br>
-                      <input class="btn btn-custom" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+                      <input class="btn btn-custom-5" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
                     </form>
-                        <button class="btn btn-custom" onclick="undisableField()" id="edit-button">Edit</button>
+                        <button class="btn btn-custom-5" onclick="undisableField()" id="edit-button">Edit</button>
                         <br>
-                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button><br><br>
-                        <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
+                        <button type="button" class="btn btn-custom-6" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button><br><br>
+                        <button type="button" class="btn btn-custom-7" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
                 </div>
               </div>
             </div>

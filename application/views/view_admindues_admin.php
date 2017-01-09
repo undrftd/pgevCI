@@ -46,9 +46,12 @@
 
           <div class="portlet-header">
 
-            <form class="form-inline">
-                <input class="form-control" id="sel1" type="text" placeholder="Search for a homeowner...">
-                <a href="admin-accounts-add.html"><button type="button" class="btn btn-custom">Search</button></a><br><br>
+            <form>
+              <div id="search-group">
+                <input class="form-control" name="search "id="sel1" type="text" placeholder="Search for a homeowner...">
+                  <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </input>
+              </div>
             </form>
 
           </div>
@@ -56,11 +59,6 @@
           <br>
 
           <div class="portlet-title">
-
-            <div class="caption caption-red">
-              <span class="caption-subject bold font-yellow-crusta uppercase not-important">
-              Balance </span>
-            </div>
 
               <ul class="nav nav-tabs">
                 <li>

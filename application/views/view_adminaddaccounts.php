@@ -17,7 +17,6 @@
 
                   <p> Note: Be sure to input the correct user credentials so that the user won't have any problems signing in.
                   </p>
-                  <br>
 
               </div>
 
@@ -78,7 +77,7 @@
                   <br>
                   <br>
 
-                  <button type="submit" class="btn btn-custom">Add user</button></a>
+                  <button type="submit" class="btn btn-custom-5">Add user</button></a>
                   </form>
                 </div>
               </div>

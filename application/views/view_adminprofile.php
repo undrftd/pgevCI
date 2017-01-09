@@ -16,7 +16,6 @@
 
                   <p> Note: Before editing another user's account, be sure to inform them of what you are about to change for them to be aware.
                   </p>
-                  <br>
 
               </div>
 
@@ -31,7 +30,7 @@
               <div class="success-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
                 <p> You have successfully edited your account.  </p><br>
-                <button type="button" class="btn btn-custom-5" id="close-button">Dismiss</button><br><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
               </div>
             <?php } ?>
 
@@ -39,7 +38,7 @@
               <div class="error-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
                 <p> <?php echo $this->session->flashdata('fail'); ?> </p><br>
-                <button type="button" class="btn btn-custom-5" id="close-button">Dismiss</button><br><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
               </div>
             <?php } ?>
 
@@ -91,10 +90,9 @@
                         <p class="error"><?php echo form_error('contactnum'); ?> </p>
                         <br>
                       </fieldset>
-                      <input class="btn btn-custom" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+                      <input class="btn btn-custom-5" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
                     </form>
-                        <button class="btn btn-custom" onclick="undisableField()" id="edit-button">Edit</button>
-                        <br>
+                        <button class="btn btn-custom-5" onclick="undisableField()" id="edit-button">Edit</button>
                 </div>
               </div>
             </div>
