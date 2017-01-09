@@ -113,7 +113,7 @@ class Admin_Accounts extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->template->load('admin_template', 'view_adminaddaccounts', $data);
+            $this->template->load('admin_template', 'view_adminaddaccounts');
         }
         else
         {
