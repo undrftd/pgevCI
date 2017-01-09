@@ -4,8 +4,7 @@ class Admin_Profile extends MY_Controller{
 
 	function index()
 	{
-		$data['main_content'] = 'view_adminprofile';
-		$this->load->view('includes/admin_viewmore_template', $data);
+		$this->template->load('admin_template', 'view_adminprofile');
 	}
 
 	function alpha_dash_space($str)
@@ -33,8 +32,7 @@ class Admin_Profile extends MY_Controller{
 
 	        if ($this->form_validation->run() == FALSE)
 	        {
-	            $data['main_content'] = 'view_adminprofile';
-				$this->load->view('includes/admin_viewmore_template', $data);
+	        	$this->template->load('admin_template', 'view_adminprofile');
 	        }
 	        else
 	        {

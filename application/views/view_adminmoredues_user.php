@@ -12,7 +12,7 @@
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br>
                             <a href="<?php echo base_url() ."admin_dues/cleardues_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's arrears? </p><br>
                             <a href="<?php echo base_url() ."admin_dues/cleararrears_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -88,12 +88,12 @@
 
                       </fieldset>
                       <br><br>
-                      <input class="btn btn-custom" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+                      <input class="btn btn-custom-5" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
                     </form>
-                        <button class="btn btn-custom" onclick="undisableField()" id="edit-button">Edit</button>
+                        <button class="btn btn-custom-5" onclick="undisableField()" id="edit-button">Edit</button>
                         <br>
-                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#cleardues-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   Clear Dues </button><br><br>
-                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#cleararrears-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   Clear Arrears </button><br><br>
+                        <button type="button" class="btn btn-custom-6" data-toggle="modal" data-target="#cleardues-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   Clear Dues </button><br><br>
+                        <button type="button" class="btn btn-custom-7" data-toggle="modal" data-target="#cleararrears-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   Clear Arrears </button><br><br>
                 </div>
               </div>
             </div>

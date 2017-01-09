@@ -96,7 +96,7 @@
                         <td>Dino Galapon </td>
                         <td>11/21/2016 2:12:00 PM</td>
                         <td class="action-button">
-                          <a href="admin-tickets.html"><button type="button" class="btn btn-custom-4">Open</button></a>
+                          <a href="admin-tickets.html"><button type="button" class="btn btn-custom-2">Open</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                         </td>
                     </tr>

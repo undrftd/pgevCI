@@ -27,8 +27,7 @@ class Admin_Accounts extends MY_Controller {
         $data['homeownerlinks'] = $this->pagination->create_links();
 
         $data['users'] = $this->model_accounts->get_users($config['per_page'], $this->uri->segment(3));
-        $data['main_content'] = 'view_adminaccounts_user';
-        $this->load->view('includes/admin_accounts_template', $data);
+        $this->template->load('admin_template', 'view_adminaccounts_user', $data);
     }
 
     function administrator()
@@ -56,8 +55,7 @@ class Admin_Accounts extends MY_Controller {
         $data['adminlinks'] = $this->pagination->create_links();
 
         $data['admin'] = $this->model_accounts->get_admin($config_admin['per_page'], $this->uri->segment(3));
-        $data['main_content'] = 'view_adminaccounts_admin';
-        $this->load->view('includes/admin_accounts_template', $data);
+        $this->template->load('admin_template', 'view_adminaccounts_admin', $data);
     }
 
     function deactivated()
@@ -84,15 +82,13 @@ class Admin_Accounts extends MY_Controller {
         $this->pagination->initialize($config_deact);
         $data['deactlinks'] = $this->pagination->create_links();
 
-        $data['deact'] = $this->model_accounts->get_deact($config_deact['per_page'], $this->uri->segment(3));
-        $data['main_content'] = 'view_adminaccounts_deact';
-        $this->load->view('includes/admin_accounts_template', $data);
+        $data['deact'] = $this->model_accounts->get_deact($config_deact['per_page'], $this->uri->segment(3));  
+        $this->template->load('admin_template', 'view_adminaccounts_deact', $data);
     }
 
     function adduser()
     {
-    	$data['main_content'] = 'view_adminaddaccounts';
-		$this->load->view('includes/admin_addaccount_template', $data);
+    	$this->template->load('admin_template', 'view_adminaddaccounts');
 	}
 
     function alpha_dash_space($str)
@@ -117,8 +113,7 @@ class Admin_Accounts extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $data['main_content'] = 'view_adminaddaccounts';
-            $this->load->view('includes/admin_addaccount_template', $data);
+            $this->template->load('admin_template', 'view_adminaddaccounts', $data);
         }
         else
         {
@@ -163,9 +158,7 @@ class Admin_Accounts extends MY_Controller {
             $data['homeownerlinks'] = $this->pagination->create_links();
             
             $data['users'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
-            $data['main_content'] = 'view_adminaccounts_user';
-            
-            $this->load->view('includes/admin_accounts_template', $data);
+            $this->template->load('admin_template', 'view_adminaccounts_user', $data);
         }
         else
         {
@@ -206,9 +199,7 @@ class Admin_Accounts extends MY_Controller {
             $data['adminlinks'] = $this->pagination->create_links();
             
             $data['admin'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
-            $data['main_content'] = 'view_adminaccounts_admin';
-            
-            $this->load->view('includes/admin_accounts_template', $data);
+            $this->template->load('admin_template', 'view_adminaccounts_admin', $data);
         }
         else
         {
@@ -248,8 +239,7 @@ class Admin_Accounts extends MY_Controller {
             $data['deactlinks'] = $this->pagination->create_links();
 
             $data['deact'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
-            $data['main_content'] = 'view_adminaccounts_deact';
-            $this->load->view('includes/admin_accounts_template', $data);
+            $this->template->load('admin_template', 'view_adminaccounts_deact', $data);
          }
          else
          {
@@ -263,8 +253,7 @@ class Admin_Accounts extends MY_Controller {
         if($this->model_accounts->url_check_user($userid))
         {
             $data['view'] = $this->model_accounts->viewmore_user($userid);
-            $data['main_content'] = 'view_adminviewmore_user';
-            $this->load->view('includes/admin_viewmore_template', $data);
+            $this->template->load('admin_template', 'view_adminviewmore_user', $data);
         }
         else
         {
@@ -280,8 +269,7 @@ class Admin_Accounts extends MY_Controller {
             if($userid != $this->session->userdata('userid'))
             {
                 $data['view'] = $this->model_accounts->viewmore_admin($userid);
-                $data['main_content'] = 'view_adminviewmore_admin';
-                $this->load->view('includes/admin_viewmore_template', $data);
+                $this->template->load('admin_template', 'view_adminviewmore_admin', $data); 
             }
             else
             {
@@ -300,8 +288,7 @@ class Admin_Accounts extends MY_Controller {
         if($this->model_accounts->url_check_deact($userid))
         {
             $data['view'] = $this->model_accounts->viewmore_deact($userid);
-            $data['main_content'] = 'view_adminviewmore_deact';
-            $this->load->view('includes/admin_viewmore_template', $data);
+            $this->template->load('admin_template', 'view_adminviewmore_deact', $data); 
         }
         else
         {
@@ -382,8 +369,7 @@ class Admin_Accounts extends MY_Controller {
             if ($this->form_validation->run() == FALSE)
             {
                 $data['view'] = $this->model_accounts->viewmore_user($userid);
-                $data['main_content'] = 'view_adminviewmore_user';
-                $this->load->view('includes/admin_viewmore_template', $data);
+                $this->template->load('admin_template', 'view_adminviewmore_user', $data);
             }
             else
             {
@@ -422,8 +408,7 @@ class Admin_Accounts extends MY_Controller {
                 if ($this->form_validation->run() == FALSE)
                 {
                     $data['view'] = $this->model_accounts->viewmore_admin($userid);
-                    $data['main_content'] = 'view_adminviewmore_admin';
-                    $this->load->view('includes/admin_viewmore_template', $data);
+                    $this->template->load('admin_template', 'view_adminviewmore_admin', $data);
                 }
                 else
                 {
@@ -464,8 +449,7 @@ class Admin_Accounts extends MY_Controller {
             if ($this->form_validation->run() == FALSE)
             {
                 $data['view'] = $this->model_accounts->viewmore_deact($userid);
-                $data['main_content'] = 'view_adminviewmore_deact';
-                $this->load->view('includes/admin_viewmore_template', $data);
+                $this->template->load('admin_template', 'view_adminviewmore_deact', $data);
             }
             else
             {

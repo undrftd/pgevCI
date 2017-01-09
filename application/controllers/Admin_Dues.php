@@ -27,8 +27,7 @@ class Admin_Dues extends MY_Controller{
         $data['homeownerlinks'] = $this->pagination->create_links();
 
         $data['users'] = $this->model_dues->get_users($config['per_page'], $this->uri->segment(3));
-    	$data['main_content'] ='view_admindues_user';
-    	$this->load->view('includes/admin_dues_template', $data);
+    	$this->template->load('admin_template', 'view_admindues_user', $data);
     }
 
     function administrator()
@@ -56,8 +55,7 @@ class Admin_Dues extends MY_Controller{
         $data['adminlinks'] = $this->pagination->create_links();
 
         $data['admin'] = $this->model_dues->get_admin($config['per_page'], $this->uri->segment(3));
-        $data['main_content'] ='view_admindues_admin';
-        $this->load->view('includes/admin_dues_template', $data); 
+        $this->template->load('admin_template', 'view_admindues_admin', $data);
     }
 
     function billstart()
@@ -69,8 +67,7 @@ class Admin_Dues extends MY_Controller{
     function viewdues_user($userid)
     {
         $data['view'] = $this->model_accounts->viewmore_user($userid);
-        $data['main_content'] = 'view_adminmoredues_user';
-        $this->load->view('includes/admin_viewmore_template', $data);       
+        $this->template->load('admin_template', 'view_adminmoredues_user', $data);
     }
 
     function cleardues_user($userid)

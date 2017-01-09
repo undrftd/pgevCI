@@ -5,8 +5,7 @@ class Login extends CI_Controller
 
     function index()
     {
-        $data['main_content'] = 'view_login';
-        $this->load->view('includes/login_template', $data);
+        $this->template->load('template', 'view_login');
     }
 
     function validate_login()
@@ -35,22 +34,19 @@ class Login extends CI_Controller
         }
         else if($valid == false) //Invalid Account
         {
-            $data['main_content'] = 'view_login';
             $data['message'] = "The username and password you entered did not match our records. Please double-check and try again. ";
-            $this->load->view('includes/login_template', $data);
+            $this->template->load('template', 'view_login', $data);
         }
     }   
 
     function userdeact()
     {
-        $data['main_content'] = 'view_userdeact';
-        $this->load->view('includes/accdeact_template', $data);
+        $this->template->load('template', 'view_userdeact');
     }
 
     function admindeact()
     {
-        $data['main_content'] = 'view_admindeact';
-        $this->load->view('includes/accdeact_template', $data);
+        $this->template->load('template', 'view_admindeact');
     }
 
     function signout()
