@@ -3,15 +3,15 @@
         <br>
         <br>
 
-        <div class="modal fade" id="delete-modal" role="dialog">
+        <div class="modal fade" id="cleardues-modal" role="dialog">
 
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="signin">
                         <div class="modal-body text-center">
-                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues?' </p><br>
-                            <a href="<?php echo base_url() ."admin_accounts/accdelete_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br>
+                            <a href="#"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -20,15 +20,15 @@
             </div>
         </div>
 
-        <div class="modal fade" id="deactivate-modal" role="dialog">
+        <div class="modal fade" id="cleararrears-modal" role="dialog">
 
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="signin">
                         <div class="modal-body text-center">
-                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to deactivate this user from the system? </p><br>
-                            <a href="<?php echo base_url() ."admin_accounts/accdeact_user/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's arrears? </p><br>
+                            <a href="#"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom-2" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -92,8 +92,8 @@
                     </form>
                         <button class="btn btn-custom" onclick="undisableField()" id="edit-button">Edit</button>
                         <br>
-                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Clear Dues </button><br><br>
-                        <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#deactivate-modal"> Clear Arrears </button>
+                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#cleardues-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   Clear Dues </button><br><br>
+                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#cleararrears-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   Clear Arrears </button><br><br>
                 </div>
               </div>
             </div>

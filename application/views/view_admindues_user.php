@@ -130,7 +130,7 @@
                         <td><?php echo "₱ ";  echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
                         <td><?php if($row->arrears >  0 && $row->monthly_dues == 0 ) { echo ($row->arrears + $row->monthly_dues) / '800'; } else if($row->arrears && $row->monthly_dues > 0 ) { echo ($row->arrears + $row->monthly_dues) / '800'; } else if($row->arrears == 0 && $row->monthly_dues > 0 ) { echo ($row->arrears + $row->monthly_dues) / '800'; } else { echo "0";}  ?></td>
                         <td class="action-button">
-                          <a href="<?php echo base_url() ."admin_dues/viewdues_user/" . $row->userid?>"> <button type="button" class="btn btn-custom-3"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  View More </button>
+                          <a href="<?php echo base_url() ."admin_dues/viewdues_user/" . $row->userid?>"> <button type="button" class="btn btn-custom-3"> View More </button>
 
                         </td>
                     </tr>
