@@ -3,6 +3,12 @@ body {
    font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+   font-family: 'League-Gothic', sans-serif;
+   text-transform: uppercase;
+   font-size: 4em;
+}
+
 /* Toggle Styles */
 
 #wrapper {
@@ -329,7 +335,6 @@ body {
   font-size: 1.2em;
   font-family: 'Roboto';
   font-weight: 300;
-  font-style: italic;
 }
 
 table th {
@@ -648,7 +653,7 @@ p {
   text-align: justify;
 }
 
-.footer-note, .login-form, .success-message p {
+.footer-note, .login-form, .success-message p, .admin-message p {
   text-align: center;
 }
 
