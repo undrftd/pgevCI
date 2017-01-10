@@ -189,7 +189,7 @@ body {
   background-color: white;
   border: 2px solid #27ae60;
   padding: 15px;
-  width: 55%;
+  width: 75%;
   border-radius: 30px;
   font-size: 0.95em;
   opacity: 1;
@@ -423,7 +423,7 @@ table td {
   margin-bottom: 20px;
 }
 
-#sel1 {
+#sel1, #user-name, #user-password {
   border-radius: 0;
   color: #696969;
   box-shadow: none;
@@ -433,7 +433,7 @@ table td {
   transition: all 0.4s ease-in-out;
 }
 
-#sel1:focus {
+#sel1:focus, #user-name:focus, #user-password:focus {
   border: 1px solid #27ae60;
 }
 
@@ -479,6 +479,60 @@ table td {
   text-align: center;
 }
 
+/*new login form */
+
+.header {
+  margin-top: 5px;
+  background-color: white;
+}
+
+.header h2 {
+  font-family: 'League-Gothic', sans-serif;
+  font-size: 3.25em;
+  text-transform: uppercase;
+}
+
+.row-hr {
+  margin-top: 20px;
+  width: 10%;
+  border: 1px solid #27ae60;
+}
+
+.login-content {
+  background-color: #f2f2f2;
+}
+
+.login-form {
+    padding: 40px;
+    background: white;
+    font-family: 'Roboto';
+    font-size: 1.1em;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.login-form button {
+  width: 100%;
+}
+
+.error-login {
+  padding: 20px;
+  padding-bottom: 30px;
+  background-color: white;
+  color: #e74c3c;
+  width: 100%;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.footer-note {
+  font-family: 'Rubik', sans-serif;
+}
+
+/*end form*/
+
 @media(min-width:768px) {
    #wrapper {
        padding-left: 200px;
@@ -509,9 +563,9 @@ table td {
 
 @media(max-width:768px), (max-width:1024px) {
 
-.information, .admin-message p, .header-style, .success-message, .error-message {
-  margin-left: 15px;
-}
+.row {
+    margin-left: 0px;
+  }
 
 .btn-custom {
     color: white;
@@ -540,63 +594,67 @@ table td {
     margin-bottom: 20px;
   }
 
-  #page-content-wrapper h1 {
-     border-bottom: 2px solid #27ae60;
-     width: 60%;
-     border-left: none;
-     font-family: 'League-Gothic', sans-serif;
-     text-transform: uppercase;
-     font-size: 3em;
-     padding-bottom: 10px;
-     padding-left: 0px;
-     margin: 0 auto;
-     text-align: center;
-     margin-bottom: 20px;
-  }
+#page-content-wrapper h1 {
+   border-bottom: 2px solid #27ae60;
+   width: 60%;
+   border-left: none;
+   font-family: 'League-Gothic', sans-serif;
+   text-transform: uppercase;
+   font-size: 3em;
+   padding-bottom: 10px;
+   padding-left: 0px;
+   margin: 0 auto;
+   text-align: center;
+   margin-bottom: 20px;
+}
 
-  #sel1 {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-  .btn-custom-4 {
+#sel1 {
     width: 100%;
-    margin-top: 10px;
-    margin-left: 15px;
+    margin-bottom: 20px;
   }
 
-  .form-group #sel1 {
-      width: 100%;
-      margin: 0 auto;
-    }
+.btn-custom-4 {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: -10px;
+}
 
-  .not-important {
-      display: none;
-    }
+.login-form .btn-custom-4 {
+  margin-left: 0px;
+}
 
-  #not-important {
-      display: none;
-    }
-
-  #dropdown-mobile {
-    display: inline-block;
+.form-group #sel1 {
+    width: 100%;
+    margin: 0 auto;
   }
 
-  th {
-    white-space: nowrap;
+.not-important, #not-important{
+    display: none;
   }
 
-  table {
-    font-size: 0.95em;
-  }
+#dropdown-mobile {
+  display: inline-block;
+}
 
-  p {
-    text-align: justify;
-  }
+th {
+  white-space: nowrap;
+}
 
-  .success-message p {
-    text-align: center;
-  }
+table {
+  font-size: 0.95em;
+}
+
+p {
+  text-align: justify;
+}
+
+.footer-note, .login-form, .success-message p {
+  text-align: center;
+}
+
+.footer-note {
+  padding: 10px;
+}
 
 }
 

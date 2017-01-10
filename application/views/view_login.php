@@ -1,52 +1,98 @@
-<div class="container">
+<div class="login-content">
 
-      <div class="header">
-        <h1> Please enter your credentials</h1>
-      </div>
+  <div class="header text-center">
 
-      <br>
+    <br><br>
+    <h2> Parkwood Greens Executive Village CRM </h2>
+    <hr class="row-hr">
 
-      <form action="<?php echo base_url(); ?>login/validate_login" method="POST">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="form-group">
-              <input type="text" name="username" class="form-control" id="user-name" aria-label="..." placeholder="Enter your username">
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
+    <br>
 
-          <div class="col-lg-6">
-            <div class="form-group">
-              <input type="password" name="password" class="form-control" id="user-password" aria-label="..." placeholder="Enter your password">
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
+  </div>
 
-      </br>
+  <br><br>
 
-      <?php if(!empty($message)){ ?>
-        <p class ="error-message"> <span class="glyphicon glyphicon-ban-circle btn-lg"></span> <br><?php echo $message; ?><br></p>
-      <?php } ?>
+<form action="<?php echo base_url(); ?>login/validate_login" method="POST">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-2">
 
-        </br>
-        <!-- Standard button -->
-        <div class="action-buttons text-center">
+      <div class="login-form">
 
-         <button type="submit" class="btn btn-custom">Sign In</button>
+          <div class="form-group">
 
-         <button type="button" class="btn btn-custom">Forgot your password?</button>
+          <h4> Please enter your credentials  </h4><br>
+          
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <div class="form-group">
+                <p> Username </p>
+                <input type="text" name="username" class="form-control" id="user-name" aria-label="...">
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+
+            <div class="col-xs-12 col-sm-12">
+              <div class="form-group">
+                <p> Password </p>
+                <input type="password" name="password" class="form-control" id="user-password" aria-label="...">
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+
+          <br>
+
+          <div class="row">
+
+              <div class="col-xs-12">
+                <button type="submit" class="btn btn-custom-4">Sign In</button>
+              </div>
+
+          </div>
 
         </div>
-      </form>
 
-      <br>
-      <br>
-
-      <hr>
-
-      <p> This website serves as the Community Relationship Management System of the Parkwood Greens Executive Village located in Pasig, Manila.
-        <br> For more inquiries, please contact our administrator through this number: XXX-XXX </p>
-
-      <br>
-      <br>
+      </div>
 
     </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-3">
+
+      <div class="forgot-password text-center">
+
+        <?php if(!empty($message)){ ?>
+          <p class ="error-login"> <span class="glyphicon glyphicon-ban-circle btn-lg"></span> <br><?php echo $message; ?><br>
+          </p>
+        <?php } ?>
+
+        <hr>
+
+        <p class="footer-note"> If you have forgotten your password, kindly click the button below: </p><br>
+
+        <button type="button" class="btn btn-custom-7">Forgot your Password?</button>
+
+      </div>
+
+      <br><br>
+
+    </div>
+
+  </div><!-- /.row -->
+  <!-- Standard button -->
+  </div>
+</form>
+
+<br>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 text-center">
+
+    <hr>
+
+    <p class="footer-note"> This website serves as the Community Relationship Management System of the Parkwood Greens Executive Village located in Pasig, Manila.
+      For more inquiries, please contact our administrator through this number: XXX-XXX </p>
+
+    <br><br>
+
+  </div>
+
+</div>

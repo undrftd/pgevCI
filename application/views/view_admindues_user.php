@@ -62,12 +62,16 @@
 
               <div class="dues-buttons">
 
-                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-4 col-md-4">
                   <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#start-modal">Start Billing</button>
                 </div>
 
-                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-4 col-md-4">
                   <button type="button" class="btn btn-custom-4">Edit Rates</button>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                  <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#start-modal">Clear Records</button>
                 </div>
 
               </div>
@@ -75,7 +79,7 @@
             </div>
 
             </br>
-            
+
             <div class="tab-content">
 
               <div class="tab-pane fade in active" id="portlet_tab1">
