@@ -26,6 +26,7 @@ class Admin_Dues extends MY_Controller{
         $this->pagination->initialize($config);
         $data['homeownerlinks'] = $this->pagination->create_links();
 
+        $data['rate'] = $this->model_dues->get_rate();
         $data['users'] = $this->model_dues->get_users($config['per_page'], $this->uri->segment(3));
     	$this->template->load('admin_template', 'view_admindues_user', $data);
     }

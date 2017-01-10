@@ -21,6 +21,25 @@
 
         </div>
 
+        <div class="modal fade" id="clear-modal" role="dialog">
+
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="signin">
+                        <div class="modal-body text-center">
+                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear all the homeowners' records? </p><br>
+                            <p> WARNING: ALL RECORDS WILL BE LOST. THIS PROCEDURE CANNOT BE UNDONE. </p>
+                            <a href="<?php echo base_url(); ?>admin_dues/billstart"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
         <div class="header-style">
           <h1> Homeowner's Monthly Dues </h1>
         </div>
@@ -71,7 +90,7 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                  <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#start-modal">Clear Records</button>
+                  <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#clear-modal">Clear Records</button>
                 </div>
 
               </div>
@@ -105,7 +124,7 @@
                         <td ><?php echo "₱ " . $row->monthly_dues; ?></td>
                         <td ><?php echo "₱ ". $row->arrears; ?></td>
                         <td><?php echo "₱ ";  echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
-                        <td><?php if($row->arrears >  0 && $row->monthly_dues == 0 ) { echo ($row->arrears + $row->monthly_dues) / '800'; } else if($row->arrears && $row->monthly_dues > 0 ) { echo ($row->arrears + $row->monthly_dues) / '800'; } else if($row->arrears == 0 && $row->monthly_dues > 0 ) { echo ($row->arrears + $row->monthly_dues) / '800'; } else { echo "0";}  ?></td>
+                        <td><?php if($row->arrears >  0 && $row->monthly_dues == 0 ) { echo ($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee); } else if($row->arrears && $row->monthly_dues > 0 ) { echo ($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee); } else if($row->arrears == 0 && $row->monthly_dues > 0 ) { echo ($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee); } else { echo "0";}  ?></td>
                         <td class="action-button">
                           <a href="<?php echo base_url() ."admin_dues/viewdues_user/" . $row->userid?>"> <button type="button" class="btn btn-custom-3"> View More </button>
 

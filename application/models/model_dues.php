@@ -44,25 +44,33 @@ class Model_dues extends CI_Model {
         return $query->num_rows();
     }
 
+    function get_rate()
+    {
+        $query = $this->db->select('*')->where('rateid',1)->get('rate', 1);
+        return $query->row();      
+    }
+
     function billstart_user()
     {
         $query = $this->db->select('*')->from('accounts')->where('role', 0)->where('isActive', 1)->get();
+        $ratequery = $this->db->select('*')->where('rateid',1)->get('rate', 1);
+        $rateresult = $ratequery->row();
         
         foreach($query->result() as $row):
             
             $data = array(
-                   'monthly_dues' => '800',
+                   'monthly_dues' => $rateresult->securityfee + $rateresult->assocfee,
                    'arrears' => '0',
                 );
 
             $data2 = array(
-                   'monthly_dues' => '800',
+                   'monthly_dues' => $rateresult->securityfee + $rateresult->assocfee,
                    'arrears' => $row->arrears,
                 );
 
             $data3 = array(
-                   'monthly_dues' => '800',
-                   'arrears' => $row->arrears + '800'
+                   'monthly_dues' => $rateresult->securityfee + $rateresult->assocfee,
+                   'arrears' => $row->arrears + ($rateresult->securityfee + $rateresult->assocfee),
                 );
             
 
