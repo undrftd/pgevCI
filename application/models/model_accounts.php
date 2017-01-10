@@ -294,8 +294,7 @@ class Model_accounts extends CI_Model {
     function url_check_user($userid)
     {
         $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1); 
-        
-        foreach($query->result() as $row):
+        $row = $query->row();
         
             if($userid == $row->userid)
             {
@@ -305,15 +304,12 @@ class Model_accounts extends CI_Model {
             {
                 return FALSE;
             }
-        
-        endforeach;
     }
 
     function url_check_admin($userid)
     {
         $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts',1); 
-        
-        foreach($query->result() as $row):
+        $row = $query->row();
         
             if($userid == $row->userid)
             {
@@ -323,15 +319,12 @@ class Model_accounts extends CI_Model {
             {
                 return FALSE;
             }
-        
-        endforeach;
     }
 
     function url_check_deact($userid)
     {
         $query= $this->db->select('userid')->where('userid', $userid)->where('isActive', 0)->get('accounts',1); 
-        
-        foreach($query->result() as $row):
+        $row = $query->row();
         
             if($userid == $row->userid)
             {
@@ -341,8 +334,6 @@ class Model_accounts extends CI_Model {
             {
                 return FALSE;
             }
-        
-        endforeach;
     }
 
     function acc_delete($userid)
