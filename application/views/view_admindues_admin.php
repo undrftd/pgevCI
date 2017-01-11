@@ -12,7 +12,7 @@
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br>
                             <p class="warning-message"> WARNING: All records will be lost. This procedure cannot be undone. </p><br>
-                            <button type="submit" class="btn btn-custom-1">Yes</button>
+                            <a href="<?php echo base_url();?>admin_dues/clearrecords_admin"><button type="submit" class="btn btn-custom-1">Yes</button>
                             <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>

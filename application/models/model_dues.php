@@ -362,4 +362,16 @@ class Model_dues extends CI_Model {
         $update = $this->db->update('accounts',$update_record_rate);
         return $update;
     }
+
+    function clearrecords_admin()
+    {
+        $update_record_rate = array(
+            'monthly_dues' => '0',
+            'arrears' => '0',
+            );
+
+        $this->db->where('role', 1)->where('isActive', 1);
+        $update = $this->db->update('accounts',$update_record_rate);
+        return $update;
+    }
 }

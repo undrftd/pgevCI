@@ -297,4 +297,11 @@ class Admin_Dues extends MY_Controller{
         $this->model_dues->clearrecords_user();
         redirect('admin_dues/homeowner');
     }
+
+    function clearrecords_admin()
+    {
+        $this->model_dues->clearrecords_admin();
+        redirect('admin_dues/administrator');
+    }
+
 }
