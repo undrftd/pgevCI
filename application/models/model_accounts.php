@@ -296,14 +296,14 @@ class Model_accounts extends CI_Model {
         $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1); 
         $row = $query->row();
         
-            if($userid == $row->userid)
-            {
-                return TRUE;
-            }
-            else
-            {
-                return FALSE;
-            }
+        if($userid == $row->userid)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     function url_check_admin($userid)
@@ -311,14 +311,14 @@ class Model_accounts extends CI_Model {
         $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts',1); 
         $row = $query->row();
         
-            if($userid == $row->userid)
-            {
-                return TRUE;
-            }
-            else
-            {
-                return FALSE;
-            }
+        if($userid == $row->userid)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     function url_check_deact($userid)
@@ -326,19 +326,19 @@ class Model_accounts extends CI_Model {
         $query= $this->db->select('userid')->where('userid', $userid)->where('isActive', 0)->get('accounts',1); 
         $row = $query->row();
         
-            if($userid == $row->userid)
-            {
-                return TRUE;
-            }
-            else
-            {
-                return FALSE;
-            }
+        if($userid == $row->userid)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     function acc_delete($userid)
     {
-        $this->db->select('*')->where('userid', $userid); 
+        $this->db->where('userid', $userid); 
         $delete = $this->db->delete('accounts');
         return $delete;
     }
@@ -355,7 +355,7 @@ class Model_accounts extends CI_Model {
             'role' => $this->input->post('role')
         );
 
-         $this->db->select('*')->where('userid', $userid); 
+         $this->db->where('userid', $userid); 
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
     }
@@ -372,7 +372,7 @@ class Model_accounts extends CI_Model {
             'contactnum' => $this->input->post('contactnum'),
         );
          $this->session->set_userdata($account_update_data);
-         $this->db->select('*')->where('userid', $userid); 
+         $this->db->where('userid', $userid); 
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
     }
@@ -381,7 +381,7 @@ class Model_accounts extends CI_Model {
     function acc_deact($userid) 
     {
         $account_deact_data = array('isActive' => 0);
-        $this->db->select('*')->where('userid', $userid); 
+        $this->db->where('userid', $userid); 
         $deact = $this->db->update('accounts', $account_deact_data);
         return $deact;
     }
@@ -389,7 +389,7 @@ class Model_accounts extends CI_Model {
     function acc_reactivate($userid) 
     {
         $account_react_data = array('isActive' => 1);
-        $this->db->select('*')->where('userid', $userid); 
+        $this->db->where('userid', $userid); 
         $reactivate = $this->db->update('accounts', $account_react_data);
         return $reactivate;
     }

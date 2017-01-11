@@ -30,7 +30,7 @@
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear all the homeowners' records? </p><br>
                             <p class="warning-message"> WARNING: All records will be lost. This procedure cannot be undone. </p><br>
-                            <a href="<?php echo base_url(); ?>admin_dues/billstart"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <a href="<?php echo base_url(); ?>admin_dues/clearrecords_user"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                  <button type="button" class="btn btn-custom-4">Edit Rates</button>
+                  <a href="<?php echo base_url();?>admin_dues/viewrates"><button type="button" class="btn btn-custom-4">Edit Rates</button></a>
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-4">
