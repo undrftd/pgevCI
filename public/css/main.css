@@ -484,6 +484,12 @@ table td {
   text-align: center;
 }
 
+.modal-content .warning-message {
+  font-weight: 700;
+  font-style: normal;
+  font-style: 0.9em;
+}
+
 /*new login form */
 
 .header {

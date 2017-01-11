@@ -29,7 +29,7 @@
                     <div class="signin">
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear all the homeowners' records? </p><br>
-                            <p> WARNING: ALL RECORDS WILL BE LOST. THIS PROCEDURE CANNOT BE UNDONE. </p>
+                            <p class="warning-message"> WARNING: All records will be lost. This procedure cannot be undone. </p><br>
                             <a href="<?php echo base_url(); ?>admin_dues/billstart"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
