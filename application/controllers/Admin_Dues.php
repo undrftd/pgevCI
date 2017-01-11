@@ -100,6 +100,46 @@ class Admin_Dues extends MY_Controller{
         }   
     }
 
+    function search_admin()
+    {
+         $searchquery = $this->input->get('search', TRUE);
+         $searchmodelquery = $this->model_dues->search_admin($searchquery);
+
+         if(isset($searchquery) and !empty($searchquery))
+         {
+            $config['base_url'] = site_url('admin_dues/search_admin/');
+            $config['reuse_query_string'] = TRUE;
+            $config['total_rows'] = $this->model_dues->countadmin_search($searchquery);
+            $config['per_page'] =  20;
+            $config['num_links'] = 5;
+            $config['use_page_numbers'] = FALSE;
+            $config['full_tag_open'] = "<ul class='pagination'>";
+            $config['full_tag_close'] ="</ul>";
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+            $config['next_tag_open'] = "<li>";
+            $config['next_tagl_close'] = "</li>";
+            $config['prev_tag_open'] = "<li>";
+            $config['prev_tagl_close'] = "</li>";
+            $config['first_tag_open'] = "<li>";
+            $config['first_tagl_close'] = "</li>";
+            $config['last_tag_open'] = "<li>";
+            $config['last_tagl_close'] = "</li>";
+            $this->pagination->initialize($config);
+            $data['adminlinks'] = $this->pagination->create_links();
+
+            $data['rate'] = $this->model_dues->get_rate();
+            $data['admin'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+            $this->template->load('admin_template', 'view_admindues_admin', $data);
+        }
+        else
+        {
+           redirect('admin_dues/administrator');
+        }   
+    }
+
     function billstart_user()
     {
         $this->model_dues->billstart_user();
@@ -130,8 +170,16 @@ class Admin_Dues extends MY_Controller{
     {
         if($this->model_dues->url_check_admin($userid))
         {     
-            $data['view'] = $this->model_dues->viewmore_admin($userid);
-            $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
+            if($userid != $this->session->userdata('userid'))
+            {
+                $data['view'] = $this->model_dues->viewmore_admin($userid);
+                $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
+            }
+            else
+            {
+                $this->session->set_flashdata('duesfail', 'You cannot edit your own dues. Please coordinated with other administrators for concerns.');
+                redirect('admin_dues/administrator');  
+            }
         }
         else                                        
         {
