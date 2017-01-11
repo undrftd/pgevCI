@@ -428,7 +428,7 @@ table td {
   margin-bottom: 20px;
 }
 
-#sel1, #user-name, #user-password {
+#sel1, #user-name, #user-password, #sum {
   border-radius: 0;
   color: #696969;
   box-shadow: none;
@@ -438,7 +438,7 @@ table td {
   transition: all 0.4s ease-in-out;
 }
 
-#sel1:focus, #user-name:focus, #user-password:focus {
+#sel1:focus, #user-name:focus, #user-password:focus, #sum:focus {
   border: 1px solid #27ae60;
 }
 
