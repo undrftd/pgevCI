@@ -133,9 +133,7 @@ class Admin_Accounts extends MY_Controller {
          if(isset($searchquery) and !empty($searchquery))
          {
             $config['base_url'] = site_url('admin_accounts/search_homeowner/');
-            //$config['first_url'] = $config['base_url'].'?'.http_build_query($_GET);
             $config['reuse_query_string'] = TRUE;
-            //if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
             $config['total_rows'] = $this->model_accounts->countuser_search($searchquery);
             $config['per_page'] =  20;
             $config['num_links'] = 5;
@@ -175,8 +173,7 @@ class Admin_Accounts extends MY_Controller {
          if(isset($searchquery) and !empty($searchquery))
          {
             $config['base_url'] = site_url('admin_accounts/search_admin/');
-            //$config['first_url'] = $config['base_url'].'?'.http_build_query($_GET);
-            $config['reuse_query_string'] = TRUE;    //if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
+            $config['reuse_query_string'] = TRUE;  
             $config['total_rows'] = $this->model_accounts->countadmin_search($searchquery);
             $config['per_page'] =  20;
             $config['num_links'] = 5;
@@ -215,8 +212,7 @@ class Admin_Accounts extends MY_Controller {
          if(isset($searchquery) and !empty($searchquery))
          {
             $config['base_url'] = site_url('admin_accounts/search_deact/');
-            //$config['first_url'] = $config['base_url'].'?'.http_build_query($_GET);
-            $config['reuse_query_string'] = TRUE;    //if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
+            $config['reuse_query_string'] = TRUE;    
             $config['total_rows'] = $this->model_accounts->countdeact_search($searchquery);
             $config['per_page'] =  20;
             $config['num_links'] = 5;

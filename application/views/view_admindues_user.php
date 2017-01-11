@@ -48,9 +48,9 @@
 
           <div class="portlet-header">
 
-          <form>
+          <form action="<?php echo base_url();?>admin_dues/search_homeowner/" method="GET">
             <div id="search-group">
-              <input class="form-control" name="search "id="sel1" type="text" placeholder="Search for a user...">
+              <input class="form-control" name="search" id="sel1" type="text" placeholder="Search for a user...">
                 <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
               </input>
             </div>
@@ -58,10 +58,18 @@
 
           <br>
 
-          <?php if ($this->session->flashdata('profilefeedback')){ ?>
+          <?php if ($this->session->flashdata('duesfeedback')){ ?>
             <div class="success-message text-center" id="prompt-message">
               <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-              <p> <?php echo $this->session->flashdata('accountsfeedback'); ?> </p><br>
+              <p> <?php echo $this->session->flashdata('duesfeedback'); ?> </p><br>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+            </div>
+          <?php } ?>
+
+          <?php if ($this->session->flashdata('duesfail')){ ?>
+            <div class="error-message text-center" id="prompt-message">
+              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+              <p> <?php echo $this->session->flashdata('duesfail'); ?> </p><br>
               <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
             </div>
           <?php } ?>
@@ -134,7 +142,16 @@
                         <td ><?php echo "₱ " . $row->monthly_dues; ?></td>
                         <td ><?php echo "₱ ". $row->arrears; ?></td>
                         <td><?php echo "₱ ";  echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
-                        <td><?php if($row->arrears >  0 && $row->monthly_dues == 0 ) { echo ($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee); } else if($row->arrears && $row->monthly_dues > 0 ) { echo ($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee); } else if($row->arrears == 0 && $row->monthly_dues > 0 ) { echo ($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee); } else { echo "0";}  ?></td>
+                        <td><?php 
+                                  if(($row->arrears >  0 && $row->monthly_dues == 0) || ($row->arrears > 0 && $row->monthly_dues > 0 ) || ($row->arrears == 0 && $row->monthly_dues > 0 )) 
+                                  { 
+                                    echo ($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee);
+                                  }
+                                  else 
+                                  { 
+                                    echo "0";
+                                  }  ?>
+                        </td>
                         <td class="action-button">
                           <a href="<?php echo base_url() ."admin_dues/viewdues_user/" . $row->userid?>"> <button type="button" class="btn btn-custom-3"> View More </button>
 

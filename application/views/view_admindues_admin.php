@@ -147,7 +147,16 @@
                         <td><?php echo "₱" . " " . $row->monthly_dues; ?></td>
                         <td><?php echo "₱" . " " . $row->arrears; ?></td>
                         <td><?php echo "₱" . " "; echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
-                        <td>1</td>
+                        <td><?php 
+                                  if(($row->arrears >  0 && $row->monthly_dues == 0) || ($row->arrears > 0 && $row->monthly_dues > 0 ) || ($row->arrears == 0 && $row->monthly_dues > 0 )) 
+                                  { 
+                                    echo ($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee);
+                                  }
+                                  else 
+                                  { 
+                                    echo "0";
+                                  }  ?>
+                        </td>
                         <td class="action-button">
                           <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Clear Dues </button>

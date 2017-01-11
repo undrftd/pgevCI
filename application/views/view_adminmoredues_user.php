@@ -60,15 +60,15 @@
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 
-              <?php if ($this->session->flashdata('duesfeedback')){ ?>
+              <?php if ($this->session->flashdata('duesmorefeedback')){ ?>
                 <div class="success-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-                  <p> <?php echo $this->session->flashdata('duesfeedback'); ?> </p><br>
+                  <p> <?php echo $this->session->flashdata('duesmorefeedback'); ?> </p><br>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
               <?php } ?>
 
-              <?php if ($this->session->flashdata('duesfail')){ ?>
+              <?php if ($this->session->flashdata('duesmorefail')){ ?>
                 <div class="error-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
                   <p> <?php echo $this->session->flashdata('duesfail'); ?> </p><br>

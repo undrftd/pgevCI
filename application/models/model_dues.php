@@ -65,6 +65,33 @@ class Model_dues extends CI_Model {
         }
     }
 
+    function countuser_search($searchquery)
+    {
+         $query = $this->db->select('*')
+                            ->from('accounts')
+                            ->where('(role = 0 AND isActive = 1)',NULL,FALSE)
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+         return $query->num_rows();
+    }
+    
+    function search_homeowner($searchquery)
+    {
+      $this->db->select('*')->from('accounts');
+      $this->db->where('(role = 0 AND isActive = 1)',NULL,FALSE);
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+
+    }
+
     function billstart_user()
     {
         $query = $this->db->select('*')->from('accounts')->where('role', 0)->where('isActive', 1)->get();
@@ -93,8 +120,6 @@ class Model_dues extends CI_Model {
             {
                 $this->db->where('role', 0)->where('isActive', 1)->where('userid', $row->userid);
                 $this->db->update('accounts',$data);
-
-                print_r($this->db->last_query());
             }
             else if ($row->monthly_dues == 0 && $row->arrears >0) 
             {
