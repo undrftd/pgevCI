@@ -415,11 +415,6 @@ table td {
   margin: 1%;
 }
 
-.portlet-header button {
-  display: inline-block;
-  margin-right: 3%;
-}
-
 .ticket-summary {
   font-family: 'Roboto', sans-serif;
   font-size: 1.1em;

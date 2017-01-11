@@ -55,6 +55,16 @@
               </div>
             </form>
 
+            <br>
+            
+            <?php if ($this->session->flashdata('profilefeedback')){ ?>
+              <div class="success-message text-center" id="prompt-message">
+                <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+                <p> <?php echo $this->session->flashdata('accountsfeedback'); ?> </p><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+              </div>
+            <?php } ?>
+
           </div>
 
           <br>
