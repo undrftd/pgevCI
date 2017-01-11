@@ -2,69 +2,6 @@
 
 class Model_accounts extends CI_Model {
 
-    function get_users($limit, $offset)
-    {
-       $this->db->limit($limit,$offset);
-       $users = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
-       
-       if($users->num_rows() > 0)
-        {
-            return $users->result();  
-        } 
-        else
-        {
-            return $users->result();
-        }     
-    }
-
-    function count_homeowner()
-    {
-        $query = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
-        return $query->num_rows();   
-    }
-
-    function get_admin($limit, $offset)
-    {
-       $this->db->limit($limit,$offset);
-       $admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
-       
-       if($admin->num_rows() > 0)
-        {
-            return $admin->result();  
-        } 
-        else
-        {
-            return $admin->result();
-        }        
-    }
-
-    function count_admin()
-    {
-        $query = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
-        return $query->num_rows();   
-    }
-
-    function get_deact($limit, $offset)
-    {
-       $this->db->limit($limit,$offset);
-       $deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
-       
-       if($deact->num_rows() > 0)
-       {
-            return $deact->result();  
-       } 
-       else
-       {
-            return $deact->result();
-       }           
-    }
-
-    function count_deact()
-    {
-        $query = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
-        return $query->num_rows();   
-    }
-
     function validate() 
     {
         $this->db->where('username', $this->input->post('username'));
@@ -162,6 +99,70 @@ class Model_accounts extends CI_Model {
             return false;
         }
     }
+
+     function get_users($limit, $offset)
+    {
+       $this->db->limit($limit,$offset);
+       $users = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
+       
+       if($users->num_rows() > 0)
+        {
+            return $users->result();  
+        } 
+        else
+        {
+            return $users->result();
+        }     
+    }
+
+    function count_homeowner()
+    {
+        $query = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
+        return $query->num_rows();   
+    }
+
+    function get_admin($limit, $offset)
+    {
+       $this->db->limit($limit,$offset);
+       $admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
+       
+       if($admin->num_rows() > 0)
+        {
+            return $admin->result();  
+        } 
+        else
+        {
+            return $admin->result();
+        }        
+    }
+
+    function count_admin()
+    {
+        $query = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
+        return $query->num_rows();   
+    }
+
+    function get_deact($limit, $offset)
+    {
+       $this->db->limit($limit,$offset);
+       $deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
+       
+       if($deact->num_rows() > 0)
+       {
+            return $deact->result();  
+       } 
+       else
+       {
+            return $deact->result();
+       }           
+    }
+
+    function count_deact()
+    {
+        $query = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
+        return $query->num_rows();   
+    }
+
 
     function create_account() 
     {
