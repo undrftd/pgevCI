@@ -7,17 +7,18 @@ class MY_Controller extends CI_Controller
         parent::__construct();
         $this->is_logged_in();
         $this->load->model('model_accounts');
+        $this->load->model('model_accounts_user');
         $this->load->model('model_dues');
     }
 
-    function is_logged_in() 
+    function is_logged_in()
     {
         $is_logged_in = $this->session->userdata('is_logged_in');
-        
+
         if(!isset($is_logged_in) || $is_logged_in != true) {
             redirect('login');
             die();
         }
-    }   
+    }
 
 }
