@@ -29,7 +29,7 @@
                     <div class="signin">
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to start billing the administrators? </p><br>
-                            <a href="#"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                            <a href="<?php echo base_url(); ?>admin_dues/billstart_admin"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -56,18 +56,22 @@
             </form>
 
             <br>
-            
-            <?php if ($this->session->flashdata('profilefeedback')){ ?>
-              <div class="success-message text-center" id="prompt-message">
-                <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                <p> <?php echo $this->session->flashdata('accountsfeedback'); ?> </p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-              </div>
-            <?php } ?>
 
-          </div>
+          <?php if ($this->session->flashdata('duesfeedback')){ ?>
+            <div class="success-message text-center" id="prompt-message">
+              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+              <p> <?php echo $this->session->flashdata('duesfeedback'); ?> </p><br>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+            </div>
+          <?php } ?>
 
-          <br>
+          <?php if ($this->session->flashdata('duesfail')){ ?>
+            <div class="error-message text-center" id="prompt-message">
+              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+              <p> <?php echo $this->session->flashdata('duesfail'); ?> </p><br>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+            </div>
+          <?php } ?>
 
           <div class="portlet-title">
 
@@ -95,7 +99,7 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                  <button type="button" class="btn btn-custom-4">Edit Rates</button>
+                  <a href="<?php echo base_url();?>admin_dues/viewrates"> <button type="button" class="btn btn-custom-4">Edit Rates</button> </a>
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-4">
@@ -106,21 +110,6 @@
 
             </div>
 
-            <?php if ($this->session->flashdata('feedback')){ ?>
-              <div class="success-message text-center" id="prompt-message">
-                <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-                <p> <?php echo $this->session->flashdata('feedback'); ?> </p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-              </div>
-            <?php } ?>
-
-            <?php if ($this->session->flashdata('fail')){ ?>
-              <div class="error-message text-center" id="prompt-message">
-                <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-                <p> <?php echo $this->session->flashdata('fail'); ?> </p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-              </div>
-            <?php } ?>
               </br>
             <div class="tab-content">
 
@@ -158,8 +147,8 @@
                                   }  ?>
                         </td>
                         <td class="action-button">
-                          <a href="admin-dues-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Clear Dues </button>
+                          <a href="<?php echo base_url() ."admin_dues/viewdues_admin/" . $row->userid?>"> <button type="button" class="btn btn-custom-3"> View More </button>
+
                         </td>
                     </tr>
                   <?php endforeach; ?>

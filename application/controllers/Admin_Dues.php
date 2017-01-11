@@ -55,6 +55,7 @@ class Admin_Dues extends MY_Controller{
         $this->pagination->initialize($config);
         $data['adminlinks'] = $this->pagination->create_links();
 
+        $data['rate'] = $this->model_dues->get_rate();
         $data['admin'] = $this->model_dues->get_admin($config['per_page'], $this->uri->segment(3));
         $this->template->load('admin_template', 'view_admindues_admin', $data);
     }
@@ -99,10 +100,16 @@ class Admin_Dues extends MY_Controller{
         }   
     }
 
-    function billstart()
+    function billstart_user()
     {
         $this->model_dues->billstart_user();
         redirect('admin_dues/homeowner');         
+    }
+
+    function billstart_admin()
+    {
+        $this->model_dues->billstart_admin();
+        redirect('admin_dues/administrator');      
     }
 
     function viewdues_user($userid)
@@ -116,6 +123,20 @@ class Admin_Dues extends MY_Controller{
         {
             $this->session->set_flashdata('duesfail', 'There is no account associated with that User ID. Please double-check the User ID.');
             redirect('admin_dues/homeowner');   
+        }
+    }
+
+    function viewdues_admin($userid)
+    {
+        if($this->model_dues->url_check_admin($userid))
+        {     
+            $data['view'] = $this->model_dues->viewmore_admin($userid);
+            $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
+        }
+        else                                        
+        {
+            $this->session->set_flashdata('duesfail', 'There is no account associated with that User ID. Please double-check the User ID.');
+            redirect('admin_dues/administrator');   
         }
     }
 
@@ -153,6 +174,40 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
+    function cleardues_admin($userid)
+    {
+        if($this->model_dues->url_check_admin($userid))
+        {  
+            $this->model_dues->cleardues_admin($userid);
+            $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s monthly dues.');
+            
+            $data['view'] = $this->model_dues->viewmore_admin($userid);
+            $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s dues. Please double-check the User ID.');         
+            redirect('admin_dues/administrator');  
+        }
+    }
+
+    function cleararrears_admin($userid)
+    {
+        if($this->model_dues->url_check_admin($userid))
+        {     
+            $this->model_dues->cleararrears_admin($userid);
+            $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s arrears. ');
+            
+            $data['view'] = $this->model_dues->viewmore_admin($userid);
+            $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s arrears. Please double-check the User ID.');         
+            redirect('admin_dues/administrator'); 
+        }
+    }
+
     function updatedues_user($userid)
     {
         if($this->model_dues->url_check_user($userid))
@@ -181,6 +236,34 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
+    function updatedues_admin($userid)
+    {
+        if($this->model_dues->url_check_admin($userid))
+        { 
+            $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+
+            $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|numeric');
+            $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|numeric');
+
+            if($this->form_validation->run() == FALSE)
+            {
+                $data['view'] = $this->model_accounts->viewmore_admin($userid);
+                $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
+            }
+            else if($query = $this->model_dues->updatedues_admin($userid))
+            {
+                $this->session->set_flashdata('duesmorefeedback', 'You have successfully updated the user\'s dues.');
+                $data['view'] = $this->model_accounts->viewmore_admin($userid);
+                $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
+            }
+        }
+        else
+        {
+            $this->session->set_flashdata('duesfail', 'You cannot update a non-existent account. Please double-check the User ID.');         
+            redirect('admin_dues/administrator'); 
+        }
+    }
+
     function viewrates()
     {
         $data['rate'] = $this->model_dues->get_rate();
@@ -190,23 +273,23 @@ class Admin_Dues extends MY_Controller{
     function updaterates()
     {
 
-            $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
-            $this->form_validation->set_rules('securityfee', 'Security Fee', 'trim|required|numeric');
-            $this->form_validation->set_rules('assocfee', 'Association Fee', 'trim|required|numeric');
+        $this->form_validation->set_rules('securityfee', 'Security Fee', 'trim|required|numeric');
+        $this->form_validation->set_rules('assocfee', 'Association Fee', 'trim|required|numeric');
 
-            if ($this->form_validation->run() == FALSE)
-            {
-                $data['rate'] = $this->model_dues->get_rate();
-                $this->template->load('admin_template', 'view_admineditrate', $data);
-            }
-            else
-            {
-                $this->model_dues->editrates();
-                $data['rate'] = $this->model_dues->get_rate();
-                $this->session->set_flashdata('ratefeedback', 'You have successfully updated the monthly dues rate.');
-                $this->template->load('admin_template', 'view_admineditrate', $data);
-            } 
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['rate'] = $this->model_dues->get_rate();
+            $this->template->load('admin_template', 'view_admineditrate', $data);
+        }
+        else
+        {
+            $this->model_dues->editrates();
+            $data['rate'] = $this->model_dues->get_rate();
+            $this->session->set_flashdata('ratefeedback', 'You have successfully updated the monthly dues rate.');
+            $this->template->load('admin_template', 'view_admineditrate', $data);
+        } 
     }
 
     function clearrecords_user()
