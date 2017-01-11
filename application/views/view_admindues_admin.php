@@ -72,6 +72,9 @@
               <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
             </div>
           <?php } ?>
+          
+          </div>
+          <br>
 
           <div class="portlet-title">
 
@@ -109,8 +112,7 @@
               </div>
 
             </div>
-
-              </br>
+            </br>
             <div class="tab-content">
 
               <div class="tab-pane fade in active" id="portlet_tab1">
