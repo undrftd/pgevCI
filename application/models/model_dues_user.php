@@ -18,9 +18,21 @@ class Model_dues_user extends CI_Model{
           }
   }
 
+  function setsession()
+  {
+    $query = $this->db->select('*')->where('userid', $this->session->userdata('userid'))->get('accounts', 1);
+    $row = $query->row();
+
+    $data = array(
+        'monthly_dues' => $row->monthly_dues,
+        'arrears' => $row->arrears,
+      );
+    $this->session->set_userdata($data);
+  }
+
   function total_value($userid)
   {
-    $total = $this->dbdb->select('*')->where('userid', $userid)->select('SUM(monthly_dues) + SUM(arrears) as total', FALSE);
+    $total = $this->db->select('*')->where('userid', $userid)->select('SUM(monthly_dues) + SUM(arrears) as total', FALSE);
 
 
     if ($total->num_rows() > 0)

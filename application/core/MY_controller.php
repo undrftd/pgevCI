@@ -9,7 +9,7 @@ class MY_Controller extends CI_Controller
         $this->load->model('model_accounts');
         $this->load->model('model_accounts_user');
         $this->load->model('model_dues');
-        $this->load->model('Model_DuesUser');
+        $this->load->model('model_dues_user');
     }
 
     function is_logged_in()
