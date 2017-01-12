@@ -41,7 +41,7 @@
 
           <div class="row">
 
-            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
               <div class="header-style">
                 <h1> Account Information </h1>
@@ -58,7 +58,7 @@
 
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
               <div class="information">
                 <form action="<?php echo base_url() ."admin_accounts/accupdate_deact/" . $view->userid ;?>" method="POST">
