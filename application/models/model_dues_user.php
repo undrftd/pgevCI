@@ -1,6 +1,6 @@
 <?php
 
-class Model_DuesUser extends CI_Model{
+class Model_dues_user extends CI_Model{
 
 
   function first_last($userid)
