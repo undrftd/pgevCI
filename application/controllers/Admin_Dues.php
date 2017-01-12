@@ -97,7 +97,7 @@ class Admin_Dues extends MY_Controller{
         else
         {
            redirect('admin_dues/homeowner');
-        }   
+        }
     }
 
     function search_admin()
@@ -137,39 +137,39 @@ class Admin_Dues extends MY_Controller{
         else
         {
            redirect('admin_dues/administrator');
-        }   
+        }
     }
 
     function billstart_user()
     {
         $this->model_dues->billstart_user();
-        redirect('admin_dues/homeowner');         
+        redirect('admin_dues/homeowner');
     }
 
     function billstart_admin()
     {
         $this->model_dues->billstart_admin();
-        redirect('admin_dues/administrator');      
+        redirect('admin_dues/administrator');
     }
 
     function viewdues_user($userid)
     {
         if($this->model_dues->url_check_user($userid))
-        {     
+        {
             $data['view'] = $this->model_dues->viewmore_user($userid);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
-        else                                        
+        else
         {
             $this->session->set_flashdata('duesfail', 'There is no account associated with that User ID. Please double-check the User ID.');
-            redirect('admin_dues/homeowner');   
+            redirect('admin_dues/homeowner');
         }
     }
 
     function viewdues_admin($userid)
     {
         if($this->model_dues->url_check_admin($userid))
-        {     
+        {
             if($userid != $this->session->userdata('userid'))
             {
                 $data['view'] = $this->model_dues->viewmore_admin($userid);
@@ -177,89 +177,89 @@ class Admin_Dues extends MY_Controller{
             }
             else
             {
-                $this->session->set_flashdata('duesfail', 'You cannot edit your own dues. Please coordinated with other administrators for concerns.');
-                redirect('admin_dues/administrator');  
+                $this->session->set_flashdata('duesfail', 'You cannot edit your own dues. Please coordinate with other administrators for concerns.');
+                redirect('admin_dues/administrator');
             }
         }
-        else                                        
+        else
         {
             $this->session->set_flashdata('duesfail', 'There is no account associated with that User ID. Please double-check the User ID.');
-            redirect('admin_dues/administrator');   
+            redirect('admin_dues/administrator');
         }
     }
 
     function cleardues_user($userid)
     {
         if($this->model_dues->url_check_user($userid))
-        {  
+        {
             $this->model_dues->cleardues_user($userid);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s monthly dues.');
-            
+
             $data['view'] = $this->model_dues->viewmore_user($userid);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
         else
         {
-            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s dues. Please double-check the User ID.');         
-            redirect('admin_dues/homeowner');  
+            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s dues. Please double-check the User ID.');
+            redirect('admin_dues/homeowner');
         }
     }
 
     function cleararrears_user($userid)
     {
         if($this->model_dues->url_check_user($userid))
-        {     
+        {
             $this->model_dues->cleararrears_user($userid);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s arrears. ');
-            
+
             $data['view'] = $this->model_dues->viewmore_user($userid);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
         else
         {
-            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s arrears. Please double-check the User ID.');         
-            redirect('admin_dues/homeowner'); 
+            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s arrears. Please double-check the User ID.');
+            redirect('admin_dues/homeowner');
         }
     }
 
     function cleardues_admin($userid)
     {
         if($this->model_dues->url_check_admin($userid))
-        {  
+        {
             $this->model_dues->cleardues_admin($userid);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s monthly dues.');
-            
+
             $data['view'] = $this->model_dues->viewmore_admin($userid);
             $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
         }
         else
         {
-            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s dues. Please double-check the User ID.');         
-            redirect('admin_dues/administrator');  
+            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s dues. Please double-check the User ID.');
+            redirect('admin_dues/administrator');
         }
     }
 
     function cleararrears_admin($userid)
     {
         if($this->model_dues->url_check_admin($userid))
-        {     
+        {
             $this->model_dues->cleararrears_admin($userid);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s arrears. ');
-            
+
             $data['view'] = $this->model_dues->viewmore_admin($userid);
             $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
         }
         else
         {
-            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s arrears. Please double-check the User ID.');         
-            redirect('admin_dues/administrator'); 
+            $this->session->set_flashdata('duesfail', 'You cannnot clear a non-existent account\'s arrears. Please double-check the User ID.');
+            redirect('admin_dues/administrator');
         }
     }
 
     function updatedues_user($userid)
     {
         if($this->model_dues->url_check_user($userid))
-        { 
+        {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
             $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|numeric');
@@ -279,15 +279,15 @@ class Admin_Dues extends MY_Controller{
         }
         else
         {
-            $this->session->set_flashdata('duesfail', 'You cannot update a non-existent account. Please double-check the User ID.');         
-            redirect('admin_dues/homeowner'); 
+            $this->session->set_flashdata('duesfail', 'You cannot update a non-existent account. Please double-check the User ID.');
+            redirect('admin_dues/homeowner');
         }
     }
 
     function updatedues_admin($userid)
     {
         if($this->model_dues->url_check_admin($userid))
-        { 
+        {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
             $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|numeric');
@@ -307,8 +307,8 @@ class Admin_Dues extends MY_Controller{
         }
         else
         {
-            $this->session->set_flashdata('duesfail', 'You cannot update a non-existent account. Please double-check the User ID.');         
-            redirect('admin_dues/administrator'); 
+            $this->session->set_flashdata('duesfail', 'You cannot update a non-existent account. Please double-check the User ID.');
+            redirect('admin_dues/administrator');
         }
     }
 
@@ -337,7 +337,7 @@ class Admin_Dues extends MY_Controller{
             $data['rate'] = $this->model_dues->get_rate();
             $this->session->set_flashdata('ratefeedback', 'You have successfully updated the monthly dues rate.');
             $this->template->load('admin_template', 'view_admineditrate', $data);
-        } 
+        }
     }
 
     function clearrecords_user()
