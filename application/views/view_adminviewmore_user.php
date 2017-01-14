@@ -49,7 +49,7 @@
 
               <div class="admin-message">
 
-                  <p> Note: Before editing another user's account, be sure to inform them of what you are about to change for them to be aware.
+                  <p> Note: Before editing another user's account, be sure to inform the user of what you are about to change for him/her to be aware.
                   </p>
 
               </div>

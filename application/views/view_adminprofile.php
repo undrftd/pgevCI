@@ -14,7 +14,7 @@
 
               <div class="admin-message">
 
-                  <p> Note: Before editing another user's account, be sure to inform them of what you are about to change for them to be aware.
+                  <p> Note: Be sure to use your own and correct information in order to avoid conflict with other users.
                   </p>
 
               </div>
