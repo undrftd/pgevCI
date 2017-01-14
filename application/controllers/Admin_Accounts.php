@@ -96,11 +96,17 @@ class Admin_Accounts extends MY_Controller {
         return ( ! preg_match("/^([a-z ])+$/i", $str)) ? FALSE : TRUE;
     }
 
+    function num_dash_par($str)
+    {
+        return ( ! preg_match("/^([-0-9()])+$/i", $str)) ? FALSE : TRUE;
+    }
+
 	function createuser()
     {
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');
         $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
+        $this->form_validation->set_message('num_dash_par', '{field} may only contain numbers, dashes, and parentheses.');
 
         $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
         $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
@@ -108,7 +114,7 @@ class Admin_Accounts extends MY_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required'); //min_length[8]
         $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
-        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
         $this->form_validation->set_rules('role', 'Role', 'required');
 
         if ($this->form_validation->run() == FALSE)
@@ -359,7 +365,7 @@ class Admin_Accounts extends MY_Controller {
             $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']');
             $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
             $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
-            $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+            $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
             $this->form_validation->set_rules('role', 'Role', 'required');
 
             if ($this->form_validation->run() == FALSE)
@@ -398,7 +404,7 @@ class Admin_Accounts extends MY_Controller {
                 $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']');
                 $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
                 $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
-                $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+                $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
                 $this->form_validation->set_rules('role', 'Role', 'required');
 
                 if ($this->form_validation->run() == FALSE)
@@ -439,7 +445,7 @@ class Admin_Accounts extends MY_Controller {
             $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']');
             $this->form_validation->set_rules('address', 'Address', 'required');
             $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
-            $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
+            $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
             $this->form_validation->set_rules('role', 'Role', 'required');
 
             if ($this->form_validation->run() == FALSE)
