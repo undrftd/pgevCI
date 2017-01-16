@@ -12,7 +12,7 @@
                         <div class="modal-body text-center">
                             <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br>
                             <p class="warning-message"> WARNING: All records will be lost. This procedure cannot be undone. </p><br>
-                            <a href="<?php echo base_url();?>admin_dues/clearrecords_admin"><button type="submit" class="btn btn-custom-1">Yes</button>
+                            <a href="<?php echo base_url();?>admin_dues/clearrecords_admin"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                             <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -47,9 +47,9 @@
 
           <div class="portlet-header">
 
-            <form>
+            <form action="<?php echo base_url();?>admin_dues/search_admin/" method="GET">
               <div id="search-group">
-                <input class="form-control" name="search "id="sel1" type="text" placeholder="Search for a user...">
+                <input class="form-control" name="search" id="sel1" type="text" placeholder="Search for a user...">
                   <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                 </input>
               </div>

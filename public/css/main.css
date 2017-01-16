@@ -457,6 +457,20 @@ table td {
 
 .error-message button {
   background-color: #e74c3c;
+  color: white;
+  font-family: 'Roboto';
+  padding: 4px;
+  width: 100px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  opacity: 1;
+  font-weight: 700;
+  transition: all 0.4s ease-in-out;
+  border: 2px solid #e74c3c;
+}
+
+.error-message button:hover {
+  color: #e74c3c;
 }
 
 .success-message h3, .error-message h3 {
@@ -535,6 +549,7 @@ table td {
 
 .footer-note {
   font-family: 'Rubik', sans-serif;
+  margin-bottom: 15px;
 }
 
 /*end form*/
@@ -565,6 +580,15 @@ table td {
        position: relative;
        margin-right: 10px;
    }
+}
+
+@media(max-width:425px) {
+
+  .nopadding {
+     padding: 0 !important;
+     margin: 0 !important;
+  }
+
 }
 
 @media(max-width:768px), (max-width:1024px) {

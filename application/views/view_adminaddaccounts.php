@@ -7,7 +7,7 @@
 
           <div class="row">
 
-            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
               <div class="header-style">
                 <h1> Add a User </h1>
@@ -24,7 +24,7 @@
 
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
               <div class="information">
                   <div class="form-group">

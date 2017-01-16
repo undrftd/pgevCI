@@ -8,9 +8,9 @@ class User_Accounts extends MY_Controller {
     }
 
     function alpha_dash_space($str)
-      {
-          return ( ! preg_match("/^([a-z ])+$/i", $str)) ? FALSE : TRUE;
-      }
+    {
+        return ( ! preg_match("/^([a-z ])+$/i", $str)) ? FALSE : TRUE;
+     }
 
 
     function update_useraccount($userid)
@@ -37,7 +37,5 @@ class User_Accounts extends MY_Controller {
                     redirect('user_accounts');
                  }
             }
-        }
-
-
+    }
 }

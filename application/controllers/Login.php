@@ -5,7 +5,15 @@ class Login extends CI_Controller
 
     function index()
     {
-        $this->template->load('template', 'view_login');
+        if($this->session->userdata('is_logged_in'))
+        {
+            $referred_from = $this->session->userdata('referred_from');
+            redirect($referred_from, 'refresh');
+        }
+        else
+        {
+            $this->template->load('template', 'view_login');
+        }
     }
 
     function validate_login()

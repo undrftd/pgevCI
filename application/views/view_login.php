@@ -14,14 +14,14 @@
 
 <form action="<?php echo base_url(); ?>login/validate_login" method="POST">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-2">
+    <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-2 nopadding">
 
       <div class="login-form">
 
           <div class="form-group">
 
           <h4> Please enter your credentials  </h4><br>
-          
+
           <div class="row">
             <div class="col-xs-12 col-sm-12">
               <div class="form-group">
@@ -54,18 +54,18 @@
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-3">
+    <div class="col-xs-12 col-sm-12 col-md-3 nopadding">
 
       <div class="forgot-password text-center">
 
         <?php if(!empty($message)){ ?>
-          <p class ="error-login"> <span class="glyphicon glyphicon-ban-circle btn-lg"></span> <br><?php echo $message; ?><br>
+          <p class ="error-login"> <span class="glyphicon glyphicon-ban-circle btn-lg"></span> <br><?php echo $message; ?>
           </p>
         <?php } ?>
 
         <hr>
 
-        <p class="footer-note"> If you have forgotten your password, kindly click the button below: </p><br>
+        <p class="footer-note"> If you have forgotten your password, kindly click the button below: </p>
 
         <button type="button" class="btn btn-custom-7">Forgot your Password?</button>
 

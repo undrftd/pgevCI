@@ -4,15 +4,15 @@
 
       <div class="row">
 
-        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
           <div class="header-style">
-            <h1> Edit Dues </h1>
+            <h1> Edit Dues Rate </h1>
           </div><br>
 
           <div class="admin-message">
 
-              <p> Note: Before editing another user's account, be sure to inform them of what you are about to change for them to be aware.
+              <p> Note: Before editing the rate of the monthly dues, be sure to inform the homeowners of the changes to be implemented for them to be aware.
               </p>
 
           </div>
@@ -22,7 +22,7 @@
         <div class="clearfix visible-md-block"></div>
         <div class="clearfix visible-sm-block"></div>
 
-        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
         <?php if ($this->session->flashdata('ratefeedback')){ ?>
           <div class="success-message text-center" id="prompt-message">

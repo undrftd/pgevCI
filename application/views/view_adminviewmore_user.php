@@ -41,7 +41,7 @@
 
           <div class="row">
 
-            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
               <div class="header-style">
                 <h1> Account Information </h1>
@@ -49,7 +49,7 @@
 
               <div class="admin-message">
 
-                  <p> Note: Before editing another user's account, be sure to inform them of what you are about to change for them to be aware.
+                  <p> Note: Before editing another user's account, be sure to inform the user of what you are about to change for him/her to be aware.
                   </p>
 
               </div>
@@ -58,7 +58,7 @@
 
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
               <div class="information">
                 <form action="<?php echo base_url() ."admin_accounts/accupdate_user/" . $view->userid ;?>" method="POST">
