@@ -2,7 +2,7 @@
 
 class Model_accounts extends CI_Model {
 
-    function validate() 
+    function validate()
     {
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
@@ -12,8 +12,8 @@ class Model_accounts extends CI_Model {
         if($query->num_rows() == 1)
         {
          $data = array(
-                'userid' => $result->userid, 
-                'username' => $result->username, 
+                'userid' => $result->userid,
+                'username' => $result->username,
                 'password' => $result->password,
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
@@ -26,7 +26,7 @@ class Model_accounts extends CI_Model {
                 'is_logged_in' => true
             );
             $this->session->set_userdata($data);
-            return true;    
+            return true;
         }
         else
         {
@@ -34,7 +34,7 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function check_role() 
+    function check_role()
     {
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
@@ -45,8 +45,8 @@ class Model_accounts extends CI_Model {
         if($query->num_rows() == 1)
         {
              $data = array(
-                'userid' => $result->userid, 
-                'username' => $result->username, 
+                'userid' => $result->userid,
+                'username' => $result->username,
                 'password' => $result->password,
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
@@ -59,15 +59,15 @@ class Model_accounts extends CI_Model {
                 'is_logged_in' => true
             );
             $this->session->set_userdata($data);
-            return true;    
+            return true;
         }
-        else 
+        else
         {
             return false;
         }
     }
 
-    function check_active() 
+    function check_active()
     {
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', $this->input->post('password'));
@@ -78,8 +78,8 @@ class Model_accounts extends CI_Model {
         if($query->num_rows() == 1)
         {
             $data = array(
-                'userid' => $result->userid, 
-                'username' => $result->username, 
+                'userid' => $result->userid,
+                'username' => $result->username,
                 'password' => $result->password,
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
@@ -92,9 +92,9 @@ class Model_accounts extends CI_Model {
                 'is_logged_in' => true
             );
             $this->session->set_userdata($data);
-            return true;    
+            return true;
         }
-        else 
+        else
         {
             return false;
         }
@@ -104,67 +104,67 @@ class Model_accounts extends CI_Model {
     {
        $this->db->limit($limit,$offset);
        $users = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
-       
+
        if($users->num_rows() > 0)
         {
-            return $users->result();  
-        } 
+            return $users->result();
+        }
         else
         {
             return $users->result();
-        }     
+        }
     }
 
     function count_homeowner()
     {
         $query = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
-        return $query->num_rows();   
+        return $query->num_rows();
     }
 
     function get_admin($limit, $offset)
     {
        $this->db->limit($limit,$offset);
        $admin = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
-       
+
        if($admin->num_rows() > 0)
         {
-            return $admin->result();  
-        } 
+            return $admin->result();
+        }
         else
         {
             return $admin->result();
-        }        
+        }
     }
 
     function count_admin()
     {
         $query = $this->db->select('*')->from('accounts')-> where('role', 1)-> where('isActive', 1)->get();
-        return $query->num_rows();   
+        return $query->num_rows();
     }
 
     function get_deact($limit, $offset)
     {
        $this->db->limit($limit,$offset);
        $deact = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
-       
+
        if($deact->num_rows() > 0)
        {
-            return $deact->result();  
-       } 
+            return $deact->result();
+       }
        else
        {
             return $deact->result();
-       }           
+       }
     }
 
     function count_deact()
     {
         $query = $this->db->select('*')->from('accounts')-> where('isActive', 0)->get();
-        return $query->num_rows();   
+        return $query->num_rows();
     }
 
 
-    function create_account() 
+    function create_account()
     {
         $new_account_insert_data = array(
             'firstname' => $this->input->post('firstname'),
@@ -179,13 +179,13 @@ class Model_accounts extends CI_Model {
          $insert = $this->db->insert('accounts', $new_account_insert_data);
          return $insert;
     }
-   
+
     function countuser_search($searchquery)
     {
          $query = $this->db->select('*')
                             ->from('accounts')
                             ->where('(role = 0 AND isActive = 1)',NULL,FALSE)
-                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get();
          return $query->num_rows();
     }
 
@@ -194,7 +194,7 @@ class Model_accounts extends CI_Model {
          $query = $this->db->select('*')
                             ->from('accounts')
                             ->where('(role = 1 AND isActive = 1)',NULL,FALSE)
-                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get();
          return $query->num_rows();
     }
 
@@ -203,7 +203,7 @@ class Model_accounts extends CI_Model {
          $query = $this->db->select('*')
                             ->from('accounts')
                             ->where('(isActive = 0)',NULL,FALSE)
-                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get();
          return $query->num_rows();
     }
 
@@ -249,7 +249,7 @@ class Model_accounts extends CI_Model {
       $this->db->where('(isActive = 0)',NULL,FALSE);
       $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
-      
+
 
         if($query->num_rows() > 0)
         {
@@ -261,22 +261,22 @@ class Model_accounts extends CI_Model {
         }
 
     }
-    
+
     function viewmore_user($userid)
     {
-         $query= $this->db->select('*')->where('userid', $userid)->where('role', 0)->get('accounts',1); 
+         $query= $this->db->select('*')->where('userid', $userid)->where('role', 0)->get('accounts',1);
          return $query->row();
     }
 
     function viewmore_admin($userid)
     {
-         $query= $this->db->select('*')->where('userid', $userid)->where('role', 1)->get('accounts',1); 
+         $query= $this->db->select('*')->where('userid', $userid)->where('role', 1)->get('accounts',1);
          return $query->row();
     }
 
     function viewmore_deact($userid)
     {
-         $query= $this->db->select('*')->where('userid', $userid)->where('isActive', 0)->get('accounts',1); 
+         $query= $this->db->select('*')->where('userid', $userid)->where('isActive', 0)->get('accounts',1);
          return $query->row();
     }
 
@@ -294,9 +294,9 @@ class Model_accounts extends CI_Model {
 
     function url_check_user($userid)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1); 
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1);
         $row = $query->row();
-        
+
         if($userid == $row->userid)
         {
             return TRUE;
@@ -309,37 +309,37 @@ class Model_accounts extends CI_Model {
 
     function url_check_admin($userid)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts',1); 
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts',1);
         $row = $query->row();
-        
-        if($userid == $row->userid)
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
+
+        // if($userid == $row->userid)
+        // {
+        //     return TRUE;
+        // }
+        // else
+        // {
+        //     return FALSE;
+        // }
     }
 
     function url_check_deact($userid)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->where('isActive', 0)->get('accounts',1); 
+        $query= $this->db->select('userid')->where('userid', $userid)->where('isActive', 0)->get('accounts',1);
         $row = $query->row();
-        
-        if($userid == $row->userid)
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
+
+        // if($userid == $row->userid)
+        // {
+        //     return TRUE;
+        // }
+        // else
+        // {
+        //     return FALSE;
+        // }
     }
 
     function acc_delete($userid)
     {
-        $this->db->where('userid', $userid); 
+        $this->db->where('userid', $userid);
         $delete = $this->db->delete('accounts');
         return $delete;
     }
@@ -356,7 +356,7 @@ class Model_accounts extends CI_Model {
             'role' => $this->input->post('role')
         );
 
-         $this->db->where('userid', $userid); 
+         $this->db->where('userid', $userid);
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
     }
@@ -373,24 +373,24 @@ class Model_accounts extends CI_Model {
             'contactnum' => $this->input->post('contactnum'),
         );
          $this->session->set_userdata($account_update_data);
-         $this->db->where('userid', $userid); 
+         $this->db->where('userid', $userid);
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
     }
-  
-      
-    function acc_deact($userid) 
+
+
+    function acc_deact($userid)
     {
         $account_deact_data = array('isActive' => 0);
-        $this->db->where('userid', $userid); 
+        $this->db->where('userid', $userid);
         $deact = $this->db->update('accounts', $account_deact_data);
         return $deact;
     }
 
-    function acc_reactivate($userid) 
+    function acc_reactivate($userid)
     {
         $account_react_data = array('isActive' => 1);
-        $this->db->where('userid', $userid); 
+        $this->db->where('userid', $userid);
         $reactivate = $this->db->update('accounts', $account_react_data);
         return $reactivate;
     }

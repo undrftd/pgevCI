@@ -60,7 +60,7 @@
             <br>
 
             <p> Total Balance </p>
-              <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('monthly_dues') + $this->session->userdata('arrears'); ?>" readonly>
+            <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('monthly_dues') + $this->session->userdata('arrears'); ?>" readonly>
             <br>
 
             <p> Month(s) Unpaid </p>
@@ -76,21 +76,8 @@
             {
               echo "0";
             }  ?>" readonly>
-            <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
+              <br>
           </div>
         </div>
         <br>

@@ -22,5 +22,3 @@ class Model_dues_user extends CI_Model{
       return $query->row();
   }
 }
-
-?>

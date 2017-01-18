@@ -70,6 +70,8 @@
                           <p class="error"> <?php echo form_error('email'); ?>  </p>
                           <br>
 
+                          
+
                           <p>Contact Number </p>
                           <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('contactnum'); ?>">
                           <p class="error"> <?php echo form_error('contactnum'); ?> </p>

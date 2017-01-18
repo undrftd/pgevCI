@@ -10,7 +10,7 @@ class Admin_Profile extends MY_Controller{
 	function alpha_dash_space($str)
     {
         return ( ! preg_match("/^([a-z ])+$/i", $str)) ? FALSE : TRUE;
-    } 	
+    }
 
 	function update_account($userid)
 	{
