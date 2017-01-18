@@ -37,7 +37,7 @@
 
 							<div class="tab-pane fade in active" id="portlet_tab1">
                 <p> If you are requesting for a car sticker, kindly download the form we provided in this <a href="#">link</a> and answer it before filling up the form below. </p><br>
-                <p> Kindly attach the Renovation Form you recently answered then we will contact you as soon as we have processed
+                <p> Kindly attach the renovation Form you recently answered then we will contact you as soon as we have processed
                 your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
                 <br>
 
