@@ -15,6 +15,12 @@ class Model_dues_user extends CI_Model{
     }
 
   }
+
+  function get_rate($userid)
+  {
+      $query = $this->db->select('*')->where('rateid',1)->get('rate', 1);
+      return $query->row();
+  }
 }
 
 ?>

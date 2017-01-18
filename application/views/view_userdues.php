@@ -64,15 +64,18 @@
             <br>
 
             <p> Month(s) Unpaid </p>
-            <input class="form-control" id="sel1" type="text" placeholder="" value="<?php
-            if(($this->session->userdata('arrears') >  0 && $this->session->userdata(('monthly_dues == 0')) || ($this->session->user('arrears') > 0 &&
-            $this->session->userdata('monthly_dues') > 0 ) || ($this->session->userdata('arrears') == 0 && $this->session->userdata('monthly_dues') > 0 ))
-              {
-              echo ($this->session->userdata('arrears')+ $this->session->userdata('monthly_dues')) / ($rate->securityfee + $rate->assocfee);
-              }
-              else
-              {
-              echo "0"; ?>" readonly>
+            <input class="form-control" id="sel1" type="text" placeholder=""
+            value="<?php
+            if(($this->session->userdata('arrears') >  0 && $this->session->userdata('monthly_dues') == 0)
+            || ($this->session->userdata('arrears') > 0 && $this->session->userdata('monthly_dues') > 0 )
+            || ($this->session->userdata('arrears') == 0 && $this->session->userdata('monthly_dues') > 0 ))
+            {
+              echo ($this->session->userdata('arrears') + $this->session->userdata('monthly_dues')) / ($rate->securityfee + $rate->assocfee);
+            }
+            else
+            {
+              echo "0";
+            }  ?>" readonly>
             <br>
 
 
