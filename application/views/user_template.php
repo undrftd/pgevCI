@@ -48,7 +48,7 @@
                  <a href="user-court.html">Reservation</a>
              </li>
              <li>
-                 <a href="user-forms.html">Forms</a>
+                 <a href="<?php echo site_url("user_forms/car_sticker"); ?>" class="<?php if($this->uri->segment('1') == 'user_forms') { echo 'active'; } ?>">Forms</a>
              </li>
              <li>
                  <a href="user-contact-form.html">Suggestions</a>
