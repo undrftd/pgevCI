@@ -45,7 +45,7 @@
                     <a href="admin-court.html">Reservation</a>
                 </li>
                 <li>
-                    <a href="admin-forms.html">Forms</a>
+                    <a href="<?php echo site_url("admin_forms/car_sticker"); ?>" class="<?php if($this->uri->segment(1) == 'admin_forms') { echo 'active'; } ?>">Forms</a>
                 </li>
                 <li>
                     <a href="<?php echo site_url("admin_accounts/homeowner"); ?>" class="<?php if($this->uri->segment(1) == 'admin_accounts') { echo 'active'; } ?>">Accounts</a>
