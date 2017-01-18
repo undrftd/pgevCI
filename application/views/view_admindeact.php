@@ -27,7 +27,7 @@
 
   <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
     
-    <a href="<?php echo base_url(); ?>"><button type="button" class="btn btn-custom-5">Back to Sign In</button></a>
+    <a href="<?php echo base_url(); ?>login/signout"><button type="button" class="btn btn-custom-5">Back to Sign In</button></a>
 
   </div>
 
