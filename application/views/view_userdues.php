@@ -15,7 +15,7 @@
 
         <div class="admin-message">
 
-            <p> Dear User,<br><br>
+            <p> Dear <?php echo $this->session->userdata('firstname'); ?>,<br><br>
               Always pay before the cutoff date in order to avoid any problems regarding your monthly dues. If you have any problems with the information we provided here,
               create a ticket regarding some problems about your monthly dues through the button below this message. <br><br>
               Many thanks, <br>
