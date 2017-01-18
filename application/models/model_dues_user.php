@@ -2,40 +2,23 @@
 
 class Model_dues_user extends CI_Model{
 
-
-  function first_last($userid)
+  function url_check_myaccount($userid)
   {
-      $query = $this->db->select('*')->where('userid', $userid)->select("CONCAT(' ', firstname, lastname) AS name", FALSE);
+    $query = $this->db->select('*')->where('userid' , $userid);
+    if ('userid == $userid')
+    {
+      return TRUE;
+    }
+    else
+    {
+      return FALSE;
+    }
 
-
-      if ($query->num_rows() > 0)
-          {
-              return $query->result();
-          }
-          else
-          {
-              return FALSE;
-          }
   }
 
-  function total_value($userid)
+  function get_rate($userid)
   {
-    $total = $this->db->select('*')->where('userid', $userid)->select('SUM(monthly_dues) + SUM(arrears) as total', FALSE);
-
-
-    if ($total->num_rows() > 0)
-        {
-            return $total->result();
-        }
-        else
-        {
-            return FALSE;
-        }
+      $query = $this->db->select('*')->where('rateid',1)->get('rate', 1);
+      return $query->row();
   }
-
-
-
-
 }
-
-?>

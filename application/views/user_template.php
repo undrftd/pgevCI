@@ -33,13 +33,13 @@
                  </a>
              </li>
              <li>
-                 <a href="user-announcements.html">Announcements</a>
+                 <a href="<?php echo site_url("user_announcements");	?>"class="<?php if($this->uri->segment('1') == 'user_announcements')  {echo	'active';	}	?>">Announcements</a>
              </li>
              <li>
                  <a href="user-tickets.html">Create a Ticket</a>
              </li>
              <li>
-                 <a href="<?php echo site_url("user_dues"); ?>" class="<?php if($this->uri->segment('1') == 'User_Dues') { echo 'active'; } ?>">View Dues</a>
+                 <a href="<?php echo site_url("user_dues");	?>"	class="<?php if($this->uri->segment('1') == 'user_dues') {echo 'active'; } ?>">View Dues</a>
              </li>
              <li>
                  <a href="user-tracking.html">Track Tickets</a>
