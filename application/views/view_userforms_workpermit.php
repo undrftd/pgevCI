@@ -43,11 +43,15 @@
 
                 <div class="form-group">
                   <p>Attach file</p>
+
+                  <?php echo form_open_multipart('user_forms/upload');?>
                   <input type="file" id="exampleInputFile">
-                  <p class="help-block">Formats accepted: .png, .jpg, .pdf  </p>
+                  <<p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
                 </div><br>
 
                 <a href="#"><button type="button" class="btn btn-custom">Send</button></a><br>
+
+                </form>
                 
               </div>
 

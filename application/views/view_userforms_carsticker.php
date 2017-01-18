@@ -46,12 +46,12 @@
                 <div class="form-group">
                   <p>Attach file</p>
 
-                  <form action="<?php echo base_url() . 'user_forms/do_upload'; ?>" method="POST" enctype="multipart/form-data">
+                  <?php echo form_open_multipart('user_forms/upload');?>
                   <input type="file" name="file" size="20" />
-                  <p class="help-block">Formats accepted: .png, .jpg, .pdf  </p>
+                  <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
                 </div> <br>
 
-                <button name = "upload" type="submit" class="btn btn-custom">Send</button></a> <br>
+                <button name ="upload" type="submit" class="btn btn-custom">Send</button></a> <br>
                 
                 </form>
 							
