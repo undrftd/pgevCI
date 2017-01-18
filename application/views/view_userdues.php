@@ -51,15 +51,15 @@
             <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('address'); ?>" readonly>
             <br>
 
-            <p> Monthly Dues </p>
+            <p> Monthly Dues (₱) </p>
             <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('monthly_dues'); ?>" readonly>
             <br>
 
-            <p> Arrears </p>
+            <p> Arrears (₱) </p>
             <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('arrears'); ?>" readonly>
             <br>
 
-            <p> Total Balance </p>
+            <p> Total Balance (₱) </p>
             <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('monthly_dues') + $this->session->userdata('arrears'); ?>" readonly>
             <br>
 

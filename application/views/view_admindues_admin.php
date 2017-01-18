@@ -127,7 +127,7 @@
                         <th><br>Monthly Dues</th>
                         <th><br>Arrears</th>
                         <th><br>Total Balance</th>
-                        <th><br>Months Unpaid </th>
+                        <th><br>Month(s) Unpaid </th>
                         <th><br>Action</th>
                     </tr>
 

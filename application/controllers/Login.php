@@ -37,7 +37,6 @@ class Login extends CI_Controller
         }
         else if($valid && ($isActive && $isAdmin) == false) //Deactivated User
         {
-
             redirect('login/userdeact');
         }
         else if($valid == false) //Invalid Account
@@ -49,11 +48,13 @@ class Login extends CI_Controller
 
     function userdeact()
     {
+        $this->session->set_userdata('referred_from', current_url());
         $this->template->load('template', 'view_userdeact');
     }
 
     function admindeact()
     {
+        $this->session->set_userdata('referred_from', current_url());
         $this->template->load('template', 'view_admindeact');
     }
 
