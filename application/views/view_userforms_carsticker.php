@@ -41,12 +41,13 @@
                 your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
                 <br>
                
-                <?php echo $this->session->flashdata('msg'); ?>
+                <?php echo $this->session->flashdata('carsuccess'); ?>
+                <?php echo $this->session->flashdata('carfail'); ?>
                 
                 <div class="form-group">
                   <p>Attach file</p>
 
-                  <?php echo form_open_multipart('user_forms/upload');?>
+                  <?php echo form_open_multipart('user_forms/upload_carsticker');?>
                   <input type="file" name="file" size="20" />
                   <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
                 </div> <br>

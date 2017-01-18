@@ -41,18 +41,21 @@
                 your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
                 <br>
 
+                <?php echo $this->session->flashdata('renovatesuccess'); ?>
+                <?php echo $this->session->flashdata('renovatefail'); ?>
+
                 <div class="form-group">
                   <p>Attach file</p>
 
-                  <?php echo form_open_multipart('user_forms/upload');?>
-                  <input type="file" id="exampleInputFile">
+                  <?php echo form_open_multipart('user_forms/upload_renovation');?>
+                  <input type="file" name="file" id="exampleInputFile">
                   <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
                 </div><br>
 
-                <a href="#"><button type="button" class="btn btn-custom">Send</button></a><br>
+                <button name ="upload" type="submit" class="btn btn-custom">Send</button></a><br>
 
                 </form>
-                
+
 							</div>
 
 						</div>
