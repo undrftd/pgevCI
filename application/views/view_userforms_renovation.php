@@ -57,29 +57,29 @@
 			<div class="tab-content">
 
 				<div class="tab-pane fade in active" id="portlet_tab1">
-                <p> If you are requesting for a Renovation Form, kindly download the form we provided in this <?php $filename='Renovation.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>">link</a> and answer it before uploading below. </p><br>
-                <p> Kindly attach the Renovation Form you recently answered then we will contact you as soon as we have processed
-                your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
-                <br>
 
-								<form>
+          <p> If you are requesting for a Renovation Form, kindly download the form we provided in this <?php $filename='Renovation.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>">link</a> and answer it before uploading below. </p><br>
+          <p> Kindly attach the Renovation Form you recently answered then we will contact you as soon as we have processed
+          your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
 
-	                <div class="form-group">
+					<form>
 
-	                  <h4>Attach file</h4>
+            <div class="form-group">
 
-	                  <?php echo form_open_multipart('user_forms/upload_renovation');?>
-	                  <input type="file" name="file" id="exampleInputFile">
-	                  <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
+              <h4>Attach file</h4>
+
+              <?php echo form_open_multipart('user_forms/upload_renovation');?>
+              <input type="file" name="file" id="exampleInputFile">
+              <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
 
 
-									</div>
+						</div>
 
-									<br><br>
+						<br><br>
 
-	                <button name ="upload" type="submit" class="btn btn-custom">Send</button></a><br>
+            <button name ="upload" type="submit" class="btn btn-custom">Send</button></a><br>
 
-                </form>
+          </form>
 
 				</div>
 

@@ -269,7 +269,6 @@ h1 {
   transition: all 0.4s ease-in-out;
   height: 52px;
   width: 100px;
-  border: 2px solid #27ae60;
 }
 
 .btn-custom-9 {
@@ -331,11 +330,6 @@ h1 {
   background-color: #e1e1e1;
 }
 
-.admin-message p {
-  font-size: 1.1em;
-  font-family: 'Roboto';
-}
-
 table th {
   background-color: #27ae60;
   color: white;
@@ -378,7 +372,7 @@ table td {
 }
 
 .admin-message p {
-  font-size: 1.05em;
+  font-size: 1.075em;
   font-family: 'Rubik', sans-serif;
   color: #404040;
   text-align: justify;
@@ -413,11 +407,10 @@ table td {
 
 
 .modal-body p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
   font-size: 1.1em;
-  font-style: italic;
-  color: #4a4a4a;
+  color: #696969;
 }
 
 .modal-body button {

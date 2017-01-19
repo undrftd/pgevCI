@@ -7,7 +7,7 @@
 
           <div class="row">
 
-            <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-2">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
               <div class="header-style">
                 <h1> Account Information </h1>
@@ -23,7 +23,7 @@
 
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
               <div class="portlet">
 
@@ -70,7 +70,7 @@
                           <p class="error"> <?php echo form_error('email'); ?>  </p>
                           <br>
 
-                          
+
 
                           <p>Contact Number </p>
                           <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('contactnum'); ?>">
