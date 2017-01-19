@@ -55,11 +55,9 @@
         <div class="tab-content">
 
           <div class="tab-pane fade in active" id="portlet_tab1">
-            <p> If you are requesting for a Work Permit Form, kindly download the form we provided in this <?php $filename='Work_Permit.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>">link</a> and answer it before uploading below. </p><br>
+            <p> If you are requesting for a Work Permit Form, kindly download the form we provided in this <?php $filename='Work_Permit.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>">link</a> and answer it before uploading below. <strong> Please avoid uploading multiple form requests. Doing so will place you behind the queue. </strong></p><br>
             <p> Kindly attach the Work Permit Form you recently answered then we will contact you as soon as we have processed
             your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
-
-            <form>
 
               <div class="form-group">
 
