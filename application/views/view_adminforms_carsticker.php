@@ -12,11 +12,7 @@
                 <div class="signin">
                     <div class="modal-body text-center">
                         <p> Are you sure you want to remove this from the list? </p><br><br>
-
-                        <button type="submit" class="btn btn-custom-1">
-                          <a class="delete" onclick="javascript:deleteConfirm('<?php echo base_url().'admin/home/delete_image/'.$image['id'];?>');" deleteConfirm href="#">Yes</a>
-                        </button>
-
+                        <button type="submit" class="btn btn-custom-1">Yes</button>
                         <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
@@ -92,7 +88,7 @@
                     <td><?php if($row->status == 1){ echo "Not Downloaded"; } else { echo "Downloaded"; } ?></td>
                     <td class="action-button">
                       <a href="<?php echo base_url() . "admin_forms/download_carsticker/" . $row->filename; ?>"><button type="button" class="btn btn-custom-2">Download</button></a>
-                      <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                      <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'admin_forms/delete_carsticker/' . $row->filename; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                     </td>
                 </tr>
               <?php endforeach;?>

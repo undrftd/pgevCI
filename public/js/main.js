@@ -24,15 +24,11 @@ $(document).ready(function(){
     $("#edit-button").click(function(){
         $("#saveButton").show();
     });
-});
+}); 
 
-function deleteConfirm(url)
- {
-    if(confirm('Do you want to Delete this record ?'))
-    {
-        window.location.href=url;
-    }
- }
+$('#delete-modal').on('show.bs.modal', function(e) {
+    $(this).find('.btn-custom-1').attr('href', $(e.relatedTarget).data('href'));
+});
 
 $(document).ready(function () {
             //iterate through each textboxes and add keyup
