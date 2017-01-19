@@ -11,6 +11,7 @@ class MY_Controller extends CI_Controller
         $this->load->model('model_dues');
         $this->load->model('model_dues_user');
         $this->load->model('model_forms_user');
+        $this->load->model('model_forms');
     }
 
     function is_logged_in()

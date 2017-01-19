@@ -41,15 +41,13 @@
 
             <ul class="nav nav-tabs">
               <li>
-								<a href="<?php echo base_url(); ?>admin_forms/car_sticker">
-								Car Sticker </a>
-							</li>
-              
-              <li class ="active">
+                <a href="<?php echo base_url(); ?>admin_forms/car_sticker">
+                Car Sticker </a>
+              </li>
+              <li class="active">
                 <a href="<?php echo base_url(); ?>admin_forms/work_permit">
                 Work Permit </a>
               </li>
-             
               <li>
                 <a href="<?php echo base_url(); ?>admin_forms/renovation">
                 Renovation </a>
@@ -64,7 +62,7 @@
 
               <div class="tab-pane fade in active" id="portlet_tab1">
 
-                <p> Total: 3 Requests for Work Permit </p>
+                <p> Total: <?php echo $count ?> request<?php if($count <= 1) { echo ' '; } else { echo 's ';}?> for Car Sticker </p>
 
                 <div class="table-responsive">
 
@@ -74,21 +72,24 @@
                         <th><br>Homeowner's Name</th>
                         <th><br>Address</th>
                         <th><br>Contact Number</th>
+                        <th><br>Status</th>
                         <th><br>Action</th>
                     </tr>
 
-                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <?php foreach ($workpermit as $row): ?>
+                    <tr>
+                        <td><?php echo $row->firstname . " " . $row->lastname?></td>
+                        <td><?php echo $row->address?></td>
+                        <td><?php echo $row->contactnum?></td>
+                        <td><?php if($row->status == 1){ echo "Not Downloaded"; } else { echo "Downloaded"; } ?></td>
                         <td class="action-button">
-                          <a href="#"><button type="button" class="btn btn-custom-2">Download</button></a>
+                          <a href="<?php echo base_url() . "admin_forms/download_workpermit/" . $row->filename; ?>"><button type="button" class="btn btn-custom-2">Download</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                         </td>
                     </tr>
-
+                  <?php endforeach;?>
                   </table>
-
+                 <center><div id="pagination-link"><?php echo $workpermitlinks; ?></div></center>
                 </div>
 
             </div>
