@@ -66,7 +66,7 @@
 
           <div class="tab-pane fade in active" id="portlet_tab1">
 
-            <p class="ticket-summary"> Total: <?php echo $count ?> request<?php if($count <= 1) { echo ' '; } else { echo 's ';}?> for Car Sticker </p>
+            <p class="ticket-summary"> Total: <?php echo $count ?> request<?php if($count <= 1) { echo ' '; } else { echo 's ';}?> for Renovation </p>
 
             <div class="table-responsive">
 
