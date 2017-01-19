@@ -39,7 +39,7 @@ class User_Forms extends MY_Controller {
         if ($this->upload->do_upload('file'))
         {
         	$this->model_forms_user->upload_carsticker();
-        	$this->session->set_flashdata('carsuccess', 'File has been successfully uploaded. Please wait for the forms to be processed by the admin.');          
+        	$this->session->set_flashdata('carsuccess', 'File has been successfully uploaded. For the mean time, please wait for the forms to be processed by the admin.');          
         	redirect('user_forms/car_sticker');
         }
         else
@@ -62,7 +62,7 @@ class User_Forms extends MY_Controller {
         if ($this->upload->do_upload('file'))
         {
         	$this->model_forms_user->upload_workpermit();
-        	$this->session->set_flashdata('permitsuccess', 'File has been successfully uploaded. Please wait for the forms to be processed by the admin.');          
+        	$this->session->set_flashdata('permitsuccess', 'File has been successfully uploaded. For the mean time, please wait for the forms to be processed by the admin.');          
         	redirect('user_forms/work_permit');	
         }
         else
@@ -85,7 +85,7 @@ class User_Forms extends MY_Controller {
         if ($this->upload->do_upload('file'))
         {
         	$this->model_forms_user->upload_renovation();
-        	$this->session->set_flashdata('renovatesuccess', 'File has been successfully uploaded. Please wait for the forms to be processed by the admin.');          
+        	$this->session->set_flashdata('renovatesuccess', 'File has been successfully uploaded. For the mean time, please wait for the forms to be processed by the admin.');          
         	redirect('user_forms/renovation');	
         }
         else
