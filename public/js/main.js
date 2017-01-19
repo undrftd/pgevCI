@@ -26,6 +26,14 @@ $(document).ready(function(){
     });
 });
 
+function deleteConfirm(url)
+ {
+    if(confirm('Do you want to Delete this record ?'))
+    {
+        window.location.href=url;
+    }
+ }
+
 $(document).ready(function () {
             //iterate through each textboxes and add keyup
             //handler to trigger sum event

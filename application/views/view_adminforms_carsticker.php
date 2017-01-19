@@ -12,7 +12,11 @@
                 <div class="signin">
                     <div class="modal-body text-center">
                         <p> Are you sure you want to remove this from the list? </p><br><br>
-                        <button type="submit" class="btn btn-custom-1">Yes</button>
+
+                        <button type="submit" class="btn btn-custom-1">
+                          <a class="delete" onclick="javascript:deleteConfirm('<?php echo base_url().'admin/home/delete_image/'.$image['id'];?>');" deleteConfirm href="#">Yes</a>
+                        </button>
+
                         <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
