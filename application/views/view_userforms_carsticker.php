@@ -35,10 +35,10 @@
 
 			<div class="portlet-body">
 
-				<?php if ($this->session->flashdata('carsucess')){ ?>
+			<?php if ($this->session->flashdata('carsuccess')){ ?>
 		      <div class="success-message text-center" id="prompt-message">
 		        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-		        <p> <?php echo $this->session->flashdata('carsucess'); ?></p><br>
+		        <p> <?php echo $this->session->flashdata('carsuccess'); ?></p><br>
 		        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
 		      </div>
 		    <?php } ?>
@@ -58,8 +58,6 @@
             <p> If you are requesting for a Car Sticker Form, kindly download the form we provided in this <?php $filename='Car_Sticker.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>">link</a> and answer it before uploading below. </p><br>
             <p> Kindly attach the Car Sticker Form you recently answered then we will contact you as soon as we have processed
             your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
-
-						<form>
 
 	            <div class="form-group">
 

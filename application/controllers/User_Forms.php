@@ -40,12 +40,12 @@ class User_Forms extends MY_Controller {
         {
         	$this->model_forms_user->upload_carsticker();
         	$this->session->set_flashdata('carsuccess', 'File has been successfully uploaded. Please wait for the forms to be processed by the admin.');          
-        	$this->template->load('user_template', 'view_userforms_carsticker'); 	
+        	redirect('user_forms/car_sticker');
         }
         else
         {
             $this->session->set_flashdata('carfail', 'Failed to upload file. Please check whether a file has been selected or following the file formats specified below.');  
-            $this->template->load('user_template', 'view_userforms_carsticker');
+            redirect('user_forms/car_sticker');
 	    }
 	}	      
 
@@ -63,12 +63,12 @@ class User_Forms extends MY_Controller {
         {
         	$this->model_forms_user->upload_workpermit();
         	$this->session->set_flashdata('permitsuccess', 'File has been successfully uploaded. Please wait for the forms to be processed by the admin.');          
-        	$this->template->load('user_template', 'view_userforms_workpermit'); 	
+        	redirect('user_forms/work_permit');	
         }
         else
         {
             $this->session->set_flashdata('permitfail', 'Failed to upload file. Please check whether a file has been selected or following the file formats specified below.');  
-            $this->template->load('user_template', 'view_userforms_workpermit');
+            redirect('user_forms/work_permit'); 
 	    }
 	}	        
 
@@ -86,12 +86,12 @@ class User_Forms extends MY_Controller {
         {
         	$this->model_forms_user->upload_renovation();
         	$this->session->set_flashdata('renovatesuccess', 'File has been successfully uploaded. Please wait for the forms to be processed by the admin.');          
-        	$this->template->load('user_template', 'view_userforms_renovation'); 	
+        	redirect('user_forms/renovation');	
         }
         else
         {
             $this->session->set_flashdata('renovatefail', 'Failed to upload file. Please check whether a file has been selected or following the file formats specified below.');  
-            $this->template->load('user_template', 'view_userforms_renovation');
+            redirect('user_forms/renovation');  
 	    }
 	}	              
 

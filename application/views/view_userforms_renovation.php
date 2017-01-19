@@ -62,8 +62,6 @@
           <p> Kindly attach the Renovation Form you recently answered then we will contact you as soon as we have processed
           your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
 
-					<form>
-
             <div class="form-group">
 
               <h4>Attach file</h4>
