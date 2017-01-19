@@ -1,67 +1,89 @@
 	<div id="page-content-wrapper">
-        <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
-        <br>
-        <br>
 
-        <div class="header-style">
-          <h1> Homeowner's Association Forms </h1>
+    <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
+    <br>
+    <br>
+
+    <div class="header-style">
+      <h1> Homeowner's Association Forms </h1>
+    </div>
+
+    <br>
+
+    <div class="portlet">
+
+			<div class="portlet-title">
+
+				<ul class="nav nav-tabs">
+          <li class="active">
+						<a href="<?php echo base_url(); ?>user_forms/car_sticker">
+						Car Sticker </a>
+					</li>
+
+          <li>
+            <a href="<?php echo base_url(); ?>user_forms/work_permit">
+            Work Permit </a>
+          </li>
+
+          <li>
+            <a href="<?php echo base_url(); ?>user_forms/renovation">
+            Renovation </a>
+          </li>
+				</ul>
+
+			</div>
+
+			<div class="portlet-body">
+
+				<?php if ($this->session->flashdata('carsucess')){ ?>
+		      <div class="success-message text-center" id="prompt-message">
+		        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+		        <p> <?php echo $this->session->flashdata('carsucess'); ?></p><br>
+		        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+		      </div>
+		    <?php } ?>
+
+		    <?php if ($this->session->flashdata('carfail')){ ?>
+		      <div class="error-message text-center" id="prompt-message">
+		        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+		        <p> <?php echo $this->session->flashdata('carfail'); ?></p><br>
+		        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+		      </div>
+		    <?php } ?>
+				<br>
+
+				<div class="tab-content">
+
+					<div class="tab-pane fade in active" id="portlet_tab1">
+            <p> If you are requesting for a Car Sticker Form, kindly download the form we provided in this <?php $filename='Car_Sticker.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>">link</a> and answer it before uploading below. </p><br>
+            <p> Kindly attach the Car Sticker Form you recently answered then we will contact you as soon as we have processed
+            your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
+            <br>
+
+						<form>
+
+	            <div class="form-group">
+
+	            	<h4>Attach file</h4>
+
+		            <?php echo form_open_multipart('user_forms/upload_carsticker');?>
+		            <input type="file" name="file" size="20"/>
+		            <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
+
+	            </div>
+
+							<br><br>
+
+            	<button name ="upload" type="submit" class="btn btn-custom">Send</button></a> <br>
+
+            </form>
+
+          </div>
+
         </div>
 
-        <br>
+		  </div>
 
-        <div class="portlet">
+		</div>
 
-					<div class="portlet-title">
-
-						<ul class="nav nav-tabs">
-              <li class="active">
-								<a href="<?php echo base_url(); ?>user_forms/car_sticker">
-								Car Sticker </a>
-							</li>
-			              
-	            <li>
-                <a href="<?php echo base_url(); ?>user_forms/work_permit">
-                Work Permit </a>
-	            </li>
-	              
-	            <li>
-                <a href="<?php echo base_url(); ?>user_forms/renovation">
-                Renovation </a>
-	            </li>
-
-					</div>
-
-					<div class="portlet-body">
-
-						<div class="tab-content">
-
-							<div class="tab-pane fade in active" id="portlet_tab1">
-                <p> If you are requesting for a Car Sticker Form, kindly download the form we provided in this <?php $filename='Car_Sticker.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>">link</a> and answer it before uploading below. </p><br>
-                <p> Kindly attach the Car Sticker Form you recently answered then we will contact you as soon as we have processed
-                your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
-                <br>
-               
-                <?php echo $this->session->flashdata('carsuccess'); ?>
-                <?php echo $this->session->flashdata('carfail'); ?>
-                
-                <div class="form-group">
-                  <p>Attach file</p>
-
-                  <?php echo form_open_multipart('user_forms/upload_carsticker');?>
-                  <input type="file" name="file" size="20" />
-                  <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
-                </div> <br>
-
-                <button name ="upload" type="submit" class="btn btn-custom">Send</button></a> <br>
-                
-                </form>
-							
-              </div>
-
-            </div>
-
-				  </div>
-
-				</div>
-
-				
+	</div>

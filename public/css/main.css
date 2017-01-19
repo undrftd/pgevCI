@@ -332,9 +332,8 @@ h1 {
 }
 
 .admin-message p {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-family: 'Roboto';
-  font-weight: 300;
 }
 
 table th {
@@ -346,6 +345,7 @@ table th {
 
 table {
   text-align: center;
+  vertical-align: middle;
 }
 
 table tr {
@@ -356,6 +356,7 @@ table td {
   position: relative;
   top: 50%;
   transform: translateY(21%);
+  white-space: nowrap;
 }
 
 .form-group {
@@ -371,8 +372,17 @@ table td {
   font-size: 1em;
 }
 
-.form-group h4 {
+.form-group h4,.admin-message h4 {
   font-weight: 700;
+  color: #696969;
+}
+
+.admin-message p {
+  font-size: 1.05em;
+  font-family: 'Rubik', sans-serif;
+  color: #404040;
+  text-align: justify;
+  letter-spacing: 0px;
 }
 
 #search-group {
@@ -429,12 +439,12 @@ table td {
   box-shadow: none;
   height: 52px;
   width: 100%;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
   transition: all 0.4s ease-in-out;
 }
 
 #sel1:focus, #user-name:focus, #user-password:focus, #sum:focus {
-  border: 1px solid #27ae60;
+  border: 2px solid #27ae60;
 }
 
 #dropdown-mobile {
@@ -552,6 +562,52 @@ table td {
   margin-bottom: 15px;
 }
 
+.form-group .help-block {
+  font-size: 0.95em;
+  font-style: italic;
+}
+
+.activity-bar {
+  padding: 35px;
+  background-color: #f2f2f2;
+  border-top: 5px solid #e1e1e1;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: 280px;
+  transition: all 0.4s ease-in;
+  opacity: 0.8;
+}
+
+.activity-bar:hover {
+  border-top: 5px solid #27ae60;
+}
+
+.activity-bar h4 {
+  font-weight: 700;
+  color: #696969;
+}
+
+.activity-heading {
+  font-weight: 700;
+  color: #696969;
+  text-transform: uppercase;
+}
+
+.activity-bar hr {
+  border: 2px solid #e1e1e1;
+  width: 40px;
+}
+
+.activity-heading hr {
+  border: 2px solid #27ae60;
+  width: 60px;
+}
+
+.activity-bar p {
+  font-family: 'Rubik', sans-serif;
+}
+
 /*end form*/
 
 @media(min-width:768px) {
@@ -625,7 +681,7 @@ table td {
   }
 
 #page-content-wrapper h1 {
-   border-bottom: 2px solid #27ae60;
+   border-bottom: 3px solid #27ae60;
    width: 60%;
    border-left: none;
    font-family: 'League-Gothic', sans-serif;
@@ -678,7 +734,7 @@ p {
   text-align: justify;
 }
 
-.footer-note, .login-form, .success-message p, .admin-message p {
+.footer-note, .login-form, .success-message p, .activity-bar p {
   text-align: center;
 }
 
