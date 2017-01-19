@@ -62,7 +62,7 @@
 
               <div class="tab-pane fade in active" id="portlet_tab1">
 
-                <p> Total: 3 requests for car sticker </p>
+                <p> Total: 3 Requests for Renovation </p>
 
                 <div class="table-responsive">
 
@@ -75,28 +75,10 @@
                         <th><br>Action</th>
                     </tr>
 
-                    <tr>
-                        <td>Marc Jeanne M. Aliswag</td>
-                        <td>619 G. Cleveland St.</td>
-                        <td>09174959064</td>
-                        <td class="action-button">
-                          <a href="#"><button type="button" class="btn btn-custom-2">Download</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Dino Angelo G. Galapon</td>
-                        <td>1876 G. Cleveland St.</td>
-                        <td>09065715254</td>
-                        <td class="action-button">
-                          <a href="#"><button type="button" class="btn btn-custom-2">Download</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gemille Polintan</td>
-                        <td>152 G. Cleveland St.</td>
-                        <td>09159699245</td>
+                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td class="action-button">
                           <a href="#"><button type="button" class="btn btn-custom-2">Download</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>

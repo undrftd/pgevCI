@@ -62,7 +62,7 @@
 
               <div class="tab-pane fade in active" id="portlet_tab1">
 
-                <p> Total: 3 requests for car sticker </p>
+                <p> Total: <?php echo $count ?> request<?php if($count <= 1) { echo ' '; } else { echo 's ';}?> for Car Sticker </p>
 
                 <div class="table-responsive">
 
@@ -75,34 +75,17 @@
                         <th><br>Action</th>
                     </tr>
 
+                    <?php foreach ($carsticker as $row): ?>
                     <tr>
-                        <td>Marc Jeanne M. Aliswag</td>
-                        <td>619 G. Cleveland St.</td>
-                        <td>09174959064</td>
+                        <td><?php echo $row->firstname . " " . $row->lastname?></td>
+                        <td><?php echo $row->address?></td>
+                        <td><?php echo $row->contactnum?></td>
                         <td class="action-button">
-                          <a href="#"><button type="button" class="btn btn-custom-2">Download</button></a>
+                          <a href="<?php echo base_url() . "admin_forms/download/" . $row->filename; ?>"><button type="button" class="btn btn-custom-2">Download</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Dino Angelo G. Galapon</td>
-                        <td>1876 G. Cleveland St.</td>
-                        <td>09065715254</td>
-                        <td class="action-button">
-                          <a href="#"><button type="button" class="btn btn-custom-2">Download</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gemille Polintan</td>
-                        <td>152 G. Cleveland St.</td>
-                        <td>09159699245</td>
-                        <td class="action-button">
-                          <a href="#"><button type="button" class="btn btn-custom-2">Download</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-
+                  <?php endforeach;?>
                   </table>
 
                 </div>
