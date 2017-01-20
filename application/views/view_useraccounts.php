@@ -103,11 +103,9 @@
                           <br>
                           <p> Address </p>
                           <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->address ;?>" readonly>
-                          <br>
-                          <p> Role </p>
-                          <input class="form-control" id="sel1" type="text" placeholder="" value="<?php if($this->session->role == 0 ){echo "Homeowner";} else {echo "Adminstrator";}  ;?>" readonly>
 
                         </div>
+                        
                       </div>
 
       							</div>
