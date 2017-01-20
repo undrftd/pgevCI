@@ -88,8 +88,8 @@
                     <td><?php echo $row->contactnum?></td>
                     <td><?php if($row->status == 1){ echo "Not Downloaded"; } else { echo "Downloaded"; } ?></td>
                     <td class="action-button">
-                      <a href="<?php echo base_url() . "admin_forms/download_carsticker/" . $row->filename; ?>"><button type="button" class="btn btn-custom-2">Download</button></a>
-                      <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'admin_forms/delete_carsticker/' . $row->filename; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                      <a href="<?php echo base_url() . "admin_forms/download_carsticker/" . $row->formid; ?>"><button type="button" class="btn btn-custom-2">Download</button></a>
+                      <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'admin_forms/delete_carsticker/' . $row->formid; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                     </td>
                 </tr>
               <?php endforeach;?>

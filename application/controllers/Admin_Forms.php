@@ -89,57 +89,63 @@ class Admin_Forms extends MY_Controller {
 		$this->template->load('admin_template', 'view_adminforms_renovation', $data);
 	}
 
-	function download_carsticker($filename) 
+	function download_carsticker($formid) 
 	{
-		$this->model_forms->set_cardownloadstatus($filename);
+		$this->model_forms->set_cardownloadstatus($formid);
+                $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
+                $result = $query->row();
 
-		$path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $filename;
+                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
                 $data = file_get_contents($path);
-		$name = $filename;
+		$name = $result->filename;
 
 		force_download($name, $data);
 	}   
 
-	function download_workpermit($filename) 
+	function download_workpermit($formid) 
 	{
-		$this->model_forms->set_workdownloadstatus($filename);
+		$this->model_forms->set_workdownloadstatus($formid);
+                $query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
+                $result = $query->row();
 
-		$path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $filename;
+                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
                 $data = file_get_contents($path);
-	       	$name = $filename;
+	       	$name = $result->filename;
 
 		force_download($name, $data);
 	} 
 
-	function download_renovation($filename) 
+	function download_renovation($formid) 
 	{
-		$this->model_forms->set_renovationdownloadstatus($filename);
+		$this->model_forms->set_renovationdownloadstatus($formid);
+                $query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
+                $result = $query->row();
 
-		$path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $filename;
+                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
                 $data = file_get_contents($path);
-		$name = $filename;
+		$name = $result->filename;
 
 		force_download($name, $data);
 	} 
 
-	function delete_carsticker($filename)
+	function delete_carsticker($formid)
 	{
 		$this->session->set_flashdata('cardeletesuccess', 'You have successfully deleted the form request.');
-                $this->model_forms->delete_carsticker($filename);
+                $this->model_forms->delete_carsticker($formid);
                 redirect('admin_forms/car_sticker');
 	}
 
-        function delete_workpermit($filename)
+        function delete_workpermit($formid)
         {
                 $this->session->set_flashdata('workdeletesuccess', 'You have successfully deleted the form request.');
-                $this->model_forms->delete_workpermit($filename);
+                $this->model_forms->delete_workpermit($formid);
                 redirect('admin_forms/work_permit');
         }
 
-        function delete_renovation($filename)
+        function delete_renovation($formid)
         {
                 $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully deleted the form request.');
-                $this->model_forms->delete_renovation($filename);
+                $this->model_forms->delete_renovation($formid);
                 redirect('admin_forms/renovation');
         }
 
