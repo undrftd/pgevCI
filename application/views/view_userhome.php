@@ -14,7 +14,7 @@
 
       <br>
 
-      <div class="admin-message">
+      <div class="announcement-message">
 
         <h4> Righteous Indignation </h4><hr>
 
@@ -65,7 +65,7 @@
 
         <h4> Monthly Dues </h4><hr>
 
-        <p> Douglas, you have an unpaid due. To pay it, go to the view dues page in order to avoid having arrears in our system. Thanks! </p>
+        <p> Douglas, you have (0) unpaid due. To pay it, go to the view dues page in order to avoid having arrears in our system. Thanks! </p>
         <br>
         <button type="button" class="btn btn-custom-3">View More</button>
 
