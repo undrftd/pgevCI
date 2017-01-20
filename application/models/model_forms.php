@@ -65,6 +65,51 @@ class Model_forms extends CI_Model {
 		return $query->num_rows();
 	}
 
+	function url_check_carsticker($formid)
+    {
+            $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
+            $result = $query->row();
+            
+            if($formid == $result->formid)
+            {
+                    return TRUE;
+            }
+            else
+            {
+                    return FALSE;
+            }
+    }
+
+    function url_check_workpermit($formid)
+    {
+        $query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
+        $result = $query->row();
+        
+        if($formid == $result->formid)
+        {
+                return TRUE;
+        }
+        else
+        {
+                return FALSE;
+        }
+    }
+
+    function url_check_renovation($formid)
+    {
+        $query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
+        $result = $query->row();
+        
+        if($formid == $result->formid)
+        {
+                return TRUE;
+        }
+        else
+        {
+                return FALSE;
+        }
+    }
+
 	function delete_carsticker($formid)
 	{
 		$query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);

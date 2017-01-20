@@ -312,14 +312,14 @@ class Model_accounts extends CI_Model {
         $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts',1);
         $row = $query->row();
 
-        // if($userid == $row->userid)
-        // {
-        //     return TRUE;
-        // }
-        // else
-        // {
-        //     return FALSE;
-        // }
+        if($userid == $row->userid)
+        {
+             return TRUE;
+        }
+        else
+        {
+             return FALSE;
+        }
     }
 
     function url_check_deact($userid)
@@ -327,14 +327,14 @@ class Model_accounts extends CI_Model {
         $query= $this->db->select('userid')->where('userid', $userid)->where('isActive', 0)->get('accounts',1);
         $row = $query->row();
 
-        // if($userid == $row->userid)
-        // {
-        //     return TRUE;
-        // }
-        // else
-        // {
-        //     return FALSE;
-        // }
+        if($userid == $row->userid)
+        {
+             return TRUE;
+        }
+        else
+        {
+            return FALSE;
+         }
     }
 
     function acc_delete($userid)

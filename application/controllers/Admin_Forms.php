@@ -89,64 +89,114 @@ class Admin_Forms extends MY_Controller {
 		$this->template->load('admin_template', 'view_adminforms_renovation', $data);
 	}
 
+
 	function download_carsticker($formid) 
 	{
-		$this->model_forms->set_cardownloadstatus($formid);
-                $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
-                $result = $query->row();
+                if($this->model_forms->url_check_carsticker($formid))
+                {
+        		$this->model_forms->set_cardownloadstatus($formid);
+                        $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
+                        $result = $query->row();
 
-                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
-                $data = file_get_contents($path);
-		$name = $result->filename;
+                        $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
+                        $data = file_get_contents($path);
+        		$name = $result->filename;
 
-		force_download($name, $data);
+        		force_download($name, $data);
+                }
+                else
+                {
+                        $this->session->set_flashdata('carstickerfail', 'You cannot download a non-existent Form Request.');
+                        redirect('admin_forms/car_sticker');
+                }
+
 	}   
 
 	function download_workpermit($formid) 
 	{
-		$this->model_forms->set_workdownloadstatus($formid);
-                $query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
-                $result = $query->row();
+                if($this->model_forms->url_check_workpermit($formid))
+                {
+        		$this->model_forms->set_workdownloadstatus($formid);
+                        $query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
+                        $result = $query->row();
 
-                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
-                $data = file_get_contents($path);
-	       	$name = $result->filename;
+                        $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
+                        $data = file_get_contents($path);
+        	       	$name = $result->filename;
 
-		force_download($name, $data);
+        		force_download($name, $data);
+                }
+                else
+                {
+                        $this->session->set_flashdata('workpermitfail', 'You cannot download a non-existent Form Request.');
+                        redirect('admin_forms/work_permit');
+                }
 	} 
 
 	function download_renovation($formid) 
 	{
-		$this->model_forms->set_renovationdownloadstatus($formid);
-                $query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
-                $result = $query->row();
+                if($this->model_forms->url_check_workpermit($formid))
+                {
+        		$this->model_forms->set_renovationdownloadstatus($formid);
+                        $query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
+                        $result = $query->row();
 
-                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
-                $data = file_get_contents($path);
-		$name = $result->filename;
+                        $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
+                        $data = file_get_contents($path);
+        		$name = $result->filename;
 
-		force_download($name, $data);
+        		force_download($name, $data);
+                }
+                else
+                {
+                        $this->session->set_flashdata('renovationfail', 'You cannot download a non-existent Form Request.');
+                        redirect('admin_forms/renovation');
+                }
 	} 
 
 	function delete_carsticker($formid)
 	{
-		$this->session->set_flashdata('cardeletesuccess', 'You have successfully deleted the form request.');
-                $this->model_forms->delete_carsticker($formid);
-                redirect('admin_forms/car_sticker');
+                if($this->model_forms->url_check_workpermit($formid))
+                {
+        		$this->session->set_flashdata('cardeletesuccess', 'You have successfully deleted the form request.');
+                        $this->model_forms->delete_carsticker($formid);
+                        redirect('admin_forms/car_sticker');
+                }
+                else
+                {
+                        $this->session->set_flashdata('carstickerfail', 'You cannot delete a non-existent Form Request.');
+                        redirect('admin_forms/car_sticker');
+                }
 	}
 
         function delete_workpermit($formid)
         {
-                $this->session->set_flashdata('workdeletesuccess', 'You have successfully deleted the form request.');
-                $this->model_forms->delete_workpermit($formid);
-                redirect('admin_forms/work_permit');
+                if($this->model_forms->url_check_workpermit($formid))
+                {
+                        $this->session->set_flashdata('workdeletesuccess', 'You have successfully deleted the form request.');
+                        $this->model_forms->delete_workpermit($formid);
+                        redirect('admin_forms/work_permit');
+                }
+                else
+                {
+                        $this->session->set_flashdata('workpermitfail', 'You cannot delete a non-existent Form Request.');
+                        redirect('admin_forms/work_permit');
+                }
         }
 
         function delete_renovation($formid)
         {
-                $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully deleted the form request.');
-                $this->model_forms->delete_renovation($formid);
-                redirect('admin_forms/renovation');
+                if($this->model_forms->url_check_workpermit($formid))
+                {
+                        $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully deleted the form request.');
+                        $this->model_forms->delete_renovation($formid);
+                        redirect('admin_forms/renovation');
+                }
+                else
+                {
+                        $this->session->set_flashdata('renovationfail', 'You cannot delete a non-existent Form Request.');
+                        redirect('admin_forms/renovation');
+                }
         }
 
 
