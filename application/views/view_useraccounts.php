@@ -105,7 +105,7 @@
                           <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->address ;?>" readonly>
 
                         </div>
-                        
+
                       </div>
 
       							</div>
@@ -119,6 +119,5 @@
             </div>
 
           </div>
+          
         </div>
-
-      </div>
