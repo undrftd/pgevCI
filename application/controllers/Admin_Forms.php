@@ -89,6 +89,126 @@ class Admin_Forms extends MY_Controller {
 		$this->template->load('admin_template', 'view_adminforms_renovation', $data);
 	}
 
+        function search_carsticker()
+        {
+                $searchquery = $this->input->get('search', TRUE);
+                $searchmodelquery = $this->model_forms->search_carsticker($searchquery);
+
+                if(isset($searchquery) and !empty($searchquery))
+                {
+                    $config['base_url'] = site_url('admin_forms/search_carsticker/');
+                    $config['reuse_query_string'] = TRUE;
+                    $config['total_rows'] = $this->model_forms->countsticker_search($searchquery);
+                    $config['per_page'] =  5;
+                    $config['num_links'] = 5;
+                    $config['use_page_numbers'] = FALSE;
+                    $config['full_tag_open'] = "<ul class='pagination'>";
+                    $config['full_tag_close'] ="</ul>";
+                    $config['num_tag_open'] = '<li>';
+                    $config['num_tag_close'] = '</li>';
+                    $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+                    $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+                    $config['next_tag_open'] = "<li>";
+                    $config['next_tagl_close'] = "</li>";
+                    $config['prev_tag_open'] = "<li>";
+                    $config['prev_tagl_close'] = "</li>";
+                    $config['first_tag_open'] = "<li>";
+                    $config['first_tagl_close'] = "</li>";
+                    $config['last_tag_open'] = "<li>";
+                    $config['last_tagl_close'] = "</li>";
+                    $this->pagination->initialize($config);
+                    $data['carstickerlinks'] = $this->pagination->create_links();
+
+                    $data['count'] = $this->model_forms->count_carsticker();
+                    $data['carsticker'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+                    $this->template->load('admin_template', 'view_adminforms_carsticker', $data);
+                }
+                else
+                {
+                   redirect('admin_forms/car_sticker');
+                }
+        }
+
+        function search_workpermit()
+        {
+                $searchquery = $this->input->get('search', TRUE);
+                $searchmodelquery = $this->model_forms->search_workpermit($searchquery);
+
+                if(isset($searchquery) and !empty($searchquery))
+                {
+                    $config['base_url'] = site_url('admin_forms/search_workpermit/');
+                    $config['reuse_query_string'] = TRUE;
+                    $config['total_rows'] = $this->model_forms->countpermit_search($searchquery);
+                    $config['per_page'] =  5;
+                    $config['num_links'] = 5;
+                    $config['use_page_numbers'] = FALSE;
+                    $config['full_tag_open'] = "<ul class='pagination'>";
+                    $config['full_tag_close'] ="</ul>";
+                    $config['num_tag_open'] = '<li>';
+                    $config['num_tag_close'] = '</li>';
+                    $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+                    $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+                    $config['next_tag_open'] = "<li>";
+                    $config['next_tagl_close'] = "</li>";
+                    $config['prev_tag_open'] = "<li>";
+                    $config['prev_tagl_close'] = "</li>";
+                    $config['first_tag_open'] = "<li>";
+                    $config['first_tagl_close'] = "</li>";
+                    $config['last_tag_open'] = "<li>";
+                    $config['last_tagl_close'] = "</li>";
+                    $this->pagination->initialize($config);
+                    $data['workpermitlinks'] = $this->pagination->create_links();
+
+                    $data['count'] = $this->model_forms->count_carsticker();
+                    $data['workpermit'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+                    $this->template->load('admin_template', 'view_adminforms_workpermit', $data);
+                }
+                else
+                {
+                   redirect('admin_forms/work_permit');
+                }
+        }
+
+        function search_renovation()
+        {
+                $searchquery = $this->input->get('search', TRUE);
+                $searchmodelquery = $this->model_forms->search_renovation($searchquery);
+
+                if(isset($searchquery) and !empty($searchquery))
+                {
+                    $config['base_url'] = site_url('admin_forms/search_carsticker/');
+                    $config['reuse_query_string'] = TRUE;
+                    $config['total_rows'] = $this->model_forms->countrenovation_search($searchquery);
+                    $config['per_page'] =  5;
+                    $config['num_links'] = 5;
+                    $config['use_page_numbers'] = FALSE;
+                    $config['full_tag_open'] = "<ul class='pagination'>";
+                    $config['full_tag_close'] ="</ul>";
+                    $config['num_tag_open'] = '<li>';
+                    $config['num_tag_close'] = '</li>';
+                    $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+                    $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+                    $config['next_tag_open'] = "<li>";
+                    $config['next_tagl_close'] = "</li>";
+                    $config['prev_tag_open'] = "<li>";
+                    $config['prev_tagl_close'] = "</li>";
+                    $config['first_tag_open'] = "<li>";
+                    $config['first_tagl_close'] = "</li>";
+                    $config['last_tag_open'] = "<li>";
+                    $config['last_tagl_close'] = "</li>";
+                    $this->pagination->initialize($config);
+                    $data['renovationlinks'] = $this->pagination->create_links();
+
+                    $data['count'] = $this->model_forms->count_renovation();
+                    $data['renovation'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+                    $this->template->load('admin_template', 'view_adminforms_renovation', $data);
+                }
+                else
+                {
+                   redirect('admin_forms/car_sticker');
+                }
+        }
+
 
 	function download_carsticker($formid) 
 	{

@@ -30,7 +30,7 @@
 
       <div class="portlet-header">
 
-        <form action="" method="GET">
+        <form action="<?php echo base_url();?>admin_forms/search_renovation" method="GET">
           <div class="form-group" id="search-group">
             <input class="form-control" name="search" id="sel1" type="text" placeholder="Search for a document...">
               <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>

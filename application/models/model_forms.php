@@ -110,6 +110,84 @@ class Model_forms extends CI_Model {
         }
     }
 
+    function countsticker_search($searchquery)
+    {
+         $query = $this->db->select('*')
+                            ->from('accounts')
+                            ->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+         return $query->num_rows();
+    }
+
+    function countpermit_search($searchquery)
+    {
+         $query = $this->db->select('*')
+                            ->from('accounts')
+                            ->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+         return $query->num_rows();
+    }
+
+    function countrenovation_search($searchquery)
+    {
+         $query = $this->db->select('*')
+                            ->from('accounts')
+                            ->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+         return $query->num_rows();
+    }
+
+    function search_carsticker($searchquery)
+    {
+      $this->db->select('*')->from('accounts');
+      $this->db->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' );
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+    }
+
+    function search_workpermit($searchquery)
+    {
+      $this->db->select('*')->from('accounts');
+      $this->db->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' );
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+    }
+
+    function search_renovation($searchquery)
+    {
+      $this->db->select('*')->from('accounts');
+      $this->db->join('upload_renovation', 'accounts.userid = upload_renovation.userid' );
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+    }
+
 	function delete_carsticker($formid)
 	{
 		$query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
