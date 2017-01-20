@@ -109,7 +109,6 @@ class Admin_Forms extends MY_Controller {
                         $this->session->set_flashdata('carstickerfail', 'You cannot download a non-existent Form Request.');
                         redirect('admin_forms/car_sticker');
                 }
-
 	}   
 
 	function download_workpermit($formid) 
@@ -156,7 +155,7 @@ class Admin_Forms extends MY_Controller {
 
 	function delete_carsticker($formid)
 	{
-                if($this->model_forms->url_check_workpermit($formid))
+                if($this->model_forms->url_check_carsticker($formid))
                 {
         		$this->session->set_flashdata('cardeletesuccess', 'You have successfully deleted the form request.');
                         $this->model_forms->delete_carsticker($formid);
@@ -186,7 +185,7 @@ class Admin_Forms extends MY_Controller {
 
         function delete_renovation($formid)
         {
-                if($this->model_forms->url_check_workpermit($formid))
+                if($this->model_forms->url_check_renovation($formid))
                 {
                         $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully deleted the form request.');
                         $this->model_forms->delete_renovation($formid);
