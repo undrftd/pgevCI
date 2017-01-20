@@ -18,7 +18,7 @@
               create a ticket regarding some problems about your monthly dues through the button below this message. <br><br>
             </p>
 
-            <a href="user-requests.html"><button type="button" class="btn btn-custom-5">Create a Ticket</button></a>
+            <a href="<?php echo base_url();?>user_ticketing"><button type="button" class="btn btn-custom-5">Create a Ticket</button></a>
             <br>
 
         </div>
