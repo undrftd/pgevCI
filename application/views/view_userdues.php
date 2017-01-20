@@ -13,12 +13,12 @@
 
         <div class="admin-message">
 
-            <p> Note: <?php echo $this->session->userdata('firstname'); ?>,
-              always pay before the cutoff date in order to avoid any problems regarding your monthly dues. If you have any problems with the information we provided here,
+            <p> Note:
+              Always pay before the cutoff date in order to avoid any problems regarding your monthly dues. If you have any problems with the information we provided here,
               create a ticket regarding some problems about your monthly dues through the button below this message. <br><br>
             </p>
 
-            <a href="<?php echo base_url();?>user_ticketing"><button type="button" class="btn btn-custom-5">Create a Ticket</button></a>
+            <a href="<?php echo base_url(); ?>user_ticketing"><button type="button" class="btn btn-custom-5">Create a Ticket</button></a>
             <br>
 
         </div>
