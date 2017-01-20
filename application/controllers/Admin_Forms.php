@@ -226,7 +226,7 @@ class Admin_Forms extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('carstickerfail', 'You cannot download a non-existent Form Request.');
+            $this->session->set_flashdata('carstickerfail', 'You cannot download a non-existent car sticker form request.');
             redirect('admin_forms/car_sticker');
         }
 	}   
@@ -247,7 +247,7 @@ class Admin_Forms extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('workpermitfail', 'You cannot download a non-existent Form Request.');
+            $this->session->set_flashdata('workpermitfail', 'You cannot download a non-existent work permit form request.');
             redirect('admin_forms/work_permit');
         }
 	} 
@@ -268,7 +268,7 @@ class Admin_Forms extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('renovationfail', 'You cannot download a non-existent Form Request.');
+            $this->session->set_flashdata('renovationfail', 'You cannot download a non-existent renovation form request.');
             redirect('admin_forms/renovation');
         }
 	} 
@@ -277,13 +277,13 @@ class Admin_Forms extends MY_Controller {
 	{
         if($this->model_forms->url_check_carsticker($formid))
         {
-            $this->session->set_flashdata('cardeletesuccess', 'You have successfully deleted the form request.');
+            $this->session->set_flashdata('cardeletesuccess', 'You have successfully deleted the car sticker form request.');
             $this->model_forms->delete_carsticker($formid);
             redirect('admin_forms/car_sticker');
         }
         else
         {
-            $this->session->set_flashdata('carstickerfail', 'You cannot delete a non-existent Form Request.');
+            $this->session->set_flashdata('carstickerfail', 'You cannot delete a non-existent car sticker form request.');
             redirect('admin_forms/car_sticker');
         }
 	}
@@ -292,13 +292,13 @@ class Admin_Forms extends MY_Controller {
     {
         if($this->model_forms->url_check_workpermit($formid))
         {
-            $this->session->set_flashdata('workdeletesuccess', 'You have successfully deleted the form request.');
+            $this->session->set_flashdata('workdeletesuccess', 'You have successfully deleted the work permit form request.');
             $this->model_forms->delete_workpermit($formid);
             redirect('admin_forms/work_permit');
         }
         else
         {
-            $this->session->set_flashdata('workpermitfail', 'You cannot delete a non-existent Form Request.');
+            $this->session->set_flashdata('workpermitfail', 'You cannot delete a non-existent work permit form request.');
             redirect('admin_forms/work_permit');
         }
     }
@@ -307,13 +307,13 @@ class Admin_Forms extends MY_Controller {
     {
         if($this->model_forms->url_check_renovation($formid))
         {
-            $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully deleted the form request.');
+            $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully deleted the renovation form request.');
             $this->model_forms->delete_renovation($formid);
             redirect('admin_forms/renovation');
         }
         else
         {
-            $this->session->set_flashdata('renovationfail', 'You cannot delete a non-existent Form Request.');
+            $this->session->set_flashdata('renovationfail', 'You cannot delete a non-existent renovation form request.');
             redirect('admin_forms/renovation');
         }
     }
