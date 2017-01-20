@@ -65,10 +65,33 @@ class Model_forms extends CI_Model {
 		return $query->num_rows();
 	}
 
-	function delete_form($filename)
+	function delete_carsticker($filename)
 	{
 		$this->db->where('filename', $filename);
         $delete = $this->db->delete('upload_carsticker');
+       
+        $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $filename;
+        unlink($path);
+        return $delete;
+	}
+
+	function delete_workpermit($filename)
+	{
+		$this->db->where('filename', $filename);
+        $delete = $this->db->delete('upload_workpermit');
+       
+        $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $filename;
+        unlink($path);
+        return $delete;
+	}
+
+	function delete_renovation($filename)
+	{
+		$this->db->where('filename', $filename);
+        $delete = $this->db->delete('upload_renovation');
+       
+        $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $filename;
+        unlink($path);
         return $delete;
 	}
 

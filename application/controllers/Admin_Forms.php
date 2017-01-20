@@ -124,10 +124,24 @@ class Admin_Forms extends MY_Controller {
 
 	function delete_carsticker($filename)
 	{
-		$this->session->set_flashdata('deletesuccess', 'You have successfully deleted the account.');
-                $this->model_accounts->acc_delete($filename);
+		$this->session->set_flashdata('cardeletesuccess', 'You have successfully deleted the form request.');
+                $this->model_forms->delete_carsticker($filename);
                 redirect('admin_forms/car_sticker');
 	}
+
+        function delete_workpermit($filename)
+        {
+                $this->session->set_flashdata('workdeletesuccess', 'You have successfully deleted the form request.');
+                $this->model_forms->delete_workpermit($filename);
+                redirect('admin_forms/work_permit');
+        }
+
+        function delete_renovation($filename)
+        {
+                $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully deleted the form request.');
+                $this->model_forms->delete_renovation($filename);
+                redirect('admin_forms/renovation');
+        }
 
 
 }

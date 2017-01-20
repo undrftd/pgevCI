@@ -20,6 +20,11 @@ function undisableField() {
   });
 }
 
+
+$('#delete-modal').on('show.bs.modal', function(e) {
+    $(this).find('.deleteclass').attr('href', $(e.relatedTarget).data('href'));
+});
+
 $(document).ready(function(){
     $("#edit-button").click(function(){
         $("#saveButton").show();

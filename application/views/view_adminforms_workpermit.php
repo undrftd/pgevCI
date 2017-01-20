@@ -11,8 +11,9 @@
             <div class="modal-content">
                 <div class="signin">
                     <div class="modal-body text-center">
-                        <p> Are you sure you want to remove this from the list? </p><br><br>
-                        <button type="submit" class="btn btn-custom-1">Yes</button>
+                        <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to remove this form request? </p><br>
+                        <p class="warning-message"> WARNING: The form request will be lost. Please check if the form has been downloaded before deleting. </p><br>
+                        <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                         <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
@@ -88,7 +89,7 @@
                     <td><?php if($row->status == 1){ echo "Not Downloaded"; } else { echo "Downloaded"; } ?></td>
                     <td class="action-button">
                       <a href="<?php echo base_url() . "admin_forms/download_workpermit/" . $row->filename; ?>"><button type="button" class="btn btn-custom-2">Download</button></a>
-                      <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                      <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'admin_forms/delete_workpermit/' . $row->filename; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                     </td>
                 </tr>
               <?php endforeach;?>
