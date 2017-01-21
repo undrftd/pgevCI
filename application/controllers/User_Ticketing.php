@@ -6,4 +6,9 @@ class User_Ticketing extends CI_Controller {
 		$this->template->load('user_template', 'view_userticketing');	
 	}
 
+	function requests_complaints()
+	{
+		$this->template->load('user_template', 'view_userrequestscomplaints');
+	}
+
 }

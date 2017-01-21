@@ -12,7 +12,7 @@
 
         <div class="admin-message text-center">
 
-          <p> Note: <?php echo $this->session->userdata('firstname'); ?>, If you have any requests or complaints in our community, kindly choose between the provided options below this message and we are going to find a solution
+          <p> Note: If you have any concerns with regards to our community, kindly choose between the provided options below and we are going to find a solution
             for it.
           </p>
 
@@ -25,7 +25,7 @@
               <div class="ticket-type text-center">
                   <h4> Requests and Complaints </h4><hr>
                   <p> This option is for requests or complaints which can be found on this list: Lost and Found, Grass Cutting, Garbage Collecting, Pest Control, Malfunctioning Post Lights, Water Leakages, Blocked Drainage, Electrical Short Circuit, and Monthly Dues. </p><br>
-                  <button type="button" class="btn btn-custom-2" id="close-button">+ Create</button><br><br>
+                  <a href ="<?php echo base_url(); ?>user_ticketing/requests_complaints"><button type="button" class="btn btn-custom-2" id="close-button">+ Create</button><br><br>
               </div>
               </a>
 
