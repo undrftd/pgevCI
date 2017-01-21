@@ -135,10 +135,4 @@
 
 </div>
 
-<script type="text/javascript">
-setInterval(function(){auto_refresh_function();}, 500); 
- function autoRefresh_div()
- {
-      $("#portlet-refresh").load("view_userforms_carsticker.php");// a function which will load data from other file after x seconds
-  }
-</script>
+
