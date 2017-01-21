@@ -12,28 +12,28 @@
 
     <div class="portlet">
 
-			<div class="portlet-title">
+		<div class="portlet-title">
 
 			<ul class="nav nav-tabs">
 
-	 	  	<li>
-	        <a href="<?php echo base_url(); ?>user_forms/car_sticker">
-	        Car Sticker </a>
-	      </li>
+	 	  		<li>
+	        		<a href="<?php echo base_url(); ?>user_forms/car_sticker">
+	        		Car Sticker </a>
+	      		</li>
 
-	      <li>
-	        <a href="<?php echo base_url(); ?>user_forms/work_permit">
-	        Work Permit </a>
-	      </li>
+			    <li>
+			    	<a href="<?php echo base_url(); ?>user_forms/work_permit">
+			        Work Permit </a>
+			    </li>
 
-	      <li class="active">
-	        <a href="<?php echo base_url(); ?>user_forms/renovation">
-	        Renovation </a>
-	      </li>
+			    <li class="active">
+			        <a href="<?php echo base_url(); ?>user_forms/renovation">
+			        Renovation </a>
+			    </li>
 
-				</ul>
+			</ul>
 
-			  </div>
+		</div>
 
 		  <div class="portlet-body">
 
