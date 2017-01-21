@@ -47,15 +47,15 @@
         <ul class="nav nav-tabs">
           <li>
             <a href="<?php echo base_url(); ?>admin_forms/car_sticker">
-            Car Sticker </a>
+            Car Sticker (<?php echo $countsticker ?>) </a>
           </li>
           <li class="active">
             <a href="<?php echo base_url(); ?>admin_forms/work_permit">
-            Work Permit (<?php echo $count ?>) </a>
+            Work Permit (<?php echo $countpermit ?>) </a>
           </li>
           <li>
             <a href="<?php echo base_url(); ?>admin_forms/renovation">
-            Renovation </a>
+            Renovation (<?php echo $countrenovation ?>)</a>
           </li>
         </ul>
 
