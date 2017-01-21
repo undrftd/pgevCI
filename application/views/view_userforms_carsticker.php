@@ -15,20 +15,20 @@
 			<div class="portlet-title">
 
 				<ul class="nav nav-tabs">
-          <li class="active">
+          			<li class="active">
 						<a href="<?php echo base_url(); ?>user_forms/car_sticker">
 						Car Sticker </a>
 					</li>
 
-          <li>
-            <a href="<?php echo base_url(); ?>user_forms/work_permit">
-            Work Permit </a>
-          </li>
+		         	<li>
+		            	<a href="<?php echo base_url(); ?>user_forms/work_permit">
+		           		Work Permit </a>
+		         	 </li>
 
-          <li>
-            <a href="<?php echo base_url(); ?>user_forms/renovation">
-            Renovation </a>
-          </li>
+		          	<li>
+		            	<a href="<?php echo base_url(); ?>user_forms/renovation">
+		            	Renovation </a>
+		          	</li>
 				</ul>
 
 			</div>
