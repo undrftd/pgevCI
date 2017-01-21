@@ -16,8 +16,7 @@ class Model_ticketing_user extends CI_Model {
 
 	function get_ticketid()
 	{
-		$last_row= $this->db->select('*')->order_by('ticketid',"desc")->limit(1)->get('tickets')->row();
-		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->limit(1)->get('tickets');
+		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->get('tickets', 1);
 		return $query->row();
 	}
 
