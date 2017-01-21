@@ -13,7 +13,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
 
-              <?php if ($this->session->flashdata('')){ ?>
+              <!--<?php if ($this->session->flashdata('')){ ?>
                 <div class="success-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
                   <p> <?php echo $this->session->flashdata(''); ?></p><br>
@@ -27,12 +27,13 @@
                   <p> <?php echo $this->session->flashdata(''); ?></p><br>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
-              <?php } ?>
+              <?php } ?>-->
+
                 <br>
 
               <div class="information">
 
-                <form>
+                <form action="<?php echo site_url();?>user_ticketing/send_requestcomplaint" method="POST">
 
                   <div class="form-group">
 
@@ -45,25 +46,25 @@
 
 
                     <p> Select a type of ticket: </p>
-                    <select class="form-control" id="sel1">
-                      <option value= "" selected hidden>Type of Requests or Complaints</option>
-                      <option>Lost and Found</option>
-                      <option>Grass Cutting</option>
-                      <option>Garbage Collecting</option>
-                      <option>Pest Control</option>
-                      <option>Malfunctioning Post Lights</option>
-                      <option>Water Pipeline Leakages</option>
-                      <option>Blocked Drainage</option>
-                      <option>Electrical Short Circuit</option>
-                      <option>Monthly Dues</option>
-                      <option>Other</option>
+                    <select name ="type" class="form-control" id="sel1">
+                      <option value="" selected hidden>Type of Request or Complaint</option>
+                      <option value="LF">Lost and Found</option>
+                      <option value="GC">Grass Cutting</option>
+                      <option value="TC">Trash Collection</option>
+                      <option value="PC">Pest Control</option>
+                      <option value="MP">Malfunctioning Post Lights</option>
+                      <option value="PL">Water Pipeline Leakages</option>
+                      <option value="BD">Blocked Drainage</option>
+                      <option value="SC">Electrical Short Circuit</option>
+                      <option value="MD">Monthly Dues</option>
+                      <option value="OT">Other</option>
                     </select>
 
                   </div>
 
                   <div class="form-group">
                     <p> Message </p>
-                    <textarea class="form-control" id="user-message" placeholder="Kindly explain your reason for creating a ticket..." rows="15" reseize="none"></textarea>
+                    <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain your reason for creating a ticket..." rows="15" reseize="none"></textarea>
                   </div>
 
                   <div class="form-group">
@@ -74,7 +75,7 @@
 
                   <br><br>
 
-                  <a href="user-tracking.html"><button type="button" class="btn btn-custom-5">Send</button></a>
+                  <button type="submit" class="btn btn-custom-5">Send</button>
 
                 </form>
 
