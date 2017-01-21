@@ -13,27 +13,28 @@
 
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
 
-              <!--<?php if ($this->session->flashdata('')){ ?>
+              <?php if ($this->session->flashdata('ticketsuccess')){ ?>
                 <div class="success-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                  <p> <?php echo $this->session->flashdata(''); ?></p><br>
+                  <p> <?php echo $this->session->flashdata('ticketsuccess'); ?></p><br>
+                  <h2><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></h2>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
               <?php } ?>
 
-              <?php if ($this->session->flashdata('')){ ?>
+              <?php if ($this->session->flashdata('ticketfail')){ ?>
                 <div class="error-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                  <p> <?php echo $this->session->flashdata(''); ?></p><br>
+                  <p> <?php echo $this->session->flashdata('ticketfail'); ?></p><br>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
-              <?php } ?>-->
+              <?php } ?>
 
                 <br>
 
               <div class="information">
 
-                <form action="<?php echo site_url();?>user_ticketing/send_requestcomplaint" method="POST">
+                <form action="<?php echo site_url();?>user_ticketing/send_requestcomplaint" method="POST" enctype="multipart/form-data">
 
                   <div class="form-group">
 
@@ -69,7 +70,8 @@
 
                   <div class="form-group">
                     <p>Attachment</p>
-                    <input type="file" id="exampleInputFile">
+
+                   <input type="file" name="file" size="20" id="exampleInputFile"/>
                     <p class="help-block">Formats accepted: .png, .jpg </p>
                   </div>
 
