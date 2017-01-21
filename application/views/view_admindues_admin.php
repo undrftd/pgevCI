@@ -1,5 +1,5 @@
 <div id="page-content-wrapper">
-        <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
+        <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
         <br>
         <br>
 
@@ -72,7 +72,7 @@
               <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
             </div>
           <?php } ?>
-          
+
           </div>
           <br>
 
@@ -138,13 +138,13 @@
                         <td><?php echo "₱" . " " . $row->monthly_dues; ?></td>
                         <td><?php echo "₱" . " " . $row->arrears; ?></td>
                         <td><?php echo "₱" . " "; echo number_format($row->arrears + $row->monthly_dues, 2, '.', '');  ?></td>
-                        <td><?php 
-                                  if(($row->arrears >  0 && $row->monthly_dues == 0) || ($row->arrears > 0 && $row->monthly_dues > 0 ) || ($row->arrears == 0 && $row->monthly_dues > 0 )) 
-                                  { 
+                        <td><?php
+                                  if(($row->arrears >  0 && $row->monthly_dues == 0) || ($row->arrears > 0 && $row->monthly_dues > 0 ) || ($row->arrears == 0 && $row->monthly_dues > 0 ))
+                                  {
                                     echo ($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee);
                                   }
-                                  else 
-                                  { 
+                                  else
+                                  {
                                     echo "0";
                                   }  ?>
                         </td>

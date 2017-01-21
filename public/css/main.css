@@ -674,6 +674,51 @@ table td {
   font-size: 12px;
 }
 
+#menu-toggle {
+  font-family: 'Roboto';
+  position: relative;
+  height: 45px;
+  width: 100px;
+  padding: 5px 5px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #27ae60;
+  border: 2px #27ae60 solid;
+  text-transform: uppercase;
+  border-radius: 2px;
+  outline: 0;
+  overflow:hidden;
+  background: none;
+  z-index: 1;
+  cursor: pointer;
+  transition:         0.3s ease-in-out;
+  -o-transition:      0.3s ease-in-out;
+  -ms-transition:     0.3s ease-in-out;
+  -moz-transition:    0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+}
+
+#menu-toggle:hover {
+  color: white;
+}
+
+#menu-toggle:before {
+  content: "";
+  position: absolute;
+  background: #27ae60;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -1;
+  -webkit-transition: top 0.15s ease-in-out;
+}
+
+#menu-toggle:hover:before {
+  top: 0;
+}
+
 @media(min-width:768px) {
    #wrapper {
        padding-left: 200px;
