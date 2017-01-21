@@ -26,7 +26,7 @@
       <h1> Homeowner's Association Request Forms </h1>
     </div>
 
-    <div class="portlet">
+    <div id="portlet-refresh" class="portlet">
 
       <div class="portlet-header">
 
@@ -47,15 +47,15 @@
         <ul class="nav nav-tabs">
           <li class="active">
 						<a href="<?php echo base_url(); ?>admin_forms/car_sticker">
-						Car Sticker (<?php echo $countsticker ?>) </a>
+						Car Sticker <span class="badge"> <?php echo $countsticker ?> </span> </a>
 					</li>
           <li>
             <a href="<?php echo base_url(); ?>admin_forms/work_permit">
-            Work Permit (<?php echo $countpermit ?>)</a>
+            Work Permit <span class="badge"> <?php echo $countpermit ?> </span> </a>
           </li>
           <li>
             <a href="<?php echo base_url(); ?>admin_forms/renovation">
-            Renovation (<?php echo $countrenovation ?>)</a>
+            Renovation <span class="badge"> <?php echo $countrenovation ?> </span> </a>
           </li>
         </ul>
 
@@ -121,3 +121,11 @@
   </div>
 
 </div>
+
+<script type="text/javascript">
+setInterval(function(){auto_refresh_function();}, 500); 
+ function autoRefresh_div()
+ {
+      $("#portlet-refresh").load("view_userforms_carsticker.php");// a function which will load data from other file after x seconds
+  }
+</script>

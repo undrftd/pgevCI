@@ -659,6 +659,16 @@ table td {
 
 /*end form*/
 
+.badge {
+  background-color: white;
+  border: 1px solid #1c7d44;
+  color: #1c7d44;
+  padding: 4px 7px;
+  font-size: 10px;
+  margin-left: 5px;
+  font-family: 'Roboto';
+}
+
 @media(min-width:768px) {
    #wrapper {
        padding-left: 200px;
@@ -894,18 +904,19 @@ Licensed under MIT
 .portlet-title > .nav-tabs > li > a {
 	background: none;
 	border: 0;
-	padding: 6px 10px 13px;
-	color: #444;
+	padding: 8px 10px 11px;
+	color: #696969;
   font-size: 12px;
   display: inline-block;
-  transition: all 0.4s ease-inf;
+  transition: all 0.4s ease-in;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 .portlet-title > .nav-tabs > li.active,
 .portlet-title > .nav-tabs > li.active:hover {
   	border-bottom: 4px solid #27ae60;
   	position: relative;
-    font-weight: 700;
   }
 
   .portlet-title > .nav-tabs > li:hover {

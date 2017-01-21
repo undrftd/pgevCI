@@ -46,16 +46,16 @@
 
         <ul class="nav nav-tabs">
           <li>
-            <a href="<?php echo base_url(); ?>admin_forms/car_sticker">
-            Car Sticker (<?php echo $countsticker ?>) </a>
-          </li>
+						<a href="<?php echo base_url(); ?>admin_forms/car_sticker">
+						Car Sticker <span class="badge"> <?php echo $countsticker ?> </span> </a>
+					</li>
           <li class="active">
             <a href="<?php echo base_url(); ?>admin_forms/work_permit">
-            Work Permit (<?php echo $countpermit ?>) </a>
+            Work Permit <span class="badge"> <?php echo $countpermit ?> </span> </a>
           </li>
           <li>
             <a href="<?php echo base_url(); ?>admin_forms/renovation">
-            Renovation (<?php echo $countrenovation ?>)</a>
+            Renovation <span class="badge"> <?php echo $countrenovation ?> </span> </a>
           </li>
         </ul>
 
