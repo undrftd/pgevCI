@@ -65,7 +65,7 @@
                   <fieldset id="myFieldset" disabled>
                   <div class="form-group">
                     <h4> User Credentials </h4>
-                        <br>
+                        <hr>
                         <p> First Name </p>
                         <input name ="firstname" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->firstname ?>">
                         <p class="error"><?php echo form_error('firstname'); ?> </p>

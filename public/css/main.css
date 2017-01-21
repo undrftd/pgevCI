@@ -381,13 +381,15 @@ table td {
 }
 
 .form-group p {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1em;
+  color: #696969;
 }
 
 .form-group h4,.admin-message h4, .announcement-message h4 {
   font-weight: 700;
   color: #696969;
+  text-transform: uppercase;
 }
 
 .admin-message p {
@@ -469,7 +471,18 @@ table td {
   transition: all 0.4s ease-in-out;
 }
 
-#sel1:focus, #user-name:focus, #user-password:focus, #sum:focus {
+#user-message {
+  border-radius: 0;
+  color: #696969;
+  box-shadow: none;
+  height: 350px;
+  width: 100%;
+  border: 2px solid #e1e1e1;
+  transition: all 0.4s ease-in-out;
+  padding: 10px 15px;
+}
+
+#sel1:focus, #user-name:focus, #user-password:focus, #sum:focus, #user-message:focus {
   border: 2px solid #27ae60;
 }
 
@@ -592,6 +605,7 @@ table td {
 .form-group .help-block {
   font-size: 0.95em;
   font-style: italic;
+  font-weight: 400;
 }
 
 .activity-bar {
@@ -717,6 +731,11 @@ table td {
 
 #menu-toggle:hover:before {
   top: 0;
+}
+
+#exampleInputFile {
+  height: 40px;
+  width: 70%;
 }
 
 @media(min-width:768px) {

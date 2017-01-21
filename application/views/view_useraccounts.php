@@ -35,7 +35,7 @@
                 <fieldset id="myFieldset" disabled>
 
                   <h4> Account Details </h4>
-                  <br>
+                  <hr>
 
                   <p> First Name </p>
                   <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->firstname ;?>" readonly>

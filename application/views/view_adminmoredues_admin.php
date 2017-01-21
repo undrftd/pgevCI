@@ -84,7 +84,7 @@
                   <fieldset id="myFieldset" disabled>
                   <div class="form-group">
                     <h4> Billing Information </h4>
-                        <br>
+                        <hr>
                         <p> Homeowner's Name </p>
                         <input disabled name ="firstname" class="form-control" id="sel1"type="text" placeholder="" value="<?php echo $view->firstname . " " . $view->lastname ?>">
                         <p class="error"><?php echo form_error('firstname'); ?> </p>

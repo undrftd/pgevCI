@@ -31,7 +31,7 @@
                   <form action="<?php echo base_url(); ?>admin_accounts/createuser" method="POST">
 
                   <h4> User Credentials </h4>
-                  <br>
+                  <hr>
                   <p> First Name </p>
                   <input name="firstname" class="form-control" id="sel1" type="text" placeholder="">
                      <p class="error"><?php echo form_error('firstname'); ?> </p>

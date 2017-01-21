@@ -64,7 +64,7 @@
 	            	<h4>Attach file</h4>
 
 		            <?php echo form_open_multipart('user_forms/upload_carsticker');?>
-		            <input type="file" name="file" size="20"/>
+		            <input type="file" name="file" size="20" id="exampleInputFile"/>
 		            <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
 
 	            </div>
