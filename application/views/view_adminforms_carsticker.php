@@ -26,7 +26,7 @@
       <h1> Car Sticker Request Forms </h1>
     </div>
 
-    <div id="portlet-refresh" class="portlet">
+    <div id="portlet" class="portlet">
 
       <div class="portlet-header">
 
