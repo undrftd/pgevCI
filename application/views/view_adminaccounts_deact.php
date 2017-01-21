@@ -38,7 +38,7 @@
   </div>
 
   <div class="header-style">
-    <h1> User Accounts </h1>
+    <h1> Deactivated Accounts </h1>
   </div>
 
   <div class="portlet">

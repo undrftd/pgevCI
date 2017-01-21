@@ -69,17 +69,15 @@
             {
               echo "0";
             }  ?>" readonly>
-
-              <br>
           </div>
+
         </div>
+
         <br>
-        <br>
+
 
       </div>
 
-
     </div>
-  </div>
 
-</div>
+  </div>

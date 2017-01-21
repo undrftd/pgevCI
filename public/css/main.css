@@ -669,6 +669,11 @@ table td {
   font-family: 'Roboto';
 }
 
+.dropdown a {
+  font-weight: 700;
+  font-size: 12px;
+}
+
 @media(min-width:768px) {
    #wrapper {
        padding-left: 200px;
@@ -704,6 +709,16 @@ table td {
      margin: 0 !important;
   }
 
+}
+
+@media(max-width:425px) {
+  .not-important, #not-important{
+      display: none;
+    }
+
+  #dropdown-mobile {
+    display: inline-block;
+  }
 }
 
 @media(max-width:768px), (max-width:1024px) {
@@ -772,14 +787,6 @@ table td {
     width: 100%;
     margin: 0 auto;
   }
-
-.not-important, #not-important{
-    display: none;
-  }
-
-#dropdown-mobile {
-  display: inline-block;
-}
 
 th {
   white-space: nowrap;

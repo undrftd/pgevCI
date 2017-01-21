@@ -9,99 +9,76 @@
 
   <br>
 
-    <div class="row">
+  <div class="portlet">
 
-      <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-2">
+    <div class="portlet-title">
 
-        <div class="portlet">
-
-          <div class="portlet-title">
-
-            <ul class="nav nav-tabs">
-              <li class="active">
-                <a href="#portlet_tab1" data-toggle="tab">
-                Announcements </a>
-              </li>
-              <li>
-                <a href="#portlet_tab2" data-toggle="tab">
-                Bulletin </a>
-              </li>
-
-          </div>
-
-          <div class="portlet-body">
-
-            <div class="tab-content">
-
-              <div class="tab-pane fade in active" id="portlet_tab1">
-
-                <h2> Announcement Title </h2>
-                <p class="article-date"> Date Posted: October 29, 2016 </p>
-                <p> "Something announcements  <?php  //echo $announcements->posts ?>" </p>
-
-                <br>
-
-
-                <br>
-                <br>
-
-                <a href="#" class="scrollToTop"><button type="button" class="btn btn-custom">Back to top</button></a>
-
-                <br>
-                <br>
-
-              </div>
-
-              <div class="tab-pane fade" id="portlet_tab2">
-
-                <h2> Bulletin Title </h2>
-                <p class="article-date"> Date Posted: October 29, 2016 </p>
-                <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
-
-
-                <br>
-                <br>
-
-                <a href="#" class="scrollToTop"><button type="button" class="btn btn-custom">Back to top</button></a>
-
-                <br>
-                <br>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="clearfix visible-md-block"></div>
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-xs-12 col-sm-12 col-md-3">
-
-        <div class="information">
-            <p> Browse by date </p>
-            <div class="form-group">
-            <select class="form-control" id="sel1">
-              <option>Select a date</option>
-              <option>November 18, 2016</option>
-              <option>November 12, 2016</option>
-              <option>November 08, 2016</option>
-              <option>November 1, 2016</option>
-            </select>
-          </div>
-            <button type="button" class="btn btn-custom">View</button>
-        </div>
-
-      </div>
-
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+          <a href="#">
+          Announcement </a>
+        </li>
+        <li>
+          <a href="#">
+          Bulletin </a>
+        </li>
+      </ul>
 
     </div>
+
+    <br>
+
+    <form action="" method="GET">
+      <div class="form-group" id="search-group">
+        <input class="form-control" name="search" id="sel1" type="text" placeholder="Search for an announcement...">
+          <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        </input>
+      </div>
+    </form>
+
+    <br>
+
+    <div class="portlet-body">
+
+      <div class="tab-content">
+
+        <div class="tab-pane fade in active" id="portlet_tab1">
+
+          <div class="table-responsive">
+
+            <table class="table table-hover" id="tracking-table">
+
+              <tr>
+                  <th><br>Date Posted</th>
+                  <th><br>Title</th>
+                  <th><br>Message</th>
+                  <th><br>Action</th>
+              </tr>
+
+              <tr>
+                  <td>January 28, 2017</td>
+                  <td>Chinese New Year!</td>
+                  <td>Greetings! I would like to greet everyone a happy chinese new year! Kindly celebrate with caution and have fun! Thank you! From the PGEV Administrators. </td>
+                  <td><a href="#"> <button type="button" class="btn btn-custom-3">Read More</button></a></td>
+              </tr>
+
+              <tr>
+                  <td>January 28, 2017</td>
+                  <td>Chinese New Year!</td>
+                  <td>Greetings! I would like to greet everyone a happy chinese new year! Kindly celebrate with caution and have fun! Thank you! From the PGEV Administrators. </td>
+                  <td><a href="#"> <button type="button" class="btn btn-custom-3">Read More</button></a></td>
+              </tr>
+
+            </table>
+
+          </div>
+
+       </div>
+
+      </div>
+
+    </div>
+
   </div>
 
-</div>
-
-</div>
+  </div>
