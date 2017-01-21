@@ -55,7 +55,7 @@
           </li>
           <li class="active">
             <a href="<?php echo base_url(); ?>admin_forms/renovation">
-            Renovation </a>
+            Renovation (<?php echo $count ?>) </a>
           </li>
         </ul>
 
@@ -83,8 +83,6 @@
         <div class="tab-content">
 
           <div class="tab-pane fade in active" id="portlet_tab1">
-
-            <p class="ticket-summary"> Total: <?php echo $count ?> request<?php if($count <= 1) { echo ' '; } else { echo 's ';}?> for Renovation </p>
 
             <div class="table-responsive">
 

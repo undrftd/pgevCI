@@ -406,6 +406,7 @@ table td {
   color: #696969;
   text-align: justify;
   letter-spacing: 0px;
+  line-height: 30px;
 }
 
 .announcement-message .warning-user {
@@ -456,7 +457,6 @@ table td {
   font-size: 1.1em;
   font-style: italic;
   color: #4a4a4a;
-  margin-bottom: 20px;
 }
 
 #sel1, #user-name, #user-password, #sum {

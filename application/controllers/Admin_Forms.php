@@ -210,7 +210,7 @@ class Admin_Forms extends MY_Controller {
     }
 
 
-	function download_carsticker($formid) 
+	function download_carsticker($formid)
 	{
         if($this->model_forms->url_check_carsticker($formid))
         {
@@ -221,7 +221,7 @@ class Admin_Forms extends MY_Controller {
             $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
             $data = file_get_contents($path);
             $name = $result->filename;
-        
+
             force_download($name, $data);
         }
         else
@@ -229,9 +229,9 @@ class Admin_Forms extends MY_Controller {
             $this->session->set_flashdata('carstickerfail', 'You cannot download a non-existent car sticker form request.');
             redirect('admin_forms/car_sticker');
         }
-	}   
+	}
 
-	function download_workpermit($formid) 
+	function download_workpermit($formid)
 	{
         if($this->model_forms->url_check_workpermit($formid))
         {
@@ -250,9 +250,9 @@ class Admin_Forms extends MY_Controller {
             $this->session->set_flashdata('workpermitfail', 'You cannot download a non-existent work permit form request.');
             redirect('admin_forms/work_permit');
         }
-	} 
+	}
 
-	function download_renovation($formid) 
+	function download_renovation($formid)
 	{
         if($this->model_forms->url_check_workpermit($formid))
         {
@@ -271,7 +271,7 @@ class Admin_Forms extends MY_Controller {
             $this->session->set_flashdata('renovationfail', 'You cannot download a non-existent renovation form request.');
             redirect('admin_forms/renovation');
         }
-	} 
+	}
 
 	function delete_carsticker($formid)
 	{

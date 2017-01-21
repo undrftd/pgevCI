@@ -47,7 +47,7 @@
         <ul class="nav nav-tabs">
           <li class="active">
 						<a href="<?php echo base_url(); ?>admin_forms/car_sticker">
-						Car Sticker </a>
+						Car Sticker (<?php echo $count ?>) </a>
 					</li>
           <li>
             <a href="<?php echo base_url(); ?>admin_forms/work_permit">
@@ -83,8 +83,6 @@
         <div class="tab-content">
 
           <div class="tab-pane fade in active" id="portlet_tab1">
-
-            <p class="ticket-summary"> Total: <?php echo $count ?> request<?php if($count <= 1) { echo ' '; } else { echo 's ';}?> for Car Sticker </p>
 
             <div class="table-responsive">
 

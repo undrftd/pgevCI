@@ -43,10 +43,10 @@
             </div>
 
             <div class="col-xs-12 nopadding">
-              <div class="ticket-type text-center" onclick="myFunction()">
+              <div class="ticket-type text-center">
                 <h4> Emergency Ticket</h4><hr>
                 <p> This option is solely used for emergencies that may cause trouble to you or within the community. </p><br>
-                <button type="button" class="btn btn-custom-10" id="close-button">+ Create</button><br><br>
+                <button type="button" class="btn btn-custom-10" id="close-button" onclick="myFunction()">+ Create</button><br><br>
               </div>
 
             </div>

@@ -51,7 +51,7 @@
           </li>
           <li class="active">
             <a href="<?php echo base_url(); ?>admin_forms/work_permit">
-            Work Permit </a>
+            Work Permit (<?php echo $count ?>) </a>
           </li>
           <li>
             <a href="<?php echo base_url(); ?>admin_forms/renovation">
@@ -83,8 +83,6 @@
         <div class="tab-content">
 
           <div class="tab-pane fade in active" id="portlet_tab1">
-
-            <p class="ticket-summary"> Total: <?php echo $count ?> request<?php if($count <= 1) { echo ' '; } else { echo 's ';}?> for Work Permit </p>
 
             <div class="table-responsive">
 
