@@ -4,6 +4,7 @@ class Admin_Forms extends MY_Controller {
 
     function car_sticker()
 	{
+        //header('Refresh: 30');
 		$config['base_url'] = site_url('admin_forms/car_sticker');
         $config['total_rows'] = $this->model_forms->count_carsticker();
         $config['per_page'] =  5;
@@ -27,14 +28,15 @@ class Admin_Forms extends MY_Controller {
         $data['carstickerlinks'] = $this->pagination->create_links();
 
 		$data['carsticker'] = $this->model_forms->get_carsticker($config['per_page'], $this->uri->segment(3));
-		$data['countsticker'] = $this->model_forms->count_carsticker();
-        $data['countpermit'] = $this->model_forms->count_workpermit();
-        $data['countrenovation'] = $this->model_forms->count_renovation();
+		$data['countsticker'] = $this->model_forms->count_downloadedsticker();
+        $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+        $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
 		$this->template->load('admin_template', 'view_adminforms_carsticker', $data);
 	}
 
 	function work_permit()
 	{
+        //header('Refresh: 30');
 		$config['base_url'] = site_url('admin_forms/work_permit');
         $config['total_rows'] = $this->model_forms->count_workpermit();
         $config['per_page'] =  5;
@@ -58,14 +60,15 @@ class Admin_Forms extends MY_Controller {
         $data['workpermitlinks'] = $this->pagination->create_links();
 
 		$data['workpermit'] = $this->model_forms->get_workpermit($config['per_page'], $this->uri->segment(3));
-		$data['countsticker'] = $this->model_forms->count_carsticker();
-        $data['countpermit'] = $this->model_forms->count_workpermit();
-        $data['countrenovation'] = $this->model_forms->count_renovation();
+		$data['countsticker'] = $this->model_forms->count_downloadedsticker();
+        $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+        $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
 		$this->template->load('admin_template', 'view_adminforms_workpermit', $data);
 	}
 
 	function renovation()
 	{
+        //header('Refresh: 30');
 		$config['base_url'] = site_url('admin_forms/renovation');
         $config['total_rows'] = $this->model_forms->count_renovation();
         $config['per_page'] =  5;
@@ -89,9 +92,9 @@ class Admin_Forms extends MY_Controller {
         $data['renovationlinks'] = $this->pagination->create_links();
 
 		$data['renovation'] = $this->model_forms->get_renovation($config['per_page'], $this->uri->segment(3));
-		$data['countsticker'] = $this->model_forms->count_carsticker();
-        $data['countpermit'] = $this->model_forms->count_workpermit();
-        $data['countrenovation'] = $this->model_forms->count_renovation();
+		$data['countsticker'] = $this->model_forms->count_downloadedsticker();
+        $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+        $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
 		$this->template->load('admin_template', 'view_adminforms_renovation', $data);
 	}
 
@@ -126,6 +129,9 @@ class Admin_Forms extends MY_Controller {
             $data['carstickerlinks'] = $this->pagination->create_links();
 
             $data['count'] = $this->model_forms->count_carsticker();
+            $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+            $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+            $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
             $data['carsticker'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_adminforms_carsticker', $data);
         }
@@ -166,6 +172,9 @@ class Admin_Forms extends MY_Controller {
             $data['workpermitlinks'] = $this->pagination->create_links();
 
             $data['count'] = $this->model_forms->count_carsticker();
+            $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+            $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+            $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
             $data['workpermit'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_adminforms_workpermit', $data);
         }
@@ -206,6 +215,9 @@ class Admin_Forms extends MY_Controller {
             $data['renovationlinks'] = $this->pagination->create_links();
 
             $data['count'] = $this->model_forms->count_renovation();
+            $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+            $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+            $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
             $data['renovation'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_adminforms_renovation', $data);
         }

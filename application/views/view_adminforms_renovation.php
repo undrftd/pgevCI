@@ -58,7 +58,7 @@
             Renovation <span class="badge"> <?php echo $countrenovation; ?> </span> </a>
           </li>
           <li class="dropdown" id="dropdown-mobile">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Others <span class="badge"> <?php echo $countsticker+ $countpermit; ?> </span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Others <span class="badge"> <?php echo $countrenovation+ $countpermit; ?> </span></a>
             <ul class="dropdown-menu">
               <li>
                 <a href="<?php echo base_url(); ?>admin_forms/work_permit">
