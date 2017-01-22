@@ -45,8 +45,12 @@
 
                     <br>
                     <p> Requested Date and Time of the Incident</p>
-                    <input class="form-control" id="sel1" type="text" placeholder="Format: mm/dd/yyyy : 10:15 PM">
-                  <br>
+                    <div class='input-group date' id='datetimepicker1'>
+                      <input type='text' class="form-control" id="sel1"/>
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
 
                   </div>
 

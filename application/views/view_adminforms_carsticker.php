@@ -47,15 +47,15 @@
         <ul class="nav nav-tabs">
           <li class="active">
 						<a href="<?php echo base_url(); ?>admin_forms/car_sticker">
-						Car Sticker <span class="badge"> <?php echo $countsticker; ?> </span> </a>
+						Car Sticker <span class="badge"> <?php echo $countsticker;?> </span> </a>
 					</li>
           <li>
             <a href="<?php echo base_url(); ?>admin_forms/work_permit" id="not-important">
-            Work Permit <span class="badge"> <?php echo $countpermit; ?> </span> </a>
+            Work Permit <span class="badge"> <?php echo $countpermit;?> </span> </a>
           </li>
           <li>
             <a href="<?php echo base_url(); ?>admin_forms/renovation" id="not-important">
-            Renovation <span class="badge"> <?php echo $countrenovation; ?> </span> </a>
+            Renovation <span class="badge"> <?php echo $countrenovation;?> </span> </a>
           </li>
           <li class="dropdown" id="dropdown-mobile">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Others <span class="badge"> <?php echo $countrenovation + $countpermit; ?> </span></a>

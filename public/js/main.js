@@ -83,3 +83,7 @@ function myFunction() {
           document.location.href = "<?php echo site_url();?>user_ticketing/emergency_ticket";
       }
 }
+
+$(function () {
+    $('#datetimepicker1').datetimepicker();
+});

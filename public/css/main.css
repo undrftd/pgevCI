@@ -364,6 +364,7 @@ table th {
   text-align: center;
   font-weight: 700;
   border-bottom: 4px solid #219150;
+  white-space: nowrap;
 }
 
 table {
@@ -499,18 +500,29 @@ table td {
   display: none;
 }
 
+.ticket-id {
+  padding: 10px;
+  background-color: white;
+  border: 2px solid #696969;
+  border-left: 10px solid #696969;
+  width: 200px;
+  font-family: 'Rubik', sans-serif;
+  margin: 0 auto;
+}
+
 .success-message {
-  border: 1px solid #27ae60;
+  border: 2px solid #27ae60;
   padding: 15px;
   color: #696969;
   width: 100%;
 }
 
 .error-message {
-  border: 1px solid #e74c3c;
+  border: 2px solid #e74c3c;
   padding: 15px;
   color: #696969;
   width: 100%;
+  font-family: 'Rubik', sans-serif;
 }
 
 .error-message button {
@@ -535,6 +547,11 @@ table td {
 .success-message h3, .error-message h3 {
   font-weight: 700;
   font-style: italic;
+  font-family: 'Roboto', sans-serif;
+}
+
+.success-message p {
+  font-family: 'Rubik', sans-serif;
 }
 
 .portlet-header button {
@@ -699,6 +716,7 @@ table td {
   padding: 4px 7px;
   font-size: 10px;
   margin-left: 5px;
+  margin-top: -4px;
   font-family: 'Roboto';
 }
 
@@ -755,6 +773,10 @@ table td {
 #exampleInputFile {
   height: 40px;
   width: 70%;
+}
+
+input span {
+  cursor: pointer;
 }
 
 @media(min-width:768px) {

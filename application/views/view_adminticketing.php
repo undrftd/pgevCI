@@ -35,7 +35,7 @@
             <ul class="nav nav-tabs">
               <li class="active">
 								<a href="#portlet_tab1" data-toggle="tab">
-							  New </a>
+							  New <span class="badge"> <?php echo $count;?> </span> </a>
 							</li>
               <li>
                 <a href="#portlet_tab2" data-toggle="tab">
@@ -55,8 +55,6 @@
 
               <div class="tab-pane fade in active" id="portlet_tab1">
 
-                <p class="ticket-summary"> Total: <?php echo $count;?> pending tickets (1 emergency ticket) </p>
-
                 <div class="table-responsive">
 
                   <table class="table table-hover" id="tracking-table">
@@ -72,57 +70,57 @@
                     <?php foreach($result as $row): ?>
                     <tr>
                         <td><?php echo $row->request_type . "-" .$row->ticketid; ?></td>
-                        <td><?php 
-                              if($row->request_type == 'RGC') 
+                        <td><?php
+                              if($row->request_type == 'RGC')
                               {
-                                echo "Grass Cutting"; 
-                              } 
+                                echo "Grass Cutting";
+                              }
                               else if($row->request_type == 'RTC')
-                              { 
-                                echo "Trash Collection"; 
-                              } 
+                              {
+                                echo "Trash Collection";
+                              }
                               else if($row->request_type == 'RPC')
-                              { 
+                              {
                                 echo "Pest Control";
                               }
                                else if($row->request_type == 'RMP')
-                              { 
-                                echo "Malfunctioning Post Lights"; 
-                              } 
+                              {
+                                echo "Malfunctioning Post Lights";
+                              }
                               else if($row->request_type == 'RPL')
-                              { 
+                              {
                                 echo "Water Pipeline Leakages";
                               }
                                else if($row->request_type == 'RBD')
-                              { 
-                                echo "Blocked Drainage"; 
-                              } 
+                              {
+                                echo "Blocked Drainage";
+                              }
                               else if($row->request_type == 'RSC')
-                              { 
+                              {
                                 echo "Electrical Short Circuit";
                               }
                                else if($row->request_type == 'RMD')
-                              { 
-                                echo "Monthly Dues"; 
-                              } 
+                              {
+                                echo "Monthly Dues";
+                              }
                               else if($row->request_type == 'ROT')
-                              { 
+                              {
                                 echo "Other";
                               }
                                else if($row->request_type == 'EFR')
-                              { 
-                                echo "Fire"; 
-                              } 
+                              {
+                                echo "Fire";
+                              }
                               else if($row->request_type == 'ERB')
-                              { 
+                              {
                                 echo "Robbery";
                               }
                               else if($row->request_type == 'EBT')
-                              { 
-                                echo "Broken House Tube"; 
-                              } 
+                              {
+                                echo "Broken House Tube";
+                              }
                               else if($row->request_type == 'ESP')
-                              { 
+                              {
                                 echo "Suspicious Person";
                               }  ?>
                         </td>
@@ -130,7 +128,7 @@
                         <td><?php echo unix_to_human($row->date_requested, TRUE, 'us'); ?></td>
                         <td class="action-button">
                           <a href="<?php echo site_url() . "admin_ticketing/new_ticketdetails/" . $row->ticketid; ?>">
-                          <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-2"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
+                          <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-9"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                         </td>
                     </tr>
@@ -140,9 +138,7 @@
                 </div>
 
               </div>
-            
+
             </div>
 
           </div>
-
-        
