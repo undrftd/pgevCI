@@ -78,8 +78,8 @@ var breakInt=setInterval("breakTime()",500)
 ////////////////////////////////////////////////
 
 function myFunction() {
-  var ask = window.confirm("Warning: This ticket is solely used for emergenices such as: Fire, Robbery, Broken lube, and causes of mysterious person that may cause trouble. If it is not in the categories provided, the ticket will be disregarded. \n\nKindly click OK to continue your request.");
+  var ask = window.confirm("Warning: This ticket is solely used for emergenices such as: Fire, Robbery, Broken House Tubes, and Suspicious People that may cause trouble. If it is not in the categories provided, the ticket will be disregarded. \n\nKindly click OK to continue your request.");
       if (ask) {
-          document.location.href = "user-emergency.html";
+          document.location.href = "<?php echo site_url();?>user_ticketing/emergency_ticket";
       }
 }

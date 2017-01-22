@@ -4,7 +4,7 @@
         <br>
 
         <div class="header-style">
-          <h1> Requests and Complaints </h1>
+          <h1> CCTV Retrieval Request </h1>
         </div>
 
         <br><br>
@@ -13,19 +13,19 @@
 
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
 
-              <?php if ($this->session->flashdata('ticketsuccess')){ ?>
+              <?php if ($this->session->flashdata('cctvsuccess')){ ?>
                 <div class="success-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                  <p> <?php echo $this->session->flashdata('ticketsuccess'); ?></p>
+                  <p> <?php echo $this->session->flashdata('cctvsuccess'); ?></p>
                   <h2><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></h2>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
               <?php } ?>
 
-              <?php if ($this->session->flashdata('ticketfail')){ ?>
+              <?php if ($this->session->flashdata('cctvfail')){ ?>
                 <div class="error-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                  <p> <?php echo $this->session->flashdata('ticketfail'); ?></p><br>
+                  <p> <?php echo $this->session->flashdata('cctvfail'); ?></p><br>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
               <?php } ?>

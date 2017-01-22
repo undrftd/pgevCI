@@ -4,7 +4,7 @@
         <br>
 
         <div class="header-style">
-          <h1> Requests and Complaints </h1>
+          <h1> Emergency Ticket </h1>
         </div>
 
         <br><br>
@@ -13,19 +13,19 @@
 
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
 
-              <?php if ($this->session->flashdata('requestsuccess')){ ?>
+              <?php if ($this->session->flashdata('emergencysuccess')){ ?>
                 <div class="success-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                  <p> <?php echo $this->session->flashdata('requestsuccess'); ?></p>
+                  <p> <?php echo $this->session->flashdata('emergencysuccess'); ?></p>
                   <h2><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></h2>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
               <?php } ?>
 
-              <?php if ($this->session->flashdata('requestfail')){ ?>
+              <?php if ($this->session->flashdata('emergencyfail')){ ?>
                 <div class="error-message text-center" id="prompt-message">
                   <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                  <p> <?php echo $this->session->flashdata('requestfail'); ?></p><br>
+                  <p> <?php echo $this->session->flashdata('emergencyfail'); ?></p><br>
                   <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
                 </div>
               <?php } ?>
@@ -34,7 +34,7 @@
 
               <div class="information">
 
-                <form action="<?php echo site_url();?>user_ticketing/send_requestcomplaint" method="POST" enctype="multipart/form-data">
+                <form action="<?php echo site_url(); ?>user_ticketing/send_emergency" method="POST" enctype="multipart/form-data">
 
                   <div class="form-group">
 
@@ -47,24 +47,19 @@
 
 
                     <p> Select a type of ticket: </p> <p class="error"><?php echo form_error('type'); ?> </p>
-                    <select name ="type" class="form-control" id="sel1">
-                      <option value="" selected hidden>Type of Request or Complaint</option>
-                      <option value="GC">Grass Cutting</option>
-                      <option value="TC">Trash Collection</option>
-                      <option value="PC">Pest Control</option>
-                      <option value="MP">Malfunctioning Post Lights</option>
-                      <option value="PL">Water Pipeline Leakages</option>
-                      <option value="BD">Blocked Drainage</option>
-                      <option value="SC">Electrical Short Circuit</option>
-                      <option value="MD">Monthly Dues</option>
-                      <option value="OT">Other</option>
+                    <select name="type" class="form-control" id="sel1">
+                        <option value="" selected hidden>Type of Emergency</option>
+                        <option value="FR">Fire</option>
+                        <option value="RB">Robbery</option>
+                        <option value="BT">Broken House Tube</option>
+                        <option value="SP">Suspicious Person</option>
                     </select>
 
                   </div>
 
                   <div class="form-group">
                     <p> Message </p> <p class="error"><?php echo form_error('content'); ?> </p>
-                    <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly elaborate your requests or complaints in the community..." rows="15" reseize="none"></textarea>
+                    <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain your emergency..." rows="15" reseize="none"></textarea>
                   </div>
 
                   <div class="form-group">
