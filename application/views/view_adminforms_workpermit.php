@@ -116,8 +116,8 @@
                     <td><?php echo $row->contactnum?></td>
                     <td><?php if($row->status == 1){ echo "Not Downloaded"; } else { echo "Downloaded"; } ?></td>
                     <td class="action-button">
-                      <a href="<?php echo base_url() . "admin_forms/download_workpermit/" . $row->formid; ?>"><button type="button" class="btn btn-custom-2">Download</button></a>
-                      <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'admin_forms/delete_workpermit/' . $row->formid; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                      <a href="<?php echo base_url() . "admin_forms/download_workpermit/" . $row->formid; ?>"><button type="button" class="btn btn-custom-2"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
+                      <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'admin_forms/delete_workpermit/' . $row->formid; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  &nbsp;Delete </button>
                     </td>
                 </tr>
               <?php endforeach;?>

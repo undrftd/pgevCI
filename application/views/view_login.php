@@ -20,7 +20,7 @@
 
           <div class="form-group">
 
-          <h4> Please enter your credentials  </h4><hr>
+          <h4> Please enter your credentials  </h4><br>
 
           <div class="row">
             <div class="col-xs-12 col-sm-12">

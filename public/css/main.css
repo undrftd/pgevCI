@@ -70,11 +70,19 @@ body {
     background: white;
     font-family: 'Roboto';
     font-size: 1.1em;
-    -webkit-box-shadow: 2px 4px 13px -1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 2px 4px 13px -1px rgba(0,0,0,0.43);
-    box-shadow: 2px 4px 13px -1px rgba(0,0,0,0.43);
+    -webkit-box-shadow: 0px 3px 0px 0px #e6e6e6;
+    -moz-box-shadow: 0px 3px 0px 0px #e6e6e6;
+    box-shadow: 0px 3px 0px 0px #e6e6e6;
     width: 100%;
     margin: 0 auto;
+    border: 2px solid #e6e6e6;
+    border-radius: 2px;
+    transition: all 0.4s ease-in-out;
+}
+
+.information:hover {
+  border: 2px solid #cccccc;
+  box-shadow: none;
 }
 
 .information p {
@@ -161,7 +169,7 @@ body {
   font-family: 'Roboto';
   background-color: #27ae60;
   padding: 4px;
-  width: 100px;
+  width: 120px;
   border-radius: 20px;
   font-size: 0.9em;
   opacity: 1;
@@ -175,7 +183,7 @@ body {
   font-family: 'Roboto';
   background-color: #e1e1e1;
   padding: 4px;
-  width: 100px;
+  width: 120px;
   border-radius: 20px;
   font-size: 0.9em;
   opacity: 1;
@@ -271,7 +279,7 @@ body {
   font-family: 'Roboto';
   background-color: #e74c3c;
   padding: 4px;
-  width: 100px;
+  width: 120px;
   border-radius: 20px;
   font-size: 0.9em;
   border: none;
@@ -303,7 +311,7 @@ body {
   font-family: 'Roboto';
   background-color: #e74c3c;
   padding: 4px;
-  width: 100px;
+  width: 120px;
   border-radius: 20px;
   font-size: 0.9em;
   border: none;
@@ -335,6 +343,7 @@ body {
 
 
 .btn-custom:hover, .btn-custom-2:hover, .btn-custom-5:hover, .btn-custom-8:hover {
+  border: 2px solid #27ae60;
   color: #27ae60;
   background-color: white;
 }
@@ -386,10 +395,9 @@ table td {
   color: #696969;
 }
 
-.form-group h4,.admin-message h4, .announcement-message h4 {
+.form-group h4, .admin-message h4, .announcement-message h4 {
   font-weight: 700;
   color: #696969;
-  text-transform: uppercase;
 }
 
 .admin-message p {
@@ -520,6 +528,7 @@ table td {
 
 .error-message button:hover {
   color: #e74c3c;
+  border: 2px solid #e74c3c;
 }
 
 .success-message h3, .error-message h3 {
@@ -610,18 +619,23 @@ table td {
 
 .activity-bar {
   padding: 18px;
-  border: 3px solid #e1e1e1;
+  border: 2px solid #e6e6e6;
   width: 100%;
   margin-bottom: 20px;
   margin-top: 20px;
   height: 260px;
-  transition: all 0.4s ease-in;
+  transition: all 0.3s ease-in-out;
   opacity: 0.8;
   border-radius: 2px;
+  -webkit-box-shadow: 0px 3px 0px 0px #e6e6e6;
+  -moz-box-shadow: 0px 3px 0px 0px #e6e6e6;
+  box-shadow: 0px 3px 0px 0px #e6e6e6;
+  cursor: pointer;
 }
 
 .activity-bar:hover {
-  border: 3px solid #27ae60;
+  border: 2px solid #27ae60;
+  box-shadow: none;
 }
 
 .activity-bar h4, .ticket-type h4 {
@@ -653,7 +667,7 @@ table td {
 
 .ticket-type {
   padding: 25px;
-  border: 3px solid #e1e1e1;
+  border: 2px solid #e6e6e6;
   margin-bottom: 15px;
   margin-top: 15px;
   margin-left: 25px;
@@ -661,10 +675,14 @@ table td {
   opacity: 0.8;
   cursor: pointer;
   border-radius: 2px;
+  -webkit-box-shadow: 0px 3px 0px 0px #e6e6e6;
+  -moz-box-shadow: 0px 3px 0px 0px #e6e6e6;
+  box-shadow: 0px 3px 0px 0px #e6e6e6;
 }
 
 .ticket-type:hover {
-  border: 3px solid #696969;
+  border: 2px solid #696969;
+  box-shadow: none;
 }
 
 .ticket-type p {
@@ -836,6 +854,10 @@ table td {
     width: 100%;
     margin-bottom: 20px;
   }
+
+#exampleInputFile {
+  width: 100%;
+}
 
 .btn-custom-4 {
   width: 100%;

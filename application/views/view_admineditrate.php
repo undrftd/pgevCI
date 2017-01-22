@@ -47,7 +47,7 @@
               <fieldset id="myFieldset" disabled>
               <div class="form-group">
                 <h4> Dues details </h4>
-                    <hr>
+                    <br>
                     <p> Security Fee (₱) </p>
                     <input name ="securityfee" class="txt form-control" id="sel1" type="number" step="0.01" placeholder="" value= "<?php echo $rate->securityfee; ?>">
                     <p class="error"><?php echo form_error('securityfee'); ?> </p>

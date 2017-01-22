@@ -35,7 +35,7 @@
         <div class="information">
             <div class="form-group">
               <h4> Billing Information </h4>
-            <hr>
+            <br>
             <p> Name </p>
             <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname'); ?>" readonly>
             <br>

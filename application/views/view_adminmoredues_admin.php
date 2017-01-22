@@ -84,7 +84,7 @@
                   <fieldset id="myFieldset" disabled>
                   <div class="form-group">
                     <h4> Billing Information </h4>
-                        <hr>
+                        <br>
                         <p> Homeowner's Name </p>
                         <input disabled name ="firstname" class="form-control" id="sel1"type="text" placeholder="" value="<?php echo $view->firstname . " " . $view->lastname ?>">
                         <p class="error"><?php echo form_error('firstname'); ?> </p>
@@ -108,8 +108,8 @@
                     </form>
                         <button class="btn btn-custom-5" onclick="undisableField()" id="edit-button">Edit</button>
                         <br>
-                        <button type="button" class="btn btn-custom-6" data-toggle="modal" data-target="#cleardues-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   Clear Dues </button><br><br>
-                        <button type="button" class="btn btn-custom-7" data-toggle="modal" data-target="#cleararrears-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   Clear Arrears </button><br><br>
+                        <button type="button" class="btn btn-custom-6" data-toggle="modal" data-target="#cleardues-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   &nbsp;Clear Dues </button><br><br>
+                        <button type="button" class="btn btn-custom-7" data-toggle="modal" data-target="#cleararrears-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>   &nbsp;Clear Arrears </button><br><br>
                 </div>
               </div>
             </div>

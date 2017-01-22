@@ -38,7 +38,7 @@
 
                   <div class="form-group">
 
-                    <h4> Ticket Information </h4><hr>
+                    <h4> Ticket Information </h4><br>
 
                     <p> Homeowner's Name </p>
                     <input class="form-control" id="sel1" type="text" value="<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname');;?>" disabled>

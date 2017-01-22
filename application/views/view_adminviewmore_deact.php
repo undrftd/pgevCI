@@ -65,7 +65,7 @@
                   <fieldset id="myFieldset" disabled>
                   <div class="form-group">
                     <h4> User Credentials </h4>
-                        <hr>
+                        <br>
                         <p> First Name </p>
                         <input name ="firstname" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->firstname ?>">
                         <p class="error"><?php echo form_error('firstname'); ?> </p>
@@ -109,7 +109,7 @@
                     </form>
                         <button class="btn btn-custom-5" onclick="undisableField()" id="edit-button">Edit</button>
                         <br>
-                        <button type="button" class="btn btn-custom-6" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button><br><br>
+                        <button type="button" class="btn btn-custom-6" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  &nbsp;Delete </button><br><br>
                         <button type="button" class="btn btn-custom-7" data-toggle="modal" data-target="#deactivate-modal"> Reactivate </button>
                 </div>
               </div>
