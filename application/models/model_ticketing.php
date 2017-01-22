@@ -23,6 +23,14 @@ class Model_ticketing extends CI_Model {
 		return $query->num_rows();
 	}
 
+
+
+	function get_newticketdetails($ticketid)
+    {
+         $query= $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where('ticketid', $ticketid)->get();
+         return $query->row();
+    }
+
 	
 
 }

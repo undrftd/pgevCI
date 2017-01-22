@@ -129,6 +129,7 @@
                         <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
                         <td><?php echo unix_to_human($row->date_requested, TRUE, 'us'); ?></td>
                         <td class="action-button">
+                          <a href="<?php echo site_url() . "admin_ticketing/new_ticketdetails/" . $row->ticketid; ?>">
                           <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-2"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                         </td>

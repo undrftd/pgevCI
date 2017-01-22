@@ -25,7 +25,7 @@ class Login extends CI_Controller
 
         if($valid && $isAdmin && $isActive) // Active Admin
         {
-            redirect('admin_ticketing');
+            redirect('admin_ticketing/new_tickets');
         }
         else if(($valid && $isActive) && $isAdmin == false)  // Active User
         {
