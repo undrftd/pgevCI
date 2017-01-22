@@ -363,6 +363,7 @@ table th {
   color: white;
   text-align: center;
   font-weight: 700;
+  border-bottom: 4px solid #219150;
 }
 
 table {
