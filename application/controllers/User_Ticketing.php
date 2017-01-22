@@ -94,7 +94,7 @@ class User_Ticketing extends MY_Controller {
 		        if ($this->upload->do_upload('file'))
 		        {
 					$this->model_ticketing_user->send_ticket(); 
-		        	$this->session->set_flashdata('emergencysuccess', 'Your emergency ticke has been successfully submitted. The Ticket ID for this request is indicated below.');	         
+		        	$this->session->set_flashdata('emergencysuccess', 'Your emergency ticket has been successfully submitted. The Ticket ID for this request is indicated below.');	         
 		        	redirect('user_ticketing/emergency_ticket');
 		        }
 		        else

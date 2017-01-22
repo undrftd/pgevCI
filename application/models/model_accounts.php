@@ -105,7 +105,7 @@ class Model_accounts extends CI_Model {
        $this->db->limit($limit,$offset);
        $users = $this->db->select('*')->from('accounts')-> where('role', 0)-> where('isActive', 1)->get();
 
-       if($users->num_rows() > 0)
+        if($users->num_rows() > 0)
         {
             return $users->result();
         }

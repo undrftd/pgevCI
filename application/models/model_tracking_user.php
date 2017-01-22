@@ -23,11 +23,25 @@ class Model_tracking_user extends CI_Model {
         }
 	}
 
-	function get_history()
+	function get_history($limit, $offset)
 	{
-		$query = $this->db->select('*')->where('userid', $this->session->userdata('userid'))->get('tickets');
-		return $query->result();
+		$this->db->limit($limit,$offset);
+		$query = $this->db->select('*')->from('tickets')->where('userid', $this->session->userdata('userid'))->get();
+		
+		if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
 	}
-	
+
+	function count_tickets()
+    {
+        $query = $this->db->select('*')->from('tickets')->where('userid', $this->session->userdata('userid'))->get();
+        return $query->num_rows();
+    }	
 
 }
