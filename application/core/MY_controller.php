@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller
         $this->load->model('model_forms_user');
         $this->load->model('model_forms');
         $this->load->model('model_ticketing_user');
+        $this->load->model('model_tracking_user');
     }
 
     function is_logged_in()
