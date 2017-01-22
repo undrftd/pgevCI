@@ -49,15 +49,15 @@
                     <p> Select a type of ticket: </p> <p class="error"><?php echo form_error('type'); ?> </p>
                     <select name ="type" class="form-control" id="sel1">
                       <option value="" selected hidden>Type of Request or Complaint</option>
-                      <option value="GC">Grass Cutting</option>
-                      <option value="TC">Trash Collection</option>
-                      <option value="PC">Pest Control</option>
-                      <option value="MP">Malfunctioning Post Lights</option>
-                      <option value="PL">Water Pipeline Leakages</option>
-                      <option value="BD">Blocked Drainage</option>
-                      <option value="SC">Electrical Short Circuit</option>
-                      <option value="MD">Monthly Dues</option>
-                      <option value="OT">Other</option>
+                      <option value="RGC">Grass Cutting</option>
+                      <option value="RTC">Trash Collection</option>
+                      <option value="RPC">Pest Control</option>
+                      <option value="RMP">Malfunctioning Post Lights</option>
+                      <option value="RPL">Water Pipeline Leakages</option>
+                      <option value="RBD">Blocked Drainage</option>
+                      <option value="RSC">Electrical Short Circuit</option>
+                      <option value="RMD">Monthly Dues</option>
+                      <option value="ROT">Other</option>
                     </select>
 
                   </div>

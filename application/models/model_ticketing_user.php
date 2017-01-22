@@ -2,27 +2,27 @@
 
 class Model_ticketing_user extends CI_Model {
 
-	function send_requestcomplaint()
+	function send_ticket()
     {
         $postrequest_data = array(
         	'userid' => $this->session->userdata('userid'),
             'request_type' => $this->input->post('type'),
             'attachment' => $this->upload->file_name,
             'content' => $this->input->post('content'),
-            'date' => time()
+            'date_requested' => time()
         );
         //$this->db->set('date', 'NOW()', FALSE);
-        $insert = $this->db->insert('requests_complaints', $postrequest_data);
+        $insert = $this->db->insert('tickets', $postrequest_data);
         return $insert;
 	}	
 
-	function get_requestid()
+	function get_ticketid()
 	{
-		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->get('requests_complaints', 1);
+		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->get('tickets', 1);
 		return $query->row();
 	}
 
-    function send_emergency()
+    /*function send_emergency()
     {
         $postrequest_data = array(
             'userid' => $this->session->userdata('userid'),
@@ -40,6 +40,6 @@ class Model_ticketing_user extends CI_Model {
     {
         $query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->get('emergency_ticket', 1);
         return $query->row();
-    }
+    }*/
 
 }

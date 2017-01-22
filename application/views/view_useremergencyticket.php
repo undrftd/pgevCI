@@ -49,10 +49,10 @@
                     <p> Select a type of ticket: </p> <p class="error"><?php echo form_error('type'); ?> </p>
                     <select name="type" class="form-control" id="sel1">
                         <option value="" selected hidden>Type of Emergency</option>
-                        <option value="FR">Fire</option>
-                        <option value="RB">Robbery</option>
-                        <option value="BT">Broken House Tube</option>
-                        <option value="SP">Suspicious Person</option>
+                        <option value="EFR">Fire</option>
+                        <option value="ERB">Robbery</option>
+                        <option value="EBT">Broken House Tube</option>
+                        <option value="ESP">Suspicious Person</option>
                     </select>
 
                   </div>
