@@ -12,13 +12,13 @@ class Model_ticketing_user extends CI_Model {
             'date' => time()
         );
         //$this->db->set('date', 'NOW()', FALSE);
-        $insert = $this->db->insert('tickets', $postrequest_data);
+        $insert = $this->db->insert('requests_complaints', $postrequest_data);
         return $insert;
 	}	
 
 	function get_ticketid()
 	{
-		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->get('tickets', 1);
+		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->get('requests_complaints', 1);
 		return $query->row();
 	}
 

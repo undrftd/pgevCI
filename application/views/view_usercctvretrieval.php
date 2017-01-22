@@ -44,21 +44,9 @@
                     <input class="form-control" id="sel1" type="text" value="<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname');;?>" disabled>
 
                     <br>
-
-
-                    <p> Select a type of ticket: </p> <p class="error"><?php echo form_error('type'); ?> </p>
-                    <select name ="type" class="form-control" id="sel1">
-                      <option value="" selected hidden>Type of Request or Complaint</option>
-                      <option value="GC">Grass Cutting</option>
-                      <option value="TC">Trash Collection</option>
-                      <option value="PC">Pest Control</option>
-                      <option value="MP">Malfunctioning Post Lights</option>
-                      <option value="PL">Water Pipeline Leakages</option>
-                      <option value="BD">Blocked Drainage</option>
-                      <option value="SC">Electrical Short Circuit</option>
-                      <option value="MD">Monthly Dues</option>
-                      <option value="OT">Other</option>
-                    </select>
+                    <p> Date and Time of the Incident</p>
+                    <input class="form-control" id="sel1" type="text" placeholder="Format: mm/dd/yyyy : 10:15 PM">
+                  <br>
 
                   </div>
 
