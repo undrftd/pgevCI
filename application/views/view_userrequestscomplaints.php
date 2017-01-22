@@ -72,7 +72,7 @@
                     <p>Attachment</p>
 
                    <input type="file" name="file" size="20" id="exampleInputFile"/>
-                    <p class="help-block">Formats accepted: .png, .jpg </p>
+                    <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg </p>
                   </div>
 
                   <br><br>
