@@ -8,10 +8,12 @@ class Model_ticketing_user extends CI_Model {
         	'userid' => $this->session->userdata('userid'),
             'request_type' => $this->input->post('type'),
             'attachment' => $this->upload->file_name,
-            'content' => $this->input->post('content')
+            'content' => $this->input->post('content'),
+            'date' => time()
         );
-         $insert = $this->db->insert('tickets', $postrequest_data);
-         return $insert;
+        //$this->db->set('date', 'NOW()', FALSE);
+        $insert = $this->db->insert('tickets', $postrequest_data);
+        return $insert;
 	}	
 
 	function get_ticketid()

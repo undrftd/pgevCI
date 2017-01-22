@@ -30,7 +30,8 @@ class User_Ticketing extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('ticketfail', 'Failed to submit your request/complaint. Please check whether a file has been selected or following the file formats specified below.');  
+        	$this->model_ticketing_user->send_requestcomplaint();
+            $this->session->set_flashdata('ticketfail', $this->upload->display_errors());  
             redirect('user_ticketing/requests_complaints');
 	    }
 	}

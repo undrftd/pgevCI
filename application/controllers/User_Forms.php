@@ -44,7 +44,7 @@ class User_Forms extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('carfail', 'Failed to upload file. Please check whether a file has been selected or following the file formats specified below.');  
+            $this->session->set_flashdata('carfail', $this->upload->display_errors());  
             redirect('user_forms/car_sticker');
 	    }
 	}	      
@@ -67,7 +67,7 @@ class User_Forms extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('permitfail', 'Failed to upload file. Please check whether a file has been selected or following the file formats specified below.');  
+            $this->session->set_flashdata('permitfail', $this->upload->display_errors());  
             redirect('user_forms/work_permit'); 
 	    }
 	}	        
@@ -90,7 +90,7 @@ class User_Forms extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('renovatefail', 'Failed to upload file. Please check whether a file has been selected or following the file formats specified below.');  
+            $this->session->set_flashdata('renovatefail', $this->upload->display_errors());  
             redirect('user_forms/renovation');  
 	    }
 	}	              
