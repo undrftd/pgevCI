@@ -55,7 +55,7 @@
 
               <div class="tab-pane fade in active" id="portlet_tab1">
 
-                <p class="ticket-summary"> Total: 3 pending tickets (1 emergency ticket) </p>
+                <p class="ticket-summary"> Total: <?php echo $count;?> pending tickets (1 emergency ticket) </p>
 
                 <div class="table-responsive">
 
@@ -135,132 +135,13 @@
                     </tr>
                   <?php endforeach; ?>
                   </table>
-
+                   <center><?php echo $newticketlinks; ?></center>
                 </div>
 
               </div>
-
-              <div class="tab-pane fade" id="portlet_tab2">
-
-                <p> Total: 3 on-going tickets </p>
-
-                <div class="table-responsive">
-
-                  <table class="table table-hover" id="tracking-table">
-
-                    <tr>
-                        <th><br>Ticket ID</th>
-                        <th><br>Type of Request</th>
-                        <th><br>Homeowner's Name</th>
-                        <th><br>Date Opened</th>
-                        <th><br>Action</th>
-                    </tr>
-
-                    <tr>
-                        <td>0001</td>
-                        <td>Lost and Found</td>
-                        <td>Marc Jeanne Aliswag</td>
-                        <td>11/02/2016 8:48:00 AM</td>
-                        <td class="action-button">
-                          <a href="admin-tickets-edit.html"><button type="button" class="btn btn-custom-2">More</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>0002</td>
-                        <td>Pest Control</td>
-                        <td>Howell Henre Manongsong</td>
-                        <td>11/05/2016 13:48:00 PM</td>
-                        <td class="action-button">
-                          <a href="admin-tickets-edit.html"><button type="button" class="btn btn-custom-2">More</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>0005</td>
-                        <td>Grass Cutting</td>
-                        <td>Dino Angelo Galapon</td>
-                        <td>11/10/2016 14:00:00 PM</td>
-                        <td class="action-button">
-                          <a href="admin-tickets-edit.html"><button type="button" class="btn btn-custom-2">More</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>0006</td>
-                        <td>Monthly Dues</td>
-                        <td>Gemille Polintan</td>
-                        <td>11/20/2016 14:00:00 PM</td>
-                        <td class="action-button">
-                          <a href="admin-tickets-edit.html"><button type="button" class="btn btn-custom-2">More</button></a>
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-
-                  </table>
-
-                </div>
-
-              </div>
-
-              <div class="tab-pane fade" id="portlet_tab3">
-
-                  <p> Total: 2 closed tickets </p>
-
-                <div class="table-responsive">
-
-                  <table class="table table-hover" id="tracking-table">
-
-                    <tr>
-                      <th><br>Ticket ID</th>
-                      <th><br>Type of Request</th>
-                      <th><br>Homeowner's Name</th>
-                      <th><br>Date Closed</th>
-                      <th><br>Action</th>
-                    </tr>
-
-                    <tr>
-                        <td>0003</td>
-                        <td>Other</td>
-                        <td>Marc Jeanne Aliswag</td>
-                        <td>11/08/2016 16:48:00 PM</td>
-                        <td class="action-button">
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>0004</td>
-                        <td>Monthly Dues</td>
-                        <td>Mildred Duran </td>
-                        <td>11/08/2016 14:48:00 PM</td>
-                        <td class="action-button">
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>0006</td>
-                        <td>Monthly Dues</td>
-                        <td>Gemille Polintan</td>
-                        <td>11/20/2016 15:04:20 PM</td>
-                        <td class="action-button">
-                          <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                        </td>
-                    </tr>
-
-                  </table>
-
-                </div>
-
-              </div>
-
-              <br>
-
+            
             </div>
 
           </div>
 
-        </div>
-
-      </div>
-
-    </div>
+        

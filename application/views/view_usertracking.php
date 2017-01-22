@@ -86,9 +86,7 @@
                               { 
                                 echo "Suspicious Person";
                               }  ?>
-                                
-
-                              </td>
+                    </td>
                     <td><?php if($row->status == 0) { echo "Resolved"; } else if($row->status == 1){ echo "Work in Progress"; } else if($row->status == 2){ echo "Unaddressed";}  ?></td>
                 </tr>
               <?php endforeach; ?>
