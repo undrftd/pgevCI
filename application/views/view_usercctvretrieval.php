@@ -44,7 +44,7 @@
                     <input class="form-control" id="sel1" type="text" value="<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname');;?>" disabled>
 
                     <br>
-                    <p> Date and Time of the Incident</p>
+                    <p> Requested Date and Time of the Incident</p>
                     <input class="form-control" id="sel1" type="text" placeholder="Format: mm/dd/yyyy : 10:15 PM">
                   <br>
 
@@ -52,7 +52,7 @@
 
                   <div class="form-group">
                     <p> Message </p> <p class="error"><?php echo form_error('content'); ?> </p>
-                    <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain your reason for creating a ticket..." rows="15" reseize="none"></textarea>
+                    <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain the reason for your CCTV Retrieval Request..." rows="15" reseize="none"></textarea>
                   </div>
 
                   <div class="form-group">

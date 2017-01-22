@@ -64,7 +64,7 @@
 
                   <div class="form-group">
                     <p> Message </p> <p class="error"><?php echo form_error('content'); ?> </p>
-                    <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain your reason for creating a ticket..." rows="15" reseize="none"></textarea>
+                    <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly elaborate your requests or complaints in the community..." rows="15" reseize="none"></textarea>
                   </div>
 
                   <div class="form-group">
