@@ -88,7 +88,7 @@
                   <p> Contact Number </p>
                   <input class="form-control" id="sel1" type="text" value="<?php echo $result->contactnum; ?>" readonly>
                   <br>
-                  <p> Type of Request </p>
+                  <p> Type of Ticket </p>
                   <input class="form-control" id="sel1" type="text" value="<?php 
                               if($result->request_type == 'RGC') 
                               {
@@ -126,6 +126,10 @@
                               { 
                                 echo "Other";
                               }
+                              else if($result->request_type == 'CTV')
+                              { 
+                                echo "CCTV Retrieval Request"; 
+                              } 
                                else if($result->request_type == 'EFR')
                               { 
                                 echo "Fire"; 

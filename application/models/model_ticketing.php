@@ -5,7 +5,7 @@ class Model_ticketing extends CI_Model {
 	function get_newtickets($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' ) desc,date_requested asc")->where('status', 2)->get();
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' ) desc, date_requested asc")->where('status', 2)->get();
 
 		if($query->num_rows() > 0)
 		{

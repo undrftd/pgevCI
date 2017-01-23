@@ -107,6 +107,10 @@
                               {
                                 echo "Other";
                               }
+                              else if($result->request_type == 'CTV')
+                              { 
+                                echo "CCTV Retrieval Request"; 
+                              }
                                else if($row->request_type == 'EFR')
                               {
                                 echo "Fire";
@@ -119,10 +123,7 @@
                               {
                                 echo "Broken House Tube";
                               }
-                              else if($row->request_type == 'CTV')
-                              { 
-                                echo "CCTV Retrieval Request"; 
-                              }
+                              el
                               else if($row->request_type == 'ESP')
                               {
                                 echo "Suspicious Person";

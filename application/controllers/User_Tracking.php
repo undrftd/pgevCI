@@ -12,7 +12,7 @@ class User_Tracking extends MY_Controller {
 	{
 		$config['base_url'] = site_url('user_tracking/view_history');
         $config['total_rows'] = $this->model_tracking_user->count_tickets();
-        $config['per_page'] =  20;
+        $config['per_page'] =  10;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
