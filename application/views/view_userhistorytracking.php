@@ -7,7 +7,7 @@
           <h1> Ticket History </h1>
         </div>
 
-        <br><br>
+        <br>
 
             <div class="table-responsive">
 
@@ -26,7 +26,7 @@
                     <td><?php if($row->status == 0) { echo "Resolved"; } else if($row->status == 1){ echo "Work in Progress"; } else if($row->status == 2){ echo "Unaddressed";}  ?></td>
                     <td><?php echo unix_to_human($row->date_requested); ?> </td>
                     <td><?php if($row->status != 0) { echo "Awaiting Resolution"; } else { echo unix_to_human($row->date_closed); } ?></td>
-                </tr> 
+                </tr>
             <?php endforeach; ?>
 
               </table>
