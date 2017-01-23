@@ -107,10 +107,17 @@
                         <br>
                         <button type="button" class="btn btn-custom-6" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  &nbsp;Delete </button><br><br>
                         <button type="button" class="btn btn-custom-7" data-toggle="modal" data-target="#deactivate-modal"> Reactivate </button>
+
                 </div>
+
               </div>
+
             </div>
+
           </div>
+
+          <br><br>
+
         </div>
 
       </div>
