@@ -9,12 +9,28 @@ class Model_ticketing_user extends CI_Model {
             'request_type' => $this->input->post('type'),
             'attachment' => $this->upload->file_name,
             'content' => $this->input->post('content'),
-            'date_requested' => time()
+            'date_requested' => time(),
+            'date_cctv' => $this->input->post('datepick')
         );
         //$this->db->set('date', 'NOW()', FALSE);
         $insert = $this->db->insert('tickets', $postrequest_data);
         return $insert;
 	}	
+
+    function send_cctv()
+    {
+        $postrequest_data = array(
+            'userid' => $this->session->userdata('userid'),
+            'request_type' => 'CTV',
+            'attachment' => $this->upload->file_name,
+            'content' => $this->input->post('content'),
+            'date_requested' => time(),
+            'date_cctv' => $this->input->post('datepick')
+        );
+        //$this->db->set('date', 'NOW()', FALSE);
+        $insert = $this->db->insert('tickets', $postrequest_data);
+        return $insert;
+    }   
 
 	function get_ticketid()
 	{

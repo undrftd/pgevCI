@@ -26,7 +26,7 @@ class Model_tracking_user extends CI_Model {
 	function get_history($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('tickets')->where('userid', $this->session->userdata('userid'))->get();
+		$query = $this->db->select('*')->from('tickets')->order_by('date_requested',"desc")->where('userid', $this->session->userdata('userid'))->get();
 		
 		if($query->num_rows() > 0)
         {

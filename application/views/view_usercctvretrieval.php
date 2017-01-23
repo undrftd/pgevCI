@@ -34,7 +34,7 @@
 
               <div class="information">
 
-                <form action="<?php echo site_url();?>user_ticketing/send_requestcomplaint" method="POST" enctype="multipart/form-data">
+                <form action="<?php echo site_url();?>user_ticketing/send_cctv" method="POST" enctype="multipart/form-data">
 
                   <div class="form-group">
 
@@ -44,9 +44,9 @@
                     <input class="form-control" id="sel1" type="text" value="<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname');;?>" disabled>
 
                     <br>
-                    <p> Requested Date and Time of the Incident</p>
+                    <p> Requested Date and Time of the Incident</p> <p class="error"><?php echo form_error('datepick'); ?> </p>
                     <div class='input-group date' id='datetimepicker1'>
-                      <input type='text' class="form-control" id="sel1"/>
+                      <input name ="datepick" type='text' class="form-control" id="sel1"/>
                       <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                       </span>
