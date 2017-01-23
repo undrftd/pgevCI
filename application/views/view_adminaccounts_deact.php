@@ -55,7 +55,7 @@
 
     <br>
 
-    <a href="<?php echo base_url(); ?>admin_accounts/adduser"><button type="button" class="btn btn-custom-1">+ Add a user</button></a>
+    <a href="<?php echo base_url(); ?>admin_accounts/adduser"><button type="button" class="btn btn-custom-1">+ &nbsp;Add a user</button></a>
 
     </div>
 

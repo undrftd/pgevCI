@@ -56,10 +56,6 @@
 
               <br>
 
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
-
               <div class="information">
                 <form action="<?php echo base_url() ."admin_accounts/accupdate_admin/" . $view->userid ;?>" method="POST">
                   <fieldset id="myFieldset" disabled>

@@ -3,7 +3,7 @@ class User_Ticketing extends MY_Controller {
 
 	public function index()
 	{
-		$this->template->load('user_template', 'view_userticketing');	
+		$this->template->load('user_template', 'view_userticketing');
 	}
 
 	function requests_complaints()
@@ -37,21 +37,21 @@ class User_Ticketing extends MY_Controller {
 
 		        if ($this->upload->do_upload('file'))
 		        {
-					$this->model_ticketing_user->send_ticket(); 
-		        	$this->session->set_flashdata('requestsuccess', 'Your request/complaint has been successfully submitted. The Ticket ID for this request is indicated below.');	         
+					$this->model_ticketing_user->send_ticket();
+		        	$this->session->set_flashdata('requestsuccess', 'Your request/complaint has been successfully submitted. The Ticket ID for this request is indicated below.');
 		        	redirect('user_ticketing/requests_complaints');
 		        }
 		        else
 		        {
-		            $this->session->set_flashdata('requestfail', $this->upload->display_errors());  
+		            $this->session->set_flashdata('requestfail', $this->upload->display_errors());
 		            redirect('user_ticketing/requests_complaints');
 			    }
-			 } 
-			 else 
+			 }
+			 else
 			 {
-				$this->load->library('upload');	
+				$this->load->library('upload');
 			 	$this->session->set_flashdata('requestsuccess', 'Your request/complaint has been successfully submitted. The Ticket ID for this request is indicated below.');
-			 	$this->model_ticketing_user->send_ticket(); 
+			 	$this->model_ticketing_user->send_ticket();
 			    redirect('user_ticketing/requests_complaints');
 			 }
 		}
@@ -93,21 +93,21 @@ class User_Ticketing extends MY_Controller {
 
 		        if ($this->upload->do_upload('file'))
 		        {
-					$this->model_ticketing_user->send_ticket(); 
-		        	$this->session->set_flashdata('emergencysuccess', 'Your emergency ticket has been successfully submitted. The Ticket ID for this request is indicated below.');	         
+					$this->model_ticketing_user->send_ticket();
+		        	$this->session->set_flashdata('emergencysuccess', 'Your emergency ticket has been successfully submitted. The Ticket ID for this request is indicated below.');
 		        	redirect('user_ticketing/emergency_ticket');
 		        }
 		        else
 		        {
-		            $this->session->set_flashdata('emergencyfail', $this->upload->display_errors());  
+		            $this->session->set_flashdata('emergencyfail', $this->upload->display_errors());
 		            redirect('user_ticketing/emergency_ticket');
 			    }
-			 } 
-			 else 
+			 }
+			 else
 			 {
-			 	$this->load->library('upload');	
+			 	$this->load->library('upload');
 			 	$this->session->set_flashdata('emergencysuccess', 'Your emergency ticket has been successfully submitted. The Ticket ID for this request is indicated below.');
-			 	$this->model_ticketing_user->send_ticket(); 
+			 	$this->model_ticketing_user->send_ticket();
 			    redirect('user_ticketing/emergency_ticket');
 			 }
 		}
