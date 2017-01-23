@@ -28,7 +28,7 @@
 
         <br>
 
-        <a href="user-announcements.html"><button type="button" class="btn btn-custom">View More</button></a>
+        <a href="<?php echo site_url("user_announcements"); ?>"><button type="button" class="btn btn-custom">View More</button></a>
 
       </div>
 
@@ -39,27 +39,27 @@
     <div class="clearfix visible-md-block"></div>
     <div class="clearfix visible-sm-block"></div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-12 nopadding">
 
       <h4 class="activity-heading text-center"> Activities <hr></h4>
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
 
       <div class="activity-bar text-center">
 
         <h4> Tickets </h4><hr>
 
-        <p> Douglas, you have 1 active ticket. To monitor this properly, go to the track tickets page by clicking the button below. Thanks! </p>
+        <p> Douglas, you have 1 active ticket(s). To monitor this properly, go to the track tickets page by clicking the button below. Thanks! </p>
         <br>
-        <button type="button" class="btn btn-custom-3">View More</button>
+        <a href="<?php echo site_url("user_tracking/recent"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
 
       </div>
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
 
       <div class="activity-bar text-center">
 
@@ -67,13 +67,13 @@
 
         <p> Douglas, you have (0) unpaid due. To pay it, go to the view dues page in order to avoid having arrears in our system. Thanks! </p>
         <br>
-        <button type="button" class="btn btn-custom-3">View More</button>
+        <a href="<?php echo site_url("user_dues"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
 
       </div>
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
 
       <div class="activity-bar text-center">
 
@@ -81,13 +81,13 @@
 
         <p> Douglas, you have 1 active reservation. To check whether this has been approved or not, click the button below. Thanks! </p>
         <br>
-        <button type="button" class="btn btn-custom-3">View More</button>
+        <button type="button" class="btn btn-custom-2">View More</button>
 
       </div>
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
 
       <div class="activity-bar text-center">
 
@@ -95,7 +95,7 @@
 
         <p> Douglas, if you have a problem within our community, feel free to leave us a message in the suggestions page. Thanks! </p>
         <br>
-        <button type="button" class="btn btn-custom-3">View More</button>
+        <button type="button" class="btn btn-custom-2">View More</button>
 
       </div>
 
