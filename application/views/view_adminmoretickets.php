@@ -154,7 +154,7 @@
                   <input class="form-control" id="sel1" type="text" value="<?php echo unix_to_human($result->date_requested); ?>" readonly>
                   <br>
                   <p> Date and Time Requested </p>
-                  <input class="form-control" id="sel1" type="text" value="<?php if($result->request_type == 'CTV'){ echo unix_to_human($result->date_cctv); } else { echo " "; } ?>" readonly="">
+                  <input class="form-control" id="sel1" type="text" value="<?php if($result->request_type == 'CTV'){ echo $result->date_cctv; } else { echo " "; } ?>" readonly="">
                   <p class="help-block">Exclusively for CCTV Retrieval Request</p><br>
                   <div class="action-buttons text-center">
                     <button type="button" class="btn btn-custom-2" data-toggle="modal" data-target="#delete-modal">Delete</button>
