@@ -20,7 +20,7 @@
             <p class="ticket-id"><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></p><br><br>
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
           </div>
-          <?php } ?>
+        <?php } ?>
 
         <?php if ($this->session->flashdata('requestfail')){ ?>
           <div class="error-message text-center" id="prompt-message">

@@ -15,9 +15,9 @@
 
         <?php if ($this->session->flashdata('cctvsuccess')){ ?>
           <div class="success-message text-center" id="prompt-message">
-            <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-            <p> <?php echo $this->session->flashdata('cctvsuccess'); ?></p>
-            <h2><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></h2>
+            <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3><br>
+            <p> <?php echo $this->session->flashdata('cctvsuccess'); ?></p><br>
+            <p class="ticket-id"><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></p><br><br>
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
           </div>
         <?php } ?>
@@ -29,7 +29,8 @@
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
           </div>
         <?php } ?>
-        <br>
+        
+          <br>
         
         <div class="information">
 
