@@ -29,6 +29,18 @@ class Model_ticketing extends CI_Model {
          return $query->row();
     }
 
+    function set_timeopened($ticketid)
+    {
+    	$set_time_data = array(
+            'date_opened' => time()
+        );
+
+    	$this->db->where('ticketid', $ticketid);
+    	$update = $this->db->update('tickets', $set_time_data);
+    	return $update;
+
+    }
+
 	
 
 }

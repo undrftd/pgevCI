@@ -35,6 +35,7 @@ class Admin_Ticketing extends MY_Controller {
 
     function new_ticketdetails($ticketid)
     {
+        $this->model_ticketing->set_timeopened($ticketid);
     	$data['result'] = $this->model_ticketing->get_newticketdetails($ticketid);
     	$this->template->load('admin_template', 'view_adminmoretickets', $data);
     }

@@ -77,7 +77,7 @@
 
               <br>
 
-              <p> Type of Request </p>
+              <p> Type of Ticket </p>
               <input class="form-control" id="sel1" type="text" value="<?php
                           if($result->request_type == 'RGC')
                           {
