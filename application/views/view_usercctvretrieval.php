@@ -44,18 +44,20 @@
 
               <br>
               <p> Requested Date and Time of the Incident</p>
-              <div class='input-group date' id='datetimepicker1'> <?php echo form_error('datepick'); ?> </p>
-                <input name ="datepick" type='text' class="form-control" id="sel1"/>
+              <div class='input-group date' id='datetimepicker1'>
+                <input id="sel1" name ="datepick" type='text' class="form-control"/>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
               </div>
+              <p> <?php echo form_error('datepick'); ?> </p>
 
             </div>
 
             <div class="form-group">
-              <p> Message </p> <p class="error"><?php echo form_error('content'); ?> </p>
+              <p> Message </p>
               <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain the reason for your CCTV Retrieval Request..." rows="15" reseize="none"></textarea>
+              <p class="error"><?php echo form_error('content'); ?> </p>
             </div>
 
             <div class="form-group">

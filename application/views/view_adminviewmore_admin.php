@@ -5,37 +5,65 @@
 
         <div class="modal fade" id="delete-modal" role="dialog">
 
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="signin">
-                        <div class="modal-body text-center">
-                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to remove this user from the system? </p><br>
-                            <a href="<?php echo base_url() ."admin_accounts/accdelete_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
+          <div class="modal-dialog">
+              <!-- Modal content-->
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Delete</h4>
+              </div>
+
+              <br>
+
+              <div class="signin">
+
+                <div class="modal-body text-center">
+                    <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to remove this user from the system? </p><br>
+                    <a href="<?php echo base_url() ."admin_accounts/accdelete_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                    <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                 </div>
 
+              </div>
+
             </div>
+
+          </div>
+
         </div>
 
         <div class="modal fade" id="deactivate-modal" role="dialog">
 
-            <div class="modal-dialog">
-                <!-- Modal content-->
+          <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+
                 <div class="modal-content">
-                    <div class="signin">
-                        <div class="modal-body text-center">
-                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to deactivate this user from the system? </p><br>
-                            <a href="<?php echo base_url() ."admin_accounts/accdeact_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
+
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Deactivate</h4>
+                  </div>
+
+                  <br>
+
+                  <div class="signin">
+
+                      <div class="modal-body text-center">
+                          <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to deactivate this user from the system? </p><br>
+                          <a href="<?php echo base_url() ."admin_accounts/accdeact_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                          <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                      </div>
+
+                  </div>
+
                 </div>
 
+              </div>
+
             </div>
-        </div>
+
+          </div>
 
         <br>
 

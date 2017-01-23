@@ -5,36 +5,60 @@
 
         <div class="modal fade" id="cleardues-modal" role="dialog">
 
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="signin">
-                        <div class="modal-body text-center">
-                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br>
-                            <a href="<?php echo base_url() ."admin_dues/cleardues_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
+          <div class="modal-dialog">
+              <!-- Modal content-->
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Clear Dues</h4>
+              </div>
+
+              <br>
+
+              <div class="signin">
+
+                <div class="modal-body text-center">
+                    <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br>
+                    <a href="<?php echo base_url() ."admin_dues/cleardues_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                    <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                 </div>
 
+              </div>
+
             </div>
+
+          </div>
+
         </div>
 
         <div class="modal fade" id="cleararrears-modal" role="dialog">
 
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="signin">
-                        <div class="modal-body text-center">
-                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's arrears? </p><br>
-                            <a href="<?php echo base_url() ."admin_dues/cleararrears_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
+          <div class="modal-dialog">
+              <!-- Modal content-->
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Clear Arrears</h4>
+              </div>
+
+              <br>
+
+              <div class="signin">
+
+                  <div class="modal-body text-center">
+                      <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's arrears? </p><br>
+                      <a href="<?php echo base_url() ."admin_dues/cleararrears_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                      <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                  </div>
+
+              </div>
 
             </div>
+
+          </div>
+
         </div>
 
         <br>

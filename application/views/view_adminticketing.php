@@ -5,19 +5,31 @@
 
         <div class="modal fade" id="delete-modal" role="dialog">
 
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="signin">
-                        <div class="modal-body text-center">
-                            <p> Are you sure you want to remove this from the list? </p><br><br>
-                            <button type="submit" class="btn btn-custom-1">Yes</button>
-                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
+          <div class="modal-dialog">
+              <!-- Modal content-->
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Delete</h4>
+              </div>
+
+              <br>
+
+              <div class="signin">
+
+                <div class="modal-body text-center">
+                    <p> Are you sure you want to remove this from the list? </p><br>
+                    <button type="submit" class="btn btn-custom-1">Yes</button>
+                    <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                 </div>
 
+              </div>
+
             </div>
+
+          </div>
+
         </div>
 
         <div class="header-style">
@@ -108,8 +120,8 @@
                                 echo "Other";
                               }
                               else if($row->request_type == 'CTV')
-                              { 
-                                echo "CCTV Retrieval Request"; 
+                              {
+                                echo "CCTV Retrieval Request";
                               }
                                else if($row->request_type == 'EFR')
                               {

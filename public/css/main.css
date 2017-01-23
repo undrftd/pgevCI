@@ -222,7 +222,7 @@ body {
   border: 2px solid #27ae60;
   padding: 15px;
   width: 80%;
-  border-radius: 30px;
+  border-radius: 2px;
   font-size: 0.95em;
   opacity: 1;
   transition: all 0.4s ease-in;
@@ -419,7 +419,7 @@ body {
   text-decoration: none;
 }
 
-table th {
+.table-responsive th {
   background-color: #27ae60;
   color: white;
   text-align: center;
@@ -428,16 +428,16 @@ table th {
   white-space: nowrap;
 }
 
-table {
+.table-responsive table {
   text-align: center;
   vertical-align: middle;
 }
 
-table tr {
+.table-responsive tr {
   height: 75px;
 }
 
-table td {
+.table-responsive td {
   position: relative;
   top: 50%;
   transform: translateY(21%);
@@ -504,10 +504,11 @@ table td {
 }
 
 .modal-content {
-    padding: 35px 30px 35px 30px;
-    border: none;
+    padding: 30px 25px 30px 25px;
+    border: 0px;
+    box-shadow: none;
+    border-radius: 0px;
 }
-
 
 .modal-body p {
   font-family: 'Rubik', sans-serif;
@@ -628,7 +629,7 @@ table td {
 }
 
 .modal-content .warning-message {
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   font-style: 0.9em;
   color: #e74c3c;
@@ -668,6 +669,8 @@ table td {
 
 .login-form button {
   width: 100%;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
 }
 
 .error-login {
@@ -941,7 +944,7 @@ p {
   text-align: justify;
 }
 
-.footer-note, .login-form, .success-message p, .activity-bar p {
+.footer-note, .login-form, .success-message p, .activity-bar p, .modal-content p {
   text-align: center;
 }
 

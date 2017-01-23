@@ -33,9 +33,8 @@
         </table>
 
       </div>
+      
        <center><?php echo $ticketlinks; ?></center>
-
-      <br>
 
       <a href="<?php site_url(); ?>recent"><button type="button" class="btn btn-custom">Recent Tickets</button></a>
 

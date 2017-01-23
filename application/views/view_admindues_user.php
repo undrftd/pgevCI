@@ -8,13 +8,22 @@
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="signin">
-                        <div class="modal-body text-center">
-                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to start billing the homeowners? </p><br>
-                            <a href="<?php echo base_url(); ?>admin_dues/billstart_user"><button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
+
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Start Billing</h4>
+                  </div>
+
+                  <br>
+
+                  <div class="signin">
+                      <div class="modal-body text-center">
+                          <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to start billing the homeowners? </p><br>
+                          <a href="<?php echo base_url(); ?>admin_dues/billstart_user"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                          <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                      </div>
+                  </div>
+
                 </div>
 
             </div>
@@ -26,14 +35,23 @@
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="signin">
-                        <div class="modal-body text-center">
-                            <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear all the homeowners' records? </p><br>
-                            <p class="warning-message"> WARNING: All records will be lost. This procedure cannot be undone. </p><br>
-                            <a href="<?php echo base_url(); ?>admin_dues/clearrecords_user"><button type="submit" class="btn btn-custom-1">Yes</button></a>
-                            <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
+
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Clear Records</h4>
+                  </div>
+
+                  <br>
+
+                  <div class="signin">
+                      <div class="modal-body text-center">
+                          <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear all the homeowners' records? </p><br>
+                          <p class="warning-message"> WARNING: All records will be lost. This procedure cannot be undone. </p><br>
+                          <a href="<?php echo base_url(); ?>admin_dues/clearrecords_user"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                          <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                      </div>
+                  </div>
+
                 </div>
 
             </div>

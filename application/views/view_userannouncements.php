@@ -26,8 +26,6 @@
 
     </div>
 
-    <br>
-
     <form action="" method="GET">
       <div class="form-group" id="search-group">
         <input class="form-control" name="search" id="sel1" type="text" placeholder="Search for an announcement...">
@@ -35,8 +33,6 @@
         </input>
       </div>
     </form>
-
-    <br>
 
     <div class="portlet-body">
 
