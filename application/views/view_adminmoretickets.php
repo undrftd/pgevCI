@@ -147,7 +147,7 @@
               <br>
 
               <p> Date Created </p>
-              <input class="form-control" id="sel1" type="text" value="<?php echo unix_to_human($result->date_requested); ?>">
+              <input class="form-control" id="sel1" type="text" value="<?php echo unix_to_human($result->date_requested); ?>" readonly>
 
               <br>
 
