@@ -25,8 +25,8 @@
           <tr>
               <td><?php echo $row->request_type . "-" . $row->ticketid; ?> </td>
               <td><?php if($row->status == 0) { echo "Resolved"; } else if($row->status == 1){ echo "Work in Progress"; } else if($row->status == 2){ echo "Unaddressed";}  ?></td>
-              <td><?php echo unix_to_human($row->date_requested); ?> </td>
-              <td><?php if($row->status != 0) { echo "Awaiting Resolution"; } else { echo unix_to_human($row->date_closed); } ?></td>
+              <td><?php echo date("m/d/Y g:i A", $row->date_requested);; ?> </td>
+              <td><?php if($row->status != 0) { echo "Awaiting Resolution"; } else { echo date("m/d/Y g:i A", $row->date_closed); } ?></td>
           </tr>
       <?php endforeach; ?>
 

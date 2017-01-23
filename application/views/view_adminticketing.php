@@ -141,7 +141,7 @@
                               }  ?>
                         </td>
                         <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
-                        <td><?php echo unix_to_human($row->date_requested, TRUE, 'us'); ?></td>
+                        <td><?php echo date("m/d/Y g:i A", $row->date_requested); ?></td>
                         <td class="action-button">
                           <a href="<?php echo site_url() . "admin_ticketing/new_ticketdetails/" . $row->ticketid; ?>">
                           <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-9"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
