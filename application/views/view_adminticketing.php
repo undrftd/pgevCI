@@ -107,7 +107,7 @@
                               {
                                 echo "Other";
                               }
-                              else if($result->request_type == 'CTV')
+                              else if($row->request_type == 'CTV')
                               { 
                                 echo "CCTV Retrieval Request"; 
                               }
@@ -123,7 +123,6 @@
                               {
                                 echo "Broken House Tube";
                               }
-                              el
                               else if($row->request_type == 'ESP')
                               {
                                 echo "Suspicious Person";
