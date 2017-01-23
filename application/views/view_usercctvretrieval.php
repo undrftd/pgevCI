@@ -44,8 +44,8 @@
 
               <br>
               <p> Requested Date and Time of the Incident</p>
-              <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control" id="sel1"/>
+              <div class='input-group date' id='datetimepicker1'> <?php echo form_error('datepick'); ?> </p>
+                <input name ="datepick" type='text' class="form-control" id="sel1"/>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
