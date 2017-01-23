@@ -458,7 +458,7 @@ table td {
   color: #696969;
 }
 
-.form-group h4, .admin-message h4, .announcement-message h4 {
+.form-group h4, .admin-message h4, .announcement-message h4, .modal-content h4 {
   font-weight: 700;
   color: #696969;
 }
@@ -510,9 +510,9 @@ table td {
 
 
 .modal-body p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 1.1em;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
   color: #696969;
 }
 

@@ -36,7 +36,8 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-custom-1" data-dismiss="modal">Close</button>
+              <br>
+              <button type="button" class="btn btn-custom-6" data-dismiss="modal">X &nbsp;Close</button>
             </div>
 
           </div>
@@ -169,7 +170,7 @@
             <br><br>
 
             <p> Attachment </p>
-            <button type="button" class="btn btn-custom-11" data-toggle="modal" data-target="#delete-modal">Download</button>
+            <button type="button" class="btn btn-custom-11">Download</button>
 
             <br><br>
 
