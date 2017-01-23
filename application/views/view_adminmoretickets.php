@@ -138,10 +138,10 @@
               <br>
 
               <p> Status </p>
-              <select class="form-control" id="sel1">
-                <option>Set Status</option>
-                <option>Work in Progress</option>
-                <option>Closed</option>
+              <select name ="status" class="form-control" id="sel1">
+                <option value ="" selected hidden>Set Status</option>
+                <option value ="1">Work in Progress</option>
+                <option value="0">Closed</option>
               </select>
 
               <br>
