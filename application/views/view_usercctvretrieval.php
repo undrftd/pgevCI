@@ -29,7 +29,8 @@
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
           </div>
         <?php } ?>
-
+        <br>
+        
         <div class="information">
 
           <form action="<?php echo site_url();?>user_ticketing/send_cctv" method="POST" enctype="multipart/form-data">
