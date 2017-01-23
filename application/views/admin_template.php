@@ -28,7 +28,7 @@
             <div id="sidebar-wrapper">
               <ul class="sidebar-nav text-center">
                 <li>
-                    <a href="<?php echo site_url("admin_ticketing/new_tickets"); ?>" class="<?php if($this->uri->segment(1) == 'admin_ticketing') { echo 'active'; } ?>">Ticketing System</a>
+                    <a href="<?php echo site_url("admin_ticketing/new_tickets"); ?>" class="<?php if($this->uri->segment(1) == 'admin_ticketing') { echo 'active'; } ?>">Ticketing</a>
                 </li>
                 <li class="sidebar-brand">
                     <a href="admin-home.html">
