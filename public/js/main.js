@@ -85,5 +85,7 @@ function myFunction() {
 }
 
 $(function () {
-    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker1').datetimepicker({
+      format: 'MM-DD-YYYY LT'
+    });
 });
