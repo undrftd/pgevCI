@@ -93,9 +93,17 @@ class Admin_Ticketing extends MY_Controller {
 
     function ticketdetails($ticketid)
     {
-        $this->model_ticketing->set_timeopened($ticketid);
-        $data['result'] = $this->model_ticketing->get_newticketdetails($ticketid);
-        $this->template->load('admin_template', 'view_adminmoretickets', $data);
+        if($this->model_ticketing->url_check_tickets($ticketid))
+        {
+            $this->model_ticketing->set_timeopened($ticketid);
+            $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+            $this->template->load('admin_template', 'view_adminmoretickets', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('newticketfail', 'There is no ticket associated with this Ticket ID. Please double check the Ticket ID.');
+            redirect('admin_ticketing/new_tickets');
+        }
     }
 
     function download_attachment($ticketid)
@@ -116,7 +124,7 @@ class Admin_Ticketing extends MY_Controller {
             else
             {
                 $this->session->set_flashdata('moreticketfail', 'There is no attachment for this ticket.');
-                $data['result'] = $this->model_ticketing->get_newticketdetails($ticketid);
+                $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
                 $this->template->load('admin_template', 'view_adminmoretickets', $data);
             }
         }
@@ -129,9 +137,18 @@ class Admin_Ticketing extends MY_Controller {
 
     function save_ticket($ticketid)
     {
-        $this->model_ticketing->save_ticket($ticketid);
-        $this->session->set_flashdata('moreticketsuccess', 'You have successfully updated the ticket\'s details');
-        redirect('admin_ticketing/ticketdetails');
+        if($this->model_ticketing->url_check_tickets($ticketid))
+        {
+            $this->model_ticketing->save_ticket($ticketid);
+            $this->session->set_flashdata('moreticketsuccess', 'You have successfully updated the ticket\'s details');
+            $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+            $this->template->load('admin_template', 'view_adminmoretickets', $data);
+        }
+        else
+        {   
+            $this->session->set_flashdata('newticketfail', 'You cannot save changes for a non-existent Ticket ID.');
+            redirect('admin_ticketing/new_tickets');
+        }
     }
 
 }

@@ -53,7 +53,7 @@
   <br>
 
   <?php if ($this->session->flashdata('moreticketsuccess')){ ?>
-            <div class="error-message text-center" id="prompt-message">
+            <div class="success-message text-center" id="prompt-message">
               <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
               <p> <?php echo $this->session->flashdata('moreticketsuccess'); ?> </p><br>
               <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
@@ -76,7 +76,7 @@
 
         <div class="information">
             
-           <form action ="<?php site_url() . "admin_ticketing/save_ticket/" . $result->ticketid ?>" method="POST">
+           <form action ="<?php echo site_url() . "admin_ticketing/save_ticket/" . $result->ticketid ?>" method="POST">
             
             <div class="form-group">
 
