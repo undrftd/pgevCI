@@ -145,8 +145,6 @@
                         <td><?php echo date("m/d/Y g:i A", $row->date_closed); ?></td>
                         <td><?php echo timespan($row->date_requested, '$row->date_closed', 3); ?></td>
                         <td class="action-button">
-                          <a href="<?php echo site_url() . "admin_ticketing/ticketdetails/" . $row->ticketid; ?>">
-                          <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-9"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> &nbsp;Delete </button>
                         </td>
                     </tr>

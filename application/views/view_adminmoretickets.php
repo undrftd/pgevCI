@@ -60,6 +60,7 @@
             </div>
   <?php } ?>
 
+
   <?php if ($this->session->flashdata('moreticketfail')){ ?>
             <div class="error-message text-center" id="prompt-message">
               <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
@@ -159,7 +160,7 @@
 
               <p> Status </p>
               <select name ="status" class="form-control" id="sel1">
-                <option value ="2" selected hidden> <?php if($result->status == 1) { echo "Work in Progress"; } else if($result->status == 0) { echo "Closed"; } else { echo "Set Status"; } ?></option>
+                <option value ="<?php echo $result->status;?>" selected hidden> <?php if($result->status == 1) { echo "Work in Progress"; } else if($result->status == 0) { echo "Closed"; } else { echo "Set Status"; } ?></option>
                 <option value ="1">Work in Progress</option>
                 <option value="0">Closed</option>
               </select>

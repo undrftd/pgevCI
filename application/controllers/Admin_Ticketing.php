@@ -123,6 +123,11 @@ class Admin_Ticketing extends MY_Controller {
             }
             else
             {
+                if($this->session->userdata('moreticketsuccess'))
+                {
+                    $this->session->unset_userdata('moreticketsuccess');
+                }
+
                 $this->session->set_flashdata('moreticketfail', 'There is no attachment for this ticket.');
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
                 $this->template->load('admin_template', 'view_adminmoretickets', $data);
@@ -131,7 +136,8 @@ class Admin_Ticketing extends MY_Controller {
         else
         {
             $this->session->set_flashdata('newticketfail', 'You cannot download an attachment from a non-existent ticket.');
-            redirect('admin_ticketing/new_tickets');
+            redirect('admin_ticketing/new_tickets', 'refresh');
+
         }
     }
 
@@ -140,6 +146,12 @@ class Admin_Ticketing extends MY_Controller {
         if($this->model_ticketing->url_check_tickets($ticketid))
         {
             $this->model_ticketing->save_ticket($ticketid);
+            
+            if($this->session->userdata('moreticketfail'))
+            {
+                $this->session->unset_userdata('moreticketfail');
+            }
+
             $this->session->set_flashdata('moreticketsuccess', 'You have successfully updated the ticket\'s details');
             $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
             $this->template->load('admin_template', 'view_adminmoretickets', $data);
@@ -147,7 +159,7 @@ class Admin_Ticketing extends MY_Controller {
         else
         {   
             $this->session->set_flashdata('newticketfail', 'You cannot save changes for a non-existent Ticket ID.');
-            redirect('admin_ticketing/new_tickets');
+            redirect('admin_ticketing/new_tickets', 'refresh');
         }
     }
 
