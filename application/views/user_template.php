@@ -52,7 +52,7 @@
                  <a href="<?php echo site_url("user_forms/car_sticker"); ?>" class="<?php if($this->uri->segment('1') == 'user_forms') { echo 'active'; } ?>">Forms</a>
              </li>
              <li>
-                 <a href="user-contact-form.html">Suggestions</a>
+                 <a href="<?php echo site_url("user_suggestions"); ?>" class="<?php if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } ?>">Suggestions</a>
              </li>
              <li>
                  <a href="<?php echo site_url("user_accounts"); ?>" class="<?php if($this->uri->segment('1') == 'user_accounts') { echo 'active'; } ?>">Account</a>

@@ -16,7 +16,7 @@
         <div class="admin-message">
 
             <p> Note: Kindly call us through this number (887-8888) for additional assitance if you want to change a
-              certain credential not included in the editable information tab.
+              certain credential that is not editable.
             </p>
 
         </div>

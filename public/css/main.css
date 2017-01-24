@@ -1015,6 +1015,7 @@ Licensed under MIT
 	background: none;
 	margin: 0;
 	border: 0;
+  color: #696969;
 }
 
 .portlet-title > .nav-tabs > li > a {
@@ -1033,6 +1034,7 @@ Licensed under MIT
 .portlet-title > .nav-tabs > li.active:hover {
   	border-bottom: 4px solid #27ae60;
   	position: relative;
+    color: black;
   }
 
   .portlet-title > .nav-tabs > li:hover {
