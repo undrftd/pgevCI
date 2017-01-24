@@ -33,7 +33,7 @@
         </div>
 
         <div class="header-style">
-          <h1> Ticketing System </h1>
+          <h1> Ticketing</h1>
         </div>
 
         <div class="portlet">
@@ -45,16 +45,16 @@
           <div class="portlet-title">
 
             <ul class="nav nav-tabs">
-              <li class="active">
-								<a href="#portlet_tab1" data-toggle="tab">
+              <li>
+								<a href="<?php echo site_url()?>admin_ticketing/new_tickets">
 							  New <span class="badge"> <?php echo $count;?> </span> </a>
 							</li>
-              <li>
-                <a href="#portlet_tab2" data-toggle="tab">
+              <li  class="active">
+                <a href="<?php echo site_url(); ?>admin_ticketing/progress_tickets">
                 In Progress </a>
               </li>
               <li>
-                <a href="#portlet_tab3" data-toggle="tab">
+                <a href="#portlet_tab3">
                 Closed </a>
               </li>
             </ul>
@@ -143,14 +143,14 @@
                         <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
                         <td><?php echo date("m/d/Y g:i A", $row->date_requested); ?></td>
                         <td class="action-button">
-                          <a href="<?php echo site_url() . "admin_ticketing/new_ticketdetails/" . $row->ticketid; ?>">
+                          <a href="<?php echo site_url() . "admin_ticketing/ticketdetails/" . $row->ticketid; ?>">
                           <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-9"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> &nbsp;Delete </button>
                         </td>
                     </tr>
                   <?php endforeach; ?>
                   </table>
-                   <center><?php echo $newticketlinks; ?></center>
+                   <center><?php echo $progressticketlinks; ?></center>
                 </div>
 
               </div>
