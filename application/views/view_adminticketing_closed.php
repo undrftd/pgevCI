@@ -45,15 +45,15 @@
           <div class="portlet-title">
 
             <ul class="nav nav-tabs">
-              <li class="active">
-                <a href="<?php echo site_url()?>admin_ticketing/new_tickets">
-                New <span class="badge"> <?php echo $count;?> </span> </a>
-              </li>
+              <li>
+								<a href="<?php echo site_url()?>admin_ticketing/new_tickets">
+							  New <span class="badge"> <?php echo $count;?> </span> </a>
+							</li>
               <li>
                 <a href="<?php echo site_url(); ?>admin_ticketing/progress_tickets">
                 In Progress </a>
               </li>
-              <li>
+              <li class="active">
                 <a href="<?php echo site_url(); ?>admin_ticketing/closed_tickets"">
                 Closed </a>
               </li>
@@ -75,7 +75,8 @@
                       <th><br>Ticket ID</th>
                       <th><br>Type of Request</th>
                       <th><br>Homeowner's Name</th>
-                      <th><br>Date Created</th>
+                      <th><br>Date Closed</th>
+                      <th><br>Time to Resolution</th>
                       <th><br>Action</th>
                     </tr>
 
@@ -141,7 +142,8 @@
                               }  ?>
                         </td>
                         <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
-                        <td><?php echo date("m/d/Y g:i A", $row->date_requested); ?></td>
+                        <td><?php echo date("m/d/Y g:i A", $row->date_closed); ?></td>
+                        <td><?php echo timespan($row->date_requested, '$row->date_closed', 3); ?></td>
                         <td class="action-button">
                           <a href="<?php echo site_url() . "admin_ticketing/ticketdetails/" . $row->ticketid; ?>">
                           <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-9"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
@@ -150,7 +152,7 @@
                     </tr>
                   <?php endforeach; ?>
                   </table>
-                   <center><?php echo $newticketlinks; ?></center>
+                   <center><?php echo $closedticketlinks; ?></center>
                 </div>
 
               </div>

@@ -46,15 +46,15 @@
 
             <ul class="nav nav-tabs">
               <li>
-								<a href="<?php echo site_url()?>admin_ticketing/new_tickets">
-							  New <span class="badge"> <?php echo $count;?> </span> </a>
-							</li>
-              <li  class="active">
+                <a href="<?php echo site_url()?>admin_ticketing/new_tickets">
+                New <span class="badge"> <?php echo $count;?> </span> </a>
+              </li>
+              <li class="active">
                 <a href="<?php echo site_url(); ?>admin_ticketing/progress_tickets">
                 In Progress </a>
               </li>
               <li>
-                <a href="#portlet_tab3">
+                <a href="<?php echo site_url(); ?>admin_ticketing/closed_tickets"">
                 Closed </a>
               </li>
             </ul>

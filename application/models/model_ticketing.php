@@ -44,6 +44,27 @@ class Model_ticketing extends CI_Model {
 		return $query->num_rows();
 	}
 
+	function get_closedtickets($limit, $offset)
+	{
+		$this->db->limit($limit, $offset);
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' ) desc, date_closed desc")->where('status', 0)->get();
+
+		if($query->num_rows() > 0)
+		{
+			return $query->result();
+		}
+		else
+		{
+			return $query->result();
+		}
+	}
+
+	function count_closedtickets()
+	{
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where('status', 0)->get();
+		return $query->num_rows();
+	}
+
 	function get_newticketdetails($ticketid)
     {
          $query= $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where('ticketid', $ticketid)->get();
