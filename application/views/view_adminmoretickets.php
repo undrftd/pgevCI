@@ -174,7 +174,7 @@
             <br><br>
 
             <p> Attachment </p>
-            <button type="button" class="btn btn-custom-11">Download</button>
+            <button type="button" class="btn btn-custom-11"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button>
 
             <br><br>
 

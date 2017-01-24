@@ -17,7 +17,7 @@
 
               <p> Note: Below are the last five tickets you have recently submitted. In order to have a detailed history of your ticket submissions, click the "View History" button below. For further concerns, kidnly contact
                 us through the number given below.
-                <p> <strong>Parkwood Greens Executive Village Administrators (Gemille): (02) 887-8888 </strong> </p>
+                <p> <strong> <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> &nbsp; Parkwood Greens Executive Village Administrators (Gemille): (02) 887-8888 </strong> </p>
               </p>
 
             </div>

@@ -41,7 +41,7 @@
 
     <div class="col-xs-12 nopadding">
 
-      <h4 class="activity-heading text-center"> Activities <hr></h4>
+      <h4 class="activity-heading text-center"> User Activities <hr></h4>
 
     </div>
 
