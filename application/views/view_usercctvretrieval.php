@@ -29,9 +29,9 @@
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
           </div>
         <?php } ?>
-        
+
           <br>
-        
+
         <div class="information">
 
           <form action="<?php echo site_url();?>user_ticketing/send_cctv" method="POST" enctype="multipart/form-data">
@@ -47,7 +47,7 @@
               <br>
               <p> Requested Date and Time of the Incident</p>
               <div class='input-group date' id='datetimepicker1'>
-                <input id="sel1" name ="datepick" type='text' class="form-control"/>
+                <input id="sel1" name ="datepick" type='text' class="form-control" placeholder="Click the calendar button to select a time and date"/>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -58,7 +58,7 @@
 
             <div class="form-group">
               <p> Message </p>
-              <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain the reason for your CCTV Retrieval Request..." rows="15" reseize="none"></textarea>
+              <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain the reason for your CCTV Retrieval Request" rows="15" reseize="none"></textarea>
               <p class="error"><?php echo form_error('content'); ?> </p>
             </div>
 
