@@ -98,4 +98,40 @@ class Admin_Ticketing extends MY_Controller {
         $this->template->load('admin_template', 'view_adminmoretickets', $data);
     }
 
+    function download_attachment($ticketid)
+    {
+        if($this->model_ticketing->url_check_tickets($ticketid))
+        {
+            $query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
+            $result = $query->row();
+
+            if($result->attachment != NULL || $result->attachment != "")
+            {
+                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->attachment;
+                $data = file_get_contents($path);
+                $name = $result->attachment;
+
+                force_download($name, $data);
+            }
+            else
+            {
+                $this->session->set_flashdata('moreticketfail', 'There is no attachment for this ticket.');
+                $data['result'] = $this->model_ticketing->get_newticketdetails($ticketid);
+                $this->template->load('admin_template', 'view_adminmoretickets', $data);
+            }
+        }
+        else
+        {
+            $this->session->set_flashdata('newticketfail', 'You cannot download an attachment from a non-existent ticket.');
+            redirect('admin_ticketing/new_tickets');
+        }
+    }
+
+    function save_ticket($ticketid)
+    {
+        $this->model_ticketing->save_ticket($ticketid);
+        $this->session->set_flashdata('moreticketsuccess', 'You have successfully updated the ticket\'s details');
+        redirect('admin_ticketing/ticketdetails');
+    }
+
 }

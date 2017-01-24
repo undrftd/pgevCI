@@ -25,7 +25,9 @@
           <div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-2">
 
             <div class="information">
+                
                 <form action="<?php echo site_url(); ?>user_suggestions/send_email" method="POST">
+
                   <div class="form-group">
 
                     <p> Name </p>
@@ -39,7 +41,7 @@
 
                   </div>
 
-                <button type="submit" class="btn btn-custom">Send</button></a>
+                <button type="submit" class="btn btn-custom">Send</button>
             </div>
                 
             <br>
@@ -58,7 +60,9 @@
                 <textarea name="message" class="form-control" id="user-message" placeholder="Kindly leave us a message for suggestions within our community... " rows="15" reseize="none"></textarea>
               </div>
             </div>
-</form>
+
+            </form>
+            
             <br><br>
 
           </div>
