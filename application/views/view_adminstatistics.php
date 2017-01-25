@@ -10,8 +10,6 @@
               <div class="header-style">
                 <h1> Ticket Statistics </h1>
               </div>
-              <br>
-              <br>
               
             <br><br>
 
@@ -36,7 +34,6 @@
                         <td><?php echo $progressgrasscutting; ?></td>
                         <td><?php echo $closedgrasscutting; ?></td>
                         <td>5</td>
-                        <td>1 day(s)</td>
                     </tr>
                     <tr>
                         <td>Garbage Collecting</td>
@@ -106,7 +103,7 @@
                   </table>
 
                 </div>
-                
+
                 <br><br>
                 <a href="user-announcements.html"><button type="button" class="btn btn-custom">Export to PDF</button></a>
                 <br><br>

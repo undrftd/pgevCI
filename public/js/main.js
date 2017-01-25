@@ -73,4 +73,3 @@ $(function () {
     });
     $('#datetimepicker1').datetimepicker('showClear', true);
 });
-
