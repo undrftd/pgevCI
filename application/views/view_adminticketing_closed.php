@@ -155,7 +155,7 @@
                         <td><?php echo date("m/d/Y g:i A", $row->date_closed); ?></td>
                         <td><?php echo timespan($row->date_requested, $row->date_closed, 3); ?></td>
                         <td class="action-button">
-                          <a href="<?php echo site_url() . "admin_ticketing/ticketdetails/" . $row->ticketid; ?>"><button type="button" class="btn btn-custom-3" aria-hidden="true">View Details</button>
+                          <a href="<?php echo site_url() . "admin_ticketing/ticketdetails/" . $row->ticketid; ?>"><button type="button" class="btn btn-custom-2" aria-hidden="true">View Details</button>
 
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> &nbsp;Delete </button>
                         </td>

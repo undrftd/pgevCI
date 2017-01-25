@@ -32,6 +32,7 @@
                     <th><br>Ticket ID</th>
                     <th><br>Request Type</th>
                     <th><br>Status</th>
+                    <th><br>Set Status</th>
                 </tr>
 
                 <?php foreach($result as $row): ?>
@@ -96,6 +97,7 @@
                               }  ?>
                     </td>
                     <td><?php if($row->status == 0) { echo "Resolved"; } else if($row->status == 1){ echo "Work in Progress"; } else if($row->status == 2){ echo "Unaddressed";}  ?></td>
+                    <td><?php if($row->status == 0) { echo "Closed"; } else { echo '<button type="button" class="btn btn-custom-3">Close ticket</button>'; } ?> </td>
                 </tr>
               <?php endforeach; ?>
               </table>
