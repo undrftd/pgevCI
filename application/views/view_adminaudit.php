@@ -38,7 +38,9 @@
                   </table>
 
                 </div>
+                <center><?php echo $auditlinks; ?></center>
                 <br><br>
+                <a href="<?php echo site_url();?>admin_export/exportdata"><button type="button" class="btn btn-custom">Export to Excel</button></a>
                 <br><br>
 
               </div>

@@ -2,6 +2,7 @@
 
 class Admin_Audit extends MY_Controller {
 
+	function logs()
 	{
         $config['base_url'] = site_url('admin_audit/logs');
         $config['total_rows'] = $this->model_audit->count_audit();
