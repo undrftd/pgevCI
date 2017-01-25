@@ -13,7 +13,7 @@ class Admin_Ticketing extends MY_Controller {
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
         $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';	
+        $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
         $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
@@ -42,7 +42,7 @@ class Admin_Ticketing extends MY_Controller {
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
         $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';   
+        $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
         $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
@@ -59,7 +59,7 @@ class Admin_Ticketing extends MY_Controller {
 
         $data['count'] = $this->model_ticketing->count_newtickets();
         $data['result'] = $this->model_ticketing->get_progresstickets($config['per_page'], $this->uri->segment(3));
-        $this->template->load('admin_template', 'view_adminticketing_inprogress', $data);       
+        $this->template->load('admin_template', 'view_adminticketing_inprogress', $data);
     }
 
     function closed_tickets()
@@ -71,7 +71,7 @@ class Admin_Ticketing extends MY_Controller {
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
         $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';   
+        $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
         $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
@@ -88,7 +88,7 @@ class Admin_Ticketing extends MY_Controller {
 
         $data['count'] = $this->model_ticketing->count_newtickets();
         $data['result'] = $this->model_ticketing->get_closedtickets($config['per_page'], $this->uri->segment(3));
-        $this->template->load('admin_template', 'view_adminticketing_closed', $data);       
+        $this->template->load('admin_template', 'view_adminticketing_closed', $data);
     }
 
     function ticketdetails($ticketid)
@@ -98,19 +98,19 @@ class Admin_Ticketing extends MY_Controller {
             if($this->model_ticketing->is_opened($ticketid))
             {
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-                $this->template->load('admin_template', 'view_adminmoretickets', $data); 
+                $this->template->load('admin_template', 'view_adminmoretickets', $data);
             }
             else
             {
                 $this->model_ticketing->set_timeopened($ticketid);
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-                $this->template->load('admin_template', 'view_adminmoretickets', $data); 
+                $this->template->load('admin_template', 'view_adminmoretickets', $data);
             }
         }
         else if($this->model_ticketing->is_closed($ticketid))
         {
             $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-            $this->template->load('admin_template', 'view_adminmoreclosedtickets', $data); 
+            $this->template->load('admin_template', 'view_adminmoreclosedtickets', $data);
         }
         else
         {
@@ -167,7 +167,7 @@ class Admin_Ticketing extends MY_Controller {
                 $this->session->set_flashdata('moreticketsuccess', 'You have successfully updated the ticket\'s status.');
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
                 $this->template->load('admin_template', 'view_adminmoretickets', $data);
-                $this->output->set_header('refresh:2; url=' . site_url() . "admin_ticketing/new_tickets");
+                $this->output->set_header('refresh:2; url=' . site_url() . "admin_ticketing/progress_tickets");
             }
             else if($this->model_ticketing->is_closedticket($ticketid))
             {
@@ -175,12 +175,12 @@ class Admin_Ticketing extends MY_Controller {
                 $this->session->set_flashdata('moreticketsuccess', 'You have successfully closed the ticket.');
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
                 $this->template->load('admin_template', 'view_adminmoretickets', $data);
-                $this->output->set_header('refresh:2; url=' . site_url() . "admin_ticketing/new_tickets");
+                $this->output->set_header('refresh:2; url=' . site_url() . "admin_ticketing/closed_tickets");
             }
 
         }
         else
-        {   
+        {
             $this->session->set_flashdata('newticketfail', 'You cannot save changes for a non-existent Ticket ID.');
             redirect('admin_ticketing/new_tickets');
         }
