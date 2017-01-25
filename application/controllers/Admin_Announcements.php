@@ -20,22 +20,22 @@ class Admin_Announcements extends MY_Controller{
   }
 
 
-  /*
+
   function delete_ann($post_id)
   {
     if($this->model_announcements_admin->url_check_post_id($post_id))
     {
-      $this->session->set_flashdata('accountsfeedback', 'You have sucessfully delete the Announcement.');
-      $this->post_id->model_announcements_admin->delete_ann($post_id);
+
+      $this->model_announcements_admin->delete_ann($post_id);
       redirect('Admin_Announcements');
     }
     else
     {
-      $this->session->set_flashdata('accountsfeedback', 'Unable to delete a non existing Announcement.');
+    
       redirect('Admin_Announcements');
     }
   }
-  */
+
 
   function select_ann($post_id)
   {

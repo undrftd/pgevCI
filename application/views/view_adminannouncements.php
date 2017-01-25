@@ -12,9 +12,7 @@
                   <div class="modal-body text-center">
                       <p> Are you sure you want to remove this announcement? </p><br><br>
 
-                      <a href="<?php  echo base_url() . "admin_Announcements/delete_ann/" . $row->post_id ?>">
-                      <button type="submit" class="btn btn-custom-1">Yes</button>
-                      </a>
+                      <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                       <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
 
                   </div>
@@ -67,7 +65,8 @@
 
               <a href="<?php echo site_url() . "Admin_Announcements/select_ann/" . $row->post_id ?>"><button type="submit" class="btn btn-custom-2">Edit</button></a>
 
-              <button type="submit" class="btn btn-custom-3" data-toggle="modal"
+
+              <button type="submit" class="btn btn-custom-3" data-toggle="modal" data-href="<?php  echo base_url() . "admin_Announcements/delete_ann/" . $row->post_id ?>"
                data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
 
 
