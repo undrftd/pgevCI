@@ -61,6 +61,16 @@
 
           </div>
 
+          <?php if ($this->session->flashdata('newticketfail')){ ?>
+            <div class="error-message text-center" id="prompt-message">
+              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+              <p> <?php echo $this->session->flashdata('newticketfail'); ?> </p><br>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+            </div>
+          <?php } ?>
+
+          <br><br>
+
           <div class="portlet-body">
 
             <div class="tab-content">

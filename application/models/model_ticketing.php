@@ -65,10 +65,25 @@ class Model_ticketing extends CI_Model {
 		return $query->num_rows();
 	}
 
-	function get_newticketdetails($ticketid)
+	function get_ticketdetails($ticketid)
     {
          $query= $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where('ticketid', $ticketid)->get();
          return $query->row();
+    }
+
+    function url_check_tickets($ticketid)
+    {
+    	$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets', 1);
+    	$result = $query->row();
+
+    	if($ticketid == $result->ticketid)
+    	{
+    		return TRUE;
+    	}
+    	else
+    	{
+    		return FALSE;
+    	}
     }
 
     function set_timeopened($ticketid)
@@ -83,6 +98,16 @@ class Model_ticketing extends CI_Model {
 
     }
 
-	
+    function save_ticket($ticketid)
+    {
+    	$save_ticket_data = array(
+    		'status' => $this->input->post('status'),
+    		'date_closed' => time()
+    	);
+
+    	$this->db->where('ticketid', $ticketid);
+    	$update = $this->db->update('tickets', $save_ticket_data);
+    	return $update;
+    }
 
 }

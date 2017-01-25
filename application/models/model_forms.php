@@ -85,17 +85,17 @@ class Model_forms extends CI_Model {
 
 	function url_check_carsticker($formid)
     {
-            $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
-            $result = $query->row();
-            
-            if($formid == $result->formid)
-            {
-                    return TRUE;
-            }
-            else
-            {
-                    return FALSE;
-            }
+        $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
+        $result = $query->row();
+        
+        if($formid == $result->formid)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     function url_check_workpermit($formid)

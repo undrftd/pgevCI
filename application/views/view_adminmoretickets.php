@@ -52,12 +52,33 @@
 
   <br>
 
+  <?php if ($this->session->flashdata('moreticketsuccess')){ ?>
+            <div class="success-message text-center" id="prompt-message">
+              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+              <p> <?php echo $this->session->flashdata('moreticketsuccess'); ?> </p><br>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+            </div>
+  <?php } ?>
+
+
+  <?php if ($this->session->flashdata('moreticketfail')){ ?>
+            <div class="error-message text-center" id="prompt-message">
+              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+              <p> <?php echo $this->session->flashdata('moreticketfail'); ?> </p><br>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+            </div>
+  <?php } ?>
+
+    <br> <br>
+
     <div class="row">
 
       <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-1 nopadding">
 
         <div class="information">
-
+            
+           <form action ="<?php echo site_url() . "admin_ticketing/save_ticket/" . $result->ticketid ?>" method="POST">
+            
             <div class="form-group">
 
               <h4> Ticket Information </h4>
@@ -139,7 +160,7 @@
 
               <p> Status </p>
               <select name ="status" class="form-control" id="sel1">
-                <option value ="" selected hidden>Set Status</option>
+                <option value ="<?php echo $result->status;?>" selected hidden> <?php if($result->status == 1) { echo "Work in Progress"; } else if($result->status == 0) { echo "Closed"; } else { echo "Set Status"; } ?></option>
                 <option value ="1">Work in Progress</option>
                 <option value="0">Closed</option>
               </select>
@@ -173,8 +194,8 @@
 
             <br><br>
 
-            <p> Attachment </p>
-            <button type="button" class="btn btn-custom-11"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button>
+            <p> Attachment (<?php if($result->attachment != NULL) { echo "1";} else {echo "0"; } ?>) </p>
+            <a href="<?php echo site_url() . "admin_ticketing/download_attachment/" . $result->ticketid; ?>"><button type="button" class="btn btn-custom-11"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
 
             <br><br>
 
@@ -186,7 +207,9 @@
 
             <br><br>
 
-            <a href="admin-tickets.html"><button type="button" class="btn btn-custom-5">Save changes</button></a>
+            <button type="submit" class="btn btn-custom-5">Save changes</button>
+            
+            </form>
 
           </div>
 

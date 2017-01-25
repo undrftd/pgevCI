@@ -93,9 +93,74 @@ class Admin_Ticketing extends MY_Controller {
 
     function ticketdetails($ticketid)
     {
-        $this->model_ticketing->set_timeopened($ticketid);
-        $data['result'] = $this->model_ticketing->get_newticketdetails($ticketid);
-        $this->template->load('admin_template', 'view_adminmoretickets', $data);
+        if($this->model_ticketing->url_check_tickets($ticketid))
+        {
+            $this->model_ticketing->set_timeopened($ticketid);
+            $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+            $this->template->load('admin_template', 'view_adminmoretickets', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('newticketfail', 'There is no ticket associated with this Ticket ID. Please double check the Ticket ID.');
+            redirect('admin_ticketing/new_tickets');
+        }
+    }
+
+    function download_attachment($ticketid)
+    {
+        if($this->model_ticketing->url_check_tickets($ticketid))
+        {
+            $query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
+            $result = $query->row();
+
+            if($result->attachment != NULL || $result->attachment != "")
+            {
+                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->attachment;
+                $data = file_get_contents($path);
+                $name = $result->attachment;
+
+                force_download($name, $data);
+            }
+            else
+            {
+                if($this->session->userdata('moreticketsuccess'))
+                {
+                    $this->session->unset_userdata('moreticketsuccess');
+                }
+
+                $this->session->set_flashdata('moreticketfail', 'There is no attachment for this ticket.');
+                $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+                $this->template->load('admin_template', 'view_adminmoretickets', $data);
+            }
+        }
+        else
+        {
+            $this->session->set_flashdata('newticketfail', 'You cannot download an attachment from a non-existent ticket.');
+            redirect('admin_ticketing/new_tickets', 'refresh');
+
+        }
+    }
+
+    function save_ticket($ticketid)
+    {
+        if($this->model_ticketing->url_check_tickets($ticketid))
+        {
+            $this->model_ticketing->save_ticket($ticketid);
+            
+            if($this->session->userdata('moreticketfail'))
+            {
+                $this->session->unset_userdata('moreticketfail');
+            }
+
+            $this->session->set_flashdata('moreticketsuccess', 'You have successfully updated the ticket\'s details');
+            $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+            $this->template->load('admin_template', 'view_adminmoretickets', $data);
+        }
+        else
+        {   
+            $this->session->set_flashdata('newticketfail', 'You cannot save changes for a non-existent Ticket ID.');
+            redirect('admin_ticketing/new_tickets', 'refresh');
+        }
     }
 
 }
