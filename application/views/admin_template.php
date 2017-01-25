@@ -52,6 +52,8 @@
                     <a href="<?php echo site_url("admin_profile/");?>" class="<?php if($this->uri->segment(1) == 'admin_profile') { echo 'active'; } ?>"> Profile</a>
                 </li>
                 <li>
+                </li>
+                <li>
                     <a href="<?php echo site_url("login/signout"); ?>">Sign Out</a>
                 </li>
               </ul>
