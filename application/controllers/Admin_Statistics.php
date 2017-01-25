@@ -9,5 +9,6 @@ class Admin_Statistics extends MY_Controller {
 		$data['closedgrasscutting'] = $this->model_statistics->count_closedgrasscutting();
 		$this->template->load('admin_template', 'view_adminstatistics', $data);
 	}
+	
 
 }

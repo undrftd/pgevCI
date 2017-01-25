@@ -12,6 +12,10 @@
               </div>
               <br>
               <br>
+                
+            <div id="container" class="table-responsive"  style="width:100%; height:400px;"></div>
+
+            <br><br>
 
               <div class="admin-stat">
 
@@ -34,6 +38,7 @@
                         <td><?php echo $progressgrasscutting; ?></td>
                         <td><?php echo $closedgrasscutting; ?></td>
                         <td>5</td>
+                        <td>1 day(s)</td>
                     </tr>
                     <tr>
                         <td>Garbage Collecting</td>
@@ -103,7 +108,7 @@
                   </table>
 
                 </div>
-
+                
                 <br><br>
                 <a href="user-announcements.html"><button type="button" class="btn btn-custom">Export to PDF</button></a>
                 <br><br>
