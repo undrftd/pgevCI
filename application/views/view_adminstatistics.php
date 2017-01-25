@@ -12,9 +12,7 @@
               </div>
               <br>
               <br>
-                
-            <div id="container" class="table-responsive"  style="width:100%; height:400px;"></div>
-
+              
             <br><br>
 
               <div class="admin-stat">
