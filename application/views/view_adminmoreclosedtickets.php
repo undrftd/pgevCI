@@ -171,6 +171,11 @@
             <input class="form-control" id="sel1" type="text" value="<?php echo date("m/d/Y g:i A", $result->date_requested); ?>" readonly>
 
             <br>
+            
+            <p> Date Closed </p>
+            <input class="form-control" id="sel1" type="text" value="<?php echo date("m/d/Y g:i A", $result->date_closed); ?>" readonly>
+
+            <br>
 
             <p> Date and Time Requested </p>
             <input class="form-control" id="sel1" type="text" value="<?php if($result->request_type == 'CTV'){ echo $result->date_cctv; } else { echo " "; } ?>" readonly="">
