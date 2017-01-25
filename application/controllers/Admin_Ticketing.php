@@ -131,16 +131,25 @@ class Admin_Ticketing extends MY_Controller {
 
                 force_download($name, $data);
             }
-            else
+            else 
             {
                 if($this->session->userdata('moreticketsuccess'))
                 {
                     $this->session->unset_userdata('moreticketsuccess');
                 }
 
-                $this->session->set_flashdata('moreticketfail', 'There is no attachment for this ticket.');
-                $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-                $this->template->load('admin_template', 'view_adminmoretickets', $data);
+                if($this->model_ticketing->is_closed($ticketid))
+                {
+                    $this->session->set_flashdata('moreticketfail', 'There is no attachment for this ticket.');
+                    $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+                    $this->template->load('admin_template', 'view_adminmoreclosedtickets', $data); 
+                }
+                else
+                {
+                    $this->session->set_flashdata('moreticketfail', 'There is no attachment for this ticket.');
+                    $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+                    $this->template->load('admin_template', 'view_adminmoretickets', $data);
+                }
             }
         }
         else
