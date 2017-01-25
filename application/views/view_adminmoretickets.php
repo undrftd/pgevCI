@@ -52,21 +52,10 @@
 
   <br>
 
-<<<<<<< HEAD
   <div class="row">
-=======
-  <?php if ($this->session->flashdata('moreticketsuccess')){ ?>
-      <div class="success-message text-center" id="prompt-message">
-        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-        <p> <?php echo $this->session->flashdata('moreticketsuccess'); ?> </p><br>
-        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
-      </div>
-  <?php } ?>
->>>>>>> 0ac348f85f320a49eecf9f6257c5fd2c270b2dcb
 
     <div class="col-md-10 col-md-offset-1 nopadding">
 
-<<<<<<< HEAD
     <?php if ($this->session->flashdata('moreticketsuccess')){ ?>
       <div class="success-message text-center" id="prompt-message">
         <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
@@ -74,15 +63,6 @@
         <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
       </div>
     <?php } ?>
-=======
-  <?php if ($this->session->flashdata('moreticketfail')){ ?>
-      <div class="error-message text-center" id="prompt-message">
-        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-        <p> <?php echo $this->session->flashdata('moreticketfail'); ?> </p><br>
-        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
-      </div>
-  <?php } ?>
->>>>>>> 0ac348f85f320a49eecf9f6257c5fd2c270b2dcb
 
     <?php if ($this->session->flashdata('moreticketfail')){ ?>
       <div class="error-message text-center" id="prompt-message">
