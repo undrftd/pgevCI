@@ -46,12 +46,14 @@
               <div class="ticket-type text-center">
                 <h4> Emergency Ticket</h4><hr>
                 <p> This option is solely used for emergencies that may cause trouble to you or anyone in the community. </p><br>
-                <a href ="<?php echo site_url(); ?>user_ticketing/emergency_ticket"><button type="button" class="btn btn-custom-10" id="close-button" onclick="myFunction()">+ Create</button></a><br><br>
+                <button type="button" class="btn btn-custom-10" id="close-button" onclick="myFunction()">+ Create</button><br><br>
               </div>
 
             </div>
 
       </div>
+
+      <br>
 
     </div>
 

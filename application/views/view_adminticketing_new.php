@@ -54,7 +54,7 @@
                 In Progress </a>
               </li>
               <li>
-                <a href="<?php echo site_url(); ?>admin_ticketing/closed_tickets"">
+                <a href="<?php echo site_url(); ?>admin_ticketing/closed_tickets">
                 Closed </a>
               </li>
             </ul>
@@ -65,11 +65,11 @@
             <div class="error-message text-center" id="prompt-message">
               <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
               <p> <?php echo $this->session->flashdata('newticketfail'); ?> </p><br>
-              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
             </div>
           <?php } ?>
 
-          <br><br>
+          <br>
 
           <div class="portlet-body">
 

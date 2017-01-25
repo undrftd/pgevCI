@@ -17,7 +17,7 @@
           <div class="success-message text-center" id="prompt-message">
             <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3><br>
             <p> <?php echo $this->session->flashdata('emergencysuccess'); ?></p><br>
-            <p class="ticket-id"><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></p><br><br> 
+            <p class="ticket-id"><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></p><br><br>
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
           </div>
         <?php } ?>
@@ -46,7 +46,7 @@
               <br>
 
 
-              <p> Select a type of ticket: </p> <p class="error"><?php echo form_error('type'); ?> </p>
+              <p> Select a type of ticket: </p>
               <select name="type" class="form-control" id="sel1">
                   <option value="" selected hidden>Type of Emergency</option>
                   <option value="EFR">Fire</option>
@@ -54,12 +54,14 @@
                   <option value="EBT">Broken House Tube</option>
                   <option value="ESP">Suspicious Person</option>
               </select>
+              <p class="error"><?php echo form_error('type'); ?> </p>
 
             </div>
 
             <div class="form-group">
-              <p> Message </p> <p class="error"><?php echo form_error('content'); ?> </p>
+              <p> Message </p>
               <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain your emergency..." rows="15" reseize="none"></textarea>
+              <p class="error"><?php echo form_error('content'); ?> </p>
             </div>
 
             <div class="form-group">

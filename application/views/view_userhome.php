@@ -95,7 +95,7 @@
 
         <p> Douglas, if you have a problem within our community, feel free to leave us a message in the suggestions page. Thanks! </p>
         <br>
-        <button type="button" class="btn btn-custom-2">View More</button>
+        <a href="<?php echo site_url("user_suggestions"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
 
       </div>
 

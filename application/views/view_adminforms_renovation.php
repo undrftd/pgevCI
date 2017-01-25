@@ -103,7 +103,8 @@
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
           </div>
         <?php } ?>
-          <br>
+
+        <br>
 
         <div class="tab-content">
 
