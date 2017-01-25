@@ -40,9 +40,17 @@ class User_Tracking extends MY_Controller {
     {
         if($this->model_tracking_user->url_check_ticket($ticketid))
         {
-            $this->model_tracking_user->set_finished($ticketid);
-            $this->session->set_flashdata('recentsuccess', 'You have successfully set your ticket as Finished.');
-            redirect('user_tracking/recent');
+            if($this->model_tracking_user->is_finished($ticketid))
+            {
+                $this->session->set_flashdata('recentfail', 'This Ticket is already set as Finished.');
+                redirect('user_tracking/recent');
+            }
+            else
+            {
+                $this->model_tracking_user->set_finished($ticketid);
+                $this->session->set_flashdata('recentsuccess', 'You have successfully set your ticket as Finished.');
+                redirect('user_tracking/recent');
+            }
         }
         else
         {
@@ -55,9 +63,18 @@ class User_Tracking extends MY_Controller {
     {
         if($this->model_tracking_user->url_check_ticket($ticketid))
         {
-            $this->model_tracking_user->set_finished($ticketid);
-            $this->session->set_flashdata('historysuccess', 'You have successfully set your ticket as finished.');
-            redirect('user_tracking/view_history');
+            if($this->model_tracking_user->is_finished($ticketid))
+            {
+                $this->session->set_flashdata('historyfail', 'This Ticket is already set as Finished.');
+                redirect('user_tracking/view_history');
+            }
+            else
+            {
+                $this->model_tracking_user->set_finished($ticketid);
+                $this->session->set_flashdata('historysuccess', 'You have successfully set your ticket as finished.');
+                redirect('user_tracking/view_history');
+            }
+            
         }
         else
         {

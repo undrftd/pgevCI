@@ -54,7 +54,22 @@ class Model_tracking_user extends CI_Model {
     	$update = $this->db->update('tickets', $set_finished_data);
 
     	return $update;
-    } 
+    }
+
+    function is_finished($ticketid)
+    {
+    	$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets', 1);
+    	$result = $query->row();
+
+    	if($result->homeowner_feedback == 0)
+    	{
+    		return TRUE;
+    	}
+    	else
+    	{
+    		return FALSE;
+    	}
+    }
 
     function url_check_ticket($ticketid)
     {

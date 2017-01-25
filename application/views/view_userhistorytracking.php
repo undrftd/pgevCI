@@ -4,6 +4,35 @@
   <br>
   <br>
 
+  <div class="modal fade" id="delete-modal" role="dialog">
+
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Delete</h4>
+            </div>
+
+            <br>
+
+            <div class="signin">
+
+              <div class="modal-body text-center">
+                  <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to set this ticket as Finished? </p><br>
+                  <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                  <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+              </div>
+
+            </div>
+
+          </div>
+          
+        </div>
+      
+      </div>
+
   <div class="header-style">
     <h1> Ticket History </h1>
   </div>
@@ -37,7 +66,7 @@
               <th><br>Status</th>
               <th><br>Date Created</th>
               <th><br>Date Resolved</th>
-              <th><br>Set Status</th>
+              <th><br>Action</th>
           </tr>
 
       <?php foreach($result as $row): ?>
@@ -46,7 +75,7 @@
               <td><?php if($row->status == 0) { echo "Resolved"; } else if($row->status == 1){ echo "Work in Progress"; } else if($row->status == 2){ echo "Unaddressed";}  ?></td>
               <td><?php echo date("m/d/Y g:i A", $row->date_requested);; ?> </td>
               <td><?php if($row->status != 0) { echo "Awaiting Resolution"; } else { echo date("m/d/Y g:i A", $row->date_closed); } ?></td>
-              <td><?php if($row->homeowner_feedback == 0) { echo "Finished"; } else { echo anchor('user_tracking/set_finished_history/' . $row->ticketid, '<button type="button" class="btn btn-custom-3">Set as Finished</button>'); } ?> </td>  
+              <td><button type="button" class="btn btn-custom-3" data-href="<?php echo site_url() . "user_tracking/set_finished_history/" . $row->ticketid; ?>" data-toggle="modal" data-target="#delete-modal">Set as Finished</button></td>    
       <?php endforeach; ?>
 
         </table>
