@@ -34,6 +34,7 @@
                         <td><?php echo $progressgrasscutting; ?></td>
                         <td><?php echo $closedgrasscutting; ?></td>
                         <td>5</td>
+                        <td>11 day(s)</td>
                     </tr>
                     <tr>
                         <td>Garbage Collecting</td>
