@@ -150,16 +150,24 @@ class Admin_Ticketing extends MY_Controller {
     {
         if($this->model_ticketing->url_check_tickets($ticketid))
         {
-            $this->model_ticketing->save_ticket($ticketid);
-            
             if($this->session->userdata('moreticketfail'))
             {
                 $this->session->unset_userdata('moreticketfail');
             }
 
-            $this->session->set_flashdata('moreticketsuccess', 'You have successfully updated the ticket\'s details');
-            $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-            $this->template->load('admin_template', 'view_adminmoretickets', $data);
+            if($this->model_ticketing->is_newticket($ticketid))
+            {
+                $this->model_ticketing->save_ticket($ticketid);
+                $this->session->set_flashdata('newticketsuccess', 'You have successfully updated the ticket\'s details');
+                redirect('admin_ticketing/new_tickets');
+            }
+            else if($this->model_ticketing->is_progressticket($ticketid))
+            {
+                $this->model_ticketing->save_ticket($ticketid);
+                $this->session->set_flashdata('progressticketsuccess', 'You have successfully updated the ticket\'s details');
+                redirect('admin_ticketing/progress_tickets');
+            }
+
         }
         else
         {   

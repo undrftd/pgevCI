@@ -61,6 +61,14 @@
 
           </div>
 
+          <?php if ($this->session->flashdata('progressticketsuccess')){ ?>
+            <div class="success-message text-center" id="prompt-message">
+              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+              <p> <?php echo $this->session->flashdata('progressticketsuccess'); ?> </p><br>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+            </div>
+          <?php } ?>
+
           <br>
 
           <div class="portlet-body">
@@ -78,6 +86,7 @@
                       <th><br>Type of Request</th>
                       <th><br>Homeowner's Name</th>
                       <th><br>Date Created</th>
+                      <th><br>Homeowner Feedback </th>
                       <th><br>Action</th>
                     </tr>
 
@@ -144,6 +153,7 @@
                         </td>
                         <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
                         <td><?php echo date("m/d/Y g:i A", $row->date_requested); ?></td>
+                        <td><?php if($row->homeowner_feedback == 1) { echo "Request Unfinished"; } else { echo "Request Finished"; } ?></td>
                         <td class="action-button">
                           <a href="<?php echo site_url() . "admin_ticketing/ticketdetails/" . $row->ticketid; ?>">
                           <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-9"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>

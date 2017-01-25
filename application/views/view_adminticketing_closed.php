@@ -61,6 +61,14 @@
 
           </div>
 
+           <?php if ($this->session->flashdata('closedticketsuccess')){ ?>
+            <div class="success-message text-center" id="prompt-message">
+              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+              <p> <?php echo $this->session->flashdata('progressticketsuccess'); ?> </p><br>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+            </div>
+          <?php } ?>
+
           <br>
 
           <div class="portlet-body">
@@ -78,7 +86,7 @@
                       <th><br>Type of Request</th>
                       <th><br>Homeowner's Name</th>
                       <th><br>Date Closed</th>
-                      <th><br>Time to Resolution</th>
+                      <th><br>Resolution Time</th>
                       <th><br>Action</th>
                     </tr>
 

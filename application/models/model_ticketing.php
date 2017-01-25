@@ -113,6 +113,36 @@ class Model_ticketing extends CI_Model {
         }
    	}
 
+   	function is_newticket($ticketid)
+   	{
+   		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
+        $result = $query->row();
+
+        if($result->status == 2)
+        {
+        	return TRUE;
+        }
+        else
+        {
+        	return FALSE;
+        }
+   	}
+
+   	function is_progressticket($ticketid)
+   	{
+   		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
+        $result = $query->row();
+
+        if($result->status == 1)
+        {
+        	return TRUE;
+        }
+        else
+        {
+        	return FALSE;
+        }
+   	}
+
    	function is_attachment($ticketid)
    	{
    		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
