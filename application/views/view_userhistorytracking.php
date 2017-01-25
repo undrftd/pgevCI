@@ -66,7 +66,7 @@
               <th><br>Status</th>
               <th><br>Date Created</th>
               <th><br>Date Resolved</th>
-              <th><br>Action</th>
+              <th><br>Feedback</th>
           </tr>
 
       <?php foreach($result as $row): ?>
@@ -75,7 +75,7 @@
               <td><?php if($row->status == 0) { echo "Resolved"; } else if($row->status == 1){ echo "Work in Progress"; } else if($row->status == 2){ echo "Unaddressed";}  ?></td>
               <td><?php echo date("m/d/Y g:i A", $row->date_requested);; ?> </td>
               <td><?php if($row->status != 0) { echo "Awaiting Resolution"; } else { echo date("m/d/Y g:i A", $row->date_closed); } ?></td>
-              <td><button type="button" class="btn btn-custom-3" data-href="<?php echo site_url() . "user_tracking/set_finished_history/" . $row->ticketid; ?>" data-toggle="modal" data-target="#delete-modal">Set as Finished</button></td>    
+              <td><?php if($row->homeowner_feedback == 0) { echo "Finished"; } else { echo "<button type='button' class='btn btn-custom-3' data-href='".base_url()."user_tracking/set_finished_history/".$row->ticketid."' data-toggle='modal' data-target='#delete-modal'>Set as Finished</button>"; } ?></td>   
       <?php endforeach; ?>
 
         </table>

@@ -77,7 +77,7 @@
                     <th><br>Ticket ID</th>
                     <th><br>Request Type</th>
                     <th><br>Status</th>
-                    <th><br>Action</th>
+                    <th><br>Feedback</th>
                 </tr>
 
                 <?php foreach($result as $row): ?>
@@ -142,9 +142,9 @@
                               }  ?>
                     </td>
                     <td><?php if($row->status == 0) { echo "Resolved"; } else if($row->status == 1){ echo "Work in Progress"; } else if($row->status == 2){ echo "Unaddressed";}  ?></td>
-                    <td><button type="button" class="btn btn-custom-3" data-href="<?php echo site_url() . "user_tracking/set_finished_recent/" . $row->ticketid; ?>" data-toggle="modal" data-target="#delete-modal">Set as Finished</button></td>  
+                    <td><?php if($row->homeowner_feedback == 0) { echo "Finished"; } else { echo "<button type='button' class='btn btn-custom-3' data-href='".base_url()."user_tracking/set_finished_recent/".$row->ticketid."' data-toggle='modal' data-target='#delete-modal'>Set as Finished</button>"; } ?></td>    
                 </tr>
-              <?php endforeach; ?>
+              <?php endforeach; ?>  
               </table>
 
             </div>
