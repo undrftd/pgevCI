@@ -19,7 +19,7 @@ class User_Suggestions extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('suggestfeedback', 'Your suggestion has been successfully submitted. Thank you for your concern in our community.');
+            $this->session->set_flashdata('suggestfeedback', 'Your suggestion has been successfully submitted. Thank you for your time and concern in our community.');
             
             $this->load->library("email");
             

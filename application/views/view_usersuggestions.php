@@ -16,7 +16,7 @@
       <div class="admin-message text-center">
 
         <p> Note:
-          If you have any ideas that would help our community be a better and safer place. Kindly explain it in the suggestion form below and we will think of it. Thank you, <?php echo $this->session->userdata('firstname');?>!
+          If you have any ideas that would help our community be a better and safer place, kindly fill up the suggestion form below. We are more than happy to hear it from you.
         </p>
 
       </div>

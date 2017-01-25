@@ -26,7 +26,7 @@ class Model_tracking_user extends CI_Model {
 	function get_history($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('tickets')->order_by('date_requested',"desc")->where('userid', $this->session->userdata('userid'))->get();
+		$query = $this->db->select('*')->from('tickets')->order_by("status desc,date_requested desc")->where('userid', $this->session->userdata('userid'))->get();
 		
 		if($query->num_rows() > 0)
         {
@@ -43,5 +43,32 @@ class Model_tracking_user extends CI_Model {
         $query = $this->db->select('*')->from('tickets')->where('userid', $this->session->userdata('userid'))->get();
         return $query->num_rows();
     }	
+
+    function set_finished($ticketid)
+    {
+    	$set_finished_data = array(
+    		'homeowner_feedback' => 0
+    		);
+
+    	$this->db->where('ticketid', $ticketid);
+    	$update = $this->db->update('tickets', $set_finished_data);
+
+    	return $update;
+    } 
+
+    function url_check_ticket($ticketid)
+    {
+    	$query = $this->db->select('*')->from('tickets')->where('ticketid', $ticketid)->get();
+    	$result = $query->row();
+    	
+    	if($result->ticketid == $ticketid)
+    	{
+    		return TRUE;
+    	}
+    	else
+    	{
+    		return FALSE;
+    	}
+    }
 
 }

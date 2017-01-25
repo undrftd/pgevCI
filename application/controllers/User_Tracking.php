@@ -36,6 +36,36 @@ class User_Tracking extends MY_Controller {
 		$this->template->load('user_template', 'view_userhistorytracking', $data);
 	}
 
+    function set_finished_recent($ticketid)
+    {
+        if($this->model_tracking_user->url_check_ticket($ticketid))
+        {
+            $this->model_tracking_user->set_finished($ticketid);
+            $this->session->set_flashdata('recentsuccess', 'You have successfully set your ticket as Finished.');
+            redirect('user_tracking/recent');
+        }
+        else
+        {
+            $this->session->set_flashdata('recentfail', 'You cannot set a non-existent ticket as finished. Please double-check the Ticket ID.');
+            redirect('user_tracking/recent');
+        }
+    }
+
+    function set_finished_history($ticketid)
+    {
+        if($this->model_tracking_user->url_check_ticket($ticketid))
+        {
+            $this->model_tracking_user->set_finished($ticketid);
+            $this->session->set_flashdata('historysuccess', 'You have successfully set your ticket as finished.');
+            redirect('user_tracking/view_history');
+        }
+        else
+        {
+            $this->session->set_flashdata('historyfail', 'YYou cannot set a non-existent ticket as finished. Please double-check the Ticket ID.');
+            redirect('user_tracking/view_history');
+        }
+    }
+
 	
 
 }
