@@ -15,9 +15,16 @@
 
       <div class="admin-message text-center">
 
+<<<<<<< HEAD
         <p> Note:
           If you have any ideas that would help our community be a better and safer place. Kindly explain it in the suggestion form below and we will think of it. Thank you, <?php echo $this->session->userdata('firstname');?>!
         </p>
+=======
+
+          <p> Note:
+            If you have any ideas that would help our community be a better and safer place. Kindly explain it in the suggestion form below and we will think of it. Thank you, <?php echo $this->session->userdata('firstname');?>!
+          </p>
+>>>>>>> 0ac348f85f320a49eecf9f6257c5fd2c270b2dcb
 
       </div>
 
@@ -32,6 +39,10 @@
       <br>
 
       <div class="information">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0ac348f85f320a49eecf9f6257c5fd2c270b2dcb
 
         <div class="form-group">
 
@@ -39,6 +50,7 @@
 
           <h4> Suggestions Box </h4><br>
 
+<<<<<<< HEAD
           <p> Name </p>
           <input name ="fullname" class="form-control" id="sel1" type="text" placeholder="" value= "<?php echo $this->session->userdata('firstname') . " " .$this->session->userdata('lastname') ;?>" readonly>
           <br>
@@ -46,6 +58,13 @@
           <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo $this->session->userdata('email');?>" readonly>
 
           <br>
+=======
+              <p> Name </p>
+              <input name ="fullname" class="form-control" id="sel1" type="text" placeholder="" value= "<?php echo $this->session->userdata('firstname') . " " .$this->session->userdata('lastname') ;?>" readonly>
+              <br>
+              <p> Email Address </p>
+              <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo $this->session->userdata('email');?>" readonly>
+>>>>>>> 0ac348f85f320a49eecf9f6257c5fd2c270b2dcb
 
           <p> Message </p>
 

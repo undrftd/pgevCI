@@ -136,7 +136,7 @@ class Admin_Ticketing extends MY_Controller {
         else
         {
             $this->session->set_flashdata('newticketfail', 'You cannot download an attachment from a non-existent ticket.');
-            redirect('admin_ticketing/new_tickets', 'refresh');
+            redirect('admin_ticketing/new_tickets');
 
         }
     }
@@ -159,7 +159,7 @@ class Admin_Ticketing extends MY_Controller {
         else
         {   
             $this->session->set_flashdata('newticketfail', 'You cannot save changes for a non-existent Ticket ID.');
-            redirect('admin_ticketing/new_tickets', 'refresh');
+            redirect('admin_ticketing/new_tickets');
         }
     }
 
