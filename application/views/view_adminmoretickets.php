@@ -53,20 +53,20 @@
   <br>
 
   <?php if ($this->session->flashdata('moreticketsuccess')){ ?>
-            <div class="success-message text-center" id="prompt-message">
-              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-              <p> <?php echo $this->session->flashdata('moreticketsuccess'); ?> </p><br>
-              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
-            </div>
+      <div class="success-message text-center" id="prompt-message">
+        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+        <p> <?php echo $this->session->flashdata('moreticketsuccess'); ?> </p><br>
+        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+      </div>
   <?php } ?>
 
 
   <?php if ($this->session->flashdata('moreticketfail')){ ?>
-            <div class="error-message text-center" id="prompt-message">
-              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-              <p> <?php echo $this->session->flashdata('moreticketfail'); ?> </p><br>
-              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
-            </div>
+      <div class="error-message text-center" id="prompt-message">
+        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+        <p> <?php echo $this->session->flashdata('moreticketfail'); ?> </p><br>
+        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+      </div>
   <?php } ?>
 
     <br> <br>

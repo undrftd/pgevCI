@@ -15,17 +15,10 @@
 
       <div class="admin-message text-center">
 
-<<<<<<< HEAD
+
           <p> Note:
             If you have any ideas that would help our community be a better and safer place. Kindly explain it in the suggestion form below and we will think of it. Thank you, <?php echo $this->session->userdata('firstname');?>!
           </p>
-=======
-            <div class="information">
-                
-                <form action="<?php echo site_url(); ?>user_suggestions/send_email" method="POST">
-
-                  <div class="form-group">
->>>>>>> origin/master
 
       </div>
 
@@ -39,15 +32,8 @@
 
       <br>
 
-<<<<<<< HEAD
       <div class="information">
-=======
-                <button type="submit" class="btn btn-custom">Send</button>
-            </div>
-                
-            <br>
-            <br>
->>>>>>> origin/master
+
 
           <div class="form-group">
 
@@ -55,24 +41,11 @@
 
             <form action="<?php echo site_url(); ?>user_suggestions/send_email" method="POST">
 
-<<<<<<< HEAD
               <p> Name </p>
               <input name ="fullname" class="form-control" id="sel1" type="text" placeholder="" value= "<?php echo $this->session->userdata('firstname') . " " .$this->session->userdata('lastname') ;?>" readonly>
               <br>
               <p> Email Address </p>
               <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo $this->session->userdata('email');?>" readonly>
-=======
-            <div class="information">
-                <div class="form-group">
-                <p> Message </p>  <p class="error"><?php echo form_error('message'); ?> </p>
-                <textarea name="message" class="form-control" id="user-message" placeholder="Kindly leave us a message for suggestions within our community... " rows="15" reseize="none"></textarea>
-              </div>
-            </div>
-
-            </form>
-            
-            <br><br>
->>>>>>> origin/master
 
               <br>
 
