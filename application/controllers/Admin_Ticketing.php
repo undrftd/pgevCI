@@ -93,7 +93,7 @@ class Admin_Ticketing extends MY_Controller {
 
     function ticketdetails($ticketid)
     {
-        if($this->model_ticketing->url_check_tickets($ticketid))
+        if($this->model_ticketing->url_check_tickets($ticketid) && $this->model_ticketing->is_closed($ticketid) == FALSE)
         {
             if($this->model_ticketing->is_opened($ticketid))
             {
@@ -106,6 +106,11 @@ class Admin_Ticketing extends MY_Controller {
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
                 $this->template->load('admin_template', 'view_adminmoretickets', $data); 
             }
+        }
+        else if($this->model_ticketing->is_closed($ticketid))
+        {
+            $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+            $this->template->load('admin_template', 'view_adminmoreclosedtickets', $data); 
         }
         else
         {
@@ -148,6 +153,8 @@ class Admin_Ticketing extends MY_Controller {
 
     function save_ticket($ticketid)
     {
+        $this->model_ticketing->save_ticket($ticketid);
+
         if($this->model_ticketing->url_check_tickets($ticketid))
         {
             if($this->session->userdata('moreticketfail'))
@@ -155,17 +162,20 @@ class Admin_Ticketing extends MY_Controller {
                 $this->session->unset_userdata('moreticketfail');
             }
 
-            if($this->model_ticketing->is_newticket($ticketid))
+            if($this->model_ticketing->is_newticket($ticketid) || $this->model_ticketing->is_progressticket($ticketid))
             {
-                $this->model_ticketing->save_ticket($ticketid);
-                $this->session->set_flashdata('newticketsuccess', 'You have successfully updated the ticket\'s details');
-                redirect('admin_ticketing/new_tickets');
+                $this->session->set_flashdata('moreticketsuccess', 'You have successfully updated the ticket\'s status.');
+                $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+                $this->template->load('admin_template', 'view_adminmoretickets', $data);
+                $this->output->set_header('refresh:2; url=' . site_url() . "admin_ticketing/new_tickets");
             }
-            else if($this->model_ticketing->is_progressticket($ticketid))
+            else if($this->model_ticketing->is_closedticket($ticketid))
             {
-                $this->model_ticketing->save_ticket($ticketid);
-                $this->session->set_flashdata('progressticketsuccess', 'You have successfully updated the ticket\'s details');
-                redirect('admin_ticketing/progress_tickets');
+                $this->model_ticketing->save_closedticket($ticketid);
+                $this->session->set_flashdata('moreticketsuccess', 'You have successfully closed the ticket.');
+                $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+                $this->template->load('admin_template', 'view_adminmoretickets', $data);
+                $this->output->set_header('refresh:2; url=' . site_url() . "admin_ticketing/new_tickets");
             }
 
         }

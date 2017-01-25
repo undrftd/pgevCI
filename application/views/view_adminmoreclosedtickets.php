@@ -81,7 +81,7 @@
 
       <div class="information">
 
-         <form action ="<?php echo site_url() . "admin_ticketing/save_ticket/" . $result->ticketid ?>" method="POST">
+         <form>
 
           <div class="form-group">
 
@@ -163,11 +163,7 @@
             <br>
 
             <p> Status </p>
-            <select name ="status" class="form-control" id="sel1">
-              <option value ="<?php echo $result->status;?>" selected hidden> <?php if($result->status == 1) { echo "Work in Progress"; } else if($result->status == 0) { echo "Closed"; } else { echo "Set Status"; } ?></option>
-              <option value ="1">Work in Progress</option>
-              <option value="0">Closed</option>
-            </select>
+            <input name ="status" class="form-control" id="sel1" value ="<?php if($result->status == 1) { echo "Work in Progress"; } else if($result->status == 0) { echo "Closed"; } else { echo "Set Status"; } ?>" readonly>
 
             <br>
 
@@ -207,11 +203,7 @@
 
           <br>
 
-          <button type="button" class="btn btn-custom-7" data-toggle="modal" data-target="#delete-modal">Delete</button>
-
-          <br><br>
-
-          <button type="submit" class="btn btn-custom-5">Save changes</button>
+          <a href="<?php echo site_url();?>admin_ticketing/closed_tickets"><button type="button" class="btn btn-custom-5">Back to Ticketing</button>
 
           </form>
 

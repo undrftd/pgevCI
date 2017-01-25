@@ -113,6 +113,21 @@ class Model_ticketing extends CI_Model {
         }
    	}
 
+   	function is_closed($ticketid)
+   	{
+   	 	$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
+        $result = $query->row();
+
+        if($result->date_closed)
+        {
+        	return TRUE;
+        }
+        else
+        {
+        	return FALSE;
+        }
+   	}
+
    	function is_newticket($ticketid)
    	{
    		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
@@ -143,6 +158,22 @@ class Model_ticketing extends CI_Model {
         }
    	}
 
+   	function is_closedticket($ticketid)
+   	{
+   		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
+        $result = $query->row();
+
+        if($result->status == 0)
+        {
+        	return TRUE;
+        }
+        else
+        {
+        	return FALSE;
+        }
+   	}
+
+
    	function is_attachment($ticketid)
    	{
    		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
@@ -167,6 +198,17 @@ class Model_ticketing extends CI_Model {
    	}
 
     function save_ticket($ticketid)
+    {
+    	$save_ticket_data = array(
+    		'status' => $this->input->post('status')
+    	);
+
+    	$this->db->where('ticketid', $ticketid);
+    	$update = $this->db->update('tickets', $save_ticket_data);
+    	return $update;
+    }
+
+    function save_closedticket($ticketid)
     {
     	$save_ticket_data = array(
     		'status' => $this->input->post('status'),
