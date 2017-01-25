@@ -145,7 +145,7 @@
                         </td>
                         <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
                         <td><?php echo date("m/d/Y g:i A", $row->date_closed); ?></td>
-                        <td><?php echo timespan($row->date_requested, '$row->date_closed', 3); ?></td>
+                        <td><?php echo timespan($row->date_requested, $row->date_closed, 3); ?></td>
                         <td class="action-button">
                           <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> &nbsp;Delete </button>
                         </td>

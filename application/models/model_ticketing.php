@@ -98,6 +98,44 @@ class Model_ticketing extends CI_Model {
 
     }
 
+   	function is_opened($ticketid)
+   	{
+   	 	$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
+        $result = $query->row();
+
+        if($result->date_opened)
+        {
+        	return TRUE;
+        }
+        else
+        {
+        	return FALSE;
+        }
+   	}
+
+   	function is_attachment($ticketid)
+   	{
+   		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
+        $result = $query->row();
+
+        if($result->attachment != NULL || $result->attachment != "")
+        {
+        	return TRUE;
+        }
+        else
+        {
+        	return FALSE;
+        }
+   	}
+
+   	function get_attachmentname($ticketid)
+   	{
+   		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
+        $result = $query->row();
+
+        return $result->attachment;
+   	}
+
     function save_ticket($ticketid)
     {
     	$save_ticket_data = array(

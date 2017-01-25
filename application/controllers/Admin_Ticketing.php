@@ -95,9 +95,17 @@ class Admin_Ticketing extends MY_Controller {
     {
         if($this->model_ticketing->url_check_tickets($ticketid))
         {
-            $this->model_ticketing->set_timeopened($ticketid);
-            $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-            $this->template->load('admin_template', 'view_adminmoretickets', $data);
+            if($this->model_ticketing->is_opened($ticketid))
+            {
+                $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+                $this->template->load('admin_template', 'view_adminmoretickets', $data); 
+            }
+            else
+            {
+                $this->model_ticketing->set_timeopened($ticketid);
+                $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
+                $this->template->load('admin_template', 'view_adminmoretickets', $data); 
+            }
         }
         else
         {
@@ -110,14 +118,11 @@ class Admin_Ticketing extends MY_Controller {
     {
         if($this->model_ticketing->url_check_tickets($ticketid))
         {
-            $query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
-            $result = $query->row();
-
-            if($result->attachment != NULL || $result->attachment != "")
+            if($this->model_ticketing->is_attachment($ticketid))
             {
-                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->attachment;
+                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $this->model_ticketing->get_attachmentname($ticketid);
                 $data = file_get_contents($path);
-                $name = $result->attachment;
+                $name = $this->model_ticketing->get_attachmentname($ticketid);
 
                 force_download($name, $data);
             }
