@@ -1,5 +1,5 @@
 <div id="page-content-wrapper">
-  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+  <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
   <br>
   <br>
 
@@ -9,74 +9,99 @@
 
   <br>
 
-  <div class="portlet">
+    <div class="row">
 
-    <div class="portlet-title">
+      <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-2">
 
-      <ul class="nav nav-tabs" id="myTab">
-        <li class="active">
-          <a href="#">
-          Announcement </a>
-        </li>
-        <li>
-          <a href="#">
-          Bulletin </a>
-        </li>
-      </ul>
+        <div class="portlet">
 
-    </div>
+          <div class="portlet-title">
 
-    <br>
 
-    <form action="" method="GET">
-      <div class="form-group" id="search-group">
-        <input class="form-control" name="search" id="sel1" type="text" placeholder="Search for an announcement...">
-          <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        </input>
-      </div>
-    </form>
-
-    <div class="portlet-body">
-
-      <div class="tab-content">
-
-        <div class="tab-pane fade in active" id="portlet_tab1">
-
-          <div class="table-responsive">
-
-            <table class="table table-hover" id="tracking-table">
-
-              <tr>
-                  <th><br>Date Posted</th>
-                  <th><br>Title</th>
-                  <th><br>Message</th>
-                  <th><br>Action</th>
-              </tr>
-
-              <tr>
-                  <td>January 28, 2017</td>
-                  <td>Chinese New Year!</td>
-                  <td>Greetings! I would like to greet everyone a happy chinese new year! Kindly celebrate with caution and have fun! Thank you! From the PGEV Administrators. </td>
-                  <td><a href="#"> <button type="button" class="btn btn-custom-3">Read More</button></a></td>
-              </tr>
-
-              <tr>
-                  <td>January 28, 2017</td>
-                  <td>Chinese New Year!</td>
-                  <td>Greetings! I would like to greet everyone a happy chinese new year! Kindly celebrate with caution and have fun! Thank you! From the PGEV Administrators. </td>
-                  <td><a href="#"> <button type="button" class="btn btn-custom-3">Read More</button></a></td>
-              </tr>
-
-            </table>
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#portlet_tab1" data-toggle="tab">
+                Announcements </a>
+              </li>
+              <li>
+                <a href="#portlet_tab2" data-toggle="tab">
+                Bulletin </a>
+              </li>
 
           </div>
 
-       </div>
+          <div class="portlet-body">
+
+            <div class="tab-content">
+
+              <div class="tab-pane fade in active" id="portlet_tab1">
+                <?php foreach($order as $row): ?>
+                <h2><?php echo $row->post_title ?></h2>
+                <p class="article-date"> Date Posted: <?php echo date('m/d/Y g:i A', strtotime($row->post_date));?> </p>
+                <p> "<?php echo $row->post_content ?>" </p>
+                <br>
+                <br>
+                <?php endforeach; ?>
+                <a href="#" class="scrollToTop"><button type="button" class="btn btn-custom">Back to top</button></a>
+
+
+
+              </div>
+
+              <div class="tab-pane fade" id="portlet_tab2">
+                <?php #foreach($order as $row): ?>
+                <h2> <?php #echo $row->post_title ?>Bulletin Title </h2>
+                <p class="article-date"> <?php #echo $row->post_date ?></p>
+                <p> <?php #echo $row->post_content ?>"Wait Lang" </p>
+                <br>
+                <?php #endforeach; ?>
+
+                <br>
+
+                <a href="#" class="scrollToTop"><button type="button" class="btn btn-custom">Back to top</button></a>
+
+                <br>
+                <br>
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 
+      <div class="clearfix visible-md-block"></div>
+      <div class="clearfix visible-sm-block"></div>
+
+      <div class="col-xs-12 col-sm-12 col-md-3">
+
+        <div class="information">
+            <p> Browse by date </p>
+            <div class="form-group">
+              <select class="form-control" id="sel1">
+
+                <option>Select a date</option>
+                <?php foreach($order as $row): ?>
+                <option><?php echo $row->post_date ?> </option>
+                <?php endforeach; ?>
+
+              </select>
+          </div>
+            <a href="<?php site_url() . "User_announcements/select_ann/" . $row->post_id ?>">
+            <button type="button" class="btn btn-custom">View</button>
+            <a>
+        </div>
+
+      </div>
+
+
     </div>
-
   </div>
 
-  </div>
+</div>
+
+</div>

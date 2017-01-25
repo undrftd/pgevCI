@@ -2,10 +2,11 @@
 
   class model_announcements_admin extends CI_Model{
 
-    function url_check_myaccount($userid)
+    function url_check_post_id($post_id)
     {
-      $query = $this->db->select('*')->where('userid' , $userid);
-      if ('userid == $userid')
+      $query = $this->db->select('*')->from('announcements')->where('post_id' , $post_id);
+      if ('post_id == $post_id')
+
       {
         return TRUE;
       }
@@ -16,12 +17,42 @@
 
     }
 
+
+    function save_ann($post_id)
+    {
+      $edit_ann = array(
+      'post_title' => $this->input->post('post_title'),
+      'post_content' => $this->input->post('post_content'),
+      );
+      $this->db->where('post_id', $post_id);
+      $edit = $this->db->update('announcements', $edit_ann);
+      return $edit;
+    }
+
+
+    function delete_ann($post_id)
+    {
+
+      $this->db->where('post_id',$post_id);
+      $delete = $this->db->delete('announcements');
+      return $delete;
+    }
+
+    function select_ann($post_id)
+    {
+      $query = $this->db->select('*')->where('post_id', $post_id)->get('announcements', 1);
+      return $query->row();
+    }
+
+
+
+
     function post_ann()
     {
       $post_ann = array(
         'user_id' => $this->session->userdata('userid'),
         'post_title' => $this->input->post('post_title'),
-        'post_date' =>  date('Y-m-d H:i:s'),
+        'post_date' =>  date('m/d/Y g:i A'),
         'post_content' => $this->input->post('post_content'),
       );
 
@@ -31,7 +62,9 @@
 
     function announcements()
     {
-      $posted_ann = $this->db->select('*')->from('announcements')->order_by('post_date', 'ASC')->get();
+
+      $posted_ann = $this->db->select('*')->from('announcements')->order_by('post_date', 'DESC')->get();
+
 
       if($posted_ann->num_rows() > 0)
 		    {
