@@ -162,6 +162,7 @@ class Admin_Ticketing extends MY_Controller {
 
     function save_ticket($ticketid)
     {
+        $this->usertracking->track_this();
         $this->model_ticketing->save_ticket($ticketid);
 
         if($this->model_ticketing->url_check_tickets($ticketid))

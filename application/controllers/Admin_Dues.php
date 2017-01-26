@@ -142,6 +142,7 @@ class Admin_Dues extends MY_Controller{
 
     function billstart_user()
     {
+        $this->usertracking->track_this();
         $this->model_dues->billstart_user();
         redirect('admin_dues/homeowner');
     }
@@ -190,6 +191,7 @@ class Admin_Dues extends MY_Controller{
 
     function cleardues_user($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_dues->url_check_user($userid))
         {
             $this->model_dues->cleardues_user($userid);
@@ -207,6 +209,7 @@ class Admin_Dues extends MY_Controller{
 
     function cleararrears_user($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_dues->url_check_user($userid))
         {
             $this->model_dues->cleararrears_user($userid);
@@ -224,6 +227,7 @@ class Admin_Dues extends MY_Controller{
 
     function cleardues_admin($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_dues->url_check_admin($userid))
         {
             $this->model_dues->cleardues_admin($userid);
@@ -241,6 +245,7 @@ class Admin_Dues extends MY_Controller{
 
     function cleararrears_admin($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_dues->url_check_admin($userid))
         {
             $this->model_dues->cleararrears_admin($userid);
@@ -258,6 +263,7 @@ class Admin_Dues extends MY_Controller{
 
     function updatedues_user($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_dues->url_check_user($userid))
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
@@ -286,6 +292,7 @@ class Admin_Dues extends MY_Controller{
 
     function updatedues_admin($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_dues->url_check_admin($userid))
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
@@ -320,7 +327,7 @@ class Admin_Dues extends MY_Controller{
 
     function updaterates()
     {
-
+        $this->usertracking->track_this();
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
         $this->form_validation->set_rules('securityfee', 'Security Fee', 'trim|required|numeric');
@@ -342,12 +349,14 @@ class Admin_Dues extends MY_Controller{
 
     function clearrecords_user()
     {
+        $this->usertracking->track_this();
         $this->model_dues->clearrecords_user();
         redirect('admin_dues/homeowner');
     }
 
     function clearrecords_admin()
     {
+        $this->usertracking->track_this();
         $this->model_dues->clearrecords_admin();
         redirect('admin_dues/administrator');
     }

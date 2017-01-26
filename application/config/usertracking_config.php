@@ -40,7 +40,7 @@ $config['usertracking']['user_identifier'] = NULL;
 |
 | default: false
 */
-$config['usertracking']['auto_track'] = TRUE;
+$config['usertracking']['auto_track'] = FALSE;
 
 
 

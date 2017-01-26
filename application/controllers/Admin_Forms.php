@@ -293,6 +293,7 @@ class Admin_Forms extends MY_Controller {
 
 	function delete_carsticker($formid)
 	{
+        $this->usertracking->track_this();
         if($this->model_forms->url_check_carsticker($formid))
         {
             $this->session->set_flashdata('cardeletesuccess', 'You have successfully deleted the car sticker form request.');
@@ -308,6 +309,7 @@ class Admin_Forms extends MY_Controller {
 
     function delete_workpermit($formid)
     {
+        $this->usertracking->track_this();
         if($this->model_forms->url_check_workpermit($formid))
         {
             $this->session->set_flashdata('workdeletesuccess', 'You have successfully deleted the work permit form request.');
@@ -323,6 +325,7 @@ class Admin_Forms extends MY_Controller {
 
     function delete_renovation($formid)
     {
+        $this->usertracking->track_this();
         if($this->model_forms->url_check_renovation($formid))
         {
             $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully deleted the renovation form request.');

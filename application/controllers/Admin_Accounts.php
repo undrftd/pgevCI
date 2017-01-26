@@ -103,6 +103,7 @@ class Admin_Accounts extends MY_Controller {
 
 	function createuser()
     {
+        $this->usertracking->track_this();
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
         $this->form_validation->set_message('is_unique', '{field} already exists!');
         $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
@@ -301,6 +302,7 @@ class Admin_Accounts extends MY_Controller {
 
     function accdelete_user($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_accounts->url_check_user($userid))
         {
             $this->session->set_flashdata('accountsfeedback', 'You have successfully deleted the account.');
@@ -316,6 +318,7 @@ class Admin_Accounts extends MY_Controller {
 
     function accdelete_admin($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_accounts->url_check_admin($userid))
         {
             if($userid != $this->session->userdata('userid'))
@@ -339,6 +342,7 @@ class Admin_Accounts extends MY_Controller {
 
     function accdelete_deact($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_accounts->url_check_deact($userid))
         {
             $this->session->set_flashdata('accountsfeedback', 'You have successfully deleted the account.');
@@ -354,6 +358,7 @@ class Admin_Accounts extends MY_Controller {
 
     function accupdate_user($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_accounts->url_check_user($userid))
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
@@ -391,6 +396,7 @@ class Admin_Accounts extends MY_Controller {
 
     function accupdate_admin($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_accounts->url_check_admin($userid))
         {
             if($userid != $this->session->userdata('userid'))
@@ -434,6 +440,7 @@ class Admin_Accounts extends MY_Controller {
     }
     function accupdate_deact($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_accounts->url_check_deact($userid))
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
@@ -471,6 +478,7 @@ class Admin_Accounts extends MY_Controller {
 
 	function accdeact_user($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_accounts->url_check_user($userid))
         {
             $this->model_accounts->acc_deact($userid);
@@ -486,6 +494,7 @@ class Admin_Accounts extends MY_Controller {
 
     function accdeact_admin($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_accounts->url_check_admin($userid))
         {
             if($userid != $this->session->userdata('userid'))
@@ -509,6 +518,7 @@ class Admin_Accounts extends MY_Controller {
 
     function acc_reactivate($userid)
     {
+        $this->usertracking->track_this();
         if($this->model_accounts->url_check_deact($userid))
         {
             $this->session->set_flashdata('accountsfeedback', 'You have successfully reactivated the account.');

@@ -19,6 +19,7 @@ class Admin_Profile extends MY_Controller{
 
 	function update_account($userid)
 	{
+		$this->usertracking->track_this();
 		if($this->model_accounts->url_check_myaccount($userid))
 		{
 			$this->form_validation->set_error_delimiters('<div class="error">','</div>');
