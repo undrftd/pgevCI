@@ -52,7 +52,7 @@
                     <a href="<?php echo site_url("admin_profile/");?>" class="<?php if($this->uri->segment(1) == 'admin_profile') { echo 'active'; } ?>"> Profile</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url("admin_audit/logs");?>" class="<?php if($this->uri->segment(1) == 'admin_audit/logs') { echo 'active'; } ?>"> Audit Trail</a>
+                    <a href="<?php echo site_url("admin_audit/logs");?>" class="<?php if($this->uri->segment(1) == 'admin_audit') { echo 'active'; } ?>"> Audit Trail</a>
                 </li>
                 <li>
                     <a href="<?php echo site_url("login/signout"); ?>">Sign Out</a>
