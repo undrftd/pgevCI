@@ -1,7 +1,8 @@
 <div id="page-content-wrapper">
-  <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
-  <br>
-  <br>
+
+  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+
+  <br><br><br>
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
@@ -114,10 +115,6 @@
 
       </div>
 
-
     </div>
+
   </div>
-
-</div>
-
-</div>

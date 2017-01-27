@@ -10,10 +10,25 @@
 
   </div>
 
-  <br><br>
+  <br>
 
-<form action="<?php echo base_url(); ?>login/validate_login" method="POST">
+  <form action="<?php echo base_url(); ?>login/validate_login" method="POST">
+
   <div class="row">
+
+    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 nopadding">
+
+      <?php if(!empty($message)){ ?>
+        <p class ="error-login" id="prompt-message">
+          <span class="glyphicon glyphicon-remove btn-lg"></span> <br><?php echo $message; ?><br><br>
+          <button type="button" class="btn btn-custom-10" id="close-button">Dismiss</button><br>
+        </p>
+      <?php } ?>
+
+      <br>
+
+    </div>
+
     <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-2 nopadding">
 
       <div class="login-form">
@@ -23,14 +38,14 @@
           <h4> Please enter your credentials  </h4><br>
 
           <div class="row">
-            <div class="col-xs-12 col-sm-12">
+            <div class="col-xs-12 nopadding">
               <div class="form-group">
                 <p> Username </p>
                 <input type="text" name="username" class="form-control" id="user-name" aria-label="...">
               </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
 
-            <div class="col-xs-12 col-sm-12">
+            <div class="col-xs-12 nopadding">
               <div class="form-group">
                 <p> Password </p>
                 <input type="password" name="password" class="form-control" id="user-password" aria-label="...">
@@ -42,7 +57,7 @@
 
           <div class="row">
 
-              <div class="col-xs-12">
+              <div class="col-xs-12 nopadding">
                 <button type="submit" class="btn btn-custom-4">Sign In</button>
               </div>
 
@@ -54,14 +69,9 @@
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-3 nopadding">
+    <div class="col-xs-12 col-sm-12 col-md-3">
 
       <div class="forgot-password text-center">
-
-        <?php if(!empty($message)){ ?>
-          <p class ="error-login"> <span class="glyphicon glyphicon-ban-circle btn-lg"></span> <br><?php echo $message; ?>
-          </p>
-        <?php } ?>
 
         <hr>
 
@@ -78,13 +88,14 @@
   </div><!-- /.row -->
   <!-- Standard button -->
   </div>
+
 </form>
 
 <br>
 
 <div class="row">
 
-  <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 text-center">
+  <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
 
     <hr>
 

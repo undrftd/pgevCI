@@ -1,74 +1,77 @@
-   <div id="page-content-wrapper">
-        <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
-        <br>
+<div id="page-content-wrapper">
 
-      <div class="row">
+    <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
+    <br><br><br>
 
-          <div class="header-style">
-            <h1> Edit Dues Rate </h1>
-          </div><br>
+    <div class="row">
 
-          <div class="admin-message">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
 
-              <p> Note: Before editing the rate of the monthly dues, be sure to inform the homeowners of the changes to be implemented for them to be aware.
-              </p>
+      <div class="header-style">
+        <h1> Edit Dues Rate </h1>
+      </div><br>
 
-          </div>
+      <div class="admin-message">
 
-        <?php if ($this->session->flashdata('ratefeedback')){ ?>
-          <div class="success-message text-center" id="prompt-message">
-            <h3> Hello, <?php echo $this->session->userdata('firstname'); ?>. </h3>
-            <p> <?php echo $this->session->flashdata('ratefeedback'); ?>  </p><br>
-            <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-          </div>
-        <?php } ?>
+          <p> Note: Before editing the rate of the monthly dues, be sure to inform the homeowners of the changes to be implemented for them to be aware.
+          </p>
 
-        <?php if($this->session->flashdata('ratefail')){ ?>
-          <div class="error-message text-center" id="prompt-message">
-            <h3> Hello, <?php echo $this->session->userdata('firstname'); ?> </h3>
-            <p> <?php echo $this->session->flashdata('ratefail'); ?> </p><br>
-            <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-          </div>
-        <?php } ?>
+      </div>
 
-          <br>
+    <?php if ($this->session->flashdata('ratefeedback')){ ?>
+      <div class="success-message text-center" id="prompt-message">
+        <h3> Hello, <?php echo $this->session->userdata('firstname'); ?>. </h3>
+        <p> <?php echo $this->session->flashdata('ratefeedback'); ?>  </p><br>
+        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+      </div>
+    <?php } ?>
 
-          <div class="information">
-            <form action="<?php echo base_url();?>admin_dues/updaterates" method="POST">
-              <fieldset id="myFieldset" disabled>
-              <div class="form-group">
-                <h4> Dues details </h4>
-                    <br>
-                    <p> Security Fee (₱) </p>
-                    <input name ="securityfee" class="txt form-control" id="sel1" type="number" step="0.01" placeholder="" value= "<?php echo $rate->securityfee; ?>">
-                    <p class="error"><?php echo form_error('securityfee'); ?> </p>
-                    <br>
+    <?php if($this->session->flashdata('ratefail')){ ?>
+      <div class="error-message text-center" id="prompt-message">
+        <h3> Hello, <?php echo $this->session->userdata('firstname'); ?> </h3>
+        <p> <?php echo $this->session->flashdata('ratefail'); ?> </p><br>
+        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+      </div>
+    <?php } ?>
 
-                    <p> Association Fee (₱) </p>
-                    <input name="assocfee" class="txt form-control" id="sel1" type="number" step="0.01" placeholder="" value="<?php echo $rate->assocfee; ?>">
-                    <p class="error"><?php echo form_error('assocfee'); ?></p>
-                    <br>
+      <br>
 
-                    <p> Total Monthly Dues Rate (₱) </p>
-                    <input name="total" class="form-control" id="sum" type="number"  placeholder="" value="<?php echo number_format($rate->securityfee + $rate->assocfee, 2, '.', ''); ?>" readonly>
-                    <p class="error"><?php echo form_error('total'); ?></p>
-                    <br>
+      <div class="information">
+        <form action="<?php echo base_url();?>admin_dues/updaterates" method="POST">
+          <fieldset id="myFieldset" disabled>
+          <div class="form-group">
+            <h4> Dues details </h4>
+                <br>
+                <p> Security Fee (₱) </p>
+                <input name ="securityfee" class="txt form-control" id="sel1" type="number" step="0.01" placeholder="" value= "<?php echo $rate->securityfee; ?>">
+                <p class="error"><?php echo form_error('securityfee'); ?> </p>
+                <br>
 
-                  </fieldset>
-                  <input class="btn btn-custom-5" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
-                </form>
-                    <button class="btn btn-custom-5" onclick="undisableField()" id="edit-button">Edit</button>
+                <p> Association Fee (₱) </p>
+                <input name="assocfee" class="txt form-control" id="sel1" type="number" step="0.01" placeholder="" value="<?php echo $rate->assocfee; ?>">
+                <p class="error"><?php echo form_error('assocfee'); ?></p>
+                <br>
 
-            </div>
+                <p> Total Monthly Dues Rate (₱) </p>
+                <input name="total" class="form-control" id="sum" type="number"  placeholder="" value="<?php echo number_format($rate->securityfee + $rate->assocfee, 2, '.', ''); ?>" readonly>
+                <p class="error"><?php echo form_error('total'); ?></p>
+                <br>
 
-          </div>
+              </fieldset>
+              <input class="btn btn-custom-5" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+            </form>
+                <button class="btn btn-custom-5" onclick="undisableField()" id="edit-button">Edit</button>
 
         </div>
 
-        <br>
-        <br>
-
       </div>
+
     </div>
+
+    <br>
+    <br>
+
+  </div>
+
+</div>

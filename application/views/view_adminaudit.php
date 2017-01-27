@@ -1,48 +1,49 @@
 <div id="page-content-wrapper">
-        <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
-        <br>
-        <br>
 
-        <br>
+  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-          <div class="admin-statistics">
+  <br><br><br>
 
-              <div class="header-style">
-                <h1> Audit Trail </h1>
-              </div>
-              
-            <br><br>
+  <div class="admin-statistics">
 
-              <div class="admin-stat">
+    <div class="header-style">
+      <h1> Audit Trail </h1>
+    </div>
 
-                <div class="table-responsive">
+  <br>
 
-                  <table class="table table-hover" id="tracking-table">
+  <a href="<?php echo site_url();?>admin_export/exportdata"><button type="button" class="btn btn-custom-1">Export to Excel</button></a>
 
-                    <tr>
-                        <th><br>Time</th>
-                        <th><br>User ID</th>
-                        <th><br>Full Name</th>
-                        <th><br>Page Accessed</th>
-                    </tr>
+  <br><br>
 
-                    <?php foreach ($log as $row): ?>
-                       <tr>
-                        <td><?php echo  date("m/d/Y g:i A",$row->timestamp); ?></td>
-                        <td><?php echo $row->session_id; ?></td>
-                        <td><?php echo $row->fullname; ?></td>
-                        <td><?php echo $row->request_uri; ?></td>
-                    </tr>
-                    <?php endforeach; ?> 
+    <div class="table-responsive">
 
-                  </table>
+      <table class="table table-hover" id="tracking-table">
 
-                </div>
-                <center><?php echo $auditlinks; ?></center>
-                <br><br>
-                <a href="<?php echo site_url();?>admin_export/exportdata"><button type="button" class="btn btn-custom">Export to Excel</button></a>
-                <br><br>
+        <tr>
+            <th><br>Time</th>
+            <th><br>User ID</th>
+            <th><br>Full Name</th>
+            <th><br>Page Accessed</th>
+        </tr>
 
-              </div>
+        <?php foreach ($log as $row): ?>
+           <tr>
+            <td><?php echo  date("m/d/Y g:i A",$row->timestamp); ?></td>
+            <td><?php echo $row->session_id; ?></td>
+            <td><?php echo $row->fullname; ?></td>
+            <td><?php echo $row->request_uri; ?></td>
+        </tr>
+        <?php endforeach; ?>
 
-            </div>
+      </table>
+
+    </div>
+
+    <center><?php echo $auditlinks; ?></center>
+
+    <br>
+
+  </div>
+
+</div>

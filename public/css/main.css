@@ -46,9 +46,16 @@ body {
    font-family: 'League-Gothic', sans-serif;
    font-size: 3.75em;
    color: #4d4d4d;
-   padding-left: 10px;
+   padding-left: 12px;
    text-transform: uppercase;
    border-left: 8px solid #27ae60;
+}
+
+h1 {
+  font-family: 'League-Gothic', sans-serif;
+  font-size: 3.25em;
+  color: #4d4d4d;
+  text-transform: uppercase;
 }
 
 #page-content-wrapper h2 {
@@ -444,6 +451,10 @@ body {
   white-space: nowrap;
 }
 
+.admin-statistics {
+  padding-right: 15px;
+}
+
 .form-group {
     color: #696969;
 }
@@ -480,6 +491,17 @@ body {
   text-align: justify;
   letter-spacing: 0px;
   line-height: 30px;
+  font-weight: 400;
+}
+
+#page-content-wrapper .a-links {
+  color: #27ae60;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+#page-content-wrapper .a-links:hover {
+  color: #27ae60;
 }
 
 .announcement-message .warning-user {
@@ -652,12 +674,13 @@ body {
   font-family: 'League-Gothic', sans-serif;
   font-size: 3.25em;
   text-transform: uppercase;
+  padding: 5px;
 }
 
 .row-hr {
   margin-top: 20px;
-  width: 10%;
-  border: 1px solid #27ae60;
+  width: 50px;
+  border: 2px solid #27ae60;
 }
 
 .login-content {
@@ -670,7 +693,6 @@ body {
     font-family: 'Roboto';
     font-size: 1.1em;
     width: 100%;
-    margin: 0 auto;
 }
 
 .login-form button {
@@ -681,14 +703,14 @@ body {
 
 .error-login {
   padding: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
   background-color: white;
   color: #e74c3c;
   width: 100%;
   margin: 0 auto;
-  font-weight: 700;
-  font-size: 1.1em;
+  font-size: 1em;
   text-align: center;
+  font-family: 'Rubik', sans-serif;
 }
 
 .footer-note {
@@ -751,8 +773,7 @@ body {
 .ticket-type {
   padding: 25px;
   border: 2px solid #e6e6e6;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 25px;
   margin-left: 25px;
   transition: all 0.4s ease-in;
   opacity: 0.8;
@@ -872,105 +893,13 @@ input span {
    }
 }
 
-@media(max-width:425px) {
-
-  .nopadding {
-     padding: 0 !important;
-     margin: 0 !important;
-  }
-
-}
-
-@media(max-width:768px) {
-  .not-important, #not-important{
-      display: none;
-    }
-
-  #dropdown-mobile {
-    display: inline-block;
-  }
-}
-
-@media(max-width:768px), (max-width:1024px) {
-
-.information {
-    margin-bottom: 30px;
-}
-
-.row {
-    margin-left: 0px;
-  }
-
-.btn-custom, .btn-custom-1, #exampleInputFile {
-    width: 100%;
-  }
-
-.btn-custom-4 {
-  width: 100%;
-  margin-top: 10px;
-  margin-left: -10px;
-}
-
-.login-form .btn-custom-4, .ticket-type {
-  margin-left: 0px;
-}
-
-#page-content-wrapper h1 {
-   border-bottom: 3px solid #27ae60;
-   width: 60%;
-   border-left: none;
-   font-family: 'League-Gothic', sans-serif;
-   text-transform: uppercase;
-   font-size: 3em;
-   padding-bottom: 10px;
-   padding-left: 0px;
-   margin: 0 auto;
-   text-align: center;
-   margin-bottom: 20px;
-}
-
-#sel1 {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-.form-group #sel1 {
-  width: 100%;
-  margin: 0 auto;
-}
-
-table {
-  font-size: 0.95em;
-  white-space: nowrap;
-}
-
-p {
-  text-align: justify;
-}
-
-.footer-note, .login-form, .success-message p, .activity-bar p, .modal-content p {
-  text-align: center;
-}
-
-.footer-note {
-  padding: 10px;
-}
-
-}
-
-@media(max-width:1550px) {
-  .not-important {
-      display: none;
-    }
-}
-
 @font-face {
     font-family: 'League-Gothic';
     src: url('LeagueGothic-Regular.eot?#iefix') format('embedded-opentype'),
          url('LeagueGothic-Regular.woff') format('woff'),
          url('LeagueGothic-Regular.ttf') format('truetype'),
          url('LeagueGothic-Regular.svg#svgFontName') format('svg');
-    }
+}
 
 /***
 Bootstrap Line Tabs by @keenthemes

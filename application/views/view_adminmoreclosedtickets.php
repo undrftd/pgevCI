@@ -1,7 +1,8 @@
 <div id="page-content-wrapper">
+  
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-  <br><br>
+  <br><br><br>
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
@@ -171,7 +172,7 @@
             <input class="form-control" id="sel1" type="text" value="<?php echo date("m/d/Y g:i A", $result->date_requested); ?>" readonly>
 
             <br>
-            
+
             <p> Date Closed </p>
             <input class="form-control" id="sel1" type="text" value="<?php echo date("m/d/Y g:i A", $result->date_closed); ?>" readonly>
 

@@ -1,7 +1,8 @@
 <div id="page-content-wrapper">
+  
   <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
-  <br>
-  <br>
+
+  <br><br><br>
 
   <div class="header-style">
     <h1> Announcements </h1>

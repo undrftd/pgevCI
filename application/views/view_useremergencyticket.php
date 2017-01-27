@@ -1,17 +1,15 @@
 <div id="page-content-wrapper">
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
-  <br>
-  <br>
 
-  <div class="header-style">
-    <h1> Emergency Ticket </h1>
-  </div>
-
-  <br>
+  <br><br><br>
 
     <div class="row">
 
       <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+
+        <div class="header-style">
+          <h1> Emergency Ticket </h1>
+        </div>
 
         <?php if ($this->session->flashdata('emergencysuccess')){ ?>
           <div class="success-message text-center" id="prompt-message">

@@ -1,8 +1,8 @@
   <div id="page-content-wrapper">
 
     <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
-    <br>
-    <br>
+
+    <br><br><br>
 
     <div class="header-style">
       <h1> Homeowner's Association Forms </h1>
@@ -56,7 +56,7 @@
 
           <div class="tab-pane fade in active" id="portlet_tab1">
             <div class="announcement-message">
-              <p> If you are requesting for a Work Permit Form, kindly download the form we provided in this <?php $filename='Work_Permit.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>">link</a> and answer it before uploading below. <span class="warning-user"> Please avoid uploading multiple form requests. Doing so will place you behind the queue. </span> Kindly attach the Work Permit Form you recently answered then we will contact you as soon as we have processed
+              <p> If you are requesting for a Work Permit Form, kindly download the form we provided in this <?php $filename='Work_Permit.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links">link</a> and answer it before uploading below. <span class="warning-user"> Please avoid uploading multiple form requests. Doing so will place you behind the queue. </span> Kindly attach the Work Permit Form you recently answered then we will contact you as soon as we have processed
                 your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
             </div>
               <div class="form-group">

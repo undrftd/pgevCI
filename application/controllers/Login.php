@@ -41,10 +41,10 @@ class Login extends CI_Controller
         }
         else if($valid == false) //Invalid Account
         {
-            $data['message'] = "The username and password you entered did not match our records. Please double-check and try again. ";
+            $data['message'] = "Sorry, the username and password you entered did not match our records. Please double-check and try again. ";
             $this->template->load('template', 'view_login', $data);
         }
-    }   
+    }
 
     function userdeact()
     {
@@ -61,10 +61,10 @@ class Login extends CI_Controller
     function signout()
     {
         $user_data = $this->session->all_userdata();
-        
-        foreach ($user_data as $key => $value) 
+
+        foreach ($user_data as $key => $value)
         {
-            if ($key != 'session_id' && $key != 'ip_address' && $key != 'user_agent' && $key != 'last_activity') 
+            if ($key != 'session_id' && $key != 'ip_address' && $key != 'user_agent' && $key != 'last_activity')
             {
                 $this->session->unset_userdata($key);
             }

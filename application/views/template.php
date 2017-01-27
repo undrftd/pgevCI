@@ -19,6 +19,7 @@
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 			<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i|Rubik:300,300i,400,400i,700" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/main.css">
+			<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/mobile.css">
  	</head>
 
 	<body>
@@ -27,6 +28,7 @@
    	 	<div id="footer">
    	 		<div id="footer">
    	 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+				<script type="text/javascript" src="<?php echo base_url('/public/js/main.js'); ?>"></script>
     		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     		<!-- Include all compiled plugins (below), or include individual files as needed -->
     		</div>

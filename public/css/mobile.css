@@ -1,0 +1,99 @@
+@media(max-width:600px) {
+
+  .nopadding {
+     padding: 0 !important;
+     margin: 0 !important;
+  }
+
+  .user-deact {
+    padding: 20px;
+  }
+
+}
+
+@media(max-width:768px) {
+  .not-important, #not-important{
+      display: none;
+    }
+
+  #dropdown-mobile {
+    display: inline-block;
+  }
+}
+
+@media(max-width:768px), (max-width:1024px) {
+
+.information {
+    margin-bottom: 30px;
+}
+
+.row {
+    margin-left: 0px;
+  }
+
+.btn-custom, .btn-custom-1, #exampleInputFile {
+    width: 100%;
+  }
+
+.btn-custom-4 {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+
+.login-form .btn-custom-4, .ticket-type {
+  margin-left: 0px;
+}
+
+#page-content-wrapper h1 {
+   border-bottom: 3px solid #27ae60;
+   width: 60%;
+   border-left: none;
+   font-family: 'League-Gothic', sans-serif;
+   text-transform: uppercase;
+   font-size: 3em;
+   padding-bottom: 10px;
+   padding-left: 0px;
+   margin: 0 auto;
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+#sel1 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+.form-group #sel1 {
+  width: 100%;
+  margin: 0 auto;
+}
+
+table {
+  font-size: 0.95em;
+  white-space: nowrap;
+}
+
+p {
+  text-align: justify;
+}
+
+.footer-note, .login-form, .success-message p, .activity-bar p, .modal-content p {
+  text-align: center;
+}
+
+.footer-note {
+  padding: 5px;
+}
+
+.user-deact {
+  padding: 20px;
+}
+
+}
+
+@media(max-width:1550px) {
+  .not-important {
+      display: none;
+    }
+}
