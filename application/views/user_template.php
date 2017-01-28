@@ -35,7 +35,7 @@
                  </a>
              </li>
              <li>
-                 <a href="<?php echo site_url("user_announcements"); ?>"class="<?php if($this->uri->segment('1') == 'user_announcements')  {echo 'active';	} ?>">Announcements</a>
+                 <a href="<?php echo site_url("user_announcements/announcements"); ?>"class="<?php if($this->uri->segment('1') == 'user_announcements')  {echo 'active';	} ?>">Announcements</a>
              </li>
              <li>
                  <a href="<?php echo site_url("user_ticketing"); ?>" class="<?php if($this->uri->segment('1') == 'user_ticketing') {echo 'active'; } ?>">Create a Ticket</a>
