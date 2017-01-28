@@ -47,7 +47,7 @@
                  <a href="<?php echo site_url("user_tracking/recent"); ?>" class="<?php if($this->uri->segment('1') == 'user_tracking') { echo 'active'; } ?>">Track Tickets</a>
              </li>
              <li>
-                 <a href="user-court.html">Reservation</a>
+                 <a href="<?php echo site_url("user_reservation"); ?>" class="<?php if($this->uri->segment('1') == 'user_reservation') { echo 'active'; } ?>">Reservation</a>
              </li>
              <li>
                  <a href="<?php echo site_url("user_forms/car_sticker"); ?>" class="<?php if($this->uri->segment('1') == 'user_forms') { echo 'active'; } ?>">Forms</a>
