@@ -20,12 +20,12 @@
 
     function save_announcements($post_id)
     {
-      $edit_ann = array(
+      $edit_announcements = array(
       'post_title' => $this->input->post('post_title'),
       'post_content' => $this->input->post('post_content'),
       );
       $this->db->where('post_id', $post_id);
-      $edit = $this->db->update('announcements', $edit_ann);
+      $edit = $this->db->update('announcements', $edit_announcements);
       return $edit;
     }
 
@@ -38,7 +38,7 @@
       return $delete;
     }
 
-    function select_annoouncements($post_id)
+    function select_announcements($post_id)
     {
       $query = $this->db->select('*')->where('post_id', $post_id)->get('announcements', 1);
       return $query->row();

@@ -1,8 +1,9 @@
 <div id="page-content-wrapper">
 
-  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+        <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+        <br>
+        <br>
 
-  <br><br><br>
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
@@ -11,9 +12,10 @@
           <div class="modal-content">
               <div class="signin">
                   <div class="modal-body text-center">
-                      <p> Are you sure you want to remove this announcement? </p><br><br>
-                      <button type="submit" class="btn btn-custom-1">Yes</button>
+                      <p> Are you sure you want to remove this bulletin? </p><br><br>
+                    <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                       <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+
                   </div>
               </div>
           </div>
@@ -22,7 +24,7 @@
   </div>
 
   <div class="header-style">
-    <h1> Announcements </h1>
+    <h1> Bulletin </h1>
   </div>
 
   <br>
@@ -36,14 +38,14 @@
         <div class="portlet-title">
 
           <ul class="nav nav-tabs">
-            <li>
+              <li>
               <a href="<?php echo base_url(); ?>Admin_Announcements/announcements">
-                Announcements </a>
-              </li>
-              <li class="active">
-                <a href="<?php echo base_url(); ?>Admin_Announcements/admin_bulletin">
-                Bulletin </a>
-            </li>
+          Announcements </a>
+        </li>
+        <li class="active">
+
+          <a href="<?php echo base_url(); ?>Admin_bulletin/bulletin">
+          Bulletin </a>
 
         </div>
 
@@ -53,68 +55,37 @@
 
           <div class="tab-content">
 
+            <div class="tab-pane fade in active" id="portlet_tab1">
 
-              <div class="tab-pane fade in active" id="portlet_tab2">
+              <a href="<?php echo site_url(); ?>Admin_bulletin/post_bulletin_admin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
+              <?php foreach($order as $order): ?>
+              <h2> <?php echo $order->post_title ?> </h2>
 
-                <a href="admin-announcement-post.html"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
+              <p class="article-date"> Date Posted: <?php echo date('m/d/Y', strtotime($order->post_date)); ?> </p>
+              <p> "<?php echo substr($order->post_content, 0, 400) ?>" </p>
+              <br>
 
-                <h2> Bulletin Title </h2>
-                <p class="article-date"> Date Posted: October 29, 2016 </p>
-                <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
-                <br>
-                <a href="admin-announcement-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                <br>
-                <br>
-                <br>
+              <a href="<?php echo site_url() . "Admin_bulletin/select_bulletin/" . $order->post_id ?>"><button type="submit" class="btn btn-custom-2">Edit</button></a>
 
-                <h2> Bulletin Title </h2>
-                <p class="article-date"> Date Posted: October 29, 2016 </p>
-                <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
-                <br>
-                <a href="admin-announcement-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                <br>
-                <br>
-                <br>
+              <button type="submit" class="btn btn-custom-3" data-toggle="modal" data-href="<?php  echo base_url() . "admin_bulletin/delete_bulletin/" . $order->post_id ?>"
+                             data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
 
-                <h2> Bulletin Title </h2>
-                <p class="article-date"> Date Posted: October 29, 2016 </p>
-                <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
-                <br>
-                <a href="admin-announcement-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                <br>
-                <br>
-                <br>
 
-                <h2> Bulletin Title </h2>
-                <p class="article-date"> Date Posted: October 29, 2016 </p>
-                <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
-                <br>
-                <a href="admin-announcement-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                <br>
-                <br>
-                <br>
+              <br>
+              <br>
+              <br>
+              <?php endforeach; ?>
+              <center><div id="pagination-link"><?php echo $bulletinlinks; ?></div></center>
 
-                <h2> Bulletin Title </h2>
-                <p class="article-date"> Date Posted: October 29, 2016 </p>
-                <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
-                <br>
-                <a href="admin-announcement-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                <br>
-                <br>
-                <br>
-                <br>
 
-                <a href="#" class="scrollToTop"><button type="button" class="btn btn-custom">Back to top</button></a>
 
-                <br>
-                <br>
 
-                </div>
+              <br>
+              <br>
+
+              </div>
+
+
 
             </div>
           </div>
@@ -129,15 +100,17 @@
         <div class="information">
             <p> Browse by date </p>
             <div class="form-group">
-            <select class="form-control" id="sel1">
-              <option>Select a date</option>
-              <option>November 18, 2016</option>
-              <option>November 12, 2016</option>
-              <option>November 08, 2016</option>
-              <option>November 1, 2016</option>
-            </select>
+            <div class='input-group date' id='datetimepicker1'>
+                            <input id="sel1" name ="datepick" type='text' class="form-control" placeholder="Click the calendar button to select a time and date"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                          </div>
+
           </div>
-            <button type="button" class="btn btn-custom">View</button>
+            <a href="">
+            <button type="submit" class="btn btn-custom">View</button>
+            </a>
         </div>
 
       </div>

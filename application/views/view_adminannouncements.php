@@ -1,14 +1,9 @@
 <div id="page-content-wrapper">
-<<<<<<< HEAD
+
         <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
         <br>
         <br>
-=======
 
-  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
-
-  <br><br><br>
->>>>>>> origin/master
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
@@ -48,7 +43,7 @@
           Announcements </a>
         </li>
         <li>
-          <a href="<?php echo base_url(); ?> Admin_Bulletin/bulletin">
+          <a href="<?php echo base_url(); ?>Admin_bulletin/bulletin">
           Bulletin </a>
 
         </div>
@@ -61,7 +56,7 @@
 
             <div class="tab-pane fade in active" id="portlet_tab1">
 
-              <a href="<?php echo site_url(); ?>Admin_Announcements/post_announcements_admin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
+              <a href="<?php echo site_url(); ?>Admin_Announcements/post_bulletin_admin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
               <?php foreach($order as $order): ?>
               <h2> <?php echo $order->post_title ?> </h2>
 

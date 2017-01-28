@@ -7,7 +7,7 @@
 
 
   <div class="header-style">
-    <h1> Post an announcement </h1>
+    <h1> Post an Bulletin </h1>
   </div>
 
   <br>
@@ -19,9 +19,9 @@
         <div class="information">
 
               <div class="form-group">
-                <form action="<?php echo site_url() . "Admin_Announcement/post_announcements/" . $this->session->userdata('userid'); ?>" method="POST">
+                <form action="<?php echo site_url() . "Admin_Bulletin/post_bulletin/" . $this->session->userdata('userid'); ?>" method="POST">
 
-                <p>  Announcement Title </p>
+                <p>  Bulletin Title </p>
                 <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?"><br>
                 <p class="error" > <?php echo form_error('post_title'); ?></p>
 
@@ -48,7 +48,7 @@
 
         <div class="information">
             <div class="form-group">
-            <p> Kindly put the details of your announcement here: </p>
+            <p> Kindly put the details of your Bulletin here: </p>
             <textarea class="form-control"name="post_content" id="user-message" placeholder="What do you want to say to the community?" rows="15"></textarea>
             <p class="error" name="post_content"> <?php echo form_error('post_content'); ?></p>
                 </form>
