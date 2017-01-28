@@ -5,7 +5,7 @@ class Admin_bulletin extends MY_Controller{
   function bulletin()
   {
     $config['base_url'] = site_url('Admin_bulletin/bulletin');
-    $config['total_rows'] = $this->model_bulletin_admin->count_bulletin();
+    $config['total_rows'] = $this->model_bulletin->count_bulletin();
     $config['per_page'] =  5;
     $config['num_links'] = 1;
     $config['use_page_numbers'] = FALSE;
@@ -26,7 +26,7 @@ class Admin_bulletin extends MY_Controller{
     $this->pagination->initialize($config);
     $data['bulletinlinks'] = $this->pagination->create_links();
 
-    $data['order'] = $this->model_bulletin_admin->bulletin($config['per_page'], $this->uri->segment(3));
+    $data['order'] = $this->model_bulletin->bulletin($config['per_page'], $this->uri->segment(3));
     $this->template->load('admin_template', 'view_adminbulletin', $data);
 
   }
@@ -40,10 +40,10 @@ class Admin_bulletin extends MY_Controller{
 
   function delete_bulletin($post_id)
   {
-    if($this->model_bulletin_admin->url_check_post_id($post_id))
+    if($this->model_bulletin->url_check_post_id($post_id))
     {
 
-      $this->model_bulletin_admin->delete_bulletin($post_id);
+      $this->model_bulletin->delete_bulletin($post_id);
       redirect('Admin_bulletin/bulletin');
     }
     else
@@ -56,7 +56,7 @@ class Admin_bulletin extends MY_Controller{
 
   function select_bulletin($post_id)
   {
-    $data['select'] = $this->model_bulletin_admin->select_bulletin($post_id);
+    $data['select'] = $this->model_bulletin->select_bulletin($post_id);
     $this->template->load('admin_template', 'view_admin_bulletin_edit', $data);
   }
 
@@ -67,12 +67,12 @@ class Admin_bulletin extends MY_Controller{
 
     if ($this->form_validation->run($post_id) == FALSE)
     {
-          $data['select'] = $this->model_bulletin_admin->select_bulletin($post_id);
+          $data['select'] = $this->model_bulletin->select_bulletin($post_id);
           $this->template->load('admin_template','view_admin_bulletin_edit', $data);
     }
     else
     {
-      if($query = $this->model_bulletin_admin->save_bulletin($post_id))
+      if($query = $this->model_bulletin->save_bulletin($post_id))
       {
         redirect('Admin_bulletin/bulletin');
       }
@@ -93,7 +93,7 @@ class Admin_bulletin extends MY_Controller{
     }
     else
     {
-      if($query = $this->model_bulletin_admin->post_bulletin($userid))
+      if($query = $this->model_bulletin->post_bulletin($userid))
       {
         redirect('Admin_bulletin/bulletin');
       }

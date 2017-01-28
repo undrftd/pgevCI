@@ -56,7 +56,7 @@
 
             <div class="tab-pane fade in active" id="portlet_tab1">
 
-              <a href="<?php echo site_url(); ?>Admin_Announcements/post_bulletin_admin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
+              <a href="<?php echo site_url(); ?>Admin_Announcements/post_announcements_admin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
               <?php foreach($order as $order): ?>
               <h2> <?php echo $order->post_title ?> </h2>
 
