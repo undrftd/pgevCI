@@ -19,7 +19,7 @@
         <div class="information">
 
               <div class="form-group">
-                <form action="<?php echo site_url() . "Admin_Announcement/post_announcements/" . $this->session->userdata('userid'); ?>" method="POST">
+                <form action="<?php echo site_url() . "Admin_Announcements/post_announcements/" . $this->session->userdata('userid'); ?>" method="POST">
 
                 <p>  Announcement Title </p>
                 <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?"><br>
