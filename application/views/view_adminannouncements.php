@@ -1,15 +1,7 @@
 <div id="page-content-wrapper">
-<<<<<<< HEAD
-        <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
-        <br>
-        <br>
-=======
-
-        <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
-        <br>
-        <br>
-
->>>>>>> origin/master
+  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+  <br>
+  <br>
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
