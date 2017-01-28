@@ -19,7 +19,7 @@ class Model_dues_user extends CI_Model{
   function get_rate()
   {
       $query = $this->db->select('*')->where('rateid',1)->get('rate', 1);
-      return $query->row();  
+      return $query->row();
   }
 
   function setsession()
@@ -28,7 +28,7 @@ class Model_dues_user extends CI_Model{
     $row = $query->row();
 
     $data = array(
-            'monthly_dues' => $row->monthly_dues, 
+            'monthly_dues' => $row->monthly_dues,
             'arrears' => $row->arrears,
       );
 
