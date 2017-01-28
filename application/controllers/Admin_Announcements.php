@@ -5,7 +5,7 @@ class Admin_Announcements extends MY_Controller{
   function announcements()
   {
     $config['base_url'] = site_url('Admin_Announcements/announcements');
-    $config['total_rows'] = $this->model_announcements_admin->count_announcements();
+    $config['total_rows'] = $this->model_announcements->count_announcements();
     $config['per_page'] =  5;
     $config['num_links'] = 1;
     $config['use_page_numbers'] = FALSE;
@@ -26,7 +26,7 @@ class Admin_Announcements extends MY_Controller{
     $this->pagination->initialize($config);
     $data['announcementslinks'] = $this->pagination->create_links();
 
-    $data['order'] = $this->model_announcements_admin->announcements($config['per_page'], $this->uri->segment(3));
+    $data['order'] = $this->model_announcements->announcements($config['per_page'], $this->uri->segment(3));
     $this->template->load('admin_template', 'view_adminannouncements', $data);
 
   }
@@ -45,10 +45,10 @@ class Admin_Announcements extends MY_Controller{
 
   function delete_announcements($post_id)
   {
-    if($this->model_announcements_admin->url_check_post_id($post_id))
+    if($this->model_announcements->url_check_post_id($post_id))
     {
 
-      $this->model_announcements_admin->delete_announcements($post_id);
+      $this->model_announcements->delete_announcements($post_id);
       redirect('Admin_Announcements/announcements');
     }
     else
@@ -61,7 +61,7 @@ class Admin_Announcements extends MY_Controller{
 
   function select_announcements($post_id)
   {
-    $data['select'] = $this->model_announcements_admin->select_announcements($post_id);
+    $data['select'] = $this->model_announcements->select_announcements($post_id);
     $this->template->load('admin_template', 'view_admin_announcements_edit', $data);
   }
 
@@ -72,12 +72,12 @@ class Admin_Announcements extends MY_Controller{
 
     if ($this->form_validation->run($post_id) == FALSE)
     {
-          $data['select'] = $this->model_announcements_admin->select_announcements($post_id);
+          $data['select'] = $this->model_announcements->select_announcements($post_id);
           $this->template->load('admin_template','view_admin_announcements_edit', $data);
     }
     else
     {
-      if($query = $this->model_announcements_admin->save_announcements($post_id))
+      if($query = $this->model_announcements->save_announcements($post_id))
       {
         redirect('Admin_Announcements/announcements');
       }
@@ -98,7 +98,7 @@ class Admin_Announcements extends MY_Controller{
     }
     else
     {
-      if($query = $this->model_announcements_admin->post_announcements($userid))
+      if($query = $this->model_announcements->post_announcements($userid))
       {
         redirect('Admin_Announcements/announcements');
       }

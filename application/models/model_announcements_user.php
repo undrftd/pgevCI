@@ -2,7 +2,7 @@
 
 class Model_announcements_user extends CI_Model
 {
-	function select_ann()
+	function select_announcements()
 	{
 		$query = $this->db->select('*')->from('announcements')->get();
 		
