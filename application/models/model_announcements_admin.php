@@ -18,7 +18,7 @@
     }
 
 
-    function save_ann($post_id)
+    function save_announcements($post_id)
     {
       $edit_ann = array(
       'post_title' => $this->input->post('post_title'),
@@ -30,7 +30,7 @@
     }
 
 
-    function delete_ann($post_id)
+    function delete_announcements($post_id)
     {
 
       $this->db->where('post_id',$post_id);
@@ -38,42 +38,47 @@
       return $delete;
     }
 
-    function select_ann($post_id)
+    function select_annoouncements($post_id)
     {
       $query = $this->db->select('*')->where('post_id', $post_id)->get('announcements', 1);
       return $query->row();
     }
 
-
-
-
-    function post_ann()
+    function count_announcements()
     {
-      $post_ann = array(
+      $query = $this->db->select('*')->from('announcements')->get();
+      return $query->num_rows();
+    }
+
+
+
+    function post_announcements()
+    {
+      $post_announncements = array(
         'user_id' => $this->session->userdata('userid'),
         'post_title' => $this->input->post('post_title'),
-        'post_date' =>  date('m/d/Y g:i A'),
+        'post_date' =>  date('m/d/Y'),
         'post_content' => $this->input->post('post_content'),
       );
 
-      $post = $this->db->insert('announcements', $post_ann);
+      $post = $this->db->insert('announcements', $post_announncements);
       return $post;
     }
 
-    function announcements()
+    function announcements($limit, $offset)
     {
+      $this->db->limit($limit,$offset);
+      $posted_announcements = $this->db->select('*')->from('announcements')->order_by('post_date', 'DESC')->get();
 
-      $posted_ann = $this->db->select('*')->from('announcements')->order_by('post_date', 'DESC')->get();
 
-
-      if($posted_ann->num_rows() > 0)
+      if($posted_announcements->num_rows() > 0)
 		    {
-			return $posted_ann->result();
+			return $posted_announcements->result();
 		    }
 
 		      else
 		        {
-			return $posted_ann->result();
+			return $posted_announcements->result();
 		        }
 
     }

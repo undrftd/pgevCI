@@ -37,7 +37,7 @@
 
           <ul class="nav nav-tabs">
             <li>
-              <a href="<?php echo base_url(); ?>Admin_Announcements/">
+              <a href="<?php echo base_url(); ?>Admin_Announcements/announcements">
                 Announcements </a>
               </li>
               <li class="active">

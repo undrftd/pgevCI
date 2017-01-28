@@ -1,8 +1,15 @@
 <div id="page-content-wrapper">
+<<<<<<< HEAD
+  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+  <br>
+  <br>
+=======
 
   <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
 
   <br><br><br>
+>>>>>>> origin/master
+
 
   <div class="header-style">
     <h1> Post an announcement </h1>
@@ -24,7 +31,7 @@
                 <p class="error" > <?php echo form_error('post_title'); ?></p>
 
                 <p> Date </p>
-              <input class="form-control  "name="post_date" id="sel1" type="text" value="<?php $date = date('m/d/Y'); echo date('F d Y', strtotime($date)); ?>"readonly>
+              <input class="form-control  "name="post_date" id="sel1" type="text" value="<?php $date = date('m/d/Y'); echo date('m/d/Y', strtotime($date)); ?>"readonly>
                 <p class="error" > <?php echo form_error('post_date'); ?> </p>
 
               </div>

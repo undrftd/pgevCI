@@ -1,8 +1,14 @@
 <div id="page-content-wrapper">
+<<<<<<< HEAD
+        <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+        <br>
+        <br>
+=======
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
   <br><br><br>
+>>>>>>> origin/master
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
@@ -12,8 +18,7 @@
               <div class="signin">
                   <div class="modal-body text-center">
                       <p> Are you sure you want to remove this announcement? </p><br><br>
-
-                      <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                    <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                       <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
 
                   </div>
@@ -39,11 +44,11 @@
 
           <ul class="nav nav-tabs">
             <li class="active">
-              <a href="<?php echo base_url(); ?>Admin_Announcements/">
+              <a href="<?php echo base_url(); ?>Admin_Announcements/announcements">
           Announcements </a>
         </li>
         <li>
-          <a href="<?php echo base_url(); ?>Admin_Announcements/admin_bulletin">
+          <a href="<?php echo base_url(); ?> Admin_Bulletin/bulletin">
           Bulletin </a>
 
         </div>
@@ -57,27 +62,27 @@
             <div class="tab-pane fade in active" id="portlet_tab1">
 
               <a href="<?php echo site_url(); ?>Admin_Announcements/post_announcements_admin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
-              <?php foreach($order as $row): ?>
-              <h2> <?php echo $row->post_title ?> </h2>
+              <?php foreach($order as $order): ?>
+              <h2> <?php echo $order->post_title ?> </h2>
 
-              <p class="article-date"> Date Posted: <?php echo date('m/d/Y g:i A', strtotime($row->post_date)); ?> </p>
-              <p> "<?php echo substr($row->post_content, 0, 400) ?>" </p>
+              <p class="article-date"> Date Posted: <?php echo date('m/d/Y', strtotime($order->post_date)); ?> </p>
+              <p> "<?php echo substr($order->post_content, 0, 400) ?>" </p>
               <br>
 
-              <a href="<?php echo site_url() . "Admin_Announcements/select_ann/" . $row->post_id ?>"><button type="submit" class="btn btn-custom-2">Edit</button></a>
+              <a href="<?php echo site_url() . "Admin_Announcements/select_announcements/" . $order->post_id ?>"><button type="submit" class="btn btn-custom-2">Edit</button></a>
 
-
-              <button type="submit" class="btn btn-custom-3" data-toggle="modal" data-href="<?php  echo base_url() . "admin_Announcements/delete_ann/" . $row->post_id ?>"
-               data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+              <button type="submit" class="btn btn-custom-3" data-toggle="modal" data-href="<?php  echo base_url() . "admin_Announcements/delete_announcements/" . $order->post_id ?>"
+                             data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
 
 
               <br>
               <br>
               <br>
               <?php endforeach; ?>
+              <center><div id="pagination-link"><?php echo $announcementslinks; ?></div></center>
 
 
-              <a href="#" class="scrollToTop"><button type="button" class="btn btn-custom">Back to top</button></a>
+
 
               <br>
               <br>
@@ -99,16 +104,15 @@
         <div class="information">
             <p> Browse by date </p>
             <div class="form-group">
-            <select class="form-control" id="sel1">
+            <div class='input-group date' id='datetimepicker1'>
+                            <input id="sel1" name ="datepick" type='text' class="form-control" placeholder="Click the calendar button to select a time and date"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                          </div>
 
-              <option>Select a date</option>
-              <?php foreach($order as $row): ?>
-              <option>Post Title: <?php echo $row->post_title . $row->post_date   ?> </option>
-              <?php endforeach; ?>
-
-            </select>
           </div>
-            <a href="<?php echo site_url() . "Admin_Announcements/select_ann/" . $row->post_id ?>">
+            <a href="">
             <button type="submit" class="btn btn-custom">View</button>
             </a>
         </div>

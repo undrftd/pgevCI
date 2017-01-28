@@ -1,8 +1,15 @@
 <div id="page-content-wrapper">
+<<<<<<< HEAD
+  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+  <br>
+  <br>
+=======
 
   <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
 
   <br><br><br>
+>>>>>>> origin/master
+
 
   <div class="header-style">
     <h1> Edit announcement </h1>
@@ -23,7 +30,7 @@
                 <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo $select->post_title; ?>"><br>
                 <p> Date </p>
                 <p class="error"> <?php echo form_error('post_date');  ?>
-                <input class="form-control" id="sel1" type="text" name="post_date" value="<?php echo $select->post_date; ?>" readonly>
+                <input class="form-control" id="sel1" type="text" name="post_date" value="<?php echo $select->post_date ?>" readonly>
 
               </div>
 

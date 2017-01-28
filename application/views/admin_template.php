@@ -35,7 +35,7 @@
                     <a href="<?php echo site_url("admin_statistics"); ?>" class="<?php if($this->uri->segment(1) == 'admin_statistics') { echo 'active'; } ?>">Statistics</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url("Admin_Announcements/");	?>" class="<?php if($this->uri->segment(1) == 'Admin_Announcements')	{	echo 'active'; } ?>">Announcements</a>
+                    <a href="<?php echo site_url("Admin_Announcements/announcements");	?>" class="<?php if($this->uri->segment(1) == 'Admin_Announcements')	{	echo 'active'; } ?>">Announcements</a>
                 </li>
                 <li>
                     <a href="<?php echo site_url("admin_dues/homeowner"); ?>" class="<?php if($this->uri->segment(1)  == 'admin_dues') { echo 'active'; } ?>">Dues</a>
