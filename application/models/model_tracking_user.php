@@ -42,6 +42,12 @@ class Model_tracking_user extends CI_Model {
     {
         $query = $this->db->select('*')->from('tickets')->where('userid', $this->session->userdata('userid'))->get();
         return $query->num_rows();
+    }
+
+    function count_activetickets()
+    {
+        $query = $this->db->select('*')->from('tickets')->where('userid', $this->session->userdata('userid'))->where('(status = 2 OR status = 1)')->get();
+        return $query->num_rows();
     }	
 
     function set_finished($ticketid)

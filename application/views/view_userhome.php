@@ -9,7 +9,7 @@
     <div class="col-xs-12">
 
       <div class="header-style">
-        <h1> Recent Announcement </h1>
+        <h1> Recent Community Announcement </h1>
       </div>
 
       <br>
@@ -17,6 +17,7 @@
       <div class="announcement-message">
 
         <h4> Righteous Indignation </h4><hr>
+        <p> January 27, 2019 <p>
 
         <p> "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment,
           so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through
@@ -51,7 +52,7 @@
 
         <h4> Tickets </h4><hr>
 
-        <p> Douglas, you have 1 active ticket(s). To monitor this properly, go to the track tickets page by clicking the button below. Thanks! </p>
+        <p> You have <?php echo $count; ?> active ticket<?php if($count > 1){ echo "s"; } else { echo ""; } ?>. To monitor this properly, go to the track tickets page by clicking the button below. </p>
         <br>
         <a href="<?php echo site_url("user_tracking/recent"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
 
@@ -65,7 +66,17 @@
 
         <h4> Monthly Dues </h4><hr>
 
-        <p> Douglas, you have (0) unpaid due. To pay it, go to the view dues page in order to avoid having arrears in our system. Thanks! </p>
+        <p> You have <?php
+            if(($this->session->userdata('arrears') >  0 && $this->session->userdata('monthly_dues') == 0)
+            || ($this->session->userdata('arrears') > 0 && $this->session->userdata('monthly_dues') > 0 )
+            || ($this->session->userdata('arrears') == 0 && $this->session->userdata('monthly_dues') > 0 ))
+            {
+              echo ($this->session->userdata('arrears') + $this->session->userdata('monthly_dues')) / ($rate->securityfee + $rate->assocfee);
+            }
+            else
+            {
+              echo "0";
+            }  ?> unpaid dues. To proper monitor your outstanding dues and arrears, click the button below.</p>
         <br>
         <a href="<?php echo site_url("user_dues"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
 
@@ -79,7 +90,7 @@
 
         <h4> Reservation </h4><hr>
 
-        <p> Douglas, you have 1 active reservation. To check whether this has been approved or not, click the button below. Thanks! </p>
+        <p> You have 1 active reservation. To check whether this has been approved or not, click the button below. </p>
         <br>
         <button type="button" class="btn btn-custom-2">View More</button>
 
@@ -93,7 +104,7 @@
 
         <h4> Suggestions </h4><hr>
 
-        <p> Douglas, if you have a problem within our community, feel free to leave us a message in the suggestions page. Thanks! </p>
+        <p> If you have suggestions within our community, feel free to leave us a message in the suggestions page. </p>
         <br>
         <a href="<?php echo site_url("user_suggestions"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
 

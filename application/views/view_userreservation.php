@@ -1,7 +1,8 @@
-      <div id="page-content-wrapper">
-        <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
-        <br>
-        <br>
+<div id="page-content-wrapper">
+
+  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+
+  <br><br>
 
         <div class="header-style">
           <h1> Reservation for Basketball Court </h1>
@@ -153,7 +154,6 @@
                       <tr>
                           <th><br>Date</th>
                           <th><br>Time</th>
-                          <th><br>Contact Number</th>
                           <th><br>Status</th>
                           <th><br>Action</th>
                       </tr>
@@ -161,7 +161,6 @@
                       <tr>
                           <td>January 8, 2016</td>
                           <td>6:00 PM - 8:00 PM</td>
-                          <td>09065715254</td>
                           <td>Pending</td>
                           <td class="action-button">
                             <a href="user-court-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
@@ -171,7 +170,6 @@
                       <tr>
                           <td>January 12, 2016</td>
                           <td>6:00 PM - 8:00 PM</td>
-                          <td>09065715254</td>
                           <td>Denied</td>
                           <td class="action-button">
                             <a href="user-court-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
@@ -181,7 +179,6 @@
                       <tr>
                           <td>January 16, 2016</td>
                           <td>6:00 PM - 8:00 PM</td>
-                          <td>09065715254</td>
                           <td>Pending</td>
                           <td class="action-button">
                             <a href="user-court-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
