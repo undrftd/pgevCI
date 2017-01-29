@@ -1,10 +1,10 @@
 <?php
 
-class Admin_Announcements extends MY_Controller{
+class admin_announcements extends MY_Controller{
 
   function announcements()
   {
-    $config['base_url'] = site_url('Admin_Announcements/announcements');
+    $config['base_url'] = site_url('admin_announcements/announcements');
     $config['total_rows'] = $this->model_announcements->count_announcements();
     $config['per_page'] =  5;
     $config['num_links'] = 1;
@@ -42,12 +42,12 @@ class Admin_Announcements extends MY_Controller{
     {
 
       $this->model_announcements->delete_announcements($post_id);
-      redirect('Admin_Announcements/announcements');
+      redirect('admin_announcements/announcements');
     }
     else
     {
 
-      redirect('Admin_Announcements/announcements');
+      redirect('admin_announcements/announcements');
     }
   }
 
@@ -71,7 +71,7 @@ class Admin_Announcements extends MY_Controller{
     {
       if($query = $this->model_announcements->save_announcements($post_id))
       {
-        redirect('Admin_Announcements/announcements');
+        redirect('admin_announcements/announcements');
       }
     }
   }
@@ -92,14 +92,14 @@ class Admin_Announcements extends MY_Controller{
     {
       if($query = $this->model_announcements->post_announcements($userid))
       {
-        redirect('Admin_Announcements/announcements');
+        redirect('admin_announcements/announcements');
       }
     }
   }
 
   function bulletin()
   {
-    $config['base_url'] = site_url('Admin_bulletin/bulletin');
+    $config['base_url'] = site_url('admin_bulletin/bulletin');
     $config['total_rows'] = $this->model_announcements->count_bulletin();
     $config['per_page'] =  5;
     $config['num_links'] = 1;
@@ -137,12 +137,12 @@ class Admin_Announcements extends MY_Controller{
     {
 
       $this->model_announcements->delete_bulletin($post_id);
-      redirect('Admin_Announcements/bulletin');
+      redirect('admin_announcements/bulletin');
     }
     else
     {
 
-      redirect('Admin_Announcements/bulletin');
+      redirect('admin_announcements/bulletin');
     }
   }
 
@@ -154,8 +154,8 @@ class Admin_Announcements extends MY_Controller{
 
   function save_bulletin($post_id)
   {
-    $this->form_validation->set_rules('post_title','bulletin Title', 'required');
-    $this->form_validation->set_rules('post_content', 'bulletin Content', 'required');
+    $this->form_validation->set_rules('post_title','Bulletin Title', 'required');
+    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'required');
 
     if ($this->form_validation->run($post_id) == FALSE)
     {
@@ -166,7 +166,7 @@ class Admin_Announcements extends MY_Controller{
     {
       if($query = $this->model_announcements->save_bulletin($post_id))
       {
-        redirect('Admin_Announcements/bulletin');
+        redirect('admin_announcements/bulletin');
       }
     }
   }
@@ -175,8 +175,8 @@ class Admin_Announcements extends MY_Controller{
   function post_bulletin($userid)
   {
     $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-    $this->form_validation->set_rules('post_title','bulletin Title', 'required');
-    $this->form_validation->set_rules('post_content', 'bulletin Content', 'required');
+    $this->form_validation->set_rules('post_title','Bulletin Title', 'required');
+    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'required');
 
     if ($this->form_validation->run($userid) == FALSE)
     {
@@ -187,7 +187,7 @@ class Admin_Announcements extends MY_Controller{
     {
       if($query = $this->model_announcements->post_bulletin($userid))
       {
-        redirect('Admin_Announcements/bulletin');
+        redirect('admin_announcements/bulletin');
       }
     }
   }

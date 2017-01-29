@@ -1,12 +1,8 @@
 <div id="page-content-wrapper">
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
-  <br>
-  <br>
 
-
-
-
+  <br><br><br>
 
   <div class="header-style">
     <h1> Edit announcement </h1>

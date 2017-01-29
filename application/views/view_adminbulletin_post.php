@@ -1,7 +1,6 @@
 <div id="page-content-wrapper">
 
-
-  <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
+  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
   <br><br><br>
 
@@ -22,7 +21,7 @@
                 <form action="<?php echo site_url() . "admin_announcements/post_bulletin/" . $this->session->userdata('userid'); ?>" method="POST">
 
                 <p>  Bulletin Title </p>
-                <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?"><br>
+                <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?">
                 <p class="error" > <?php echo form_error('post_title'); ?></p>
 
                 <p> Date </p>

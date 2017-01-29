@@ -20,10 +20,10 @@
         <div class="information">
 
               <div class="form-group">
-                <form action="<?php echo site_url() . "Admin_Announcements/post_announcements/" . $this->session->userdata('userid'); ?>" method="POST">
+                <form action="<?php echo site_url() . "admin_announcements/post_announcements/" . $this->session->userdata('userid'); ?>" method="POST">
 
                 <p>  Announcement Title </p>
-                <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?"><br>
+                <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?">
                 <p class="error" > <?php echo form_error('post_title'); ?></p>
 
                 <p> Date </p>
