@@ -80,7 +80,6 @@ class Model_announcements_user extends CI_Model
         {
             return $query->result();
         }
-
     }
 
     function countbulletin_search($searchquery)

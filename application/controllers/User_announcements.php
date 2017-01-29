@@ -6,8 +6,8 @@ class User_announcements extends MY_Controller
   {
     $config['base_url'] = site_url('user_announcements/announcements');
     $config['total_rows'] = $this->model_announcements_user->count_announcements();
-    $config['per_page'] =  6;
-    $config['num_links'] = 1;
+    $config['per_page'] =  5;
+    $config['num_links'] = 5;
     $config['use_page_numbers'] = FALSE;
     $config['full_tag_open'] = "<ul class='pagination'>";
     $config['full_tag_close'] ="</ul>";
@@ -35,7 +35,7 @@ class User_announcements extends MY_Controller
     $config['base_url'] = site_url('user_announcements/bulletin');
     $config['total_rows'] = $this->model_announcements_user->count_bulletin();
     $config['per_page'] =  5;
-    $config['num_links'] = 1;
+    $config['num_links'] = 5;
     $config['use_page_numbers'] = FALSE;
     $config['full_tag_open'] = "<ul class='pagination'>";
     $config['full_tag_close'] ="</ul>";
@@ -92,7 +92,7 @@ class User_announcements extends MY_Controller
       $config['base_url'] = site_url('user_announcements/search_announcement/');
       $config['reuse_query_string'] = TRUE;
       $config['total_rows'] = $this->model_announcements_user->countannouncement_search($searchquery);
-      $config['per_page'] =  20;
+      $config['per_page'] =  5;
       $config['num_links'] = 5;
       $config['use_page_numbers'] = FALSE;
       $config['full_tag_open'] = "<ul class='pagination'>";
@@ -131,7 +131,7 @@ class User_announcements extends MY_Controller
       $config['base_url'] = site_url('user_announcements/search_bulletin/');
       $config['reuse_query_string'] = TRUE;
       $config['total_rows'] = $this->model_announcements_user->countbulletin_search($searchquery);
-      $config['per_page'] =  20;
+      $config['per_page'] =  5;
       $config['num_links'] = 5;
       $config['use_page_numbers'] = FALSE;
       $config['full_tag_open'] = "<ul class='pagination'>";
@@ -149,7 +149,7 @@ class User_announcements extends MY_Controller
       $config['last_tag_open'] = "<li>";
       $config['last_tagl_close'] = "</li>";
       $this->pagination->initialize($config);
-      $data['announcementslinks'] = $this->pagination->create_links();
+      $data['bulletinlinks'] = $this->pagination->create_links();
 
       $data['order'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
       $this->template->load('user_template', 'view_userbulletin', $data);

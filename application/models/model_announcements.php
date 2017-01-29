@@ -169,4 +169,52 @@ class Model_announcements extends CI_Model{
     return $post;
   }
 
+  function countannouncement_search($searchquery)
+  {
+       $query = $this->db->select('*')
+                          ->from('announcements')
+                          ->where('post_date LIKE "%'.$searchquery .'%"',NULL,FALSE)->get(); 
+       return $query->num_rows();
+  }
+
+  function search_announcement($searchquery)
+  {
+    $this->db->select('*')->from('announcements');
+    $this->db->where('post_date LIKE "%'.$searchquery .'%"',NULL,FALSE);
+    $query = $this->db->get();
+
+      if($query->num_rows() > 0)
+      {
+          return $query->result();
+      }
+      else
+      {
+          return $query->result();
+      }
+  }
+
+  function countbulletin_search($searchquery)
+  {
+     $query = $this->db->select('*')
+                        ->from('bulletin')
+                        ->where('post_date LIKE "%'.$searchquery .'%"',NULL,FALSE)->get(); 
+     return $query->num_rows();
+  }
+
+  function search_bulletin($searchquery)
+  {
+    $this->db->select('*')->from('bulletin');
+    $this->db->join('accounts', 'accounts.userid = bulletin.user_id');
+    $this->db->where('post_date LIKE "%'.$searchquery .'%"',NULL,FALSE);
+    $query = $this->db->get();
+
+      if($query->num_rows() > 0)
+      {
+          return $query->result();
+      }
+      else
+      {
+          return $query->result();
+      }
+  }
 }

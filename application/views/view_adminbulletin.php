@@ -38,14 +38,15 @@
 
     <div class="portlet-header">
 
+      <form action="<?php echo base_url(); ?>admin_announcements/search_bulletin" method="GET">
       <div id="search-group">
 
-        <input id='datetimepicker4' type='text' class="form-control" placeholder="Search for a bulletin">
+        <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Search for a bulletin">
           <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
         </input>
 
       </div>
-
+      </form>
     </div>
 
     <br><br>
@@ -115,7 +116,7 @@
 
                       <div class="col-xs-6 col-lg-6 nopadding">
 
-                      <a href="<?php echo base_url() . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><span class="glyphicon glyphicon-trash btn-sm" aria-hidden="true"></span> Delete</p></a>
+                      <a data-href="<?php echo base_url() . "admin_announcements/delete_bulletin/" . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><span class="glyphicon glyphicon-trash btn-sm" aria-hidden="true"></span> Delete</p></a>
 
                       </div>
 

@@ -7,7 +7,7 @@ class admin_announcements extends MY_Controller{
     $config['base_url'] = site_url('admin_announcements/announcements');
     $config['total_rows'] = $this->model_announcements->count_announcements();
     $config['per_page'] =  5;
-    $config['num_links'] = 1;
+    $config['num_links'] = 5;
     $config['use_page_numbers'] = FALSE;
     $config['full_tag_open'] = "<ul class='pagination'>";
     $config['full_tag_close'] ="</ul>";
@@ -28,7 +28,6 @@ class admin_announcements extends MY_Controller{
 
     $data['order'] = $this->model_announcements->announcements($config['per_page'], $this->uri->segment(3));
     $this->template->load('admin_template', 'view_adminannouncements', $data);
-
   }
 
   function post_announcements()
@@ -101,7 +100,7 @@ class admin_announcements extends MY_Controller{
     $config['base_url'] = site_url('admin_announcements/bulletin');
     $config['total_rows'] = $this->model_announcements->count_bulletin();
     $config['per_page'] =  5;
-    $config['num_links'] = 1;
+    $config['num_links'] = 5;
     $config['use_page_numbers'] = FALSE;
     $config['full_tag_open'] = "<ul class='pagination'>";
     $config['full_tag_close'] ="</ul>";
@@ -187,6 +186,84 @@ class admin_announcements extends MY_Controller{
       {
         redirect('admin_announcements/bulletin');
       }
+    }
+  }
+
+  function search_announcement()
+  {
+    $searchquery = $this->input->get('search', TRUE);
+    $searchmodelquery = $this->model_announcements->search_announcement($searchquery);
+
+    if(isset($searchquery) and !empty($searchquery))
+    {
+      $config['base_url'] = site_url('admin_announcements/search_announcement/');
+      $config['reuse_query_string'] = TRUE;
+      $config['total_rows'] = $this->model_announcements->countannouncement_search($searchquery);
+      $config['per_page'] =  5;
+      $config['num_links'] = 5;
+      $config['use_page_numbers'] = FALSE;
+      $config['full_tag_open'] = "<ul class='pagination'>";
+      $config['full_tag_close'] ="</ul>";
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
+      $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+      $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+      $config['next_tag_open'] = "<li>";
+      $config['next_tagl_close'] = "</li>";
+      $config['prev_tag_open'] = "<li>";
+      $config['prev_tagl_close'] = "</li>";
+      $config['first_tag_open'] = "<li>";
+      $config['first_tagl_close'] = "</li>";
+      $config['last_tag_open'] = "<li>";
+      $config['last_tagl_close'] = "</li>";
+      $this->pagination->initialize($config);
+      $data['announcementslinks'] = $this->pagination->create_links();
+
+      $data['order'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+      $this->template->load('admin_template', 'view_adminannouncements', $data);
+    }
+    else
+    {
+     redirect('admin_announcements/announcements');
+    }
+  }
+
+  function search_bulletin()
+  {
+    $searchquery = $this->input->get('search', TRUE);
+    $searchmodelquery = $this->model_announcements->search_bulletin($searchquery);
+
+    if(isset($searchquery) and !empty($searchquery))
+    {
+      $config['base_url'] = site_url('admin_announcements/search_bulletin/');
+      $config['reuse_query_string'] = TRUE;
+      $config['total_rows'] = $this->model_announcements->countbulletin_search($searchquery);
+      $config['per_page'] =  5;
+      $config['num_links'] = 5;
+      $config['use_page_numbers'] = FALSE;
+      $config['full_tag_open'] = "<ul class='pagination'>";
+      $config['full_tag_close'] ="</ul>";
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
+      $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+      $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+      $config['next_tag_open'] = "<li>";
+      $config['next_tagl_close'] = "</li>";
+      $config['prev_tag_open'] = "<li>";
+      $config['prev_tagl_close'] = "</li>";
+      $config['first_tag_open'] = "<li>";
+      $config['first_tagl_close'] = "</li>";
+      $config['last_tag_open'] = "<li>";
+      $config['last_tagl_close'] = "</li>";
+      $this->pagination->initialize($config);
+      $data['bulletinlinks'] = $this->pagination->create_links();
+
+      $data['order'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+      $this->template->load('admin_template', 'view_adminbulletin', $data);
+    }
+    else
+    {
+     redirect('admin_announcements/bulletin');
     }
   }
 
