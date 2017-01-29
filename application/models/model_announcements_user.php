@@ -4,7 +4,7 @@ class Model_announcements_user extends CI_Model
 {
 	function select_announcements()
 	{
-		$query = $this->db->select('*')->from('announcements')->get();
+		$query = $this->db->select('*')->from('announcements')->order_by('post_id', 'desc')->get();
 
 		if($query->num_rows() > 0)
 		{
@@ -24,7 +24,7 @@ class Model_announcements_user extends CI_Model
 
   	function select_bulletin()
 	{
-		$query = $this->db->select('*')->from('bulletin')->get();
+		$query = $this->db->select('*')->from('bulletin')->order_by('post_id', 'desc')->get();
 
 		if($query->num_rows() > 0)
 		{

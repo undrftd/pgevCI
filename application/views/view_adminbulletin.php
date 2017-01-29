@@ -54,7 +54,7 @@
         <div class="portlet-body">
 
           <div class="tab-content">
-
+            
             <div class="tab-pane fade in active" id="portlet_tab1">
 
               <a href="<?php echo site_url(); ?>admin_announcements/post_bulletin_admin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
@@ -62,13 +62,12 @@
                 <h2> <?php echo $order->post_title ?> </h2>
 
                 <p class="article-date"> Date Posted: <?php echo date('m/d/Y', strtotime($order->post_date)); ?> </p>
-                <p> "<?php echo substr($order->post_content, 0, 400) ?>" </p>
+                <p>"<?php echo substr($order->post_content, 0, 400) ?>"</p>
                 <br>
 
-                <a href="<?php echo site_url() . "admin_announcements/edit_bulletin/" . $order->post_id ?>"><button type="submit" class="btn btn-custom-2">Edit</button></a>
+                <a href="<?php echo site_url() . "admin_announcements/viewmore_bulletin/" . $order->post_id ?>"><button type="submit" class="btn btn-custom-2">View More</button></a>
 
-                <button type="submit" class="btn btn-custom-3" data-toggle="modal" data-href="<?php  echo base_url() . "admin_announcements/delete_bulletin/" . $order->post_id ?>"
-                               data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                <button type="submit" class="btn btn-custom-3" data-toggle="modal" data-href="<?php  echo base_url() . "admin_announcements/delete_bulletin/" . $order->post_id ?>" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
 
 
                 <br>

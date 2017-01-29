@@ -51,21 +51,21 @@ class admin_announcements extends MY_Controller{
     }
   }
 
-  function edit_announcements($post_id)
+  function viewmore_announcements($post_id)
   {
     $data['select'] = $this->model_announcements->select_announcements($post_id);
-    $this->template->load('admin_template', 'view_adminannouncements_edit', $data);
+    $this->template->load('admin_template', 'view_adminannouncements_viewmore', $data);
   }
 
   function save_announcements($post_id)
   {
-    $this->form_validation->set_rules('post_title','Announcement Title', 'required');
-    $this->form_validation->set_rules('post_content', 'Announcement Content', 'required');
+    $this->form_validation->set_rules('post_title','Announcement Title', 'trim|required');
+    $this->form_validation->set_rules('post_content', 'Announcement Content', 'trim|required');
 
     if ($this->form_validation->run($post_id) == FALSE)
     {
           $data['select'] = $this->model_announcements->select_announcements($post_id);
-          $this->template->load('admin_template','view_adminannouncements_edit', $data);
+          $this->template->load('admin_template','view_adminannouncements_viewmore', $data);
     }
     else
     {
@@ -80,8 +80,8 @@ class admin_announcements extends MY_Controller{
   function post_announcements($userid)
   {
     $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-    $this->form_validation->set_rules('post_title','Announcement Title', 'required');
-    $this->form_validation->set_rules('post_content', 'Announcement Content', 'required');
+    $this->form_validation->set_rules('post_title','Announcement Title', 'trim|required');
+    $this->form_validation->set_rules('post_content', 'Announcement Content', 'trim|required');
 
     if ($this->form_validation->run($userid) == FALSE)
     {
@@ -146,21 +146,21 @@ class admin_announcements extends MY_Controller{
     }
   }
 
-  function edit_bulletin($post_id)
+  function viewmore_bulletin($post_id)
   {
     $data['select'] = $this->model_announcements->select_bulletin($post_id);
-    $this->template->load('admin_template', 'view_adminbulletin_edit', $data);
+    $this->template->load('admin_template', 'view_adminbulletin_viewmore', $data);
   }
 
   function save_bulletin($post_id)
   {
-    $this->form_validation->set_rules('post_title','Bulletin Title', 'required');
-    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'required');
+    $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
+    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
 
     if ($this->form_validation->run($post_id) == FALSE)
     {
           $data['select'] = $this->model_announcements->select_bulletin($post_id);
-          $this->template->load('admin_template','view_adminbulletin_edit', $data);
+          $this->template->load('admin_template','view_adminbulletin_viewmore', $data);
     }
     else
     {
@@ -175,8 +175,8 @@ class admin_announcements extends MY_Controller{
   function post_bulletin($userid)
   {
     $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-    $this->form_validation->set_rules('post_title','Bulletin Title', 'required');
-    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'required');
+    $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
+    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
 
     if ($this->form_validation->run($userid) == FALSE)
     {

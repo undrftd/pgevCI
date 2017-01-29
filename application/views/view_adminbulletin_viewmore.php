@@ -11,6 +11,8 @@
   <br>
 
     <div class="row">
+      
+      <fieldset id="myFieldset" disabled>
 
       <div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-2">
 
@@ -29,7 +31,6 @@
 
             <br>
 
-            <button type="submit" class="btn btn-custom">Save changes</button>
         </div>
 
         <br>
@@ -47,7 +48,14 @@
             <p> Current Bulletin: </p>
             <textarea class="form-control" id="user-message" placeholder="" name="post_content" rows="15"><?php echo $select->post_content; ?></textarea>
             <p class="error"> <?php echo form_error('post_content');  ?>
-              </form>
+               
+            </fieldset>
+            
+            <input class="btn btn-custom" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+            <button type="button" onclick="undisableField()" class="btn btn-custom" id="edit-button" undisabled>Edit</button>
+            </form>
+            
+
           </div>
         </div>
 

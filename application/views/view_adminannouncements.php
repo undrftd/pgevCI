@@ -59,11 +59,11 @@
               <?php foreach($order as $order): ?>
                   <h2> <?php echo $order->post_title ?> </h2>
 
-                  <p class="article-date"> Date Posted: <?php echo date('m/d/Y', strtotime($order->post_date)); ?> </p>
-                  <p> "<?php echo substr($order->post_content, 0, 400) ?>" </p>
+                  <p class="article-date"> Date Posted: <?php echo date('F d, Y', strtotime($order->post_date));?> </p>
+                  <p> "<?php echo substr($order->post_content, 0, 400); if(strlen($order->post_content) > 400) {echo "..."; } else { echo ""; } ?>" </p>
                   <br>
 
-                  <a href="<?php echo site_url() . "admin_announcements/edit_announcements/" . $order->post_id ?>"><button type="submit" class="btn btn-custom-2">Edit</button></a>
+                  <a href="<?php echo site_url() . "admin_announcements/viewmore_announcements/" . $order->post_id ?>"><button type="submit" class="btn btn-custom-2">View More</button></a>
 
                   <button type="submit" class="btn btn-custom-3" data-toggle="modal" data-href="<?php  echo base_url() . "admin_announcements/delete_announcements/" . $order->post_id ?>" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
 

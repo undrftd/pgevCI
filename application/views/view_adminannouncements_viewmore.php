@@ -9,14 +9,19 @@
   </div>
 
   <br>
+               
 
     <div class="row">
 
+    <fieldset id="myFieldset" disabled>
+    
       <div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-2">
 
         <div class="information">
+            
             <form action="<?php echo site_url() . "admin_announcements/save_announcements/" . $select->post_id; ?>" method="POST">
               <div class="form-group">
+
 
                 <p> Announcement Title </p>
                 <p class="error"> <?php echo form_error('post_title');  ?>
@@ -28,8 +33,6 @@
               </div>
 
             <br>
-
-            <button type="submit" class="btn btn-custom">Save changes</button>
         </div>
 
         <br>
@@ -47,7 +50,13 @@
             <p> Current Announcement: </p>
             <textarea class="form-control" id="user-message" placeholder="" name="post_content" rows="15"><?php echo $select->post_content; ?></textarea>
             <p class="error"> <?php echo form_error('post_content');  ?>
-              </form>
+            
+            </fieldset>
+              <input class="btn btn-custom" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+            <button type="button" onclick="undisableField()" class="btn btn-custom" id="edit-button">Edit</button>
+
+          </form>
+
           </div>
         </div>
 
