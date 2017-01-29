@@ -72,7 +72,7 @@
 
                     <h4><?php echo $row->post_title ?> </h4>
                     <p><?php echo date("F d, Y g:i A",$row->post_date);?> </p>
-                    <p class="date-posted"> <?php echo $row->firstname . " " . $row->lastname; ?> </p>
+                    <p class="date-posted"> <?php if($row->user_id == $this->session->userdata('userid')) { echo "You said: "; } else { echo $row->firstname . " " . $row->lastname; }?> </p>
                     <hr>
                     <p> <?php echo substr($row->post_content, 0, 250); if(strlen($row->post_content) > 250) {echo "..."; } else { echo ""; } ?> </p>
                     <hr>
