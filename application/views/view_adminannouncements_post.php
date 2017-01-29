@@ -20,7 +20,7 @@
         <div class="information">
 
               <div class="form-group">
-                <form action="<?php echo site_url() . "admin_announcements/post_announcements/" . $this->session->userdata('userid'); ?>" method="POST">
+                <form action="<?php echo site_url() . "admin_announcements/post_announcements_admin/"?>" method="POST">
 
                 <p>  Announcement Title </p>
                 <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?">
@@ -34,7 +34,7 @@
 
             <br>
 
-            <a href=""><button type="submit" class="btn btn-custom">Post</button></a>
+            <button type="submit" class="btn btn-custom">Post</button></a>
         </div>
 
         <br>

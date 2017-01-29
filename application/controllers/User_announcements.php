@@ -58,4 +58,9 @@ class User_announcements extends MY_Controller
       $data['order'] = $this->model_announcements_user->select_bulletin();
       $this->template->load('user_template','view_userbulletin',$data);
     }
+
+    function post_bulletin_admin()
+    {
+      $this->template->load('admin_template','view_adminbulletin_post');
+    }
 }

@@ -6,7 +6,7 @@
 
 
   <div class="header-style">
-    <h1> Post an Bulletin </h1>
+    <h1> Post a Bulletin </h1>
   </div>
 
   <br>
@@ -18,7 +18,7 @@
         <div class="information">
 
               <div class="form-group">
-                <form action="<?php echo site_url() . "admin_announcements/post_bulletin/" . $this->session->userdata('userid'); ?>" method="POST">
+                <form action="<?php echo site_url() . "admin_announcements/post_bulletin_admin/" . $this->session->userdata('userid'); ?>" method="POST">
 
                 <p>  Bulletin Title </p>
                 <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?">

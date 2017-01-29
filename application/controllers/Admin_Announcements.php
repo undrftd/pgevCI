@@ -31,7 +31,7 @@ class admin_announcements extends MY_Controller{
 
   }
 
-  function post_announcements_admin()
+  function post_announcements()
   {
     $this->template->load('admin_template','view_adminannouncements_post');
   }
@@ -77,16 +77,15 @@ class admin_announcements extends MY_Controller{
   }
 
 
-  function post_announcements($userid)
+  function post_announcements_admin()
   {
     $this->form_validation->set_error_delimiters('<div class="error">','</div>');
     $this->form_validation->set_rules('post_title','Announcement Title', 'trim|required');
     $this->form_validation->set_rules('post_content', 'Announcement Content', 'trim|required');
 
-    if ($this->form_validation->run($userid) == FALSE)
+    if ($this->form_validation->run() == FALSE)
     {
-          $this->template->load('admin_template','view_adminannouncements_post');
-
+      $this->template->load('admin_template','view_adminannouncements_post');
     }
     else
     {
@@ -126,7 +125,7 @@ class admin_announcements extends MY_Controller{
 
   }
 
-  function post_bulletin_admin()
+  function post_bulletin()
   {
     $this->template->load('admin_template','view_adminbulletin_post');
   }
@@ -172,16 +171,15 @@ class admin_announcements extends MY_Controller{
   }
 
 
-  function post_bulletin($userid)
+  function post_bulletin_admin()
   {
     $this->form_validation->set_error_delimiters('<div class="error">','</div>');
     $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
     $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
 
-    if ($this->form_validation->run($userid) == FALSE)
+    if ($this->form_validation->run() == FALSE)
     {
-          $this->template->load('admin_template','view_adminbulletin_post');
-
+      $this->template->load('admin_template','view_adminbulletin_post');
     }
     else
     {
