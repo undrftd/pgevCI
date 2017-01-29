@@ -23,12 +23,12 @@
           <ul class="nav nav-tabs">
 
             <li>
-                <a href="<?php echo base_url(); ?>User_Announcements/announcements">
+                <a href="<?php echo base_url(); ?>user_announcements/announcements">
                 Announcements </a>
             </li>
 
               <li class="active">
-              <a href="<?php echo base_url(); ?>User_bulletin/bulletin">
+              <a href="<?php echo base_url(); ?>user_announcements/bulletin">
               Bulletin </a>
             </li>
 

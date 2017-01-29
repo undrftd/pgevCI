@@ -19,14 +19,14 @@
         <div class="information">
 
               <div class="form-group">
-                <form action="<?php echo site_url() . "Admin_Bulletin/post_bulletin/" . $this->session->userdata('userid'); ?>" method="POST">
+                <form action="<?php echo site_url() . "admin_announcements/post_bulletin/" . $this->session->userdata('userid'); ?>" method="POST">
 
                 <p>  Bulletin Title </p>
                 <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?"><br>
                 <p class="error" > <?php echo form_error('post_title'); ?></p>
 
                 <p> Date </p>
-              <input class="form-control  "name="post_date" id="sel1" type="text" value="<?php $date = date('m/d/Y'); echo date('m/d/Y', strtotime($date)); ?>"readonly>
+              <input class="form-control" name="post_date" id="sel1" type="text" value="<?php $date = date('m/d/Y'); echo date('m/d/Y', strtotime($date)); ?>"readonly>
                 <p class="error" > <?php echo form_error('post_date'); ?> </p>
 
               </div>
@@ -49,7 +49,7 @@
         <div class="information">
             <div class="form-group">
             <p> Kindly put the details of your Bulletin here: </p>
-            <textarea class="form-control"name="post_content" id="user-message" placeholder="What do you want to say to the community?" rows="15"></textarea>
+            <textarea class="form-control" name="post_content" id="user-message" placeholder="What do you want to say to the community?" rows="15"></textarea>
             <p class="error" name="post_content"> <?php echo form_error('post_content'); ?></p>
                 </form>
 

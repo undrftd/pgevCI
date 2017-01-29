@@ -22,12 +22,12 @@
             <ul class="nav nav-tabs">
 
               <li class="active">
-                <a href="<?php echo base_url(); ?>User_Announcements/announcements">
+                <a href="<?php echo base_url(); ?>user_announcements/announcements">
               Announcements </a>
           </li>
 
           <li>
-            <a href="<?php echo base_url(); ?>User_bulletin/bulletin">
+            <a href="<?php echo base_url(); ?>user_announcements/bulletin">
             Bulletin </a>
 
 
@@ -39,16 +39,15 @@
 
               <div class="tab-pane fade in active" id="portlet_tab1">
                 <?php foreach($order as $row): ?>
-                <h2><?php echo $row->post_title ?></h2>
-                <p class="article-date"> Date Posted: <?php echo date('m/d/Y g:i A', strtotime($row->post_date));?> </p>
-                <p> "<?php echo $row->post_content ?>" </p>
-                <br>
-                <br>
+                  <h2><?php echo $row->post_title ?></h2>
+                  <p class="article-date"> Date Posted: <?php echo date('m/d/Y g:i A', strtotime($row->post_date));?> </p>
+                  <p> "<?php echo $row->post_content ?>" </p>
+                  <br>
+                  <br>
                 <?php endforeach; ?>
+
                 <center><div id="pagination-link"><?php echo $announcementslinks; ?></div></center>
-
-
-
+                
               </div>
 
 

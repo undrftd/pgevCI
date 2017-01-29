@@ -4,12 +4,8 @@
   <br>
   <br>
 
-
-
-
-
   <div class="header-style">
-    <h1> Edit announcement </h1>
+    <h1> Edit Bulletin </h1>
   </div>
 
   <br>
@@ -19,10 +15,10 @@
       <div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-2">
 
         <div class="information">
-            <form action="<?php echo site_url() . "Admin_Announcements/save_announcements/" . $select->post_id; ?>" method="POST">
+            <form action="<?php echo site_url() . "admin_announcements/save_bulletin/" . $select->post_id; ?>" method="POST">
               <div class="form-group">
 
-                <p> Announcement Title </p>
+                <p> Bulletin Title </p>
                 <p class="error"> <?php echo form_error('post_title');  ?>
                 <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo $select->post_title; ?>"><br>
                 <p> Date </p>
@@ -48,9 +44,8 @@
 
         <div class="information">
             <div class="form-group">
-            <p> Current Announcement: </p>
-            <textarea class="form-control" id="user-message" placeholder="" name="post_content" rows="15">
-            <?php echo $select->post_content ?> </textarea>
+            <p> Current Bulletin: </p>
+            <textarea class="form-control" id="user-message" placeholder="" name="post_content" rows="15"><?php echo $select->post_content; ?></textarea>
             <p class="error"> <?php echo form_error('post_content');  ?>
               </form>
           </div>
