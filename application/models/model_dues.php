@@ -65,7 +65,7 @@ class Model_dues extends CI_Model {
         }
     }
 
-     function url_check_admin($userid)
+    function url_check_admin($userid)
     {
         $query = $this->db->select('*')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts', 1);
         $row = $query->row();
