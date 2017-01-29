@@ -17,7 +17,7 @@
       <div class="announcement-message">
 
         <h4> <?php echo $latest->post_title; ?> </h4><hr>
-        <p> <?php echo date('F d, Y', strtotime($latest->post_date)); ?> <p>
+        <p> <?php echo date("F d, Y - g:i A",$latest->post_date);?> <p>
 
         <p> "<?php echo $latest->post_content; ?>" </p>
 

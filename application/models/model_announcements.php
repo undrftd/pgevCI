@@ -75,7 +75,7 @@ class Model_announcements extends CI_Model{
     $post_announncements = array(
     'user_id' => $this->session->userdata('userid'),
     'post_title' => $this->input->post('post_title'),
-    'post_date' =>  date('m/d/Y'),
+    'post_date' =>  time(),
     'post_content' => $this->input->post('post_content'),
     );
 
@@ -151,7 +151,7 @@ class Model_announcements extends CI_Model{
     $post_bulletin = array(
       'user_id' => $this->session->userdata('userid'),
       'post_title' => $this->input->post('post_title'),
-      'post_date' =>  date('m/d/Y'),
+      'post_date' =>  time(),
       'post_content' => $this->input->post('post_content'),
     );
 

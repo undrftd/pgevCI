@@ -41,7 +41,7 @@
               <div class="tab-pane fade in active" id="portlet_tab1">
                 <?php foreach($order as $row): ?>
                 <h2><?php echo $row->post_title ?></h2>
-                <p class="article-date"> Date Posted: <?php echo date('m/d/Y g:i A', strtotime($row->post_date));?> </p>
+                <p class="article-date"> Date Posted: <?php echo date("F d, Y g:i A",$row->post_date);?> </p>
                 <p> "<?php echo $row->post_content ?>" </p>
                 <br>
                 <br>

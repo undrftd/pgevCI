@@ -40,7 +40,7 @@
               <div class="tab-pane fade in active" id="portlet_tab1">
                 <?php foreach($order as $row): ?>
                   <h2><?php echo $row->post_title ?></h2>
-                  <p class="article-date"> Date Posted: <?php echo date('F d, Y', strtotime($row->post_date));?> </p>
+                  <p class="article-date"> Date Posted: <?php echo date("F d, Y g:i A",$row->post_date);?> </p>
                   <p> "<?php echo substr($row->post_content, 0, 400); if(strlen($row->post_content) > 400) {echo "..."; } else { echo ""; } ?>" </p>
                   <br>
                   <br>
