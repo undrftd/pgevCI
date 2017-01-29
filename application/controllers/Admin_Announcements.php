@@ -39,8 +39,8 @@ class admin_announcements extends MY_Controller{
   {
     if($this->model_announcements->url_check_post_id($post_id))
     {
-
       $this->model_announcements->delete_announcements($post_id);
+      $this->session->set_flashdata('announcementfeedback', 'You have successfully deleted the announcement.');
       redirect('admin_announcements/announcements');
     }
     else
@@ -63,13 +63,14 @@ class admin_announcements extends MY_Controller{
 
     if ($this->form_validation->run($post_id) == FALSE)
     {
-          $data['select'] = $this->model_announcements->select_announcements($post_id);
-          $this->template->load('admin_template','view_adminannouncements_viewmore', $data);
+      $data['select'] = $this->model_announcements->select_announcements($post_id);
+      $this->template->load('admin_template','view_adminannouncements_viewmore', $data);
     }
     else
     {
       if($query = $this->model_announcements->save_announcements($post_id))
       {
+        $this->session->set_flashdata('announcementfeedback', 'You have successfully updated the announcement.');
         redirect('admin_announcements/announcements');
       }
     }
@@ -90,6 +91,7 @@ class admin_announcements extends MY_Controller{
     {
       if($query = $this->model_announcements->post_announcements($userid))
       {
+        $this->session->set_flashdata('announcementfeedback', 'You have successfully posted an announcement.');
         redirect('admin_announcements/announcements');
       }
     }
@@ -133,13 +135,12 @@ class admin_announcements extends MY_Controller{
   {
     if($this->model_announcements->url_check_post_id($post_id))
     {
-
       $this->model_announcements->delete_bulletin($post_id);
+      $this->session->set_flashdata('bulletinfeedback', 'You have successfully deleted the bulletin.');
       redirect('admin_announcements/bulletin');
     }
     else
     {
-
       redirect('admin_announcements/bulletin');
     }
   }
@@ -157,13 +158,14 @@ class admin_announcements extends MY_Controller{
 
     if ($this->form_validation->run($post_id) == FALSE)
     {
-          $data['select'] = $this->model_announcements->select_bulletin($post_id);
-          $this->template->load('admin_template','view_adminbulletin_viewmore', $data);
+      $data['select'] = $this->model_announcements->select_bulletin($post_id);
+      $this->template->load('admin_template','view_adminbulletin_viewmore', $data);
     }
     else
     {
       if($query = $this->model_announcements->save_bulletin($post_id))
       {
+        $this->session->set_flashdata('bulletinfeedback', 'You have successfully updated the bulletin.');
         redirect('admin_announcements/bulletin');
       }
     }
@@ -184,6 +186,7 @@ class admin_announcements extends MY_Controller{
     {
       if($query = $this->model_announcements->post_bulletin($userid))
       {
+        $this->session->set_flashdata('bulletinfeedback', 'You have successfully posted a bulletin.');
         redirect('admin_announcements/bulletin');
       }
     }
