@@ -73,3 +73,12 @@ $(function () {
     });
     $('#datetimepicker1').datetimepicker('showClear', true);
 });
+
+$(function () {
+  $('#datetimepicker4').datetimepicker({
+    format: 'MM-DD-YYYY'
+  });
+  $('#datetimepicker4').datetimepicker('showClear', true);
+});
+
+$('<div class="box-wrap clearfix"></div>').insertAfter('.box');

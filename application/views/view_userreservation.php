@@ -119,7 +119,7 @@
 
                 </div>	";
                 $date = date ("F d, Y", strtotime("+1 day", strtotime($date)));
-  
+
 	}
 
 ?>
