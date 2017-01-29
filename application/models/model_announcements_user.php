@@ -57,4 +57,30 @@ class Model_announcements_user extends CI_Model
 	    return $post;
   	}
 
+  	function countuser_search($searchquery)
+    {
+         $query = $this->db->select('*')
+                            ->from('announcements')
+                            ->where('post_date', human_to_unix($searchquery))
+                            ->get(); 
+         return $query->num_rows();
+    }
+
+  	function search_announcements($searchquery)
+    {
+      $this->db->select('*')->from('announcements');
+      $this->db->where('post_date', human_to_unix($searchquery));
+      $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+
+    }
+
 }
