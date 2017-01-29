@@ -14,16 +14,7 @@
 
       <br>
 
-<<<<<<< HEAD
       <div class="information">
-=======
-                <p> Bulletin Title </p>
-                <p class="error"> <?php echo form_error('post_title');  ?>
-                <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo $select->post_title; ?>"><br>
-                <p> Date </p>
-                <p class="error"> <?php echo form_error('post_date');  ?>
-                <input class="form-control" id="sel1" type="text" name="post_date" value="<?php echo date('F d, Y', $select->post_date) ?>" readonly>
->>>>>>> 3c40d6d6bdc6fba0fa92149815fce366820343e2
 
         <form action="<?php echo site_url() . "admin_announcements/save_bulletin/" . $select->post_id; ?>" method="POST">
 
@@ -53,13 +44,13 @@
 
         </form>
 
-              <button type="button" onclick="undisableField()" class="btn btn-custom-5" id="edit-button" undisabled>Edit</button>
+              <button type="button" onclick="undisableField()" class="btn btn-custom-5" id="edit-button">Edit</button>
 
             </div>
 
           <br>
 
-        </div>
+      </div>
 
       <br>
       <br>

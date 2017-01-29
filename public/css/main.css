@@ -660,6 +660,7 @@ h1 {
   transition: all 0.4s ease-in-out;
   padding: 15px 15px;
   font-family: 'Rubik', sans-serif;
+  line-height: 30px;
 }
 
 #sel1:focus, #user-name:focus, #user-password:focus, #sum:focus, #user-message:focus {
