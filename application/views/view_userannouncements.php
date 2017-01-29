@@ -62,7 +62,7 @@
                   <div class="information-1">
 
                     <h4><?php echo $row->post_title ?> </h4>
-                    <p> <?php echo date("F d, Y g:i A",$row->post_date);?> </p>
+                    <p> <?php echo date("F d, Y", strtotime($row->post_date)) . " " . date("g:i A", $row->post_time);?> </p>
                     <hr>
                     <p> <?php echo substr($row->post_content, 0, 300); if(strlen($row->post_content) > 300) {echo "..."; } else { echo ""; } ?> </p>
                     <hr>

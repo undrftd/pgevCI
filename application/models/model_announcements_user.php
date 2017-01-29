@@ -49,12 +49,64 @@ class Model_announcements_user extends CI_Model
 	    $post_bulletin = array(
 	      'user_id' => $this->session->userdata('userid'),
 	      'post_title' => $this->input->post('post_title'),
-	      'post_date' =>  time(),
+	      'post_date' =>  date('m/d/Y'),
+     	  'post_time' => time(),
 	      'post_content' => $this->input->post('post_content'),
 	    );
 
 	    $post = $this->db->insert('bulletin', $post_bulletin);
 	    return $post;
   	}
+
+  	function countannouncement_search($searchquery)
+    {
+         $query = $this->db->select('*')
+                            ->from('announcements')
+                            ->where('post_date LIKE "%'.$searchquery .'%"',NULL,FALSE)->get(); 
+         return $query->num_rows();
+    }
+
+    function search_announcement($searchquery)
+    {
+      $this->db->select('*')->from('announcements');
+      $this->db->where('post_date LIKE "%'.$searchquery .'%"',NULL,FALSE);
+      $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+
+    }
+
+    function countbulletin_search($searchquery)
+    {
+         $query = $this->db->select('*')
+                            ->from('bulletin')
+                            ->where('post_date LIKE "%'.$searchquery .'%"',NULL,FALSE)->get(); 
+         return $query->num_rows();
+    }
+
+    function search_bulletin($searchquery)
+    {
+      $this->db->select('*')->from('bulletin');
+      $this->db->join('accounts', 'accounts.userid = bulletin.user_id');
+      $this->db->where('post_date LIKE "%'.$searchquery .'%"',NULL,FALSE);
+      $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return $query->result();
+        }
+
+    }
 
 }

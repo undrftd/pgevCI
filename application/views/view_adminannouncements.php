@@ -97,7 +97,7 @@
                 <div class="information-1">
 
                   <h4><?php echo $row->post_title; ?> </h4>
-                  <p><?php echo $row->post_date; ?> </p>
+                  <p><?php echo date("F d, Y", strtotime($row->post_date)) . " " . date("g:i A", $row->post_time);?> </p>
                   <hr>
                   <p> <?php echo substr($row->post_content, 0, 250); if(strlen($row->post_content) > 250) {echo "..."; } else { echo ""; } ?> </p>
                   <hr>

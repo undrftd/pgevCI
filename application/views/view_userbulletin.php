@@ -12,14 +12,15 @@
 
     <div class="portlet-header">
 
+      <form action="<?php echo base_url(); ?>user_announcements/search_bulletin" method="GET">
       <div id="search-group">
 
-        <input id='datetimepicker4' type='text' class="form-control" placeholder="Search for a bulletin">
+        <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Search for a bulletin">
           <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
         </input>
 
       </div>
-
+      </form>
     </div>
 
     <br><br>
@@ -71,8 +72,8 @@
                   <div class="information-1">
 
                     <h4><?php echo $row->post_title ?> </h4>
-                    <p><?php echo date("F d, Y g:i A",$row->post_date);?> </p>
-                    <p class="date-posted"> <?php if($row->user_id == $this->session->userdata('userid')) { echo "You said: "; } else { echo $row->firstname . " " . $row->lastname; }?> </p>
+                    <p><?php echo date("F d, Y", strtotime($row->post_date)) . " " . date("g:i A", $row->post_time);?> </p>
+                    <p class="date-posted"> <?php if($row->user_id == $this->session->userdata('userid')) { echo "You said "; } else { echo $row->firstname . " " . $row->lastname .  " said"; }?> </p>
                     <hr>
                     <p> <?php echo substr($row->post_content, 0, 250); if(strlen($row->post_content) > 250) {echo "..."; } else { echo ""; } ?> </p>
                     <hr>
