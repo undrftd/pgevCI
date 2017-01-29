@@ -35,7 +35,15 @@ class Model_announcements extends CI_Model{
   function get_latestannouncement()
   {
     $query = $this->db->select('*')->order_by('post_id',"desc")->get('announcements', 1);
-    return $query->row();
+    
+    if($query->num_rows() > 0)
+    {
+      return $query->row();
+    }
+    else
+    {
+      return FALSE;
+    }
   }
 
   function save_announcements($post_id)
