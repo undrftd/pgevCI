@@ -109,7 +109,7 @@ class Model_announcements extends CI_Model{
   function bulletin($limit, $offset)
   {
     $this->db->limit($limit,$offset);
-    $posted_bulletin = $this->db->select('*')->from('bulletin')->order_by('post_id', 'DESC')->get();
+    $posted_bulletin = $this->db->select('*')->from('bulletin')->join('accounts', 'accounts.userid = bulletin.user_id' )->order_by('post_id', 'DESC')->get();
 
 
     if($posted_bulletin->num_rows() > 0)

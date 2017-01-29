@@ -62,6 +62,8 @@
                 <h2> <?php echo $order->post_title ?> </h2>
 
                 <p class="article-date"> Date Posted: <?php echo date("F d, Y g:i A",$order->post_date);?> </p>
+                <p> Posted by: <?php echo $order->firstname . " " . $order->lastname; ?> </p> <br>
+
                 <p>"<?php echo substr($order->post_content, 0, 400); if(strlen($order->post_content) > 400) {echo "..."; } else { echo ""; } ?>"</p>
                 <br>
 

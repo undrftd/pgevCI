@@ -18,7 +18,7 @@
         <div class="information">
 
               <div class="form-group">
-                <form action="<?php echo site_url() . "admin_announcements/post_bulletin_admin/" ?>" method="POST">
+                <form action="<?php echo site_url() . "user_announcements/post_bulletin_user/" ?>" method="POST">
 
                 <p>  Bulletin Title </p>
                 <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?">

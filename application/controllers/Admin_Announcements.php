@@ -98,7 +98,7 @@ class admin_announcements extends MY_Controller{
 
   function bulletin()
   {
-    $config['base_url'] = site_url('admin_bulletin/bulletin');
+    $config['base_url'] = site_url('admin_announcements/bulletin');
     $config['total_rows'] = $this->model_announcements->count_bulletin();
     $config['per_page'] =  5;
     $config['num_links'] = 1;

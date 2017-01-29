@@ -2,8 +2,9 @@
 
 class Model_announcements_user extends CI_Model
 {
-	function select_announcements()
-	{
+	function select_announcements($limit, $offset)
+    {
+    	$this->db->limit($limit, $offset);
 		$query = $this->db->select('*')->from('announcements')->order_by('post_id', 'desc')->get();
 
 		if($query->num_rows() > 0)
@@ -22,9 +23,10 @@ class Model_announcements_user extends CI_Model
     	return $query->num_rows();
   	}
 
-  	function select_bulletin()
+  	function select_bulletin($limit, $offset)
 	{
-		$query = $this->db->select('*')->from('bulletin')->order_by('post_id', 'desc')->get();
+		$this->db->limit($limit, $offset);
+		$query = $this->db->select('*')->from('bulletin')->join('accounts', 'accounts.userid = bulletin.user_id' )->order_by('post_id', 'desc')->get();
 
 		if($query->num_rows() > 0)
 		{
@@ -41,5 +43,18 @@ class Model_announcements_user extends CI_Model
 		$query = $this->db->select('*')->from('bulletin')->get();
 		return $query->num_rows();
 	}
+
+	function post_bulletin()
+  	{
+	    $post_bulletin = array(
+	      'user_id' => $this->session->userdata('userid'),
+	      'post_title' => $this->input->post('post_title'),
+	      'post_date' =>  time(),
+	      'post_content' => $this->input->post('post_content'),
+	    );
+
+	    $post = $this->db->insert('bulletin', $post_bulletin);
+	    return $post;
+  	}
 
 }

@@ -40,11 +40,12 @@
 
               <div class="tab-pane fade in active" id="portlet_tab1">
               <br>
-              <a href="<?php echo site_url(); ?>admin_announcements/post_bulletin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
+              <a href="<?php echo site_url(); ?>user_announcements/post_bulletin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
 
                 <?php foreach($order as $row): ?>
                 <h2><?php echo $row->post_title ?></h2>
                 <p class="article-date"> Date Posted: <?php echo date("F d, Y g:i A",$row->post_date);?> </p>
+                <p> Posted by: <?php echo $row->firstname . " " . $row->lastname; ?> </p> <br>
                 <p> "<?php echo $row->post_content ?>" </p>
                 <br>
                 <br>
