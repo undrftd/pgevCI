@@ -1,9 +1,10 @@
 <div id="page-content-wrapper">
 
+  <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+  <br>
+  <br>
 
-  <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</a>
 
-  <br><br><br>
 
 
   <div class="header-style">

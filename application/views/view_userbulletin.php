@@ -5,7 +5,7 @@
   <br><br><br>
 
   <div class="header-style">
-    <h1> Announcements </h1>
+    <h1> Bulletin </h1>
   </div>
 
   <br>
@@ -19,17 +19,18 @@
           <div class="portlet-title">
 
 
-            <ul class="nav nav-tabs">
+
+          <ul class="nav nav-tabs">
+
+            <li>
+                <a href="<?php echo base_url(); ?>User_Announcements/announcements">
+                Announcements </a>
+            </li>
 
               <li class="active">
-                <a href="<?php echo base_url(); ?>User_Announcements/announcements">
-              Announcements </a>
-          </li>
-
-          <li>
-            <a href="<?php echo base_url(); ?>User_bulletin/bulletin">
-            Bulletin </a>
-
+              <a href="<?php echo base_url(); ?>User_bulletin/bulletin">
+              Bulletin </a>
+            </li>
 
           </div>
 
@@ -45,18 +46,19 @@
                 <br>
                 <br>
                 <?php endforeach; ?>
-                <center><div id="pagination-link"><?php echo $announcementslinks; ?></div></center>
-
+                <center><div id="pagination-link"><?php echo $bulletinlinks; ?></div></center>
 
 
               </div>
 
 
-                <br>
-                <br>
+
                 <br>
 
+              
 
+                <br>
+                <br>
 
 
             </div>

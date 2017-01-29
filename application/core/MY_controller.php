@@ -19,6 +19,7 @@ class MY_Controller extends CI_Controller
         $this->load->model('model_announcements');
         $this->load->model('model_bulletin');
         $this->load->model('model_announcements_user');
+        $this->load->model('model_bulletin_user');
         $this->load->model('model_audit');
     }
 

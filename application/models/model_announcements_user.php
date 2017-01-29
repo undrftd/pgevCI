@@ -1,10 +1,25 @@
 <?php
 
-  class model_announcements_user extends CI_Model
+class Model_announcements_user extends CI_Model
+{
+	function select_announcements()
+	{
+		$query = $this->db->select('*')->from('announcements')->get();
+
+		if($query->num_rows() > 0)
+		{
+	    	return $query->result();
+		}
+		else
+		{
+	    	return $query->result();
+		}
+	}
+
+	function count_announcements()
   {
-      function select_ann($post_id)
-      {
-      $query = $this->db->select('*')->where('post_id',$post_id)->get('announcements',1);
-        return $query->row();
-      }
+    $query = $this->db->select('*')->from('announcements')->get();
+    return $query->num_rows();
   }
+
+}
