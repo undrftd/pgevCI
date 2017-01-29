@@ -4,68 +4,59 @@
 
   <br><br><br>
 
-  <div class="header-style">
-    <h1> Edit announcement </h1>
-  </div>
+  <div class="row">
 
-  <br>
-               
+    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 nopadding">
 
-    <div class="row">
-
-    <fieldset id="myFieldset" disabled>
-    
-      <div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-2">
-
-        <div class="information">
-            
-            <form action="<?php echo site_url() . "admin_announcements/save_announcements/" . $select->post_id; ?>" method="POST">
-              <div class="form-group">
-
-
-                <p> Announcement Title </p>
-                <p class="error"> <?php echo form_error('post_title');  ?>
-                <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo $select->post_title; ?>"><br>
-                <p> Date </p>
-                <p class="error"> <?php echo form_error('post_date');  ?>
-                <input class="form-control" id="sel1" type="text" name="post_date" value="<?php echo $select->post_date ?>" readonly>
-
-              </div>
-
-            <br>
-        </div>
-
-        <br>
-        <br>
-
+      <div class="header-style">
+        <h1> Edit announcement </h1>
       </div>
 
-      <div class="clearfix visible-md-block"></div>
-      <div class="clearfix visible-sm-block"></div>
+      <br>
 
-      <div class="col-xs-12 col-sm-12 col-md-5">
+      <div class="information">
 
-        <div class="information">
+        <form action="<?php echo site_url() . "admin_announcements/save_announcements/" . $select->post_id; ?>" method="POST">
+
+          <fieldset id="myFieldset" disabled>
+
             <div class="form-group">
-            <p> Current Announcement: </p>
-            <textarea class="form-control" id="user-message" placeholder="" name="post_content" rows="15"><?php echo $select->post_content; ?></textarea>
-            <p class="error"> <?php echo form_error('post_content');  ?>
-            
-            </fieldset>
-              <input class="btn btn-custom" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
-            <button type="button" onclick="undisableField()" class="btn btn-custom" id="edit-button">Edit</button>
 
-          </form>
+              <p> Announcement Title </p>
+              <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo $select->post_title; ?>">
+              <p class="error"> <?php echo form_error('post_title');  ?>
+              <br>
 
-          </div>
-        </div>
+              <p> Date </p>
+              <input class="form-control" id="sel1" type="text" name="post_date" value="<?php echo $select->post_date ?>" readonly>
+              <p class="error"> <?php echo form_error('post_date');  ?>
+              <br>
+
+              <p> Current Announcement: </p>
+              <textarea class="form-control" id="user-message" placeholder="" name="post_content" rows="15"><?php echo $select->post_content; ?></textarea>
+              <p class="error"> <?php echo form_error('post_content');  ?>
+
+              <br><br>
+
+          </fieldset>
+
+              <input class="btn btn-custom-5" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+
+        </form>
+
+            <button type="button" onclick="undisableField()" class="btn btn-custom-5" id="edit-button">Edit</button>
+
+            </div>
+
+          <br>
 
       </div>
 
+      <br>
+      <br>
 
     </div>
-  </div>
 
-</div>
+  </div>
 
 </div>
