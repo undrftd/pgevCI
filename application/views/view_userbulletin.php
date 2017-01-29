@@ -2,7 +2,7 @@
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-  <br><br><br>
+  <br><br>
 
   <div class="header-style">
     <h1> Bulletin </h1>
@@ -39,6 +39,9 @@
             <div class="tab-content">
 
               <div class="tab-pane fade in active" id="portlet_tab1">
+              <br>
+              <a href="<?php echo site_url(); ?>admin_announcements/post_bulletin_admin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
+
                 <?php foreach($order as $row): ?>
                 <h2><?php echo $row->post_title ?></h2>
                 <p class="article-date"> Date Posted: <?php echo date("F d, Y g:i A",$row->post_date);?> </p>

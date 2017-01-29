@@ -70,7 +70,7 @@
             else
             {
               echo "0";
-            }  ?> unpaid dues. To proper monitor your outstanding dues and arrears, click the button below.</p>
+            }  ?> unpaid dues. To properly monitor your outstanding dues and arrears, click the button below.</p>
         <br>
         <a href="<?php echo site_url("user_dues"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
 
