@@ -40,7 +40,7 @@
 
       <div id="search-group">
 
-        <input id='datetimepicker4' type='text' class="form-control" placeholder="Search for a bulletin">
+        <input id='datetimepicker4' type='text' class="form-control" placeholder="Search for an announcement">
           <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
         </input>
 
@@ -96,8 +96,8 @@
 
                 <div class="information-1">
 
-                  <h4><?php echo $row->post_title ?> </h4>
-                  <p><?php echo date("F d, Y g:i A",$row->post_date);?> </p>
+                  <h4><?php echo $row->post_title; ?> </h4>
+                  <p><?php echo $row->post_date; ?> </p>
                   <hr>
                   <p> <?php echo substr($row->post_content, 0, 250); if(strlen($row->post_content) > 250) {echo "..."; } else { echo ""; } ?> </p>
                   <hr>

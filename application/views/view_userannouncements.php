@@ -15,7 +15,7 @@
       <form action="<?php echo base_url(); ?>user_announcements/search_announcement" method="GET">
       <div id="search-group">
 
-        <input type='text' name="search" class="form-control" placeholder="Search for an announcement">
+        <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Search for an announcement">
           <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
         </input>
 

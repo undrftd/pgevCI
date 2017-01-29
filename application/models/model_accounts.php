@@ -213,7 +213,6 @@ class Model_accounts extends CI_Model {
       $this->db->where('(role = 0 AND isActive = 1)',NULL,FALSE);
       $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
-      print_r($this->db->last_query());
 
         if($query->num_rows() > 0)
         {
