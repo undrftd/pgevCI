@@ -28,7 +28,7 @@
                 <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo $select->post_title; ?>"><br>
                 <p> Date </p>
                 <p class="error"> <?php echo form_error('post_date');  ?>
-                <input class="form-control" id="sel1" type="text" name="post_date" value="<?php echo $select->post_date ?>" readonly>
+                <input class="form-control" id="sel1" type="text" name="post_date" value="<?php echo date('F d, Y', $select->post_date) ?>" readonly>
 
               </div>
 
