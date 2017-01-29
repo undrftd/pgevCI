@@ -11,15 +11,16 @@
   <div class="portlet">
 
     <div class="portlet-header">
-
+      
+      <form action="<?php echo base_url(); ?>user_announcements/search_announcement" method="GET">
       <div id="search-group">
 
-        <input id='datetimepicker4' type='text' class="form-control" placeholder="Search for an announcement">
+        <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Search for an announcement">
           <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
         </input>
 
       </div>
-
+      </form>
     </div>
 
     <br><br>

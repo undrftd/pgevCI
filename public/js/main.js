@@ -69,14 +69,14 @@ function myFunction() {
 
 $(function () {
     $('#datetimepicker1').datetimepicker({
-      format: 'MM-DD-YYYY LT'
+      format: 'MM/DD/YYYY LT'
     });
     $('#datetimepicker1').datetimepicker('showClear', true);
 });
 
 $(function () {
   $('#datetimepicker4').datetimepicker({
-    format: 'MM-DD-YYYY'
+    format: 'MM/DD/YYYY'
   });
   $('#datetimepicker4').datetimepicker('showClear', true);
 });
