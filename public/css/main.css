@@ -147,6 +147,35 @@ h1 {
   opacity: 1;
 }
 
+.information-add {
+  padding: 25px;
+  background: white;
+  font-size: 1em;
+  -webkit-box-shadow: 0px 3px 0px 0px #e6e6e6;
+  -moz-box-shadow: 0px 3px 0px 0px #e6e6e6;
+  box-shadow: 0px 3px 0px 0px #e6e6e6;
+  width: 100%;
+  margin-bottom: 30px;
+  border: 2px solid #e6e6e6;
+  border-radius: 2px;
+  transition: all 0.4s ease-in-out;
+  height: 200px;
+  color: #808080;
+  cursor: pointer;
+}
+
+.information-add a {
+  position: relative;
+  top: 38%;
+  transform: translateY(20%);
+  font-family: 'Rubik', sans-serif;
+  display: block;
+}
+
+.information-add:hover {
+  border: 2px solid #27ae60;
+  box-shadow: none;
+}
 
 /* Sidebar Styles */
 
@@ -538,11 +567,12 @@ h1 {
 
 .announcement-message .date-posted {
   line-height: 20px;
-  font-style: italic;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.1em;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1em;
   color: #27ae60;
   font-weight: 400;
+  float: left;
+  padding-right: 10px;
 }
 
 #page-content-wrapper .a-links {
@@ -781,7 +811,7 @@ h1 {
   width: 100%;
   margin-bottom: 20px;
   margin-top: 20px;
-  height: 260px;
+  height: 250px;
   transition: all 0.3s ease-in-out;
   opacity: 0.8;
   border-radius: 2px;

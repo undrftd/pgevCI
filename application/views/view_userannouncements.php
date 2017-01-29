@@ -56,12 +56,12 @@
 
               <?php foreach($order as $row): ?>
 
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 box">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 box nopadding">
 
                   <div class="information-1">
 
                     <h4><?php echo $row->post_title ?> </h4>
-                    <p class="date-posted"> <?php echo date("F d, Y g:i A",$row->post_date);?> </p>
+                    <p> <?php echo date("F d, Y g:i A",$row->post_date);?> </p>
                     <hr>
                     <p> <?php echo substr($row->post_content, 0, 300); if(strlen($row->post_content) > 300) {echo "..."; } else { echo ""; } ?> </p>
                     <hr>

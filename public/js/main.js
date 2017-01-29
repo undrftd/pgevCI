@@ -82,3 +82,8 @@ $(function () {
 });
 
 $('<div class="box-wrap clearfix"></div>').insertAfter('.box');
+
+$(".information-add").click(function() {
+  window.location = $(this).find("a").attr("href");
+  return false;
+});

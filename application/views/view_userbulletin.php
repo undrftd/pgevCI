@@ -2,104 +2,107 @@
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-  <br><br>
+  <br><br><br>
 
   <div class="header-style">
     <h1> Bulletin </h1>
   </div>
 
-  <br>
+  <div class="portlet">
 
-    <div class="row">
+    <div class="portlet-header">
 
-      <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-2">
+      <div id="search-group">
 
-        <div class="portlet">
+        <input id='datetimepicker4' type='text' class="form-control" placeholder="Search for a bulletin">
+          <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        </input>
 
-          <div class="portlet-title">
+      </div>
 
+    </div>
 
+    <br><br>
 
-          <ul class="nav nav-tabs">
+    <div class="portlet-title">
 
-            <li>
-                <a href="<?php echo base_url(); ?>user_announcements/announcements">
-                Announcements </a>
-            </li>
+      <ul class="nav nav-tabs">
 
-              <li class="active">
-              <a href="<?php echo base_url(); ?>user_announcements/bulletin">
-              Bulletin </a>
-            </li>
+        <li>
+          <a href="<?php echo base_url(); ?>user_announcements/announcements">
+        Announcements </a>
+        </li>
 
-          </div>
+        <li class="active">
+          <a href="<?php echo base_url(); ?>user_announcements/bulletin">
+          Bulletin </a>
+        </li>
 
-          <div class="portlet-body">
+      </ul>
 
-            <div class="tab-content">
+    </div>
 
-              <div class="tab-pane fade in active" id="portlet_tab1">
-              <br>
-              <a href="<?php echo site_url(); ?>user_announcements/post_bulletin"><button type="button" class="btn btn-custom-1">+ Post a new one</button></a><br>
+    <div class="portlet-body">
 
-                <?php foreach($order as $row): ?>
-                <h2><?php echo $row->post_title ?></h2>
-                <p class="article-date"> Date Posted: <?php echo date("F d, Y g:i A",$row->post_date);?> </p>
-                <p> Posted by: <?php echo $row->firstname . " " . $row->lastname; ?> </p> <br>
-                <p> "<?php echo $row->post_content ?>" </p>
-                <br>
-                <br>
-                <?php endforeach; ?>
-                <center><div id="pagination-link"><?php echo $bulletinlinks; ?></div></center>
+      <div class="tab-content">
 
+        <div class="tab-pane fade in active">
+
+          <div class="announcement-message">
+
+            <br>
+
+            <div class="row the-list">
+
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 box nopadding">
+
+                <div class="information-add text-center">
+
+                  <a href="<?php echo site_url(); ?>user_announcements/post_bulletin">+ &nbsp;Post a new one</a>
+
+                </div>
 
               </div>
 
+              <?php foreach($order as $row): ?>
 
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 box nopadding">
 
-                <br>
+                  <div class="information-1">
 
-              
+                    <h4><?php echo $row->post_title ?> </h4>
+                    <p><?php echo date("F d, Y g:i A",$row->post_date);?> </p>
+                    <p class="date-posted"> <?php echo $row->firstname . " " . $row->lastname; ?> </p>
+                    <hr>
+                    <p> <?php echo substr($row->post_content, 0, 250); if(strlen($row->post_content) > 250) {echo "..."; } else { echo ""; } ?> </p>
+                    <hr>
 
-                <br>
-                <br>
+                    <div class="more-link">
 
+                      <p>Read More<span class="glyphicon glyphicon-chevron-right btn-sm" aria-hidden="true"></span></p>
+
+                    </div>
+
+                  </div>
+
+              </div>
+
+              <div class="box-wrap clearfix"></div>
+
+            <?php endforeach; ?>
 
             </div>
 
+            <center><div id="pagination-link"><?php echo $bulletinlinks; ?></div></center>
+
           </div>
 
         </div>
 
       </div>
-
-      <div class="clearfix visible-md-block"></div>
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-xs-12 col-sm-12 col-md-3">
-
-        <div class="information">
-            <p> Browse by date </p>
-            <div class="form-group">
-            <div class='input-group date' id='datetimepicker1'>
-                            <input id="sel1" name ="datepick" type='text' class="form-control" placeholder="Click the calendar button to select a time and date"/>
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                          </div>
-
-          </div>
-            <a href="">
-            <button type="submit" class="btn btn-custom">View</button>
-            </a>
-        </div>
-
-      </div>
-
 
     </div>
-  </div>
 
-</div>
+  </div>
 
 </div>
