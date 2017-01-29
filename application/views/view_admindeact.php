@@ -1,35 +1,27 @@
 <br>
-<br>
-<div class="row">
 
-  <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
+<div class="user-deact">
 
-    <div class="header-style text-center">
-      <h1> Admin Account Deactivated </h1>
-    </div>
+  <div class="row">
 
-    <hr class="row-hr">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 
-    <br>
+      <div class="announcement-message">
 
-    <div class="admin-message text-center">
+        <h4> Admin Account Deactivated </h4>
+
+        <hr>
 
         <p> This administrator account has been deactivated. Coordinate with other administrators for reactivation.</p>
 
+      </div>
+
+      <br>
+
+      <a href="<?php echo base_url(); ?>login/signout"><button type="button" class="btn btn-custom-1">Back to Sign In</button></a>
+
     </div>
 
-    <br>
-
   </div>
-
-  <div class="clearfix visible-md-block"></div>
-  <div class="clearfix visible-sm-block"></div>
-
-  <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
-    
-    <a href="<?php echo base_url(); ?>login/signout"><button type="button" class="btn btn-custom-5">Back to Sign In</button></a>
-
-  </div>
-
 
 </div>
