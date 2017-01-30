@@ -193,7 +193,7 @@ class User_announcements extends MY_Controller
   {
     if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
-      $data['select'] = $this->model_announcements_user->select_bulletin($post_id);
+      $data['select'] = $this->model_announcements_user->get_bulletin($post_id);
       $this->template->load('user_template', 'view_userbulletin_edit', $data);
     }
     else
@@ -202,6 +202,35 @@ class User_announcements extends MY_Controller
       redirect('user_announcements/bulletin');
     }
   }
+
+  function save_bulletin($post_id)
+  {
+    if($this->model_announcements_user->url_check_bulletin($post_id))
+    {
+      $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
+      $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
+
+      if ($this->form_validation->run($post_id) == FALSE)
+      {
+        $data['select'] = $this->model_announcements_user->get_bulletin($post_id);
+        $this->template->load('user_template','view_userbulletin_edit', $data);
+      }
+      else
+      {
+        if($query = $this->model_announcements_user->save_bulletin($post_id))
+        {
+          $this->session->set_flashdata('bulletinfeedback', 'You have successfully updated the bulletin.');
+          redirect('user_announcements/bulletin');
+        }
+      }
+    }
+    else
+    {
+      $this->session->set_flashdata('bulletinfail', 'You cannot save a non-existent bulletin.');
+      redirect('user_announcements/bulletin');
+    }
+  }
+
 
   function delete_bulletin($post_id)
   {

@@ -129,8 +129,11 @@ class Model_announcements extends CI_Model{
   function save_bulletin($post_id)
   {
     $edit_bulletin = array(
+    'user_id' => $this->session->userdata('userid'),
     'post_title' => $this->input->post('post_title'),
     'post_content' => $this->input->post('post_content'),
+    'post_date' =>  date('m/d/Y'),
+    'post_time' => time(),
     );
     $this->db->where('post_id', $post_id);
     $edit = $this->db->update('bulletin', $edit_bulletin);

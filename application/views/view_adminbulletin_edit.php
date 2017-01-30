@@ -28,7 +28,7 @@
               <br>
 
               <p> Date </p>
-              <input class="form-control" id="sel1" type="text" name="post_date" value="<?php echo $select->post_date ?>" readonly>
+              <input class="form-control" id="sel1" type="text" name="post_date" value="<?php echo date('F d, Y', strtotime($select->post_date)); ?>" readonly>
               <p class="error"> <?php echo form_error('post_date');  ?>
               <br>
 
