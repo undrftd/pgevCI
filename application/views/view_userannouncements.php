@@ -69,7 +69,7 @@
 
                     <div class="more-link">
 
-                      <p>Read More<span class="glyphicon glyphicon-chevron-right btn-sm" aria-hidden="true"></span></p>
+                      <a href="<?php echo site_url() . "user_announcements/viewmore_announcement/" . $row->post_id; ?>"><p>Read More<span class="glyphicon glyphicon-chevron-right btn-sm" aria-hidden="true"></span></p></a>
 
                     </div>
 

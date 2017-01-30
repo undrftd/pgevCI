@@ -160,5 +160,11 @@ class User_announcements extends MY_Controller
     }
   }
 
+  function viewmore_announcement($post_id)
+  {
+    $data['result'] = $this->model_announcements_user->viewmore_announcement($post_id);
+    $this->template->load('user_template', 'view_userannouncements_viewmore', $data);
+  }
+
 
 }
