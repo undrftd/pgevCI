@@ -18,7 +18,7 @@
 
         <h4> <?php echo $result->post_title; ?> </h4>
         <p> <?php echo date("F d, Y", strtotime($result->post_date)) . " " . date("g:i A", $result->post_time); ?> <p>
-        <p class="date-posted"> Laura Murray said </p>
+        <p class="date-posted"> <?php echo $result->firstname . " " . $result->lastname; ?> said </p>
         <hr>
         <p> <?php echo $result->post_content;  ?> </p>
 
@@ -36,13 +36,13 @@
 
         <div class="announcement-message text-center">
 
-          <h4> Previous Announcements </h4>
+          <h4> Previous Bulletin </h4>
           <hr>
           <?php foreach ($previous as $row): ?>
           <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>"> <p> <span class="dot-style">&middot;</span> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('M Y', strtotime($row->post_date)); ?> </span> <p>
           <hr>
           <?php endforeach ?>
-          <a href="<?php echo site_url("user_announcements/bulletin"); ?>"><span class="glyphicon glyphicon-chevron-left btn-sm" aria-hidden="true"></span>Back to Announcements</a>
+          <a href="<?php echo site_url("user_announcements/bulletin"); ?>"><span class="glyphicon glyphicon-chevron-left btn-sm" aria-hidden="true"></span>Back to Bulletin</a>
 
           <br><br>
 

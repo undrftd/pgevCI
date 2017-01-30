@@ -164,7 +164,7 @@ class User_announcements extends MY_Controller
   {
     if($this->model_announcements_user->url_check_announcements($post_id))
     {
-      $data['previous'] = $this->model_announcements_user->get_previous();
+      $data['previous'] = $this->model_announcements_user->get_previous_announcement();
       $data['result'] = $this->model_announcements_user->viewmore_announcement($post_id);
       $this->template->load('user_template', 'view_userannouncements_viewmore', $data);
     }
@@ -179,6 +179,7 @@ class User_announcements extends MY_Controller
   {
     if($this->model_announcements_user->url_check_bulletin($post_id))
     {
+      $data['previous'] = $this->model_announcements_user->get_previous_bulletin();
       $data['result'] = $this->model_announcements_user->viewmore_bulletin($post_id);
       $this->template->load('user_template', 'view_userbulletin_viewmore', $data);
     }

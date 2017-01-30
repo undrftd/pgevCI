@@ -26,12 +26,12 @@
           <br>
 
           <p> Date </p>
-          <input class="form-control  "name="post_date" id="sel1" type="text" value="<?php $date = date('F d, Y'); echo date('F d, Y', strtotime($date)); ?>"readonly>
+          <input class="form-control" name="post_date" id="sel1" type="text" value="<?php $date = date('F d, Y'); echo date('F d, Y', strtotime($date)); ?>"readonly>
           <p class="error" > <?php echo form_error('post_date'); ?> </p>
           <br>
 
           <p> Kindly put the details of your announcement here: </p>
-          <textarea class="form-control"name="post_content" id="user-message" placeholder="What do you want to say to the community?" rows="15"></textarea>
+          <textarea class="form-control" name="post_content" id="user-message" placeholder="What do you want to say to the community?" rows="15"></textarea>
           <p class="error" name="post_content"> <?php echo form_error('post_content'); ?></p>
 
 

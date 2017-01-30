@@ -18,10 +18,10 @@ class Model_announcements_user extends CI_Model
 	}
 
 	function count_announcements()
-  	{
-    	$query = $this->db->select('*')->from('announcements')->get();
-    	return $query->num_rows();
-  	}
+  {
+    $query = $this->db->select('*')->from('announcements')->get();
+    return $query->num_rows();
+  }
 
   function select_bulletin($limit, $offset)
 	{
@@ -121,7 +121,7 @@ class Model_announcements_user extends CI_Model
 
   function viewmore_bulletin($post_id)
   {
-    $query= $this->db->select('*')->where('post_id', $post_id)->get('bulletin',1);
+    $query= $this->db->select('*')->where('post_id', $post_id)->join('accounts', 'accounts.userid = bulletin.user_id')->get('bulletin',1);
     return $query->row();
   }
 
@@ -176,9 +176,23 @@ class Model_announcements_user extends CI_Model
     }
   }
 
-  function get_previous()
+  function get_previous_announcement()
   {
     $query = $this->db->select('*')->order_by("post_time desc, post_date desc")->get('announcements', 5);
+
+    if($query->num_rows() > 0)
+    {
+        return $query->result();
+    }
+    else
+    {
+        return $query->result();
+    }
+  }
+
+  function get_previous_bulletin()
+  {
+    $query = $this->db->select('*')->order_by("post_time desc, post_date desc")->get('bulletin', 5);
 
     if($query->num_rows() > 0)
     {
