@@ -5,7 +5,7 @@ class Model_announcements_user extends CI_Model
 	function select_announcements($limit, $offset)
     {
     	$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('announcements')->order_by('post_id', 'desc')->get();
+		$query = $this->db->select('*')->from('announcements')->order_by("post_time desc, post_date desc")->get();
 
 		if($query->num_rows() > 0)
 		{
@@ -26,7 +26,7 @@ class Model_announcements_user extends CI_Model
   function select_bulletin($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('bulletin')->join('accounts', 'accounts.userid = bulletin.user_id' )->order_by('post_id', 'desc')->get();
+		$query = $this->db->select('*')->from('bulletin')->join('accounts', 'accounts.userid = bulletin.user_id' )->order_by("post_time desc, post_date desc")->get();
 
 		if($query->num_rows() > 0)
 		{
@@ -151,7 +151,7 @@ class Model_announcements_user extends CI_Model
 
   function get_previous()
   {
-    $query = $this->db->select('*')->order_by('post_id', 'desc')->get('announcements', 5);
+    $query = $this->db->select('*')->order_by("post_time desc, post_date desc")->get('announcements', 5);
 
     if($query->num_rows() > 0)
     {
