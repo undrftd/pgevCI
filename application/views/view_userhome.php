@@ -17,7 +17,7 @@
       <div class="announcement-message">
 
         <h4> <?php if($latest == FALSE ) { echo "No Recent Announcement"; } else { echo $latest->post_title; } ?> </h4>
-        <p> <?php if($latest == FALSE) { echo ""; } else { echo date("F d, Y", strtotime($latest->post_date)); } ?> <p>
+        <p> <?php if($latest == FALSE) { echo ""; } else { echo date("F d, Y", strtotime($latest->post_date)) . " " . date("g:i A", $latest->post_time); } ?> <p>
         <hr>
 
         <p> <?php if($latest == FALSE) { echo "The Community has no recent announcement posted. If ever announcements will be posted, the recent one will be displayed here in order to keep you updated."; } else { echo substr($latest->post_content, 0, 1500); } if(strlen($latest->post_content) > 2800) { echo "..."; } else { echo ""; } ?> </p>
