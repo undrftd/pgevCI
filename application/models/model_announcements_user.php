@@ -149,4 +149,18 @@ class Model_announcements_user extends CI_Model
     }
   }
 
+  function get_previous()
+  {
+    $query = $this->db->select('*')->order_by('post_id', 'desc')->get('announcements', 5);
+
+    if($query->num_rows() > 0)
+    {
+        return $query->result();
+    }
+    else
+    {
+        return $query->result();
+    }
+  }
+
 }
