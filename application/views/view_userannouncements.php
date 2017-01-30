@@ -49,6 +49,22 @@
 
         <div class="tab-pane fade in active">
 
+          <?php if ($this->session->flashdata('announcementfeedback')){ ?>
+              <div class="success-message text-center" id="prompt-message">
+                <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+                <p> <?php echo $this->session->flashdata('announcementfeedback'); ?> </p><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+              </div>
+          <?php } ?>
+
+          <?php if ($this->session->flashdata('announcementfail')){ ?>
+            <div class="error-message text-center" id="prompt-message">
+              <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+              <p> <?php echo $this->session->flashdata('announcementfail'); ?> </p><br>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+            </div>
+          <?php } ?>
+          
           <div class="announcement-message">
 
             <br>

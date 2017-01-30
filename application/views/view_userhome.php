@@ -20,11 +20,11 @@
         <p> <?php if($latest == FALSE) { echo ""; } else { echo date("F d, Y", strtotime($latest->post_date)); } ?> <p>
         <hr>
 
-        <p> <?php if($latest == FALSE) { echo "The Community has no recent announcement posted. If ever announcements will be posted, the recent one will be displayed here in order to keep you updated."; } else { echo $latest->post_content; } ?> </p>
+        <p> <?php if($latest == FALSE) { echo "The Community has no recent announcement posted. If ever announcements will be posted, the recent one will be displayed here in order to keep you updated."; } else { echo substr($latest->post_content, 0, 1500); } if(strlen($latest->post_content) > 2800) { echo "..."; } else { echo ""; } ?> </p>
 
         <br>
 
-        <?php if($latest == FALSE) { echo ""; } else { echo "<a href='" . site_url('user_announcements/announcements') . "'><button type='button' class='btn btn-custom'>View More</button></a>"; } ?>
+        <?php if($latest == FALSE || strlen($latest->post_content) <   1500) { echo ""; } else { echo "<a href='" . site_url() . "user_announcements/viewmore_announcement/" . $latest->post_id . "'><button type='button' class='btn btn-custom'>View More</button></a>"; } ?>
 
       </div>
 

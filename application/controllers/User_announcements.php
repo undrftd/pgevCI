@@ -162,8 +162,30 @@ class User_announcements extends MY_Controller
 
   function viewmore_announcement($post_id)
   {
-    $data['result'] = $this->model_announcements_user->viewmore_announcement($post_id);
-    $this->template->load('user_template', 'view_userannouncements_viewmore', $data);
+    if($this->model_announcements_user->url_check_announcements($post_id))
+    {
+      $data['result'] = $this->model_announcements_user->viewmore_announcement($post_id);
+      $this->template->load('user_template', 'view_userannouncements_viewmore', $data);
+    }
+    else
+    {
+      $this->session->set_flashdata('announcementfail', 'There is no announcement associated with that Announcement ID. Please double-check the Announcement ID.');
+      redirect('user_announcements/announcements');
+    }
+  }
+
+  function viewmore_bulletin($post_id)
+  {
+    if($this->model_announcements_user->url_check_bulletin($post_id))
+    {
+      $data['result'] = $this->model_announcements_user->viewmore_bulletin($post_id);
+      $this->template->load('user_template', 'view_userbulletin_viewmore', $data);
+    }
+    else
+    {
+      $this->session->set_flashdata('bulletinfail', 'There is no bulletin associated with that Bulletin ID. Please double-check the Bulletin ID.');
+      redirect('user_announcements/bulletin');
+    }
   }
 
 

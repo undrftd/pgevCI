@@ -9,7 +9,7 @@
     <div class="col-xs-12">
 
       <div class="header-style">
-        <h1> Community Announcement </h1>
+        <h1> Community Bulletin </h1>
       </div>
 
       <br>
