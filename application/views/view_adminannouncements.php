@@ -86,7 +86,7 @@
           <?php if ($this->session->flashdata('announcementfail')){ ?>
             <div class="error-message text-center" id="prompt-message">
               <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-              <p> <?php echo $this->session->flashdata('bulletinfail'); ?> </p><br>
+              <p> <?php echo $this->session->flashdata('announcementfail'); ?> </p><br>
               <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
             </div>
           <?php } ?>
@@ -127,7 +127,7 @@
 
                       <div class="col-xs-6 col-lg-6 nopadding">
 
-                      <a href="<?php echo site_url() . "admin_announcements/viewmore_announcements/" . $row->post_id ?>"><p>Edit</p></a>
+                      <a href="<?php echo site_url() . "admin_announcements/edit_announcements/" . $row->post_id ?>"><p>Edit</p></a>
 
                       </div>
 

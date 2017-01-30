@@ -126,8 +126,19 @@
 
                       <div class="col-xs-6 col-lg-6 nopadding">
 
-                      <a href="<?php echo site_url() . "admin_announcements/viewmore_bulletin/" . $row->post_id ?>"><p>Edit</p></a>
+                      <?php
 
+                        if ($row->user_id == $this->session->userdata('userid'))
+                        {
+                          echo "<a href='" . site_url() . "admin_announcements/edit_bulletin/" . $row->post_id . "'><p>Edit</p></a>";
+                        }
+                        else
+                        {
+                          echo '';  
+                        }
+                        
+                        ?>
+                      
                       </div>
 
                       <div class="col-xs-6 col-lg-6 nopadding">

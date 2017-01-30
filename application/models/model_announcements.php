@@ -4,9 +4,10 @@ class Model_announcements extends CI_Model{
 
   function url_check_post_id($post_id)
   {
-    $query = $this->db->select('*')->from('announcements')->where('post_id' , $post_id);
+    $query = $this->db->select('*')->from('announcements')->where('post_id' , $post_id)->get();
+    $row = $query->row();
 
-    if ('post_id == $post_id')
+    if ($row->post_id == $post_id)
     {
       return TRUE;
     }
@@ -14,7 +15,21 @@ class Model_announcements extends CI_Model{
     {
       return FALSE;
     }
+  }
 
+  function url_check_post_id_bulletin($post_id)
+  {
+    $query = $this->db->select('*')->from('bulletin')->where('post_id' , $post_id)->get();
+    $row = $query->row();
+
+    if ($row->post_id == $post_id)
+    {
+      return TRUE;
+    }
+    else
+    {
+      return FALSE;
+    }
   }
   
   function announcements($limit, $offset)
@@ -90,21 +105,6 @@ class Model_announcements extends CI_Model{
 
     $post = $this->db->insert('announcements', $post_announncements);
     return $post;
-  }
-
-  function url_check_post_id_bulletin($post_id)
-  {
-    $query = $this->db->select('*')->from('bulletin')->where('post_id' , $post_id);
-    if ('post_id == $post_id')
-
-    {
-      return TRUE;
-    }
-    else
-    {
-      return FALSE;
-    }
-
   }
 
   function bulletin($limit, $offset)

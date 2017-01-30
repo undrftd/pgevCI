@@ -45,34 +45,50 @@ class admin_announcements extends MY_Controller{
     }
     else
     {
-
+      $this->session->set_flashdata('announcementfail', 'You cannot delete a non-existent announcement.');
       redirect('admin_announcements/announcements');
     }
   }
 
-  function viewmore_announcements($post_id)
+  function edit_announcements($post_id)
   {
-    $data['select'] = $this->model_announcements->select_announcements($post_id);
-    $this->template->load('admin_template', 'view_adminannouncements_viewmore', $data);
+    if($this->model_announcements->url_check_post_id($post_id))
+    {
+      $data['select'] = $this->model_announcements->select_announcements($post_id);
+      $this->template->load('admin_template', 'view_adminannouncements_edit', $data);
+    }
+    else
+    {
+      $this->session->set_flashdata('announcementfail', 'You cannot edit a non-existent announcement.');
+      redirect('admin_announcements/announcements');
+    }
   }
 
   function save_announcements($post_id)
   {
-    $this->form_validation->set_rules('post_title','Announcement Title', 'trim|required');
-    $this->form_validation->set_rules('post_content', 'Announcement Content', 'trim|required');
-
-    if ($this->form_validation->run($post_id) == FALSE)
+    if($this->model_announcements->url_check_post_id($post_id))
     {
-      $data['select'] = $this->model_announcements->select_announcements($post_id);
-      $this->template->load('admin_template','view_adminannouncements_viewmore', $data);
+      $this->form_validation->set_rules('post_title','Announcement Title', 'trim|required');
+      $this->form_validation->set_rules('post_content', 'Announcement Content', 'trim|required');
+
+      if ($this->form_validation->run($post_id) == FALSE)
+      {
+        $data['select'] = $this->model_announcements->select_announcements($post_id);
+        $this->template->load('admin_template','view_adminannouncements_edit', $data);
+      }
+      else
+      {
+        if($query = $this->model_announcements->save_announcements($post_id))
+        {
+          $this->session->set_flashdata('announcementfeedback', 'You have successfully updated the announcement.');
+          redirect('admin_announcements/announcements');
+        }
+      }
     }
     else
     {
-      if($query = $this->model_announcements->save_announcements($post_id))
-      {
-        $this->session->set_flashdata('announcementfeedback', 'You have successfully updated the announcement.');
-        redirect('admin_announcements/announcements');
-      }
+      $this->session->set_flashdata('announcementfail', 'You cannot save a non-existent announcement.');
+      redirect('admin_announcements/announcements');
     }
   }
 
@@ -133,7 +149,7 @@ class admin_announcements extends MY_Controller{
 
   function delete_bulletin($post_id)
   {
-    if($this->model_announcements->url_check_post_id($post_id))
+    if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
       $this->model_announcements->delete_bulletin($post_id);
       $this->session->set_flashdata('bulletinfeedback', 'You have successfully deleted the bulletin.');
@@ -141,36 +157,53 @@ class admin_announcements extends MY_Controller{
     }
     else
     {
+      $this->session->set_flashdata('bulletinfail', 'You cannot delete a non-existent bulletin.');
       redirect('admin_announcements/bulletin');
     }
   }
 
-  function viewmore_bulletin($post_id)
+  function edit_bulletin($post_id)
   {
-    $data['select'] = $this->model_announcements->select_bulletin($post_id);
-    $this->template->load('admin_template', 'view_adminbulletin_viewmore', $data);
+    if($this->model_announcements->url_check_post_id_bulletin($post_id))
+    {
+      $data['select'] = $this->model_announcements->select_bulletin($post_id);
+      $this->template->load('admin_template', 'view_adminbulletin_edit', $data);
+    }
+    else
+    {
+      $this->session->set_flashdata('bulletinfail', 'You cannot edit a non-existent bulletin.');
+      redirect('admin_announcements/bulletin');
+    }
   }
 
   function save_bulletin($post_id)
   {
-    $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
-    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
-
-    if ($this->form_validation->run($post_id) == FALSE)
+    if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
-      $data['select'] = $this->model_announcements->select_bulletin($post_id);
-      $this->template->load('admin_template','view_adminbulletin_viewmore', $data);
+      $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
+      $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
+
+      if ($this->form_validation->run($post_id) == FALSE)
+      {
+        $data['select'] = $this->model_announcements->select_bulletin($post_id);
+        $this->template->load('admin_template','view_adminbulletin_edit', $data);
+      }
+      else
+      {
+        if($query = $this->model_announcements->save_bulletin($post_id))
+        {
+          $this->session->set_flashdata('bulletinfeedback', 'You have successfully updated the bulletin.');
+          redirect('admin_announcements/bulletin');
+        }
+      }
     }
     else
     {
-      if($query = $this->model_announcements->save_bulletin($post_id))
-      {
-        $this->session->set_flashdata('bulletinfeedback', 'You have successfully updated the bulletin.');
-        redirect('admin_announcements/bulletin');
-      }
+      $this->session->set_flashdata('bulletinfail', 'You cannot save a non-existent bulletin.');
+      redirect('admin_announcements/bulletin');
     }
-  }
 
+  }
 
   function post_bulletin_admin()
   {
