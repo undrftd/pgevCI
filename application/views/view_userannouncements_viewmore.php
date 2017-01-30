@@ -7,7 +7,7 @@
   <div class="row">
 
     <div class="header-style">
-      <h1> Announcement Details </h1>
+      <h1> Community Announcement </h1>
     </div>
 
     <br>
@@ -38,8 +38,8 @@
 
           <h4> Previous Announcements </h4>
           <hr>
-          <?php foreach ($previous as $row): ?>     
-          <a href="<?php echo site_url() . "user_announcements/viewmore_announcement/" . $row->post_id; ?>"> <p> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('M Y', strtotime($row->post_date)); ?> </span> <p>
+          <?php foreach ($previous as $row): ?>
+          <a href="<?php echo site_url() . "user_announcements/viewmore_announcement/" . $row->post_id; ?>"> <p> <span class="dot-style">&middot;</span> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('M Y', strtotime($row->post_date)); ?> </span> <p>
           <hr>
           <?php endforeach ?>
           <a href="<?php echo site_url("user_announcements/announcements"); ?>"><span class="glyphicon glyphicon-chevron-left btn-sm" aria-hidden="true"></span>Back to Announcements</a>

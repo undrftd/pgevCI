@@ -587,15 +587,14 @@ h1 {
   padding-left: 10px;
 }
 
+.dot-style {
+  color: #27ae60;
+}
+
 .archive-part p {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   line-height: 25px;
-}
-
-.archive-part p:hover {
-  color: #219150;
-  padding-left: 5px;
 }
 
 #page-content-wrapper .archive-part a {
@@ -607,7 +606,7 @@ h1 {
 }
 
 #page-content-wrapper .archive-part a:hover {
-  color: #219150;
+  color: #27ae60;
   padding-right: 5px;
 }
 
