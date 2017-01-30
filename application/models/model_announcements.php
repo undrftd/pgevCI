@@ -137,10 +137,8 @@ class Model_announcements extends CI_Model{
     return $edit;
   }
 
-
   function delete_bulletin($post_id)
   {
-
     $this->db->where('post_id',$post_id);
     $delete = $this->db->delete('bulletin');
     return $delete;

@@ -4,6 +4,32 @@
 
   <br><br><br>
 
+  <div class="modal fade" id="delete-modal" role="dialog">
+
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Delete Bulletin</h4>
+            </div>
+
+            <br>
+
+              <div class="signin">
+                  <div class="modal-body text-center">
+                      <p> Are you sure you want to remove this bulletin? </p><br><br>
+                    <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                      <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+
   <div class="header-style">
     <h1> Bulletin </h1>
   </div>
@@ -95,9 +121,19 @@
                     <hr>
 
                     <div class="more-link">
+                    <?php 
+                      
+                      if($row->user_id != $this->session->userdata('userid'))
+                      {
+                        echo "<a href='" . site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id ."'><p>Read More<span class='glyphicon glyphicon-chevron-right btn-sm' aria-hidden='true'></span></p></a>"; 
+                      }
+                      else
+                      {
+                        echo "<div class='col-xs-6 col-lg-6 nopadding'><a href='" . site_url() . "user_announcements/edit_bulletin/" . $row->post_id . "'><p>Edit</p></a></div>"; 
+                        echo "<div class='col-xs-6 col-lg-6 nopadding'><a data-href='" . site_url() . "user_announcements/delete_bulletin/" . $row->post_id . "' data-toggle='modal' data-target='#delete-modal'><p><span class='glyphicon glyphicon-trash btn-sm' aria-hidden='true'></span> Delete</p></a></div>";
+                      }
 
-                     <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>"><p>Read More<span class="glyphicon glyphicon-chevron-right btn-sm" aria-hidden="true"></span></p></a>
-
+                    ?>
                     </div>
 
                   </div>

@@ -143,7 +143,7 @@
 
                       <div class="col-xs-6 col-lg-6 nopadding">
 
-                      <a data-href="<?php echo base_url() . "admin_announcements/delete_bulletin/" . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><span class="glyphicon glyphicon-trash btn-sm" aria-hidden="true"></span> Delete</p></a>
+                      <a data-href="<?php echo site_url() . "admin_announcements/delete_bulletin/" . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><span class="glyphicon glyphicon-trash btn-sm" aria-hidden="true"></span> Delete</p></a>
 
                       </div>
 

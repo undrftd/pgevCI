@@ -119,6 +119,13 @@ class Model_announcements_user extends CI_Model
     return $query->row();
   }
 
+  function delete_bulletin($post_id)
+  {
+    $this->db->where('post_id',$post_id);
+    $delete = $this->db->delete('bulletin');
+    return $delete;
+  }
+
   function url_check_announcements($post_id)
   {
     $query = $this->db->select('*')->from('announcements')->where('post_id', $post_id)->get();

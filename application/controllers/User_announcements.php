@@ -6,7 +6,7 @@ class User_announcements extends MY_Controller
   {
     $config['base_url'] = site_url('user_announcements/announcements');
     $config['total_rows'] = $this->model_announcements_user->count_announcements();
-    $config['per_page'] =  5;
+    $config['per_page'] =  6;
     $config['num_links'] = 5;
     $config['use_page_numbers'] = FALSE;
     $config['full_tag_open'] = "<ul class='pagination'>";
@@ -92,7 +92,7 @@ class User_announcements extends MY_Controller
       $config['base_url'] = site_url('user_announcements/search_announcement/');
       $config['reuse_query_string'] = TRUE;
       $config['total_rows'] = $this->model_announcements_user->countannouncement_search($searchquery);
-      $config['per_page'] =  5;
+      $config['per_page'] =  6  ;
       $config['num_links'] = 5;
       $config['use_page_numbers'] = FALSE;
       $config['full_tag_open'] = "<ul class='pagination'>";
@@ -185,6 +185,35 @@ class User_announcements extends MY_Controller
     else
     {
       $this->session->set_flashdata('bulletinfail', 'There is no bulletin associated with that Bulletin ID. Please double-check the Bulletin ID.');
+      redirect('user_announcements/bulletin');
+    }
+  }
+
+  function edit_bulletin($post_id)
+  {
+    if($this->model_announcements->url_check_post_id_bulletin($post_id))
+    {
+      $data['select'] = $this->model_announcements_user->select_bulletin($post_id);
+      $this->template->load('user_template', 'view_userbulletin_edit', $data);
+    }
+    else
+    {
+      $this->session->set_flashdata('bulletinfail', 'You cannot edit a non-existent bulletin.');
+      redirect('user_announcements/bulletin');
+    }
+  }
+
+  function delete_bulletin($post_id)
+  {
+    if($this->model_announcements_user->url_check_bulletin($post_id))
+    {
+      $this->model_announcements_user->delete_bulletin($post_id);
+      $this->session->set_flashdata('bulletinfeedback', 'You have successfully deleted your bulletin.');
+      redirect('user_announcements/bulletin');
+    }
+    else
+    {
+      $this->session->set_flashdata('bulletinfail', 'You cannot delete a non-existent bulletin.');
       redirect('user_announcements/bulletin');
     }
   }
