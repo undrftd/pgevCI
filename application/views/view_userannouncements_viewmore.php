@@ -10,7 +10,13 @@
       <h1> Announcement Details </h1>
     </div>
 
+<<<<<<< HEAD
     <br>
+=======
+      <div class="header-style">
+        <h1> Community Announcement </h1>
+      </div>
+>>>>>>> 895ce26e9655ddb640ffcebd3e62f0778542b9ea
 
     <div class="col-xs-12 col-md-8 col-lg-9">
 

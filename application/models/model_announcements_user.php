@@ -113,4 +113,40 @@ class Model_announcements_user extends CI_Model
     return $query->row();
   }
 
+  function viewmore_bulletin($post_id)
+  {
+    $query= $this->db->select('*')->where('post_id', $post_id)->get('bulletin',1);
+    return $query->row();
+  }
+
+  function url_check_announcements($post_id)
+  {
+    $query = $this->db->select('*')->from('announcements')->where('post_id', $post_id)->get();
+    $row = $query->row();
+
+    if($row->post_id == $post_id)
+    {
+      return TRUE;
+    }
+    else
+    {
+      return FALSE;
+    }
+  }
+
+  function url_check_bulletin($post_id)
+  {
+    $query = $this->db->select('*')->from('bulletin')->where('post_id', $post_id)->get();
+    $row = $query->row();
+
+    if($row->post_id == $post_id)
+    {
+      return TRUE;
+    }
+    else
+    {
+      return FALSE;
+    }
+  }
+
 }
