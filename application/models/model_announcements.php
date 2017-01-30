@@ -35,7 +35,7 @@ class Model_announcements extends CI_Model{
   function announcements($limit, $offset)
   {
     $this->db->limit($limit,$offset);
-    $posted_announcements = $this->db->select('*')->from('announcements')->order_by('post_id', 'desc')->get();
+    $posted_announcements = $this->db->select('*')->from('announcements')->order_by("post_time desc, post_date desc")->get();
 
     if($posted_announcements->num_rows() > 0)
     {
@@ -49,7 +49,7 @@ class Model_announcements extends CI_Model{
 
   function get_latestannouncement()
   {
-    $query = $this->db->select('*')->order_by('post_id',"desc")->get('announcements', 1);
+    $query = $this->db->select('*')->order_by("post_time desc, post_date desc")->get('announcements', 1);
     
     if($query->num_rows() > 0)
     {
@@ -64,8 +64,11 @@ class Model_announcements extends CI_Model{
   function save_announcements($post_id)
   {
     $edit_ann = array(
+    'user_id' => $this->session->userdata('userid'),
     'post_title' => $this->input->post('post_title'),
     'post_content' => $this->input->post('post_content'),
+    'post_date' =>  date('m/d/Y'),
+    'post_time' => time(),
     );
 
     $this->db->where('post_id', $post_id);
