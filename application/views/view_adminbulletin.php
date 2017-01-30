@@ -134,11 +134,11 @@
                         }
                         else
                         {
-                          echo '';  
+                          echo "<a href='" . site_url() . "admin_announcements/edit_bulletin/" . $row->post_id . "'><p>Read More</p></a>";
                         }
-                        
+
                         ?>
-                      
+
                       </div>
 
                       <div class="col-xs-6 col-lg-6 nopadding">

@@ -79,7 +79,7 @@
               <div class="success-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
                 <p> <?php echo $this->session->flashdata('announcementfeedback'); ?> </p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
               </div>
           <?php } ?>
 
@@ -87,15 +87,13 @@
             <div class="error-message text-center" id="prompt-message">
               <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
               <p> <?php echo $this->session->flashdata('announcementfail'); ?> </p><br>
-              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
             </div>
           <?php } ?>
 
           <br>
 
           <div class="announcement-message">
-
-            <br>
 
             <div class="row the-list">
 
@@ -134,7 +132,7 @@
                       <div class="col-xs-6 col-lg-6 nopadding">
 
                       <a data-href="<?php echo base_url() . "admin_announcements/delete_announcements/" . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><span class="glyphicon glyphicon-trash btn-sm" aria-hidden="true"></span> Delete</p></a>
-                      
+
                       <!--<button type="submit" class="btn btn-custom-3" data-toggle="modal"  data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>-->
 
                       </div>
