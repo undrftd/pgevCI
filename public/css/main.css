@@ -597,6 +597,10 @@ h1 {
   line-height: 25px;
 }
 
+.archive-part h4 {
+  text-align: center;
+}
+
 #page-content-wrapper .archive-part a {
   font-family: 'Rubik', sans-serif;
   text-align: center;
@@ -847,12 +851,11 @@ h1 {
 }
 
 .activity-bar {
-  padding: 18px;
+  padding: 25px;
   border: 2px solid #e6e6e6;
   width: 100%;
   margin-bottom: 20px;
   margin-top: 20px;
-  height: 250px;
   transition: all 0.3s ease-in-out;
   opacity: 0.8;
   border-radius: 2px;
@@ -872,7 +875,6 @@ h1 {
   color: #696969;
   font-size: 16px;
   text-align: center;
-  padding-top: 5px;
 }
 
 .activity-heading {
@@ -883,9 +885,9 @@ h1 {
   font-weight: 700;
 }
 
-.activity-heading hr {
+.activity-heading hr, .archive-part .row-hr {
   border: 2px solid #27ae60;
-  width: 60px;
+  width: 40px;
 }
 
 .activity-bar p {

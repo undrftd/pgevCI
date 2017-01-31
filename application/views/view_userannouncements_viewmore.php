@@ -37,7 +37,7 @@
         <div class="announcement-message text-center">
 
           <h4> Previous Announcements </h4>
-          <hr>
+          <hr class="row-hr">
           <?php foreach ($previous as $row): ?>
           <a href="<?php echo site_url() . "user_announcements/viewmore_announcement/" . $row->post_id; ?>"> <p> <span class="dot-style">&middot;</span> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('M Y', strtotime($row->post_date)); ?> </span> <p>
           <hr>

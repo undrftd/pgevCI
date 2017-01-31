@@ -41,7 +41,7 @@
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
+    <div class="col-xs-12 col-sm-12 col-lg-6 nopadding">
 
       <div class="activity-bar text-center">
 
@@ -49,13 +49,13 @@
 
         <p> You have <?php echo $count; ?> active ticket<?php if($count > 1){ echo "s"; } else { echo ""; } ?>. To monitor this properly, go to the track tickets page by clicking the button below. </p>
         <br>
-        <a href="<?php echo site_url("user_tracking/recent"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
+        <a href="<?php echo site_url("user_tracking/recent"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a><br><br>
 
       </div>
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
+    <div class="col-xs-12 col-sm-12 col-lg-6 nopadding">
 
       <div class="activity-bar text-center">
 
@@ -73,13 +73,13 @@
               echo "0";
             }  ?> unpaid dues. To properly monitor your outstanding dues and arrears, click the button below.</p>
         <br>
-        <a href="<?php echo site_url("user_dues"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
+        <a href="<?php echo site_url("user_dues"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a><br><br>
 
       </div>
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
+    <div class="col-xs-12 col-sm-12 col-lg-6 nopadding">
 
       <div class="activity-bar text-center">
 
@@ -87,13 +87,13 @@
 
         <p> You have 1 active reservation. To check whether this has been approved or not, click the button below. </p>
         <br>
-        <button type="button" class="btn btn-custom-2">View More</button>
+        <button type="button" class="btn btn-custom-2">View More</button><br><br>
 
       </div>
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
+    <div class="col-xs-12 col-sm-12 col-lg-6 nopadding">
 
       <div class="activity-bar text-center">
 
@@ -101,7 +101,7 @@
 
         <p> If you have suggestions within our community, feel free to leave us a message in the suggestions page. </p>
         <br>
-        <a href="<?php echo site_url("user_suggestions"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a>
+        <a href="<?php echo site_url("user_suggestions"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a><br><br>
 
       </div>
 

@@ -79,7 +79,7 @@
               <div class="success-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
                 <p> <?php echo $this->session->flashdata('bulletinfeedback'); ?> </p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
               </div>
           <?php } ?>
 
@@ -87,7 +87,7 @@
             <div class="error-message text-center" id="prompt-message">
               <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
               <p> <?php echo $this->session->flashdata('bulletinfail'); ?> </p><br>
-              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
             </div>
           <?php } ?>
 
@@ -121,19 +121,34 @@
                     <hr>
 
                     <div class="more-link">
-                    <?php 
-                      
-                      if($row->user_id != $this->session->userdata('userid'))
-                      {
-                        echo "<a href='" . site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id ."'><p>Read More<span class='glyphicon glyphicon-chevron-right btn-sm' aria-hidden='true'></span></p></a>"; 
-                      }
-                      else
-                      {
-                        echo "<div class='col-xs-6 col-lg-6 nopadding'><a href='" . site_url() . "user_announcements/edit_bulletin/" . $row->post_id . "'><p>Edit</p></a></div>"; 
-                        echo "<div class='col-xs-6 col-lg-6 nopadding'><a data-href='" . site_url() . "user_announcements/delete_bulletin/" . $row->post_id . "' data-toggle='modal' data-target='#delete-modal'><p><span class='glyphicon glyphicon-trash btn-sm' aria-hidden='true'></span> Delete</p></a></div>";
-                      }
 
-                    ?>
+                      <div class="row">
+
+                        <div class="col-xs-6 col-lg-6 nopadding">
+
+                          <?php
+
+                            if ($row->user_id !== $this->session->userdata('userid'))
+                            {
+                              echo "<a href='" . site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id ."'><p>Read More</p></a>";
+                            }
+                            else
+                            {
+                              echo "<a href='" . site_url() . "user_announcements/edit_bulletin/" . $row->post_id . "'><p>Edit</p></a>";
+                            }
+
+                            ?>
+
+                        </div>
+
+                        <div class="col-xs-6 col-lg-6 nopadding">
+
+                          <a data-href="<?php echo site_url() . "user_announcements/delete_bulletin/" . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><span class="glyphicon glyphicon-trash btn-sm" aria-hidden="true"></span> Delete</p></a>
+
+                        </div>
+
+                      </div>
+
                     </div>
 
                   </div>
