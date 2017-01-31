@@ -224,10 +224,6 @@ h1 {
    float: right;
 }
 
-.table-responsive, a {
-   font-family: 'Roboto';
-}
-
 .btn-custom {
   display: block;
   color: white;
@@ -598,7 +594,7 @@ h1 {
 }
 
 .archive-part h4 {
-  text-align: center;
+  text-transform: uppercase;
 }
 
 #page-content-wrapper .archive-part a {
@@ -607,11 +603,12 @@ h1 {
   color: #696969;
   transition: all 0.3s ease-in-out;
   display: block;
+  opacity: 0.8;
 }
 
 #page-content-wrapper .archive-part a:hover {
-  color: #27ae60;
-  padding-right: 5px;
+  padding-right: 10px;
+  opacity: 1;
 }
 
 .date-archive {
@@ -621,12 +618,12 @@ h1 {
 
 #page-content-wrapper .a-links {
   color: #27ae60;
-  font-weight: 700;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 #page-content-wrapper .a-links:hover {
   color: #27ae60;
+  text-decoration: underline;
 }
 
 .announcement-message .warning-user {
@@ -885,10 +882,19 @@ h1 {
   font-weight: 700;
 }
 
-.activity-heading hr, .archive-part .row-hr {
+.activity-heading hr {
   border: 2px solid #27ae60;
   width: 40px;
 }
+
+.archive-part .row-hr, .announcement-message .row-hr {
+  border: 2px solid #27ae60;
+  width: 30px;
+  margin-left: 0;
+  text-align: left;
+  margin-bottom: 18px;
+}
+
 
 .activity-bar p {
   font-family: 'Rubik', sans-serif;

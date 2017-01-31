@@ -2,7 +2,7 @@
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-  <br><br><br>
+  <br><br>
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
@@ -30,11 +30,13 @@
       </div>
   </div>
 
-  <div class="header-style">
-    <h1> Bulletin </h1>
-  </div>
-
   <div class="portlet">
+
+    <div class="header-style">
+      <h1> Bulletin </h1>
+    </div>
+
+    <br>
 
     <div class="portlet-header">
 

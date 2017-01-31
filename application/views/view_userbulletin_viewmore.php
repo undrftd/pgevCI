@@ -12,9 +12,9 @@
 
     <br>
 
-    <div class="col-xs-12 col-md-8 col-lg-9">
+    <div class="col-xs-12 col-md-8 col-lg-9 nopadding">
 
-      <div class="announcement-message text-center">
+      <div class="announcement-message">
 
         <h4> <?php echo $result->post_title; ?> </h4>
         <p> <?php echo date("F d, Y", strtotime($result->post_date)) . " " . date("g:i A", $result->post_time); ?> <p>
@@ -22,22 +22,27 @@
         <hr>
         <p> <?php echo $result->post_content;  ?> </p>
 
-        <br>
+        <br><br><br>
+
+        <hr class="row-hr">
+        <p> Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>user_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
+        <hr>
 
       </div>
 
-      <br>
+      <br><br><br>
 
     </div>
 
-    <div class="col-xs-12 col-md-4 col-lg-3">
+    <div class="col-xs-12 col-md-4 col-lg-3 nopadding">
 
       <div class="archive-part">
 
         <div class="announcement-message text-center">
 
-          <h4> Previous Bulletins </h4>
           <hr class="row-hr">
+          <h4> Previous Announcements </h4>
+          <hr>
           <?php foreach ($previous as $row): ?>
           <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>"> <p> <span class="dot-style">&middot;</span> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('M Y', strtotime($row->post_date)); ?> </span></p>
           <hr>

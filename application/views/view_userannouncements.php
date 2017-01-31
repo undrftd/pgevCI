@@ -2,16 +2,18 @@
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-  <br><br><br>
-
-  <div class="header-style">
-    <h1> Announcements </h1>
-  </div>
+  <br><br>
 
   <div class="portlet">
 
+    <div class="header-style">
+      <h1> Announcements </h1>
+    </div>
+
+    <br>
+
     <div class="portlet-header">
-      
+
       <form action="<?php echo base_url(); ?>user_announcements/search_announcement" method="GET">
       <div id="search-group">
 
@@ -53,7 +55,7 @@
               <div class="success-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
                 <p> <?php echo $this->session->flashdata('announcementfeedback'); ?> </p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
               </div>
           <?php } ?>
 
@@ -61,10 +63,10 @@
             <div class="error-message text-center" id="prompt-message">
               <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
               <p> <?php echo $this->session->flashdata('announcementfail'); ?> </p><br>
-              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+              <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
             </div>
           <?php } ?>
-          
+
           <div class="announcement-message">
 
             <br>
