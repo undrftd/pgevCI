@@ -124,28 +124,25 @@
 
                     <div class="row">
 
-                      <div class="col-xs-6 col-lg-6 nopadding">
-
                       <?php
 
-                        if ($row->user_id == $this->session->userdata('userid'))
+                        if ($row->user_id !== $this->session->userdata('userid'))
                         {
-                          echo "<a href='" . site_url() . "admin_announcements/edit_bulletin/" . $row->post_id . "'><p>Edit</p></a>";
+                          echo '<div class="col-xs-12 nopadding">';
+                          echo "<a href='" . site_url() . "admin_announcements/viewmore_bulletin/" . $row->post_id ."'><p>Read More</p></a>";
+                          echo '</div>';
                         }
                         else
                         {
-                          echo "<a href='" . site_url() . "admin_announcements/edit_bulletin/" . $row->post_id . "'><p>Read More</p></a>";
+                          echo '<div class="col-xs-6 col-lg-6 nopadding">';
+                          echo "<a href='" . site_url() . "admin_announcements/edit_bulletin/" . $row->post_id . "'><p>Edit</p></a>";
+                          echo '</div>';
+                          echo '<div class="col-xs-6 col-lg-6 nopadding">';
+                          echo "<a data-href='" . site_url() . "admin_announcements/delete_bulletin/" . $row->post_id . "' data-toggle='modal' data-target='#delete-modal'><p><span class='glyphicon glyphicon-trash btn-sm' aria-hidden='true'></span> Delete</p></a>";
+                          echo '</div>';
                         }
 
                         ?>
-
-                      </div>
-
-                      <div class="col-xs-6 col-lg-6 nopadding">
-
-                      <a data-href="<?php echo site_url() . "admin_announcements/delete_bulletin/" . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><span class="glyphicon glyphicon-trash btn-sm" aria-hidden="true"></span> Delete</p></a>
-
-                      </div>
 
                     </div>
 
