@@ -31,6 +31,21 @@ class Model_announcements extends CI_Model{
       return FALSE;
     }
   }
+
+  function url_admincheck_bulletin($post_id)
+  {
+    $query = $this->db->select('*')->from('bulletin')->where('post_id', $post_id)->get();
+    $row = $query->row();
+
+    if($row->user_id == $this->session->userdata('userid'))
+    {
+      return TRUE;
+    }
+    else
+    {
+      return FALSE;
+    }
+  }
   
   function announcements($limit, $offset)
   {
@@ -220,5 +235,25 @@ class Model_announcements extends CI_Model{
       {
           return $query->result();
       }
+  }
+
+  function get_previous_bulletin()
+  {
+    $query = $this->db->select('*')->order_by("post_time desc, post_date desc")->get('bulletin', 5);
+
+    if($query->num_rows() > 0)
+    {
+        return $query->result();
+    }
+    else
+    {
+        return $query->result();
+    }
+  }
+
+  function viewmore_bulletin($post_id)
+  {
+    $query= $this->db->select('*')->where('post_id', $post_id)->join('accounts', 'accounts.userid = bulletin.user_id')->get('bulletin',1);
+    return $query->row();
   }
 }

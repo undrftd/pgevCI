@@ -166,8 +166,16 @@ class admin_announcements extends MY_Controller{
   {
     if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
-      $data['select'] = $this->model_announcements->select_bulletin($post_id);
-      $this->template->load('admin_template', 'view_adminbulletin_edit', $data);
+      if($this->model_announcements_user->url_usercheck_bulletin($post_id))
+      {
+        $data['select'] = $this->model_announcements->select_bulletin($post_id);
+        $this->template->load('admin_template', 'view_adminbulletin_edit', $data);
+      }
+      else
+      {
+        $this->session->set_flashdata('bulletinfail', 'You can only edit your own bulletin.');
+      redirect('admin_announcements/bulletin');
+      }
     }
     else
     {
@@ -300,6 +308,21 @@ class admin_announcements extends MY_Controller{
     else
     {
      redirect('admin_announcements/bulletin');
+    }
+  }
+
+  function viewmore_bulletin($post_id)
+  {
+    if($this->model_announcements->url_check_post_id_bulletin($post_id))
+    {
+      $data['previous'] = $this->model_announcements->get_previous_bulletin();
+      $data['result'] = $this->model_announcements->viewmore_bulletin($post_id);
+      $this->template->load('admin_template', 'view_adminbulletin_viewmore', $data);
+    }
+    else
+    {
+      $this->session->set_flashdata('bulletinfail', 'There is no bulletin associated with that Bulletin ID. Please double-check the Bulletin ID.');
+      redirect('admin_announcements/bulletin');
     }
   }
 

@@ -161,6 +161,21 @@ class Model_announcements_user extends CI_Model
     }
   }
 
+  function url_usercheck_bulletin($post_id)
+  {
+    $query = $this->db->select('*')->from('bulletin')->where('post_id', $post_id)->get();
+    $row = $query->row();
+
+    if($row->user_id == $this->session->userdata('userid'))
+    {
+      return TRUE;
+    }
+    else
+    {
+      return FALSE;
+    }
+  }
+
   function url_check_bulletin($post_id)
   {
     $query = $this->db->select('*')->from('bulletin')->where('post_id', $post_id)->get();

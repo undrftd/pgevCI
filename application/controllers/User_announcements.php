@@ -192,10 +192,19 @@ class User_announcements extends MY_Controller
 
   function edit_bulletin($post_id)
   {
-    if($this->model_announcements->url_check_post_id_bulletin($post_id))
+    if($this->model_announcements_user->url_check_bulletin($post_id))
     {
-      $data['select'] = $this->model_announcements_user->get_bulletin($post_id);
-      $this->template->load('user_template', 'view_userbulletin_edit', $data);
+      if($this->model_announcements_user->url_usercheck_bulletin($post_id))
+      {
+        $data['select'] = $this->model_announcements_user->get_bulletin($post_id);
+        $this->template->load('user_template', 'view_userbulletin_edit', $data);
+      }
+      else
+      {
+        $this->session->set_flashdata('bulletinfail', 'You can only edit your own bulletin.');
+        redirect('user_announcements/bulletin');
+      }
+      
     }
     else
     {
