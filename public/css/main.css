@@ -543,7 +543,7 @@ h1 {
   color: #696969;
 }
 
-.form-group h4, .admin-message h4, .announcement-message h4, .modal-content h4 {
+.form-group h4, .admin-message h4, .announcement-message h4, .modal-content h4, .tab-content h4 {
   font-weight: 700;
   color: #696969;
   text-align: left;
@@ -624,6 +624,7 @@ h1 {
 #page-content-wrapper .a-links:hover {
   color: #27ae60;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .announcement-message .warning-user {
@@ -760,8 +761,9 @@ h1 {
   font-family: 'Roboto', sans-serif;
 }
 
-.success-message p {
+.success-message p, .error-message p {
   font-family: 'Rubik', sans-serif;
+  text-align: center;
 }
 
 .portlet-header button {
@@ -1143,4 +1145,105 @@ Licensed under MIT
 	color: #333;
 	background: #fff;
 	border: 0;
+}
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+.glyphicon.pull-right {
+    margin-left: 0.1em;
+}
+
+.date-picker,
+.date-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    color: rgb(75, 77, 78);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.date-container {
+    padding: 10px 40px;
+}
+
+.court-message {
+  font-size: 1em;
+  font-family: 'Rubik', sans-serif;
+  color: #696969;
+  letter-spacing: 0px;
+  line-height: 30px;
+  border-left: 4px solid #27ae60;
+  padding-left: 20px;
+}
+
+#page-content-wrapper .date-picker h2 {
+    margin: 0px;
+    padding: 0px;
+    font-weight: 400;
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color: #27ae60;
+}
+
+.date-container .date {
+    text-align: center;
+}
+.date-picker span.glyphicon {
+    position: absolute;
+    font-size: 1.5em;
+    font-weight: 100;
+    padding: 8px 0px 7px;
+    cursor: pointer;
+    top: 15px;
+    color: #696969;
+}
+.date-picker span.glyphicon[data-type="subtract"] {
+    left: 0px;
+}
+.date-picker span.glyphicon[data-type="add"] {
+    right: 0px;
+}
+.date-picker span[data-toggle="calendar"] {
+    display: block;
+    position: absolute;
+    top: -7px;
+    right: 45px;
+    font-size: 1em !important;
+    cursor: pointer;
+}
+
+.date-picker .input-datepicker {
+    display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    width:100%;
+}
+
+.input-datepicker .btn-custom-8 {
+  font-size: 14px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.date-picker .input-datepicker.show-input {
+    display: table;
+}
+
+@media (min-width: 768px) and (max-width: 1010px) {
+    .date-picker h2{
+        font-size: 1.5em;
+        font-weight: 400;
+    }
+    .date-picker h4 {
+        font-size: 1.1em;
+    }
+    .date-picker span.glyphicon {
+        font-size: 1em;
+    }
 }

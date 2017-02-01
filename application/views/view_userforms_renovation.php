@@ -62,6 +62,9 @@
 	          <p> If you are requesting for a Renovation Form, kindly download the form we provided in this <?php $filename='Renovation.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links">link</a> and answer it before uploading below. <span class="warning-user"> Please avoid uploading multiple form requests. Doing so will place you behind the queue. </span> Kindly attach the Renovation Form you recently answered then we will contact you as soon as we have processed
 	          your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you.</p><br>
 					</div>
+
+					<form>
+						
             <div class="form-group">
 
               <h4>Attach file</h4>
