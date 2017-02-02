@@ -67,13 +67,14 @@
             <div class="court-message">
               <p> Note: Court 1 is located at Parkwood Greens Executive Village Phase 1 while Court 2 is located at Phase 2. Both of these courts can be reserved for your own private use
                 from Mondays to Sundays, 6:00 PM until 10:00 PM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if this day is available, kindly click the word below.
+                Also, your reservations can be viewed below through the table, My Reservation.
               </p>
               <form action="<?php echo base_url(); ?>user_reservation/check_availability_courtone/" method="GET">
-              <button type="submit" class="btn btn-custom-9">Check if this day is available</button>
+              <a href="#" onclick="$(this).closest('form').submit()" class="a-links">Check if this day is available</a>
             </div>
             <br><br>
 
-            <div class="date-picker"  data-date="2017/02/01" data-keyboard="true">
+            <div class="date-picker" data-date="2017/02/01" data-keyboard="true">
 
               <div class="date-container pull-left">
 
@@ -112,22 +113,91 @@
 
   </div>
 
-  <br><br>
+  <div class="reservation-schedule">
+
+    <div class="row">
+
+      <div class="col-md-4 nopadding">
+
+        <div class="information">
+
+          <div class="row">
+
+            <div class="col-xs-12 nopadding">
+              <p class="vacant-legend"> <span></span> - Vacant </p>
+            </div>
+            <br><br><br>
+            <div class="col-xs-12 nopadding">
+              <p class="reserved-legend"> <span></span> - Reserved </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-8 nopadding">
+
+        <div class="table-responsive">
+
+          <table class="table table-hover">
+
+            <tr>
+              <th><br>Time Reserved</th>
+              <th><br>6:00-7:00</th>
+              <th><br>7:00-8:00</th>
+              <th><br>8:00-9:00</th>
+              <th><br>9:00-10:00</th>
+            </tr>
+
+            <tr>
+              <td>Status</td>
+              <td class="reserved"></td>
+              <td class="vacant"></td>
+              <td class="reserved"></td>
+              <td class="vacant"></td>
+            </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <br><hr><br>
 
   <div class="portlet">
 
 		<div class="portlet-title">
 
-			<div class="caption caption-red">
-				<span class="caption-subject bold font-yellow-crusta uppercase">
-				My Reservation </span>
-			</div>
+      <ul class="nav nav-tabs">
+
+        <li class="active">
+          <a href="#">
+            My Reservation </a>
+        </li>
+
+      </ul>
 
 		</div>
 
 		<div class="portlet-body">
 
+      <br>
+
 			<div class="tab-content">
+
+        <div class="court-message">
+          <p> Here, you can view the status of your current reservations. Kindly keep track of this table to be informed whether your request has been accepted. Thank you!
+          </p>
+        </div>
+
+        <br>
 
 				<div class="tab-pane fade in active" id="portlet_tab1">
 

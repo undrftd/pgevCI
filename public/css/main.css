@@ -500,6 +500,32 @@ h1 {
   text-decoration: none;
 }
 
+.reserved {
+  background-color: #f3aca5;
+}
+
+.vacant {
+  background-color: #acecc7;
+}
+
+.vacant-legend span {
+  padding: 12px 20px 12px 20px;
+  background-color: #acecc7;
+  margin-right: 10px;
+}
+
+.reserved-legend span {
+  padding: 12px 20px 12px 20px;
+  background-color: #f3aca5;
+  margin-right: 10px;
+}
+
+.reservation-schedule p {
+  font-size: 0.9em;
+  font-family: 'Rubik', sans-serif;
+  text-align: justify;
+}
+
 .table-responsive th {
   background-color: #27ae60;
   color: white;
@@ -523,6 +549,10 @@ h1 {
   top: 50%;
   transform: translateY(21%);
   white-space: nowrap;
+}
+
+.table-responsive .reserved, .table-responsive .vacant {
+  transform: translateY(2%);
 }
 
 .admin-statistics {
@@ -1090,6 +1120,20 @@ Licensed under MIT
   margin: 0 auto;
 }
 
+.caption {
+	float: left;
+	display: inline-block;
+	font-size: 18px;
+	line-height: 18px;
+  text-transform: uppercase;
+}
+
+.caption.caption-red .caption-subject,
+.caption.caption-red i {
+	color: #27ae60;
+	font-weight: 200;
+}
+
 .portlet.portlet-bordered {
 	border: 1px solid #eee;
 }
@@ -1167,6 +1211,7 @@ Licensed under MIT
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    margin: 0 auto;
 }
 .date-container {
     padding: 10px 40px;
