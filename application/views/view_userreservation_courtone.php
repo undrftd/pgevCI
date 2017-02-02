@@ -41,12 +41,12 @@
         </li>
 
         <li>
-            <a href="<?php echo base_url(); ?>user_forms/work_permit">
+            <a href="#">
             Court 2 </a>
         </li>
 
         <li>
-          <a href="<?php echo base_url(); ?>user_forms/renovation">
+          <a href="#">
             Clubhouse </a>
         </li>
 
@@ -68,7 +68,8 @@
               <p> Note: Court 1 is located at Parkwood Greens Executive Village Phase 1 while Court 2 is located at Phase 2. Both of these courts can be reserved for your own private use
                 from Mondays to Sundays, 6:00 PM until 10:00 PM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if this day is available, kindly click the word below.
               </p>
-              <a class="a-links">Check if this day is available</a>
+              <form action="<?php echo base_url(); ?>user_reservation/check_availability_courtone/" method="GET">
+              <button type="submit" class="btn btn-custom-9">Check if this day is available</button>
             </div>
             <br><br>
 
@@ -87,7 +88,7 @@
 
               <div class="input-group input-datepicker">
 
-                  <input type="text" class="form-control" data-format="YYYY/MM/DD" placeholder="Skip to a certain date (YYYY/MM/DD)" id="sel1">
+                  <input type="text" name="search" class="form-control" data-format="YYYY/MM/DD" placeholder="Skip to a certain date (YYYY/MM/DD)" id="sel1">
                   <span class="input-group-btn">
                       <button class="btn btn-custom-8" type="button">Go</button>
                   </span>
@@ -95,7 +96,7 @@
               </div>
 
               <span data-toggle="calendar" class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-
+            </form>
             </div>
 
           </div>
