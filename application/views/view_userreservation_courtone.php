@@ -104,31 +104,58 @@
 
         </div>
 
-        <br>
-        <hr>
+        <br><br><br>
 
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="reservation-schedule">
-
-    <div class="row">
-
-      <div class="col-md-4 nopadding">
-
-        <div class="information">
+        <div class="reservation-schedule">
 
           <div class="row">
 
-            <div class="col-xs-12 nopadding">
-              <p class="vacant-legend"> <span></span> - Vacant </p>
+            <div class="col-md-4 nopadding">
+
+              <div class="information">
+
+                <div class="row">
+
+                  <div class="col-xs-12 nopadding">
+                    <p class="vacant-legend"> <span></span> - Vacant </p>
+                  </div>
+                  <br><br><br>
+                  <div class="col-xs-12 nopadding">
+                    <p class="reserved-legend"> <span></span> - Reserved </p>
+                  </div>
+
+                </div>
+
+              </div>
+
             </div>
-            <br><br><br>
-            <div class="col-xs-12 nopadding">
-              <p class="reserved-legend"> <span></span> - Reserved </p>
+
+            <div class="col-xs-12 col-sm-12 col-md-8 nopadding">
+
+              <div class="table-responsive">
+
+                <table class="table table-hover">
+
+                  <tr>
+                    <th><br>Time Reserved</th>
+                    <th><br>6:00-7:00</th>
+                    <th><br>7:00-8:00</th>
+                    <th><br>8:00-9:00</th>
+                    <th><br>9:00-10:00</th>
+                  </tr>
+
+                  <tr>
+                    <td>Status</td>
+                    <td class="reserved"></td>
+                    <td class="vacant"></td>
+                    <td class="reserved"></td>
+                    <td class="vacant"></td>
+                  </tr>
+
+                </table>
+
+              </div>
+
             </div>
 
           </div>
@@ -137,39 +164,11 @@
 
       </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-8 nopadding">
-
-        <div class="table-responsive">
-
-          <table class="table table-hover">
-
-            <tr>
-              <th><br>Time Reserved</th>
-              <th><br>6:00-7:00</th>
-              <th><br>7:00-8:00</th>
-              <th><br>8:00-9:00</th>
-              <th><br>9:00-10:00</th>
-            </tr>
-
-            <tr>
-              <td>Status</td>
-              <td class="reserved"></td>
-              <td class="vacant"></td>
-              <td class="reserved"></td>
-              <td class="vacant"></td>
-            </tr>
-
-          </table>
-
-        </div>
-
-      </div>
-
     </div>
 
   </div>
 
-  <br><hr><br>
+  <br><hr>
 
   <div class="portlet">
 
