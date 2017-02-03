@@ -88,7 +88,7 @@
               <span data-toggle="datepicker" data-type="add" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></></span>
 
               <div class="input-group input-datepicker">
-                  <input type="text" name="search" value="date" class="form-control" data-format="YYYY/MM/DD" placeholder="Skip to a certain date (YYYY/MM/DD)" id="sel1">
+                  <input type="text" name="search" class="form-control" data-format="YYYY/MM/DD" placeholder="Skip to a certain date (YYYY/MM/DD)" id="sel1">
                   <span class="input-group-btn">
                       <button class="btn btn-custom-8" type="button">Go</button>
                   </span>

@@ -26,7 +26,7 @@
           <br>
 
           <p> Date </p>
-          <input class="form-control" name="post_date" id="sel1" type="text" value="<?php $date = date('F d, Y'); echo date('F d, Y', strtotime($date)); ?>"readonly>
+          <input class="form-control" name="post_date" id="sel1" type="text" value="<?php $date = time(); $unix = unix_to_human($date, true, 'us'); echo date("F d, Y", strtotime($unix)); ?>"readonly>
           <p class="error" > <?php echo form_error('post_date'); ?> </p>
           <br>
 

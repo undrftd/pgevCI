@@ -31,7 +31,7 @@ class User_Reservation extends MY_Controller {
 	    }
 	    else
 	    {
-	     	redirect('User_reservation/court_one');
+	     	redirect('user_reservation/court_one');
 	    }
 	}
 
