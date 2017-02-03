@@ -74,13 +74,13 @@
             </div>
             <br><br>
 
-            <div class="date-picker" data-date="2017/02/01" data-keyboard="true">
+            <div class="date-picker" data-date="<?php echo $date; ?> " data-keyboard="true">
 
               <div class="date-container pull-left">
 
-                  <h2 class="weekday">Monday</h2>
-                  <h4 class="date">Februray 4th</h4>
-                  <h2 class="year pull-right">2014</h2>
+                  <h2 class="weekday"></h2>
+                  <h4 class="date"></h4>
+                  <h2 class="year pull-right"></h2>
 
               </div>
 
@@ -88,8 +88,7 @@
               <span data-toggle="datepicker" data-type="add" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></></span>
 
               <div class="input-group input-datepicker">
-
-                  <input type="text" name="search" class="form-control" data-format="YYYY/MM/DD" placeholder="Skip to a certain date (YYYY/MM/DD)" id="sel1">
+                  <input type="text" name="search" value="2013/05/08" class="form-control" data-format="YYYY/MM/DD" placeholder="Skip to a certain date (YYYY/MM/DD)" id="sel1">
                   <span class="input-group-btn">
                       <button class="btn btn-custom-8" type="button">Go</button>
                   </span>
@@ -105,7 +104,7 @@
         </div>
 
         <br><br><br>
-
+       
         <div class="reservation-schedule">
 
           <div class="row">
@@ -135,7 +134,7 @@
               <div class="table-responsive">
 
                 <table class="table table-hover">
-
+                  <h1> Reservation Status for <?php echo date("F d, Y", strtotime($date)); ?>
                   <tr>
                     <th><br>Time Reserved</th>
                     <th><br>6:00-7:00</th>
@@ -143,13 +142,13 @@
                     <th><br>8:00-9:00</th>
                     <th><br>9:00-10:00</th>
                   </tr>
-
+              
                   <tr>
                     <td>Status</td>
-                    <td class="reserved"></td>
-                    <td class="vacant"></td>
-                    <td class="reserved"></td>
-                    <td class="vacant"></td>
+                    <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 6) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; } ?>
+                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 7) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; } ?>
+                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 8) { echo '<td class="reserved"></td>'; }   else { echo '<td class="vacant"></td>'; } ?>
+                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 9) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; }?>
                   </tr>
 
                 </table>
