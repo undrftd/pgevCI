@@ -22,37 +22,4 @@ class Model_reservation_user extends CI_Model {
 		}
 	}
 
-	function get_searchdate($searchquery)
-	{
-		$query = $this->db->select('*')->from('reservation')->where('reservation_date', $searchquery)->get();
-		$result = $query->row();
-
-		return $result->reservation_date;
-	}
-
-	function get_availabledate()
-	{
-		$query = $this->db->select('*')->from('reservation')->get();
-		$result = $query->row();
-
-		return $result->reservation_date;
-
-	}
-
-	function check_reservationdatabase($searchquery)
-	{
-		$query = $this->db->select('*')->from('reservation')->where('reservation_date', $searchquery)->get();
-		$result = $query->row();
-
-		if($result == $searchquery)
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
-	}
-	
-
 }
