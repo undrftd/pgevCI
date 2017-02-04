@@ -2,19 +2,27 @@
 
 class Model_reservation_user extends CI_Model {
 
-	function get_defaultavailability()
+	function getcourtone_defaultavailability()
 	{
-		$query = $this->db->select('*')->from('reservation')->where('reservation_date', date("Y/m/d"))->get();
-		return $query->row();
-	}
-
-	function get_availability($searchquery)
-	{
-		$query = $this->db->select('*')->from('reservation')->where('reservation_date', $searchquery)->get();
+		$query = $this->db->select('*')->from('courtone_reservation')->where('reservation_date', date("Y/m/d"))->get();
 		
 		if($query->num_rows() > 0)
 		{
-			return $query->row();
+			return $query->result();
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+
+	function getcourtone_availability($searchquery)
+	{
+		$query = $this->db->select('*')->from('courtone_reservation')->where('reservation_date', $searchquery)->get();
+		
+		if($query->num_rows() > 0)
+		{
+			return $query->result();
 		}
 		else
 		{
