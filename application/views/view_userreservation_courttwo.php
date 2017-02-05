@@ -27,7 +27,7 @@
 
   <br>
 
-  <a href="<?php echo site_url('user_reservation/add_reservation_courtone') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br>
+  <a href="<?php echo site_url('user_reservation/add_reservation_courttwo') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br>
 
   <div class="portlet">
 
@@ -35,12 +35,12 @@
 
       <ul class="nav nav-tabs">
 
-        <li  class="active">
+        <li>
           <a href="<?php echo base_url(); ?>user_reservation/court_one">
             Court 1 </a>
         </li>
 
-        <li>
+        <li class="active">
             <a href="<?php echo base_url(); ?>user_reservation/court_two">
             Court 2 </a>
         </li>
@@ -73,7 +73,7 @@
 
             <br>
 
-            <form action="<?php echo base_url(); ?>user_reservation/check_availability_courtone/" method="GET">
+            <form action="<?php echo base_url(); ?>user_reservation/check_availability_courttwo/" method="GET">
             <div id="search-group">
 
               <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Choose a preferred date">
@@ -173,7 +173,7 @@
 
   <div class="portlet">
 
-		<div class="portlet-title">
+    <div class="portlet-title">
 
       <ul class="nav nav-tabs">
 
@@ -184,13 +184,13 @@
 
       </ul>
 
-		</div>
+    </div>
 
-		<div class="portlet-body">
+    <div class="portlet-body">
 
       <br>
 
-			<div class="tab-content">
+      <div class="tab-content">
 
         <div class="court-message">
           <p> Here, you can view the status of your current reservations. Kindly keep track of this table to be informed whether your request has been accepted. Thank you!
@@ -199,7 +199,7 @@
 
         <br>
 
-				<div class="tab-pane fade in active" id="portlet_tab1">
+        <div class="tab-pane fade in active" id="portlet_tab1">
 
           <div class="table-responsive">
 
@@ -245,7 +245,7 @@
 
           </div>
 
-				</div>
+        </div>
 
       </div>
 
@@ -254,3 +254,4 @@
   </div>
 
 </div>
+

@@ -43,7 +43,8 @@
               <input class="form-control" id="sel1" type="text" value="<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname');;?>" disabled>
 
               <br>
-              <p> Desired Reservation Date and Time</p>
+             
+              <p> Desired Reservation Date </p>
               <div class='input-group date' id='datetimepicker1'>
                 <input id="sel1" name ="datepick" type='text' class="form-control" placeholder="Click the calendar button to select a time and date"/>
                 <span class="input-group-addon">
@@ -52,12 +53,16 @@
               </div>
               <p> <?php echo form_error('datepick'); ?> </p>
 
-            </div>
+              <p> Desired Reservation Time</p>
+                <select name="reservetime" class="form-control" id="sel1">
+                  <option value= "" selected hidden>Choose your desired time</option>
+                  <option value= "6">6:00 PM - 7:00 PM</option>
+                  <option value= "7">7:00 PM - 8:00 PM</option>
+                  <option value= "8">8:00 PM - 9:00 PM</option>
+                  <option value= "9">9:00 PM - 10:00 PM</option>
+                </select>
+              <p class="error"> <?php echo form_error('role'); ?></p> 
 
-            <div class="form-group">
-              <p> Message </p>
-              <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain the reason for your CCTV Retrieval Request" rows="15" reseize="none"></textarea>
-              <p class="error"><?php echo form_error('content'); ?> </p>
             </div>
 
             <br><br>
