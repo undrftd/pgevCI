@@ -132,10 +132,10 @@
                     // Set an array of 10 'hour' switches
                     $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
-                    // loop through results setting the array switches
-                    foreach ($result as $result)
+                    // loop through resulttwos setting the array switches
+                    foreach ($resulttwo as $resulttwo)
                     {
-                      $tdX[$result->reservation_time] = 1;
+                      $tdX[$resulttwo->reservation_time] = 1;
                     }
                     
                     // loop through array building row
