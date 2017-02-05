@@ -27,7 +27,7 @@
 
   <br>
 
-  <a href="user-court-add.html"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br>
+  <a href="<?php echo site_url('user_reservation/add_reservation_courtone') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br>
 
   <div class="portlet">
 
@@ -125,15 +125,16 @@
                     <th><br>8:00-9:00</th>
                     <th><br>9:00-10:00</th>
                   </tr>
-
+                  
+                  <?php foreach ($result as $result): ?>
                   <tr>
                     <td><?php echo date("F d, Y", strtotime($date)); ?></td>
                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 6) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; } ?>
-                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 7) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; } ?>
-                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 8) { echo '<td class="reserved"></td>'; }   else { echo '<td class="vacant"></td>'; } ?>
+                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 6) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; } ?>
+                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 6) { echo '<td class="reserved"></td>'; }   else { echo '<td class="vacant"></td>'; } ?>
                      <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 9) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; }?>
                   </tr>
-
+                  <?php endforeach; ?>
                 </table>
 
               </div>
