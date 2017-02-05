@@ -27,7 +27,7 @@
 
   <br>
 
-  <a href="<?php echo site_url('user_reservation/add_reservation_courttwo') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br>
+  <a href="<?php echo site_url('user_reservation/add_reservation_clubhouse') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br>
 
   <div class="portlet">
 
@@ -40,12 +40,12 @@
             Court 1 </a>
         </li>
 
-        <li class="active">
+        <li>
             <a href="<?php echo base_url(); ?>user_reservation/court_two">
             Court 2 </a>
         </li>
 
-        <li>
+        <li class="active">
           <a href="<?php echo base_url(); ?>user_reservation/clubhouse">
             Clubhouse </a>
         </li>
@@ -73,7 +73,7 @@
 
             <br>
 
-            <form action="<?php echo base_url(); ?>user_reservation/check_availability_courttwo/" method="GET">
+            <form action="<?php echo base_url(); ?>user_reservation/check_availability_clubhouse/" method="GET">
             <div id="search-group">
 
               <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Choose a preferred date">
