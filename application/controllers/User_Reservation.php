@@ -2,7 +2,7 @@
 
 class User_Reservation extends MY_Controller {
 
-	public function court_one()
+	function court_one()
 	{
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getcourtone_defaultavailability();

@@ -126,15 +126,33 @@
                     <th><br>9:00-10:00</th>
                   </tr>
                   
-                  <?php foreach ($result as $result): ?>
-                  <tr>
-                    <td><?php echo date("F d, Y", strtotime($date)); ?></td>
-                    <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 6) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; } ?>
-                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 6) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; } ?>
-                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 6) { echo '<td class="reserved"></td>'; }   else { echo '<td class="vacant"></td>'; } ?>
-                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 9) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; }?>
-                  </tr>
-                  <?php endforeach; ?>
+                    <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
+
+                    <?php
+                    // Set an array of 10 'hour' switches
+                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+
+                    // loop through results setting the array switches
+                    foreach ($result as $result)
+                    {
+                      $tdX[$result->reservation_time] = 1;
+                    }
+                    
+                    // loop through array building row
+                    for ($i = 6; $i<=9; $i++) {
+
+                     if ($tdX[$i] === 1 ) {
+                         $tdClass = 'reserved';
+                     } else {
+                         $tdClass = 'vacant';
+                     }
+
+                     echo "<td class='$tdClass'></td>";
+
+                    }
+
+                    // close row
+                    echo '</tr>'; ?>
                 </table>
 
               </div>
