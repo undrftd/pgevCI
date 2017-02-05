@@ -1239,37 +1239,7 @@ Licensed under MIT
 .date-container .date {
     text-align: center;
 }
-.date-picker span.glyphicon {
-    position: absolute;
-    font-size: 1.5em;
-    font-weight: 100;
-    padding: 8px 0px 7px;
-    cursor: pointer;
-    top: 15px;
-    color: #696969;
-}
-.date-picker span.glyphicon[data-type="subtract"] {
-    left: 0px;
-}
-.date-picker span.glyphicon[data-type="add"] {
-    right: 0px;
-}
-.date-picker span[data-toggle="calendar"] {
-    display: block;
-    position: absolute;
-    top: -7px;
-    right: 45px;
-    font-size: 1em !important;
-    cursor: pointer;
-}
 
-.date-picker .input-datepicker {
-    display: none;
-    position: absolute;
-    top: 50%;
-    margin-top: -17px;
-    width:100%;
-}
 
 .input-datepicker .btn-custom-8 {
   font-size: 14px;

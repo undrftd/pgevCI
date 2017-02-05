@@ -66,45 +66,29 @@
 
             <div class="court-message">
               <p> Note: Court 1 is located at Parkwood Greens Executive Village Phase 1 while Court 2 is located at Phase 2. Both of these courts can be reserved for your own private use
-                from Mondays to Sundays, 6:00 PM until 10:00 PM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if this day is available, kindly click the word below.
+                from Mondays to Sundays, 6:00 PM until 10:00 PM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if a day is available, kindly use the search bar below and check the table.
                 Also, your reservations can be viewed below through the table, My Reservation.
               </p>
-              <form action="<?php echo base_url(); ?>user_reservation/check_availability_courtone/" method="GET">
-              <a href="#" onclick="$(this).closest('form').submit()" class="a-links">Check if this day is available</a>
             </div>
-            <br><br>
 
-            <div class="date-picker" data-date="<?php echo $date; ?> " data-keyboard="true">
+            <br>
 
-              <div class="date-container pull-left">
+            <form action="<?php echo base_url(); ?>user_reservation/check_availability_courtone/" method="GET">
+            <div id="search-group">
 
-                  <h2 class="weekday"></h2>
-                  <h4 class="date"></h4>
-                  <h2 class="year pull-right"></h2>
+              <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Choose a preferred date">
+                <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              </input>
 
-              </div>
-
-              <span data-toggle="datepicker" data-type="subtract" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></></span>
-              <span data-toggle="datepicker" data-type="add" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></></span>
-
-              <div class="input-group input-datepicker">
-                  <input type="text" name="search" class="form-control" data-format="YYYY/MM/DD" placeholder="Skip to a certain date (YYYY/MM/DD)" id="sel1">
-                  <span class="input-group-btn">
-                      <button class="btn btn-custom-8" type="button">Go</button>
-                  </span>
-
-              </div>
-
-              <span data-toggle="calendar" class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            </div>
             </form>
-            </div>
 
           </div>
 
         </div>
 
-        <br><br><br>
-       
+        <br><br>
+
         <div class="reservation-schedule">
 
           <div class="row">
@@ -131,20 +115,19 @@
 
             <div class="col-xs-12 col-sm-12 col-md-8 nopadding">
 
-              <div class="table-responsive">
+              <div class="table-responsive text-right">
 
                 <table class="table table-hover">
-                  <h1> Reservation Status for <?php echo date("F d, Y", strtotime($date)); ?>
                   <tr>
-                    <th><br>Time Reserved</th>
+                    <th><br>Date and Time Reserved</th>
                     <th><br>6:00-7:00</th>
                     <th><br>7:00-8:00</th>
                     <th><br>8:00-9:00</th>
                     <th><br>9:00-10:00</th>
                   </tr>
-              
+
                   <tr>
-                    <td>Status</td>
+                    <td><?php echo date("F d, Y", strtotime($date)); ?></td>
                     <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 6) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; } ?>
                      <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 7) { echo '<td class="reserved"></td>'; } else { echo '<td class="vacant"></td>'; } ?>
                      <?php if($result == FALSE) { echo '<td class="vacant"></td>'; } else if($result->reservation_time == 8) { echo '<td class="reserved"></td>'; }   else { echo '<td class="vacant"></td>'; } ?>
