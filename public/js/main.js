@@ -75,6 +75,13 @@ $(function () {
 });
 
 $(function () {
+    $('#datetimepicker2').datetimepicker({
+      format: 'MM/DD/YYYY'
+    });
+    $('#datetimepicker2').datetimepicker('showClear', true);
+});
+
+$(function () {
   $('#datetimepicker4').datetimepicker({
     format: 'MM/DD/YYYY'
   });
