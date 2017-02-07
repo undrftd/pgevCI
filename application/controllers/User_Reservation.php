@@ -79,7 +79,7 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_courtone()
 	{
 		$this->form_validation->set_rules('datepick', 'Date', 'required');
-        $this->form_validation->set_rules('reservetime', 'Reservation Time', 'required|unique_reserve_time_courtone');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_courtone|max_twohours');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -103,7 +103,7 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_courttwo()
 	{
 		$this->form_validation->set_rules('datepick', 'Date', 'required');
-        $this->form_validation->set_rules('reservetime', 'Reservation Time', 'required|unique_reserve_time_courttwo');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_courttwo|max_twohours');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -127,7 +127,7 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_clubhouse()
 	{
 		$this->form_validation->set_rules('datepick', 'Date', 'required');
-        $this->form_validation->set_rules('reservetime', 'Reservation Time', 'required|unique_reserve_time_clubhouse');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_clubhouse|max_twohours');
 
         if ($this->form_validation->run() == FALSE)
         {
