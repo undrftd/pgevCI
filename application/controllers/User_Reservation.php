@@ -67,7 +67,7 @@ class User_Reservation extends MY_Controller {
 	    }
 	    else
 	    {
-	     	redirect('user_reservation/court_clubhouse');
+	     	redirect('user_reservation/clubhouse');
 	    }
 	}
 
@@ -76,14 +76,71 @@ class User_Reservation extends MY_Controller {
 		$this->template->load('user_template', 'view_userreservation_addcourtone');	
 	}
 
+	function create_reservation_courtone()
+	{
+		$this->form_validation->set_rules('datepick', 'Date', 'required');
+        $this->form_validation->set_rules('reservetime', 'Reservation Time', 'required|unique_reserve_time_courtone');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->template->load('user_template', 'view_userreservation_addcourtone');
+        }
+        else
+        {
+            if($query = $this->model_reservation_user->create_reservation_courtone())
+             {
+                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court One. Please wait for the administrators to accept your reservation.');
+                redirect('user_reservation/court_one');
+             }
+        }
+	}
+
 	function add_reservation_courttwo()
 	{
 		$this->template->load('user_template', 'view_userreservation_addcourttwo');
 	}
 
+	function create_reservation_courttwo()
+	{
+		$this->form_validation->set_rules('datepick', 'Date', 'required');
+        $this->form_validation->set_rules('reservetime', 'Reservation Time', 'required|unique_reserve_time_courttwo');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->template->load('user_template', 'view_userreservation_addcourttwo');
+        }
+        else
+        {
+            if($query = $this->model_reservation_user->create_reservation_courttwo())
+             {
+                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court Two. Please wait for the administrators to accept your reservation.');
+                redirect('user_reservation/court_two');
+             }
+        }
+	}
+
 	function add_reservation_clubhouse()
 	{
 		$this->template->load('user_template', 'view_userreservation_addclubhouse');
+	}
+
+	function create_reservation_clubhouse()
+	{
+		$this->form_validation->set_rules('datepick', 'Date', 'required');
+        $this->form_validation->set_rules('reservetime', 'Reservation Time', 'required|unique_reserve_time_clubhouse');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->template->load('user_template', 'view_userreservation_addclubhouse');
+        }
+        else
+        {
+            if($query = $this->model_reservation_user->create_reservation_clubhouse())
+             {
+                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court Two. Please wait for the administrators to accept your reservation.');
+                redirect('user_reservation/clubhouse');
+             }
+        }
 	}
 
 }

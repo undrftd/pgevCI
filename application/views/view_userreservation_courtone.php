@@ -63,7 +63,22 @@
         <div class="row">
 
           <div class="col-xs-12 nopadding">
+            <?php if ($this->session->flashdata('reservefeedback')){ ?>
+              <div class="success-message text-center" id="prompt-message">
+                <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+                <p> <?php echo $this->session->flashdata('reservefeedback'); ?></p><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+              </div> 
+              <br>
+            <?php } ?>
 
+            <?php if ($this->session->flashdata('reservefail')){ ?>
+              <div class="error-message text-center" id="prompt-message">
+                <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+                <p> <?php echo $this->session->flashdata('reservefail'); ?></p><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+              </div>
+            <?php } ?>
             <div class="court-message">
               <p> Note: Court 1 is located at Parkwood Greens Executive Village Phase 1 while Court 2 is located at Phase 2. Both of these courts can be reserved for your own private use
                 from Mondays to Sundays, 6:00 PM until 10:00 PM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if a day is available, kindly use the search bar below and check the table.

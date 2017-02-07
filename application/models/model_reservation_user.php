@@ -86,5 +86,40 @@ class Model_reservation_user extends CI_Model {
 		}
 	}
 
+	function create_reservation_courtone()
+	{
+		$reserve_data = array(
+			'user_id' => $this->session->userdata('userid'),
+			'reservation_date' => $this->input->post('datepick'),
+			'reservation_time' => $this->input->post('reservetime')
+		);
+
+		$insert = $this->db->insert('courtone_reservation', $reserve_data);
+		return $insert;
+	}
+
+	function create_reservation_courttwo()
+	{
+		$reserve_data = array(
+			'user_id' => $this->session->userdata('userid'),
+			'reservation_date' => $this->input->post('datepick'),
+			'reservation_time' => $this->input->post('reservetime')
+		);
+
+		$insert = $this->db->insert('courttwo_reservation', $reserve_data);
+		return $insert;
+	}
+
+	function create_reservation_clubhouse()
+	{
+		$reserve_data = array(
+			'user_id' => $this->session->userdata('userid'),
+			'reservation_date' => $this->input->post('datepick'),
+			'reservation_time' => $this->input->post('reservetime')
+		);
+
+		$insert = $this->db->insert('clubhouse_reservation', $reserve_data);
+		return $insert;
+	}
 
 }
