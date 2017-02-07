@@ -88,10 +88,21 @@ class Model_reservation_user extends CI_Model {
 
 	function create_reservation_courtone()
 	{
+		if (($this->input->post('reserveend') - $this->input->post('reservestart')) >= 2)
+		{
+			$reservemid = $this->input->post('reservestart') + 1;
+		}
+		else
+		{
+			$reservemid = 0;
+		}
+
 		$reserve_data = array(
 			'user_id' => $this->session->userdata('userid'),
 			'reservation_date' => $this->input->post('datepick'),
-			'reservation_time' => $this->input->post('reservetime')
+			'reservation_start' => $this->input->post('reservestart'),
+			'reservation_mid' => $reservemid,
+			'reservation_end' => $this->input->post('reserveend')
 		);
 
 		$insert = $this->db->insert('courtone_reservation', $reserve_data);
@@ -100,10 +111,21 @@ class Model_reservation_user extends CI_Model {
 
 	function create_reservation_courttwo()
 	{
+		if (($this->input->post('reserveend') - $this->input->post('reservestart')) >= 2)
+		{
+			$reservemid = $this->input->post('reservestart') + 1;
+		}
+		else
+		{
+			$reservemid = 0;
+		}
+
 		$reserve_data = array(
 			'user_id' => $this->session->userdata('userid'),
 			'reservation_date' => $this->input->post('datepick'),
-			'reservation_time' => $this->input->post('reservetime')
+			'reservation_start' => $this->input->post('reservestart'),
+			'reservation_mid' => $reservemid,
+			'reservation_end' => $this->input->post('reserveend')
 		);
 
 		$insert = $this->db->insert('courttwo_reservation', $reserve_data);
@@ -112,10 +134,21 @@ class Model_reservation_user extends CI_Model {
 
 	function create_reservation_clubhouse()
 	{
+		if (($this->input->post('reserveend') - $this->input->post('reservestart')) >= 2)
+		{
+			$reservemid = $this->input->post('reservestart') + 1;
+		}
+		else
+		{
+			$reservemid = 0;
+		}
+
 		$reserve_data = array(
 			'user_id' => $this->session->userdata('userid'),
 			'reservation_date' => $this->input->post('datepick'),
-			'reservation_time' => $this->input->post('reservetime')
+			'reservation_start' => $this->input->post('reservestart'),
+			'reservation_mid' => $reservemid,
+			'reservation_end' => $this->input->post('reserveend')
 		);
 
 		$insert = $this->db->insert('clubhouse_reservation', $reserve_data);

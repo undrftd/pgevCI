@@ -150,7 +150,9 @@
                     // loop through results setting the array switches
                     foreach ($result as $result)
                     {
-                      $tdX[$result->reservation_time] = 1;
+                      $tdX[$result->reservation_start] = 1;
+                      $tdX[$result->reservation_mid] = 1;
+                      $tdX[$result->reservation_start] = 1;
                     }
                     
                     // loop through array building row

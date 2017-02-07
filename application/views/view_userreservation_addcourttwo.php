@@ -17,10 +17,10 @@
 
         <form action="<?php echo site_url();?>user_reservation/create_reservation_courttwo" method="POST">
 
-          <div class="form-group">
+           <div class="form-group">
 
 
-            <h4> Ticket Information </h4><br>
+            <h4> Reservation Information </h4><br>
 
             <p> Homeowner's Name </p>
             <input class="form-control" id="sel1" type="text" value="<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname');;?>" disabled>
@@ -29,7 +29,7 @@
 
             <p> Desired Reservation Date </p>
             <div class='input-group date' id='datetimepicker2'>
-              <input id="sel1" name ="datepick" type='text' class="form-control" placeholder="Click the calendar button to select a time and date"/>
+              <input id="sel1" name="datepick" type='text' class="form-control" placeholder="Click the calendar button to select a time and date"/>
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
               </span>
@@ -37,17 +37,30 @@
             <p class="error"> <?php echo form_error('datepick'); ?></p>
             <br>
 
-            <p> Desired Reservation Time</p>
-              <select name="reservetime" class="form-control" id="sel1">
-                <option value= "" selected hidden>Choose your desired time</option>
-                <option value= "6">6:00 PM - 7:00 PM</option>
-                <option value= "7">7:00 PM - 8:00 PM</option>
-                <option value= "8">8:00 PM - 9:00 PM</option>
-                <option value= "9">9:00 PM - 10:00 PM</option>
+            <p> Desired Reservation Start Time</p>
+              <select name="reservestart" class="form-control" id="sel1">
+                <option value= "" selected hidden>Choose your start time</option>
+                <option value= "6">6:00 PM</option>
+                <option value= "7">7:00 PM</option>
+                <option value= "8">8:00 PM</option>
+                <option value= "9">9:00 PM</option>
               </select>
-            <p class="error"> <?php echo form_error('reservetime'); ?></p>
+            <p class="error"> <?php echo form_error('reservestart'); ?></p>
+            <br>
+
+            <p> Desired Reservation End Time</p>
+              <select name="reserveend" class="form-control" id="sel1">
+                <option value= "" selected hidden>Choose your end time</option>
+                <option value= "6">6:00 PM</option>
+                <option value= "7">7:00 PM</option>
+                <option value= "8">8:00 PM</option>
+                <option value= "9">9:00 PM</option>
+                <option value= "10">10:00 PM</option>
+              </select>
+            <p class="error"> <?php echo form_error('reserveend');?> </p>
 
           </div>
+
 
           <br><br>
 

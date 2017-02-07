@@ -24,17 +24,30 @@ class MY_Form_validation extends CI_Form_validation{
 
 	}
 
-    function unique_reserve_time_courtone()
+    function max_twohours()
     {
+        $reservestart = $this->CI->input->post('reservestart');
+        $reserveend = $this->CI->input->post('reserveend');
 
-        $reservedate = $this->CI->input->post('datepick');
-        $reservetime = $this->CI->input->post('reservetime');
+        if(($reservestart == 6 && $reserveend == 9) || ($reservestart == 6 && $reserveend == 10) || ($reservestart == 7 && $reserveend == 10)  )
+        {
+            $this->set_message('max_twohours', 'You can only book for a maximum of two hours.');
 
-        $check = $this->CI->db->get_where('courtone_reservation', array('reservation_date' => $reservedate, 'reservation_time' => $reservetime), 1);
+            return FALSE;
+        }
 
-        if ($check->num_rows() > 0) {
+        return TRUE;
 
-            $this->set_message('unique_reserve_time_courtone', 'This time schedule is already booked.');
+    }
+
+    function hourselection()
+    {
+        $reservestart = $this->CI->input->post('reservestart');
+        $reserveend = $this->CI->input->post('reserveend');
+
+        if($reservestart >= $reserveend)
+        {
+            $this->set_message('hourselection', 'Your time selection is invalid.');
 
             return FALSE;
         }
@@ -42,17 +55,19 @@ class MY_Form_validation extends CI_Form_validation{
         return TRUE;
     }
 
-    function unique_reserve_time_courttwo()
+    function unique_reserve_courtone()
     {
-
         $reservedate = $this->CI->input->post('datepick');
-        $reservetime = $this->CI->input->post('reservetime');
+        $reservestart = $this->CI->input->post('reservestart');
+        $reserveend = $this->CI->input->post('reserveend');
 
-        $check = $this->CI->db->get_where('courttwo_reservation', array('reservation_date' => $reservedate, 'reservation_time' => $reservetime), 1);
+        $checkstart = $this->CI->db->get_where('courtone_reservation', array('reservation_date' => $reservedate, 'reservation_start' => $reservestart), 1);
+        $checkmid = $this->CI->db->get_where('courtone_reservation', array('reservation_date' => $reservedate, 'reservation_mid' => $reservestart), 1);
+        $checkend = $this->CI->db->get_where('courtone_reservation', array('reservation_date' => $reservedate, 'reservation_mid' => $reserveend), 1);
 
-        if ($check->num_rows() > 0) {
+        if ($checkstart->num_rows() > 0 || $checkmid->num_rows() > 0 || $checkend->num_rows() > 0) {
 
-            $this->set_message('unique_reserve_time_courttwo', 'This time schedule is already booked.');
+            $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
 
             return FALSE;
         }
@@ -60,22 +75,45 @@ class MY_Form_validation extends CI_Form_validation{
         return TRUE;
     }
 
-     function unique_reserve_time_clubhouse()
+    function unique_reserve_courttwo()
     {
-
         $reservedate = $this->CI->input->post('datepick');
-        $reservetime = $this->CI->input->post('reservetime');
+        $reservestart = $this->CI->input->post('reservestart');
+        $reserveend = $this->CI->input->post('reserveend');
 
-        $check = $this->CI->db->get_where('clubhouse_reservation', array('reservation_date' => $reservedate, 'reservation_time' => $reservetime), 1);
+        $checkstart = $this->CI->db->get_where('courttwo_reservation', array('reservation_date' => $reservedate, 'reservation_start' => $reservestart), 1);
+        $checkmid = $this->CI->db->get_where('courttwo_reservation', array('reservation_date' => $reservedate, 'reservation_mid' => $reservestart), 1);
+        $checkend = $this->CI->db->get_where('courttwo_reservation', array('reservation_date' => $reservedate, 'reservation_mid' => $reserveend), 1);
 
-        if ($check->num_rows() > 0) {
+        if ($checkstart->num_rows() > 0 || $checkmid->num_rows() > 0 || $checkend->num_rows() > 0) {
 
-            $this->set_message('unique_reserve_time_clubhouse', 'This time schedule is already booked.');
+            $this->set_message('unique_reserve_courttwo', 'This time schedule is already booked.');
 
             return FALSE;
         }
 
         return TRUE;
     }
+
+    function unique_reserve_clubhouse()
+    {
+        $reservedate = $this->CI->input->post('datepick');
+        $reservestart = $this->CI->input->post('reservestart');
+        $reserveend = $this->CI->input->post('reserveend');
+
+        $checkstart = $this->CI->db->get_where('clubhouse_reservation', array('reservation_date' => $reservedate, 'reservation_start' => $reservestart), 1);
+        $checkmid = $this->CI->db->get_where('clubhouse_reservation', array('reservation_date' => $reservedate, 'reservation_mid' => $reservestart), 1);
+        $checkend = $this->CI->db->get_where('clubhouse_reservation', array('reservation_date' => $reservedate, 'reservation_mid' => $reserveend), 1);
+
+        if ($checkstart->num_rows() > 0 || $checkmid->num_rows() > 0 || $checkend->num_rows() > 0) {
+
+            $this->set_message('unique_reserve_clubhouse', 'This time schedule is already booked.');
+
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
 
 }
