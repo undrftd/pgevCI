@@ -1,11 +1,11 @@
-      <div id="page-content-wrapper">
+<div id="page-content-wrapper">
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
   <br><br><br>
 
   <div class="header-style">
-    <h1> Reservation for the Amenities</h1>
+    <h1> My Reservation </h1>
   </div>
 
   <div class="modal fade" id="delete-modal" role="dialog">
@@ -26,8 +26,6 @@
   </div>
 
   <br>
-
-  <a href="<?php echo site_url('user_reservation/add_reservation_courtone') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br>
 
   <div class="portlet">
 
@@ -87,39 +85,61 @@
         <div class="court-message">
           <p> Here, you can view the status of your current reservations. Kindly keep track of this table to be informed whether your request has been accepted. Thank you!
           </p>
+          <p> Go to: <a href="#" class="a-links">Court 1</a>, <a href="#" class="a-links">Court 2</a>, <a href="#" class="a-links">Clubhouse</a>
+          </p>
         </div>
 
         <br>
 
-				<div class="tab-pane fade in active" id="portlet_tab1">
+        <div class="row">
 
-          <div class="table-responsive">
+          <div class="col-xs-12">
 
-            <table class="table table-hover">
+    				<div class="tab-pane fade in active" id="portlet_tab1">
 
-              <tr>
-                  <th><br>Date</th>
-                  <th><br>Time</th>
-                  <th><br>Status</th>
-                  <th><br>Action</th>
-              </tr>
-  
-              <!--<?php foreach($myreserve as $row): ?>
-              <tr>
-                  <td><?php echo date("F d, Y", strtotime($row->reservation_date)) ?></td>
-                  <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
-                  <td><?php if($row->reservation_status == 1) { echo "Pending"; } else { echo "Approved"; } ?> </td>
-                  <td class="action-button">
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                  </td>
-              </tr>
-              <?php endforeach; ?>-->
+              <div class="table-responsive">
 
-            </table>
-            <br><br>
+                <h4> Court 1 </h4>
+
+                <hr>
+
+                <table class="table table-hover">
+
+                  <tr>
+                      <th><br>Date</th>
+                      <th><br>Time</th>
+                      <th><br>Status</th>
+                      <th><br>Action</th>
+                  </tr>
+
+                  <!--<?php foreach($myreserve as $row): ?>
+                  <tr>
+                      <td><?php echo date("F d, Y", strtotime($row->reservation_date)) ?></td>
+                      <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
+                      <td><?php if($row->reservation_status == 1) { echo "Pending"; } else { echo "Approved"; } ?> </td>
+                      <td class="action-button">
+                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                      </td>
+                  </tr>
+                  <?php endforeach; ?>-->
+
+                </table>
+                <br><br>
+
+              </div>
+
+    				</div>
+
+            <br>
 
           </div>
 
-				</div>
+        </div>
 
       </div>
+
+    </div>
+
+  </div>
+
+</div>
