@@ -1,6 +1,24 @@
 <?php
 
 class Model_reservation_user extends CI_Model {
+	
+	function getmyreservation_courtone()
+	{
+		$query = $this->db->select('*')->from('courtone_reservation')->where('user_id', $this->session->userdata('userid'))->get();
+		return $query->result();
+	}
+
+	function getmyreservation_courttwo()
+	{
+		$query = $this->db->select('*')->from('courttwo_reservation')->where('user_id', $this->session->userdata('userid'))->get();
+		return $query->result();
+	}
+
+	function getmyreservation_clubhouse()
+	{
+		$query = $this->db->select('*')->from('clubhouse_reservation')->where('user_id', $this->session->userdata('userid'))->get();
+		return $query->result();
+	}
 
 	function getcourtone_defaultavailability()
 	{

@@ -42,7 +42,7 @@
                     <a href="<?php echo site_url("admin_dues/homeowner"); ?>" class="<?php if($this->uri->segment(1)  == 'admin_dues') { echo 'active'; } ?>">Dues</a>
                 </li>
                 <li>
-                    <a href="admin-court.html">Reservation</a>
+                    <a href="<?php echo site_url("admin_reservation/court_one"); ?>" class="<?php if($this->uri->segment(1) == 'admin_reservation') { echo 'active'; } ?>">Reservation</a>
                 </li>
                 <li>
                     <a href="<?php echo site_url("admin_forms/car_sticker"); ?>" class="<?php if($this->uri->segment(1) == 'admin_forms') { echo 'active'; } ?>">Forms</a>
