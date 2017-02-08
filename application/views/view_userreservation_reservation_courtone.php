@@ -15,8 +15,8 @@
           <div class="modal-content">
               <div class="signin">
                   <div class="modal-body text-center">
-                      <p> Are you sure you want to remove this reservation from the list? </p><br><br>
-                      <button type="submit" class="btn btn-custom-1">Yes</button>
+                      <p> Are you sure you want to cancel your reservation? </p><br><br>
+                      <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button>
                       <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                   </div>
               </div>
@@ -49,7 +49,7 @@
         </li>
 
         <li class="active">
-          <a href="<?php echo base_url(); ?>user_reservation/reservations">
+          <a href="<?php echo base_url(); ?>user_reservation/reservations_courtone">
             My Reservation </a>
         </li>
 
@@ -85,7 +85,7 @@
         <div class="court-message">
           <p> Here, you can view the status of your current reservations. Kindly keep track of this table to be informed whether your request has been accepted. Thank you!
           </p>
-          <p> Go to: <a href="#" class="a-links">Court 1</a>, <a href="#" class="a-links">Court 2</a>, <a href="#" class="a-links">Clubhouse</a>
+          <p> Go to: <a href="<?php echo site_url(); ?>user_reservation/reservations_courtone" class="a-links">Court 1</a>, <a href="<?php echo site_url(); ?>user_reservation/reservations_courttwo" class="a-links">Court 2</a>, <a href="<?php echo site_url(); ?>user_reservation/reservations_clubhouse" class="a-links">Clubhouse</a>
           </p>
         </div>
 
@@ -112,19 +112,20 @@
                       <th><br>Action</th>
                   </tr>
 
-                  <!--<?php foreach($myreserve as $row): ?>
+                  <?php foreach($myreserve as $row): ?>
                   <tr>
                       <td><?php echo date("F d, Y", strtotime($row->reservation_date)) ?></td>
                       <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
                       <td><?php if($row->reservation_status == 1) { echo "Pending"; } else { echo "Approved"; } ?> </td>
                       <td class="action-button">
-                        <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
+                        <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'user_reservation/cancelreservation_courtone/' . $row->reservation_id; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Cancel </button>
                       </td>
                   </tr>
-                  <?php endforeach; ?>-->
+                  <?php endforeach; ?>
 
                 </table>
                 <br><br>
+                <center><div id="pagination-link"><?php echo $courtonelinks; ?></div></center>
 
               </div>
 

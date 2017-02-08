@@ -51,7 +51,7 @@
         </li>
 
         <li>
-          <a href="<?php echo base_url(); ?>user_reservation/reservations">
+          <a href="<?php echo base_url(); ?>user_reservation/reservations_courtone">
             My Reservation </a>
         </li>
 

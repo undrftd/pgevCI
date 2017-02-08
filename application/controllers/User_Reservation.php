@@ -31,7 +31,6 @@ class User_Reservation extends MY_Controller {
 	    {
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourtone_availability($searchquery);
-			$data['myreserve'] = $this->model_reservation_user->getmyreservation_courtone();
 			$this->template->load('user_template', 'view_userreservation_courtone', $data);
 	    }
 	    else
@@ -44,7 +43,6 @@ class User_Reservation extends MY_Controller {
 	{
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getcourttwo_defaultavailability();
-		$data['myreserve'] = $this->model_reservation_user->getmyreservation_courttwo();
 		$this->template->load('user_template', 'view_userreservation_courttwo', $data);
 	}
 
@@ -56,7 +54,6 @@ class User_Reservation extends MY_Controller {
 	    {
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourttwo_availability($searchquery);
-			$data['myreserve'] = $this->model_reservation_user->getmyreservation_courttwo();
 			$this->template->load('user_template', 'view_userreservation_courttwo', $data);
 	    }
 	    else
@@ -69,7 +66,6 @@ class User_Reservation extends MY_Controller {
 	{
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getclubhouse_defaultavailability();
-		$data['myreserve'] = $this->model_reservation_user->getmyreservation_clubhouse();
 		$this->template->load('user_template', 'view_userreservation_clubhouse', $data);
 	}
 
@@ -81,7 +77,6 @@ class User_Reservation extends MY_Controller {
 	    {
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getclubhouse_availability($searchquery);
-			$data['myreserve'] = $this->model_reservation_user->getmyreservation_clubhouse();
 			$this->template->load('user_template', 'view_userreservation_clubhouse', $data);
 	    }
 	    else
@@ -97,8 +92,8 @@ class User_Reservation extends MY_Controller {
 
 	function create_reservation_courtone()
 	{
-				$this->form_validation->set_error_delimiters('<div class="error">','</div>');
-				$this->form_validation->set_rules('datepick', 'Date', 'required');
+		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
+		$this->form_validation->set_rules('datepick', 'Date', 'required');
         $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_courtone|max_twohours');
 
         if ($this->form_validation->run() == FALSE)
@@ -165,9 +160,133 @@ class User_Reservation extends MY_Controller {
         }
 	}
 
-	function reservations()
+	function reservations_courtone()
 	{
-		$this->template->load('user_template', 'view_userreservation_myreservation');
+		$config['base_url'] = site_url('user_reservation/reservations_courtone');
+        $config['total_rows'] = $this->model_reservation_user->count_reservationcourtone();
+        $config['per_page'] =  5;
+        $config['num_links'] = 5;
+        $config['use_page_numbers'] = FALSE;
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+        $this->pagination->initialize($config);
+        $data['courtonelinks'] = $this->pagination->create_links();
+
+		$data['myreserve'] = $this->model_reservation_user->getmyreservation_courtone($config['per_page'], $this->uri->segment(3));
+		$this->template->load('user_template', 'view_userreservation_reservation_courtone', $data);
+	}
+
+	function reservations_courttwo()
+	{
+		$config['base_url'] = site_url('user_reservation/reservations_courttwo');
+        $config['total_rows'] = $this->model_reservation_user->count_reservationcourttwo();
+        $config['per_page'] =  5;
+        $config['num_links'] = 5;
+        $config['use_page_numbers'] = FALSE;
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+        $this->pagination->initialize($config);
+        $data['courttwolinks'] = $this->pagination->create_links();
+
+		$data['myreserve'] = $this->model_reservation_user->getmyreservation_courttwo($config['per_page'], $this->uri->segment(3));
+		$this->template->load('user_template', 'view_userreservation_reservation_courttwo', $data);
+	}
+
+	function reservations_clubhouse()
+	{
+		$config['base_url'] = site_url('user_reservation/reservations_clubhouse');
+        $config['total_rows'] = $this->model_reservation_user->count_reservationclubhouse();
+        $config['per_page'] =  5;
+        $config['num_links'] = 5;
+        $config['use_page_numbers'] = FALSE;
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+        $this->pagination->initialize($config);
+        $data['clubhouselinks'] = $this->pagination->create_links();
+
+		$data['myreserve'] = $this->model_reservation_user->getmyreservation_clubhouse($config['per_page'], $this->uri->segment(3));
+		$this->template->load('user_template', 'view_userreservation_reservation_clubhouse', $data);
+	}
+
+	function cancelreservation_courtone($reservationid)
+	{
+		if($this->model_reservation_user->url_check_courtone($reservationid))
+        {
+            $this->session->set_flashdata('reservefeedback', 'You have successfully cancelled your reservation.');
+            $this->model_reservation_user->cancelreservation_courtone($reservationid);
+            redirect('user_reservation/reservations_courtone');
+        }
+        else
+        {
+            $this->session->set_flashdata('reservefail', 'You cannot cancel a non-existent reservation.');
+            redirect('user_reservation/reservations_courtone');
+        }
+	}
+
+	function cancelreservation_courttwo($reservationid)
+	{
+		if($this->model_reservation_user->url_check_courttwo($reservationid))
+        {
+            $this->session->set_flashdata('reservefeedback', 'You have successfully cancelled your reservation.');
+            $this->model_reservation_user->cancelreservation_courttwo($reservationid);
+            redirect('user_reservation/reservations_courttwo');
+        }
+        else
+        {
+            $this->session->set_flashdata('reservefail', 'You cannot cancel a non-existent reservation.');
+            redirect('user_reservation/reservations_courttwo');
+        }
+	}
+
+	function cancelreservation_clubhouse($reservationid)
+	{
+		if($this->model_reservation_user->url_check_clubhouse($reservationid))
+        {
+            $this->session->set_flashdata('reservefeedback', 'You have successfully cancelled your reservation.');
+            $this->model_reservation_user->cancelreservation_clubhouse($reservationid);
+            redirect('user_reservation/reservations_clubhouse');
+        }
+        else
+        {
+            $this->session->set_flashdata('reservefail', 'You cannot cancel a non-existent reservation.');
+            redirect('user_reservation/reservations_clubhouse');
+        }
 	}
 
 }
