@@ -11,21 +11,6 @@ class Model_accounts extends CI_Model {
 
         if($query->num_rows() == 1)
         {
-         $data = array(
-                'userid' => $result->userid,
-                'username' => $result->username,
-                'password' => $result->password,
-                'firstname' => $result->firstname,
-                'lastname' => $result->lastname,
-                'email' => $result->email,
-                'address' => $result->address,
-                'monthly_dues' => $result->monthly_dues,
-                'arrears' => $result->arrears,
-                'contactnum' => $result->contactnum,
-                'role' => $result->role,
-                'is_logged_in' => true
-            );
-            $this->session->set_userdata($data);
             return true;
         }
         else
@@ -54,6 +39,41 @@ class Model_accounts extends CI_Model {
                 'address' => $result->address,
                 'monthly_dues' => $result->monthly_dues,
                 'arrears' => $result->arrears,
+                'isAdmin' => true,
+                'contactnum' => $result->contactnum,
+                'role' => $result->role,
+                'is_logged_in' => true
+            );
+            $this->session->set_userdata($data);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    function check_user()
+    {
+        $this->db->where('username', $this->input->post('username'));
+        $this->db->where('password', $this->input->post('password'));
+        $this->db->where('role', 0);
+        $query = $this->db->get('accounts');
+        $result = $query->row();
+
+        if($query->num_rows() == 1)
+        {
+             $data = array(
+                'userid' => $result->userid,
+                'username' => $result->username,
+                'password' => $result->password,
+                'firstname' => $result->firstname,
+                'lastname' => $result->lastname,
+                'email' => $result->email,
+                'address' => $result->address,
+                'monthly_dues' => $result->monthly_dues,
+                'arrears' => $result->arrears,
+                'isAdmin' => false,
                 'contactnum' => $result->contactnum,
                 'role' => $result->role,
                 'is_logged_in' => true
@@ -77,21 +97,6 @@ class Model_accounts extends CI_Model {
 
         if($query->num_rows() == 1)
         {
-            $data = array(
-                'userid' => $result->userid,
-                'username' => $result->username,
-                'password' => $result->password,
-                'firstname' => $result->firstname,
-                'lastname' => $result->lastname,
-                'email' => $result->email,
-                'address' => $result->address,
-                'monthly_dues' => $result->monthly_dues,
-                'arrears' => $result->arrears,
-                'contactnum' => $result->contactnum,
-                'role' => $result->role,
-                'is_logged_in' => true
-            );
-            $this->session->set_userdata($data);
             return true;
         }
         else

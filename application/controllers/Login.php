@@ -9,7 +9,7 @@ class Login extends CI_Controller
         {
             $referred_from = $this->session->userdata('referred_from');
             redirect($referred_from, 'refresh');
-        }
+        }   
         else
         {
             $this->template->load('template', 'view_login');
@@ -21,13 +21,14 @@ class Login extends CI_Controller
         $this->load->model('model_accounts');
         $valid = $this->model_accounts->validate();
         $isAdmin = $this->model_accounts->check_role();
+        $isUser = $this->model_accounts->check_user();
         $isActive = $this->model_accounts->check_active();
 
         if($valid && $isAdmin && $isActive) // Active Admin
         {
             redirect('admin_ticketing/new_tickets');
         }
-        else if(($valid && $isActive) && $isAdmin == false)  // Active User
+        else if($valid && $isActive && $isUser)  // Active User
         {
             redirect('user_home');
         }

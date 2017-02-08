@@ -2,6 +2,20 @@
 
 class Admin_Forms extends MY_Controller {
 
+    function __construct()
+    {   
+      parent::__construct();
+
+      $session_admin = $this->session->userdata('isAdmin');
+      $method = $this->router->fetch_method();
+
+      if(($session_admin == FALSE) && $method != 'login')
+      {
+          $this->session->set_flashdata( 'message', 'You need to login to access this location' );
+          redirect('user_home');
+      }
+    }
+    
     function car_sticker()
 	{
         //header('Refresh: 30');
