@@ -65,16 +65,15 @@
               <div class="success-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
                 <p> <?php echo $this->session->flashdata('reservefeedback'); ?></p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
               </div> 
-              <br>
             <?php } ?>
 
             <?php if ($this->session->flashdata('reservefail')){ ?>
               <div class="error-message text-center" id="prompt-message">
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
                 <p> <?php echo $this->session->flashdata('reservefail'); ?></p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
               </div>
             <?php } ?>
             <div class="court-message">
@@ -101,7 +100,7 @@
         </div>
 
         <br><br>
-        <h1> <?php echo date('F d, Y', strtotime($date)); ?> </h1>
+        <h1> <?php echo "Court One"; ?> </h1>
 				<div class="tab-pane fade in active" id="portlet_tab1">
 
           <div class="table-responsive">
@@ -109,6 +108,8 @@
             <table class="table table-hover">
 
               <tr>
+                  <th><br>Date</th>
+                  <th><br>Homeowner Name</th>
                   <th><br>Time</th>
                   <th><br>Status</th>
                   <th><br>Action</th>
@@ -116,17 +117,20 @@
   
               <?php foreach($myreserve as $row): ?>
               <tr>
+                  <td><?php echo date("F d, Y", strtotime($row->reservation_date)); ?></td>
+                  <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
                   <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
-                  <td><?php if($row->reservation_status == 1) { echo "Pending"; } else { echo "Approved"; } ?> </td>
+                  <td><?php if($row->reservation_status == 2) { echo "Pending"; } else { echo "Approved"; } ?> </td>
                   <td class="action-button">
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Approve </button>
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Deny </button>
+                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Approve </button>
+                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Deny </button>
                   </td>
               </tr>
               <?php endforeach; ?>
 
             </table>
             <br><br>
+            <center><div id="pagination-link"><?php echo $courtonelinks; ?></div></center>
   </div>
 
 </div>

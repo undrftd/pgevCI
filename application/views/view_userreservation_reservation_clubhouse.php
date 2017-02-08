@@ -116,7 +116,7 @@
                   <tr>
                       <td><?php echo date("F d, Y", strtotime($row->reservation_date)) ?></td>
                       <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
-                      <td><?php if($row->reservation_status == 1) { echo "Pending"; } else { echo "Approved"; } ?> </td>
+                      <td><?php if($row->reservation_status == 2) { echo "Pending"; } else { echo "Approved"; } ?> </td>
                       <td class="action-button">
                         <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'user_reservation/cancelreservation_clubhouse/' . $row->reservation_id; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Cancel </button>
                       </td>

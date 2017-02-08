@@ -65,7 +65,7 @@
         <div class="success-message text-center" id="prompt-message">
           <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
           <p> <?php echo $this->session->flashdata('reservefeedback'); ?></p><br>
-          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
         </div>
       <?php } ?>
 
@@ -73,7 +73,7 @@
         <div class="error-message text-center" id="prompt-message">
           <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
           <p> <?php echo $this->session->flashdata('reservefail'); ?></p><br>
-          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
         </div>
       <?php } ?>
 

@@ -5,7 +5,7 @@ class Model_reservation_user extends CI_Model {
 	function getmyreservation_courtone($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('courtone_reservation')->where('user_id', $this->session->userdata('userid'))->order_by('reservation_date', 'asc')->get();
+		$query = $this->db->select('*')->from('courtone_reservation')->where('user_id', $this->session->userdata('userid'))->order_by("reservation_date asc, reservation_start asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -26,7 +26,7 @@ class Model_reservation_user extends CI_Model {
 	function getmyreservation_courttwo($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('courttwo_reservation')->where('user_id', $this->session->userdata('userid'))->order_by('reservation_date', 'asc')->get();
+		$query = $this->db->select('*')->from('courttwo_reservation')->where('user_id', $this->session->userdata('userid'))->order_by("reservation_date asc, reservation_start asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -47,7 +47,7 @@ class Model_reservation_user extends CI_Model {
 	function getmyreservation_clubhouse($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);	
-		$query = $this->db->select('*')->from('clubhouse_reservation')->where('user_id', $this->session->userdata('userid'))->order_by('reservation_date', 'asc')->get();
+		$query = $this->db->select('*')->from('clubhouse_reservation')->where('user_id', $this->session->userdata('userid'))->order_by("reservation_date asc, reservation_start asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
