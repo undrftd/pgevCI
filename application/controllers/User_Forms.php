@@ -16,7 +16,7 @@ class User_Forms extends MY_Controller {
       }
     }
     
-	public function car_sticker()
+	function car_sticker()
 	{
 		$this->template->load('user_template', 'view_userforms_carsticker', array('error' => ' ' ));	
 	}

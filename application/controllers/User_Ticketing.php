@@ -15,7 +15,7 @@ class User_Ticketing extends MY_Controller {
       }
     }
     
-	public function index()
+	function index()
 	{
 		$this->template->load('user_template', 'view_userticketing');
 	}

@@ -23,7 +23,7 @@ class User_Home extends MY_Controller {
     	$data['rate'] = $this->model_dues_user->get_rate();
     	$data['latest'] = $this->model_announcements->get_latestannouncement();
     	$this->session->set_userdata('referred_from', current_url());
-        $this->template->load('user_template', 'view_userhome', $data);
+      $this->template->load('user_template', 'view_userhome', $data);
     }
 
 }
