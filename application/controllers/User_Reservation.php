@@ -20,6 +20,7 @@ class User_Reservation extends MY_Controller {
 	{
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getcourtone_defaultavailability();
+		$data['myreserve'] = $this->model_reservation_user->getmyreservation_courtone();
 		$this->template->load('user_template', 'view_userreservation_courtone', $data);
 	}
 
@@ -31,6 +32,7 @@ class User_Reservation extends MY_Controller {
 	    {	
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourtone_availability($searchquery);
+			$data['myreserve'] = $this->model_reservation_user->getmyreservation_courtone();
 			$this->template->load('user_template', 'view_userreservation_courtone', $data);
 	    }
 	    else
@@ -43,6 +45,7 @@ class User_Reservation extends MY_Controller {
 	{
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getcourttwo_defaultavailability();
+		$data['myreserve'] = $this->model_reservation_user->getmyreservation_courttwo();
 		$this->template->load('user_template', 'view_userreservation_courttwo', $data);
 	}
 
@@ -54,6 +57,7 @@ class User_Reservation extends MY_Controller {
 	    {	
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourttwo_availability($searchquery);
+			$data['myreserve'] = $this->model_reservation_user->getmyreservation_courttwo();
 			$this->template->load('user_template', 'view_userreservation_courttwo', $data);
 	    }
 	    else
@@ -66,6 +70,7 @@ class User_Reservation extends MY_Controller {
 	{
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getclubhouse_defaultavailability();
+		$data['myreserve'] = $this->model_reservation_user->getmyreservation_clubhouse();
 		$this->template->load('user_template', 'view_userreservation_clubhouse', $data);
 	}
 
@@ -77,6 +82,7 @@ class User_Reservation extends MY_Controller {
 	    {	
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getclubhouse_availability($searchquery);
+			$data['myreserve'] = $this->model_reservation_user->getmyreservation_clubhouse();
 			$this->template->load('user_template', 'view_userreservation_clubhouse', $data);
 	    }
 	    else

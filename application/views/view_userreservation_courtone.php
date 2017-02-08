@@ -228,34 +228,17 @@
                   <th><br>Status</th>
                   <th><br>Action</th>
               </tr>
-
+  
+              <?php foreach($myreserve as $row): ?>
               <tr>
-                  <td>January 8, 2016</td>
-                  <td>6:00 PM - 8:00 PM</td>
-                  <td>Pending</td>
+                  <td><?php echo date("F d, Y", strtotime($row->reservation_date)) ?></td>
+                  <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
+                  <td><?php if($row->reservation_status == 1) { echo "Pending"; } else { echo "Approved"; } ?> </td>
                   <td class="action-button">
-                    <a href="user-court-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
                     <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
                   </td>
               </tr>
-              <tr>
-                  <td>January 12, 2016</td>
-                  <td>6:00 PM - 8:00 PM</td>
-                  <td>Denied</td>
-                  <td class="action-button">
-                    <a href="user-court-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                  </td>
-              </tr>
-              <tr>
-                  <td>January 16, 2016</td>
-                  <td>6:00 PM - 8:00 PM</td>
-                  <td>Pending</td>
-                  <td class="action-button">
-                    <a href="user-court-edit.html"><button type="button" class="btn btn-custom-2">Edit</button></a>
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>
-                  </td>
-              </tr>
+              <?php endforeach; ?>
 
             </table>
             <br><br>
