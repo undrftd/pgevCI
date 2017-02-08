@@ -86,7 +86,7 @@
 
             <br>
 
-            <form action="<?php echo base_url(); ?>user_reservation/check_availability_courtone/" method="GET">
+            <form action="<?php echo base_url(); ?>admin_reservation/check_reservations_courttwo/" method="GET">
             <div id="search-group">
 
               <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Choose a preferred date">

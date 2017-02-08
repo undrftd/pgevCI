@@ -86,7 +86,7 @@
 
             <br>
 
-            <form action="<?php echo base_url(); ?>user_reservation/check_availability_courtone/" method="GET">
+            <form action="<?php echo base_url(); ?>admin_reservation/check_reservations_clubhouse/" method="GET">
             <div id="search-group">
 
               <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Choose a preferred date">
@@ -101,7 +101,7 @@
         </div>
 
         <br><br>
-        <h1> <?php echo date('F d, Y'); ?> </h1>
+        <h1> <?php echo date('F d, Y', strtotime($date)); ?> </h1>
 				<div class="tab-pane fade in active" id="portlet_tab1">
 
           <div class="table-responsive">
@@ -113,7 +113,8 @@
                   <th><br>Status</th>
                   <th><br>Action</th>
               </tr>
-  
+              
+              
               <?php foreach($myreserve as $row): ?>
               <tr>
                   <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
