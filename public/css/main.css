@@ -508,16 +508,19 @@ h1 {
   background-color: #acecc7;
 }
 
-.vacant-legend span {
-  padding: 12px 20px 12px 20px;
-  background-color: #acecc7;
-  margin-right: 10px;
+.dot-style-vacant {
+  color: #acecc7;
 }
 
-.reserved-legend span {
-  padding: 12px 20px 12px 20px;
-  background-color: #f3aca5;
-  margin-right: 10px;
+.dot-style-reserved {
+  color: #f3aca5;
+}
+
+.reservation-schedule .table-legend p {
+  text-align: right;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  color: #666666;
 }
 
 .reservation-schedule p {

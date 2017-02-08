@@ -19,7 +19,6 @@
 
           <div class="form-group">
 
-
             <h4> Reservation Information </h4><br>
 
             <p> Homeowner's Name </p>

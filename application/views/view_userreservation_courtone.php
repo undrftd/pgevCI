@@ -50,39 +50,49 @@
             Clubhouse </a>
         </li>
 
+        <li>
+          <a href="#">
+            My Reservation </a>
+        </li>
+
       </ul>
 
     </div>
 
-    <div class="portlet-body">
+    <div class="portlet-header">
 
-      <br>
+      <?php if ($this->session->flashdata('reservefeedback')){ ?>
+        <div class="success-message text-center" id="prompt-message">
+          <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+          <p> <?php echo $this->session->flashdata('reservefeedback'); ?></p><br>
+          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+        </div>
+      <?php } ?>
+
+      <?php if ($this->session->flashdata('reservefail')){ ?>
+        <div class="error-message text-center" id="prompt-message">
+          <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+          <p> <?php echo $this->session->flashdata('reservefail'); ?></p><br>
+          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
+        </div>
+      <?php } ?>
+
+    </div>
+
+    <br>
+
+    <div class="portlet-body">
 
       <div class="tab-content">
 
         <div class="row">
 
           <div class="col-xs-12 nopadding">
-            <?php if ($this->session->flashdata('reservefeedback')){ ?>
-              <div class="success-message text-center" id="prompt-message">
-                <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                <p> <?php echo $this->session->flashdata('reservefeedback'); ?></p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-              </div> 
-              <br>
-            <?php } ?>
 
-            <?php if ($this->session->flashdata('reservefail')){ ?>
-              <div class="error-message text-center" id="prompt-message">
-                <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                <p> <?php echo $this->session->flashdata('reservefail'); ?></p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-              </div>
-            <?php } ?>
             <div class="court-message">
               <p> Note: Court 1 is located at Parkwood Greens Executive Village Phase 1 while Court 2 is located at Phase 2. Both of these courts can be reserved for your own private use
                 from Mondays to Sundays, 6:00 PM until 10:00 PM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if a day is available, kindly use the search bar below and check the table.
-                Also, your reservations can be viewed below through the table, My Reservation.
+                Also, your reservations can be viewed below through the tab, My Reservation.
               </p>
             </div>
 
@@ -108,27 +118,7 @@
 
           <div class="row">
 
-            <div class="col-md-4 nopadding">
-
-              <div class="information">
-
-                <div class="row">
-
-                  <div class="col-xs-12 nopadding">
-                    <p class="vacant-legend"> <span></span> - Vacant </p>
-                  </div>
-                  <br><br><br>
-                  <div class="col-xs-12 nopadding">
-                    <p class="reserved-legend"> <span></span> - Reserved </p>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-8 nopadding">
+            <div class="col-xs-12 nopadding">
 
               <div class="table-responsive text-right">
 
@@ -140,7 +130,7 @@
                     <th><br>8:00-9:00</th>
                     <th><br>9:00-10:00</th>
                   </tr>
-                  
+
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
                     <?php
@@ -154,7 +144,7 @@
                       $tdX[$result->reservation_mid] = 1;
                       $tdX[$result->reservation_start] = 1;
                     }
-                    
+
                     // loop through array building row
                     for ($i = 6; $i<=9; $i++) {
 
@@ -172,6 +162,12 @@
                     echo '</tr>'; ?>
                 </table>
 
+                <hr>
+
+                <div class="table-legend">
+                  <p> <strong>Note:</strong>&nbsp; <span class="dot-style-vacant">&#9679;</span> &nbsp;is for vacant and&nbsp; <span class="dot-style-reserved">&#9679;</span> &nbsp;is for <span class="mark-reserved">reserved</span>.  </p>
+                </div>
+
               </div>
 
             </div>
@@ -186,7 +182,7 @@
 
   </div>
 
-  <br><hr>
+  <br>
 
   <div class="portlet">
 

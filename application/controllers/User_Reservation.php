@@ -3,7 +3,7 @@
 class User_Reservation extends MY_Controller {
 
 	function __construct()
-    {   
+    {
       parent::__construct();
 
       $session_admin = $this->session->userdata('isAdmin');
@@ -15,7 +15,7 @@ class User_Reservation extends MY_Controller {
           redirect('admin_ticketing/new_tickets');
       }
     }
-    
+
 	function court_one()
 	{
 		$data['date'] = date("Y/m/d");
@@ -28,7 +28,7 @@ class User_Reservation extends MY_Controller {
 		$searchquery = $this->input->get('search', TRUE);
 
 	    if(isset($searchquery) and !empty($searchquery))
-	    {	
+	    {
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourtone_availability($searchquery);
 			$this->template->load('user_template', 'view_userreservation_courtone', $data);
@@ -51,7 +51,7 @@ class User_Reservation extends MY_Controller {
 		$searchquery = $this->input->get('search', TRUE);
 
 	    if(isset($searchquery) and !empty($searchquery))
-	    {	
+	    {
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourttwo_availability($searchquery);
 			$this->template->load('user_template', 'view_userreservation_courttwo', $data);
@@ -74,7 +74,7 @@ class User_Reservation extends MY_Controller {
 		$searchquery = $this->input->get('search', TRUE);
 
 	    if(isset($searchquery) and !empty($searchquery))
-	    {	
+	    {
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getclubhouse_availability($searchquery);
 			$this->template->load('user_template', 'view_userreservation_clubhouse', $data);
@@ -87,12 +87,13 @@ class User_Reservation extends MY_Controller {
 
 	function add_reservation_courtone()
 	{
-		$this->template->load('user_template', 'view_userreservation_addcourtone');	
+		$this->template->load('user_template', 'view_userreservation_addcourtone');
 	}
 
 	function create_reservation_courtone()
 	{
-		$this->form_validation->set_rules('datepick', 'Date', 'required');
+				$this->form_validation->set_error_delimiters('<div class="error">','</div>');
+				$this->form_validation->set_rules('datepick', 'Date', 'required');
         $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_courtone|max_twohours');
 
         if ($this->form_validation->run() == FALSE)
@@ -116,6 +117,7 @@ class User_Reservation extends MY_Controller {
 
 	function create_reservation_courttwo()
 	{
+		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 		$this->form_validation->set_rules('datepick', 'Date', 'required');
         $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_courttwo|max_twohours');
 
@@ -140,6 +142,7 @@ class User_Reservation extends MY_Controller {
 
 	function create_reservation_clubhouse()
 	{
+		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 		$this->form_validation->set_rules('datepick', 'Date', 'required');
         $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_clubhouse|max_twohours');
 
@@ -158,4 +161,3 @@ class User_Reservation extends MY_Controller {
 	}
 
 }
-
