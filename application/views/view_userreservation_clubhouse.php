@@ -50,8 +50,8 @@
             Clubhouse </a>
         </li>
 
-        <li>
-          <a href="#">
+         <li>
+          <a href="<?php echo base_url(); ?>user_reservation/reservations">
             My Reservation </a>
         </li>
 
