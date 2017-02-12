@@ -74,7 +74,6 @@
         		<!-- Include all compiled plugins (below), or include individual files as needed -->
 						<script type="text/javascript" src="<?php echo base_url('/public/js/moment.min.js'); ?>"></script>
 						<script type="text/javascript" src="<?php echo base_url('/public/js/bootstrap-datetimepicker.min.js'); ?>"></script>
-						<script type="text/javascript" src="<?php echo base_url('/public/js/bootstrap.min.js'); ?>"></script>
         	</div>
 
         </div>

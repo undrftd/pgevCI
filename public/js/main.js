@@ -3,6 +3,10 @@ $("#menu-toggle").click(function (e) {
     $("#wrapper").toggleClass("toggled");
 });
 
+$(document).ready(function() {
+    $('dropdown-toggle').dropdown()
+});
+
 $(document).ready(function(){
     $("#close-button").click(function(){
         $("#prompt-message").fadeOut(400);

@@ -25,11 +25,9 @@
       </div>
   </div>
 
-  <br>
-
-  <a href="<?php echo site_url('user_reservation/add_reservation_courttwo') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br>
-
   <div class="portlet">
+
+    <a href="<?php echo site_url('user_reservation/add_reservation_courttwo') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br><br>
 
     <div class="portlet-title">
 
@@ -46,14 +44,23 @@
         </li>
 
         <li>
-          <a href="<?php echo base_url(); ?>user_reservation/clubhouse">
+          <a href="<?php echo base_url(); ?>user_reservation/clubhouse" id="not-important">
             Clubhouse </a>
         </li>
 
          <li>
-          <a href="<?php echo base_url(); ?>user_reservation/reservations_courtone">
+          <a href="<?php echo base_url(); ?>user_reservation/reservations_courtone" id="not-important">
             My Reservation </a>
         </li>
+
+        <li class="dropdown" id="dropdown-mobile">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo base_url(); ?>user_reservation/clubhouse">Clubhouse </a></li>
+            <li><a href="<?php echo base_url(); ?>user_reservation/reservations_courtone">My Reservation </a></li>
+          </ul>
+        </li>
 
       </ul>
 
