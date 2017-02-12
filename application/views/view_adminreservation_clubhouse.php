@@ -13,21 +13,42 @@
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
-              <div class="signin">
-                  <div class="modal-body text-center">
-                      <p> Are you sure you want to remove this reservation from the list? </p><br><br>
-                      <button type="submit" class="btn btn-custom-1">Yes</button>
-                      <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                  </div>
-              </div>
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Remove Reservation</h4>
+            </div>
+
+            <br>
+
+            <div class="signin">
+                <div class="modal-body text-center">
+                    <p> Are you sure you want to remove this reservation from the list? </p><br><br>
+                    <button type="submit" class="btn btn-custom-1">Yes</button>
+                    <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
           </div>
 
       </div>
   </div>
 
-  <br>
-
   <div class="portlet">
+
+    <div class="portlet-header">
+
+      <form action="<?php echo base_url(); ?>admin_reservation/check_reservations_courtone/" method="GET">
+        <div id="search-group">
+          <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Click here to view the calendar">
+            <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </input>
+        </div>
+      </form>
+
+    <br><br>
+
+    </div>
 
     <div class="portlet-title">
 
@@ -66,7 +87,7 @@
                 <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
                 <p> <?php echo $this->session->flashdata('reservefeedback'); ?></p><br>
                 <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
-              </div> 
+              </div>
             <?php } ?>
 
             <?php if ($this->session->flashdata('reservefail')){ ?>
@@ -76,62 +97,64 @@
                 <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
               </div>
             <?php } ?>
-            <div class="court-message">
-              <p> Note: Court 1 is located at Parkwood Greens Executive Village Phase 1 while Court 2 is located at Phase 2. Both of these courts can be reserved for your own private use
-                from Mondays to Sundays, 6:00 PM until 10:00 PM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if a day is available, kindly use the search bar below and check the table.
-                Also, your reservations can be viewed below through the table, My Reservation.
-              </p>
-            </div>
-
-            <br>
-
-            <form action="<?php echo base_url(); ?>admin_reservation/check_reservations_clubhouse/" method="GET">
-            <div id="search-group">
-
-              <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Choose a preferred date">
-                <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-              </input>
-
-            </div>
-            </form>
 
           </div>
 
         </div>
 
-        <br><br>
-        <h1> <?php echo "Clubhouse"; ?> </h1>
-				<div class="tab-pane fade in active" id="portlet_tab1">
+        <div class="reservation-schedule">
 
-          <div class="table-responsive">
+				  <div class="tab-pane fade in active" id="portlet_tab1">
 
-            <table class="table table-hover">
+            <div class="table-responsive">
 
-              <tr>
-                  <th><br>Date</th>
-                  <th><br>Homeowner Name</th>
-                  <th><br>Time</th>
-                  <th><br>Status</th>
-                  <th><br>Action</th>
-              </tr>
-              
-              
-              <?php foreach($myreserve as $row): ?>
-              <tr>
-                  <td><?php echo date("F d, Y", strtotime($row->reservation_date)); ?>
-                  <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
-                  <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
-                  <td><?php if($row->reservation_status == 2) { echo "Pending"; } else { echo "Approved"; } ?> </td>
-                  <td class="action-button">
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Approve </button>
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Deny </button>
-                  </td>
-              </tr>
-              <?php endforeach; ?>
+              <table class="table table-hover">
 
-            </table>
-            <br><br>
-            <center><div id="pagination-link"><?php echo $clubhouselinks; ?></div></center>
+                <tr>
+                    <th><br>Date</th>
+                    <th><br>Homeowner Name</th>
+                    <th><br>Time</th>
+                    <th><br>Status</th>
+                    <th><br>Action</th>
+                </tr>
+
+
+                <?php foreach($myreserve as $row): ?>
+                <tr>
+                    <td><?php echo date("F d, Y", strtotime($row->reservation_date)); ?>
+                    <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
+                    <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
+                    <td><?php if($row->reservation_status == 2) { echo "Pending"; } else { echo "Approved"; } ?> </td>
+                    <td class="action-button">
+                      <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Approve </button>
+                      <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Deny </button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+
+              </table>
+
+              <hr>
+
+              <div class="table-legend">
+                <p> Insert note for the admin here.
+                </p>
+              </div>
+
+              <br><br>
+
+              <center><div id="pagination-link"><?php echo $clubhouselinks; ?></div></center>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
 </div>

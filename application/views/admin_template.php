@@ -20,7 +20,7 @@
 	    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i|Rubik:300,300i,400,400i,700" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/main.css">
 			<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/mobile.css">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/bootstrap-datetimepicker.min.css">
+			<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/bootstrap-datetimepicker.min.css">
  	</head>
 
 

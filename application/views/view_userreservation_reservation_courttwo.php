@@ -13,13 +13,21 @@
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
-              <div class="signin">
-                  <div class="modal-body text-center">
-                      <p> Are you sure you want to cancel your reservation? </p><br><br>
-                      <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button>
-                      <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-                  </div>
-              </div>
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Cancel Reservation</h4>
+            </div>
+
+            <br>
+
+            <div class="signin">
+                <div class="modal-body text-center">
+                    <p> Are you sure you want to cancel your reservation? </p><br><br>
+                    <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                    <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
           </div>
 
       </div>
@@ -118,7 +126,7 @@
                       <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
                       <td><?php if($row->reservation_status == 2) { echo "Pending"; } else { echo "Approved"; } ?> </td>
                       <td class="action-button">
-                        <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'user_reservation/cancelreservation_courtone/' . $row->reservation_id; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Cancel </button>
+                        <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'user_reservation/cancelreservation_courtone/' . $row->reservation_id; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> &nbsp;Cancel </button>
                       </td>
                   </tr>
                   <?php endforeach; ?>
