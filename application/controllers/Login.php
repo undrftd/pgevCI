@@ -52,12 +52,11 @@ class Login extends CI_Controller
         $this->template->load('template','view_resetpassword');
     }
 
-    function resetpassword_validation()
+    function reset_emailvalidation()
     {
         $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|trim|xss_clean');
         if ($this->form_validation->run() == FALSE)
         {
-            
             $resetkey = md5(uniqid());
 
             $this->load->model('model_accounts');
@@ -72,7 +71,7 @@ class Login extends CI_Controller
                     $this->email->to($this->input->post('email'));
                     $array = $this->session->userdata('firstname');
                     $this->email->subject("Password Reset - Parkwood Greens Executive Village CRM");
-                    $message = 'You have requested to reset your password. <a href="'. base_url() . 'resetpassword_verification/' . $resetkey . '"> Click Here to Reset </a>'; 
+                    $message = 'You have requested to reset your password. <a href="'. base_url() . 'login/reset_password_verification/' . $resetkey . '"> Click Here to Reset </a>'; 
                     $this->email->message($message);
                     $this->email->send();
                     
@@ -92,6 +91,29 @@ class Login extends CI_Controller
         else
         {
            echo 0;
+        }
+    }
+
+    function reset_password_verification()
+    {
+        $this->template->load('template', 'view_resetpasswordverification');
+    }
+
+    function reset_password_validation()
+    {
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('confpassword', 'Confirm Password', 'required|matches[password]');
+        if ($this->form_validation->run())
+        {
+            $this->load->model('model_accounts');
+            $this->model_accounts->reset_password();
+            
+           redirect('login');
+            
+        }
+        else
+        {
+            $this->template->load('template', 'view_resetpasswordverification');
         }
     }
 
