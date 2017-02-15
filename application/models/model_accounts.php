@@ -4,14 +4,22 @@ class Model_accounts extends CI_Model {
 
     function validate()
     {
-        $this->db->where('username', $this->input->post('username'));
-        $this->db->where('password', $this->input->post('password'));
+        $this->db->where('username', $this->input->post('username'));   
         $query = $this->db->get('accounts');
         $result = $query->row();
 
         if($query->num_rows() == 1)
         {
-            return true;
+            $password = $this->input->post('password');
+            $stored_hash = $result->password;
+            if ($this->bcrypt->check_password($password, $stored_hash))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
@@ -22,7 +30,6 @@ class Model_accounts extends CI_Model {
     function check_role()
     {
         $this->db->where('username', $this->input->post('username'));
-        $this->db->where('password', $this->input->post('password'));
         $this->db->where('role', 1);
         $query = $this->db->get('accounts');
         $result = $query->row();
@@ -56,7 +63,6 @@ class Model_accounts extends CI_Model {
     function check_user()
     {
         $this->db->where('username', $this->input->post('username'));
-        $this->db->where('password', $this->input->post('password'));
         $this->db->where('role', 0);
         $query = $this->db->get('accounts');
         $result = $query->row();
@@ -90,7 +96,6 @@ class Model_accounts extends CI_Model {
     function check_active()
     {
         $this->db->where('username', $this->input->post('username'));
-        $this->db->where('password', $this->input->post('password'));
         $this->db->where('isActive', 1);
         $query = $this->db->get('accounts');
         $result = $query->row();
@@ -175,7 +180,7 @@ class Model_accounts extends CI_Model {
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
             'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
+            'password' => $this->bcrypt->hash_password($this->input->post('password')),
             'address' => $this->input->post('address'),
             'email' => $this->input->post('email'),
             'contactnum' => $this->input->post('contactnum'),
@@ -372,7 +377,7 @@ class Model_accounts extends CI_Model {
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
             'username' => $this->input->post('username'),
-            'password' => $this->input->post('username'),
+            'password' => $this->bcrypt->hash_password($this->input->post('username')),
             'address' => $this->input->post('address'),
             'email' => $this->input->post('email'),
             'contactnum' => $this->input->post('contactnum'),
