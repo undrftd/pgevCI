@@ -24,7 +24,7 @@
               <div class="signin">
                   <div class="modal-body text-center">
                       <p> Are you sure you want to approve this reservation? </p><br><br>
-                      <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button>
+                      <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                       <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                   </div>
               </div>
@@ -49,7 +49,7 @@
               <div class="signin">
                   <div class="modal-body text-center">
                       <p> Are you sure you want to deny this reservation? </p><br><br>
-                      <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button>
+                      <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                       <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
                   </div>
               </div>
