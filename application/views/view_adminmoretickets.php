@@ -213,7 +213,7 @@
           <br><br>
 
           <p> Remarks </p>
-          <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled"></textarea>
+          <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled" required></textarea>
           <p class="error"><?php echo form_error('content'); ?> </p>
 
           <br><hr>

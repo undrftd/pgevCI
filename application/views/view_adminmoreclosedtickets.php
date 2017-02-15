@@ -202,7 +202,12 @@
 
           <p> Attachment (<?php if($result->attachment != NULL) { echo "1";} else {echo "0"; } ?>) </p>
           <a href="<?php echo site_url() . "admin_ticketing/download_attachment/" . $result->ticketid; ?>"><button type="button" class="btn btn-custom-11"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
+          
+          <br><br>
 
+          <p> Remarks </p>
+          <textarea name ="admin-remarks" class="form-control" id="user-message"  reseize="none" disabled="disabled"><?php echo $result->closed_remarks; ?></textarea>
+          <p class="error"><?php echo form_error('content'); ?> </p>
           <br><br>
 
           <hr>

@@ -212,6 +212,7 @@ class Model_ticketing extends CI_Model {
     {
     	$save_ticket_data = array(
     		'status' => $this->input->post('status'),
+        'closed_remarks' =>$this->input->post('admin-remarks'),
     		'date_closed' => time()
     	);
 
