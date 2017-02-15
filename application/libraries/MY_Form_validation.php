@@ -24,6 +24,20 @@ class MY_Form_validation extends CI_Form_validation{
 
 	}
 
+    function no_olddate()
+    {
+        $reservedate = $this->CI->input->post('datepick');
+        
+        if($reservedate != date("m/d/Y"))
+        {
+            $this->set_message('no_olddate', 'You can only pick the current date onwards.');
+
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
     function max_twohours()
     {
         $reservestart = $this->CI->input->post('reservestart');

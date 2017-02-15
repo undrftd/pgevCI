@@ -1,10 +1,55 @@
 <?php
 class Model_reservation extends CI_Model {
 
+	function url_check_courtone($reservationid)
+	{
+		$query = $this->db->select('*')->from('courtone_reservation')->where('reservation_id' , $reservationid)->get();
+		$row = $query->row();
+
+		if ($row->reservation_id== $reservationid)
+		{
+	  		return TRUE;
+		}	
+		else
+		{
+	 		return FALSE;
+		}
+	}
+
+	function url_check_courttwo($reservationid)
+	{
+		$query = $this->db->select('*')->from('courttwo_reservation')->where('reservation_id' , $reservationid)->get();
+		$row = $query->row();
+
+		if ($row->reservation_id== $reservationid)
+		{
+	  		return TRUE;
+		}	
+		else
+		{
+	 		return FALSE;
+		}
+	}
+
+	function url_check_clubhouse($reservationid)
+	{
+		$query = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_id' , $reservationid)->get();
+		$row = $query->row();
+
+		if ($row->reservation_id== $reservationid)
+		{
+	  		return TRUE;
+		}	
+		else
+		{
+	 		return FALSE;
+		}
+	}
+
 	function getreservation_courtone($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('courtone_reservation')->join('accounts', 'accounts.userid = courtone_reservation.user_id')->order_by("reservation_date asc, reservation_start asc")->get();
+		$query = $this->db->select('*')->from('courtone_reservation')->join('accounts', 'accounts.userid = courtone_reservation.user_id')->order_by("reservation_status desc, reservation_date asc")->get();
 		return  $query->result();
 	}
 
@@ -17,7 +62,7 @@ class Model_reservation extends CI_Model {
 	function getreservation_courttwo($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('courttwo_reservation')->join('accounts', 'accounts.userid = courttwo_reservation.user_id')->order_by("reservation_date asc, reservation_start asc")->get();
+		$query = $this->db->select('*')->from('courttwo_reservation')->join('accounts', 'accounts.userid = courttwo_reservation.user_id')->order_by("reservation_status desc, reservation_date asc")->get();
 		return  $query->result();
 	}
 
@@ -30,7 +75,7 @@ class Model_reservation extends CI_Model {
 	function getreservation_clubhouse($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('clubhouse_reservation')->join('accounts', 'accounts.userid = clubhouse_reservation.user_id')->order_by("reservation_date asc, reservation_start asc")->get();
+		$query = $this->db->select('*')->from('clubhouse_reservation')->join('accounts', 'accounts.userid = clubhouse_reservation.user_id')->order_by("reservation_status desc, reservation_date asc")->get();
 		return  $query->result();
 	}
 
@@ -82,5 +127,69 @@ class Model_reservation extends CI_Model {
 		}
 	}
 
+	function approve_courtonereservation($reservationid)
+	{
+		$reservation_data = array(
+			'reservation_status' => 1,
+			);
 
+		$this->db->where('reservation_id', $reservationid);
+		$update = $this->db->update('courtone_reservation', $reservation_data);
+		return $update;
+	}
+
+	function deny_courtonereservation($reservationid)
+	{
+		$reservation_data = array(
+			'reservation_status' => 0,
+			);
+
+		$this->db->where('reservation_id', $reservationid);
+		$update = $this->db->update('courtone_reservation', $reservation_data);
+		return $update;
+	}
+
+	function approve_courttworeservation($reservationid)
+	{
+		$reservation_data = array(
+			'reservation_status' => 1,
+			);
+
+		$this->db->where('reservation_id', $reservationid);
+		$update = $this->db->update('courttwo_reservation', $reservation_data);
+		return $update;
+	}
+
+	function deny_courttworeservation($reservationid)
+	{
+		$reservation_data = array(
+			'reservation_status' => 0,
+			);
+
+		$this->db->where('reservation_id', $reservationid);
+		$update = $this->db->update('courttwo_reservation', $reservation_data);
+		return $update;
+	}
+
+	function approve_clubhousereservation($reservationid)
+	{
+		$reservation_data = array(
+			'reservation_status' => 1,
+			);
+
+		$this->db->where('reservation_id', $reservationid);
+		$update = $this->db->update('clubhouse_reservation', $reservation_data);
+		return $update;
+	}
+
+	function deny_clubhousereservation($reservationid)
+	{
+		$reservation_data = array(
+			'reservation_status' => 0,
+			);
+
+		$this->db->where('reservation_id', $reservationid);
+		$update = $this->db->update('clubhouse_reservation', $reservation_data);
+		return $update;
+	}
 }

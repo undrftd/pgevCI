@@ -93,7 +93,7 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_courtone()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
-		$this->form_validation->set_rules('datepick', 'Date', 'required');
+		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
         $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_courtone|max_twohours');
 
         if ($this->form_validation->run() == FALSE)
@@ -118,7 +118,7 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_courttwo()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
-		$this->form_validation->set_rules('datepick', 'Date', 'required');
+		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
         $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_courttwo|max_twohours');
 
         if ($this->form_validation->run() == FALSE)
@@ -143,7 +143,7 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_clubhouse()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
-		$this->form_validation->set_rules('datepick', 'Date', 'required');
+		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
         $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|hourselection|unique_reserve_clubhouse|max_twohours');
 
         if ($this->form_validation->run() == FALSE)
@@ -154,7 +154,7 @@ class User_Reservation extends MY_Controller {
         {
             if($query = $this->model_reservation_user->create_reservation_clubhouse())
              {
-                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court Two. Please wait for the administrators to accept your reservation.');
+                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for the Clubhouse. Please wait for the administrators to accept your reservation.');
                 redirect('user_reservation/clubhouse');
              }
         }

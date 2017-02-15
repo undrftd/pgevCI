@@ -133,8 +133,6 @@
 
                       <a data-href="<?php echo base_url() . "admin_announcements/delete_announcements/" . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><span class="glyphicon glyphicon-trash btn-sm" aria-hidden="true"></span> Delete</p></a>
 
-                      <!--<button type="submit" class="btn btn-custom-3" data-toggle="modal"  data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Delete </button>-->
-
                       </div>
 
                     </div>

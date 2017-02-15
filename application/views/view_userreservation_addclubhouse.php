@@ -29,7 +29,7 @@
 
             <p> Desired Reservation Date </p>
             <div class='input-group date' id='datetimepicker2'>
-              <input id="sel1" name="datepick" type='text' class="form-control" placeholder="Click the calendar button to select a time and date"/>
+              <input id="sel1" name="datepick" type='text' class="form-control" placeholder="Click the calendar button to select a time and date" required/>
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
               </span>
@@ -38,7 +38,7 @@
             <br>
 
             <p> Desired Reservation Start Time</p>
-              <select name="reservestart" class="form-control" id="sel1">
+              <select name="reservestart" class="form-control" id="sel1" required>
                 <option value= "" selected hidden>Choose your start time</option>
                 <option value= "6">6:00 PM</option>
                 <option value= "7">7:00 PM</option>
@@ -49,7 +49,7 @@
             <br>
 
             <p> Desired Reservation End Time</p>
-              <select name="reserveend" class="form-control" id="sel1">
+              <select name="reserveend" class="form-control" id="sel1" required>
                 <option value= "" selected hidden>Choose your end time</option>
                 <option value= "6">6:00 PM</option>
                 <option value= "7">7:00 PM</option>
