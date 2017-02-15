@@ -958,6 +958,11 @@ h1 {
   font-family: 'Rubik', sans-serif;
 }
 
+.action-buttons button {
+  display: inline-block;
+  margin: 3px;
+}
+
 /*end form*/
 
 .badge {
