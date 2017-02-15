@@ -154,7 +154,7 @@ class User_Reservation extends MY_Controller {
         {
             if($query = $this->model_reservation_user->create_reservation_clubhouse())
              {
-                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court Two. Please wait for the administrators to accept your reservation.');
+                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for the Clubhouse. Please wait for the administrators to accept your reservation.');
                 redirect('user_reservation/clubhouse');
              }
         }

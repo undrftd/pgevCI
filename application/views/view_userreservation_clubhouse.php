@@ -27,7 +27,7 @@
 
   <div class="portlet">
 
-    <a href="<?php echo site_url('user_reservation/add_reservation_courtone') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br><br>
+    <a href="<?php echo site_url('user_reservation/add_reservation_clubhouse') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br><br>
 
     <div class="portlet-title">
 

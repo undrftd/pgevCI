@@ -214,5 +214,95 @@ class Admin_Reservation extends MY_Controller {
 	    }
 	}
 
+	function approve_courtonereservation($reservationid)
+	{
+		if($this->model_reservation->url_check_courtone($reservationid))
+		{
+			$this->model_reservation->approve_courtonereservation($reservationid);
+			$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
+      		redirect('admin_reservation/court_one');
+		}
+		else
+		{
+			$this->session->set_flashdata('reservefail', 'You cannot approve a non-existent reservation. Please double-check the Reservation ID.');
+      		redirect('admin_reservation/court_one');
+		}
+	}
+
+	function deny_courtonereservation($reservationid)
+	{
+		if($this->model_reservation->url_check_courtone($reservationid))
+		{
+			$this->model_reservation->deny_courtonereservation($reservationid);
+			$this->session->set_flashdata('reservefeedback', 'You have successfully denied the reservation.');
+      		redirect('admin_reservation/court_one');
+		}
+		else
+		{
+			$this->session->set_flashdata('reservefail', 'You cannot deny a non-existent reservation. Please double-check the Reservation ID.');
+      		redirect('admin_reservation/court_one');
+		}
+	}
+
+	function approve_courttworeservation($reservationid)
+	{
+		if($this->model_reservation->url_check_courttwo($reservationid))
+		{
+			$this->model_reservation->approve_courttworeservation($reservationid);
+			$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
+      		redirect('admin_reservation/court_two');
+		}
+		else
+		{
+			$this->session->set_flashdata('reservefail', 'You cannot approve a non-existent reservation. Please double-check the Reservation ID.');
+      		redirect('admin_reservation/court_two');
+		}
+	}
+
+	function deny_courttworeservation($reservationid)
+	{
+		if($this->model_reservation->url_check_courttwo($reservationid))
+		{
+			$this->model_reservation->deny_courttworeservation($reservationid);
+			$this->session->set_flashdata('reservefeedback', 'You have successfully denied the reservation.');
+      		redirect('admin_reservation/court_two');
+		}
+		else
+		{
+			$this->session->set_flashdata('reservefail', 'You cannot deny a non-existent reservation. Please double-check the Reservation ID.');
+      		redirect('admin_reservation/court_two');
+		}
+	}
+
+		function approve_clubhousereservation($reservationid)
+	{
+		if($this->model_reservation->url_check_clubhouse($reservationid))
+		{
+			$this->model_reservation->approve_clubhousereservation($reservationid);
+			$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
+      		redirect('admin_reservation/clubhouse');
+		}
+		else
+		{
+			$this->session->set_flashdata('reservefail', 'You cannot approve a non-existent reservation. Please double-check the Reservation ID.');
+      		redirect('admin_reservation/clubhouse');
+		}
+	}
+
+	function deny_clubhousereservation($reservationid)
+	{
+		if($this->model_reservation->url_check_clubhouse($reservationid))
+		{
+			$this->model_reservation->deny_clubhousereservation($reservationid);
+			$this->session->set_flashdata('reservefeedback', 'You have successfully denied the reservation.');
+      		redirect('admin_reservation/clubhouse');
+		}
+		else
+		{
+			$this->session->set_flashdata('reservefail', 'You cannot deny a non-existent reservation. Please double-check the Reservation ID.');
+      		redirect('admin_reservation/clubhouse');
+		}
+	}
+
 
 }
