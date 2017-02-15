@@ -33,7 +33,7 @@ class User_Accounts extends MY_Controller {
       $this->form_validation->set_message('alpha_dash_space', '{field} may only contain alphabetical characters and spaces.');
       $this->form_validation->set_message('matches', 'Passwords do not match!');
 
-      $this->form_validation->set_rules('password', 'Password', 'required|min_length[7]|max_length[32]');
+      $this->form_validation->set_rules('password', 'Password', 'required|min_length[7]');
       $this->form_validation->set_rules('cpassword', 'Password', 'required|matches[password]');
       $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
       $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|min_length[7]');
@@ -41,12 +41,12 @@ class User_Accounts extends MY_Controller {
       if ($this->form_validation->run() == FALSE)
       {
           $this->template->load('user_template', 'view_useraccounts');
-
       }
       else
       {
           if($query = $this->model_accounts_user->myaccount_userupdate($userid))
            {
+              $this->session->set_flashdata('accountsfeedback', 'You have successfully updated your account.');
               redirect('user_accounts');
            }
       }

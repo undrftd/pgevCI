@@ -47,6 +47,11 @@
              <p class="error"><?php echo form_error('password'); ?> </p>
           <br>
 
+          <p> Confirm Password </p>
+          <input name="confpassword" class="form-control" id="sel1" type="password" placeholder="" required>
+             <p class="error"><?php echo form_error('confpassword'); ?> </p>
+          <br>
+
           <p> Address </p>
           <input name="address" class="form-control" id="sel1" type="text" placeholder="" required>
               <p class="error"><?php echo form_error('address'); ?></p>

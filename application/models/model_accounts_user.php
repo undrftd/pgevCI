@@ -18,8 +18,7 @@ class Model_accounts_user extends CI_Model {
   function myaccount_userupdate($userid)
   {
        $account_update_data = array(
-
-          'password' => $this->input->post('password'),
+          'password' => $this->bcrypt->hash_password($this->input->post('password')),
           'email' => $this->input->post('email'),
           'contactnum' => $this->input->post('contactnum'),
       );

@@ -6,6 +6,14 @@
     <div class="row">
 
       <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 nopadding">
+        <?php if ($this->session->flashdata('accountsfeedback')){ ?>
+        <div class="success-message text-center" id="prompt-message">
+          <h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+          <p> <?php echo $this->session->flashdata('accountsfeedback'); ?>  </p><br>
+          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+        </div>
+        <br>
+      <?php } ?>
 
         <div class="header-style">
           <h1> Account Information </h1>
