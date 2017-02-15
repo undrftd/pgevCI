@@ -13,6 +13,23 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+  $("select[name=status]").change(function(){
+      var remarks = $(this).val();
+
+      if(remarks == '0')
+      {
+          $("textarea[name=admin-remarks]").removeAttr("disabled");
+      }
+
+      else
+      {
+          $("textarea[name=admin-remarks]").attr("disabled", true);
+      }
+
+  });
+});
+
 $('#myModal').modal() // initialized with defaults
 
 function undisableField() {
