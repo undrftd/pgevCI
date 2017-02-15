@@ -47,6 +47,54 @@ class Login extends CI_Controller
         }
     }
 
+    function reset_password()
+    {
+        $this->template->load('template','view_resetpassword');
+    }
+
+    function resetpassword_validation()
+    {
+        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|trim|xss_clean');
+        if ($this->form_validation->run() == FALSE)
+        {
+            
+            $resetkey = md5(uniqid());
+
+            $this->load->model('model_accounts');
+
+            if($this->model_accounts->url_check_email())
+            {
+                if($this->model_accounts->update_resetkey($resetkey))
+                {
+                    $this->load->library("email");
+            
+                    $this->email->from(set_value("email"), set_value("fullName"));
+                    $this->email->to($this->input->post('email'));
+                    $array = $this->session->userdata('firstname');
+                    $this->email->subject("Password Reset - Parkwood Greens Executive Village CRM");
+                    $message = 'You have requested to reset your password. <a href="'. base_url() . 'resetpassword_verification/' . $resetkey . '"> Click Here to Reset </a>'; 
+                    $this->email->message($message);
+                    $this->email->send();
+                    
+                    redirect('login/reset_password');
+                }
+                else
+                {
+                    redirect('login/reset_password');
+                }
+            }
+            else
+            {
+                echo "The email address is not available in the database";
+            }
+            
+        }
+        else
+        {
+           echo 0;
+        }
+    }
+
     function userdeact()
     {
         $this->session->set_userdata('referred_from', current_url());

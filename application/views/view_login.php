@@ -77,7 +77,7 @@
 
         <p class="footer-note"> If you have forgotten your password, kindly click the button below: </p>
 
-        <button type="button" class="btn btn-custom-7">Forgot your Password?</button>
+        <a href="<?php echo site_url("login/reset_password")?>"><button type="button" class="btn btn-custom-7">Forgot your Password?</button></a>
 
       </div>
 
@@ -85,8 +85,8 @@
 
     </div>
 
-  </div><!-- /.row -->
-  <!-- Standard button -->
+  </div>
+  
   </div>
 
 </form>

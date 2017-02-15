@@ -27,6 +27,47 @@ class Model_accounts extends CI_Model {
         }
     }
 
+    function url_check_email()
+    {
+        $query= $this->db->select('email')->where('email', $this->input->post('email'))->get('accounts',1);
+        
+
+        if($query->num_rows() > 0)
+        {
+            $row = $query->row();
+            if($row->email == $this->input->post('email'))
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+
+    function update_resetkey($resetkey)
+    {
+        $reset_data = array(
+                'reset_key' => $resetkey
+            );
+        $this->db->where('email', $this->input->post('email'));
+        $this->db->update('accounts', $reset_data);
+
+        if($this->db->affected_rows() > 0)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+
     function check_role()
     {
         $this->db->where('username', $this->input->post('username'));
