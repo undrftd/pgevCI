@@ -75,6 +75,7 @@ class Login extends CI_Controller
                     $this->email->message($message);
                     $this->email->send();
                     
+                    $this->session->set_flashdata('resetfeedback', 'The reset link has been successfully sent to your email. Please check your inbox.');
                     redirect('login/reset_password');
                 }
                 else
@@ -84,7 +85,8 @@ class Login extends CI_Controller
             }
             else
             {
-                echo "The email address is not available in the database";
+                $this->session->set_flashdata('resetfail', 'There is no account associated with that Email Address. Please double-check the Email Address.');
+                redirect('login/reset_password');
             }
             
         }

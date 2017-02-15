@@ -6,10 +6,19 @@
 
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
 
-			<?php if ($this->session->flashdata('profilefeedback')){ ?>
+			<?php if ($this->session->flashdata('resetfeedback')){ ?>
 				<div class="success-message text-center" id="prompt-message">
 					<h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
-					<p> <?php echo $this->session->flashdata('profilefeedback'); ?>  </p><br>
+					<p> <?php echo $this->session->flashdata('resetfeedback'); ?>  </p><br>
+					<button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+				</div>
+				<br>
+			<?php } ?>
+
+			<?php if ($this->session->flashdata('resetfail')){ ?>
+				<div class="error-message text-center" id="prompt-message">
+					<h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+					<p> <?php echo $this->session->flashdata('resetfail'); ?>  </p><br>
 					<button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
 				</div>
 				<br>
@@ -53,4 +62,3 @@
   </div>
 
 </div>
->>>>>>> origin/master
