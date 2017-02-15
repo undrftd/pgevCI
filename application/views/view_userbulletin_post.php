@@ -21,7 +21,7 @@
           <form action="<?php echo site_url() . "user_announcements/post_bulletin_user/" ?>" method="POST">
 
             <p>  Bulletin Title </p>
-            <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?">
+            <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?" required>
             <p class="error"> <?php echo form_error('post_title'); ?></p>
 
             <br>
@@ -33,7 +33,7 @@
             <br>
 
             <p> Kindly put the details of your Bulletin here: </p>
-            <textarea class="form-control" name="post_content" id="user-message" placeholder="What do you want to say to the community?" rows="15"></textarea>
+            <textarea class="form-control" name="post_content" id="user-message" placeholder="What do you want to say to the community?" rows="15" required></textarea>
             <p class="error" name="post_content"> <?php echo form_error('post_content'); ?></p>
 
             <br><br>

@@ -28,42 +28,42 @@
           <h4> User Credentials </h4>
           <br>
           <p> First Name </p>
-          <input name="firstname" class="form-control" id="sel1" type="text" placeholder="">
+          <input name="firstname" class="form-control" id="sel1" type="text" placeholder="" required>
              <p class="error"><?php echo form_error('firstname'); ?> </p>
           <br>
 
           <p> Last Name </p>
-          <input name="lastname" class="form-control" id="sel1" type="text" placeholder="">
+          <input name="lastname" class="form-control" id="sel1" type="text" placeholder="" required>
               <p class="error"><?php echo form_error('lastname'); ?></p>
           <br>
 
           <p> Username </p>
-          <input name="username" class="form-control" id="sel1" type="text" placeholder="">
+          <input name="username" class="form-control" id="sel1" type="text" placeholder="" required>
               <p class="error"><?php echo form_error('username'); ?></p>
           <br>
 
           <p> Password </p>
-          <input name="password" class="form-control" id="sel1" type="password" placeholder="">
+          <input name="password" class="form-control" id="sel1" type="password" placeholder="" required>
              <p class="error"><?php echo form_error('password'); ?> </p>
           <br>
 
           <p> Address </p>
-          <input name="address" class="form-control" id="sel1" type="text" placeholder="">
+          <input name="address" class="form-control" id="sel1" type="text" placeholder="" required>
               <p class="error"><?php echo form_error('address'); ?></p>
           <br>
 
           <p> E-mail Address </p>
-          <input name="email" class="form-control" id="sel1" type="email" placeholder="">
+          <input name="email" class="form-control" id="sel1" type="email" placeholder="" required>
             <p class="error"><?php echo form_error('email'); ?> </p>
           <br>
 
           <p> Contact Number </p>
-          <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="">
+          <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" required>
               <p class="error"><?php echo form_error('contactnum'); ?> </p>
           <br>
 
           <p> Role </p>
-          <select name="role" class="form-control" id="sel1">
+          <select name="role" class="form-control" id="sel1" required>
             <option value= "" selected hidden>Choose a role</option>
             <option value= "0">Homeowner</option>
             <option value= "1">Administrator</option>

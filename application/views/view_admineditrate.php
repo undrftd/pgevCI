@@ -44,12 +44,12 @@
             <h4> Dues details </h4>
                 <br>
                 <p> Security Fee (₱) </p>
-                <input name ="securityfee" class="txt form-control" id="sel1" type="number" step="0.01" placeholder="" value= "<?php echo $rate->securityfee; ?>">
+                <input name ="securityfee" class="txt form-control" id="sel1" type="number" step="0.01" placeholder="" value= "<?php echo $rate->securityfee; ?>" required>
                 <p class="error"><?php echo form_error('securityfee'); ?> </p>
                 <br>
 
                 <p> Association Fee (₱) </p>
-                <input name="assocfee" class="txt form-control" id="sel1" type="number" step="0.01" placeholder="" value="<?php echo $rate->assocfee; ?>">
+                <input name="assocfee" class="txt form-control" id="sel1" type="number" step="0.01" placeholder="" value="<?php echo $rate->assocfee; ?>" required>
                 <p class="error"><?php echo form_error('assocfee'); ?></p>
                 <br>
 
