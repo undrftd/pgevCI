@@ -216,6 +216,7 @@ class Admin_Reservation extends MY_Controller {
 
 	function approve_courtonereservation($reservationid)
 	{
+		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_courtone($reservationid))
 		{
 			$this->model_reservation->approve_courtonereservation($reservationid);
@@ -231,6 +232,7 @@ class Admin_Reservation extends MY_Controller {
 
 	function deny_courtonereservation($reservationid)
 	{
+		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_courtone($reservationid))
 		{
 			$this->model_reservation->deny_courtonereservation($reservationid);
@@ -246,6 +248,7 @@ class Admin_Reservation extends MY_Controller {
 
 	function approve_courttworeservation($reservationid)
 	{
+		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_courttwo($reservationid))
 		{
 			$this->model_reservation->approve_courttworeservation($reservationid);
@@ -261,6 +264,7 @@ class Admin_Reservation extends MY_Controller {
 
 	function deny_courttworeservation($reservationid)
 	{
+		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_courttwo($reservationid))
 		{
 			$this->model_reservation->deny_courttworeservation($reservationid);
@@ -274,8 +278,9 @@ class Admin_Reservation extends MY_Controller {
 		}
 	}
 
-		function approve_clubhousereservation($reservationid)
+	function approve_clubhousereservation($reservationid)
 	{
+		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_clubhouse($reservationid))
 		{
 			$this->model_reservation->approve_clubhousereservation($reservationid);
@@ -291,6 +296,7 @@ class Admin_Reservation extends MY_Controller {
 
 	function deny_clubhousereservation($reservationid)
 	{
+		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_clubhouse($reservationid))
 		{
 			$this->model_reservation->deny_clubhousereservation($reservationid);

@@ -51,6 +51,7 @@ class admin_announcements extends MY_Controller{
 
   function delete_announcements($post_id)
   {
+    $this->usertracking->track_this();
     if($this->model_announcements->url_check_post_id($post_id))
     {
       $this->model_announcements->delete_announcements($post_id);
@@ -66,6 +67,7 @@ class admin_announcements extends MY_Controller{
 
   function edit_announcements($post_id)
   {
+    $this->usertracking->track_this();
     if($this->model_announcements->url_check_post_id($post_id))
     {
       $data['select'] = $this->model_announcements->select_announcements($post_id);
@@ -80,6 +82,7 @@ class admin_announcements extends MY_Controller{
 
   function save_announcements($post_id)
   {
+    $this->usertracking->track_this();
     if($this->model_announcements->url_check_post_id($post_id))
     {
       $this->form_validation->set_rules('post_title','Announcement Title', 'trim|required');
@@ -109,6 +112,7 @@ class admin_announcements extends MY_Controller{
 
   function post_announcements_admin()
   {
+    $this->usertracking->track_this();
     $this->form_validation->set_error_delimiters('<div class="error">','</div>');
     $this->form_validation->set_rules('post_title','Announcement Title', 'trim|required');
     $this->form_validation->set_rules('post_content', 'Announcement Content', 'trim|required');
@@ -163,6 +167,7 @@ class admin_announcements extends MY_Controller{
 
   function delete_bulletin($post_id)
   {
+    $this->usertracking->track_this();
     if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
       $this->model_announcements->delete_bulletin($post_id);
@@ -178,6 +183,7 @@ class admin_announcements extends MY_Controller{
 
   function edit_bulletin($post_id)
   {
+    $this->usertracking->track_this();
     if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
       if($this->model_announcements_user->url_usercheck_bulletin($post_id))
@@ -200,6 +206,7 @@ class admin_announcements extends MY_Controller{
 
   function save_bulletin($post_id)
   {
+    $this->usertracking->track_this();
     if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
       $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
@@ -229,6 +236,7 @@ class admin_announcements extends MY_Controller{
 
   function post_bulletin_admin()
   {
+    $this->usertracking->track_this();
     $this->form_validation->set_error_delimiters('<div class="error">','</div>');
     $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
     $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
