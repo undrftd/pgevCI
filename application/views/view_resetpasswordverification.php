@@ -9,6 +9,24 @@
   <div class="row">
 
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+		
+		<?php if ($this->session->flashdata('resetvfeedback')){ ?>
+			<div class="success-message text-center" id="prompt-message">
+				<h3> Hello, User. </h3>
+				<p> <?php echo $this->session->flashdata('resetvfeedback'); ?>  </p><br>
+				<button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+			</div>
+			<br>
+		<?php } ?>
+
+		<?php if ($this->session->flashdata('resetvfail')){ ?>
+			<div class="error-message text-center" id="prompt-message">
+				<h3> Hello, User. </h3>
+				<p> <?php echo $this->session->flashdata('resetvfail'); ?>  </p><br>
+				<button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+			</div>
+			<br>
+		<?php } ?>
 
       <div class="announcement-message">
 

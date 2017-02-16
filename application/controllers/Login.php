@@ -54,8 +54,8 @@ class Login extends CI_Controller
 
     function reset_emailvalidation()
     {
-        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|trim|xss_clean');
-        if ($this->form_validation->run() == FALSE)
+        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|trim');
+        if ($this->form_validation->run())
         {
             $resetkey = md5(uniqid());
 
@@ -98,7 +98,27 @@ class Login extends CI_Controller
 
     function reset_password_verification()
     {
-        $this->template->load('template', 'view_resetpasswordverification');
+        $resetkey = $this->uri->segment(3);
+
+        if(!$resetkey)
+        {
+            $this->session->set_flashdata('resetfail', 'Unable to proceed to the password resetting process. Please make sure the reset link has not expired yet or the link is from the email.');
+            $this->template->load('template','view_resetpassword');
+        }
+        else
+        {
+            $this->load->model('model_accounts');
+
+            if($this->model_accounts->checkreset_key($resetkey) == 1)
+            {
+                $this->template->load('template', 'view_resetpasswordverification');
+            }
+            else
+            {
+                $this->session->set_flashdata('resetfail', 'Unable to proceed to the password resetting process. Please make sure the reset link has not expired yet or the link is from the email.');
+                $this->template->load('template','view_resetpassword');
+            } 
+        }  
     }
 
     function reset_password_validation()
@@ -111,7 +131,9 @@ class Login extends CI_Controller
             $this->load->model('model_accounts');
             $this->model_accounts->reset_password();
 
-           redirect('login');
+            $this->session->set_flashdata('resetvfeedback', 'You have successfully reset your password.');
+            $this->template->load('template', 'view_resetpasswordverification');
+            $this->output->set_header('refresh:2; url=' . base_url());
 
         }
         else

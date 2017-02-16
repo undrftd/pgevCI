@@ -156,11 +156,19 @@ class Model_accounts extends CI_Model {
         $resetkey = $this->input->post('resetkey');
 
         $reset_data = array(
-                'password' =>  $this->bcrypt->hash_password($this->input->post('password'))
+                'password' =>  $this->bcrypt->hash_password($this->input->post('password')),
+                'reset_key' => ''
             );
 
         $this->db->where('reset_key', $resetkey);
         $this->db->update('accounts', $reset_data);
+    }
+
+    function checkreset_key($resetkey)
+    {
+        $this->db->where('reset_key', $resetkey);
+        $this->db->from('accounts');
+        return $this->db->count_all_results();
     }
 
      function get_users($limit, $offset)
