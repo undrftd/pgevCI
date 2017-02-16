@@ -4,35 +4,6 @@
 
   <br><br><br>
 
-  <div class="modal fade" id="delete-modal" role="dialog">
-
-    <div class="modal-dialog">
-        <!-- Modal content-->
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Delete</h4>
-        </div>
-
-        <br>
-
-        <div class="signin">
-
-          <div class="modal-body text-center">
-              <p> Are you sure you want to remove this from the list? </p><br>
-              <button type="submit" class="btn btn-custom-1">Yes</button>
-              <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
   <div class="header-style">
     <h1> Ticketing</h1>
   </div>
@@ -40,6 +11,15 @@
   <div class="portlet">
 
     <div class="portlet-header">
+    
+    <form action="<?php echo base_url();?>admin_ticketing/search_closedtickets" method="GET">
+      <div id="search-group">
+        <input class="form-control" name="search" id="sel1" type="text" placeholder="Search for a ticket...">
+          <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        </input>
+      </div>
+    </form>
+    <br><br>
 
     </div>
 
@@ -157,8 +137,6 @@
                   <td><?php echo timespan($row->date_opened, $row->date_closed, 3); ?></td>
                   <td class="action-button">
                     <a href="<?php echo site_url() . "admin_ticketing/ticketdetails/" . $row->ticketid; ?>"><button type="button" class="btn btn-custom-2" aria-hidden="true">View Details</button>
-
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> &nbsp;Delete </button>
                   </td>
               </tr>
             <?php endforeach; ?>

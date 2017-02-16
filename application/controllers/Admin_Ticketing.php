@@ -20,7 +20,7 @@ class Admin_Ticketing extends MY_Controller {
     {
     	$this->session->set_userdata('referred_from', current_url());
 
-    	$config['base_url'] = site_url('admin_ticketing/new');
+    	$config['base_url'] = site_url('admin_ticketing/new_tickets');
         $config['total_rows'] = $this->model_ticketing->count_newtickets();
         $config['per_page'] =  20;
         $config['num_links'] = 5;
@@ -49,7 +49,7 @@ class Admin_Ticketing extends MY_Controller {
 
     function progress_tickets()
     {
-        $config['base_url'] = site_url('admin_ticketing/new');
+        $config['base_url'] = site_url('admin_ticketing/progress_tickets');
         $config['total_rows'] = $this->model_ticketing->count_progresstickets();
         $config['per_page'] =  20;
         $config['num_links'] = 5;
@@ -78,7 +78,7 @@ class Admin_Ticketing extends MY_Controller {
 
     function closed_tickets()
     {
-        $config['base_url'] = site_url('admin_ticketing/new');
+        $config['base_url'] = site_url('admin_ticketing/closed_tickets');
         $config['total_rows'] = $this->model_ticketing->count_closedtickets();
         $config['per_page'] =  20;
         $config['num_links'] = 5;
@@ -103,6 +103,46 @@ class Admin_Ticketing extends MY_Controller {
         $data['count'] = $this->model_ticketing->count_newtickets();
         $data['result'] = $this->model_ticketing->get_closedtickets($config['per_page'], $this->uri->segment(3));
         $this->template->load('admin_template', 'view_adminticketing_closed', $data);       
+    }
+
+    function search_closedtickets()
+    {
+         $searchquery = $this->input->get('search', TRUE);
+         $searchmodelquery = $this->model_ticketing->search_closedtickets($searchquery);
+
+         if(isset($searchquery) and !empty($searchquery))
+         {
+            $config['base_url'] = site_url('admin_ticketing/search_closedtickets');
+            $config['reuse_query_string'] = TRUE;
+            $config['total_rows'] = $this->model_ticketing->countclosed_search($searchquery);
+            $config['per_page'] =  20;
+            $config['num_links'] = 5;
+            $config['use_page_numbers'] = FALSE;
+            $config['full_tag_open'] = "<ul class='pagination'>";
+            $config['full_tag_close'] ="</ul>";
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+            $config['next_tag_open'] = "<li>";
+            $config['next_tagl_close'] = "</li>";
+            $config['prev_tag_open'] = "<li>";
+            $config['prev_tagl_close'] = "</li>";
+            $config['first_tag_open'] = "<li>";
+            $config['first_tagl_close'] = "</li>";
+            $config['last_tag_open'] = "<li>";
+            $config['last_tagl_close'] = "</li>";
+            $this->pagination->initialize($config);
+            $data['closedticketlinks'] = $this->pagination->create_links();
+
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['result'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+            $this->template->load('admin_template', 'view_adminticketing_closed', $data);       
+        }
+        else
+        {
+           redirect('admin_ticketing/closed_tickets');
+        }
     }
 
     function ticketdetails($ticketid)

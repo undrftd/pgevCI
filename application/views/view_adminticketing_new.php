@@ -4,35 +4,6 @@
 
   <br><br><br>
 
-  <div class="modal fade" id="delete-modal" role="dialog">
-
-    <div class="modal-dialog">
-        <!-- Modal content-->
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Delete</h4>
-        </div>
-
-        <br>
-
-        <div class="signin">
-
-          <div class="modal-body text-center">
-              <p> Are you sure you want to remove this from the list? </p><br>
-              <button type="submit" class="btn btn-custom-1">Yes</button>
-              <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
   <div class="header-style">
     <h1> Ticketing</h1>
   </div>
@@ -164,7 +135,6 @@
                   <td class="action-button">
                     <a href="<?php echo site_url() . "admin_ticketing/ticketdetails/" . $row->ticketid; ?>">
                     <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-9"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
-                    <button type="button" class="btn btn-custom-3" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> &nbsp;Delete </button>
                   </td>
               </tr>
             <?php endforeach; ?>

@@ -69,8 +69,8 @@
       <div class="success-message text-center" id="prompt-message">
         <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
         <p> <?php echo $this->session->flashdata('moreticketsuccess'); ?> </p>
-        <p> Redirecting to the Ticketing page....</p><br>
-        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+        <p> Redirecting to the Ticketing Page</p><br>
+        <div class="loader"></div><br>
       </div>
     <?php } ?>
 
@@ -219,10 +219,6 @@
           <br><hr>
 
           <br>
-
-          <button type="button" class="btn btn-custom-7" data-toggle="modal" data-target="#delete-modal">Delete</button>
-
-          <br><br>
 
           <button type="submit" class="btn btn-custom-5">Save changes</button>
 

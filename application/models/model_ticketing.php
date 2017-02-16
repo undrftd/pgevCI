@@ -65,6 +65,29 @@ class Model_ticketing extends CI_Model {
 		return $query->num_rows();
 	}
 
+  function countclosed_search($searchquery)
+  {
+    $query = $this->db->select('*')->from('tickets')->join('accounts', 'accounts.userid = tickets.userid')->where('status', 0)->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR request_type LIKE "%'.$searchquery .'%" OR ticketid LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+    return $query->num_rows();
+  }
+
+  function search_closedtickets($searchquery)
+  {
+    $this->db->select('*')->from('tickets')->join('accounts', 'accounts.userid = tickets.userid');
+    $this->db->where('status', 0);
+    $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR CONCAT(request_type,"-",ticketid) LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+    $query = $this->db->get();
+
+      if($query->num_rows() > 0)
+      {
+          return $query->result();
+      }
+      else
+      {
+          return $query->result();
+      }
+  }
+
 	function get_ticketdetails($ticketid)
     {
          $query= $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where('ticketid', $ticketid)->get();
