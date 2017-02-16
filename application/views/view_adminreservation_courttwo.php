@@ -62,7 +62,7 @@
 
     <div class="portlet-header">
 
-      <form action="<?php echo base_url(); ?>admin_reservation/check_reservations_courtone/" method="GET">
+      <form action="<?php echo base_url(); ?>admin_reservation/check_reservations_courttwo/" method="GET">
         <div id="search-group">
           <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Click here to view the calendar">
             <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
