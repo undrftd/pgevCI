@@ -8,7 +8,7 @@
 
 			<?php if ($this->session->flashdata('resetfeedback')){ ?>
 				<div class="success-message text-center" id="prompt-message">
-					<h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+					<h3> Hello, User. </h3>
 					<p> <?php echo $this->session->flashdata('resetfeedback'); ?>  </p><br>
 					<button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
 				</div>
@@ -17,7 +17,7 @@
 
 			<?php if ($this->session->flashdata('resetfail')){ ?>
 				<div class="error-message text-center" id="prompt-message">
-					<h3> Hello, <?php echo $this->session->userdata('firstname');?>. </h3>
+					<h3> Hello, User. </h3>
 					<p> <?php echo $this->session->flashdata('resetfail'); ?>  </p><br>
 					<button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
 				</div>

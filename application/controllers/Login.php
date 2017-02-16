@@ -9,7 +9,7 @@ class Login extends CI_Controller
         {
             $referred_from = $this->session->userdata('referred_from');
             redirect($referred_from, 'refresh');
-        }   
+        }
         else
         {
             $this->template->load('template', 'view_login');
@@ -66,15 +66,15 @@ class Login extends CI_Controller
                 if($this->model_accounts->update_resetkey($resetkey))
                 {
                     $this->load->library("email");
-            
+
                     $this->email->from(set_value("email"), set_value("fullName"));
                     $this->email->to($this->input->post('email'));
                     $array = $this->session->userdata('firstname');
                     $this->email->subject("Password Reset - Parkwood Greens Executive Village CRM");
-                    $message = 'You have requested to reset your password. <a href="'. base_url() . 'login/reset_password_verification/' . $resetkey . '"> Click Here to Reset </a>'; 
+                    $message = 'You have requested to reset your password. <a href="'. base_url() . 'login/reset_password_verification/' . $resetkey . '"> Click Here to Reset </a>';
                     $this->email->message($message);
                     $this->email->send();
-                    
+
                     $this->session->set_flashdata('resetfeedback', 'The reset link has been successfully sent to your email. Please check your inbox.');
                     redirect('login/reset_password');
                 }
@@ -85,10 +85,10 @@ class Login extends CI_Controller
             }
             else
             {
-                $this->session->set_flashdata('resetfail', 'There is no account associated with that Email Address. Please double-check the Email Address.');
+                $this->session->set_flashdata('resetfail', 'There is no account associated with that email address. Please double-check the email address.');
                 redirect('login/reset_password');
             }
-            
+
         }
         else
         {
@@ -103,15 +103,16 @@ class Login extends CI_Controller
 
     function reset_password_validation()
     {
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('confpassword', 'Confirm Password', 'required|matches[password]');
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_rules('password', 'new password', 'required');
+        $this->form_validation->set_rules('confpassword', 'confirm new password', 'required|matches[password]');
         if ($this->form_validation->run())
         {
             $this->load->model('model_accounts');
             $this->model_accounts->reset_password();
-            
+
            redirect('login');
-            
+
         }
         else
         {
