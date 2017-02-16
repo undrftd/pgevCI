@@ -150,7 +150,7 @@ class Usertracking
 
     //get the data
     $input_data = array();
-    $input_data['session_id'] = $this->CI->session->userdata('userid');
+    $input_data['session_id'] = $this->CI->session->userdata('username');
     $input_data['fullname'] = $this->CI->session->userdata('firstname') . " " . $this->CI->session->userdata('lastname');
     $input_data['request_uri'] = $this->CI->input->server('REQUEST_URI');
     $input_data['timestamp'] = time();

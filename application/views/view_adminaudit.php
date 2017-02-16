@@ -22,7 +22,7 @@
 
         <tr>
             <th><br>Time</th>
-            <th><br>User ID</th>
+            <th><br>Username</th>
             <th><br>Full Name</th>
             <th><br>Page Accessed</th>
         </tr>
