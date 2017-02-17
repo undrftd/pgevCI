@@ -28,7 +28,7 @@
 	<hr class="row-hr">
 	<br>
 
-	<h3 style="text-transform: uppercase; color: #696969;">I. Ticket Activity Report</h3>
+	<h3 style="text-transform: uppercase; color: #696969;">I. Ticket Category Report</h3>
 
 	<div class="table-responsive">
 
