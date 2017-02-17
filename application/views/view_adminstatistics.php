@@ -26,7 +26,7 @@
 
       <div class="portlet-header">
 
-        <a href="user-announcements.html"><button type="button" class="btn btn-custom-1">Export to PDF</button></a>
+        <a href="<?php echo site_url("admin_statistics/export_pdf"); ?>"><button type="button" class="btn btn-custom-1">Export to PDF</button></a>
 
       </div>
 
@@ -39,11 +39,11 @@
           </li>
           <li>
             <a href="#portlet_tab2" data-toggle="tab">
-            Statistics </a>
+             Ticket Activity</a>
           </li>
           <li>
             <a href="#portlet_tab3" data-toggle="tab">
-            Count Activity </a>
+            Overall Statistics</a>
           </li>
 
       </div>
@@ -167,7 +167,7 @@
 
             <br>
             <div>
-              <canvas id="myChart"></canvas>
+              <canvas id="myChart1"></canvas>
             </div>
             <br>
 
@@ -177,7 +177,7 @@
 
             <br>
             <div>
-              <canvas id="myChart1"></canvas>
+              <canvas id="myChart"></canvas>
             </div>
             <br>
 
