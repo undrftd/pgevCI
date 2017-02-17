@@ -28,7 +28,7 @@ class MY_Form_validation extends CI_Form_validation{
     {
         $reservedate = $this->CI->input->post('datepick');
         
-        if($reservedate != date("m/d/Y"))
+        if($reservedate < date("m/d/Y"))
         {
             $this->set_message('no_olddate', 'You can only pick the current date onwards.');
 
