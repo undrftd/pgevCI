@@ -68,8 +68,8 @@
     <?php if ($this->session->flashdata('moreticketsuccess')){ ?>
       <div class="success-message text-center" id="prompt-message">
         <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-        <p> <?php echo $this->session->flashdata('moreticketsuccess'); ?> </p>
-        <p> Redirecting to the Ticketing Page</p><br>
+        <p> <?php echo $this->session->flashdata('moreticketsuccess'); ?> </p><br>
+        <p> Redirecting to the Ticketing Page...</p>
         <div class="loader"></div><br>
       </div>
     <?php } ?>

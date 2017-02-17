@@ -14,7 +14,7 @@
 				<div class="success-message text-center" id="prompt-message">
 					<h3> Hello, User. </h3>
 					<p> <?php echo $this->session->flashdata('resetvfeedback'); ?>  </p><br>
-					<p> Redirecting to the Login Page</p><br>
+					<p> Redirecting to the Login Page...</p>
 					<div class="loader"></div><br>
 				</div>
 				<br>
