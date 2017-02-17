@@ -149,6 +149,6 @@ class Admin_Statistics extends MY_Controller {
         $this->load->library('pdf');
         $this->pdf->load_view('view_adminstatistics_export', $data);
         $this->pdf->render();
-        $this->pdf->stream("welcome.pdf");
+        $this->pdf->stream("PGEVCRM-Statistics.pdf");
     }
 }
