@@ -41,16 +41,16 @@
                  <a href="<?php echo site_url("user_ticketing"); ?>" class="<?php if($this->uri->segment('1') == 'user_ticketing') {echo 'active'; } ?>">Create a Ticket</a>
              </li>
              <li>
-                 <a href="<?php echo site_url("user_dues");	?>"	class="<?php if($this->uri->segment('1') == 'user_dues') {echo 'active'; } ?>">View Dues</a>
-             </li>
-             <li>
                  <a href="<?php echo site_url("user_tracking/recent"); ?>" class="<?php if($this->uri->segment('1') == 'user_tracking') { echo 'active'; } ?>">Track Tickets</a>
              </li>
              <li>
                  <a href="<?php echo site_url("user_reservation/court_one"); ?>" class="<?php if($this->uri->segment('1') == 'user_reservation') { echo 'active'; } ?>">Reservation</a>
              </li>
              <li>
-                 <a href="<?php echo site_url("user_forms/car_sticker"); ?>" class="<?php if($this->uri->segment('1') == 'user_forms') { echo 'active'; } ?>">Forms</a>
+                 <a href="<?php echo site_url("user_forms/car_sticker"); ?>" class="<?php if($this->uri->segment('1') == 'user_forms') { echo 'active'; } ?>">Online Application</a>
+             </li>
+             <li>
+                 <a href="<?php echo site_url("user_dues");	?>"	class="<?php if($this->uri->segment('1') == 'user_dues') {echo 'active'; } ?>">View Dues</a>
              </li>
              <li>
                  <a href="<?php echo site_url("user_suggestions"); ?>" class="<?php if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } ?>"> Suggestions</a>

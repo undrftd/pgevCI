@@ -32,26 +32,26 @@
                 <li>
                     <a href="<?php echo site_url("admin_ticketing/new_tickets"); ?>" class="<?php if($this->uri->segment(1) == 'admin_ticketing') { echo 'active'; } ?>">Ticketing</a>
                 </li>
-                <li class="sidebar-brand">
-                    <a href="<?php echo site_url("admin_statistics"); ?>" class="<?php if($this->uri->segment(1) == 'admin_statistics') { echo 'active'; } ?>">Statistics</a>
-                </li>
                 <li>
                     <a href="<?php echo site_url("admin_announcements/announcements");	?>" class="<?php if($this->uri->segment(1) == 'admin_announcements') { echo 'active'; } ?>">Announcements</a>
-                </li>
-                <li>
-                    <a href="<?php echo site_url("admin_dues/homeowner"); ?>" class="<?php if($this->uri->segment(1)  == 'admin_dues') { echo 'active'; } ?>">Dues</a>
                 </li>
                 <li>
                     <a href="<?php echo site_url("admin_reservation/court_one"); ?>" class="<?php if($this->uri->segment(1) == 'admin_reservation') { echo 'active'; } ?>">Reservation</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url("admin_forms/car_sticker"); ?>" class="<?php if($this->uri->segment(1) == 'admin_forms') { echo 'active'; } ?>">Forms</a>
+                    <a href="<?php echo site_url("admin_forms/car_sticker"); ?>" class="<?php if($this->uri->segment(1) == 'admin_forms') { echo 'active'; } ?>">Online Applications</a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url("admin_dues/homeowner"); ?>" class="<?php if($this->uri->segment(1)  == 'admin_dues') { echo 'active'; } ?>">Dues</a>
                 </li>
                 <li>
                     <a href="<?php echo site_url("admin_accounts/homeowner"); ?>" class="<?php if($this->uri->segment(1) == 'admin_accounts') { echo 'active'; } ?>">Accounts</a>
                 </li>
                 <li>
                     <a href="<?php echo site_url("admin_profile/");?>" class="<?php if($this->uri->segment(1) == 'admin_profile') { echo 'active'; } ?>"> Profile</a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="<?php echo site_url("admin_statistics"); ?>" class="<?php if($this->uri->segment(1) == 'admin_statistics') { echo 'active'; } ?>">Statistics</a>
                 </li>
                 <li>
                     <a href="<?php echo site_url("admin_audit/logs");?>" class="<?php if($this->uri->segment(1) == 'admin_audit') { echo 'active'; } ?>"> Audit Trail</a>
