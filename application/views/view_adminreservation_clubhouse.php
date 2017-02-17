@@ -99,32 +99,25 @@
 
     <div class="portlet-body">
 
+      <?php if ($this->session->flashdata('reservefeedback')){ ?>
+        <div class="success-message text-center" id="prompt-message">
+          <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+          <p> <?php echo $this->session->flashdata('reservefeedback'); ?></p><br>
+          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+        </div>
+      <?php } ?>
+
+      <?php if ($this->session->flashdata('reservefail')){ ?>
+        <div class="error-message text-center" id="prompt-message">
+          <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+          <p> <?php echo $this->session->flashdata('reservefail'); ?></p><br>
+          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+        </div>
+      <?php } ?>
+
       <br>
 
       <div class="tab-content">
-
-        <div class="row">
-
-          <div class="col-xs-12 nopadding">
-            <?php if ($this->session->flashdata('reservefeedback')){ ?>
-              <div class="success-message text-center" id="prompt-message">
-                <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                <p> <?php echo $this->session->flashdata('reservefeedback'); ?></p><br>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
-              </div>
-            <?php } ?>
-
-            <?php if ($this->session->flashdata('reservefail')){ ?>
-              <div class="error-message text-center" id="prompt-message">
-                <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-                <p> <?php echo $this->session->flashdata('reservefail'); ?></p>
-                <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button>
-              </div>
-            <?php } ?>
-
-          </div>
-
-        </div>
 
         <div class="reservation-schedule">
 
