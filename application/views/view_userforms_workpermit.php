@@ -67,8 +67,6 @@
 
             <hr><br>
 
-            <form>
-
               <div class="form-group">
 
                 <h4>Attach file</h4>
@@ -82,8 +80,6 @@
               <br><br>
 
               <button name ="upload" type="submit" class="btn btn-custom">Send</button></a><br>
-
-            </form>
 
           </div>
 
