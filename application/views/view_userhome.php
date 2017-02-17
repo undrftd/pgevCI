@@ -85,9 +85,9 @@
 
         <h4> Reservation </h4><hr>
 
-        <p> You have 1 active reservation. To check whether this has been approved or not, click the button below. </p>
+        <p> You have <?php echo $courtone + $courttwo + $clubhouse; ?> active reservation. To check whether this has been approved or not, click the button below. </p>
         <br>
-        <button type="button" class="btn btn-custom-2">View More</button><br><br>
+        <a href="<?php echo site_url("user_reservation/reservations_courtone"); ?>"><button type="button" class="btn btn-custom-2">View More</button><br><br>
 
       </div>
 
