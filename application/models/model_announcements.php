@@ -37,7 +37,7 @@ class Model_announcements extends CI_Model{
     $query = $this->db->select('*')->from('bulletin')->where('post_id', $post_id)->get();
     $row = $query->row();
 
-    if($row->user_id == $this->session->userdata('userid'))
+    if($row->username == $this->session->userdata('username'))
     {
       return TRUE;
     }
@@ -79,7 +79,7 @@ class Model_announcements extends CI_Model{
   function save_announcements($post_id)
   {
     $edit_ann = array(
-      'user_id' => $this->session->userdata('userid'),
+      'username' => $this->session->userdata('username'),
       'post_title' => $this->input->post('post_title'),
       'post_content' => $this->input->post('post_content'),
       'post_date' =>  date('m/d/Y'),
@@ -114,7 +114,7 @@ class Model_announcements extends CI_Model{
   function post_announcements()
   {
     $post_announncements = array(
-      'user_id' => $this->session->userdata('userid'),
+      'username' => $this->session->userdata('username'),
       'post_title' => $this->input->post('post_title'),
       'post_date' =>  date('m/d/Y'),
       'post_time' => time(),
@@ -128,7 +128,7 @@ class Model_announcements extends CI_Model{
   function bulletin($limit, $offset)
   {
     $this->db->limit($limit,$offset);
-    $posted_bulletin = $this->db->select('*')->from('bulletin')->join('accounts', 'accounts.userid = bulletin.user_id' )->order_by('post_id', 'DESC')->get();
+    $posted_bulletin = $this->db->select('*')->from('bulletin')->join('accounts', 'accounts.username = bulletin.username' )->order_by('post_id', 'DESC')->get();
 
 
     if($posted_bulletin->num_rows() > 0)
@@ -144,7 +144,7 @@ class Model_announcements extends CI_Model{
   function save_bulletin($post_id)
   {
     $edit_bulletin = array(
-      'user_id' => $this->session->userdata('userid'),
+      'username' => $this->session->userdata('username'),
       'post_title' => $this->input->post('post_title'),
       'post_content' => $this->input->post('post_content'),
       'post_date' =>  date('m/d/Y'),
@@ -177,7 +177,7 @@ class Model_announcements extends CI_Model{
   function post_bulletin()
   {
     $post_bulletin = array(
-      'user_id' => $this->session->userdata('userid'),
+      'username' => $this->session->userdata('username'),
       'post_title' => $this->input->post('post_title'),
       'post_date' =>  date('m/d/Y'),
       'post_time' => time(),
@@ -223,7 +223,7 @@ class Model_announcements extends CI_Model{
   function search_bulletin($searchquery)
   {
     $this->db->select('*')->from('bulletin');
-    $this->db->join('accounts', 'accounts.userid = bulletin.user_id');
+    $this->db->join('accounts', 'accounts.username = bulletin.username');
     $this->db->where('post_date LIKE "%'.$searchquery .'%"',NULL,FALSE);
     $query = $this->db->get();
 
@@ -253,7 +253,7 @@ class Model_announcements extends CI_Model{
 
   function viewmore_bulletin($post_id)
   {
-    $query= $this->db->select('*')->where('post_id', $post_id)->join('accounts', 'accounts.userid = bulletin.user_id')->get('bulletin',1);
+    $query= $this->db->select('*')->where('post_id', $post_id)->join('accounts', 'accounts.username = bulletin.username')->get('bulletin',1);
     return $query->row();
   }
 }

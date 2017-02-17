@@ -21,7 +21,7 @@
 
           <div class="modal-body text-center">
               <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's dues? </p><br>
-              <a href="<?php echo base_url() ."admin_dues/cleardues_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+              <a href="<?php echo base_url() ."admin_dues/cleardues_admin/" . $view->username?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
               <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
           </div>
 
@@ -50,7 +50,7 @@
 
             <div class="modal-body text-center">
                 <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to clear this user's arrears? </p><br>
-                <a href="<?php echo base_url() ."admin_dues/cleararrears_admin/" . $view->userid?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
+                <a href="<?php echo base_url() ."admin_dues/cleararrears_admin/" . $view->username?>"> <button type="submit" class="btn btn-custom-1">Yes</button></a>
                 <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
             </div>
 
@@ -98,7 +98,7 @@
       <br>
 
       <div class="information">
-        <form action="<?php echo base_url() ."admin_dues/updatedues_admin/" . $view->userid ;?>" method="POST">
+        <form action="<?php echo base_url() ."admin_dues/updatedues_admin/" . $view->username ;?>" method="POST">
 
           <fieldset id="myFieldset" disabled>
           <div class="form-group">

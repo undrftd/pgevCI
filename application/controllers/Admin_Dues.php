@@ -167,11 +167,11 @@ class Admin_Dues extends MY_Controller{
         redirect('admin_dues/administrator');
     }
 
-    function viewdues_user($userid)
+    function viewdues_user($username)
     {
-        if($this->model_dues->url_check_user($userid))
+        if($this->model_dues->url_check_user($username))
         {
-            $data['view'] = $this->model_dues->viewmore_user($userid);
+            $data['view'] = $this->model_dues->viewmore_user($username);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
         else
@@ -181,13 +181,13 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
-    function viewdues_admin($userid)
+    function viewdues_admin($username)
     {
-        if($this->model_dues->url_check_admin($userid))
+        if($this->model_dues->url_check_admin($username))
         {
-            if($userid != $this->session->userdata('userid'))
+            if($username != $this->session->userdata('username'))
             {
-                $data['view'] = $this->model_dues->viewmore_admin($userid);
+                $data['view'] = $this->model_dues->viewmore_admin($username);
                 $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
             }
             else
@@ -203,15 +203,15 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
-    function cleardues_user($userid)
+    function cleardues_user($username)
     {
         $this->usertracking->track_this();
-        if($this->model_dues->url_check_user($userid))
+        if($this->model_dues->url_check_user($username))
         {
-            $this->model_dues->cleardues_user($userid);
+            $this->model_dues->cleardues_user($username);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s monthly dues.');
 
-            $data['view'] = $this->model_dues->viewmore_user($userid);
+            $data['view'] = $this->model_dues->viewmore_user($username);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
         else
@@ -221,15 +221,15 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
-    function cleararrears_user($userid)
+    function cleararrears_user($username)
     {
         $this->usertracking->track_this();
-        if($this->model_dues->url_check_user($userid))
+        if($this->model_dues->url_check_user($username))
         {
-            $this->model_dues->cleararrears_user($userid);
+            $this->model_dues->cleararrears_user($username);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s arrears. ');
 
-            $data['view'] = $this->model_dues->viewmore_user($userid);
+            $data['view'] = $this->model_dues->viewmore_user($username);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
         else
@@ -239,15 +239,15 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
-    function cleardues_admin($userid)
+    function cleardues_admin($username)
     {
         $this->usertracking->track_this();
-        if($this->model_dues->url_check_admin($userid))
+        if($this->model_dues->url_check_admin($username))
         {
-            $this->model_dues->cleardues_admin($userid);
+            $this->model_dues->cleardues_admin($username);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s monthly dues.');
 
-            $data['view'] = $this->model_dues->viewmore_admin($userid);
+            $data['view'] = $this->model_dues->viewmore_admin($username);
             $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
         }
         else
@@ -257,15 +257,15 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
-    function cleararrears_admin($userid)
+    function cleararrears_admin($username)
     {
         $this->usertracking->track_this();
-        if($this->model_dues->url_check_admin($userid))
+        if($this->model_dues->url_check_admin($username))
         {
-            $this->model_dues->cleararrears_admin($userid);
+            $this->model_dues->cleararrears_admin($username);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s arrears. ');
 
-            $data['view'] = $this->model_dues->viewmore_admin($userid);
+            $data['view'] = $this->model_dues->viewmore_admin($username);
             $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
         }
         else
@@ -275,10 +275,10 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
-    function updatedues_user($userid)
+    function updatedues_user($username)
     {
         $this->usertracking->track_this();
-        if($this->model_dues->url_check_user($userid))
+        if($this->model_dues->url_check_user($username))
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
@@ -287,13 +287,13 @@ class Admin_Dues extends MY_Controller{
 
             if($this->form_validation->run() == FALSE)
             {
-                $data['view'] = $this->model_accounts->viewmore_user($userid);
+                $data['view'] = $this->model_accounts->viewmore_user($username);
                 $this->template->load('admin_template', 'view_adminmoredues_user', $data);
             }
-            else if($query = $this->model_dues->updatedues_user($userid))
+            else if($query = $this->model_dues->updatedues_user($username))
             {
                 $this->session->set_flashdata('duesmorefeedback', 'You have successfully updated the user\'s dues.');
-                $data['view'] = $this->model_accounts->viewmore_user($userid);
+                $data['view'] = $this->model_accounts->viewmore_user($username);
                 $this->template->load('admin_template', 'view_adminmoredues_user', $data);
             }
         }
@@ -304,10 +304,10 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
-    function updatedues_admin($userid)
+    function updatedues_admin($username)
     {
         $this->usertracking->track_this();
-        if($this->model_dues->url_check_admin($userid))
+        if($this->model_dues->url_check_admin($username))
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
@@ -316,13 +316,13 @@ class Admin_Dues extends MY_Controller{
 
             if($this->form_validation->run() == FALSE)
             {
-                $data['view'] = $this->model_accounts->viewmore_admin($userid);
+                $data['view'] = $this->model_accounts->viewmore_admin($username);
                 $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
             }
-            else if($query = $this->model_dues->updatedues_admin($userid))
+            else if($query = $this->model_dues->updatedues_admin($username))
             {
                 $this->session->set_flashdata('duesmorefeedback', 'You have successfully updated the user\'s dues.');
-                $data['view'] = $this->model_accounts->viewmore_admin($userid);
+                $data['view'] = $this->model_accounts->viewmore_admin($username);
                 $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
             }
         }

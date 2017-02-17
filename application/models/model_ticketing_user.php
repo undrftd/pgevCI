@@ -5,7 +5,7 @@ class Model_ticketing_user extends CI_Model {
 	function send_ticket()
     {
         $postrequest_data = array(
-        	'userid' => $this->session->userdata('userid'),
+        	'username' => $this->session->userdata('username'),
             'request_type' => $this->input->post('type'),
             'attachment' => $this->upload->file_name,
             'content' => $this->input->post('content'),
@@ -19,7 +19,7 @@ class Model_ticketing_user extends CI_Model {
     function send_cctv()
     {
         $postrequest_data = array(
-            'userid' => $this->session->userdata('userid'),
+            'username' => $this->session->userdata('username'),
             'request_type' => 'CTV',
             'attachment' => $this->upload->file_name,
             'content' => $this->input->post('content'),
@@ -33,14 +33,14 @@ class Model_ticketing_user extends CI_Model {
 
 	function get_ticketid()
 	{
-		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->get('tickets', 1);
+		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('username', $this->session->userdata('username'))->get('tickets', 1);
 		return $query->row();
 	}
 
     /*function send_emergency()
     {
         $postrequest_data = array(
-            'userid' => $this->session->userdata('userid'),
+            'username' => $this->session->userdata('username'),
             'request_type' => $this->input->post('type'),
             'attachment' => $this->upload->file_name,
             'content' => $this->input->post('content'),
@@ -53,7 +53,7 @@ class Model_ticketing_user extends CI_Model {
 
     function get_emergencyid()
     {
-        $query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->get('emergency_ticket', 1);
+        $query = $this->db->select('*')->order_by('ticketid',"desc")->where('username', $this->session->userdata('username'))->get('emergency_ticket', 1);
         return $query->row();
     }*/
 

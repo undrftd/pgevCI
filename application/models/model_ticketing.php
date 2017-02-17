@@ -5,7 +5,7 @@ class Model_ticketing extends CI_Model {
 	function get_newtickets($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' ) desc, date_requested asc")->where('status', 2)->get();
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.username = tickets.username' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' ) desc, date_requested asc")->where('status', 2)->get();
 
 		if($query->num_rows() > 0)
 		{
@@ -19,14 +19,14 @@ class Model_ticketing extends CI_Model {
 
 	function count_newtickets()
 	{
-		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where('status', 2)->get();
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.username = tickets.username' )->where('status', 2)->get();
 		return $query->num_rows();
 	}
 
 	function get_progresstickets($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' ) desc, date_requested asc")->where('status', 1)->get();
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.username = tickets.username' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' ) desc, date_requested asc")->where('status', 1)->get();
 
 		if($query->num_rows() > 0)
 		{
@@ -40,14 +40,14 @@ class Model_ticketing extends CI_Model {
 
 	function count_progresstickets()
 	{
-		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where('status', 1)->get();
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.username = tickets.username' )->where('status', 1)->get();
 		return $query->num_rows();
 	}
 
 	function get_closedtickets($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("date_closed desc")->where('status', 0)->get();
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.username = tickets.username' )->order_by("date_closed desc")->where('status', 0)->get();
 
 		if($query->num_rows() > 0)
 		{
@@ -61,19 +61,19 @@ class Model_ticketing extends CI_Model {
 
 	function count_closedtickets()
 	{
-		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where('status', 0)->get();
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.username = tickets.username' )->where('status', 0)->get();
 		return $query->num_rows();
 	}
 
   function countclosed_search($searchquery)
   {
-    $query = $this->db->select('*')->from('tickets')->join('accounts', 'accounts.userid = tickets.userid')->where('status', 0)->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR request_type LIKE "%'.$searchquery .'%" OR ticketid LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+    $query = $this->db->select('*')->from('tickets')->join('accounts', 'accounts.username = tickets.username')->where('status', 0)->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR request_type LIKE "%'.$searchquery .'%" OR ticketid LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
     return $query->num_rows();
   }
 
   function search_closedtickets($searchquery)
   {
-    $this->db->select('*')->from('tickets')->join('accounts', 'accounts.userid = tickets.userid');
+    $this->db->select('*')->from('tickets')->join('accounts', 'accounts.username = tickets.username');
     $this->db->where('status', 0);
     $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR CONCAT(request_type,"-",ticketid) LIKE "%'.$searchquery .'%" )',NULL,FALSE);
     $query = $this->db->get();
@@ -90,7 +90,7 @@ class Model_ticketing extends CI_Model {
 
 	function get_ticketdetails($ticketid)
     {
-         $query= $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where('ticketid', $ticketid)->get();
+         $query= $this->db->select('*')->from('accounts')->join('tickets', 'accounts.username = tickets.username' )->where('ticketid', $ticketid)->get();
          return $query->row();
     }
 

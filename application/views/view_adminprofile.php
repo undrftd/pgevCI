@@ -39,7 +39,7 @@
         <br>
 
       <div class="information">
-        <form action="<?php echo base_url() ."admin_profile/update_account/" . $this->session->userdata('userid') ;?>" method="POST">
+        <form action="<?php echo base_url() ."admin_profile/update_account/" . $this->session->userdata('username') ;?>" method="POST">
           <fieldset id="myFieldset" disabled>
           <div class="form-group">
             <h4> User Credentials </h4>

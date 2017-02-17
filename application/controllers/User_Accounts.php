@@ -26,7 +26,7 @@ class User_Accounts extends MY_Controller {
         return ( ! preg_match("/^([a-z ])+$/i", $str)) ? FALSE : TRUE;
      }
 
-    function update_useraccount($userid)
+    function update_useraccount($username)
     {
       $this->form_validation->set_error_delimiters('<div class="error">','</div>');
       $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -44,7 +44,7 @@ class User_Accounts extends MY_Controller {
       }
       else
       {
-          if($query = $this->model_accounts_user->myaccount_userupdate($userid))
+          if($query = $this->model_accounts_user->myaccount_userupdate($username))
            {
               $this->session->set_flashdata('accountsfeedback', 'You have successfully updated your account.');
               redirect('user_accounts');

@@ -36,7 +36,7 @@
         <div class="information">
             <div class="form-group">
 
-              <form action="<?php echo base_url() . "user_accounts/update_useraccount/" . $this->session->userdata('userid'); ?>" method="POST">
+              <form action="<?php echo base_url() . "user_accounts/update_useraccount/" . $this->session->userdata('username'); ?>" method="POST">
 
                 <fieldset id="myFieldset" disabled>
 

@@ -2,10 +2,10 @@
 
 class Model_dues_user extends CI_Model{
 
-  function url_check_myaccount($userid)
+  function url_check_myaccount($username)
   {
-    $query = $this->db->select('*')->where('userid' , $userid);
-    if ('userid == $userid')
+    $query = $this->db->select('*')->where('username' , $username);
+    if ('username == $username')
     {
       return TRUE;
     }
@@ -24,7 +24,7 @@ class Model_dues_user extends CI_Model{
 
   function setsession()
   {
-    $query = $this->db->select('*')->where('userid', $this->session->userdata('userid'))->get('accounts', 1);
+    $query = $this->db->select('*')->where('username', $this->session->userdata('username'))->get('accounts', 1);
     $row = $query->row();
 
     $data = array(

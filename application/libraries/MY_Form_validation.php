@@ -13,7 +13,7 @@ class MY_Form_validation extends CI_Form_validation{
 
     	$query = $CI->db->select()->from($table)->where($field, $value)->limit(1)->get();
 
-    	if ($query->row() && $query->row()->userid != $current_id)
+    	if ($query->row() && $query->row()->username != $current_id)
     	{
         	return FALSE;
     	} 
@@ -128,6 +128,4 @@ class MY_Form_validation extends CI_Form_validation{
 
         return TRUE;
     }
-
-
 }
