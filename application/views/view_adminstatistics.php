@@ -21,93 +21,23 @@
     $datareservation = array($totalreservation);
     $totalforms = $carsticker + $workpermit + $renovation;
     $dataforms = array($totalforms);
+
+    $datayear = array($countjanuary, $countfebruary, $countmarch, $countapril, $countmay, $countjune, $countjuly, $countaugust, $countseptember, $countoctober, $countnovember, $countdecember,)
     ?>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    
     <center><div style="height:100%; width: 100%;">
     <canvas id="myChart" width="1000" height="400"></canvas>
-
     </div>
-    <script>
 
-    
+    <br> <br>
 
-    var ctx = document.getElementById("myChart");
-    var myLineChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-    labels: ["Statistics"],
-    datasets: [
-        {
-            label: "Tickets",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(72,72,72,0.4)",
-            borderColor: "rgba(72,72,72,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: <?php echo json_encode($datatickets) ?>,
-            spanGaps: false,
-        },
-        {
-            label: "Reservations",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: <?php echo json_encode($datareservation) ?>,
-            spanGaps: false,
-        },
-        {
-            label: "Online Application Requests",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(129,149,2,0.4)",
-            borderColor: "rgba(129,149,2,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: <?php echo json_encode($dataforms) ?>,
-            spanGaps: false,
-        }
-    ]
-}
-});
-    </script>
+    <center><div style="height:100%; width: 100%;">
+    <canvas id="myChart1" width="1000" height="400"></canvas>
+    </div>
+
+    <br> <br>
 
     <div class="table-responsive">
 
@@ -219,3 +149,107 @@
   </div>
 
 </div>
+
+
+
+    <script>
+    var ctx = document.getElementById("myChart");
+    var myLineChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+    labels: ["Statistics"],
+    datasets: [
+        {
+            label: "Tickets",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            data: <?php echo json_encode($datatickets) ?>,
+        },
+        {
+            label: "Reservations",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1,
+            data: <?php echo json_encode($datareservation) ?>,
+        },
+        {
+            label: "Online Application Requests",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(255, 206, 86, 0.2)",
+            borderColor: "rgba(255, 206, 86, 1)",
+            borderWidth: 1,
+            data: <?php echo json_encode($dataforms) ?>,
+        }
+    ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                    display: true,
+                    ticks: {
+                        beginAtZero: true,
+                        steps: 10,
+                        stepValue: 5,
+                        suggestedMax: 50
+
+                    }
+                }]
+            }
+        }
+});
+    </script>
+    
+    <script>
+
+    var ctx = document.getElementById("myChart1");
+    var myLineChart1 = new Chart(ctx, {
+    type: 'line',
+    data:   {
+    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    datasets: [
+        {
+            label: "Ticket Count Activity",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: <?php echo json_encode($datayear) ?>,
+            spanGaps: false,
+        }
+    ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                    display: true,
+                    ticks: {
+                        beginAtZero: true,
+                        steps: 10,
+                        stepValue: 5,
+                        suggestedMax: 50
+
+                    }
+                }]
+            }
+        }
+});
+    </script>

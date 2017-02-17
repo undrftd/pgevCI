@@ -18,6 +18,18 @@ class Admin_Statistics extends MY_Controller {
     
 	function index()
 	{
+        $data['countjanuary'] =$this->model_statistics->count_january();
+        $data['countfebruary'] =$this->model_statistics->count_february();
+        $data['countmarch'] =$this->model_statistics->count_march();
+        $data['countapril'] =$this->model_statistics->count_april();
+        $data['countmay'] =$this->model_statistics->count_may();
+        $data['countjune'] =$this->model_statistics->count_june();
+        $data['countjuly'] =$this->model_statistics->count_july();
+        $data['countaugust'] =$this->model_statistics->count_august();
+        $data['countseptember'] =$this->model_statistics->count_september();
+        $data['countoctober'] =$this->model_statistics->count_october();
+        $data['countnovember'] =$this->model_statistics->count_november();
+        $data['countdecember'] =$this->model_statistics->count_december();
         $data['courtone'] = $this->model_statistics->count_reservationcourtone();
         $data['courttwo'] = $this->model_statistics->count_reservationcourttwo();
         $data['clubhouse'] = $this->model_statistics->count_reservationclubhouse();

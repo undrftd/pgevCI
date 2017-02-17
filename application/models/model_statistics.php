@@ -2,6 +2,246 @@
 
 class Model_statistics extends CI_Model {
 
+	function count_january()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "January")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_february()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "February")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_march()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "March")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_april()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "April")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_may()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "May")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_june()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "June")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_july()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "July")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_august()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "August")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_september()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "September")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_october()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "October")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_november()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "November")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
+	function count_december()
+	{
+		$query = $this->db->select('date_requested')->from('tickets')->get();
+		$result = $query->result();
+
+		$ctr = 0;
+		foreach($result as $row):
+			if(date("F", strtotime(unix_to_human($row->date_requested))) == "December")
+			{
+				$ctr++;
+			}
+			else
+			{
+				$ctr = $ctr+0;
+			}
+		endforeach;
+
+		return $ctr;
+	}
+
 	function count_totaltickets()
 	{
 		$query = $this->db->select('*')->from('tickets')->get();
