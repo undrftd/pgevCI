@@ -2,6 +2,48 @@
 
 class Model_statistics extends CI_Model {
 
+	function count_totaltickets()
+	{
+		$query = $this->db->select('*')->from('tickets')->get();
+		return $query->num_rows();
+	}
+
+	function count_reservationcourtone()
+	{
+		$query = $this->db->select('*')->from('courtone_reservation')->get();
+		return $query->num_rows();
+	}
+
+	function count_reservationcourttwo()
+	{
+		$query = $this->db->select('*')->from('courttwo_reservation')->get();
+		return $query->num_rows();
+	}
+
+	function count_reservationclubhouse()
+	{
+		$query = $this->db->select('*')->from('clubhouse_reservation')->get();
+		return $query->num_rows();
+	}
+
+	function count_carsticker()
+	{
+		$query = $this->db->select('*')->from('upload_carsticker')->get();
+		return $query->num_rows();
+	}
+
+	function count_workpermit()
+	{
+		$query = $this->db->select('*')->from('upload_workpermit')->get();
+		return $query->num_rows();
+	}
+
+	function count_renovation()
+	{
+		$query = $this->db->select('*')->from('upload_renovation')->get();
+		return $query->num_rows();
+	}
+
 	function count_totalgrasscutting()
 	{
 		$query = $this->db->select('*')->from('tickets')->where('request_type', 'RGC')->get();

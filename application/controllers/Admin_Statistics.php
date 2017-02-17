@@ -18,6 +18,13 @@ class Admin_Statistics extends MY_Controller {
     
 	function index()
 	{
+        $data['courtone'] = $this->model_statistics->count_reservationcourtone();
+        $data['courttwo'] = $this->model_statistics->count_reservationcourttwo();
+        $data['clubhouse'] = $this->model_statistics->count_reservationclubhouse();
+        $data['carsticker'] = $this->model_statistics->count_carsticker();
+        $data['workpermit'] = $this->model_statistics->count_workpermit();
+        $data['renovation'] = $this->model_statistics->count_renovation();
+        $data['totaltickets'] = $this->model_statistics->count_totaltickets();
         $data['totalfire'] = $this->model_statistics->count_totalfire();
         $data['progressfire'] = $this->model_statistics->count_progressfire();
         $data['closedfire'] = $this->model_statistics->count_closedfire();

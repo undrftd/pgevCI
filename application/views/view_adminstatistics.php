@@ -14,6 +14,14 @@
 
   <a href="user-announcements.html"><button type="button" class="btn btn-custom-1">Export to PDF</button></a>
   <br><br>
+
+    <?php
+    $datatickets = array($totaltickets);
+    $totalreservation = $courtone + $courttwo + $clubhouse;
+    $datareservation = array($totalreservation);
+    $totalforms = $carsticker + $workpermit + $renovation;
+    $dataforms = array($totalforms);
+    ?>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <center><div style="height:100%; width: 100%;">
@@ -21,14 +29,17 @@
 
     </div>
     <script>
+
+    
+
     var ctx = document.getElementById("myChart");
     var myLineChart = new Chart(ctx, {
     type: 'bar',
     data: {
-    labels: ["Tickets"],
+    labels: ["Statistics"],
     datasets: [
         {
-            label: "Requests and Complaints",
+            label: "Tickets",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(72,72,72,0.4)",
@@ -46,11 +57,11 @@
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [31, 29, 10, 41, 46, 45, 50,41, 46, 45, 50, 51],
+            data: <?php echo json_encode($datatickets) ?>,
             spanGaps: false,
         },
         {
-            label: "CCTV Retrieval",
+            label: "Reservations",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(75,192,192,0.4)",
@@ -68,11 +79,11 @@
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [65, 59, 80, 81, 56, 55, 40, 10, 41, 46, 45, 50],
+            data: <?php echo json_encode($datareservation) ?>,
             spanGaps: false,
         },
         {
-            label: "Emergency",
+            label: "Online Application Requests",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(129,149,2,0.4)",
@@ -90,7 +101,7 @@
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [65, 59, 65, 59, 80, 81, 55, 40,65, 59, 80, 81],
+            data: <?php echo json_encode($dataforms) ?>,
             spanGaps: false,
         }
     ]
