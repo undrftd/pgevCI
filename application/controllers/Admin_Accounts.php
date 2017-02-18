@@ -131,7 +131,7 @@ class Admin_Accounts extends MY_Controller {
 
         $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
         $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
-        $this->form_validation->set_rules('username', 'Username', 'trim|required|is_unique[accounts.username]');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|is_unique[accounts.username]');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[7]');
         $this->form_validation->set_rules('confpassword', 'Confirm Password', 'required|matches[password]');
         $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma');
@@ -388,7 +388,7 @@ class Admin_Accounts extends MY_Controller {
 
             $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
             $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
-            $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$username.']');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|edit_unique[accounts.username.'.$username.']');
             $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma');
             $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$username.']');
             $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
@@ -428,7 +428,7 @@ class Admin_Accounts extends MY_Controller {
 
                 $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
                 $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
-                $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$username.']');
+                $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|edit_unique[accounts.username.'.$username.']');
                 $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma');
                 $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$username.']');
                 $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
@@ -470,7 +470,7 @@ class Admin_Accounts extends MY_Controller {
 
             $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
             $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
-            $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$username.']');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|edit_unique[accounts.username.'.$username.']');
             $this->form_validation->set_rules('address', 'Address', 'required');
             $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|is_unique[accounts.email]');
             $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
