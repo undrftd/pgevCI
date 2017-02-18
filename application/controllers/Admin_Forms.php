@@ -21,7 +21,7 @@ class Admin_Forms extends MY_Controller {
         //header('Refresh: 30');
 		$config['base_url'] = site_url('admin_forms/car_sticker');
         $config['total_rows'] = $this->model_forms->count_carsticker();
-        $config['per_page'] =  5;
+        $config['per_page'] =  20;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -53,7 +53,7 @@ class Admin_Forms extends MY_Controller {
         //header('Refresh: 30');
 		$config['base_url'] = site_url('admin_forms/work_permit');
         $config['total_rows'] = $this->model_forms->count_workpermit();
-        $config['per_page'] =  5;
+        $config['per_page'] =  20;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -85,7 +85,7 @@ class Admin_Forms extends MY_Controller {
         //header('Refresh: 30');
 		$config['base_url'] = site_url('admin_forms/renovation');
         $config['total_rows'] = $this->model_forms->count_renovation();
-        $config['per_page'] =  5;
+        $config['per_page'] =  20;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -122,7 +122,7 @@ class Admin_Forms extends MY_Controller {
             $config['base_url'] = site_url('admin_forms/search_carsticker/');
             $config['reuse_query_string'] = TRUE;
             $config['total_rows'] = $this->model_forms->countsticker_search($searchquery);
-            $config['per_page'] =  5;
+            $config['per_page'] =  20;
             $config['num_links'] = 5;
             $config['use_page_numbers'] = FALSE;
             $config['full_tag_open'] = "<ul class='pagination'>";
@@ -165,7 +165,7 @@ class Admin_Forms extends MY_Controller {
             $config['base_url'] = site_url('admin_forms/search_workpermit/');
             $config['reuse_query_string'] = TRUE;
             $config['total_rows'] = $this->model_forms->countpermit_search($searchquery);
-            $config['per_page'] =  5;
+            $config['per_page'] =  20;
             $config['num_links'] = 5;
             $config['use_page_numbers'] = FALSE;
             $config['full_tag_open'] = "<ul class='pagination'>";
@@ -208,7 +208,7 @@ class Admin_Forms extends MY_Controller {
             $config['base_url'] = site_url('admin_forms/search_carsticker/');
             $config['reuse_query_string'] = TRUE;
             $config['total_rows'] = $this->model_forms->countrenovation_search($searchquery);
-            $config['per_page'] =  5;
+            $config['per_page'] =  20;
             $config['num_links'] = 5;
             $config['use_page_numbers'] = FALSE;
             $config['full_tag_open'] = "<ul class='pagination'>";

@@ -164,7 +164,7 @@ class User_Reservation extends MY_Controller {
 	{
 		$config['base_url'] = site_url('user_reservation/reservations_courtone');
         $config['total_rows'] = $this->model_reservation_user->count_reservationcourtone();
-        $config['per_page'] =  5;
+        $config['per_page'] =  20;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -192,7 +192,7 @@ class User_Reservation extends MY_Controller {
 	{
 		$config['base_url'] = site_url('user_reservation/reservations_courttwo');
         $config['total_rows'] = $this->model_reservation_user->count_reservationcourttwo();
-        $config['per_page'] =  5;
+        $config['per_page'] =  20;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -220,7 +220,7 @@ class User_Reservation extends MY_Controller {
 	{
 		$config['base_url'] = site_url('user_reservation/reservations_clubhouse');
         $config['total_rows'] = $this->model_reservation_user->count_reservationclubhouse();
-        $config['per_page'] =  5;
+        $config['per_page'] =  20;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";

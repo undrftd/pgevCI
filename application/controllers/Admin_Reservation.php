@@ -20,7 +20,7 @@ class Admin_Reservation extends MY_Controller {
 	{	
 		$config['base_url'] = site_url('admin_reservation/court_one');
         $config['total_rows'] = $this->model_reservation->count_reservationcourtone();
-        $config['per_page'] =  5;
+        $config['per_page'] =  20;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -53,7 +53,7 @@ class Admin_Reservation extends MY_Controller {
 	    {	
 	    	$config['base_url'] = site_url('admin_reservation/court_one');
 	        $config['total_rows'] = $this->model_reservation->count_reservationcourtone();
-	        $config['per_page'] =  5;
+	        $config['per_page'] =  20;
 	        $config['num_links'] = 5;
 	        $config['use_page_numbers'] = FALSE;
 	        $config['full_tag_open'] = "<ul class='pagination'>";
@@ -86,7 +86,7 @@ class Admin_Reservation extends MY_Controller {
 	{
 		$config['base_url'] = site_url('admin_reservation/court_two');
         $config['total_rows'] = $this->model_reservation->count_reservationcourttwo();
-        $config['per_page'] =  5;
+        $config['per_page'] =  20;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -119,7 +119,7 @@ class Admin_Reservation extends MY_Controller {
 	    {	
 	    	$config['base_url'] = site_url('admin_reservation/court_two');
 	        $config['total_rows'] = $this->model_reservation->count_reservationcourttwo();
-	        $config['per_page'] =  5;
+	        $config['per_page'] =  20;
 	        $config['num_links'] = 5;
 	        $config['use_page_numbers'] = FALSE;
 	        $config['full_tag_open'] = "<ul class='pagination'>";
@@ -152,7 +152,7 @@ class Admin_Reservation extends MY_Controller {
 	{
 		$config['base_url'] = site_url('admin_reservation/clubhouse');
         $config['total_rows'] = $this->model_reservation->count_reservationclubhouse();
-        $config['per_page'] =  5;
+        $config['per_page'] =  20;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -185,7 +185,7 @@ class Admin_Reservation extends MY_Controller {
 	    {	
 	    	$config['base_url'] = site_url('admin_reservation/clubhouse');
 	        $config['total_rows'] = $this->model_reservation->count_reservationclubhouse();
-	        $config['per_page'] =  5;
+	        $config['per_page'] =  20;
 	        $config['num_links'] = 5;
 	        $config['use_page_numbers'] = FALSE;
 	        $config['full_tag_open'] = "<ul class='pagination'>";
