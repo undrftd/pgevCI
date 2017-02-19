@@ -32,20 +32,27 @@
 
       <div class="portlet-title">
 
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" id="myTab">
           <li class="active">
             <a href="#portlet_tab1" data-toggle="tab">
             Ticket List </a>
           </li>
           <li>
-            <a href="#portlet_tab2" data-toggle="tab">
+            <a href="#portlet_tab2" data-toggle="tab" id="not-important">
              Ticket Activity</a>
           </li>
           <li>
-            <a href="#portlet_tab3" data-toggle="tab">
+            <a href="#portlet_tab3" data-toggle="tab" id="not-important">
             Overall Statistics</a>
           </li>
-
+          <li class="dropdown" id="dropdown-mobile">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Graphs
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#portlet_tab2" data-toggle="tab">Ticket Activity </a></li>
+              <li><a href="#portlet_tab3" data-toggle="tab">Overall Statistics </a></li>
+            </ul>
+          </li>
       </div>
 
       <div class="portlet-body">

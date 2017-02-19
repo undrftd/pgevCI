@@ -80,17 +80,17 @@
 
         <li>
           <a href="<?php echo base_url(); ?>admin_reservation/court_one">
-            Court 1 </a>
+            Court 1 <span class="badge"> 420 </span> </a>
         </li>
 
         <li>
             <a href="<?php echo base_url(); ?>admin_reservation/court_two">
-            Court 2 </a>
+            Court 2 <span class="badge"> 420 </span> </a>
         </li>
 
         <li  class="active">
           <a href="<?php echo base_url(); ?>admin_reservation/clubhouse">
-            Clubhouse </a>
+            Clubhouse <span class="badge"> 420 </span> </a>
         </li>
 
       </ul>
