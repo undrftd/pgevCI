@@ -123,7 +123,7 @@ class admin_announcements extends MY_Controller{
     }
     else
     {
-      if($query = $this->model_announcements->post_announcements($username))
+      if($query = $this->model_announcements->post_announcements())
       {
         $this->session->set_flashdata('announcementfeedback', 'You have successfully posted an announcement.');
         redirect('admin_announcements/announcements');
@@ -247,7 +247,7 @@ class admin_announcements extends MY_Controller{
     }
     else
     {
-      if($query = $this->model_announcements->post_bulletin($username))
+      if($query = $this->model_announcements->post_bulletin())
       {
         $this->session->set_flashdata('bulletinfeedback', 'You have successfully posted a bulletin.');
         redirect('admin_announcements/bulletin');
