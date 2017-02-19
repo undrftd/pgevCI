@@ -49,7 +49,7 @@
 
           <p> Message </p>
 
-          <textarea name="message" class="form-control" id="user-message" placeholder="Kindly leave us a message for suggestions within our community... " rows="15" reseize="none"></textarea>
+          <textarea name="message" class="form-control" id="user-message" placeholder="Kindly leave us a message for suggestions within our community... " rows="15" reseize="none" required></textarea>
 
           <p class="error"><?php echo form_error('message'); ?> </p>
 
