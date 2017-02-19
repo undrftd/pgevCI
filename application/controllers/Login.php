@@ -69,9 +69,10 @@ class Login extends CI_Controller
 
                     $this->email->from(set_value("email"), set_value("fullName"));
                     $this->email->to($this->input->post('email'));
+                    $this->email->set_mailtype('html');
                     $array = $this->session->userdata('firstname');
                     $this->email->subject("Password Reset - Parkwood Greens Executive Village CRM");
-                    $message = 'Hi, you recently requested to reset your password for Parkwood Greens Executive Village CRM. <a href="'. base_url() . 'login/reset_password_verification/' . $resetkey . '"> Click Here to Reset your Password. </a> If you did not request a password reset, please feel free to ignore it. Be noted that this link will expire after use.';
+                    $message = 'Hi, you recently requested to reset your password for Parkwood Greens Executive Village CRM. <a href="'. base_url() . 'login/reset_password_verification/' . $resetkey . '"> Click Here to Reset your Password. </a> <br> If you did not request a password reset, please feel free to ignore it. Be noted that this link will expire after use.';
                     $this->email->message($message);
                     $this->email->send();
 
