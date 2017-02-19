@@ -32,7 +32,7 @@
 
 				<form action="<?php echo site_url()?>login/reset_emailvalidation" method="POST">
 
-					<input type="email" class="form-control" name="email" id="sel1">
+					<input type="email" class="form-control" name="email" id="sel1" required>
 
 					<br><br>
 
