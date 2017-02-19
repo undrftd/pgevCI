@@ -40,7 +40,7 @@ class User_Suggestions extends MY_Controller {
             $this->email->from(set_value("email"), set_value("fullName"));
             $this->email->to("excontent14@gmail.com");
             $array = $this->session->userdata('firstname');
-            $this->email->subject("Community Suggestions -" . $this->session->userdata('firstname') . " " . $this->session->userdata('lastname'));
+            $this->email->subject("Community Suggestions -" . " " . $this->session->userdata('firstname') . " " . $this->session->userdata('lastname') . "(" . $this->session->userdata('email') . ")");
             $this->email->message(set_value("message"));
             
             $this->email->send();
