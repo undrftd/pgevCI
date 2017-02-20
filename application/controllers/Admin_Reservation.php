@@ -40,6 +40,11 @@ class Admin_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['courtonelinks'] = $this->pagination->create_links();
 
+        $data['date'] = date("Y/m/d");
+        $data['result'] = $this->model_reservation_user->getcourtone_defaultavailability();
+        $data['countone'] = $this->model_reservation->count_courtone();
+        $data['counttwo'] = $this->model_reservation->count_courttwo();
+        $data['countclub'] = $this->model_reservation->count_clubhouse();
 		$data['myreserve'] = $this->model_reservation->getreservation_courtone($config['per_page'], $this->uri->segment(3));
 		$this->template->load('admin_template', 'view_adminreservation_courtone', $data);
 	}
@@ -47,10 +52,9 @@ class Admin_Reservation extends MY_Controller {
 	function check_reservations_courtone()
 	{
 		$searchquery = $this->input->get('search', TRUE);
-		$searchmodelquery = $this->model_reservation->getcourtone_availability($searchquery);
 
 	    if(isset($searchquery) and !empty($searchquery))
-	    {	
+	    {
 	    	$config['base_url'] = site_url('admin_reservation/court_one');
 	        $config['total_rows'] = $this->model_reservation->count_reservationcourtone();
 	        $config['per_page'] =  20;
@@ -73,7 +77,12 @@ class Admin_Reservation extends MY_Controller {
 	        $this->pagination->initialize($config);
 	        $data['courtonelinks'] = $this->pagination->create_links();
 
-			$data['myreserve'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+    		$data['date'] = $searchquery;
+			$data['result'] = $this->model_reservation_user->getcourtone_availability($searchquery);
+			$data['countone'] = $this->model_reservation->count_courtone();
+        	$data['counttwo'] = $this->model_reservation->count_courttwo();
+        	$data['countclub'] = $this->model_reservation->count_clubhouse();
+			$data['myreserve'] = $this->model_reservation->getreservation_courtone($config['per_page'], $this->uri->segment(3));
 			$this->template->load('admin_template', 'view_adminreservation_courtone', $data);
 	    }
 	    else
@@ -106,6 +115,11 @@ class Admin_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['courttwolinks'] = $this->pagination->create_links();
 
+        $data['date'] = date("Y/m/d");
+        $data['result'] = $this->model_reservation_user->getcourttwo_defaultavailability();
+        $data['countone'] = $this->model_reservation->count_courtone();
+        $data['counttwo'] = $this->model_reservation->count_courttwo();
+        $data['countclub'] = $this->model_reservation->count_clubhouse();
 		$data['myreserve'] = $this->model_reservation->getreservation_courttwo($config['per_page'], $this->uri->segment(3));
 		$this->template->load('admin_template', 'view_adminreservation_courttwo', $data);
 	}
@@ -113,10 +127,9 @@ class Admin_Reservation extends MY_Controller {
 	function check_reservations_courttwo()
 	{
 		$searchquery = $this->input->get('search', TRUE);
-		$searchmodelquery = $this->model_reservation->getcourttwo_availability($searchquery);
 
 	    if(isset($searchquery) and !empty($searchquery))
-	    {	
+	    {
 	    	$config['base_url'] = site_url('admin_reservation/court_two');
 	        $config['total_rows'] = $this->model_reservation->count_reservationcourttwo();
 	        $config['per_page'] =  20;
@@ -139,7 +152,12 @@ class Admin_Reservation extends MY_Controller {
 	        $this->pagination->initialize($config);
 	        $data['courttwolinks'] = $this->pagination->create_links();
 
-			$data['myreserve'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+    		$data['date'] = $searchquery;
+			$data['result'] = $this->model_reservation_user->getcourttwo_availability($searchquery);
+			$data['countone'] = $this->model_reservation->count_courtone();
+        	$data['counttwo'] = $this->model_reservation->count_courttwo();
+        	$data['countclub'] = $this->model_reservation->count_clubhouse();
+			$data['myreserve'] = $this->model_reservation->getreservation_courttwo($config['per_page'], $this->uri->segment(3));
 			$this->template->load('admin_template', 'view_adminreservation_courttwo', $data);
 	    }
 	    else
@@ -172,6 +190,11 @@ class Admin_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['clubhouselinks'] = $this->pagination->create_links();
 
+        $data['date'] = date("Y/m/d");
+        $data['result'] = $this->model_reservation_user->getclubhouse_defaultavailability();
+        $data['countone'] = $this->model_reservation->count_courtone();
+        $data['counttwo'] = $this->model_reservation->count_courttwo();
+        $data['countclub'] = $this->model_reservation->count_clubhouse();
 		$data['myreserve'] = $this->model_reservation->getreservation_clubhouse($config['per_page'], $this->uri->segment(3));
 		$this->template->load('admin_template', 'view_adminreservation_clubhouse', $data);
 	}
@@ -179,10 +202,9 @@ class Admin_Reservation extends MY_Controller {
 	function check_reservations_clubhouse()
 	{
 		$searchquery = $this->input->get('search', TRUE);
-		$searchmodelquery = $this->model_reservation->getclubhouse_availability($searchquery);
 
 	    if(isset($searchquery) and !empty($searchquery))
-	    {	
+	    {
 	    	$config['base_url'] = site_url('admin_reservation/clubhouse');
 	        $config['total_rows'] = $this->model_reservation->count_reservationclubhouse();
 	        $config['per_page'] =  20;
@@ -205,7 +227,12 @@ class Admin_Reservation extends MY_Controller {
 	        $this->pagination->initialize($config);
 	        $data['clubhouselinks'] = $this->pagination->create_links();
 
-			$data['myreserve'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
+    		$data['date'] = $searchquery;
+			$data['result'] = $this->model_reservation_user->getclubhouse_availability($searchquery);
+			$data['countone'] = $this->model_reservation->count_courtone();
+        	$data['counttwo'] = $this->model_reservation->count_courttwo();
+        	$data['countclub'] = $this->model_reservation->count_clubhouse();
+			$data['myreserve'] = $this->model_reservation->getreservation_clubhouse($config['per_page'], $this->uri->segment(3));
 			$this->template->load('admin_template', 'view_adminreservation_clubhouse', $data);
 	    }
 	    else

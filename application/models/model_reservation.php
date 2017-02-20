@@ -192,4 +192,22 @@ class Model_reservation extends CI_Model {
 		$update = $this->db->update('clubhouse_reservation', $reservation_data);
 		return $update;
 	}
+
+	function count_courtone()
+    {
+        $query = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 2)->get();
+        return $query->num_rows();
+    }
+
+    function count_courttwo()
+    {
+        $query = $this->db->select('*')->from('courttwo_reservation')->where('reservation_status', 2)->get();
+        return $query->num_rows();
+    }
+
+    function count_clubhouse()
+    {
+        $query = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_status', 2)->get();
+        return $query->num_rows();
+    }
 }

@@ -149,7 +149,7 @@
                     {
                       $tdX[$result->reservation_start] = 1;
                       $tdX[$result->reservation_mid] = 1;
-                      $tdX[$result->reservation_start] = 1;
+                      //$tdX[$result->reservation_start] = 1;
                     }
 
                     // loop through array building row
