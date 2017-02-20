@@ -62,65 +62,79 @@
 
     <div class="portlet-header">
 
-      <form action="<?php echo base_url(); ?>admin_reservation/check_reservations_courtone/" method="GET">
-        <div id="search-group">
-          <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="Click here to view the calendar">
-            <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-          </input>
-        </div>
-      </form>
+      <button class="btn btn-custom-1" id="hide-button">Show Reservations</button>
 
-      <br> <br>
+      <hr>
 
-      <div class="tab-content">
+      <div id="reservation-table">
 
-        <div class="reservation-schedule">
+        <form action="<?php echo base_url(); ?>admin_reservation/check_reservations_courtone/" method="GET">
+          <div id="search-group">
+            <input id='datetimepicker4' type='text' name="search" class="form-control" placeholder="View the calendar">
+              <button type="submit" class="btn btn-custom-8"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </input>
+          </div>
+        </form>
 
-          <div class="tab-pane fade in active" id="portlet_tab1">
+        <br><br>
 
-            <div class="table-responsive">
-              
-              <table class="table table-hover">
-                  <tr>
-                    <th><br>Date and Time Reserved</th>
-                    <th><br>6:00-7:00</th>
-                    <th><br>7:00-8:00</th>
-                    <th><br>8:00-9:00</th>
-                    <th><br>9:00-10:00</th>
-                  </tr>
+        <div class="tab-content">
 
-                    <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
+          <div class="reservation-schedule">
 
-                    <?php
-                    // Set an array of 10 'hour' switches
-                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+            <div class="tab-pane fade in active" id="portlet_tab1">
 
-                    // loop through results setting the array switches
-                    foreach ($result as $result)
-                    {
-                      $tdX[$result->reservation_start] = 1;
-                      $tdX[$result->reservation_mid] = 1;
-                      //$tdX[$result->reservation_end] = 1;
-                    }
+              <div class="table-responsive">
 
-                    // loop through array building row
-                    for ($i = 6; $i<=9; $i++) {
+                <table class="table table-hover">
+                    <tr>
+                      <th><br>Date and Time Reserved</th>
+                      <th><br>6:00-7:00</th>
+                      <th><br>7:00-8:00</th>
+                      <th><br>8:00-9:00</th>
+                      <th><br>9:00-10:00</th>
+                    </tr>
 
-                     if ($tdX[$i] === 1 ) {
-                         $tdClass = 'reserved';
-                     } else {
-                         $tdClass = 'vacant';
-                     }
+                      <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
-                     echo "<td class='$tdClass'></td>";
+                      <?php
+                      // Set an array of 10 'hour' switches
+                      $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
-                    }
+                      // loop through results setting the array switches
+                      foreach ($result as $result)
+                      {
+                        $tdX[$result->reservation_start] = 1;
+                        $tdX[$result->reservation_mid] = 1;
+                        //$tdX[$result->reservation_end] = 1;
+                      }
 
-                    // close row
-                    echo '</tr>'; ?>
-                </table>
-                
-              </div>
+                      // loop through array building row
+                      for ($i = 6; $i<=9; $i++) {
+
+                       if ($tdX[$i] === 1 ) {
+                           $tdClass = 'reserved';
+                       } else {
+                           $tdClass = 'vacant';
+                       }
+
+                       echo "<td class='$tdClass'></td>";
+
+                      }
+
+                      // close row
+                      echo '</tr>'; ?>
+                  </table>
+
+                  <hr>
+
+                  <div class="table-legend">
+                    <p> <strong>Note:</strong>&nbsp; <span class="dot-style-vacant">&#9679;</span> &nbsp;is for vacant and&nbsp; <span class="dot-style-reserved">&#9679;</span> &nbsp;is for <span class="mark-reserved">reserved</span>.  </p>
+                  </div>
+
+                </div>
+
+            </div>
 
           </div>
 
@@ -128,7 +142,7 @@
 
       </div>
 
-    <br><br>
+    <br>
 
     </div>
 
@@ -182,7 +196,7 @@
   				<div class="tab-pane fade in active" id="portlet_tab1">
 
             <div class="table-responsive">
-              
+
               <table class="table table-hover">
 
                 <tr>
@@ -209,13 +223,6 @@
                 <?php endforeach; ?>
 
               </table>
-
-              <hr>
-
-              <div class="table-legend">
-                <p> Insert note for the admin here.
-                </p>
-              </div>
 
               <br><br>
               <center><div id="pagination-link"><?php echo $courtonelinks; ?></div></center>

@@ -3,6 +3,10 @@ body {
    font-family: 'Roboto', sans-serif;
 }
 
+#reservation-table {
+  display: none;
+}
+
 /* Toggle Styles */
 
 #wrapper {

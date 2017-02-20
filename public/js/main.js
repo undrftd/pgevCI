@@ -119,3 +119,26 @@ $(".information-add").click(function() {
   window.location = $(this).find("a").attr("href");
   return false;
 });
+
+$('#hide-button').click(function(){
+    var $this = $(this);
+    $this.toggleClass('btn');
+    if($this.hasClass('btn')){
+      $('#reservation-table').show(400);
+      $this.text('Hide Reservations');
+      localStorage.setItem('show', 'false'); //store state in localStorage
+    } else {
+      $('#reservation-table').hide(400);
+      $this.text('Show Reservations');
+    }
+});
+
+$(document).ready(function(){
+    var show = localStorage.getItem('show');
+    if(show == 'false'){
+        $("#hide-button").html('Hide Reservations');
+        $('#reservation-table').show();
+    } else if (show != 'false') {
+      $('#reservation-table').hide();
+    }
+});
