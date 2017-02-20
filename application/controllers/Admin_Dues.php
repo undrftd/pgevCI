@@ -275,6 +275,11 @@ class Admin_Dues extends MY_Controller{
         }
     }
 
+    function num_only($str)
+    {
+        return ( ! preg_match("/^([0-9.])+$/i", $str)) ? FALSE : TRUE;
+    }
+
     function updatedues_user($username)
     {
         $this->usertracking->track_this();
@@ -282,8 +287,14 @@ class Admin_Dues extends MY_Controller{
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
-            $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|numeric');
-            $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|numeric');
+            $this->form_validation->set_message('num_only', '{field} may only contain numbers and periods.');
+            $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|callback_num_only');
+            $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|callback_num_only');
+
+            if($this->session->userdata('duesmorefeedback'))
+            {
+                $this->session->unset_userdata('duesmorefeedback');
+            }
 
             if($this->form_validation->run() == FALSE)
             {
@@ -311,8 +322,13 @@ class Admin_Dues extends MY_Controller{
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
-            $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|numeric');
-            $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|numeric');
+            $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|callback_num_only');
+            $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|callback_num_only');
+
+            if($this->session->userdata('duesmorefeedback'))
+            {
+                $this->session->unset_userdata('duesmorefeedback');
+            }
 
             if($this->form_validation->run() == FALSE)
             {
@@ -344,8 +360,8 @@ class Admin_Dues extends MY_Controller{
         $this->usertracking->track_this();
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
-        $this->form_validation->set_rules('securityfee', 'Security Fee', 'trim|required|numeric');
-        $this->form_validation->set_rules('assocfee', 'Association Fee', 'trim|required|numeric');
+        $this->form_validation->set_rules('securityfee', 'Security Fee', 'trim|required|callback_num_only');
+        $this->form_validation->set_rules('assocfee', 'Association Fee', 'trim|required|callback_num_only');
 
         if ($this->form_validation->run() == FALSE)
         {
