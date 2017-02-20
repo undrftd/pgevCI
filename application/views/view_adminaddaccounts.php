@@ -38,17 +38,17 @@
           <br>
 
           <p> Username </p>
-          <input name="username" class="form-control" id="sel1" type="text" placeholder="" required>
+          <input name="username" class="form-control" id="sel1" type="text" placeholder="Must contain numbers only" required>
               <p class="error"><?php echo form_error('username'); ?></p>
           <br>
 
           <p> Password </p>
-          <input name="password" class="form-control" id="sel1" type="password" placeholder="" required>
+          <input name="password" class="form-control" id="sel1" type="password" placeholder="Must be at least 8 characters long" required>
              <p class="error"><?php echo form_error('password'); ?> </p>
           <br>
 
           <p> Confirm Password </p>
-          <input name="confpassword" class="form-control" id="sel1" type="password" placeholder="" required>
+          <input name="confpassword" class="form-control" id="sel1" type="password" placeholder="Must be at least 8 characters long" required>
              <p class="error"><?php echo form_error('confpassword'); ?> </p>
           <br>
 
@@ -58,7 +58,7 @@
           <br>
 
           <p> E-mail Address </p>
-          <input name="email" class="form-control" id="sel1" type="email" placeholder="" required>
+          <input name="email" class="form-control" id="sel1" type="email" placeholder="e.g. someone@gmail.com" required>
             <p class="error"><?php echo form_error('email'); ?> </p>
           <br>
 

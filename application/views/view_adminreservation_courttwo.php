@@ -5,7 +5,7 @@
   <br><br><br>
 
   <div class="header-style">
-    <h1> Reservation for the Amenities</h1>
+    <h1> Reservations for Court Two</h1>
   </div>
 
  <div class="modal fade" id="delete-modal-1" role="dialog">
@@ -87,46 +87,53 @@
               <div class="table-responsive">
 
                 <table class="table table-hover">
-                    <tr>
-                      <th><br>Date and Time Reserved</th>
-                      <th><br>6:00-7:00</th>
-                      <th><br>7:00-8:00</th>
-                      <th><br>8:00-9:00</th>
-                      <th><br>9:00-10:00</th>
-                    </tr>
 
-                      <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
+                  <tr>
+                    <th><br>Date and Time Reserved</th>
+                    <th><br>6:00-7:00</th>
+                    <th><br>7:00-8:00</th>
+                    <th><br>8:00-9:00</th>
+                    <th><br>9:00-10:00</th>
+                  </tr>
 
-                      <?php
-                      // Set an array of 10 'hour' switches
-                      $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+                    <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
-                      // loop through results setting the array switches
-                      foreach ($result as $result)
-                      {
-                        $tdX[$result->reservation_start] = 1;
-                        $tdX[$result->reservation_mid] = 1;
-                        //$tdX[$result->reservation_end] = 1;
-                      }
+                    <?php
+                    // Set an array of 10 'hour' switches
+                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
-                      // loop through array building row
-                      for ($i = 6; $i<=9; $i++) {
+                    // loop through results setting the array switches
+                    foreach ($result as $result)
+                    {
+                      $tdX[$result->reservation_start] = 1;
+                      $tdX[$result->reservation_mid] = 1;
+                      //$tdX[$result->reservation_end] = 1;
+                    }
 
-                       if ($tdX[$i] === 1 ) {
-                           $tdClass = 'reserved';
-                       } else {
-                           $tdClass = 'vacant';
-                       }
+                    // loop through array building row
+                    for ($i = 6; $i<=9; $i++) {
 
-                       echo "<td class='$tdClass'></td>";
+                     if ($tdX[$i] === 1 ) {
+                         $tdClass = 'reserved';
+                     } else {
+                         $tdClass = 'vacant';
+                     }
 
-                      }
+                     echo "<td class='$tdClass'></td>";
 
-                      // close row
-                      echo '</tr>'; ?>
-                  </table>
+                    }
 
+                    // close row
+                    echo '</tr>'; ?>
+                </table>
+
+                <hr>
+
+                <div class="table-legend">
+                  <p> <strong>Note:</strong>&nbsp; <span class="dot-style-vacant">&#9679;</span> &nbsp;is for vacant and&nbsp; <span class="dot-style-reserved">&#9679;</span> &nbsp;is for <span class="mark-reserved">reserved</span>.  </p>
                 </div>
+
+              </div>
 
             </div>
 
@@ -217,13 +224,6 @@
                 <?php endforeach; ?>
 
               </table>
-
-              <hr>
-
-              <div class="table-legend">
-                <p> Insert admin note here.
-                </p>
-              </div>
 
               <br><br>
               <center><div id="pagination-link"><?php echo $courttwolinks; ?></div></center>
