@@ -10,7 +10,7 @@
 
         <h4>Account Deactivated </h4><hr>
 
-        <p>Sorry, user. Your account account has been deactivated. Kindly settle your arrears in order for your account to be reactivated. Thank you for your kind consideration.</p>
+        <p>Sorry, <?php echo $this->session->userdata('firstname');?>. Your account account has been deactivated. Kindly settle your arrears in order for your account to be reactivated. Thank you for your kind consideration.</p>
 
       </div>
 

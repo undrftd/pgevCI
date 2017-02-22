@@ -12,7 +12,7 @@
 
         <hr>
 
-        <p> This administrator account has been deactivated. Coordinate with other administrators for reactivation.</p>
+        <p> Sorry, <?php echo $this->session->userdata('firstname');?>. This administrator account has been deactivated. Coordinate with other administrators for reactivation.</p>
 
       </div>
 

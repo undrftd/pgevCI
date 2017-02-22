@@ -7,12 +7,18 @@ class Admin_Reservation extends MY_Controller {
       parent::__construct();
 
       $session_admin = $this->session->userdata('isAdmin');
+      $session_deact = $this->session->userdata('status');
       $method = $this->router->fetch_method();
 
       if(($session_admin == FALSE) && $method != 'login')
       {
-          $this->session->set_flashdata('message', 'You need to login to access this location' );
-          redirect('admin_ticketing/new_tickets');
+          $this->session->set_flashdata( 'message', 'You need to login to access this location' );
+          redirect('user_home');
+      }
+      elseif(($session_deact == 'deact') && $method != 'login')
+      {
+          $this->session->set_flashdata( 'message', 'You need to login to access this location' );
+          redirect('admin_deact');
       }
     }
 

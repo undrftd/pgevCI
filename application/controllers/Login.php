@@ -43,14 +43,20 @@ class Login extends CI_Controller
         else if(($valid && $isAdmin) && $isActive == false)  //Deactivated Admin
         {
             $data = array(
-                'is_logged_in' => true
+                'is_logged_in' => true,
+                'status' => 'deact',
             );
             $this->session->set_userdata($data);
-            redirect('login/admindeact');
+            redirect('admin_deact');
         }
         else if($valid && ($isActive && $isAdmin) == false) //Deactivated User
         {
-            redirect('login/userdeact');
+            $data = array(
+                'is_logged_in' => true,
+                'status' => 'deact',
+            );
+            $this->session->set_userdata($data);
+            redirect('user_deact');
         }
         else if($valid == false) //Invalid Account
         {
@@ -237,18 +243,6 @@ class Login extends CI_Controller
         {
             $this->template->load('template', 'view_resetpasswordverification');
         }
-    }
-
-    function userdeact()
-    {
-        $this->session->set_userdata('referred_from', current_url());
-        $this->template->load('template', 'view_userdeact');
-    }
-
-    function admindeact()
-    {
-        $this->session->set_userdata('referred_from', current_url());
-        $this->template->load('template', 'view_admindeact');
     }
 
     function signout()
