@@ -48,8 +48,7 @@ class Model_accounts extends CI_Model {
                 'arrears' => $result->arrears,
                 'isAdmin' => true,
                 'contactnum' => $result->contactnum,
-                'role' => $result->role,
-                'is_logged_in' => true
+                'role' => $result->role
             );
             $this->session->set_userdata($data);
             return true;
@@ -81,8 +80,7 @@ class Model_accounts extends CI_Model {
                 'arrears' => $result->arrears,
                 'isAdmin' => false,
                 'contactnum' => $result->contactnum,
-                'role' => $result->role,
-                'is_logged_in' => true
+                'role' => $result->role
             );
             $this->session->set_userdata($data);
             return true;

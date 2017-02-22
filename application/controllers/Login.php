@@ -8,7 +8,7 @@ class Login extends CI_Controller
         if($this->session->userdata('is_logged_in'))
         {
             $referred_from = $this->session->userdata('referred_from');
-            redirect($referred_from, 'refresh');
+            redirect($referred_from);
         }
         else
         {
@@ -26,14 +26,26 @@ class Login extends CI_Controller
 
         if($valid && $isAdmin && $isActive) // Active Admin
         {
+            $data = array(
+                'is_logged_in' => true
+            );
+            $this->session->set_userdata($data);
             redirect('admin_ticketing/new_tickets');
         }
         else if($valid && $isActive && $isUser)  // Active User
         {
+            $data = array(
+                'is_logged_in' => true
+            );
+            $this->session->set_userdata($data);
             redirect('user_home');
         }
         else if(($valid && $isAdmin) && $isActive == false)  //Deactivated Admin
         {
+            $data = array(
+                'is_logged_in' => true
+            );
+            $this->session->set_userdata($data);
             redirect('login/admindeact');
         }
         else if($valid && ($isActive && $isAdmin) == false) //Deactivated User
