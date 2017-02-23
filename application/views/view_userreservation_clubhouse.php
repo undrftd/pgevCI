@@ -97,7 +97,7 @@
           <div class="col-xs-12 nopadding">
 
             <div class="court-message">
-              <p> Note: Court 1 is located at Parkwood Greens Executive Village Phase 1 while Court 2 is located at Phase 2. Both of these courts can be reserved for your own private use
+              <p> Note: Clubhouse is located at Parkwood Greens Executive Village Phase 1 while Court 2 is located at Phase 2. Both of these courts can be reserved for your own private use
                 from Mondays to Sundays, 6:00 PM until 10:00 PM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if a day is available, kindly use the search bar below and check the table.
                 Also, your reservations can be viewed below through the tab, My Reservation.
               </p>
@@ -139,7 +139,7 @@
                   </tr>
 
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
-
+                    
                     <?php
                     // Set an array of 10 'hour' switches
                     $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
@@ -147,23 +147,9 @@
                     // loop through results setting the array switches
                     foreach ($result as $result)
                     {
-                      if($result->reservation_end == 10)
-                      {                      
-                        $minus = $result->reservation_end - 1;
-                        $plusone = $result->reservation_mid + 1;
-                        $tdX[$plusone] = 1; 
-                        $tdX[$result->reservation_start] = 1;
-                        $tdX[$minus] = 1;
-                        $tdX[$result->reservation_mid] = 1;
-                      }
-                      else
-                      {
-                        $minus = $result->reservation_end - 1;
-                        $tdX[$result->reservation_start] = 1;
-                        $tdX[$minus] = 1;
-                        $tdX[$result->reservation_mid] = 1;
-                      }
+                      $tdX[$result->reservation_time] = 1;
                     }
+
 
                     // loop through array building row
                     for ($i = 6; $i<=9; $i++) {
@@ -179,7 +165,8 @@
                     }
 
                     // close row
-                    echo '</tr>'; ?>
+                    echo '</tr>';
+                    ?>
                 </table>
 
                 <hr>

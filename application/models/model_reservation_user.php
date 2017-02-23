@@ -5,7 +5,7 @@ class Model_reservation_user extends CI_Model {
 	function getmyreservation_courtone($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('courtone_reservation')->where('username', $this->session->userdata('username'))->order_by("reservation_date asc, reservation_start asc")->get();
+		$query = $this->db->select('*')->from('courtone_reservation')->where('username', $this->session->userdata('username'))->order_by("reservation_date asc, reservation_time asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -26,7 +26,7 @@ class Model_reservation_user extends CI_Model {
 	function getmyreservation_courttwo($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('courttwo_reservation')->where('username', $this->session->userdata('username'))->order_by("reservation_date asc, reservation_start asc")->get();
+		$query = $this->db->select('*')->from('courttwo_reservation')->where('username', $this->session->userdata('username'))->order_by("reservation_date asc, reservation_time asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -47,7 +47,7 @@ class Model_reservation_user extends CI_Model {
 	function getmyreservation_clubhouse($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);	
-		$query = $this->db->select('*')->from('clubhouse_reservation')->where('username', $this->session->userdata('username'))->order_by("reservation_date asc, reservation_start asc")->get();
+		$query = $this->db->select('*')->from('clubhouse_reservation')->where('username', $this->session->userdata('username'))->order_by("reservation_date asc, reservation_time asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -151,71 +151,83 @@ class Model_reservation_user extends CI_Model {
 
 	function create_reservation_courtone()
 	{
-		if (($this->input->post('reserveend') - $this->input->post('reservestart')) >= 2)
-		{
-			$reservemid = $this->input->post('reservestart') + 1;
-		}
-		else
-		{
-			$reservemid = 0;
-		}
-
 		$reserve_data = array(
 			'username' => $this->session->userdata('username'),
 			'reservation_date' => $this->input->post('datepick'),
-			'reservation_start' => $this->input->post('reservestart'),
-			'reservation_mid' => $reservemid,
-			'reservation_end' => $this->input->post('reserveend')
+			'reservation_time' => $this->input->post('reservestart')
 		);
 
 		$insert = $this->db->insert('courtone_reservation', $reserve_data);
 		return $insert;
 	}
 
+	function check_maxhour_courtone()
+	{        
+	    $query = $this->db->select('*')->from('courtone_reservation')->where('username', $this->session->userdata('username'))->where('reservation_status', 1)->where('reservation_date', $this->input->post('datepick'))->get();
+	    $query1 = $this->db->select('*')->from('courtone_reservation')->where('username', $this->session->userdata('username'))->where('reservation_status', 2)->where('reservation_date', $this->input->post('datepick'))->get();
+
+	    if($query->num_rows() >= 1 || $query1->num_rows() >= 1 )
+	    {
+	        return FALSE;  
+	    }
+	    else
+	    {
+	        return TRUE;
+	    }
+	}
+
 	function create_reservation_courttwo()
 	{
-		if (($this->input->post('reserveend') - $this->input->post('reservestart')) >= 2)
-		{
-			$reservemid = $this->input->post('reservestart') + 1;
-		}
-		else
-		{
-			$reservemid = 0;
-		}
-
 		$reserve_data = array(
 			'username' => $this->session->userdata('username'),
 			'reservation_date' => $this->input->post('datepick'),
-			'reservation_start' => $this->input->post('reservestart'),
-			'reservation_mid' => $reservemid,
-			'reservation_end' => $this->input->post('reserveend')
+			'reservation_time' => $this->input->post('reservestart')
 		);
 
 		$insert = $this->db->insert('courttwo_reservation', $reserve_data);
 		return $insert;
 	}
 
+	function check_maxhour_courttwo()
+	{        
+	    $query = $this->db->select('*')->from('courttwo_reservation')->where('username', $this->session->userdata('username'))->where('reservation_status', 1)->where('reservation_date', $this->input->post('datepick'))->get();
+	    $query1 = $this->db->select('*')->from('courttwo_reservation')->where('username', $this->session->userdata('username'))->where('reservation_status', 2)->where('reservation_date', $this->input->post('datepick'))->get();
+
+	    if($query->num_rows() >= 1 || $query1->num_rows() >= 1 )
+	    {
+	        return FALSE;  
+	    }
+	    else
+	    {
+	        return TRUE;
+	    }
+	}
+
 	function create_reservation_clubhouse()
 	{
-		if (($this->input->post('reserveend') - $this->input->post('reservestart')) >= 2)
-		{
-			$reservemid = $this->input->post('reservestart') + 1;
-		}
-		else
-		{
-			$reservemid = 0;
-		}
-
 		$reserve_data = array(
 			'username' => $this->session->userdata('username'),
 			'reservation_date' => $this->input->post('datepick'),
-			'reservation_start' => $this->input->post('reservestart'),
-			'reservation_mid' => $reservemid,
-			'reservation_end' => $this->input->post('reserveend')
+			'reservation_time' => $this->input->post('reservestart')
 		);
 
 		$insert = $this->db->insert('clubhouse_reservation', $reserve_data);
 		return $insert;
+	}
+
+	function check_maxhour_clubhouse()
+	{        
+	    $query = $this->db->select('*')->from('clubhouse_reservation')->where('username', $this->session->userdata('username'))->where('reservation_status', 1)->where('reservation_date', $this->input->post('datepick'))->get();
+	    $query1 = $this->db->select('*')->from('clubhouse_reservation')->where('username', $this->session->userdata('username'))->where('reservation_status', 2)->where('reservation_date', $this->input->post('datepick'))->get();
+
+	    if($query->num_rows() >= 1 || $query1->num_rows() >= 1 )
+	    {
+	        return FALSE;  
+	    }
+	    else
+	    {
+	        return TRUE;
+	    }
 	}
 
 	function url_check_courtone($reservationid)
