@@ -38,9 +38,9 @@
 
 					<div class="action-buttons text-right">
 
-						<a href="<?php echo base_url(); ?>login/signout"><button type="button" class="btn btn-custom-1">Back to Sign In</button></a>
+						<a href="<?php echo base_url(); ?>login/signout"><button type="button" class="back-button btn btn-custom-1">Back to Sign In</button></a>
 
-						<button type="submit" class="btn btn-custom">Submit</button>
+						<button type="submit" class="reset-password btn btn-custom">Submit</button>
 
 					</div>
 

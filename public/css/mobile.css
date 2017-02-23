@@ -35,6 +35,10 @@
     margin-left: 0px;
   }
 
+.action-buttons .back-button, .action-buttons .reset-password {
+  width: 150px;
+}
+
 .btn-custom, .btn-custom-1, #exampleInputFile {
     width: 100%;
   }
