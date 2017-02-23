@@ -133,7 +133,7 @@ class Model_forms extends CI_Model {
          $query = $this->db->select('*')
                             ->from('accounts')
                             ->join('upload_carsticker', 'accounts.username = upload_carsticker.username' )
-                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
          return $query->num_rows();
     }
 
@@ -142,7 +142,7 @@ class Model_forms extends CI_Model {
          $query = $this->db->select('*')
                             ->from('accounts')
                             ->join('upload_workpermit', 'accounts.username = upload_workpermit.username' )
-                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
          return $query->num_rows();
     }
 
@@ -151,7 +151,7 @@ class Model_forms extends CI_Model {
          $query = $this->db->select('*')
                             ->from('accounts')
                             ->join('upload_renovation', 'accounts.username = upload_renovation.username' )
-                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+                            ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
          return $query->num_rows();
     }
 
@@ -159,7 +159,7 @@ class Model_forms extends CI_Model {
     {
       $this->db->select('*')->from('accounts');
       $this->db->join('upload_carsticker', 'accounts.username = upload_carsticker.username' );
-      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
 
         if($query->num_rows() > 0)
@@ -176,7 +176,7 @@ class Model_forms extends CI_Model {
     {
       $this->db->select('*')->from('accounts');
       $this->db->join('upload_workpermit', 'accounts.username = upload_workpermit.username' );
-      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
 
         if($query->num_rows() > 0)
@@ -193,7 +193,7 @@ class Model_forms extends CI_Model {
     {
       $this->db->select('*')->from('accounts');
       $this->db->join('upload_renovation', 'accounts.username = upload_renovation.username' );
-      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+      $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
 
         if($query->num_rows() > 0)
@@ -268,6 +268,16 @@ class Model_forms extends CI_Model {
 		$setstatus = $this->db->update('upload_renovation', $status_data);
 		return $setstatus;
 	}
+
+    function count_allnewforms()
+    {
+        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.username = upload_carsticker.username' )->where('status', 1)->get();
+        $query2 = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.username = upload_workpermit.username' )->where('status', 1)->get();
+        $query3 = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.username = upload_renovation.username' )->where('status', 1)->get();
+        
+        $result = $query->num_rows() + $query2->num_rows() + $query3->num_rows();
+        return $result;
+    }
 	
 
 

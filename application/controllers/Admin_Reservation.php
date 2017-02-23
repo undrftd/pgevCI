@@ -46,6 +46,9 @@ class Admin_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['courtonelinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
+    	$data['reserve'] = $this->model_reservation->count_allnewreserve();
+    	$data['forms'] = $this->model_forms->count_allnewforms();
         $data['date'] = date("Y/m/d");
         $data['result'] = $this->model_reservation_user->getcourtone_defaultavailability();
         $data['countone'] = $this->model_reservation->count_courtone();
@@ -83,6 +86,9 @@ class Admin_Reservation extends MY_Controller {
 	        $this->pagination->initialize($config);
 	        $data['courtonelinks'] = $this->pagination->create_links();
 
+	        $data['count'] = $this->model_ticketing->count_newtickets();
+    		$data['reserve'] = $this->model_reservation->count_allnewreserve();
+    		$data['forms'] = $this->model_forms->count_allnewforms();
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourtone_availability($searchquery);
 			$data['countone'] = $this->model_reservation->count_courtone();
@@ -121,6 +127,9 @@ class Admin_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['courttwolinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
+    	$data['reserve'] = $this->model_reservation->count_allnewreserve();
+    	$data['forms'] = $this->model_forms->count_allnewforms();
         $data['date'] = date("Y/m/d");
         $data['result'] = $this->model_reservation_user->getcourttwo_defaultavailability();
         $data['countone'] = $this->model_reservation->count_courtone();
@@ -158,6 +167,9 @@ class Admin_Reservation extends MY_Controller {
 	        $this->pagination->initialize($config);
 	        $data['courttwolinks'] = $this->pagination->create_links();
 
+	        $data['count'] = $this->model_ticketing->count_newtickets();
+    		$data['reserve'] = $this->model_reservation->count_allnewreserve();
+    		$data['forms'] = $this->model_forms->count_allnewforms();
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourttwo_availability($searchquery);
 			$data['countone'] = $this->model_reservation->count_courtone();
@@ -196,6 +208,9 @@ class Admin_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['clubhouselinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
+    	$data['reserve'] = $this->model_reservation->count_allnewreserve();
+    	$data['forms'] = $this->model_forms->count_allnewforms();
         $data['date'] = date("Y/m/d");
         $data['result'] = $this->model_reservation_user->getclubhouse_defaultavailability();
         $data['countone'] = $this->model_reservation->count_courtone();
@@ -233,6 +248,9 @@ class Admin_Reservation extends MY_Controller {
 	        $this->pagination->initialize($config);
 	        $data['clubhouselinks'] = $this->pagination->create_links();
 
+	        $data['count'] = $this->model_ticketing->count_newtickets();
+    		$data['reserve'] = $this->model_reservation->count_allnewreserve();
+    		$data['forms'] = $this->model_forms->count_allnewforms();
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getclubhouse_availability($searchquery);
 			$data['countone'] = $this->model_reservation->count_courtone();

@@ -46,6 +46,9 @@ class admin_announcements extends MY_Controller{
     $this->pagination->initialize($config);
     $data['announcementslinks'] = $this->pagination->create_links();
 
+    $data['count'] = $this->model_ticketing->count_newtickets();
+    $data['reserve'] = $this->model_reservation->count_allnewreserve();
+    $data['forms'] = $this->model_forms->count_allnewforms();
     $data['order'] = $this->model_announcements->announcements($config['per_page'], $this->uri->segment(3));
     $this->template->load('admin_template', 'view_adminannouncements', $data);
   }
@@ -161,6 +164,9 @@ class admin_announcements extends MY_Controller{
     $this->pagination->initialize($config);
     $data['bulletinlinks'] = $this->pagination->create_links();
 
+    $data['count'] = $this->model_ticketing->count_newtickets();
+    $data['reserve'] = $this->model_reservation->count_allnewreserve();
+    $data['forms'] = $this->model_forms->count_allnewforms();
     $data['order'] = $this->model_announcements->bulletin($config['per_page'], $this->uri->segment(3));
     $this->template->load('admin_template', 'view_adminbulletin', $data);
 

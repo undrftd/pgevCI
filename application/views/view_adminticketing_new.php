@@ -3,16 +3,16 @@
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
   <span class="dropdown sign-out">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hi, Dino
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hi, <?php echo $this->session->userdata('firstname'); ?>
     <span class="caret"></span></a>
     <ul class="dropdown-menu pull-right">
-      <li><a href="http://parkwoodgreens.com/admin_announcements/post_announcements">+ &nbsp;Post an Announcement</a></li>
-      <li><a href="http://parkwoodgreens.com/admin_ticketing/new_tickets">New Tickets &nbsp;<span class="badge"> 60 </span> </a></li>
-      <li><a href="http://parkwoodgreens.com/admin_reservation/court_one">New Reservations &nbsp;<span class="badge"> 60 </span> </a></li>
-      <li><a href="http://parkwoodgreens.com/admin_forms/car_sticker">New Online Application &nbsp;<span class="badge"> 60 </span> </a></li>
-      <li><a href="http://parkwoodgreens.com/admin_profile/"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp; Edit Account</a></li>
+      <li><a href="<?php echo base_url("admin_announcements/post_announcements"); ?>">+ &nbsp;Post an Announcement</a></li>
+      <li><a href="<?php echo base_url("admin_ticketing/new_tickets"); ?>">New Tickets &nbsp;<span class="badge"> <?php echo $count; ?> </span> </a></li>
+      <li><a href="<?php echo base_url("admin_reservation/court_one"); ?>">New Reservations &nbsp;<span class="badge"> <?php echo $reserve; ?> </span> </a></li>
+      <li><a href="<?php echo base_url("admin_forms/car_sticker"); ?>">New Online Application &nbsp;<span class="badge"> <?php echo $forms; ?> </span> </a></li>
+      <li><a href="<?php echo base_url("admin_profile/"); ?>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp; Edit Account</a></li>
       <li role="separator" class="divider"></li>
-      <li><a href="http://parkwoodgreens.com/login/signout/">Sign Out</a></li>
+      <li><a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a></li>
     </ul>
   </span>
 

@@ -46,6 +46,9 @@ class Admin_Accounts extends MY_Controller {
         $this->pagination->initialize($config);
         $data['homeownerlinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['users'] = $this->model_accounts->get_users($config['per_page'], $this->uri->segment(3));
         $this->template->load('admin_template', 'view_adminaccounts_user', $data);
     }
@@ -74,6 +77,9 @@ class Admin_Accounts extends MY_Controller {
         $this->pagination->initialize($config_admin);
         $data['adminlinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['admin'] = $this->model_accounts->get_admin($config_admin['per_page'], $this->uri->segment(3));
         $this->template->load('admin_template', 'view_adminaccounts_admin', $data);
     }
@@ -102,6 +108,9 @@ class Admin_Accounts extends MY_Controller {
         $this->pagination->initialize($config_deact);
         $data['deactlinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['deact'] = $this->model_accounts->get_deact($config_deact['per_page'], $this->uri->segment(3));
         $this->template->load('admin_template', 'view_adminaccounts_deact', $data);
     }
@@ -189,6 +198,9 @@ class Admin_Accounts extends MY_Controller {
             $this->pagination->initialize($config);
             $data['homeownerlinks'] = $this->pagination->create_links();
 
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['users'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_adminaccounts_user', $data);
         }
@@ -229,6 +241,9 @@ class Admin_Accounts extends MY_Controller {
             $this->pagination->initialize($config);
             $data['adminlinks'] = $this->pagination->create_links();
 
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['admin'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_adminaccounts_admin', $data);
         }
@@ -267,7 +282,10 @@ class Admin_Accounts extends MY_Controller {
             $config['last_tagl_close'] = "</li>";
             $this->pagination->initialize($config);
             $data['deactlinks'] = $this->pagination->create_links();
-
+            
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['deact'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_adminaccounts_deact', $data);
          }

@@ -67,7 +67,7 @@ class Model_ticketing extends CI_Model {
 
   function countclosed_search($searchquery)
   {
-    $query = $this->db->select('*')->from('tickets')->join('accounts', 'accounts.username = tickets.username')->where('status', 0)->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR request_type LIKE "%'.$searchquery .'%" OR ticketid LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
+    $query = $this->db->select('*')->from('tickets')->join('accounts', 'accounts.username = tickets.username')->where('status', 0)->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR request_type LIKE "%'.$searchquery .'%" OR ticketid LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
     return $query->num_rows();
   }
 
@@ -75,7 +75,7 @@ class Model_ticketing extends CI_Model {
   {
     $this->db->select('*')->from('tickets')->join('accounts', 'accounts.username = tickets.username');
     $this->db->where('status', 0);
-    $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR username LIKE "%'.$searchquery .'%" OR CONCAT(request_type,"-",ticketid) LIKE "%'.$searchquery .'%" )',NULL,FALSE);
+    $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR CONCAT(request_type,"-",ticketid) LIKE "%'.$searchquery .'%" )',NULL,FALSE);
     $query = $this->db->get();
 
       if($query->num_rows() > 0)

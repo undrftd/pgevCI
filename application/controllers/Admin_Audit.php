@@ -46,6 +46,9 @@ class Admin_Audit extends MY_Controller {
         $this->pagination->initialize($config);
         $data['auditlinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['log'] = $this->model_audit->get_audit($config['per_page'], $this->uri->segment(3));
    	    $this->template->load('admin_template', 'view_adminaudit', $data);
 	}

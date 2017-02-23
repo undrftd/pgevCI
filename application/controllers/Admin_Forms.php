@@ -47,6 +47,9 @@ class Admin_Forms extends MY_Controller {
         $this->pagination->initialize($config);
         $data['carstickerlinks'] = $this->pagination->create_links();
 
+        $data['countnew'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
 		$data['carsticker'] = $this->model_forms->get_carsticker($config['per_page'], $this->uri->segment(3));
 		$data['countsticker'] = $this->model_forms->count_downloadedsticker();
         $data['countpermit'] = $this->model_forms->count_downloadedpermit();
@@ -79,6 +82,9 @@ class Admin_Forms extends MY_Controller {
         $this->pagination->initialize($config);
         $data['workpermitlinks'] = $this->pagination->create_links();
 
+        $data['countnew'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
 		$data['workpermit'] = $this->model_forms->get_workpermit($config['per_page'], $this->uri->segment(3));
 		$data['countsticker'] = $this->model_forms->count_downloadedsticker();
         $data['countpermit'] = $this->model_forms->count_downloadedpermit();
@@ -111,6 +117,9 @@ class Admin_Forms extends MY_Controller {
         $this->pagination->initialize($config);
         $data['renovationlinks'] = $this->pagination->create_links();
 
+        $data['countnew'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
 		$data['renovation'] = $this->model_forms->get_renovation($config['per_page'], $this->uri->segment(3));
 		$data['countsticker'] = $this->model_forms->count_downloadedsticker();
         $data['countpermit'] = $this->model_forms->count_downloadedpermit();
@@ -148,6 +157,9 @@ class Admin_Forms extends MY_Controller {
             $this->pagination->initialize($config);
             $data['carstickerlinks'] = $this->pagination->create_links();
 
+            $data['countnew'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['count'] = $this->model_forms->count_carsticker();
             $data['countsticker'] = $this->model_forms->count_downloadedsticker();
             $data['countpermit'] = $this->model_forms->count_downloadedpermit();
@@ -191,6 +203,9 @@ class Admin_Forms extends MY_Controller {
             $this->pagination->initialize($config);
             $data['workpermitlinks'] = $this->pagination->create_links();
 
+            $data['countnew'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['count'] = $this->model_forms->count_carsticker();
             $data['countsticker'] = $this->model_forms->count_downloadedsticker();
             $data['countpermit'] = $this->model_forms->count_downloadedpermit();
@@ -234,6 +249,9 @@ class Admin_Forms extends MY_Controller {
             $this->pagination->initialize($config);
             $data['renovationlinks'] = $this->pagination->create_links();
 
+            $data['countnew'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['count'] = $this->model_forms->count_renovation();
             $data['countsticker'] = $this->model_forms->count_downloadedsticker();
             $data['countpermit'] = $this->model_forms->count_downloadedpermit();

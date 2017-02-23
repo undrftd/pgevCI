@@ -49,6 +49,8 @@ class Admin_Ticketing extends MY_Controller {
     	$data['newticketlinks'] = $this->pagination->create_links();
 
     	$data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['result'] = $this->model_ticketing->get_newtickets($config['per_page'], $this->uri->segment(3));
     	$this->template->load('admin_template', 'view_adminticketing_new', $data);
     }
@@ -78,6 +80,8 @@ class Admin_Ticketing extends MY_Controller {
         $data['progressticketlinks'] = $this->pagination->create_links();
 
         $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['result'] = $this->model_ticketing->get_progresstickets($config['per_page'], $this->uri->segment(3));
         $this->template->load('admin_template', 'view_adminticketing_inprogress', $data);       
     }
@@ -107,6 +111,8 @@ class Admin_Ticketing extends MY_Controller {
         $data['closedticketlinks'] = $this->pagination->create_links();
 
         $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['result'] = $this->model_ticketing->get_closedtickets($config['per_page'], $this->uri->segment(3));
         $this->template->load('admin_template', 'view_adminticketing_closed', $data);       
     }
@@ -142,6 +148,8 @@ class Admin_Ticketing extends MY_Controller {
             $data['closedticketlinks'] = $this->pagination->create_links();
 
             $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['result'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_adminticketing_closed', $data);       
         }

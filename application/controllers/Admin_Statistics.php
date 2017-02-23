@@ -24,6 +24,9 @@ class Admin_Statistics extends MY_Controller {
     
 	function index()
 	{
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['countjanuary'] =$this->model_statistics->count_january();
         $data['countfebruary'] =$this->model_statistics->count_february();
         $data['countmarch'] =$this->model_statistics->count_march();

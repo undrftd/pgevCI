@@ -46,6 +46,9 @@ class Admin_Dues extends MY_Controller{
         $this->pagination->initialize($config);
         $data['homeownerlinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['rate'] = $this->model_dues->get_rate();
         $data['users'] = $this->model_dues->get_users($config['per_page'], $this->uri->segment(3));
     	$this->template->load('admin_template', 'view_admindues_user', $data);
@@ -75,6 +78,9 @@ class Admin_Dues extends MY_Controller{
         $this->pagination->initialize($config);
         $data['adminlinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['rate'] = $this->model_dues->get_rate();
         $data['admin'] = $this->model_dues->get_admin($config['per_page'], $this->uri->segment(3));
         $this->template->load('admin_template', 'view_admindues_admin', $data);
@@ -110,6 +116,9 @@ class Admin_Dues extends MY_Controller{
             $this->pagination->initialize($config);
             $data['homeownerlinks'] = $this->pagination->create_links();
 
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['rate'] = $this->model_dues->get_rate();
             $data['users'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_admindues_user', $data);
@@ -150,6 +159,9 @@ class Admin_Dues extends MY_Controller{
             $this->pagination->initialize($config);
             $data['adminlinks'] = $this->pagination->create_links();
 
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['rate'] = $this->model_dues->get_rate();
             $data['admin'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
             $this->template->load('admin_template', 'view_admindues_admin', $data);
