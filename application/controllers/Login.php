@@ -85,7 +85,7 @@ class Login extends CI_Controller
                 {
                     $this->load->library("email");
 
-                    $this->email->from(set_value("email"), set_value("fullName"));
+                    $this->email->from('pgevadmin@parkwoodgreens.com');
                     $this->email->to($this->input->post('email'));
                     $this->email->set_mailtype('html');
                     $array = $this->session->userdata('firstname');
@@ -117,56 +117,92 @@ class Login extends CI_Controller
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  
   <body style="overflow-x: hidden;">
 
-    <br>
+  <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+    <tr>
+      <td align="center" valign="top">
+          <table border="0" cellpadding="20" cellspacing="0" width="600" id="emailContainer">
+              <tr>
+                  <td align="center" valign="top">
+                      <table border="0" cellpadding="20" cellspacing="0" width="100%" id="emailHeader">
+                          <tr>
+                              <td align="center" valign="top">
+                                <div id="header" class="text-center" style="background-color: #f2f2f2; padding: 30px;">
+                                  <p style="font-family: \'Roboto\', sans-serif; color: #999999; font-weight: 700; font-size: 20px;">Parkwood Greens Exeuctive Village CRM</p>
+                                </div>
 
-    <div id="header" class="text-center" style="background-color: #f2f2f2; padding: 30px;">
-      <p style="font-family: \'Roboto\', sans-serif; color: #999999; font-weight: 700; font-size: 20px;">Parkwood Greens Exeuctive Village CRM</p>
-    </div>
+                                <br>
 
-    <br>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              <tr>
+                  <td align="center" valign="top">
+                      <table border="0" cellpadding="20" cellspacing="0" width="100%" id="emailBody">
+                          <tr>
+                              <td align="center" valign="top">
 
-    <div class="row" style="font-family: \'Roboto\', sans-serif;">
+                                <div class="row" style="font-family: \'Roboto\', sans-serif;">
 
-      <div class="col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                                  <div id="content" class="text-center" style="padding: 10px; line-height: 25px;">
 
-        <div id="content" class="text-center" style="padding: 10px; line-height: 25px;">
-          <strong><p class="text-left" style="font-size: 16px;"> Hi, </p></strong>
+                                    <strong><p class="text-left" style="font-size: 16px;"> Hello </p></strong>
 
-          <p class="text-left" style="font-size: 13px; color: #595959"> You recently requested to reset your password for your Parkwood Greens Exeuctive Village CRM account. Click the' . $this->session->userdata('firstname') . ' button below to reset it.  </p>
+                                    <p class="text-left" style="font-size: 13px; color: #595959"> You recently requested to reset your password for your Parkwood Greens Exeuctive Village CRM account. Click the button below to reset it. </p>
 
-          <br>
+                                    <br>
 
-          <button type="submit" class="btn btn-custom-4" style="background-color: white; border: 2px solid #27ae60; padding: 15px; width: 60%; border-radius: 2px; font-size: 0.95em; opacity: 1; transition: all 0.4s ease-in; color: #27ae60; font-weight: 700;">Reset your password</button>
+                                    <a href="'. base_url() . 'login/reset_password_verification/' . $resetkey . '"><button type="submit" class="btn btn-custom-4" style="background-color: white; border: 2px solid #27ae60; padding: 15px; width: 60%; border-radius: 2px; font-size: 0.95em; opacity: 1; transition: all 0.4s ease-in; color: #27ae60; font-weight: 700;">Reset your password</button></a>
 
-          <br><br><br>
+                                    <br><br><br>
 
-          <p class="text-left" style="font-size: 13px; color: #595959"> If you did not request a password reset, please feel free to ignore it. Be noted that this link will expire after use. </p>
+                                    <p class="text-left" style="font-size: 13px; color: #595959"> If you did not request a password reset, please feel free to ignore it. Be noted that this link will expire after use. </p>
 
-          <p class="text-left" style="font-size: 13px; color: #595959"> Thanks, <br> Parkwood Greens Exeuctive Village Administrators </p>
+                                    <p class="text-left" style="font-size: 13px; color: #595959"> Thanks, <br> Parkwood Greens Exeuctive Village Administrators </p>
 
-          <br><hr>
+                                    <br><hr>
 
-          <small class="text-left" style="font-size: 13px; color: #4d4d4d;"> If you are having trouble accessing the password reset button, copy and paste the URL below into your web browser </small>
+                                    <small class="text-left" style="font-size: 13px; color: #4d4d4d;"> If you are having trouble accessing the password reset button, copy and paste the URL below into your web browser </small>
 
-          <br><br>
+                                    <br><br>
 
-          <a href="'. base_url() . 'login/reset_password_verification/' . $resetkey . '" style="font-size: 13px;">' . base_url() . 'login/reset_password_verification/' . $resetkey .' </a>
-        </div>
+                                    <a href="'. base_url() . 'login/reset_password_verification' . $resetkey . '" style="font-size: 13px;">' . base_url() . 'login/reset_password_verification/' . $resetkey .' </a> <br><br>
 
-      </div>
+                                  </div>
 
-    </div>
+                                </div>
 
-    <br><br>
+                              </td>
 
-    <div id="footer" class="text-center" style="background-color: #f2f2f2; padding: 30px; font-family: \'Roboto\', sans-serif; color: #999999; font-weight: 700;">
-      <p> 2017 Parkwood Greens Executive Village. All rights reserved </p>
-      <br>
-      <p> 420 Dino Street </p>
-      <p> Pasig, Philippines </p>
-    </div>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              <tr>
+                  <td align="center" valign="top">
+                      <table border="0" cellpadding="20" cellspacing="0" width="100%" id="emailFooter">
+                          <tr>
+                              <td align="center" valign="top">
+                                <div id="footer" class="text-center" style="background-color: #f2f2f2; padding: 30px; font-family: \'Roboto\', sans-serif; color: #999999; font-weight: 700;">
+                                  <p> 2017 Parkwood Greens Executive Village. All rights reserved </p>
+                                  <br>
+                                  <p> Pasig City, Philippines </p>
+                                </div>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+      </td>
+    </tr>
+  </table>
+
+
 
     <!-- jQuery (necessary for Bootstrap\'s JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -37,6 +37,11 @@ class Admin_Profile extends MY_Controller{
         return ( ! preg_match("/^([-0-9()])+$/i", $str)) ? FALSE : TRUE;
     }
 
+    public function alpha_comma($str) 
+    {
+        return ( !preg_match('/^[a-z,. 0-9 \-]+$/i',$str)) ? FALSE : TRUE;
+    }
+
 	function update_account($username)
 	{
 		$this->usertracking->track_this();
@@ -53,7 +58,7 @@ class Admin_Profile extends MY_Controller{
 	        $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$username.']');
 	        $this->form_validation->set_rules('password', 'Password', 'required');
 	        $this->form_validation->set_rules('passconf', 'Password', 'required|matches[password]');
-	        $this->form_validation->set_rules('address', 'Address', 'required|alpha_numeric_spaces');
+	        $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma');
 	        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
 	        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
 
