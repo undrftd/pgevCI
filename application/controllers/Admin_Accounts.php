@@ -117,7 +117,10 @@ class Admin_Accounts extends MY_Controller {
 
     function adduser()
     {
-    	$this->template->load('admin_template', 'view_adminaddaccounts');
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
+    	$this->template->load('admin_template', 'view_adminaddaccounts', $data);
 	}
 
     function alpha_dash_space($str)

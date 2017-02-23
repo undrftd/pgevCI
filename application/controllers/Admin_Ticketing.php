@@ -165,18 +165,27 @@ class Admin_Ticketing extends MY_Controller {
         {
             if($this->model_ticketing->is_opened($ticketid))
             {
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
                 $this->template->load('admin_template', 'view_adminmoretickets', $data); 
             }
             else
             {
                 $this->model_ticketing->set_timeopened($ticketid);
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
                 $this->template->load('admin_template', 'view_adminmoretickets', $data); 
             }
         }
         else if($this->model_ticketing->is_closed($ticketid))
         {
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
             $this->template->load('admin_template', 'view_adminmoreclosedtickets', $data); 
         }

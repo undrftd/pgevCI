@@ -55,7 +55,10 @@ class admin_announcements extends MY_Controller{
 
   function post_announcements()
   {
-    $this->template->load('admin_template','view_adminannouncements_post');
+    $data['count'] = $this->model_ticketing->count_newtickets();
+    $data['reserve'] = $this->model_reservation->count_allnewreserve();
+    $data['forms'] = $this->model_forms->count_allnewforms();
+    $this->template->load('admin_template','view_adminannouncements_post', $data);
   }
 
   function delete_announcements($post_id)
@@ -79,6 +82,9 @@ class admin_announcements extends MY_Controller{
     $this->usertracking->track_this();
     if($this->model_announcements->url_check_post_id($post_id))
     {
+      $data['count'] = $this->model_ticketing->count_newtickets();
+      $data['reserve'] = $this->model_reservation->count_allnewreserve();
+      $data['forms'] = $this->model_forms->count_allnewforms();
       $data['select'] = $this->model_announcements->select_announcements($post_id);
       $this->template->load('admin_template', 'view_adminannouncements_edit', $data);
     }
@@ -174,7 +180,10 @@ class admin_announcements extends MY_Controller{
 
   function post_bulletin()
   {
-    $this->template->load('admin_template','view_adminbulletin_post');
+    $data['count'] = $this->model_ticketing->count_newtickets();
+    $data['reserve'] = $this->model_reservation->count_allnewreserve();
+    $data['forms'] = $this->model_forms->count_allnewforms();
+    $this->template->load('admin_template','view_adminbulletin_post', $data);
   }
 
   function delete_bulletin($post_id)
@@ -200,13 +209,16 @@ class admin_announcements extends MY_Controller{
     {
       if($this->model_announcements_user->url_usercheck_bulletin($post_id))
       {
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['select'] = $this->model_announcements->select_bulletin($post_id);
         $this->template->load('admin_template', 'view_adminbulletin_edit', $data);
       }
       else
       {
         $this->session->set_flashdata('bulletinfail', 'You can only edit your own bulletin.');
-      redirect('admin_announcements/bulletin');
+        redirect('admin_announcements/bulletin');
       }
     }
     else
@@ -297,6 +309,9 @@ class admin_announcements extends MY_Controller{
       $this->pagination->initialize($config);
       $data['announcementslinks'] = $this->pagination->create_links();
 
+      $data['count'] = $this->model_ticketing->count_newtickets();
+      $data['reserve'] = $this->model_reservation->count_allnewreserve();
+      $data['forms'] = $this->model_forms->count_allnewforms();
       $data['order'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
       $this->template->load('admin_template', 'view_adminannouncements', $data);
     }
@@ -336,6 +351,9 @@ class admin_announcements extends MY_Controller{
       $this->pagination->initialize($config);
       $data['bulletinlinks'] = $this->pagination->create_links();
 
+      $data['count'] = $this->model_ticketing->count_newtickets();
+      $data['reserve'] = $this->model_reservation->count_allnewreserve();
+      $data['forms'] = $this->model_forms->count_allnewforms();
       $data['order'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
       $this->template->load('admin_template', 'view_adminbulletin', $data);
     }
@@ -349,6 +367,9 @@ class admin_announcements extends MY_Controller{
   {
     if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
+      $data['count'] = $this->model_ticketing->count_newtickets();
+      $data['reserve'] = $this->model_reservation->count_allnewreserve();
+      $data['forms'] = $this->model_forms->count_allnewforms();
       $data['previous'] = $this->model_announcements->get_previous_bulletin();
       $data['result'] = $this->model_announcements->viewmore_bulletin($post_id);
       $this->template->load('admin_template', 'view_adminbulletin_viewmore', $data);
