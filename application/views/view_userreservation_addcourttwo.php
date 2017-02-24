@@ -52,15 +52,26 @@
             <p class="error"> <?php echo form_error('datepick'); ?></p>
             <br>
 
-            <p> Desired Reservation Time</p>
+            <p> Desired Reservation Start Time</p>
               <select name="reservestart" class="form-control" id="sel1" required>
                 <option value= "" selected hidden>Choose your start time</option>
-                <option value= "6">6:00 - 7:00 PM</option>
-                <option value= "7">7:00 - 8:00 PM</option>
-                <option value= "8">8:00 - 9:00 PM</option>
-                <option value= "9">9:00 - 10:00 PM</option>
+                <option value= "6">6:00 PM</option>
+                <option value= "7">7:00 PM</option>
+                <option value= "8">8:00 PM</option>
+                <option value= "9">9:00 PM</option>
               </select>
             <p class="error"> <?php echo form_error('reservestart'); ?></p>
+            <br>
+            
+            <p> Desired Reservation End Time</p>
+              <select name="reserveend" class="form-control" id="sel1" required>
+                <option value= "" selected hidden>Choose your end time</option>
+                <option value= "7">7:00 PM</option>
+                <option value= "8">8:00 PM</option>
+                <option value= "9">9:00 PM</option>
+                <option value= "10">10:00 PM</option>
+              </select>
+            <p class="error"> <?php echo form_error('reserveend');?> </p>
             <br>
 
           </div>

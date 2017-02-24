@@ -100,24 +100,17 @@ class User_Reservation extends MY_Controller {
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
-        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courtone');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courtone|hourselection');
 
         if ($this->form_validation->run() == FALSE)
         {
             $this->template->load('user_template', 'view_userreservation_addcourtone');
         }
         else
-        {   if($this->model_reservation_user->check_maxhour_courtone())
+        {   
+            if($query = $this->model_reservation_user->create_reservation_courtone())
             {
-                if($query = $this->model_reservation_user->create_reservation_courtone())
-                 {
-                    $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court One. Please wait for the administrators to accept your reservation.');
-                    redirect('user_reservation/court_one');
-                 }
-            }
-            else
-            {
-                $this->session->set_flashdata('reservefail', 'You cannot reserve more than one hour of Court One use per day.');
+                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court One. Please wait for the administrators to accept your reservation.');
                 redirect('user_reservation/court_one');
             }
         }
@@ -132,7 +125,7 @@ class User_Reservation extends MY_Controller {
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
-        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courttwo');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courttwo|hourselection');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -140,17 +133,9 @@ class User_Reservation extends MY_Controller {
         }
         else
         {   
-            if($this->model_reservation_user->check_maxhour_courttwo())
-            { 
-                if($query = $this->model_reservation_user->create_reservation_courttwo())
-                 {
-                    $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court Two. Please wait for the administrators to accept your reservation.');
-                    redirect('user_reservation/court_two');
-                 }
-            }
-            else
+            if($query = $this->model_reservation_user->create_reservation_courttwo())
             {
-                $this->session->set_flashdata('reservefail', 'You cannot reserve more than one hour of Court Two use per day.');
+                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court Two. Please wait for the administrators to accept your reservation.');
                 redirect('user_reservation/court_two');
             }
         }
