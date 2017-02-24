@@ -88,7 +88,7 @@ function calculateSum() {
 function myFunction() {
   var ask = window.confirm("Warning: This ticket is solely used for emergenices such as: Fire, Robbery, Broken House Tubes, and Suspicious People that may cause trouble. If it is not in the categories provided, the ticket will be disregarded. \n\nKindly click OK to continue your request.");
       if (ask) {
-          document.location.href = "user_ticketing/emergency_ticket";
+          window.location.href = "http://localhost/pgevCI/user_ticketing/emergency_ticket";
       }
 }
 
