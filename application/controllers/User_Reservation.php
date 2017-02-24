@@ -165,7 +165,8 @@ class User_Reservation extends MY_Controller {
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
-        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_clubhouse');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_clubhouse|hourselection');
+        $this->form_validation->set_rules('reserveend', 'Reservation Start', 'required|unique_reserve_clubhouse');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -173,17 +174,9 @@ class User_Reservation extends MY_Controller {
         }
         else
         {   
-            if($this->model_reservation_user->check_maxhour_courttwo())
+            if($query = $this->model_reservation_user->create_reservation_clubhouse())
             {
-                if($query = $this->model_reservation_user->create_reservation_clubhouse())
-                 {
-                    $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for the Clubhouse. Please wait for the administrators to accept your reservation.');
-                    redirect('user_reservation/clubhouse');
-                 }
-            }
-            else
-            {
-                $this->session->set_flashdata('reservefail', 'You cannot reserve more than one hour of Clubhouse use per day.');
+                $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for the Clubhouse. Please wait for the administrators to accept your reservation.');
                 redirect('user_reservation/clubhouse');
             }
         }

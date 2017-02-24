@@ -167,18 +167,22 @@
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
                     <?php
-                    // Set an array of 10 'hour' switches
-                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+                    
+                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
                     // loop through results setting the array switches
                     foreach ($result as $result)
                     {
-                      $tdX[$result->reservation_time] = 1;
+                      while($result->reservation_start != $result->reservation_end)
+                      {
+                        $tdX[$result->reservation_start] = 1;
+                        $result->reservation_start++;
+                      }
                     }
 
 
                     // loop through array building row
-                    for ($i = 6; $i<=9; $i++) {
+                    for ($i = 10; $i<=24; $i++) {
 
                      if ($tdX[$i] === 1 ) {
                          $tdClass = 'reserved';

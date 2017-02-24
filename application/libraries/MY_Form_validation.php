@@ -24,6 +24,21 @@ class MY_Form_validation extends CI_Form_validation{
 
 	}
 
+    function hourselection()
+    {
+        $reservestart = $this->CI->input->post('reservestart');
+        $reserveend = $this->CI->input->post('reserveend');
+
+        if($reservestart >= $reserveend)
+        {
+            $this->set_message('hourselection', 'Your time selection is invalid.');
+
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
     function no_olddate()
     {
         $reservedate = $this->CI->input->post('datepick');
@@ -74,20 +89,35 @@ class MY_Form_validation extends CI_Form_validation{
     }
 
     function unique_reserve_clubhouse()
+{
+    $reservedate = $this->CI->input->post('datepick');
+    $reservestart = $this->CI->input->post('reservestart');
+    $reserveend = $this->CI->input->post('reserveend');
+
+    $checkstart = $this->CI->db->get_where('clubhouse_reservation', array('reservation_date' => $reservedate, 'reservation_start' => $reservestart, 'reservation_status' => 1), 1);
+
+    $checkresult = $this->CI->db->get_where('clubhouse_reservation', array('reservation_date' => $reservedate, 'reservation_status' => 1));
+    $resultreserve = $checkresult->result();
+    $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+    foreach($resultreserve as $result)
     {
-        $reservedate = $this->CI->input->post('datepick');
-        $reservestart = $this->CI->input->post('reservestart');
-        $reserveend = $this->CI->input->post('reserveend');
-
-        $checkstart = $this->CI->db->get_where('clubhouse_reservation', array('reservation_date' => $reservedate, 'reservation_time' => $reservestart, 'reservation_status' => 1), 1);
-
-        if ($checkstart->num_rows() > 0) {
-
-            $this->set_message('unique_reserve_clubhouse', 'This time schedule is already booked.');
-
-            return FALSE;
+        while($result->reservation_start < $result->reservation_end)
+        {
+            $tdX[$result->reservation_start] = 1;
+            $result->reservation_start++;
         }
-
-        return TRUE;
     }
+    
+    $reserveactualend = $reserveend - 1;
+
+    if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1) {
+
+        $this->set_message('unique_reserve_clubhouse', 'This time schedule is already booked.');
+
+        return FALSE;
+    }
+
+    return TRUE;
+}
 }

@@ -47,7 +47,7 @@ class Model_reservation_user extends CI_Model {
 	function getmyreservation_clubhouse($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);	
-		$query = $this->db->select('*')->from('clubhouse_reservation')->where('username', $this->session->userdata('username'))->order_by("reservation_date asc, reservation_time asc")->get();
+		$query = $this->db->select('*')->from('clubhouse_reservation')->where('username', $this->session->userdata('username'))->order_by("reservation_date asc, reservation_start asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -208,7 +208,8 @@ class Model_reservation_user extends CI_Model {
 		$reserve_data = array(
 			'username' => $this->session->userdata('username'),
 			'reservation_date' => $this->input->post('datepick'),
-			'reservation_time' => $this->input->post('reservestart')
+			'reservation_start' => $this->input->post('reservestart'),
+			'reservation_end' => $this->input->post('reserveend')
 		);
 
 		$insert = $this->db->insert('clubhouse_reservation', $reserve_data);
