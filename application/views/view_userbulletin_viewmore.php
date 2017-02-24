@@ -6,7 +6,7 @@
     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></a>
     <ul class="dropdown-menu pull-right">
       <li class="dropdown-header"><strong><a>Activities</a></strong></li>
-      <li><a href="<?php echo base_url("user_ticketing/requests_complaints"); ?>"><strong>+</strong> &nbsp;Create a Complaint</a></li>
+      <li><a onclick="myFunction()"><strong>+</strong> &nbsp;Create an Emergency Ticket</a></li>
       <li><a href="<?php echo base_url("user_announcements/post_bulletin"); ?>"><strong>+</strong> &nbsp;Post a Bulletin</a></li>
       <li><a href="<?php echo base_url("user_reservation/reservations_courtone"); ?>">View My Reservation</a></li>
       <li role="separator" class="divider"></li>
@@ -27,7 +27,7 @@
 
     <br>
 
-    <div class="col-xs-12 col-md-8 col-lg-9 nopadding">
+    <div class="col-xs-12 col-md-7 col-lg-9 nopadding">
 
       <div class="announcement-message">
 
@@ -37,29 +37,27 @@
         <hr>
         <p> <?php echo $result->post_content;  ?> </p>
 
-        <br><br><br>
+        <br>
 
         <hr class="row-hr">
-        <p> Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>user_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
+        <p> <span class="dot-style">&middot;</span>  Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>user_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
         <hr>
 
       </div>
 
-      <br><br><br>
+      <br><br>
 
     </div>
 
-    <div class="col-xs-12 col-md-4 col-lg-3 nopadding">
+    <div class="col-xs-12 col-md-5 col-lg-3 nopadding">
 
       <div class="archive-part">
 
         <div class="announcement-message text-center">
-
-          <hr class="row-hr">
-          <h4> Previous Bulletin </h4>
-          <hr>
+          <h4> Previous Bulletins </h4>
+          <hr class="colored-hr-1">
           <?php foreach ($previous as $row): ?>
-          <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>"> <p> <span class="dot-style">&middot;</span> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('M Y', strtotime($row->post_date)); ?> </span></p>
+          <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>"> <p> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('m/y', strtotime($row->post_date)); ?> </span></p>
           <hr>
           <?php endforeach ?>
           <a href="<?php echo site_url("user_announcements/bulletin"); ?>"><span class="glyphicon glyphicon-chevron-left btn-sm" aria-hidden="true"></span>Back to Bulletin</a>

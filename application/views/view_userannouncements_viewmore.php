@@ -6,7 +6,7 @@
     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></a>
     <ul class="dropdown-menu pull-right">
       <li class="dropdown-header"><strong><a>Activities</a></strong></li>
-      <li><a href="<?php echo base_url("user_ticketing/requests_complaints"); ?>"><strong>+</strong> &nbsp;Create a Complaint</a></li>
+      <li><a onclick="myFunction()"><strong>+</strong> &nbsp;Create an Emergency Ticket</a></li>
       <li><a href="<?php echo base_url("user_announcements/post_bulletin"); ?>"><strong>+</strong> &nbsp;Post a Bulletin</a></li>
       <li><a href="<?php echo base_url("user_reservation/reservations_courtone"); ?>">View My Reservation</a></li>
       <li role="separator" class="divider"></li>
@@ -47,13 +47,11 @@
 
       <div class="archive-part">
 
-        <div class="announcement-message text-left">
-
-          <hr class="row-hr">
+        <div class="announcement-message text-center">
           <h4> Previous Announcements </h4>
-          <hr>
+          <hr class="colored-hr-1">
           <?php foreach ($previous as $row): ?>
-          <a href="<?php echo site_url() . "user_announcements/viewmore_announcement/" . $row->post_id; ?>"> <p> <span class="dot-style">&middot;</span> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('M Y', strtotime($row->post_date)); ?> </span> <p>
+          <a href="<?php echo site_url() . "user_announcements/viewmore_announcement/" . $row->post_id; ?>"> <p> <span class="dot-style">&middot;</span> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('m/y', strtotime($row->post_date)); ?> </span> <p>
           <hr>
           <?php endforeach ?>
           <a href="<?php echo site_url("user_announcements/announcements"); ?>"><span class="glyphicon glyphicon-chevron-left btn-sm" aria-hidden="true"></span>Back to Announcements</a>

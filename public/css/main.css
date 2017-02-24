@@ -631,6 +631,21 @@ h1 {
   font-weight: 400;
 }
 
+hr.colored-hr-1 {
+  border: 0;   /* in order to override TWBS stylesheet */
+  height: 2px;
+
+  background: rgba(39,174,95,1);
+  background: -moz-linear-gradient(left, rgba(39,174,95,1) 0%, rgba(39,174,95,1) 50%, rgba(242,242,242,1) 50%, rgba(242,242,242,1) 86%, rgba(242,242,242,1) 95%, rgba(242,242,242,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(39,174,95,1)), color-stop(50%, rgba(39,174,95,1)), color-stop(50%, rgba(242,242,242,1)), color-stop(86%, rgba(242,242,242,1)), color-stop(95%, rgba(242,242,242,1)), color-stop(100%, rgba(242,242,242,1)));
+  background: -webkit-linear-gradient(left, rgba(39,174,95,1) 0%, rgba(39,174,95,1) 50%, rgba(242,242,242,1) 50%, rgba(242,242,242,1) 86%, rgba(242,242,242,1) 95%, rgba(242,242,242,1) 100%);
+  background: -o-linear-gradient(left, rgba(39,174,95,1) 0%, rgba(39,174,95,1) 50%, rgba(242,242,242,1) 50%, rgba(242,242,242,1) 86%, rgba(242,242,242,1) 95%, rgba(242,242,242,1) 100%);
+  background: -ms-linear-gradient(left, rgba(39,174,95,1) 0%, rgba(39,174,95,1) 50%, rgba(242,242,242,1) 50%, rgba(242,242,242,1) 86%, rgba(242,242,242,1) 95%, rgba(242,242,242,1) 100%);
+  background: linear-gradient(to right, rgba(39,174,95,1) 0%, rgba(39,174,95,1) 50%, rgba(242,242,242,1) 50%, rgba(242,242,242,1) 86%, rgba(242,242,242,1) 95%, rgba(242,242,242,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#27ae5f', endColorstr='#f2f2f2', GradientType=1 );
+
+}
+
 .announcement-message .date-posted {
   line-height: 20px;
   font-family: 'Rubik', sans-serif;
@@ -751,7 +766,7 @@ h1 {
   border-radius: 0;
   color: #696969;
   box-shadow: none;
-  height: 350px;
+  height: 200px;
   width: 100%;
   border: 2px solid #e1e1e1;
   transition: all 0.4s ease-in-out;

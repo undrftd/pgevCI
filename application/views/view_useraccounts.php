@@ -6,7 +6,7 @@
     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></a>
     <ul class="dropdown-menu pull-right">
       <li class="dropdown-header"><strong><a>Activities</a></strong></li>
-      <li><a href="<?php echo base_url("user_ticketing/requests_complaints"); ?>"><strong>+</strong> &nbsp;Create a Complaint</a></li>
+      <li><a onclick="myFunction()"><strong>+</strong> &nbsp;Create an Emergency Ticket</a></li>
       <li><a href="<?php echo base_url("user_announcements/post_bulletin"); ?>"><strong>+</strong> &nbsp;Post a Bulletin</a></li>
       <li><a href="<?php echo base_url("user_reservation/reservations_courtone"); ?>">View My Reservation</a></li>
       <li role="separator" class="divider"></li>
@@ -37,7 +37,7 @@
 
         <div class="admin-message">
 
-            <p> Note: Kindly call us through this number (576-4263) for additional assitance if you want to change a
+            <p> Note: Kindly call us through this number <strong>(576-4263)</strong> for additional assitance if you want to change a
               certain credential that is not editable.
             </p>
 

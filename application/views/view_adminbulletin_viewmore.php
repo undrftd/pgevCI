@@ -41,15 +41,15 @@
         <hr>
         <p> <?php echo $result->post_content;  ?> </p>
 
-        <br><br><br>
+        <br>
 
         <hr class="row-hr">
-        <p> Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>admin_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
+        <p> <span class="dot-style">&middot;</span>  Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>admin_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
         <hr>
 
       </div>
 
-      <br><br><br>
+      <br><br>
 
     </div>
 
@@ -58,12 +58,10 @@
       <div class="archive-part">
 
         <div class="announcement-message text-center">
-
-          <hr class="row-hr">
           <h4> Previous Bulletins </h4>
-          <hr>
+          <hr class="colored-hr-1">
           <?php foreach ($previous as $row): ?>
-          <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>"> <p> <span class="dot-style">&middot;</span> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('M Y', strtotime($row->post_date)); ?> </span></p>
+          <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>"> <p><?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('m/y', strtotime($row->post_date)); ?> </span></p>
           <hr>
           <?php endforeach ?>
           <a href="<?php echo site_url("admin_announcements/bulletin"); ?>"><span class="glyphicon glyphicon-chevron-left btn-sm" aria-hidden="true"></span>Back to Bulletin</a>
