@@ -39,7 +39,7 @@ class Model_accounts extends CI_Model {
              $data = array(
                 'userid' => $result->userid,
                 'username' => $result->username,
-                'password' => $result->password,
+                'password' => $this->input->post('password'),
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
                 'email' => $result->email,
@@ -71,7 +71,7 @@ class Model_accounts extends CI_Model {
              $data = array(
                 'userid' => $result->userid,
                 'username' => $result->username,
-                'password' => $result->password,
+                'password' => $this->input->post('password'),
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
                 'email' => $result->email,
@@ -436,7 +436,7 @@ class Model_accounts extends CI_Model {
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
             'username' => $this->input->post('username'),
-            'password' => $this->bcrypt->hash_password($this->input->post('username')),
+            'password' => $this->bcrypt->hash_password($this->input->post('password')),
             'address' => $this->input->post('address'),
             'email' => $this->input->post('email'),
             'contactnum' => $this->input->post('contactnum'),

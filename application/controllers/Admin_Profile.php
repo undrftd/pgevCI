@@ -67,7 +67,10 @@ class Admin_Profile extends MY_Controller{
 
 	        if ($this->form_validation->run() == FALSE)
 	        {
-	        	$this->template->load('admin_template', 'view_adminprofile');
+	        	$data['count'] = $this->model_ticketing->count_newtickets();
+    			$data['reserve'] = $this->model_reservation->count_allnewreserve();
+    			$data['forms'] = $this->model_forms->count_allnewforms();
+	        	$this->template->load('admin_template', 'view_adminprofile', $data);
 	        }
 	        else
 	        {
