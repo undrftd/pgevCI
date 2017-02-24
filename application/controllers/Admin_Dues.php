@@ -189,6 +189,9 @@ class Admin_Dues extends MY_Controller{
     {
         if($this->model_dues->url_check_user($username))
         {
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['view'] = $this->model_dues->viewmore_user($username);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
@@ -205,6 +208,9 @@ class Admin_Dues extends MY_Controller{
         {
             if($username != $this->session->userdata('username'))
             {
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['view'] = $this->model_dues->viewmore_admin($username);
                 $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
             }
@@ -316,11 +322,17 @@ class Admin_Dues extends MY_Controller{
 
             if($this->form_validation->run() == FALSE)
             {
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['view'] = $this->model_accounts->viewmore_user($username);
                 $this->template->load('admin_template', 'view_adminmoredues_user', $data);
             }
             else if($query = $this->model_dues->updatedues_user($username))
             {
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $this->session->set_flashdata('duesmorefeedback', 'You have successfully updated the user\'s dues.');
                 $data['view'] = $this->model_accounts->viewmore_user($username);
                 $this->template->load('admin_template', 'view_adminmoredues_user', $data);
@@ -350,11 +362,17 @@ class Admin_Dues extends MY_Controller{
 
             if($this->form_validation->run() == FALSE)
             {
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['view'] = $this->model_accounts->viewmore_admin($username);
                 $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
             }
             else if($query = $this->model_dues->updatedues_admin($username))
             {
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $this->session->set_flashdata('duesmorefeedback', 'You have successfully updated the user\'s dues.');
                 $data['view'] = $this->model_accounts->viewmore_admin($username);
                 $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
@@ -369,6 +387,9 @@ class Admin_Dues extends MY_Controller{
 
     function viewrates()
     {
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['rate'] = $this->model_dues->get_rate();
         $this->template->load('admin_template', 'view_admineditrate', $data);
     }
@@ -383,11 +404,17 @@ class Admin_Dues extends MY_Controller{
 
         if ($this->form_validation->run() == FALSE)
         {
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['rate'] = $this->model_dues->get_rate();
             $this->template->load('admin_template', 'view_admineditrate', $data);
         }
         else
         {
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $this->model_dues->editrates();
             $data['rate'] = $this->model_dues->get_rate();
             $this->session->set_flashdata('ratefeedback', 'You have successfully updated the monthly dues rate.');
