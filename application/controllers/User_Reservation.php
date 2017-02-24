@@ -165,8 +165,8 @@ class User_Reservation extends MY_Controller {
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
-        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_clubhouse|hourselection');
-        $this->form_validation->set_rules('reserveend', 'Reservation Start', 'required|unique_reserve_clubhouse');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_clubhouse|hourselection|min_fourhours');
+        $this->form_validation->set_rules('reserveend', 'Reservation Start', 'required');
 
         if ($this->form_validation->run() == FALSE)
         {
