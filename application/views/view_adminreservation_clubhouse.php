@@ -105,10 +105,21 @@
                 <table class="table table-hover">
                   <tr>
                     <th><br>Date and Time Reserved</th>
-                    <th><br>6:00-7:00</th>
-                    <th><br>7:00-8:00</th>
-                    <th><br>8:00-9:00</th>
-                    <th><br>9:00-10:00</th>
+                    <th><br>10-11</th>
+                    <th><br><span>&#8226;</span> &nbsp;11-12 PM</th>
+                    <th><br>12-1</th>
+                    <th><br>1-2</th>
+                    <th><br>2-3</th>
+                    <th><br>3-4</th>
+                    <th><br>4-5</th>
+                    <th><br>5-6</th>
+                    <th><br>6-7</th>
+                    <th><br>7-8</th>
+                    <th><br>8-9</th>
+                    <th><br>9-10</th>
+                    <th><br>10-11</th>
+                    <th><br><span>&#8226;</span> &nbsp;11-12 AM</th>
+                    <th><br>12-1</th>
                   </tr>
 
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
