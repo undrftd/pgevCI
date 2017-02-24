@@ -114,15 +114,18 @@
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
                     <?php
-                    // Set an array of 10 'hour' switches
-                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+                    
+                    $tdX = array(0,0,0,0,0,0,0,0,0,0);
 
                     // loop through results setting the array switches
                     foreach ($result as $result)
                     {
-                      $tdX[$result->reservation_time] = 1;
+                      while($result->reservation_start != $result->reservation_end)
+                      {
+                        $tdX[$result->reservation_start] = 1;
+                        $result->reservation_start++;
+                      }
                     }
-
 
                     // loop through array building row
                     for ($i = 6; $i<=9; $i++) {
@@ -223,17 +226,16 @@
                     <th><br>Action</th>
                 </tr>
 
-                <?php foreach($myreserve as $row):
-                $reservation_end = $row->reservation_time + 1;?>
+                <?php foreach($myreserve as $row):?>
                 <tr>
                     <td><?php echo date("F d, Y", strtotime($row->reservation_date)); ?></td>
                     <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
-                    <td><?php echo $row->reservation_time . ":00 PM - " . $reservation_end . ":00 PM";?> </td>
+                    <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
                     <td><?php if($row->reservation_status == 2) { echo "Pending"; } else if($row->reservation_status == 1) { echo "Approved"; } else { echo "Denied"; } ?> </td>
                     <td class="action-button">
                       <?php if($row->reservation_status == 2) { echo
-                      '<button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_reservation/approve_courtonereservation/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal-1"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  &nbsp;Approve </button>
-                      <button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_reservation/deny_courtonereservation/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  &nbsp;Deny </button>'; } else { echo "No Action Needed"; } ?>
+                      '<button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_reservation/approve_courttworeservation/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal-1"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  &nbsp;Approve </button>
+                      <button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_reservation/deny_courttworeservation/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  &nbsp;Deny </button>'; } else { echo "No Action Needed"; } ?>
 
                     </td>
                 </tr>

@@ -226,7 +226,7 @@
 
         <div class="reservation-schedule">
 
-				  <div class="tab-pane fade in active" id="portlet_tab1">
+          <div class="tab-pane fade in active" id="portlet_tab1">
 
             <div class="table-responsive">
 
@@ -245,12 +245,12 @@
                 <tr>
                     <td><?php echo date("F d, Y", strtotime($row->reservation_date)); ?></td>
                     <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
-                    <td><?php if ($row->reservation_start < 12 && $row->reservation_end > 12 && $row->reservation_end < 25) { $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 AM - " . $resultend . ":00 PM"; } else if ($row->reservation_start > 12 && $row->reservation_end > 12 && $row->reservation_end < 25) { $resultstart = $row->reservation_start - 12; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 PM - " . $resultend . ":00 PM"; } else if($row->reservation_start < 12 && $row->reservation_end = 25) { $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 AM - " . $resultend . ":00 AM"; }else if($row->reservation_start > 12 && $row->reservation_end = 25) { $resultstart = $row->reservation_start-12; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 PM - " . $resultend . ":00 AM"; }?> </td>
+                    <td><?php if ($row->reservation_start < 12 && $row->reservation_end > 12 && $row->reservation_end < 25) { $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 AM - " . $resultend . ":00 PM"; } else if ($row->reservation_start > 12 && $row->reservation_end > 12 && $row->reservation_end < 25) { $resultstart = $row->reservation_start - 12; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 PM - " . $resultend . ":00 PM"; } else if($row->reservation_start < 12 && $row->reservation_end = 25) { $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 AM - " . $resultend . ":00 AM"; }else if($row->reservation_start > 12 && $row->reservation_end = 25) { $resultstart = $row->reservation_start-12; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 PM - " . $resultend . ":00 AM"; } else if($row->reservation_start == 12 && $row->reservation_end > 12 && $row->reservation_end < 25){ $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 PM - " . $resultend . ":00 PM"; } else if($row->reservation_start == 12 && $row->reservation_end && $row->reservation_end == 25){ $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 PM - " . $resultend . ":00 AM"; } ?> </td>
                     <td><?php if($row->reservation_status == 2) { echo "Pending"; } else if($row->reservation_status == 1) { echo "Approved"; } else { echo "Denied"; } ?> </td>
                     <td class="action-button">
                       <?php if($row->reservation_status == 2) { echo
-                      '<button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_reservation/approve_courtonereservation/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal-1"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  &nbsp;Approve </button>
-                      <button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_reservation/deny_courtonereservation/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  &nbsp;Deny </button>'; } else { echo "No Action Needed"; } ?>
+                      '<button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_reservation/approve_clubhousereservation/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal-1"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  &nbsp;Approve </button>
+                      <button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_reservation/deny_clubhousereservation/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  &nbsp;Deny </button>'; } else { echo "No Action Needed"; } ?>
 
                     </td>
                 </tr>

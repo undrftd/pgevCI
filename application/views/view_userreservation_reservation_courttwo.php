@@ -145,12 +145,11 @@
                   </tr>
 
                   <?php foreach($myreserve as $row):
-                      $reservation_end = $row->reservation_time + 1;
                   ?>
 
                   <tr>
                       <td><?php echo date("F d, Y", strtotime($row->reservation_date)) ?></td>
-                      <td><?php echo $row->reservation_time . ":00 PM - " . $reservation_end . ":00 PM";?> </td>
+                      <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
                       <td><?php if($row->reservation_status == 2) { echo "Pending"; } elseif($row->reservation_status == 0) { echo "Denied"; } else { echo "Approved"; } ?> </td>
                       <td class="action-button">
                       <?php if($row->reservation_status == 0) { echo "No Action Needed"; } else { echo '

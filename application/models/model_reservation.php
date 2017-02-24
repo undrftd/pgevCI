@@ -21,7 +21,7 @@ class Model_reservation extends CI_Model {
 		$query = $this->db->select('*')->from('courttwo_reservation')->where('reservation_id' , $reservationid)->get();
 		$row = $query->row();
 
-		if ($row->reservation_id== $reservationid)
+		if ($row->reservation_id == $reservationid)
 		{
 	  		return TRUE;
 		}	
@@ -36,7 +36,7 @@ class Model_reservation extends CI_Model {
 		$query = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_id' , $reservationid)->get();
 		$row = $query->row();
 
-		if ($row->reservation_id== $reservationid)
+		if ($row->reservation_id == $reservationid)
 		{
 	  		return TRUE;
 		}	
