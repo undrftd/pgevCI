@@ -2,7 +2,22 @@
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-  <br><br>
+  <span class="dropdown sign-out">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></a>
+    <ul class="dropdown-menu pull-right">
+      <li class="dropdown-header"><strong><a>Activities</a></strong></li>
+      <li><a href="<?php echo base_url("user_ticketing/requests_complaints"); ?>"><strong>+</strong> &nbsp;Create a Complaint</a></li>
+      <li><a href="<?php echo base_url("user_announcements/post_bulletin"); ?>"><strong>+</strong> &nbsp;Post a Bulletin</a></li>
+      <li><a href="<?php echo base_url("user_reservation/reservations_courtone"); ?>">View My Reservation</a></li>
+      <li role="separator" class="divider"></li>
+      <li class="dropdown-header"><strong><a>Account</a></strong></li>
+      <li><a href="<?php echo base_url("user_accounts/"); ?>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp; Edit Account</a></li>
+      <li><a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a></li>
+    </ul>
+  </span>
+
+  <hr class="colored-hr">
+  <br>
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
