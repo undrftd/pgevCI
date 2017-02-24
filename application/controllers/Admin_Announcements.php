@@ -1,6 +1,6 @@
 <?php
 
-class admin_announcements extends MY_Controller{
+class Admin_Announcements extends MY_Controller{
 
   function __construct()
     {   
