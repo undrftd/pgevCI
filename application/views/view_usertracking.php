@@ -158,7 +158,7 @@
                         }  ?>
               </td>
               <td><?php if($row->status == 0) { echo "Resolved"; } else if($row->status == 1){ echo "Work in Progress"; } else if($row->status == 2){ echo "Unaddressed";}  ?></td>
-              <td><?php if($row->homeowner_feedback == 0) { echo "Finished"; } else { echo "<button type='button' class='btn btn-custom-3' data-href='".base_url()."user_tracking/set_finished_recent/".$row->ticketid."' data-toggle='modal' data-target='#delete-modal'>Set as Finished</button>"; } ?></td>
+              <td><?php if($row->homeowner_feedback == 0) { echo "Finished"; } else if($row->homeowner_feedback == 0 && $row->status == 0) { echo "Closed - No Action Needed"; }else if($row->homeowner_feedback != 0 && $row->status == 0) { echo "Closed by Administrators"; }else { echo "<button type='button' class='btn btn-custom-3' data-href='".base_url()."user_tracking/set_finished_recent/".$row->ticketid."' data-toggle='modal' data-target='#delete-modal'>Set as Finished</button>"; } ?></td>
           </tr>
         <?php endforeach; ?>
         </table>
