@@ -193,6 +193,90 @@ class Model_reservation extends CI_Model {
 		return $update;
 	}
 
+	function checkexisting_reserve_courtone()
+	{
+        $checkresult = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 1)->group_by('reservation_date')->get();
+        $resultreserve = $checkresult->result();
+
+        $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+
+        foreach($resultreserve as $result)
+        {
+            while($result->reservation_start < $result->reservation_end)
+            {
+                $tdX[$result->reservation_start] = 1;
+                $result->reservation_start++;
+            }
+        }
+
+       	foreach($resultreserve as $result)
+       	{
+	       	$reserveactualend = $result->reservation_end - 1;
+	        if($tdX[$result->reservation_start] == 1 || $tdX[$reserveactualend] == 1) 
+	        {
+	            return FALSE;
+	            break;
+	        }
+    	}
+        return TRUE;
+	}
+
+	function checkexisting_reserve_courttwo()
+	{
+        $checkresult = $this->db->select('*')->from('courttwo_reservation')->where('reservation_status', 1)->group_by('reservation_date')->get();
+        $resultreserve = $checkresult->result();
+
+        $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+
+        foreach($resultreserve as $result)
+        {
+            while($result->reservation_start < $result->reservation_end)
+            {
+                $tdX[$result->reservation_start] = 1;
+                $result->reservation_start++;
+            }
+        }
+
+       	foreach($resultreserve as $result)
+       	{
+	       	$reserveactualend = $result->reservation_end - 1;
+	        if($tdX[$result->reservation_start] == 1 || $tdX[$reserveactualend] == 1) 
+	        {
+	            return FALSE;
+	            break;
+	        }
+    	}
+        return TRUE;
+	}
+
+	function checkexisting_reserve_clubhouse()
+	{
+        $checkresult = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_status', 1)->group_by('reservation_date')->get();
+        $resultreserve = $checkresult->result();
+
+        $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+        foreach($resultreserve as $result)
+        {
+            while($result->reservation_start < $result->reservation_end)
+            {
+                $tdX[$result->reservation_start] = 1;
+                $result->reservation_start++;
+            }
+        }
+
+       	foreach($resultreserve as $result)
+       	{
+	       	$reserveactualend = $result->reservation_end - 1;
+	        if($tdX[$result->reservation_start] == 1 || $tdX[$reserveactualend] == 1) 
+	        {
+	            return FALSE;
+	            break;
+	        }
+    	}
+        return TRUE;
+	}
+
 	function count_courtone()
     {
         $query = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 2)->get();

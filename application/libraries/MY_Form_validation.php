@@ -79,7 +79,7 @@ class MY_Form_validation extends CI_Form_validation{
 
         $checkresult = $this->CI->db->get_where('courtone_reservation', array('reservation_date' => $reservedate, 'reservation_status' => 1));
         $resultreserve = $checkresult->result();
-        $tdX = array(0,0,0,0,0,0,0,0,0,0);
+        $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
         foreach($resultreserve as $result)
         {
@@ -111,7 +111,7 @@ class MY_Form_validation extends CI_Form_validation{
 
         $checkresult = $this->CI->db->get_where('courttwo_reservation', array('reservation_date' => $reservedate, 'reservation_status' => 1));
         $resultreserve = $checkresult->result();
-        $tdX = array(0,0,0,0,0,0,0,0,0,0);
+        $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
         foreach($resultreserve as $result)
         {
@@ -143,7 +143,7 @@ class MY_Form_validation extends CI_Form_validation{
 
         $checkresult = $this->CI->db->get_where('clubhouse_reservation', array('reservation_date' => $reservedate, 'reservation_status' => 1));
         $resultreserve = $checkresult->result();
-        $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
         foreach($resultreserve as $result)
         {

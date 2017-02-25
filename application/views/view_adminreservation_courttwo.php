@@ -115,7 +115,7 @@
 
                     <?php
                     
-                    $tdX = array(0,0,0,0,0,0,0,0,0,0);
+                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
                     // loop through results setting the array switches
                     foreach ($result as $result)
