@@ -60,7 +60,7 @@
 
 
               <p> Select a type of ticket: </p>
-              <select name ="type" class="form-control" id="sel1">
+              <select name ="type" class="form-control" id="sel1" required>
                 <option value="" selected hidden>Type of Request or Complaint</option>
                 <option value="RGC">Grass Cutting</option>
                 <option value="RTC">Trash Collection</option>
@@ -78,7 +78,7 @@
 
             <div class="form-group">
               <p> Message </p>
-              <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly elaborate your requests or complaints in the community..." rows="15" reseize="none"></textarea>
+              <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly elaborate your requests or complaints in the community..." rows="15" reseize="none" required></textarea>
               <p class="error"><?php echo form_error('content'); ?> </p>
             </div>
 

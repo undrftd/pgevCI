@@ -98,7 +98,7 @@ class User_Tracking extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('historyfail', 'YYou cannot set a non-existent ticket as finished. Please double-check the Ticket ID.');
+            $this->session->set_flashdata('historyfail', 'You cannot set a non-existent ticket as finished. Please double-check the Ticket ID.');
             redirect('user_tracking/view_history');
         }
     }
