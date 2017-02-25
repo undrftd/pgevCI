@@ -32,7 +32,7 @@
       <div class="announcement-message">
 
         <h4> <?php echo $result->post_title; ?> </h4>
-        <p> <?php echo date("F d, Y", strtotime($result->post_date)) . " " . date("g:i A", $result->post_time); ?> <p>
+        <p> <small class="date-archive"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp; <?php echo date("F d, Y", strtotime($result->post_date)) . " at " . date("g:i A", $result->post_time); ?> </small> <p>
         <p class="date-posted"> Community Administrator </p>
         <hr>
         <p> <?php echo $result->post_content;  ?> </p>
@@ -47,14 +47,17 @@
 
       <div class="archive-part">
 
-        <div class="announcement-message text-center">
-          <h4> Previous Announcements </h4>
+        <div class="announcement-message text-left">
+          <h4> Recent Announcements </h4>
           <hr class="colored-hr-1">
           <?php foreach ($previous as $row): ?>
-          <a href="<?php echo site_url() . "user_announcements/viewmore_announcement/" . $row->post_id; ?>"> <p> <span class="dot-style">&middot;</span> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('m/y', strtotime($row->post_date)); ?> </span> <p>
+          <a href="<?php echo site_url() . "user_announcements/viewmore_announcement/" . $row->post_id; ?>">
+            <p>  <?php echo $row->post_title; ?>  <p>
+            <p><small class="date-archive"> <strong><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></strong>&nbsp; <?php echo date('M Y', strtotime($row->post_date)); ?> </small></p>
+          </a>
           <hr>
           <?php endforeach ?>
-          <a href="<?php echo site_url("user_announcements/announcements"); ?>"><span class="glyphicon glyphicon-chevron-left btn-sm" aria-hidden="true"></span>Back to Announcements</a>
+          <a href="<?php echo site_url("user_announcements/announcements"); ?>">View More Announcements</a>
 
           <br><br>
 
