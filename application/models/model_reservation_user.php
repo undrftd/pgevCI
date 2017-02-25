@@ -238,14 +238,21 @@ class Model_reservation_user extends CI_Model {
         $query = $this->db->select('*')->where('reservation_id', $reservationid)->get('courtone_reservation',1);
         $result = $query->row();
         
-        if($reservationid == $result->reservation_id)
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
+        if($query->num_rows() > 0)
+    	{
+	        if($reservationid == $result->reservation_id)
+	        {
+	            return TRUE;
+	        }
+	        else
+	        {
+	            return FALSE;
+	        }
+	    }
+	    else
+	    {
+	    	return FALSE;
+	    }
     }
 
     function url_check_courttwo($reservationid)
@@ -253,14 +260,21 @@ class Model_reservation_user extends CI_Model {
         $query = $this->db->select('*')->where('reservation_id', $reservationid)->get('courttwo_reservation',1);
         $result = $query->row();
         
-        if($reservationid == $result->reservation_id)
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
+        if($query->num_rows() > 0)
+    	{
+	        if($reservationid == $result->reservation_id)
+	        {
+	            return TRUE;
+	        }
+	        else
+	        {
+	            return FALSE;
+	        }
+	    }
+	    else
+	    {
+	    	return FALSE;
+	    }
     }
 
      function url_check_clubhouse($reservationid)
@@ -268,14 +282,21 @@ class Model_reservation_user extends CI_Model {
         $query = $this->db->select('*')->where('reservation_id', $reservationid)->get('clubhouse_reservation',1);
         $result = $query->row();
         
-        if($reservationid == $result->reservation_id)
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
+        if($query->num_rows() > 0)
+    	{
+	        if($reservationid == $result->reservation_id)
+	        {
+	            return TRUE;
+	        }
+	        else
+	        {
+	            return FALSE;
+	        }
+	    }
+	    else
+	    {
+	    	return FALSE;
+	    }
     }
 
 	function cancelreservation_courtone($reservationid)

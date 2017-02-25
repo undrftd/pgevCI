@@ -151,9 +151,16 @@ class Model_announcements_user extends CI_Model
     $query = $this->db->select('*')->from('announcements')->where('post_id', $post_id)->get();
     $row = $query->row();
 
-    if($row->post_id == $post_id)
+    if($query->num_rows() > 0)
     {
-      return TRUE;
+      if($row->post_id == $post_id)
+      {
+        return TRUE;
+      }
+      else
+      {
+        return FALSE;
+      }
     }
     else
     {
@@ -166,9 +173,16 @@ class Model_announcements_user extends CI_Model
     $query = $this->db->select('*')->from('bulletin')->where('post_id', $post_id)->get();
     $row = $query->row();
 
-    if($row->username == $this->session->userdata('username'))
+    if($query->num_rows() > 0)
     {
-      return TRUE;
+      if($row->username == $this->session->userdata('username'))
+      {
+        return TRUE;
+      }
+      else
+      {
+        return FALSE;
+      }
     }
     else
     {
@@ -181,9 +195,16 @@ class Model_announcements_user extends CI_Model
     $query = $this->db->select('*')->from('bulletin')->where('post_id', $post_id)->get();
     $row = $query->row();
 
-    if($row->post_id == $post_id)
+    if($query->num_rows() > 0)
     {
-      return TRUE;
+      if($row->post_id == $post_id)
+      {
+        return TRUE;
+      }
+      else
+      {
+        return FALSE;
+      }
     }
     else
     {

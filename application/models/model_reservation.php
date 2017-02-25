@@ -6,13 +6,20 @@ class Model_reservation extends CI_Model {
 		$query = $this->db->select('*')->from('courtone_reservation')->where('reservation_id' , $reservationid)->get();
 		$row = $query->row();
 
-		if ($row->reservation_id== $reservationid)
-		{
-	  		return TRUE;
-		}	
+		if($query->num_rows() > 0)
+    	{
+			if ($row->reservation_id== $reservationid)
+			{
+		  		return TRUE;
+			}	
+			else
+			{
+		 		return FALSE;
+			}
+		}
 		else
 		{
-	 		return FALSE;
+			return FALSE;
 		}
 	}
 
@@ -21,13 +28,20 @@ class Model_reservation extends CI_Model {
 		$query = $this->db->select('*')->from('courttwo_reservation')->where('reservation_id' , $reservationid)->get();
 		$row = $query->row();
 
-		if ($row->reservation_id == $reservationid)
-		{
-	  		return TRUE;
-		}	
+		if($query->num_rows() > 0)
+    	{
+			if ($row->reservation_id == $reservationid)
+			{
+		  		return TRUE;
+			}	
+			else
+			{
+		 		return FALSE;
+			}
+		}
 		else
 		{
-	 		return FALSE;
+			return FALSE;
 		}
 	}
 
@@ -36,13 +50,20 @@ class Model_reservation extends CI_Model {
 		$query = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_id' , $reservationid)->get();
 		$row = $query->row();
 
-		if ($row->reservation_id == $reservationid)
-		{
-	  		return TRUE;
-		}	
+		if($query->num_rows() > 0)
+    	{
+			if ($row->reservation_id == $reservationid)
+			{
+		  		return TRUE;
+			}	
+			else
+			{
+		 		return FALSE;
+			}
+		}
 		else
 		{
-	 		return FALSE;
+			return FALSE;
 		}
 	}
 
