@@ -156,8 +156,13 @@
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
                      <?php
+<<<<<<< HEAD
 
                       $tdX = array(0,0,0,0,0,0,0,0,0,0);
+=======
+                      
+                      $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+>>>>>>> cac3bb2edd02df5c51d3e8c173d0fcd6e5cab38e
 
                       // loop through results setting the array switches
                       foreach ($result as $result)
