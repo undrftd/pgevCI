@@ -82,14 +82,21 @@ class Model_tracking_user extends CI_Model {
     	$query = $this->db->select('*')->from('tickets')->where('ticketid', $ticketid)->get();
     	$result = $query->row();
     	
-    	if($result->ticketid == $ticketid)
-    	{
-    		return TRUE;
-    	}
-    	else
-    	{
-    		return FALSE;
-    	}
+        if($query->num_rows() > 0)
+        {
+        	if($result->ticketid == $ticketid)
+        	{
+        		return TRUE;
+        	}
+        	else
+        	{
+        		return FALSE;
+        	}
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
 }
