@@ -32,7 +32,7 @@
       <div class="announcement-message">
 
         <h4> <?php echo $result->post_title; ?> </h4>
-        <p> <?php echo date("F d, Y", strtotime($result->post_date)) . " " . date("g:i A", $result->post_time); ?> <p>
+        <p> <small class="date-archive"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp; <?php echo date("F d, Y", strtotime($result->post_date)) . " at " . date("g:i A", $result->post_time); ?> </small> <p>
         <p class="date-posted"> <?php echo $result->firstname . " " . $result->lastname; ?> said </p>
         <hr>
         <p> <?php echo $result->post_content;  ?> </p>
@@ -40,7 +40,7 @@
         <br>
 
         <hr class="row-hr">
-        <p> <span class="dot-style">&middot;</span>  Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>user_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
+        <p> Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>user_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
         <hr>
 
       </div>
@@ -57,10 +57,13 @@
           <h4> Previous Bulletins </h4>
           <hr class="colored-hr-1">
           <?php foreach ($previous as $row): ?>
-          <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>"> <p> <?php echo $row->post_title; ?> <span class="date-archive"> <?php echo date('m/y', strtotime($row->post_date)); ?> </span></p>
+          <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>">
+            <p>  <?php echo $row->post_title; ?>  <p>
+            <p><small class="date-archive"> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp; <?php echo date('M Y', strtotime($row->post_date)); ?> </small></p>
+          </a>
           <hr>
           <?php endforeach ?>
-          <a href="<?php echo site_url("user_announcements/bulletin"); ?>"><span class="glyphicon glyphicon-chevron-left btn-sm" aria-hidden="true"></span>Back to Bulletin</a>
+          <a href="<?php echo site_url("user_announcements/bulletin"); ?>">Back to Bulletin</a>
 
           <br><br>
 

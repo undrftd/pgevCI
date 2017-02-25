@@ -665,7 +665,6 @@ hr.colored-hr-1 {
 }
 
 .archive-part p {
-  transition: all 0.3s ease-in-out;
   cursor: pointer;
   line-height: 25px;
 }
@@ -676,21 +675,19 @@ hr.colored-hr-1 {
 
 #page-content-wrapper .archive-part a {
   font-family: 'Rubik', sans-serif;
-  text-align: center;
-  color: #696969;
   transition: all 0.3s ease-in-out;
   display: block;
-  opacity: 0.8;
+  color: #27ae60;
+  text-align: center;
 }
 
 #page-content-wrapper .archive-part a:hover {
-  padding-right: 10px;
-  opacity: 1;
+  padding-left: 5px;
 }
 
 .date-archive {
-  float: right;
-  color: #27ae60;
+  color: #aaa;
+  text-align: left;
 }
 
 #page-content-wrapper .a-links {
