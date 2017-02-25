@@ -51,7 +51,7 @@
 
   <br>
 
-  <div class="portlet">
+  <div class="portlet nopadding">
 
     <div class="portlet-title">
 

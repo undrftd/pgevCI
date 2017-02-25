@@ -73,11 +73,11 @@ body {
 
 #page-content-wrapper h1 {
    font-family: 'League-Gothic', sans-serif;
-   font-size: 3.75em;
+   font-size: 3.25em;
    color: #4d4d4d;
    padding-left: 12px;
    text-transform: uppercase;
-   border-left: 8px solid #27ae60;
+   border-left: 6px solid #27ae60;
 }
 
 h1 {

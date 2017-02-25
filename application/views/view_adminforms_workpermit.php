@@ -52,9 +52,9 @@
 
     <div class="header-style">
       <h1> Work Permit Request Forms </h1>
-    </div>
+    </div><br>
 
-    <div class="portlet">
+    <div class="portlet nopadding">
 
       <div class="portlet-header">
 

@@ -19,7 +19,7 @@
   <hr class="colored-hr">
   <br>
 
-  <div class="portlet">
+  <div class="portlet nopadding">
 
     <div class="header-style">
       <h1> Announcements </h1>
