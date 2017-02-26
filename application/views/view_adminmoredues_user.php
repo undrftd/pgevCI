@@ -128,12 +128,12 @@
                 <p class="error"><?php echo form_error('address'); ?></p>
                 <br>
                 <p> Monthly Dues (₱) </p>
-                <input name="monthly_dues" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->monthly_dues ?>">
+                <input name="monthly_dues" class="form-control" id="sel1" type="text" placeholder="" pattern="[0-9.]{1,}" title="Monthly Dues field may only contain numbers and periods." value="<?php echo $view->monthly_dues ?>" required>
                 <p class="error"><?php echo form_error('monthly_dues'); ?> </p>
                 <br>
 
                 <p> Arrears (₱) </p>
-                <input name="arrears" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->arrears; ?>">
+                <input name="arrears" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->arrears; ?>" pattern="[0-9.]{1,}" title="Arrears field may only contain numbers and periods." required>
                 <p class="error"><?php echo form_error('arrears'); ?> </p>
 
               </fieldset>
