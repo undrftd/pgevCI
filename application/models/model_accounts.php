@@ -527,4 +527,11 @@ class Model_accounts extends CI_Model {
         return $reactivate;
     }
 
+    function checksession()
+    {
+        $query = $this->db->select('*')->from('accounts')->where('userid', $this->session->userdata('userid'))->get();
+
+        return $query->row();
+    }
+
 }
