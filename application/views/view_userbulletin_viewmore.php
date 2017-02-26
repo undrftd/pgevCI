@@ -60,8 +60,8 @@
           <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>">
             <p>  <?php echo $row->post_title; ?>  <p>
             <p><small class="date-archive"> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp; <?php echo date('M Y', strtotime($row->post_date)); ?> </small></p>
+            <hr>
           </a>
-          <hr>
           <?php endforeach ?>
           <a href="<?php echo site_url("user_announcements/bulletin"); ?>">Back to Bulletin</a>
 
