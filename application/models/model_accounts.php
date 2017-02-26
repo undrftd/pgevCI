@@ -485,11 +485,21 @@ class Model_accounts extends CI_Model {
             'contactnum' => $this->input->post('contactnum'),
         );
 
+         $password_update_data = array(
+            'firstname' => $this->input->post('firstname'),
+            'lastname' => $this->input->post('lastname'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
+            'address' => $this->input->post('address'),
+            'email' => $this->input->post('email'),
+            'contactnum' => $this->input->post('contactnum'),
+        );
+
          $account_update_other = array(
             'username' => $this->input->post('username')
         );
          
-         $this->session->set_userdata($account_update_data);
+         $this->session->set_userdata($password_update_data);
 
          $this->db->where('username', $username);
          $this->db->update('announcements', $account_update_other);

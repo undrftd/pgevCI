@@ -48,7 +48,7 @@ class User_Accounts extends MY_Controller {
 
       $this->form_validation->set_rules('password', 'Password', 'required|min_length[7]');
       $this->form_validation->set_rules('cpassword', 'Password', 'required|matches[password]');
-      $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
+      $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$username.']');
       $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
 
       if ($this->form_validation->run() == FALSE)
