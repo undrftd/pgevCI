@@ -61,7 +61,7 @@
           <h4> Recent Bulletins </h4>
           <hr class="colored-hr-1">
           <?php foreach ($previous as $row): ?>
-          <a href="<?php echo site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id; ?>">
+          <a href="<?php echo site_url() . "admin_announcements/viewmore_bulletin/" . $row->post_id; ?>">
             <p>  <?php echo $row->post_title; ?>  <p>
             <p><small class="date-archive"> <strong><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></strong>&nbsp; <?php echo date('M Y', strtotime($row->post_date)); ?> </small></p>
           </a>
