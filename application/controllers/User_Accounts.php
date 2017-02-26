@@ -24,6 +24,7 @@ class User_Accounts extends MY_Controller {
 
     function index()
     {
+        $this->model_dues_user->setsession();
         $this->template->load('user_template', 'view_useraccounts');
     }
 

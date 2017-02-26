@@ -24,6 +24,7 @@ class User_Forms extends MY_Controller {
     
 	function car_sticker()
 	{
+    $this->model_dues_user->setsession();
 		$this->template->load('user_template', 'view_userforms_carsticker');	
 	}
 

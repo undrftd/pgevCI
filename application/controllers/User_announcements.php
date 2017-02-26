@@ -24,6 +24,7 @@ class User_Announcements extends MY_Controller{
 
   function announcements()
   {
+    $this->model_dues_user->setsession();
     $config['base_url'] = site_url('user_announcements/announcements');
     $config['total_rows'] = $this->model_announcements_user->count_announcements();
     $config['per_page'] =  6;

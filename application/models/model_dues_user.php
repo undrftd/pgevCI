@@ -30,6 +30,7 @@ class Model_dues_user extends CI_Model{
     $data = array(
             'monthly_dues' => $row->monthly_dues,
             'arrears' => $row->arrears,
+            'username' =>$row->username
       );
 
     $this->session->set_userdata($data);

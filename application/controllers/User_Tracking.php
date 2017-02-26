@@ -24,6 +24,7 @@ class User_Tracking extends MY_Controller {
     
 	function recent()
 	{
+        $this->model_dues_user->setsession();
 		$data['result'] = $this->model_tracking_user->get_recenttickets();
 		$this->template->load('user_template', 'view_usertracking', $data);
 	}

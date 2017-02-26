@@ -153,7 +153,7 @@
                       <td><?php if($row->reservation_status == 2) { echo "Pending"; } elseif($row->reservation_status == 0) { echo "Denied"; } else { echo "Approved"; } ?> </td>
                       <td class="action-button">
                       <?php if($row->reservation_status == 0) { echo "No Action Needed"; } else { echo '
-                        <button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'user_reservation/cancelreservation_courtone/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  &nbsp;Cancel </button>';
+                        <button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'user_reservation/cancelreservation_clubhouse/' . $row->reservation_id .'" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  &nbsp;Cancel </button>';
                       } ?>
                       </td>
                   </tr>
