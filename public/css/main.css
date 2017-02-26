@@ -871,6 +871,7 @@ hr.colored-hr-1 {
   font-weight: 700;
   font-style: italic;
   font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
 }
 
 .success-message p, .error-message p {
