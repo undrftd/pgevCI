@@ -86,7 +86,7 @@
                 <br>
 
                 <p> Address </p>
-                <input name="address" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('address');?>" pattern="[a-z,. 0-9 \-]{10,}" title="Address should contain alphanumeric characters with commas and periods, with a minimum of 10 characters." required>
+                <input name="address" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('address');?>" pattern="[a-z,. A-Z 0-9 \-]{10,}" title="Address should contain alphanumeric characters with commas and periods, with a minimum of 10 characters." required>
                 <p class="error"><?php echo form_error('address'); ?></p>
                 <br>
 
