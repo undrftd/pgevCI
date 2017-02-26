@@ -39,13 +39,13 @@
 
 					<p>Enter your new password</p>
 
-					<input type="password" name="password" class="form-control"  id="sel1" required>
+					<input data-toggle="password" name="password" data-placement="after" class="form-control" type="password" id="user-password" required>
 
 					<p class="error"><?php echo form_error('password'); ?> </p><br>
 
 					<p>Confirm new password</p>
 
-					<input type="password" class="form-control" id="sel1" name="confpassword" required>
+					<input type="password" class="form-control" id="confirm-password" name="confpassword" required>
 
 					<p class="error"><?php echo form_error('confpassword'); ?> </p>
 
