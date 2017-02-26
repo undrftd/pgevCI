@@ -137,19 +137,11 @@
 
                   <div class="more-link">
 
-                    <div class="row">
+                    <div class="user-buttons">
 
-                      <div class="col-xs-6 col-lg-6 nopadding">
+                      <a href="<?php echo site_url() . "admin_announcements/edit_announcements/" . $row->post_id ?>"><p><i class="material-icons">create</i></p></a>
 
-                      <a href="<?php echo site_url() . "admin_announcements/edit_announcements/" . $row->post_id ?>"><p>Edit</p></a>
-
-                      </div>
-
-                      <div class="col-xs-6 col-lg-6 nopadding">
-
-                      <a data-href="<?php echo base_url() . "admin_announcements/delete_announcements/" . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><span class="glyphicon glyphicon-trash btn-sm" aria-hidden="true"></span> Delete</p></a>
-
-                      </div>
+                      <a data-href="<?php echo base_url() . "admin_announcements/delete_announcements/" . $row->post_id ?>" data-toggle="modal" data-target="#delete-modal"><p><i class="material-icons">delete</i></p></a>
 
                     </div>
 

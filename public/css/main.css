@@ -166,19 +166,56 @@ h1 {
 }
 
 .information-1 .more-link p {
-  font-weight: 700;
-  color: #27ae60;
-  font-family: 'Roboto';
-  text-align: center;
+  color: #b3b3b3;
   cursor: pointer;
-  font-size: 0.95em;
-  text-transform: uppercase;
-  opacity: 0.8;
   transition: all 0.4s ease-in-out;
+  padding: 5px 15px;
+  margin: 0 5px;
+  text-align: center;
+  transform: scale(1);
+  transition: all 300ms ease-in-out;
 }
 
 .information-1 .more-link p:hover {
-  opacity: 1;
+  color: #8c8c8c;
+}
+
+.information-1 .more-link p:hover > i {
+  color: #8c8c8c;
+  transform: scale(1.2);
+  transition: all 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.user-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .information-add {
@@ -850,10 +887,6 @@ hr.colored-hr-1 {
   color: #e74c3c;
   font-weight: 400;
   font-size: 0.9em;
-}
-
-.dues-buttons {
-  text-align: center;
 }
 
 .modal-content .warning-message {
