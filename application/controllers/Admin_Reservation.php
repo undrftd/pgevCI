@@ -270,9 +270,17 @@ class Admin_Reservation extends MY_Controller {
 		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_courtone($reservationid))
 		{
-			$this->model_reservation->approve_courtonereservation($reservationid);
-			$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
-      		redirect('admin_reservation/court_one');
+			if($this->model_reservation->checkexisting_reserve_courtone())
+			{
+				$this->model_reservation->approve_courtonereservation($reservationid);
+				$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
+      			redirect('admin_reservation/court_one');
+      		}
+	      	else
+	      	{
+	      		$this->session->set_flashdata('reservefail', 'The reservation slot has already been taken. You cannot approve this reservation.');
+      			redirect('admin_reservation/court_one');
+	      	}
 		}
 		else
 		{
@@ -302,9 +310,17 @@ class Admin_Reservation extends MY_Controller {
 		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_courttwo($reservationid))
 		{
-			$this->model_reservation->approve_courttworeservation($reservationid);
-			$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
-      		redirect('admin_reservation/court_two');
+			if($this->model_reservation->checkexisting_reserve_courttwo())
+			{
+				$this->model_reservation->approve_courttworeservation($reservationid);
+				$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
+	      		redirect('admin_reservation/court_two');
+	      	}
+	      	else
+	      	{
+	      		$this->session->set_flashdata('reservefail', 'The reservation slot has already been taken. You cannot approve this reservation.');
+      			redirect('admin_reservation/court_two');
+	      	}
 		}
 		else
 		{
@@ -334,9 +350,18 @@ class Admin_Reservation extends MY_Controller {
 		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_clubhouse($reservationid))
 		{
-			$this->model_reservation->approve_clubhousereservation($reservationid);
-			$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
-      		redirect('admin_reservation/clubhouse');
+			if($this->model_reservation->checkexisting_reserve_clubhouse())
+			{
+				$this->model_reservation->approve_clubhousereservation($reservationid);
+				$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
+	      		redirect('admin_reservation/clubhouse');
+	      	}
+	      	else
+	      	{
+	      		$this->session->set_flashdata('reservefail', 'The reservation slot has already been taken. You cannot approve this reservation.');
+      			redirect('admin_reservation/clubhouse');
+	      	}
+
 		}
 		else
 		{

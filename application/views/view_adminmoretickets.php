@@ -232,7 +232,7 @@
           <br><br>
 
           <p> Remarks </p>
-          <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled" required></textarea>
+          <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long." required></textarea>
           <p class="error"><?php echo form_error('content'); ?> </p>
 
           <br><hr>
