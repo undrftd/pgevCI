@@ -22,7 +22,7 @@
 
   <div class="header-style">
     <h1> Reservations for the Clubhouse</h1>
-  </div><br>
+  </div>
 
   <div class="modal fade" id="delete-modal-1" role="dialog">
 
@@ -74,7 +74,7 @@
       </div>
   </div>
 
-  <div class="portlet nopadding">
+  <div class="portlet">
 
     <div class="portlet-header">
 
@@ -125,8 +125,8 @@
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
                     <?php
-
-                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+                    
+                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
                     // loop through results setting the array switches
                     foreach ($result as $result)
@@ -245,7 +245,7 @@
                 <tr>
                     <td><?php echo date("F d, Y", strtotime($row->reservation_date)); ?></td>
                     <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
-                    <td><?php if ($row->reservation_start < 12 && $row->reservation_end > 12 && $row->reservation_end < 25) { $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 AM - " . $resultend . ":00 PM"; } else if ($row->reservation_start > 12 && $row->reservation_end > 12 && $row->reservation_end < 25) { $resultstart = $row->reservation_start - 12; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 PM - " . $resultend . ":00 PM"; } else if($row->reservation_start < 12 && $row->reservation_end = 25) { $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 AM - " . $resultend . ":00 AM"; }else if($row->reservation_start > 12 && $row->reservation_end = 25) { $resultstart = $row->reservation_start-12; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 PM - " . $resultend . ":00 AM"; } else if($row->reservation_start == 12 && $row->reservation_end > 12 && $row->reservation_end < 25){ $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 PM - " . $resultend . ":00 PM"; } else if($row->reservation_start == 12 && $row->reservation_end && $row->reservation_end == 25){ $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 PM - " . $resultend . ":00 AM"; } ?> </td>
+                    <td><?php if ($row->reservation_start < 12 && $row->reservation_end > 12 && $row->reservation_end < 25 && $row->reservation_end != 24) { $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 AM - " . $resultend . ":00 PM"; }else if ($row->reservation_start < 12 && $row->reservation_end == 24) { $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 AM - " . $resultend . ":00 AM"; } else if ($row->reservation_start > 12 && $row->reservation_end > 12 && $row->reservation_end < 25) { $resultstart = $row->reservation_start - 12; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 PM - " . $resultend . ":00 PM"; } else if($row->reservation_start < 12 && $row->reservation_end = 25) { $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 AM - " . $resultend . ":00 AM"; }else if($row->reservation_start > 12 && $row->reservation_end = 25) { $resultstart = $row->reservation_start-12; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 PM - " . $resultend . ":00 AM"; } else if($row->reservation_start == 12 && $row->reservation_end > 12 && $row->reservation_end < 25){ $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 12; echo $resultstart . ":00 PM - " . $resultend . ":00 PM"; } else if($row->reservation_start == 12 && $row->reservation_end && $row->reservation_end == 25){ $resultstart = $row->reservation_start; $resultend = $row->reservation_end - 24; echo $resultstart . ":00 PM - " . $resultend . ":00 AM"; } ?> </td>
                     <td><?php if($row->reservation_status == 2) { echo "Pending"; } else if($row->reservation_status == 1) { echo "Approved"; } else { echo "Denied"; } ?> </td>
                     <td class="action-button">
                       <?php if($row->reservation_status == 2) { echo

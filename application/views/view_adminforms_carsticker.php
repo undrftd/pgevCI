@@ -52,9 +52,9 @@
 
     <div class="header-style">
       <h1> Car Sticker Request Forms </h1>
-    </div><br>
+    </div>
 
-    <div id="portlet" class="portlet nopadding">
+    <div id="portlet" class="portlet">
 
       <div class="portlet-header">
 

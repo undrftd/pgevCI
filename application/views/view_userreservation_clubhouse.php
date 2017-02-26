@@ -21,7 +21,7 @@
 
   <div class="header-style">
     <h1> Reservations for the Clubhouse</h1>
-  </div><br>
+  </div>
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
@@ -40,7 +40,7 @@
       </div>
   </div>
 
-  <div class="portlet nopadding">
+  <div class="portlet">
 
     <a href="<?php echo site_url('user_reservation/add_reservation_clubhouse') ?>"><button type="button" class="btn btn-custom-1">+ Add a Reservation</button></a><br><br>
 
@@ -167,8 +167,8 @@
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
                     <?php
-
-                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+                    
+                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
                     // loop through results setting the array switches
                     foreach ($result as $result)

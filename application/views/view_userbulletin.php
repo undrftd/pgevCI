@@ -45,7 +45,7 @@
       </div>
   </div>
 
-  <div class="portlet nopadding">
+  <div class="portlet">
 
     <div class="header-style">
       <h1> Bulletin </h1>

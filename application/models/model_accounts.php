@@ -112,7 +112,6 @@ class Model_accounts extends CI_Model {
     {
         $query= $this->db->select('email')->where('email', $this->input->post('email'))->get('accounts',1);
         
-
         if($query->num_rows() > 0)
         {
             $row = $query->row();
@@ -366,9 +365,16 @@ class Model_accounts extends CI_Model {
         $query= $this->db->select('username')->where('username', $username)->where('role', 0)->where('isActive', 1)->get('accounts',1);
         $row = $query->row();
 
-        if($username == $row->username)
+        if($query->num_rows() > 0)
         {
-            return TRUE;
+            if($username == $row->username)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
         }
         else
         {
@@ -381,13 +387,20 @@ class Model_accounts extends CI_Model {
         $query= $this->db->select('username')->where('username', $username)->where('role', 1)->where('isActive', 1)->get('accounts',1);
         $row = $query->row();
 
-        if($username == $row->username)
+        if($query->num_rows() > 0)
         {
-             return TRUE;
+            if($username == $row->username)
+            {
+                 return TRUE;
+            }
+            else
+            {
+                 return FALSE;
+            }
         }
         else
         {
-             return FALSE;
+            return FALSE;
         }
     }
 
@@ -396,14 +409,21 @@ class Model_accounts extends CI_Model {
         $query= $this->db->select('username')->where('username', $username)->where('isActive', 0)->get('accounts',1);
         $row = $query->row();
 
-        if($username == $row->username)
+        if($query->num_rows() > 0)
         {
-             return TRUE;
+            if($username == $row->username)
+            {
+                 return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
         }
         else
         {
             return FALSE;
-         }
+        }
     }
 
     function acc_delete($username)

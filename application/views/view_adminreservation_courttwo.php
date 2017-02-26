@@ -22,7 +22,7 @@
 
   <div class="header-style">
     <h1> Reservations for Court Two</h1>
-  </div><br>
+  </div>
 
  <div class="modal fade" id="delete-modal-1" role="dialog">
 
@@ -74,7 +74,7 @@
       </div>
   </div>
 
-  <div class="portlet nopadding">
+  <div class="portlet">
 
     <div class="portlet-header">
 
@@ -114,8 +114,8 @@
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
                     <?php
-
-                    $tdX = array(0,0,0,0,0,0,0,0,0,0);
+                    
+                    $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
                     // loop through results setting the array switches
                     foreach ($result as $result)

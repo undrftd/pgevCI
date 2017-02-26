@@ -56,9 +56,9 @@
 
   <div class="header-style">
     <h1> Homeowner Accounts </h1>
-  </div><br>
+  </div>
 
-  <div class="portlet nopadding">
+  <div class="portlet">
 
     <div class="portlet-header">
 

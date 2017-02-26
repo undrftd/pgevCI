@@ -52,9 +52,9 @@
 
     <div class="header-style">
       <h1> Renovation Request Forms </h1>
-    </div><br>
+    </div>
 
-    <div class="portlet nopadding">
+    <div class="portlet">
 
       <div class="portlet-header">
 

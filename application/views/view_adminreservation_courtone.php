@@ -22,7 +22,7 @@
 
   <div class="header-style">
     <h1> Reservations for Court One</h1>
-  </div><br>
+  </div>
 
   <div class="modal fade" id="delete-modal-1" role="dialog">
 
@@ -74,7 +74,7 @@
       </div>
   </div>
 
-  <div class="portlet nopadding">
+  <div class="portlet">
 
     <div class="portlet-header">
 
@@ -113,36 +113,36 @@
 
                     <tr><td><?php echo date("F d, Y", strtotime($date)); ?></td>
 
-                   <?php
+                     <?php
+                      
+                      $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
-                    $tdX = array(0,0,0,0,0,0,0,0,0,0);
-
-                    // loop through results setting the array switches
-                    foreach ($result as $result)
-                    {
-                      while($result->reservation_start != $result->reservation_end)
+                      // loop through results setting the array switches
+                      foreach ($result as $result)
                       {
-                        $tdX[$result->reservation_start] = 1;
-                        $result->reservation_start++;
+                        while($result->reservation_start != $result->reservation_end)
+                        {
+                          $tdX[$result->reservation_start] = 1;
+                          $result->reservation_start++;
+                        }
                       }
-                    }
 
-                    // loop through array building row
-                    for ($i = 6; $i<=9; $i++) {
+                      // loop through array building row
+                      for ($i = 6; $i<=9; $i++) {
 
-                     if ($tdX[$i] === 1 ) {
-                         $tdClass = 'reserved';
-                     } else {
-                         $tdClass = 'vacant';
-                     }
+                       if ($tdX[$i] === 1 ) {
+                           $tdClass = 'reserved';
+                       } else {
+                           $tdClass = 'vacant';
+                       }
 
-                     echo "<td class='$tdClass'></td>";
+                       echo "<td class='$tdClass'></td>";
 
-                    }
+                      }
 
-                    // close row
-                    echo '</tr>';
-                    ?>
+                      // close row
+                      echo '</tr>';
+                      ?>
                 </table>
 
                 <hr>

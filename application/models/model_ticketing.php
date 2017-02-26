@@ -99,14 +99,22 @@ class Model_ticketing extends CI_Model {
     	$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets', 1);
     	$result = $query->row();
 
-    	if($ticketid == $result->ticketid)
-    	{
-    		return TRUE;
-    	}
-    	else
-    	{
-    		return FALSE;
-    	}
+      if($query->num_rows() > 0)
+      {
+        if($ticketid == $result->ticketid)
+        {
+          return TRUE;
+        }
+        else
+        {
+          return FALSE;
+        }
+      }
+      else
+      {
+        return FALSE;
+      }
+    	
     }
 
     function set_timeopened($ticketid)
@@ -124,8 +132,10 @@ class Model_ticketing extends CI_Model {
    	function is_opened($ticketid)
    	{
    	 	$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
-        $result = $query->row();
+      $result = $query->row();
 
+      if($query->num_rows() > 0)
+      {
         if($result->date_opened)
         {
         	return TRUE;
@@ -134,6 +144,11 @@ class Model_ticketing extends CI_Model {
         {
         	return FALSE;
         }
+      }
+      else
+      {
+        return FALSE;
+      }
    	}
 
    	function is_closed($ticketid)
@@ -141,28 +156,42 @@ class Model_ticketing extends CI_Model {
    	 	$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
         $result = $query->row();
 
-        if($result->date_closed)
+        if($query->num_rows() > 0)
         {
-        	return TRUE;
+          if($result->date_closed)
+          {
+          	return TRUE;
+          }
+          else
+          {
+          	return FALSE;
+          }
         }
         else
         {
-        	return FALSE;
+          return FALSE;
         }
    	}
 
    	function is_newticket($ticketid)
    	{
    		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
-        $result = $query->row();
+      $result = $query->row();
 
-        if($result->status == 2)
+        if($query->num_rows() > 0)
         {
-        	return TRUE;
+          if($result->status == 2)
+          {
+          	return TRUE;
+          }
+          else
+          {
+          	return FALSE;
+          }
         }
         else
         {
-        	return FALSE;
+          return FALSE;
         }
    	}
 
@@ -171,13 +200,20 @@ class Model_ticketing extends CI_Model {
    		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
         $result = $query->row();
 
-        if($result->status == 1)
+        if($query->num_rows() > 0)
         {
-        	return TRUE;
+          if($result->status == 1)
+          {
+          	return TRUE;
+          }
+          else
+          {
+          	return FALSE;
+          }
         }
         else
         {
-        	return FALSE;
+          return FALSE;
         }
    	}
 
@@ -186,13 +222,20 @@ class Model_ticketing extends CI_Model {
    		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
         $result = $query->row();
 
-        if($result->status == 0)
+        if($query->num_rows() > 0)
         {
-        	return TRUE;
+          if($result->status == 0)
+          {
+          	return TRUE;
+          }
+          else
+          {
+          	return FALSE;
+          }
         }
         else
         {
-        	return FALSE;
+          return FALSE;
         }
    	}
 
@@ -202,13 +245,20 @@ class Model_ticketing extends CI_Model {
    		$query = $this->db->select('*')->where('ticketid', $ticketid)->get('tickets',1);
         $result = $query->row();
 
-        if($result->attachment != NULL || $result->attachment != "")
+        if($query->num_rows() > 0)
         {
-        	return TRUE;
+          if($result->attachment != NULL || $result->attachment != "")
+          {
+          	return TRUE;
+          }
+          else
+          {
+          	return FALSE;
+          }
         }
         else
         {
-        	return FALSE;
+          return FALSE;
         }
    	}
 

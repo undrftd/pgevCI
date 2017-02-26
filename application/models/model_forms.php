@@ -88,9 +88,16 @@ class Model_forms extends CI_Model {
         $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
         $result = $query->row();
         
-        if($formid == $result->formid)
+        if($query->num_rows() > 0)
         {
-            return TRUE;
+            if($formid == $result->formid)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
         }
         else
         {
@@ -103,13 +110,20 @@ class Model_forms extends CI_Model {
         $query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
         $result = $query->row();
         
-        if($formid == $result->formid)
+        if($query->num_rows() > 0)
         {
-                return TRUE;
+            if($formid == $result->formid)
+            {
+                    return TRUE;
+            }
+            else
+            {
+                    return FALSE;
+            }
         }
         else
         {
-                return FALSE;
+            return FALSE;
         }
     }
 
@@ -118,13 +132,20 @@ class Model_forms extends CI_Model {
         $query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
         $result = $query->row();
         
-        if($formid == $result->formid)
+        if($query->num_rows() > 0)
         {
-                return TRUE;
+            if($formid == $result->formid)
+            {
+                    return TRUE;
+            }
+            else
+            {
+                    return FALSE;
+            }
         }
         else
         {
-                return FALSE;
+            return FALSE;
         }
     }
 

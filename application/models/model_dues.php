@@ -55,9 +55,16 @@ class Model_dues extends CI_Model {
         $query = $this->db->select('*')->where('username', $username)->where('role', 0)->where('isActive', 1)->get('accounts', 1);
         $row = $query->row();
 
-        if($username == $row->username)
+        if($query->num_rows() > 0)
         {
-            return TRUE;
+            if($username == $row->username)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
         }
         else
         {
@@ -70,9 +77,16 @@ class Model_dues extends CI_Model {
         $query = $this->db->select('*')->where('username', $username)->where('role', 1)->where('isActive', 1)->get('accounts', 1);
         $row = $query->row();
 
-        if($username == $row->username)
+        if($query->num_rows() > 0)
         {
-            return TRUE;
+            if($username == $row->username)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
         }
         else
         {

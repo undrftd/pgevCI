@@ -50,7 +50,7 @@
 
   <br>
 
-  <div class="portlet nopadding">
+  <div class="portlet">
 
     <div class="portlet-title">
 
