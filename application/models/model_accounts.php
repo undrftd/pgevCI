@@ -450,16 +450,27 @@ class Model_accounts extends CI_Model {
         );
 
          $this->db->where('username', $username);
-         // $this->db->update('accounts', $account_update_data);
-         // $this->db->update('announcements', $account_update_other);
-         // $this->db->update('bulletin', $account_update_other);
-         // $this->db->update('clubhouse_reservation', $account_update_other);
-         // $this->db->update('courtone_reservation', $account_update_other);
-         // $this->db->update('courttwo_reservation', $account_update_other);
+         $this->db->update('announcements', $account_update_other);
+         $this->db->where('username', $username);
+         $this->db->update('bulletin', $account_update_other);
+         $this->db->where('username', $username);
+         $this->db->update('upload_carsticker', $account_update_other);
+         $this->db->where('username', $username);
+         $this->db->update('upload_renovation', $account_update_other);
+         $this->db->where('username', $username);
+         $this->db->update('upload_workpermit', $account_update_other);
+         $this->db->where('username', $username);
+         $this->db->update('clubhouse_reservation', $account_update_other);
+         $this->db->where('username', $username);
+         $this->db->update('courtone_reservation', $account_update_other);
+         $this->db->where('username', $username);
+         $this->db->update('courttwo_reservation', $account_update_other);
+         $this->db->where('username', $username);
          $this->db->update('tickets', $account_update_other);
-         // $this->db->update('upload_carsticker', $account_update_other);
-         // $this->db->update('upload_renovation', $account_update_other);
-         // $this->db->update('upload_workpermit', $account_update_other);
+         
+         $this->db->where('username', $username);
+         return $this->db->update('accounts', $account_update_data);
+         
      }
 
     function myaccount_update($username)
@@ -473,7 +484,17 @@ class Model_accounts extends CI_Model {
             'email' => $this->input->post('email'),
             'contactnum' => $this->input->post('contactnum'),
         );
+
+         $account_update_other = array(
+            'username' => $this->input->post('username')
+        );
+         
          $this->session->set_userdata($account_update_data);
+
+         $this->db->where('username', $username);
+         $this->db->update('announcements', $account_update_other);
+         $this->db->where('username', $username);
+         $this->db->update('bulletin', $account_update_other);
          $this->db->where('username', $username);
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
