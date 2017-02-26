@@ -36,7 +36,7 @@
           <form action="<?php echo site_url() . "user_announcements/post_bulletin_user/" ?>" method="POST">
 
             <p>  Bulletin Title </p>
-            <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?" required>
+            <input class="form-control" id="sel1" name="post_title" type="text" placeholder="What's the title?" pattern=".{8,}" title="Bulletin Title should at least be 8 characters long." required>
             <p class="error"> <?php echo form_error('post_title'); ?></p>
 
             <br>

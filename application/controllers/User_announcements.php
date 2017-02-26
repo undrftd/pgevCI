@@ -86,12 +86,15 @@ class User_Announcements extends MY_Controller{
   function post_bulletin_user()
   {
     $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-    $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
-    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
+    $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required|min_length[8]');
+    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required|min_length[20]');
 
     if ($this->form_validation->run() == FALSE)
     {
-      $this->template->load('user_template','view_userbulletin_post');
+      $data['count'] = $this->model_ticketing->count_newtickets();
+      $data['reserve'] = $this->model_reservation->count_allnewreserve();
+      $data['forms'] = $this->model_forms->count_allnewforms();
+      $this->template->load('user_template','view_userbulletin_post', $data);
     }
     else
     {
@@ -237,11 +240,14 @@ class User_Announcements extends MY_Controller{
   {
     if($this->model_announcements_user->url_check_bulletin($post_id))
     {
-      $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
-      $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
+      $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required|min_length[8]');
+      $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required|min_length[20]');
 
       if ($this->form_validation->run($post_id) == FALSE)
       {
+        $data['count'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
         $data['select'] = $this->model_announcements_user->get_bulletin($post_id);
         $this->template->load('user_template','view_userbulletin_edit', $data);
       }

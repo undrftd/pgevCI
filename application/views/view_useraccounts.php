@@ -75,12 +75,12 @@
                   <br>
 
                   <p> Password </p>
-                  <input name="password" class="form-control" id="sel1" type="password" placeholder="" value="<?php echo $this->session->userdata('password'); ?>">
+                  <input name="password" class="form-control" id="user-password" type="password" placeholder="" value="<?php echo $this->session->userdata('password'); ?>" pattern=".{8,}" title="Password should at least be 8 characters long." required>
                   <p class="error"> <?php echo form_error('password'); ?> </p>
                   <br>
 
                   <p>Confirm Password </p>
-                  <input name="cpassword" class="form-control" id="sel1"  type="password" placeholder="" value="<?php echo $this->session->userdata('password'); ?>">
+                  <input name="cpassword" class="form-control" id="confirm-password"  type="password" placeholder="" value="<?php echo $this->session->userdata('password'); ?>" pattern=".{8,}" title="Password should at least be 8 characters long." required>
                   <p class="error"> <?php echo form_error('cpassword'); ?>  </p>
                   <br>
 
@@ -95,7 +95,7 @@
                   <br>
 
                   <p>Contact Number </p>
-                  <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('contactnum'); ?>">
+                  <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('contactnum'); ?>" pattern="[-0-9()]{7,}" title="Contact number should contain numbers and parentheses only, with a minimum of 7 characters." required>
                   <p class="error"> <?php echo form_error('contactnum'); ?> </p>
                   <br><br>
 
