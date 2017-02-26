@@ -25,16 +25,16 @@
  	</head>
 
 	<body>
+
  		<div id="contents"><?= $contents ?></div>
 
- 	 	<div id="footer">
- 	 		<div id="footer">
- 	 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	 	<div id="footer">
+		 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 			<script type="text/javascript" src="<?php echo base_url('/public/js/main.js'); ?>"></script>
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  		<!-- Include all compiled plugins (below), or include individual files as needed -->
-  		</div>
-  	</div>
+			<script type="text/javascript" src="<?php echo base_url('/public/js/bootstrap-show-password.js'); ?>"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<!-- Include all compiled plugins (below), or include individual files as needed -->
+		</div>
 
 	</body>
 

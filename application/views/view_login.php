@@ -33,37 +33,29 @@
 
       <div class="login-form">
 
+        <form>
+
           <div class="form-group">
 
-          <h4> Please enter your credentials  </h4><br>
+            <h4> Please enter your credentials  </h4><br>
 
-          <div class="row">
-            <div class="col-xs-12 nopadding">
-              <div class="form-group">
-                <p> Username </p>
-                <input type="text" name="username" class="form-control" id="user-name" aria-label="...">
-              </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
+            <div class="form-group">
+              <p> Username </p>
+              <input type="text" name="username" class="form-control" id="user-name">
+            </div><!-- /input-group -->
 
-            <div class="col-xs-12 nopadding">
-              <div class="form-group">
-                <p> Password </p>
-                <input type="password" name="password" class="form-control" id="user-password" aria-label="...">
-              </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-          </div><!-- /.row -->
+            <div class="form-group">
+              <p> Password </p>
+              <input data-toggle="password" name="password" data-placement="after" class="form-control" type="password" id="user-password">
+            </div><!-- /input-group -->
 
-          <br>
+            <br>
 
-          <div class="row">
-
-              <div class="col-xs-12 nopadding">
-                <button type="submit" class="btn btn-custom-4">Sign In</button>
-              </div>
+            <button type="submit" class="btn btn-custom-4">Sign In</button>
 
           </div>
 
-        </div>
+        </form>
 
       </div>
 
@@ -86,10 +78,12 @@
     </div>
 
   </div>
-  
-  </div>
+
+</div>
 
 </form>
+
+</div>
 
 <br>
 

@@ -75,7 +75,7 @@
                   <br>
 
                   <p> Password </p>
-                  <input name="password" class="form-control" id="sel1" type="password" placeholder="" value="<?php echo $this->session->userdata('password'); ?>">
+                  <input data-toggle="password" name="password" data-placement="after" class="form-control" id="user-password" type="password" placeholder="" value="<?php echo $this->session->userdata('password'); ?>">
                   <p class="error"> <?php echo form_error('password'); ?> </p>
                   <br>
 

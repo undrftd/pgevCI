@@ -64,6 +64,7 @@
        	 	<div id="footer">
        	 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 						<script type="text/javascript" src="<?php echo base_url('/public/js/main.js'); ?>"></script>
+						<script type="text/javascript" src="<?php echo base_url('/public/js/bootstrap-show-password.js'); ?>"></script>
         		        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 						<script type="text/javascript" src="<?php echo base_url('/public/js/moment.min.js'); ?>"></script>
 						<script type="text/javascript" src="<?php echo base_url('/public/js/bootstrap-datetimepicker.min.js'); ?>"></script>
