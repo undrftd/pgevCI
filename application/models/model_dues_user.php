@@ -24,7 +24,7 @@ class Model_dues_user extends CI_Model{
 
   function setsession()
   {
-    $query = $this->db->select('*')->where('username', $this->session->userdata('username'))->get('accounts', 1);
+    $query = $this->db->select('*')->where('userid', $this->session->userdata('userid'))->get('accounts', 1);
     $row = $query->row();
 
     $data = array(
