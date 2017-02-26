@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_Export extends CI_Controller {
 
-  function __construct()
+ function __construct()
     {   
       parent::__construct();
 
@@ -29,7 +29,6 @@ class Admin_Export extends CI_Controller {
       {
           redirect('login/signout');
       }
-      $this->load->database();
     }
  
 

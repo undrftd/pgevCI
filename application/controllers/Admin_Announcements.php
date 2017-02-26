@@ -2,7 +2,7 @@
 
 class Admin_Announcements extends MY_Controller{
 
-    function __construct()
+  function __construct()
     {   
       parent::__construct();
 
@@ -29,7 +29,7 @@ class Admin_Announcements extends MY_Controller{
           redirect('login/signout');
       }
     }
-
+    
   function announcements()
   {
     $config['base_url'] = site_url('admin_announcements/announcements');
@@ -106,7 +106,6 @@ class Admin_Announcements extends MY_Controller{
   function save_announcements($post_id)
   {
     $this->usertracking->track_this();
-    $this->form_validation->set_error_delimiters('<div class="error">','</div>');
     if($this->model_announcements->url_check_post_id($post_id))
     {
       $this->form_validation->set_rules('post_title','Announcement Title', 'trim|required|min_length[8]');
@@ -246,7 +245,6 @@ class Admin_Announcements extends MY_Controller{
   function save_bulletin($post_id)
   {
     $this->usertracking->track_this();
-    $this->form_validation->set_error_delimiters('<div class="error">','</div>');
     if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
       $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required|min_length[8]');

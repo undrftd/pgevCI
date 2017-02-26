@@ -169,7 +169,7 @@ class Admin_Ticketing extends MY_Controller {
 
     function ticketdetails($ticketid)
     {
-        if($this->model_ticketing->url_check_tickets($ticketid) && $this->model_ticketing->is_closed($ticketid) == FALSE)
+        if(($this->model_ticketing->url_check_tickets($ticketid)) && $this->model_ticketing->is_closed($ticketid) == FALSE)
         {
             if($this->model_ticketing->is_opened($ticketid))
             {
@@ -210,7 +210,8 @@ class Admin_Ticketing extends MY_Controller {
         {
             if($this->model_ticketing->is_attachment($ticketid))
             {
-                $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $this->model_ticketing->get_attachmentname($ticketid);
+                $real = realpath(APPPATH);
+                $path = $real . '/uploads/' . $this->model_ticketing->get_attachmentname($ticketid);
                 $data = file_get_contents($path);
                 $name = $this->model_ticketing->get_attachmentname($ticketid);
 

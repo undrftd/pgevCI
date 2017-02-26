@@ -232,7 +232,8 @@ class Model_forms extends CI_Model {
 		$query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
         $result = $query->row();
 
-        $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
+        $real = realpath(APPPATH);
+        $path = $real . '/uploads/' . $result->filename;
         unlink($path);
 		
 		$this->db->where('formid', $formid);
@@ -245,7 +246,8 @@ class Model_forms extends CI_Model {
 		$query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
         $result = $query->row();
 
-        $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
+        $real = realpath(APPPATH);
+        $path = $real . '/uploads/' . $result->filename;
         unlink($path);
 		
 		$this->db->where('formid', $formid);
@@ -258,7 +260,8 @@ class Model_forms extends CI_Model {
 		$query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
         $result = $query->row();
 
-        $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
+        $real = realpath(APPPATH);
+        $path = $real . '/uploads/' . $result->filename;
         unlink($path);
 		
 		$this->db->where('formid', $formid);
@@ -290,7 +293,7 @@ class Model_forms extends CI_Model {
 		return $setstatus;
 	}
 
-    function count_allnewforms()
+function count_allnewforms()
     {
         $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.username = upload_carsticker.username' )->where('status', 1)->get();
         $query2 = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.username = upload_workpermit.username' )->where('status', 1)->get();

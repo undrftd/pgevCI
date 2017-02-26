@@ -281,8 +281,10 @@ class Admin_Forms extends MY_Controller {
             $this->model_forms->set_cardownloadstatus($formid);
             $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
             $result = $query->row();
-
-            $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
+          
+         
+            $real = realpath(APPPATH);
+            $path = $real . '/uploads/' . $result->filename;
             $data = file_get_contents($path);
             $name = $result->filename;
 
@@ -303,7 +305,8 @@ class Admin_Forms extends MY_Controller {
             $query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
             $result = $query->row();
 
-            $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
+            $real = realpath(APPPATH);
+            $path = $real . '/uploads/' . $result->filename;
             $data = file_get_contents($path);
 	       	$name = $result->filename;
 
@@ -324,7 +327,8 @@ class Admin_Forms extends MY_Controller {
             $query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
             $result = $query->row();
 
-            $path = 'C:/xampp/htdocs/pgevCI/application/uploads/' . $result->filename;
+            $real = realpath(APPPATH);
+            $path = $real . '/uploads/' . $result->filename;
             $data = file_get_contents($path);
             $name = $result->filename;
 

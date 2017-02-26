@@ -56,7 +56,8 @@ class User_Ticketing extends MY_Controller {
         {
         	if ($_FILES && $_FILES['file']['name'] !== "")
         	{
-				$config['upload_path']          = 'C:/xampp/htdocs/pgevCI/application/uploads';
+                        $real = realpath(APPPATH);
+		        $config['upload_path']          = $real . '/uploads/';
 		        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
 		        $config['max_size']             = '52428800';
 		        $config['max_width']            = 1920;
@@ -107,7 +108,8 @@ class User_Ticketing extends MY_Controller {
         {
         	if ($_FILES && $_FILES['file']['name'] !== "")
         	{
-				$config['upload_path']          = 'C:/xampp/htdocs/pgevCI/application/uploads';
+			$real = realpath(APPPATH);
+		        $config['upload_path']          = $real . '/uploads/';
 		        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
 		        $config['max_size']             = '52428800';
 		        $config['max_width']            = 1920;
@@ -158,7 +160,8 @@ class User_Ticketing extends MY_Controller {
         {
         	if ($_FILES && $_FILES['file']['name'] !== "")
         	{
-				$config['upload_path']          = 'C:/xampp/htdocs/pgevCI/application/uploads';
+			$real = realpath(APPPATH);
+		        $config['upload_path']          = $real . '/uploads/';
 		        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
 		        $config['max_size']             = '52428800';
 		        $config['max_width']            = 1920;

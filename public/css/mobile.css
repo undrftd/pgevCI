@@ -69,11 +69,11 @@ hr.colored-hr {
 }
 
 #page-content-wrapper h1 {
-   width: 100%;
+   width: 90%;
    border-left: none;
    font-family: 'League-Gothic', sans-serif;
    text-transform: uppercase;
-   font-size: 2.70em;
+   font-size: 3em;
    padding-bottom: 10px;
    padding-left: 0px;
    margin: 0 auto;
