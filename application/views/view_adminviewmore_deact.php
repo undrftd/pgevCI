@@ -101,38 +101,38 @@
             <h4> User Credentials </h4>
                 <br>
                 <p> First Name </p>
-                <input name ="firstname" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->firstname ?>">
+                <input name ="firstname" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->firstname ?>" pattern="[a-z A-Z]{2,30}" title="First Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
                 <p class="error"><?php echo form_error('firstname'); ?> </p>
                 <br>
 
                 <p> Last Name </p>
-                <input name="lastname" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->lastname ?>">
+                <input name="lastname" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->lastname ?>" pattern="[a-z A-Z ]{2,30}" title="Last Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
                 <p class="error"><?php echo form_error('lastname'); ?></p>
                 <br>
 
                 <p> Username </p>
-                <input name="username" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->username; ?>">
+                <input name="username" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->username; ?>" pattern="[0-9]{8,12}" title="Username must include a minimum of 8 numbers only." required>
                 <p class="error"><?php echo form_error('username'); ?></p>
                 <br>
 
                 <p> Address </p>
-                <input name="address" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->address; ?>">
+                <input name="address" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->address; ?>" pattern="[a-z A-Z,. 0-9 \-]{10,}" title="Address should contain alphanumeric characters with commas and periods, with a minimum of 10 characters." required>
                 <p class="error"><?php echo form_error('address'); ?></p>
                 <br>
 
                 <p> E-mail Address </p>
-                <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo $view->email ?>">
+                <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo $view->email ?>" required>
                 <p class="error"><?php echo form_error('email'); ?> </p>
                 <br>
 
                 <p> Contact Number </p>
-                <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->contactnum; ?>">
+                <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $view->contactnum; ?>" pattern="[-0-9()]{7,}" title="Contact number should contain numbers and parentheses only, with a minimum of 7 characters." required>
                 <p class="error"><?php echo form_error('contactnum'); ?> </p>
                 <br>
 
                 <p> Role </p>
-                <select name ="role" class="form-control" id="sel1">
-                  <option value=<?php if($view->role == 0) { echo "1"; } else { echo "0";  } ?>"" selected hidden> <?php if($view->role == 0) { echo "Homeowner"; } else { echo "Administrator";  } ?> </option>
+                <select name ="role" class="form-control" id="sel1" required>
+                  <option value="<?php if($view->role == 0) { echo "0"; } else { echo "1";  } ?>" selected hidden> <?php if($view->role == 0) { echo "Homeowner"; } else { echo "Administrator";  } ?> </option>
                   <option value="0">Homeowner</option>
                   <option value= "1">Administrator</option>
                 </select>

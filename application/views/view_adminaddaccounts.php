@@ -47,32 +47,32 @@
           <h4> User Credentials </h4>
           <br>
           <p> First Name </p>
-          <input name="firstname" class="form-control" id="sel1" type="text" placeholder="" pattern="[a-z ]{2,30}" required>
+          <input name="firstname" class="form-control" id="sel1" type="text" placeholder="" pattern="[a-z A-Z ]{2,30}" title="First Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
              <p class="error"><?php echo form_error('firstname'); ?> </p>
           <br>
 
           <p> Last Name </p>
-          <input name="lastname" class="form-control" id="sel1" type="text" placeholder="" pattern="[a-z ]{2,30}" required>
+          <input name="lastname" class="form-control" id="sel1" type="text" placeholder="" pattern="[a-z A-Z ]{2,30}" title="Last Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
               <p class="error"><?php echo form_error('lastname'); ?></p>
           <br>
 
           <p> Username </p>
-          <input name="username" class="form-control" id="sel1" type="text" placeholder="Must contain numbers only" pattern="[0-9]{8,12}" required>
+          <input name="username" class="form-control" id="sel1" type="text" placeholder="Must contain numbers only" pattern="[0-9]{8,12}" title="Username must include a minimum of 8 numbers only." required>
               <p class="error"><?php echo form_error('username'); ?></p>
           <br>
 
           <p> Password </p>
-          <input name="password" class="form-control" id="sel1" type="password" placeholder="Must be at least 8 characters long" pattern=".{8,}" required>
+          <input name="password" class="form-control" id="sel1" type="password" placeholder="Must be at least 8 characters long" pattern=".{8,}" title="Password should at least be 8 characters long." required>
              <p class="error"><?php echo form_error('password'); ?> </p>
           <br>
 
           <p> Confirm Password </p>
-          <input name="confpassword" class="form-control" id="sel1" type="password" placeholder="Must be at least 8 characters long" pattern=".{8,}" required>
+          <input name="confpassword" class="form-control" id="sel1" type="password" placeholder="Must be at least 8 characters long" pattern=".{8,}" title="Password should at least be 8 characters long." required>
              <p class="error"><?php echo form_error('confpassword'); ?> </p>
           <br>
 
           <p> Address </p>
-          <input name="address" class="form-control" id="sel1" type="text" placeholder="" pattern="[a-z,. 0-9 \-]{10,}" required>
+          <input name="address" class="form-control" id="sel1" type="text" placeholder="" pattern="[a-z,. 0-9 \-]{10,}" title="Address should contain alphanumeric characters with commas and periods, with a minimum of 10 characters." required>
               <p class="error"><?php echo form_error('address'); ?></p>
           <br>
 
@@ -82,7 +82,7 @@
           <br>
 
           <p> Contact Number </p>
-          <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" pattern="[-0-9()]{7,}" required>
+          <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" pattern="[-0-9()]{7,}" title="Contact number should contain numbers and parentheses only, with a minimum of 7 characters." required>
               <p class="error"><?php echo form_error('contactnum'); ?> </p>
           <br>
 
