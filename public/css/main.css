@@ -748,7 +748,7 @@ hr.colored-hr-1 {
   color: #4a4a4a;
 }
 
-#sel1, #user-name, #user-password, #sum, #datetimepicker4 {
+#sel1, #user-name, #user-password, #sum, #datetimepicker4, #confirm-password {
   border-radius: 0;
   color: #696969;
   box-shadow: none;

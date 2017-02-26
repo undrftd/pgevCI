@@ -58,7 +58,7 @@
     <h1> Deactivated Accounts </h1>
   </div>
 
-  <div class="portlet">
+  <div class="portlet nopadding">
 
     <div class="portlet-header">
 

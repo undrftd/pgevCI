@@ -76,12 +76,12 @@
                 <br>
 
                 <p> Password </p>
-                <input name="password" class="form-control" id="sel1" type="password" placeholder="" value="<?php echo $this->session->userdata('password');?>" pattern=".{8,}" title="Password should at least be 8 characters long." required>
+                <input name="password" class="form-control" id="user-password" type="password" placeholder="" value="<?php echo $this->session->userdata('password');?>" pattern=".{8,}" title="Password should at least be 8 characters long." required>
                 <p class="error"><?php echo form_error('password'); ?></p>
                 <br>
 
                 <p> Confirm Password </p>
-                <input name="passconf" class="form-control" id="sel1" type="password" placeholder="" value="<?php echo $this->session->userdata('password');?>" pattern=".{8,}" title="Password should at least be 8 characters long." required>
+                <input name="passconf" class="form-control" id="confirm-password" type="password" placeholder="" value="<?php echo $this->session->userdata('password');?>" pattern=".{8,}" title="Password should at least be 8 characters long." required>
                 <p class="error"><?php echo form_error('passconf'); ?></p>
                 <br>
 

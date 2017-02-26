@@ -58,7 +58,7 @@
     <h1> Administrator Accounts </h1>
   </div>
 
-  <div class="portlet">
+  <div class="portlet nopadding">
 
     <div class="portlet-header">
 
