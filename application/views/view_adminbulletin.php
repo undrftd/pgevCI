@@ -48,7 +48,7 @@
 
   <div class="header-style">
     <h1> Bulletin </h1>
-  </div>
+  </div><br>
 
   <div class="portlet nopadding">
 

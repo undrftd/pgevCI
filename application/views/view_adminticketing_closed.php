@@ -22,9 +22,9 @@
 
   <div class="header-style">
     <h1> Ticketing</h1>
-  </div>
+  </div><br>
 
-  <div class="portlet">
+  <div class="portlet nopadding">
 
     <div class="portlet-header">
 

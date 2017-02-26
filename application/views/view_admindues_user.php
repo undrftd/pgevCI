@@ -77,9 +77,9 @@
 
   <div class="header-style">
     <h1> Homeowner's Monthly Dues </h1>
-  </div>
+  </div><br>
 
-  <div class="portlet">
+  <div class="portlet nopadding">
 
     <div class="portlet-header">
 

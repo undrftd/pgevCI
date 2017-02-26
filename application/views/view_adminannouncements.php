@@ -48,7 +48,7 @@
 
   <div class="header-style">
     <h1> Announcements </h1>
-  </div>
+  </div><br>
 
   <div class="portlet nopadding">
 
