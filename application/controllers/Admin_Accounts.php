@@ -303,6 +303,9 @@ class Admin_Accounts extends MY_Controller {
     {
         if($this->model_accounts->url_check_user($username))
         {
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['view'] = $this->model_accounts->viewmore_user($username);
             $this->template->load('admin_template', 'view_adminviewmore_user', $data);
         }
@@ -319,6 +322,9 @@ class Admin_Accounts extends MY_Controller {
         {
             if($username != $this->session->userdata('username'))
             {
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['view'] = $this->model_accounts->viewmore_admin($username);
                 $this->template->load('admin_template', 'view_adminviewmore_admin', $data);
             }
@@ -338,6 +344,9 @@ class Admin_Accounts extends MY_Controller {
     {
         if($this->model_accounts->url_check_deact($username))
         {
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['view'] = $this->model_accounts->viewmore_deact($username);
             $this->template->load('admin_template', 'view_adminviewmore_deact', $data);
         }
