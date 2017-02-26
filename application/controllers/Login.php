@@ -85,7 +85,7 @@ class Login extends CI_Controller
                 {
                     $this->load->library("email");
 
-                    $this->email->from('pgevadmin@parkwoodgreens.com');
+                    $this->email->from('pgevadmin@parkwoodgreens.com', 'Parkwood Greens Executive Village Administration');
                     $this->email->to($this->input->post('email'));
                     $this->email->set_mailtype('html');
                     $array = $this->session->userdata('firstname');
@@ -130,7 +130,7 @@ class Login extends CI_Controller
                           <tr>
                               <td align="center" valign="top">
                                 <div id="header" class="text-center" style="background-color: #f2f2f2; padding: 30px;">
-                                  <p style="font-family: \'Roboto\', sans-serif; color: #999999; font-weight: 700; font-size: 20px;">Parkwood Greens Exeuctive Village CRM</p>
+                                  <p style="font-family: \'Roboto\', sans-serif; color: #999999; font-weight: 700; font-size: 20px;">Parkwood Greens Executive Village CRM</p>
                                 </div>
 
                                 <br>
@@ -152,7 +152,7 @@ class Login extends CI_Controller
 
                                     <strong><p class="text-left" style="font-size: 16px;"> Hello </p></strong>
 
-                                    <p class="text-left" style="font-size: 13px; color: #595959"> You recently requested to reset your password for your Parkwood Greens Exeuctive Village CRM account. Click the button below to reset it. </p>
+                                    <p class="text-left" style="font-size: 13px; color: #595959"> You recently requested to reset your password for your Parkwood Greens Executive Village CRM account. Click the button below to reset it. </p>
 
                                     <br>
 
@@ -162,7 +162,7 @@ class Login extends CI_Controller
 
                                     <p class="text-left" style="font-size: 13px; color: #595959"> If you did not request a password reset, please feel free to ignore it. Be noted that this link will expire after use. </p>
 
-                                    <p class="text-left" style="font-size: 13px; color: #595959"> Thanks, <br> Parkwood Greens Exeuctive Village Administrators </p>
+                                    <p class="text-left" style="font-size: 13px; color: #595959"> Thanks, <br> Parkwood Greens Executive Village Administrators </p>
 
                                     <br><hr>
 
@@ -170,7 +170,7 @@ class Login extends CI_Controller
 
                                     <br><br>
 
-                                    <a href="'. base_url() . 'login/reset_password_verification' . $resetkey . '" style="font-size: 13px;">' . base_url() . 'login/reset_password_verification/' . $resetkey .' </a> <br><br>
+                                    <a href="'. base_url() . 'login/reset_password_verification/' . $resetkey . '" style="font-size: 13px;">' . base_url() . 'login/reset_password_verification/' . $resetkey .' </a> <br><br>
 
                                   </div>
 

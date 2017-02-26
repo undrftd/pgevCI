@@ -22,7 +22,7 @@ class Model_dues_user extends CI_Model{
       return $query->row();
   }
 
-  function setsession()
+ function setsession()
   {
     $query = $this->db->select('*')->where('userid', $this->session->userdata('userid'))->get('accounts', 1);
     $row = $query->row();

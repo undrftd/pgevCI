@@ -49,14 +49,14 @@ class User_Suggestions extends MY_Controller {
         else
         {
             $this->session->set_flashdata('suggestfeedback', 'Your suggestion has been successfully submitted. Thank you for your time and concern in our community.');
-            
+          
             $this->load->library("email");
             
-            $this->email->from(set_value("email"), set_value("fullName"));
-            $this->email->to("excontent14@gmail.com");
-            $array = $this->session->userdata('firstname');
-            $this->email->subject("Community Suggestions -" . " " . $this->session->userdata('firstname') . " " . $this->session->userdata('lastname') . "(" . $this->session->userdata('email') . ")");
-            $this->email->message(set_value("message"));
+            $this->email->from("pgevadmin@parkwoodgreens.com");
+            $this->email->to("parkwoodexecutive@gmail.com");
+            $this->email->set_header('Header1', 'NAME');
+            $this->email->subject("Community Suggestions -" . " " . $this->session->userdata('firstname') . " " . $this->session->userdata('lastname') . " " . "(" . $this->session->userdata('email') . ")");
+            $emaildata = $this->email->message(set_value("message"));
             
             $this->email->send();
             $this->template->load('user_template','view_usersuggestions'); 

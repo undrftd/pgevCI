@@ -268,7 +268,7 @@ class Model_announcements extends CI_Model{
     }
     else
     {
-        return $query->result();
+        return $query->result();;
     }
   }
 

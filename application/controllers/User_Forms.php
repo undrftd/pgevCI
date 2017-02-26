@@ -2,7 +2,7 @@
 
 class User_Forms extends MY_Controller {
 
-    function __construct()
+ function __construct()
     {   
       parent::__construct();
 
@@ -48,7 +48,8 @@ class User_Forms extends MY_Controller {
 
 	function download($filename) 
 	{
-		$path = 'C:/xampp/htdocs/pgevCI/application/downloads/' . $filename;
+                $real = realpath(APPPATH);
+                $path = $real . '/downloads/' . $filename;
         $data = file_get_contents($path);
 		$name = $filename;
 
@@ -57,7 +58,8 @@ class User_Forms extends MY_Controller {
 
 	function upload_carsticker()
 	{
-		$config['upload_path']          = 'C:/xampp/htdocs/pgevCI/application/uploads';
+                $real = realpath(APPPATH);
+		$config['upload_path']          = $real . '/uploads/';
         $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
         $config['max_size']             = '52428800';
         $config['max_width']            = 1920;
@@ -80,7 +82,7 @@ class User_Forms extends MY_Controller {
 
 	function upload_workpermit()
 	{
-		$config['upload_path']          = 'C:/xampp/htdocs/pgevCI/application/uploads';
+		$config['upload_path']          = FCPATH . 'application\uploads';
         $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
         $config['max_size']             = '52428800';
         $config['max_width']            = 1920;
@@ -103,7 +105,7 @@ class User_Forms extends MY_Controller {
 
 	function upload_renovation()
 	{
-		$config['upload_path']          = 'C:/xampp/htdocs/pgevCI/application/uploads';
+		$config['upload_path']          = FCPATH . 'application\uploads';
         $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
         $config['max_size']             = '52428800';
         $config['max_width']            = 1920;

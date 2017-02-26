@@ -47,9 +47,6 @@
                 <li>
                     <a href="<?php echo site_url("admin_accounts/homeowner"); ?>" class="<?php if($this->uri->segment(1) == 'admin_accounts') { echo 'active'; } ?>">Accounts</a>
                 </li>
-                <li>
-                    <a href="<?php echo site_url("admin_profile/");?>" class="<?php if($this->uri->segment(1) == 'admin_profile') { echo 'active'; } ?>"> Profile</a>
-                </li>
                 <li class="sidebar-brand">
                     <a href="<?php echo site_url("admin_statistics"); ?>" class="<?php if($this->uri->segment(1) == 'admin_statistics') { echo 'active'; } ?>">Statistics</a>
                 </li>

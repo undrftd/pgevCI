@@ -55,9 +55,6 @@
              <li>
                  <a href="<?php echo site_url("user_suggestions"); ?>" class="<?php if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } ?>"> Suggestions</a>
              </li>
-             <li>
-                 <a href="<?php echo site_url("user_accounts"); ?>" class="<?php if($this->uri->segment('1') == 'user_accounts') { echo 'active'; } ?>">Account</a>
-             </li>
            </ul>
          </div>
 
