@@ -73,7 +73,7 @@ hr.colored-hr {
    border-left: none;
    font-family: 'League-Gothic', sans-serif;
    text-transform: uppercase;
-   font-size: 3em;
+   font-size: 2.55em;
    padding-bottom: 10px;
    padding-left: 0px;
    margin: 0 auto;
@@ -82,7 +82,7 @@ hr.colored-hr {
 
 .header h2 {
   font-family: 'League-Gothic', sans-serif;
-  font-size: 2.55em;
+  font-size: 2.3em;
   text-transform: uppercase;
   padding: 5px;
 }
@@ -104,6 +104,7 @@ table {
 
 p {
   text-align: justify;
+  font-size: 1em;
 }
 
 .footer-note, .login-form, .success-message p, .activity-bar p, .modal-content p {
