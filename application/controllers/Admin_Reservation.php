@@ -270,7 +270,7 @@ class Admin_Reservation extends MY_Controller {
 		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_courtone($reservationid))
 		{
-			if($this->model_reservation->checkexisting_reserve_courtone())
+			if($this->model_reservation->checkexisting_reserve_courtone($reservationid))
 			{
 				$this->model_reservation->approve_courtonereservation($reservationid);
 				$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
@@ -310,7 +310,7 @@ class Admin_Reservation extends MY_Controller {
 		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_courttwo($reservationid))
 		{
-			if($this->model_reservation->checkexisting_reserve_courttwo())
+			if($this->model_reservation->checkexisting_reserve_courttwo($reservationid))
 			{
 				$this->model_reservation->approve_courttworeservation($reservationid);
 				$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');
@@ -350,7 +350,7 @@ class Admin_Reservation extends MY_Controller {
 		$this->usertracking->track_this();
 		if($this->model_reservation->url_check_clubhouse($reservationid))
 		{
-			if($this->model_reservation->checkexisting_reserve_clubhouse())
+			if($this->model_reservation->checkexisting_reserve_clubhouse($reservationid))
 			{
 				$this->model_reservation->approve_clubhousereservation($reservationid);
 				$this->session->set_flashdata('reservefeedback', 'You have successfully approved the reservation.');

@@ -214,10 +214,15 @@ class Model_reservation extends CI_Model {
 		return $update;
 	}
 
-	function checkexisting_reserve_courtone()
+	function checkexisting_reserve_courtone($reservationid)
 	{
-        $checkresult = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 1)->group_by('reservation_date')->get();
+		$checkcurrent = $this->db->select('*')->from('courtone_reservation')->where('reservation_id', $reservationid)->get();
+		$resultcurrent = $checkcurrent->row();
+
+		$checkresult = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 1)->where('reservation_date', $resultcurrent->reservation_date)->get();
         $resultreserve = $checkresult->result();
+        // $checkresult = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 1)->group_by('reservation_date')->get();
+        // $resultreserve = $checkresult->result();
 
         $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
@@ -230,22 +235,24 @@ class Model_reservation extends CI_Model {
             }
         }
 
-       	foreach($resultreserve as $result)
-       	{
-	       	$reserveactualend = $result->reservation_end - 1;
-	        if($tdX[$result->reservation_start] == 1 || $tdX[$reserveactualend] == 1) 
-	        {
-	            return FALSE;
-	            break;
-	        }
-    	}
+       	$reserveactualend = $resultcurrent->reservation_end - 1;
+        if($tdX[$resultcurrent->reservation_start] == 1 || $tdX[$reserveactualend] == 1) 
+        {
+            return FALSE;
+        }
+
         return TRUE;
 	}
 
-	function checkexisting_reserve_courttwo()
+	function checkexisting_reserve_courttwo($reservationid)
 	{
-        $checkresult = $this->db->select('*')->from('courttwo_reservation')->where('reservation_status', 1)->group_by('reservation_date')->get();
+       $checkcurrent = $this->db->select('*')->from('courttwo_reservation')->where('reservation_id', $reservationid)->get();
+		$resultcurrent = $checkcurrent->row();
+
+		$checkresult = $this->db->select('*')->from('courttwo_reservation')->where('reservation_status', 1)->where('reservation_date', $resultcurrent->reservation_date)->get();
         $resultreserve = $checkresult->result();
+        // $checkresult = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 1)->group_by('reservation_date')->get();
+        // $resultreserve = $checkresult->result();
 
         $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
 
@@ -258,22 +265,24 @@ class Model_reservation extends CI_Model {
             }
         }
 
-       	foreach($resultreserve as $result)
-       	{
-	       	$reserveactualend = $result->reservation_end - 1;
-	        if($tdX[$result->reservation_start] == 1 || $tdX[$reserveactualend] == 1) 
-	        {
-	            return FALSE;
-	            break;
-	        }
-    	}
+       	$reserveactualend = $resultcurrent->reservation_end - 1;
+        if($tdX[$resultcurrent->reservation_start] == 1 || $tdX[$reserveactualend] == 1) 
+        {
+            return FALSE;
+        }
+
         return TRUE;
 	}
 
-	function checkexisting_reserve_clubhouse()
+	function checkexisting_reserve_clubhouse($reservationid)
 	{
-        $checkresult = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_status', 1)->group_by('reservation_date')->get();
+        $checkcurrent = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_id', $reservationid)->get();
+		$resultcurrent = $checkcurrent->row();
+
+		$checkresult = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_status', 1)->where('reservation_date', $resultcurrent->reservation_date)->get();
         $resultreserve = $checkresult->result();
+        // $checkresult = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 1)->group_by('reservation_date')->get();
+        // $resultreserve = $checkresult->result();
 
         $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
@@ -286,15 +295,12 @@ class Model_reservation extends CI_Model {
             }
         }
 
-       	foreach($resultreserve as $result)
-       	{
-	       	$reserveactualend = $result->reservation_end - 1;
-	        if($tdX[$result->reservation_start] == 1 || $tdX[$reserveactualend] == 1) 
-	        {
-	            return FALSE;
-	            break;
-	        }
-    	}
+       	$reserveactualend = $resultcurrent->reservation_end - 1;
+        if($tdX[$resultcurrent->reservation_start] == 1 || $tdX[$reserveactualend] == 1) 
+        {
+            return FALSE;
+        }
+
         return TRUE;
 	}
 
