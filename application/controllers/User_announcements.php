@@ -105,6 +105,7 @@ class User_Announcements extends MY_Controller{
     {
       if($query = $this->model_announcements_user->post_bulletin())
       {
+        $this->session->set_flashdata('bulletinfeedback', 'You have successfully posted the bulletin.');
         redirect('user_announcements/bulletin');
       }
     }
@@ -274,9 +275,17 @@ class User_Announcements extends MY_Controller{
   {
     if($this->model_announcements_user->url_check_bulletin($post_id))
     {
-      $this->model_announcements_user->delete_bulletin($post_id);
-      $this->session->set_flashdata('bulletinfeedback', 'You have successfully deleted your bulletin.');
-      redirect('user_announcements/bulletin');
+      if($this->model_announcements_user->url_usercheck_bulletin($post_id))
+      {
+        $this->model_announcements_user->delete_bulletin($post_id);
+        $this->session->set_flashdata('bulletinfeedback', 'You have successfully deleted your bulletin.');
+        redirect('user_announcements/bulletin');
+      }
+      else
+      {
+        $this->session->set_flashdata('bulletinfail', 'You can only delete your own bulletin.');
+        redirect('user_announcements/bulletin');
+      }
     }
     else
     {

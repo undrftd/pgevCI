@@ -205,9 +205,17 @@ class Admin_Announcements extends MY_Controller{
     $this->usertracking->track_this();
     if($this->model_announcements->url_check_post_id_bulletin($post_id))
     {
-      $this->model_announcements->delete_bulletin($post_id);
-      $this->session->set_flashdata('bulletinfeedback', 'You have successfully deleted the bulletin.');
-      redirect('admin_announcements/bulletin');
+      if($this->model_announcements_user->url_usercheck_bulletin($post_id))
+      {
+        $this->model_announcements->delete_bulletin($post_id);
+        $this->session->set_flashdata('bulletinfeedback', 'You have successfully deleted the bulletin.');
+        redirect('admin_announcements/bulletin');
+      }
+      else
+      {
+        $this->session->set_flashdata('bulletinfail', 'You can only delete your own bulletin.');
+        redirect('admin_announcements/bulletin');
+      }
     }
     else
     {
