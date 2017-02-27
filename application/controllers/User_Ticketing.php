@@ -46,7 +46,7 @@ class User_Ticketing extends MY_Controller {
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
         $this->form_validation->set_rules('type', 'Type of Request or Complaint', 'required');
-        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[20]');
+        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -56,7 +56,7 @@ class User_Ticketing extends MY_Controller {
         {
         	if ($_FILES && $_FILES['file']['name'] !== "")
         	{
-                        $real = realpath(APPPATH);
+                $real = realpath(APPPATH);
 		        $config['upload_path']          = $real . '/uploads/';
 		        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
 		        $config['max_size']             = '52428800';
@@ -97,7 +97,7 @@ class User_Ticketing extends MY_Controller {
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
-        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[20]');
+        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]');
         $this->form_validation->set_rules('datepick', 'Date', 'trim|required');
 
         if ($this->form_validation->run() == FALSE)
@@ -150,7 +150,7 @@ class User_Ticketing extends MY_Controller {
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
         $this->form_validation->set_rules('type', 'Type of Emergency', 'required');
-        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[20]');
+        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]');
 
         if ($this->form_validation->run() == FALSE)
         {

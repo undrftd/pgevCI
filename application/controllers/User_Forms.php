@@ -48,18 +48,18 @@ class User_Forms extends MY_Controller {
 
 	function download($filename) 
 	{
-                $real = realpath(APPPATH);
-                $path = $real . '/downloads/' . $filename;
-        $data = file_get_contents($path);
-		$name = $filename;
+      $real = realpath(APPPATH);
+      $path = $real . '/downloads/' . $filename;
+      $data = file_get_contents($path);
+		  $name = $filename;
 
 		force_download($name, $data);
 	}    
 
 	function upload_carsticker()
 	{
-                $real = realpath(APPPATH);
-		$config['upload_path']          = $real . '/uploads/';
+        $real = realpath(APPPATH);
+		    $config['upload_path']          = $real . '/uploads/';
         $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
         $config['max_size']             = '52428800';
         $config['max_width']            = 1920;
@@ -82,7 +82,8 @@ class User_Forms extends MY_Controller {
 
 	function upload_workpermit()
 	{
-		$config['upload_path']          = FCPATH . 'application\uploads';
+		    $real = realpath(APPPATH);
+        $config['upload_path']          = $real . '/uploads/';
         $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
         $config['max_size']             = '52428800';
         $config['max_width']            = 1920;
@@ -105,7 +106,8 @@ class User_Forms extends MY_Controller {
 
 	function upload_renovation()
 	{
-		$config['upload_path']          = FCPATH . 'application\uploads';
+		    $real = realpath(APPPATH);
+        $config['upload_path']          = $real . '/uploads/';
         $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
         $config['max_size']             = '52428800';
         $config['max_width']            = 1920;
