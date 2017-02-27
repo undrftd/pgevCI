@@ -53,7 +53,7 @@ class Model_announcements_user extends CI_Model
 	function post_bulletin()
   	{
 	    $post_bulletin = array(
-	      'username' => $this->session->userdata('username'),
+	      'userid' => $this->session->userdata('userid'),
 	      'post_title' => $this->input->post('post_title'),
 	      'post_date' =>  date('m/d/Y'),
      	  'post_time' => time(),
@@ -135,7 +135,7 @@ class Model_announcements_user extends CI_Model
   function save_bulletin($post_id)
   {
     $edit_bulletin = array(
-    'username' => $this->session->userdata('username'),
+    'userid' => $this->session->userdata('userid'),
     'post_title' => $this->input->post('post_title'),
     'post_content' => $this->input->post('post_content'),
     'post_date' =>  date('m/d/Y'),
