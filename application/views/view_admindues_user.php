@@ -132,7 +132,7 @@
 
     <div class="portlet-body">
 
-      <div class="row">
+      <div class="row text-center">
 
         <div class="dues-buttons">
 
