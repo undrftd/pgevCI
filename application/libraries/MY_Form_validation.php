@@ -90,14 +90,16 @@ class MY_Form_validation extends CI_Form_validation{
             }
         }
         
-        $reserveactualend = $reserveend - 1;
-        $reserveactualstart = $reservestart + 1;
 
-        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1 || $tdX[$reserveactualstart] == 1) {
+        for($i = $reservestart; $i < $reserveend; $i++)
+        {
+            if($checkstart->num_rows() > 0 || $tdX[$i] == 1) 
+            {
+                $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
 
-            $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
-
-            return FALSE;
+                return FALSE;
+                break;
+            }
         }
         return TRUE;
     }
@@ -116,21 +118,22 @@ class MY_Form_validation extends CI_Form_validation{
 
         foreach($resultreserve as $result)
         {
-            while($result->reservation_start <= $result->reservation_end)
+            while($result->reservation_start < $result->reservation_end)
             {
                 $tdX[$result->reservation_start] = 1;
                 $result->reservation_start++;
             }
         }
         
-        $reserveactualend = $reserveend - 1;
-        $reserveactualstart = $reservestart + 1;
+        for($i = $reservestart; $i < $reserveend; $i++)
+        {
+            if($checkstart->num_rows() > 0 || $tdX[$i] == 1) 
+            {
+                $this->set_message('unique_reserve_courttwo', 'This time schedule is already booked.');
 
-        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1 || $tdX[$reserveactualstart] == 1) {
-
-            $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
-
-            return FALSE;
+                return FALSE;
+                break;
+            }
         }
         return TRUE;
     }
@@ -149,21 +152,22 @@ class MY_Form_validation extends CI_Form_validation{
 
         foreach($resultreserve as $result)
         {
-            while($result->reservation_start <= $result->reservation_end)
+            while($result->reservation_start < $result->reservation_end)
             {
                 $tdX[$result->reservation_start] = 1;
                 $result->reservation_start++;
             }
         }
         
-        $reserveactualend = $reserveend - 1;
-        $reserveactualstart = $reservestart + 1;
+        for($i = $reservestart; $i < $reserveend; $i++)
+        {
+            if($checkstart->num_rows() > 0 || $tdX[$i] == 1) 
+            {
+                $this->set_message('unique_reserve_clubhouse', 'This time schedule is already booked.');
 
-        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1 || $tdX[$reserveactualstart] == 1) {
-
-            $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
-
-            return FALSE;
+                return FALSE;
+                break;
+            }
         }
         return TRUE;
     }
