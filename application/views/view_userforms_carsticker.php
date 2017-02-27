@@ -87,7 +87,7 @@
 
           <hr>
 
-          <form action="<?php echo base_url(); ?>user_forms/upload_carsticker" method="POST">
+          <?php echo form_open_multipart('user_forms/upload_carsticker');?>
 
             <div class="form-group">
 
@@ -101,7 +101,7 @@
 
             </div>
 
-          </form>
+          <?php echo form_close(); ?>
 
         </div>
 
