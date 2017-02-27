@@ -91,8 +91,9 @@ class MY_Form_validation extends CI_Form_validation{
         }
         
         $reserveactualend = $reserveend - 1;
+        $reserveactualstart = $reservestart + 1;
 
-        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1) {
+        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1 || $tdX[$reserveactualstart] == 1) {
 
             $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
 
@@ -123,10 +124,11 @@ class MY_Form_validation extends CI_Form_validation{
         }
         
         $reserveactualend = $reserveend - 1;
+        $reserveactualstart = $reservestart + 1;
 
-        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1) {
+        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1 || $tdX[$reserveactualstart] == 1) {
 
-            $this->set_message('unique_reserve_courttwo', 'This time schedule is already booked.');
+            $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
 
             return FALSE;
         }
@@ -155,14 +157,14 @@ class MY_Form_validation extends CI_Form_validation{
         }
         
         $reserveactualend = $reserveend - 1;
+        $reserveactualstart = $reservestart + 1;
 
-        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1) {
+        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1 || $tdX[$reserveactualstart] == 1) {
 
-            $this->set_message('unique_reserve_clubhouse', 'This time schedule is already booked.');
+            $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
 
             return FALSE;
         }
-        
         return TRUE;
     }
 }
