@@ -4,15 +4,15 @@ class Model_tracking_user extends CI_Model {
 
 	function get_recenttickets()
 	{
-		/*$this->db->select('*')->from('requests_complaints')->where('username', $this->session->userdata('username'))->order_by('ticketid',"desc")->limit(1,0);
+		/*$this->db->select('*')->from('requests_complaints')->where('userid', $this->session->userdata('userid'))->order_by('ticketid',"desc")->limit(1,0);
 		$query1 = $this->db->get_compiled_select();
 
-		$this->db->select('*')->from('emergency_ticket')->where('username', $this->session->userdata('username'))->order_by('ticketid',"desc")->limit(1,0);
+		$this->db->select('*')->from('emergency_ticket')->where('userid', $this->session->userdata('userid'))->order_by('ticketid',"desc")->limit(1,0);
 		$query2 = $this->db->get_compiled_select();
 
 		$query = $this->db->query($query1 . ' UNION ' . $query2);*/
 
-		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('username', $this->session->userdata('username'))->get('tickets', 5);
+		$query = $this->db->select('*')->order_by('ticketid',"desc")->where('userid', $this->session->userdata('userid'))->get('tickets', 5);
 		if($query->num_rows() > 0)
         {
             return $query->result();
@@ -26,7 +26,7 @@ class Model_tracking_user extends CI_Model {
 	function get_history($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('tickets')->order_by("date_requested desc")->where('username', $this->session->userdata('username'))->get();
+		$query = $this->db->select('*')->from('tickets')->order_by("date_requested desc")->where('userid', $this->session->userdata('userid'))->get();
 		
 		if($query->num_rows() > 0)
         {
@@ -40,13 +40,13 @@ class Model_tracking_user extends CI_Model {
 
 	function count_tickets()
     {
-        $query = $this->db->select('*')->from('tickets')->where('username', $this->session->userdata('username'))->get();
+        $query = $this->db->select('*')->from('tickets')->where('userid', $this->session->userdata('userid'))->get();
         return $query->num_rows();
     }
 
     function count_activetickets()
     {
-        $query = $this->db->select('*')->from('tickets')->where('username', $this->session->userdata('username'))->where('(status = 2 OR status = 1)')->get();
+        $query = $this->db->select('*')->from('tickets')->where('userid', $this->session->userdata('userid'))->where('(status = 2 OR status = 1)')->get();
         return $query->num_rows();
     }	
 

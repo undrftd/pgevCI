@@ -190,7 +190,7 @@
                             }  ?>
                   </td>
                   <td class="action-button">
-                    <a href="<?php echo base_url() ."admin_dues/viewdues_user/" . $row->username?>"> <button type="button" class="btn btn-custom-3"> View More </button> </a>
+                    <a href="<?php echo base_url() ."admin_dues/viewdues_user/" . $row->userid?>"> <button type="button" class="btn btn-custom-3"> View More </button> </a>
 
                   </td>
               </tr>

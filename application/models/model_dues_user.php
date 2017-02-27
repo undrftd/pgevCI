@@ -1,20 +1,7 @@
 <?php
 
 class Model_dues_user extends CI_Model{
-
-  function url_check_myaccount($username)
-  {
-    $query = $this->db->select('*')->where('username' , $username);
-    if ('username == $username')
-    {
-      return TRUE;
-    }
-    else
-    {
-      return FALSE;
-    }
-
-  }
+  
 
   function get_rate()
   {

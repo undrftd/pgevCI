@@ -330,27 +330,27 @@ class Model_accounts extends CI_Model {
 
     }
 
-    function viewmore_user($username)
+    function viewmore_user($userid)
     {
-         $query= $this->db->select('*')->where('username', $username)->where('role', 0)->get('accounts',1);
+         $query= $this->db->select('*')->where('userid', $userid)->where('role', 0)->get('accounts',1);
          return $query->row();
     }
 
-    function viewmore_admin($username)
+    function viewmore_admin($userid)
     {
-         $query= $this->db->select('*')->where('username', $username)->where('role', 1)->get('accounts',1);
+         $query= $this->db->select('*')->where('userid', $userid)->where('role', 1)->get('accounts',1);
          return $query->row();
     }
 
-    function viewmore_deact($username)
+    function viewmore_deact($userid)
     {
-         $query= $this->db->select('*')->where('username', $username)->where('isActive', 0)->get('accounts',1);
+         $query= $this->db->select('*')->where('userid', $userid)->where('isActive', 0)->get('accounts',1);
          return $query->row();
     }
 
-    function url_check_myaccount($username)
+    function url_check_myaccount($userid)
     {
-        if($username == $this->session->userdata('username'))
+        if($userid == $this->session->userdata('userid'))
         {
             return TRUE;
         }
@@ -360,14 +360,14 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function url_check_user($username)
+    function url_check_user($userid)
     {
-        $query= $this->db->select('username')->where('username', $username)->where('role', 0)->where('isActive', 1)->get('accounts',1);
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1);
         $row = $query->row();
 
         if($query->num_rows() > 0)
         {
-            if($username == $row->username)
+            if($userid == $row->userid)
             {
                 return TRUE;
             }
@@ -382,14 +382,14 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function url_check_admin($username)
+    function url_check_admin($userid)
     {
-        $query= $this->db->select('username')->where('username', $username)->where('role', 1)->where('isActive', 1)->get('accounts',1);
+        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts',1);
         $row = $query->row();
 
         if($query->num_rows() > 0)
         {
-            if($username == $row->username)
+            if($userid == $row->userid)
             {
                  return TRUE;
             }
@@ -404,14 +404,14 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function url_check_deact($username)
+    function url_check_deact($userid)
     {
-        $query= $this->db->select('username')->where('username', $username)->where('isActive', 0)->get('accounts',1);
+        $query= $this->db->select('userid')->where('userid', $userid)->where('isActive', 0)->get('accounts',1);
         $row = $query->row();
 
         if($query->num_rows() > 0)
         {
-            if($username == $row->username)
+            if($userid == $row->userid)
             {
                  return TRUE;
             }
@@ -426,14 +426,14 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function acc_delete($username)
+    function acc_delete($userid)
     {
-        $this->db->where('username', $username);
+        $this->db->where('userid', $userid);
         $delete = $this->db->delete('accounts');
         return $delete;
     }
 
-    function acc_update($username)
+    function acc_update($userid)
     {
          $account_update_data = array(
             'firstname' => $this->input->post('firstname'),
@@ -445,7 +445,7 @@ class Model_accounts extends CI_Model {
             'role' => $this->input->post('role')
         );
 
-         $account_update_other = array(
+        /* $account_update_other = array(
             'username' => $this->input->post('username')
         );
 
@@ -466,14 +466,14 @@ class Model_accounts extends CI_Model {
          $this->db->where('username', $username);
          $this->db->update('courttwo_reservation', $account_update_other);
          $this->db->where('username', $username);
-         $this->db->update('tickets', $account_update_other);
+         $this->db->update('tickets', $account_update_other);*/
          
-         $this->db->where('username', $username);
+         $this->db->where('userid', $userid);
          return $this->db->update('accounts', $account_update_data);
          
      }
 
-    function myaccount_update($username)
+    function myaccount_update($userid)
     {
          $account_update_data = array(
             'firstname' => $this->input->post('firstname'),
@@ -495,34 +495,34 @@ class Model_accounts extends CI_Model {
             'contactnum' => $this->input->post('contactnum'),
         );
 
-         $account_update_other = array(
+         /*$account_update_other = array(
             'username' => $this->input->post('username')
-        );
+        ); */
          
          $this->session->set_userdata($password_update_data);
 
-         $this->db->where('username', $username);
+         $this->db->where('userid', $userid);
          $this->db->update('announcements', $account_update_other);
-         $this->db->where('username', $username);
+         $this->db->where('userid', $userid);
          $this->db->update('bulletin', $account_update_other);
-         $this->db->where('username', $username);
+         $this->db->where('userid', $userid);
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
     }
 
 
-    function acc_deact($username)
+    function acc_deact($userid)
     {
         $account_deact_data = array('isActive' => 0);
-        $this->db->where('username', $username);
+        $this->db->where('userid', $userid);
         $deact = $this->db->update('accounts', $account_deact_data);
         return $deact;
     }
 
-    function acc_reactivate($username)
+    function acc_reactivate($userid)
     {
         $account_react_data = array('isActive' => 1);
-        $this->db->where('username', $username);
+        $this->db->where('userid', $userid);
         $reactivate = $this->db->update('accounts', $account_react_data);
         return $reactivate;
     }

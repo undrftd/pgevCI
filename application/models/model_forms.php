@@ -5,7 +5,7 @@ class Model_forms extends CI_Model {
 	function get_carsticker($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.username = upload_carsticker.username' )->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -19,20 +19,20 @@ class Model_forms extends CI_Model {
 
 	function count_carsticker()
 	{
-		$query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.username = upload_carsticker.username' )->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->get();
 		return $query->num_rows();
 	}
 
     function count_downloadedsticker()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.username = upload_carsticker.username' )->where('status', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 1)->get();
         return $query->num_rows();
     }
 
 	function get_workpermit($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.username = upload_workpermit.username' )->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -46,20 +46,20 @@ class Model_forms extends CI_Model {
 
 	function count_workpermit()
 	{
-		$query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.username = upload_workpermit.username' )->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->get();
 		return $query->num_rows();
 	}
 
     function count_downloadedpermit()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.username = upload_workpermit.username' )->where('status', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 1)->get();
         return $query->num_rows();
     }
 
 	function get_renovation($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.username = upload_renovation.username' )->where('status', 1)->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 1)->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -73,13 +73,13 @@ class Model_forms extends CI_Model {
 
 	function count_renovation()
 	{
-		$query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.username = upload_renovation.username' )->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->get();
 		return $query->num_rows();
 	}
 
     function count_downloadedrenovation()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.username = upload_renovation.username' )->where('status', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 1)->get();
         return $query->num_rows();
     }
 
@@ -153,7 +153,7 @@ class Model_forms extends CI_Model {
     {
          $query = $this->db->select('*')
                             ->from('accounts')
-                            ->join('upload_carsticker', 'accounts.username = upload_carsticker.username' )
+                            ->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )
                             ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
          return $query->num_rows();
     }
@@ -162,7 +162,7 @@ class Model_forms extends CI_Model {
     {
          $query = $this->db->select('*')
                             ->from('accounts')
-                            ->join('upload_workpermit', 'accounts.username = upload_workpermit.username' )
+                            ->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )
                             ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
          return $query->num_rows();
     }
@@ -171,7 +171,7 @@ class Model_forms extends CI_Model {
     {
          $query = $this->db->select('*')
                             ->from('accounts')
-                            ->join('upload_renovation', 'accounts.username = upload_renovation.username' )
+                            ->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )
                             ->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE)->get(); 
          return $query->num_rows();
     }
@@ -179,7 +179,7 @@ class Model_forms extends CI_Model {
     function search_carsticker($searchquery)
     {
       $this->db->select('*')->from('accounts');
-      $this->db->join('upload_carsticker', 'accounts.username = upload_carsticker.username' );
+      $this->db->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' );
       $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
 
@@ -196,7 +196,7 @@ class Model_forms extends CI_Model {
     function search_workpermit($searchquery)
     {
       $this->db->select('*')->from('accounts');
-      $this->db->join('upload_workpermit', 'accounts.username = upload_workpermit.username' );
+      $this->db->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' );
       $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
 
@@ -213,7 +213,7 @@ class Model_forms extends CI_Model {
     function search_renovation($searchquery)
     {
       $this->db->select('*')->from('accounts');
-      $this->db->join('upload_renovation', 'accounts.username = upload_renovation.username' );
+      $this->db->join('upload_renovation', 'accounts.userid = upload_renovation.userid' );
       $this->db->where('(CONCAT(firstname," ",lastname) LIKE "%'.$searchquery .'%" OR firstname LIKE "%'.$searchquery .'%" OR lastname LIKE "%'.$searchquery .'%" OR accounts.username LIKE "%'.$searchquery .'%" OR address LIKE "%'.$searchquery .'%" )',NULL,FALSE);
       $query = $this->db->get();
 
@@ -295,9 +295,9 @@ class Model_forms extends CI_Model {
 
 function count_allnewforms()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.username = upload_carsticker.username' )->where('status', 1)->get();
-        $query2 = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.username = upload_workpermit.username' )->where('status', 1)->get();
-        $query3 = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.username = upload_renovation.username' )->where('status', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 1)->get();
+        $query2 = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 1)->get();
+        $query3 = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 1)->get();
         
         $result = $query->num_rows() + $query2->num_rows() + $query3->num_rows();
         return $result;

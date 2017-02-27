@@ -46,7 +46,7 @@ class User_Accounts extends MY_Controller {
         return ( ! preg_match("/^([-0-9()])+$/i", $str)) ? FALSE : TRUE;
     }
 
-    function update_useraccount($username)
+    function update_useraccount($userid)
     {
       $this->form_validation->set_error_delimiters('<div class="error">','</div>');
       $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -56,7 +56,7 @@ class User_Accounts extends MY_Controller {
 
       $this->form_validation->set_rules('password', 'Password', 'required|min_length[7]');
       $this->form_validation->set_rules('cpassword', 'Password', 'required|matches[password]');
-      $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$username.']');
+      $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$userid.']');
       $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
 
       if ($this->form_validation->run() == FALSE)
@@ -65,7 +65,7 @@ class User_Accounts extends MY_Controller {
       }
       else
       {
-          if($query = $this->model_accounts_user->myaccount_userupdate($username))
+          if($query = $this->model_accounts_user->myaccount_userupdate($userid))
            {
               $this->session->set_flashdata('accountsfeedback', 'You have successfully updated your account.');
               redirect('user_accounts');

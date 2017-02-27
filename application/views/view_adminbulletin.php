@@ -131,7 +131,7 @@
 
                   <h4><?php echo $row->post_title ?> </h4>
                   <p><small class="date-archive"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;  <?php echo date("F d, Y", strtotime($row->post_date)) . " at " . date("g:i A", $row->post_time);?></small> </p>
-                  <p class="date-posted"> <?php if($row->username == $this->session->userdata('username')) { echo "You said "; } else { echo $row->firstname . " " . $row->lastname .  " said"; }?> </p>
+                  <p class="date-posted"> <?php if($row->userid == $this->session->userdata('userid')) { echo "You said "; } else { echo $row->firstname . " " . $row->lastname .  " said"; }?> </p>
                   <hr>
                   <p> <?php echo substr($row->post_content, 0, 250); if(strlen($row->post_content) > 250) {echo "..."; } else { echo ""; } ?> </p>
                   <hr>
@@ -142,7 +142,7 @@
 
                       <?php
 
-                        if ($row->username !== $this->session->userdata('username'))
+                        if ($row->userid !== $this->session->userdata('userid'))
                         {
                           echo '<div class="col-xs-12 nopadding">';
                           echo "<a href='" . site_url() . "admin_announcements/viewmore_bulletin/" . $row->post_id ."'><p>Read More</p></a>";

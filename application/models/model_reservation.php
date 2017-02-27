@@ -70,7 +70,7 @@ class Model_reservation extends CI_Model {
 	function getreservation_courtone($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('courtone_reservation')->join('accounts', 'accounts.username = courtone_reservation.username')->order_by("reservation_status desc, reservation_date asc")->get();
+		$query = $this->db->select('*')->from('courtone_reservation')->join('accounts', 'accounts.userid = courtone_reservation.userid')->order_by("reservation_status desc, reservation_date asc")->get();
 		return  $query->result();
 	}
 
@@ -83,7 +83,7 @@ class Model_reservation extends CI_Model {
 	function getreservation_courttwo($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('courttwo_reservation')->join('accounts', 'accounts.username = courttwo_reservation.username')->order_by("reservation_status desc, reservation_date asc")->get();
+		$query = $this->db->select('*')->from('courttwo_reservation')->join('accounts', 'accounts.userid = courttwo_reservation.userid')->order_by("reservation_status desc, reservation_date asc")->get();
 		return  $query->result();
 	}
 
@@ -96,7 +96,7 @@ class Model_reservation extends CI_Model {
 	function getreservation_clubhouse($limit, $offset)
 	{
 		$this->db->limit($limit,$offset);
-		$query = $this->db->select('*')->from('clubhouse_reservation')->join('accounts', 'accounts.username = clubhouse_reservation.username')->order_by("reservation_status desc, reservation_date asc")->get();
+		$query = $this->db->select('*')->from('clubhouse_reservation')->join('accounts', 'accounts.userid = clubhouse_reservation.userid')->order_by("reservation_status desc, reservation_date asc")->get();
 		return  $query->result();
 	}
 
@@ -108,7 +108,7 @@ class Model_reservation extends CI_Model {
 
 	function getcourtone_availability($searchquery)
 	{
-		$query = $this->db->select('*')->from('courtone_reservation')->join('accounts', 'accounts.username = courtone_reservation.username')->where('reservation_date', $searchquery)->get();
+		$query = $this->db->select('*')->from('courtone_reservation')->join('accounts', 'accounts.userid = courtone_reservation.userid')->where('reservation_date', $searchquery)->get();
 		
 		if($query->num_rows() > 0)
 		{
@@ -122,7 +122,7 @@ class Model_reservation extends CI_Model {
 
 	function getcourttwo_availability($searchquery)
 	{
-		$query = $this->db->select('*')->from('courttwo_reservation')->join('accounts', 'accounts.username = courttwo_reservation.username')->where('reservation_date', $searchquery)->get();
+		$query = $this->db->select('*')->from('courttwo_reservation')->join('accounts', 'accounts.userid = courttwo_reservation.userid')->where('reservation_date', $searchquery)->get();
 		
 		if($query->num_rows() > 0)
 		{
@@ -136,7 +136,7 @@ class Model_reservation extends CI_Model {
 
 	function getclubhouse_availability($searchquery)
 	{
-		$query = $this->db->select('*')->from('clubhouse_reservation')->join('accounts', 'accounts.username = clubhouse_reservation.username')->where('reservation_date', $searchquery)->get();
+		$query = $this->db->select('*')->from('clubhouse_reservation')->join('accounts', 'accounts.userid = clubhouse_reservation.userid')->where('reservation_date', $searchquery)->get();
 		
 		if($query->num_rows() > 0)
 		{

@@ -53,10 +53,10 @@ class Admin_Profile extends MY_Controller{
         return ( !preg_match('/^[a-z,. 0-9 \-]+$/i',$str)) ? FALSE : TRUE;
     }
 
-	function update_account($username)
+	function update_account($userid)
 	{
 		$this->usertracking->track_this();
-		if($this->model_accounts->url_check_myaccount($username))
+		if($this->model_accounts->url_check_myaccount($userid))
 		{
 			$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 	        $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -66,7 +66,7 @@ class Admin_Profile extends MY_Controller{
 
 	        $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
 	        $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
-	        $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$username.']');
+	        $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']');
 	        $this->form_validation->set_rules('password', 'Password', 'required');
 	        $this->form_validation->set_rules('passconf', 'Password', 'required|matches[password]');
 	        $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma');
@@ -82,7 +82,7 @@ class Admin_Profile extends MY_Controller{
 	        }
 	        else
 	        {
-	            if($query = $this->model_accounts->myaccount_update($username))
+	            if($query = $this->model_accounts->myaccount_update($userid))
 	             {
 	                $this->session->set_flashdata('profilefeedback', 'You have successfully updated the account.');
 	                redirect('admin_profile');
