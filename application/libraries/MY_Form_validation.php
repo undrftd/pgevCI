@@ -79,26 +79,20 @@ class MY_Form_validation extends CI_Form_validation{
 
         $checkresult = $this->CI->db->get_where('courtone_reservation', array('reservation_date' => $reservedate, 'reservation_status' => 1));
         $resultreserve = $checkresult->result();
-        $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+        $tdX = array(0,0,0,0,0,0,0,0,0,0);
 
         foreach($resultreserve as $result)
         {
-            while($result->reservation_start < $result->reservation_end)
+            while($result->reservation_start <= $result->reservation_end)
             {
                 $tdX[$result->reservation_start] = 1;
                 $result->reservation_start++;
-
-                if($result->reservation_end == '10')
-                {
-                    $tdX[$reserveend] = 1;
-                }
             }
         }
         
-        $reserveactualstart = $reservestart + 1;
         $reserveactualend = $reserveend - 1;
 
-        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1 || $tdX[$reserveend] == 1 || $tdX[$reserveactualstart] == 1) {
+        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1) {
 
             $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
 
@@ -117,23 +111,22 @@ class MY_Form_validation extends CI_Form_validation{
 
         $checkresult = $this->CI->db->get_where('courttwo_reservation', array('reservation_date' => $reservedate, 'reservation_status' => 1));
         $resultreserve = $checkresult->result();
-        $tdX = array(0,0,0,0,0,0,0,0,0,0,0);
+        $tdX = array(0,0,0,0,0,0,0,0,0,0);
 
         foreach($resultreserve as $result)
         {
-            while($result->reservation_start < $result->reservation_end)
+            while($result->reservation_start <= $result->reservation_end)
             {
                 $tdX[$result->reservation_start] = 1;
                 $result->reservation_start++;
             }
         }
         
-        $reserveactualstart = $reservestart + 1;
         $reserveactualend = $reserveend - 1;
 
-        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1 || $tdX[$reserveend] == 1 || $tdX[$reserveactualstart] == 1) {
+        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1) {
 
-            $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
+            $this->set_message('unique_reserve_courttwo', 'This time schedule is already booked.');
 
             return FALSE;
         }
@@ -150,27 +143,25 @@ class MY_Form_validation extends CI_Form_validation{
 
         $checkresult = $this->CI->db->get_where('clubhouse_reservation', array('reservation_date' => $reservedate, 'reservation_status' => 1));
         $resultreserve = $checkresult->result();
-        $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        $tdX = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
         foreach($resultreserve as $result)
         {
-            while($result->reservation_start < $result->reservation_end)
+            while($result->reservation_start <= $result->reservation_end)
             {
                 $tdX[$result->reservation_start] = 1;
                 $result->reservation_start++;
             }
         }
         
-        $reserveactualstart = $reservestart + 1;
         $reserveactualend = $reserveend - 1;
 
-        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1 || $tdX[$reserveend] == 1 || $tdX[$reserveactualstart] == 1) {
+        if($checkstart->num_rows() > 0 || $tdX[$reservestart] == 1 || $tdX[$reserveactualend] == 1) {
 
-            $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
+            $this->set_message('unique_reserve_clubhouse', 'This time schedule is already booked.');
 
             return FALSE;
         }
-        return TRUE;
         
         return TRUE;
     }
