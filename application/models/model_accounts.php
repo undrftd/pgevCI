@@ -330,27 +330,27 @@ class Model_accounts extends CI_Model {
 
     }
 
-    function viewmore_user($userid)
+    function viewmore_user($username)
     {
-         $query= $this->db->select('*')->where('userid', $userid)->where('role', 0)->get('accounts',1);
+         $query= $this->db->select('*')->where('username', $username)->where('role', 0)->get('accounts',1);
          return $query->row();
     }
 
-    function viewmore_admin($userid)
+    function viewmore_admin($username)
     {
-         $query= $this->db->select('*')->where('userid', $userid)->where('role', 1)->get('accounts',1);
+         $query= $this->db->select('*')->where('username', $username)->where('role', 1)->get('accounts',1);
          return $query->row();
     }
 
-    function viewmore_deact($userid)
+    function viewmore_deact($username)
     {
-         $query= $this->db->select('*')->where('userid', $userid)->where('isActive', 0)->get('accounts',1);
+         $query= $this->db->select('*')->where('username', $username)->where('isActive', 0)->get('accounts',1);
          return $query->row();
     }
 
-    function url_check_myaccount($userid)
+    function url_check_myaccount($username)
     {
-        if($userid == $this->session->userdata('userid'))
+        if($username == $this->session->userdata('username'))
         {
             return TRUE;
         }
@@ -360,14 +360,14 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function url_check_user($userid)
+    function url_check_user($username)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 0)->where('isActive', 1)->get('accounts',1);
+        $query= $this->db->select('username')->where('username', $username)->where('role', 0)->where('isActive', 1)->get('accounts',1);
         $row = $query->row();
 
         if($query->num_rows() > 0)
         {
-            if($userid == $row->userid)
+            if($username == $row->username)
             {
                 return TRUE;
             }
@@ -382,14 +382,14 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function url_check_admin($userid)
+    function url_check_admin($username)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->where('role', 1)->where('isActive', 1)->get('accounts',1);
+        $query= $this->db->select('username')->where('username', $username)->where('role', 1)->where('isActive', 1)->get('accounts',1);
         $row = $query->row();
 
         if($query->num_rows() > 0)
         {
-            if($userid == $row->userid)
+            if($username == $row->username)
             {
                  return TRUE;
             }
@@ -404,14 +404,14 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function url_check_deact($userid)
+    function url_check_deact($username)
     {
-        $query= $this->db->select('userid')->where('userid', $userid)->where('isActive', 0)->get('accounts',1);
+        $query= $this->db->select('username')->where('username', $username)->where('isActive', 0)->get('accounts',1);
         $row = $query->row();
 
         if($query->num_rows() > 0)
         {
-            if($userid == $row->userid)
+            if($username == $row->username)
             {
                  return TRUE;
             }
@@ -426,14 +426,14 @@ class Model_accounts extends CI_Model {
         }
     }
 
-    function acc_delete($userid)
+    function acc_delete($username)
     {
-        $this->db->where('userid', $userid);
+        $this->db->where('username', $username);
         $delete = $this->db->delete('accounts');
         return $delete;
     }
 
-    function acc_update($userid)
+    function acc_update($username)
     {
          $account_update_data = array(
             'firstname' => $this->input->post('firstname'),
@@ -468,12 +468,12 @@ class Model_accounts extends CI_Model {
          $this->db->where('username', $username);
          $this->db->update('tickets', $account_update_other);*/
          
-         $this->db->where('userid', $userid);
+         $this->db->where('username', $username);
          return $this->db->update('accounts', $account_update_data);
          
      }
 
-    function myaccount_update($userid)
+    function myaccount_update($username)
     {
          $account_update_data = array(
             'firstname' => $this->input->post('firstname'),
@@ -501,35 +501,35 @@ class Model_accounts extends CI_Model {
          
          $this->session->set_userdata($password_update_data);
 
-         $this->db->where('userid', $userid);
+         $this->db->where('username', $username);
          $this->db->update('announcements', $account_update_other);
-         $this->db->where('userid', $userid);
+         $this->db->where('username', $username);
          $this->db->update('bulletin', $account_update_other);
-         $this->db->where('userid', $userid);
+         $this->db->where('username', $username);
          $update = $this->db->update('accounts', $account_update_data);
          return $update;
     }
 
 
-    function acc_deact($userid)
+    function acc_deact($username)
     {
         $account_deact_data = array('isActive' => 0);
-        $this->db->where('userid', $userid);
+        $this->db->where('username', $username);
         $deact = $this->db->update('accounts', $account_deact_data);
         return $deact;
     }
 
-    function acc_reactivate($userid)
+    function acc_reactivate($username)
     {
         $account_react_data = array('isActive' => 1);
-        $this->db->where('userid', $userid);
+        $this->db->where('username', $username);
         $reactivate = $this->db->update('accounts', $account_react_data);
         return $reactivate;
     }
 
      function checksession()
     {
-        $query = $this->db->select('*')->from('accounts')->where('userid', $this->session->userdata('userid'))->get();
+        $query = $this->db->select('*')->from('accounts')->where('username', $this->session->userdata('username'))->get();
 
         return $query->row();
     }
