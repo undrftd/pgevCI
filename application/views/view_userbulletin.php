@@ -138,30 +138,22 @@
                     <hr>
 
                     <div class="more-link">
-                    
-                      <div class="row">
 
-                        <?php
+                      <?php
 
-                          if ($row->userid !== $this->session->userdata('userid'))
-                          {
-                            echo '<div class="col-xs-12 nopadding">';
-                            echo "<a href='" . site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id ."'><p>Read More</p></a>";
-                            echo '</div>';
-                          }
-                          else
-                          {
-                            echo '<div class="col-xs-6 col-lg-6 nopadding">';
-                            echo "<a href='" . site_url() . "user_announcements/edit_bulletin/" . $row->post_id . "'><p>Edit</p></a>";
-                            echo '</div>';
-                            echo '<div class="col-xs-6 col-lg-6 nopadding">';
-                            echo "<a data-href='" . site_url() . "user_announcements/delete_bulletin/" . $row->post_id . "' data-toggle='modal' data-target='#delete-modal'><p><span class='glyphicon glyphicon-trash btn-sm' aria-hidden='true'></span> Delete</p></a>";
-                            echo '</div>';
-                          }
+                        if ($row->userid !== $this->session->userdata('userid'))
+                        {
+                          echo "<a href='" . site_url() . "user_announcements/viewmore_bulletin/" . $row->post_id ."'><p>Read More</p></a>";
+                        }
+                        else
+                        {
+                          echo '<div class="user-buttons">';
+                          echo "<a href='" . site_url() . "user_announcements/edit_bulletin/" . $row->post_id . "'><p><i class='material-icons'>create</i></p></a>";
+                          echo "<a data-href='" . site_url() . "user_announcements/delete_bulletin/" . $row->post_id . "' data-toggle='modal' data-target='#delete-modal'><p><i class='material-icons'>delete</i></p></a>";
+                          echo '</div>';
+                        }
 
-                          ?>
-
-                      </div>
+                        ?>
 
                     </div>
 
