@@ -116,7 +116,7 @@
 
       <div class="tab-content">
 
-        <div class="court-message">
+        <div class="announcement-message">
           <p> Here, you can view the status of your current reservations. Kindly keep track of this table to be informed whether your request has been accepted. Thank you!
           </p>
           <p> Go to: <a href="<?php echo site_url(); ?>user_reservation/reservations_courtone" class="a-links">Court 1</a>, <a href="<?php echo site_url(); ?>user_reservation/reservations_courttwo" class="a-links">Court 2</a>, <a href="<?php echo site_url(); ?>user_reservation/reservations_clubhouse" class="a-links">Clubhouse</a>

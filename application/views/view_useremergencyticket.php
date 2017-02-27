@@ -69,7 +69,7 @@
               </select>
               <p class="error"><?php echo form_error('type'); ?> </p>
 
-            </div>
+            </div><br>
 
             <div class="form-group">
               <p> Message </p>
@@ -77,16 +77,28 @@
               <p class="error"><?php echo form_error('content'); ?> </p>
             </div>
 
+            <br>
+
             <div class="form-group">
               <p>Attachment</p>
 
-             <input type="file" name="file" size="20" id="exampleInputFile"/>
+              <div id="fileList"></div>
               <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg </p>
             </div>
 
-            <br><br>
+            <hr>
 
-            <button type="submit" class="btn btn-custom-5">Send</button>
+            <div class="form-group">
+
+              <div class="user-buttons">
+
+                <input type="file" name="file" id="file" style="display: none;" multiple onchange="javascript:updateList()" />
+                <button type="button" onclick="document.getElementById('file').click();" class="btn btn-custom-1"><i class="material-icons">attach_file</i></button></a>
+                <button type="submit" class="btn btn-custom">Send</button>
+
+              </div>
+
+            </div>
 
           </form>
 

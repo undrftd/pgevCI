@@ -81,7 +81,12 @@
 					<div class="court-message">
             <p> <?php $filename='Renovation.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links"> Download Renovation Form </a>
             </p>
-						<div id="fileList"></div>
+						<div class="form-group">
+              <p>Attachment</p>
+
+              <div id="fileList"></div>
+              <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg </p>
+            </div>
           </div>
 
           <hr>
