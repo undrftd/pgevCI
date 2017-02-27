@@ -218,6 +218,11 @@ h1 {
   justify-content: flex-end;
 }
 
+.user-buttons .btn-custom-1 {
+  margin: 0 10px;
+  color: #b3b3b3;
+}
+
 .information-add {
   padding: 25px;
   background-color: #f2f2f2;

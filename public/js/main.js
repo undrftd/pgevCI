@@ -30,6 +30,18 @@ $(document).ready(function(){
   });
 });
 
+updateList = function() {
+  var input = document.getElementById('file');
+  var output = document.getElementById('fileList');
+
+  output.innerHTML = '<p style="float: right;">';
+  for (var i = 0; i < input.files.length; ++i) {
+    output.innerHTML += '<span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;<small> ' + input.files.item(i).name + '</small>';
+  }
+  output.innerHTML += '</p>';
+}
+
+
 $('#myModal').modal() // initialized with defaults
 
 function undisableField() {
@@ -88,7 +100,7 @@ function calculateSum() {
 function myFunction() {
   var ask = window.confirm("Warning: This ticket is solely used for emergenices such as: Fire, Robbery, Broken House Tubes, and Suspicious People that may cause trouble. If it is not in the categories provided, the ticket will be disregarded. \n\nKindly click OK to continue your request.");
       if (ask) {
-          window.location.href = "/user_ticketing/emergency_ticket";
+          window.location.href = "http://localhost/pgevCI/user_ticketing/emergency_ticket";
       }
 }
 

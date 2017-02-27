@@ -78,23 +78,26 @@
             <div class="court-message">
               <p> <?php $filename='Work_Permit.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links"> Download Work Permit Form </a>
               </p>
+              <div id="fileList"></div>
             </div>
 
-            <hr><br>
+            <hr>
+
+            <form action="<?php echo base_url(); ?>user_forms/upload_workpermit" method="POST">
 
               <div class="form-group">
 
-                <h4>Attach file</h4>
+                <div class="user-buttons">
 
-                <?php echo form_open_multipart('user_forms/upload_workpermit');?>
-                <input type="file" name="file" id="exampleInputFile">
-                <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg  </p>
+                  <input type="file" name="file" id="file" style="display: none;" multiple onchange="javascript:updateList()" />
+                  <button type="button" onclick="document.getElementById('file').click();" class="btn btn-custom-1"><i class="material-icons">attach_file</i></button></a>
+                  <button name ="upload" type="submit" class="btn btn-custom">Send</button></a>
+
+                </div>
 
               </div>
 
-              <br><br>
-
-              <button name ="upload" type="submit" class="btn btn-custom">Send</button></a><br>
+            </form>
 
           </div>
 
