@@ -402,6 +402,9 @@ h1 {
   font-size: 0.90em;
   color: #27ae60;
   font-weight: 300;
+  padding: 10px 25px;
+  border: 1px solid #27ae60;
+  border-radius: 0;
 }
 
 .btn-custom-4:hover {
