@@ -77,7 +77,7 @@
       <p class="footer-note text-center"> This website serves as the Community Relationship Management System of the Parkwood Greens Executive Village located in Pasig, Manila.
         For more inquiries, please contact our administrator through this number: 576-4263 </p>
 
-      <p class="footer-note-1 text-center"> &copy; 2017 Parkwood Greens </p>
+      <p class="footer-note-1 text-center"> &copy; 2017 Parkwood Greens </p><br><br>
 
     </div>
 
