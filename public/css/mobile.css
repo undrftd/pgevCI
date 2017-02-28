@@ -9,18 +9,44 @@
     padding: 20px;
   }
 
-  .court-message {
-    display: block;
-  }
-
   .court-message .form-group {
-    margin: 0;
+    margin: 20px 0;
     padding: 0;
     border: 0;
   }
 
   .login-form {
-    margin: 20px 0;
+    margin: 10px 0;
+    padding: 30px 25px;
+  }
+
+  .header-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form-group p {
+    font-size: 0.90em;
+  }
+
+  .form-group h4, .admin-message h4, .announcement-message h4, .modal-content h4, .tab-content h4 {
+    font-size: 1em;
+  }
+
+  .sign-in, .forgot-password-1, .court-message {
+    display: block;
+  }
+
+  .mobile-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px 5px 5px;
+  }
+
+  .header, .btn-custom-4, .forgot-password {
+    display: none;
   }
 
 }
