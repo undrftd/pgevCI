@@ -60,7 +60,7 @@
 
       <div class="admin-message text-center">
 
-        <p> Note: Below are the last five tickets you have recently submitted. In order to have a detailed history of your ticket submissions, click the "View History" button below. For further concerns, kidnly contact
+        <p> Note: Below are the last five tickets you have recently submitted. In order to have a detailed history of your ticket submissions, click the "View History" button below. For further concerns, kindly contact
           us through the number given below.
           <p> Parkwood Greens Executive Village Administrators: <strong>576-4263 </strong> </p>
         </p>

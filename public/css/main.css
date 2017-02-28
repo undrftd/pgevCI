@@ -918,13 +918,12 @@ hr.colored-hr-1 {
 /*new login form */
 
 .header {
-  margin-top: 5px;
   background-color: white;
 }
 
 .header h2 {
   font-family: 'League-Gothic', sans-serif;
-  font-size: 3.25em;
+  font-size: 3em;
   text-transform: uppercase;
   padding: 5px;
 }
@@ -936,15 +935,51 @@ hr.colored-hr-1 {
 }
 
 .login-content {
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
 }
 
 .login-form {
-    padding: 40px;
+    padding: 50px 40px;
     background: white;
     font-family: 'Roboto';
     font-size: 1.1em;
     width: 100%;
+    border-radius: 2px;
+    transition: all 400ms ease-in-out;
+    position: relative;
+    margin: 50px 0;
+}
+
+.login-form:hover {
+  -webkit-box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
+-moz-box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
+box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
+}
+
+.forgot-password {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #e6e6e6;
+  padding: 10px 15px;
+  transition: all 400ms ease-in-out;
+}
+
+.forgot-password:hover {
+  background: #d9d9d9;
+}
+
+.forgot-password a {
+  color: #999;
+  font-size: 0.85em;
+}
+
+.forgot-password a:hover {
+  text-decoration: none;
+}
+
+.forgot-hr {
+  border: 0.5px solid rgba(0,0,0,.05);
 }
 
 .login-form button {
@@ -954,20 +989,44 @@ hr.colored-hr-1 {
 }
 
 .error-login {
-  padding: 20px;
-  padding-bottom: 40px;
-  background-color: white;
-  color: #e74c3c;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 1em;
-  text-align: center;
-  font-family: 'Rubik', sans-serif;
+  background-color: #e74c3c;
+  text-align: justify;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: -58px;
+  padding: 10px 15px;
+  font-size: 0.85em;
+  animation: login-fail 1s 1;
+  -webkit-animation: login-fail 1s 1;
+  animation-fill-mode: forwards;
+
+  animation-delay:5.5s;
+  -webkit-animation-delay:5.5s; /* Safari and Chrome */
+  -webkit-animation-fill-mode: forwards;
+  transform-origin: bottom center;
+  transition-timing-function: ease-in-out;
+}
+
+@keyframes login-fail{
+    0% {
+      opacity: 0.8;
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(1500px);
+    }
 }
 
 .footer-note {
   font-family: 'Rubik', sans-serif;
   margin-bottom: 15px;
+  color: #666;
+  line-height: 28px;
+  font-size: 14px;
 }
 
 .form-group .help-block {

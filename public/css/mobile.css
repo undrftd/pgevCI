@@ -9,6 +9,20 @@
     padding: 20px;
   }
 
+  .court-message {
+    display: block;
+  }
+
+  .court-message .form-group {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .login-form {
+    margin: 20px 0;
+  }
+
 }
 
 @media(max-width:768px) {

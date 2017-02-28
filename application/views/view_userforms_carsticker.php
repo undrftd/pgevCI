@@ -83,7 +83,7 @@
             <p><?php $filename='Car_Sticker.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links">Download Car Sticker Form </a>
             </p>
             <div class="form-group">
-              <p>Attachment</p>
+              <p>Attachment Details</p>
 
               <div id="fileList"></div>
               <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg </p>

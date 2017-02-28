@@ -1,8 +1,7 @@
 <div class="login-content">
 
   <div class="header text-center">
-
-    <br><br>
+    <br>
     <h2> Parkwood Greens Executive Village CRM </h2>
     <hr class="row-hr">
 
@@ -10,26 +9,11 @@
 
   </div>
 
-  <br>
-
   <form action="<?php echo base_url(); ?>login/validate_login" method="POST">
 
   <div class="row">
 
-    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 nopadding">
-
-      <?php if(!empty($message)){ ?>
-        <p class ="error-login" id="prompt-message">
-          <span class="glyphicon glyphicon-remove btn-lg"></span> <br><?php echo $message; ?><br><br>
-          <button type="button" class="btn btn-custom-10" id="close-button">Dismiss</button><br>
-        </p>
-      <?php } ?>
-
-      <br>
-
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-2 nopadding">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 nopadding">
 
       <div class="login-form">
 
@@ -53,6 +37,14 @@
 
             <button type="submit" class="btn btn-custom-4">Sign In</button>
 
+            <span class="forgot-password"><a href="<?php echo site_url("login/reset_password")?>"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> &nbsp;Forgot Password?</a></span>
+
+            <?php if(!empty($message)){ ?>
+              <span class ="error-login" id="prompt-message">
+                 <?php echo $message; ?>
+              </span>
+            <?php } ?>
+
           </div>
 
         </form>
@@ -61,19 +53,18 @@
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-3">
+  </div>
 
-      <div class="forgot-password text-center">
+  </div>
 
-        <hr>
+  <div class="row">
 
-        <p class="footer-note"> If you have forgotten your password, kindly click the button below: </p>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
 
-        <a href="<?php echo site_url("login/reset_password")?>"><button type="button" class="btn btn-custom-7">Forgot your Password?</button></a>
+      <br><hr class="forgot-hr">
 
-      </div>
-
-      <br><br>
+      <p class="footer-note text-center"> This website serves as the Community Relationship Management System of the Parkwood Greens Executive Village located in Pasig, Manila.
+        For more inquiries, please contact our administrator through this number: 576-4263 </p>
 
     </div>
 
@@ -82,22 +73,3 @@
 </div>
 
 </form>
-
-</div>
-
-<br>
-
-<div class="row">
-
-  <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-
-    <hr>
-
-    <p class="footer-note"> This website serves as the Community Relationship Management System of the Parkwood Greens Executive Village located in Pasig, Manila.
-      For more inquiries, please contact our administrator through this number: 576-4263 </p>
-
-    <br><br>
-
-  </div>
-
-</div>
