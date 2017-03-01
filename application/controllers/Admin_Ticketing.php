@@ -3,14 +3,14 @@
 class Admin_Ticketing extends MY_Controller {
 
     function __construct()
-    {   
+    {
       parent::__construct();
 
       $session_admin = $this->session->userdata('isAdmin');
       $session_deact = $this->session->userdata('status');
       $session_data = $this->model_accounts->checksession();
       $session_username = $this->session->userdata('username');
-      
+
       $method = $this->router->fetch_method();
 
       if(($session_admin == FALSE) && $method != 'login')
@@ -29,7 +29,7 @@ class Admin_Ticketing extends MY_Controller {
           redirect('login/signout');
       }
     }
-    
+
 	function new_tickets()
     {
     	$this->session->set_userdata('referred_from', current_url());
@@ -41,7 +41,7 @@ class Admin_Ticketing extends MY_Controller {
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
         $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';	
+        $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
         $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
@@ -72,7 +72,7 @@ class Admin_Ticketing extends MY_Controller {
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
         $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';   
+        $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
         $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
@@ -91,7 +91,7 @@ class Admin_Ticketing extends MY_Controller {
         $data['reserve'] = $this->model_reservation->count_allnewreserve();
         $data['forms'] = $this->model_forms->count_allnewforms();
         $data['result'] = $this->model_ticketing->get_progresstickets($config['per_page'], $this->uri->segment(3));
-        $this->template->load('admin_template', 'view_adminticketing_inprogress', $data);       
+        $this->template->load('admin_template', 'view_adminticketing_inprogress', $data);
     }
 
     function closed_tickets()
@@ -103,7 +103,7 @@ class Admin_Ticketing extends MY_Controller {
         $config['use_page_numbers'] = FALSE;
         $config['full_tag_open'] = "<ul class='pagination'>";
         $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';   
+        $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
         $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
@@ -122,7 +122,7 @@ class Admin_Ticketing extends MY_Controller {
         $data['reserve'] = $this->model_reservation->count_allnewreserve();
         $data['forms'] = $this->model_forms->count_allnewforms();
         $data['result'] = $this->model_ticketing->get_closedtickets($config['per_page'], $this->uri->segment(3));
-        $this->template->load('admin_template', 'view_adminticketing_closed', $data);       
+        $this->template->load('admin_template', 'view_adminticketing_closed', $data);
     }
 
     function search_closedtickets()
@@ -159,7 +159,7 @@ class Admin_Ticketing extends MY_Controller {
             $data['reserve'] = $this->model_reservation->count_allnewreserve();
             $data['forms'] = $this->model_forms->count_allnewforms();
             $data['result'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
-            $this->template->load('admin_template', 'view_adminticketing_closed', $data);       
+            $this->template->load('admin_template', 'view_adminticketing_closed', $data);
         }
         else
         {
@@ -177,7 +177,7 @@ class Admin_Ticketing extends MY_Controller {
                 $data['reserve'] = $this->model_reservation->count_allnewreserve();
                 $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-                $this->template->load('admin_template', 'view_adminmoretickets', $data); 
+                $this->template->load('admin_template', 'view_adminmoretickets', $data);
             }
             else
             {
@@ -186,7 +186,7 @@ class Admin_Ticketing extends MY_Controller {
                 $data['reserve'] = $this->model_reservation->count_allnewreserve();
                 $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-                $this->template->load('admin_template', 'view_adminmoretickets', $data); 
+                $this->template->load('admin_template', 'view_adminmoretickets', $data);
             }
         }
         else if($this->model_ticketing->is_closed($ticketid))
@@ -195,7 +195,7 @@ class Admin_Ticketing extends MY_Controller {
             $data['reserve'] = $this->model_reservation->count_allnewreserve();
             $data['forms'] = $this->model_forms->count_allnewforms();
             $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-            $this->template->load('admin_template', 'view_adminmoreclosedtickets', $data); 
+            $this->template->load('admin_template', 'view_adminmoreclosedtickets', $data);
         }
         else
         {
@@ -217,7 +217,7 @@ class Admin_Ticketing extends MY_Controller {
 
                 force_download($name, $data);
             }
-            else 
+            else
             {
                 if($this->session->userdata('moreticketsuccess'))
                 {
@@ -228,7 +228,7 @@ class Admin_Ticketing extends MY_Controller {
                 {
                     $this->session->set_flashdata('moreticketfail', 'There is no attachment for this ticket.');
                     $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
-                    $this->template->load('admin_template', 'view_adminmoreclosedtickets', $data); 
+                    $this->template->load('admin_template', 'view_adminmoreclosedtickets', $data);
                 }
                 else
                 {
@@ -261,6 +261,9 @@ class Admin_Ticketing extends MY_Controller {
             if($this->model_ticketing->is_newticket($ticketid) || $this->model_ticketing->is_progressticket($ticketid))
             {
                 $this->session->set_flashdata('moreticketsuccess', 'You have successfully updated the ticket\'s status.');
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
                 $this->template->load('admin_template', 'view_adminmoretickets', $data);
                 $this->output->set_header('refresh:2; url=' . site_url() . "admin_ticketing/new_tickets");
@@ -269,6 +272,9 @@ class Admin_Ticketing extends MY_Controller {
             {
                 $this->model_ticketing->save_closedticket($ticketid);
                 $this->session->set_flashdata('moreticketsuccess', 'You have successfully closed the ticket.');
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
                 $data['result'] = $this->model_ticketing->get_ticketdetails($ticketid);
                 $this->template->load('admin_template', 'view_adminmoretickets', $data);
                 $this->output->set_header('refresh:2; url=' . site_url() . "admin_ticketing/new_tickets");
@@ -276,7 +282,7 @@ class Admin_Ticketing extends MY_Controller {
 
         }
         else
-        {   
+        {
             $this->session->set_flashdata('newticketfail', 'You cannot save changes for a non-existent Ticket ID.');
             redirect('admin_ticketing/new_tickets');
         }

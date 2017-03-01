@@ -6,7 +6,7 @@
     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?>
 
       <?php
-        $notif = $count + $reserve + $forms;
+        $notif = $countnew + $reserve + $forms;
 
         if ($notif >= 1) {
           echo "<span class='badge'>$notif</span>";
@@ -24,8 +24,8 @@
       <li><a href="<?php echo base_url("admin_ticketing/new_tickets"); ?>">Tickets
         <span class="a-links">
           <?php
-          if ($count >= 1) {
-            echo $count;
+          if ($countnew >= 1) {
+            echo $countnew;
           }
           else {
             echo "";
