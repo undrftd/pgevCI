@@ -20,13 +20,44 @@
     </a>
     <ul class="dropdown-menu pull-right">
       <li class="dropdown-header"><strong><a>Activities</a></strong></li>
-      <li><a href="<?php echo base_url("admin_announcements/post_announcements"); ?>">+ &nbsp;Post an Announcement</a></li>
-      <li><a href="<?php echo base_url("admin_ticketing/new_tickets"); ?>">New Tickets &nbsp;<span class="badge"> <?php echo $count; ?> </span> </a></li>
-      <li><a href="<?php echo base_url("admin_reservation/court_one"); ?>">New Reservations &nbsp;<span class="badge"> <?php echo $reserve; ?> </span> </a></li>
-      <li><a href="<?php echo base_url("admin_forms/car_sticker"); ?>">New Online Application &nbsp;<span class="badge"> <?php echo $forms; ?> </span> </a></li>
+      <li><a href="<?php echo base_url("admin_announcements/post_announcements"); ?> ">Post an Announcement</a></li>
+      <li><a href="<?php echo base_url("admin_ticketing/new_tickets"); ?>">Tickets
+        <span class="a-links">
+          <?php
+          if ($count >= 1) {
+            echo $count;
+          }
+          else {
+            echo "";
+          }
+          ?>
+        </span>
+      </a></li>
+      <li><a href="<?php echo base_url("admin_reservation/court_one"); ?>">Reservations
+        <span class="a-links">
+          <?php
+          if ($reserve >= 1) {
+            echo $reserve;
+          }
+          else {
+            echo "";
+          }
+          ?>
+        </span> </a></li>
+      <li><a href="<?php echo base_url("admin_forms/car_sticker"); ?>">Online Application
+        <span class="a-links">
+          <?php
+          if ($forms >= 1) {
+            echo $forms;
+          }
+          else {
+            echo "";
+          }
+          ?>
+        </span> </a></li>
       <li role="separator" class="divider"></li>
       <li class="dropdown-header"><strong><a>Account</a></strong></li>
-      <li><a href="<?php echo base_url("admin_profile/"); ?>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp; Edit Account</a></li>
+      <li><a href="<?php echo base_url("admin_profile/"); ?>" style="display: block;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp; Edit Account</a></li>
       <li><a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a></li>
     </ul>
   </span>

@@ -14,18 +14,13 @@ body {
   text-transform: uppercase;
   cursor: pointer;
   text-align: center;
-  opacity: 0.8;
   position: relative;
-}
-
-.sign-out:hover {
-  opacity: 1;
 }
 
 .sign-out li a {
   text-transform: none;
   letter-spacing: 0;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 35px;
 }
 
@@ -1245,6 +1240,13 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
   background-color: #27ae60;
   border: 1px solid #27ae60;
   color: white;
+}
+
+.dropdown-menu li a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dropdown a {
