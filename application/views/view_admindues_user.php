@@ -3,7 +3,21 @@
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
   <span class="dropdown sign-out">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?><span class="badge"> <?php echo $count + $reserve + $forms;?> </span></a>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?>
+
+      <?php
+        $notif = $count + $reserve + $forms;
+
+        if ($notif >= 1) {
+          echo "<span class='badge'>$notif</span>";
+        }
+        else {
+          echo "";
+        }
+
+      ?>
+
+    </a>
     <ul class="dropdown-menu pull-right">
       <li class="dropdown-header"><strong><a>Activities</a></strong></li>
       <li><a href="<?php echo base_url("admin_announcements/post_announcements"); ?>">+ &nbsp;Post an Announcement</a></li>
@@ -36,8 +50,8 @@
             <div class="signin">
                 <div class="modal-body text-center">
                     <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to start billing the homeowners? </p><br>
-                    <a href="<?php echo base_url(); ?>admin_dues/billstart_user"><button type="submit" class="btn btn-custom-1">Yes</button></a>
-                    <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                    <a href="<?php echo base_url(); ?>admin_dues/billstart_user"><button type="submit" class="btn btn-custom">Yes</button></a>
+                    <button type="button" class="btn btn-custom-1" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
 
