@@ -1272,7 +1272,7 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
   font-family: 'Roboto';
 }
 
-.dropdown-toggle .badge {
+.sign-out .dropdown-toggle .badge {
   position: absolute;
   top: 11px;
   right: 13px;

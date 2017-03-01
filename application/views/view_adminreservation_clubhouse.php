@@ -244,11 +244,10 @@
         </li>
 
         <li class="dropdown" id="dropdown-mobile">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Others
-          <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Others <span class="badge"> <?php echo $counttwo + $countclub; ?> </span></a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo base_url(); ?>admin_reservation/court_two">Court 2 </a></li>
-            <li><a href="<?php echo base_url(); ?>admin_reservation/clubhouse">Clubhouse </a></li>
+            <li><a href="<?php echo base_url(); ?>admin_reservation/court_two">Court 2 <span class="a-links"> <?php echo $counttwo; ?> </span> </a></li>
+            <li><a href="<?php echo base_url(); ?>admin_reservation/clubhouse">Clubhouse <span class="a-links"> <?php echo $countclub; ?> </span> </a></li>
           </ul>
         </li>
 

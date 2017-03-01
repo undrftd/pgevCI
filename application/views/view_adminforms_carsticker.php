@@ -135,11 +135,11 @@
             <ul class="dropdown-menu">
               <li>
                 <a href="<?php echo base_url(); ?>admin_forms/work_permit">
-                Work Permit <span class="badge"> <?php echo $countpermit; ?> </span> </a>
+                Work Permit <span class="a-links"> <?php echo $countpermit; ?> </span> </a>
               </li>
               <li>
                 <a href="<?php echo base_url(); ?>admin_forms/renovation">
-                Renovation <span class="badge"> <?php echo $countrenovation; ?> </span> </a>
+                Renovation <span class="a-links"> <?php echo $countrenovation; ?> </span> </a>
               </li>
             </ul>
           </li>
