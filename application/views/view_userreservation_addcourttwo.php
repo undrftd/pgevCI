@@ -5,12 +5,12 @@
     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></a>
     <ul class="dropdown-menu pull-right">
       <li class="dropdown-header"><strong><a>Activities</a></strong></li>
-      <li><a onclick="myFunction()"><strong>+</strong> &nbsp;Create an Emergency Ticket</a></li>
-      <li><a href="<?php echo base_url("user_announcements/post_bulletin"); ?>"><strong>+</strong> &nbsp;Post a Bulletin</a></li>
+      <li><a onclick="myFunction()">Create an Emergency Ticket</a></li>
+      <li><a href="<?php echo base_url("user_announcements/post_bulletin"); ?>">Post a Bulletin</a></li>
       <li><a href="<?php echo base_url("user_reservation/reservations_courtone"); ?>">View My Reservation</a></li>
       <li role="separator" class="divider"></li>
       <li class="dropdown-header"><strong><a>Account</a></strong></li>
-      <li><a href="<?php echo base_url("user_accounts/"); ?>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp; Edit Account</a></li>
+      <li><a href="<?php echo base_url("user_accounts/"); ?>" style="display: block;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp; Edit Account</a></li>
       <li><a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a></li>
     </ul>
   </span>
@@ -62,7 +62,7 @@
               </select>
             <p class="error"> <?php echo form_error('reservestart'); ?></p>
             <br>
-            
+
             <p> Desired Reservation End Time</p>
               <select name="reserveend" class="form-control" id="sel1" required>
                 <option value= "" selected hidden>Choose your end time</option>
