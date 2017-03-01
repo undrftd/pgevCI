@@ -36,8 +36,8 @@
 
           <div class="modal-body text-center">
               <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to set this ticket as Finished? </p><br>
-              <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
-              <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+              <a class ="deleteclass"><button type="submit" class="btn btn-custom">Yes</button></a>
+              <button type="button" class="btn btn-custom-1" data-dismiss="modal">Cancel</button>
           </div>
 
         </div>

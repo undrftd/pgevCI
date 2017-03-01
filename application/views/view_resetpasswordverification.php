@@ -2,76 +2,97 @@
 	$resetkey = $this->uri->segment(3);
 ?>
 
-<br>
+<div class="login-content">
 
-<div class="user-deact">
+  <div class="header text-center">
+    <br>
+    <h2> Parkwood Greens Executive Village CRM </h2>
+    <hr class="row-hr">
+    <br>
+  </div>
+
+  <div class="header-1 text-center">
+    <h2> Welcome to Parkwood Greens! </h2>
+    <span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span>
+  </div>
+
+	<form action="<?php echo base_url("login/reset_password_validation"); ?>" method="POST">
 
   <div class="row">
 
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 nopadding">
 
-			<?php if ($this->session->flashdata('resetvfeedback')){ ?>
-				<div class="success-message text-center" id="prompt-message">
-					<h3> Hello, User. </h3>
-					<p> <?php echo $this->session->flashdata('resetvfeedback'); ?>  </p><br>
-					<p> Redirecting to the Login Page...</p>
-					<div class="loader"></div><br>
-				</div>
-				<br>
-			<?php } ?>
+      <div class="login-form">
 
-		<?php if ($this->session->flashdata('resetvfail')){ ?>
-			<div class="error-message text-center" id="prompt-message">
-				<h3> Hello, User. </h3>
-				<p> <?php echo $this->session->flashdata('resetvfail'); ?>  </p><br>
-				<button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-			</div>
-			<br>
-		<?php } ?>
+        <form>
 
-      <div class="announcement-message">
+          <div class="form-group">
 
-        <h4>Reset your Password</h4><hr>
+            <h4> Reset your Password  </h4><br>
 
-				<form action="<?php echo base_url("login/reset_password_validation"); ?>" method="POST">
+						<input type="text" id="sel1" name="resetkey" value="<?php echo $resetkey; ?>" hidden>
 
-					<input type="text" id="sel1" name="resetkey" value="<?php echo $resetkey; ?>" hidden>
+						<p>Enter your new password</p>
 
-					<p>Enter your new password</p>
+						<input data-toggle="password" name="password" data-placement="after" class="form-control" type="password" id="user-password" required>
 
-					<input data-toggle="password" name="password" data-placement="after" class="form-control" type="password" id="user-password" required>
+						<p class="error"><?php echo form_error('password'); ?> </p><br>
 
-					<p class="error"><?php echo form_error('password'); ?> </p><br>
+						<p>Confirm new password</p>
 
-					<p>Confirm new password</p>
+						<input type="password" class="form-control" id="confirm-password" name="confpassword" required>
 
-					<input type="password" class="form-control" id="confirm-password" name="confpassword" required>
+						<p class="error"><?php echo form_error('confpassword'); ?> </p>
 
-					<p class="error"><?php echo form_error('confpassword'); ?> </p>
+            <br>
 
-					<br><br>
+            <button type="submit" class="btn btn-custom-4">Reset</button>
 
-					<div class="action-buttons text-right">
+            <div class="mobile-links" style="justify-content: flex-end;">
 
-						<button type="submit" class="btn btn-custom">Submit</button>
+              <a href="#" class="sign-in" onclick="$(this).closest('form').submit()">Reset</a>
 
-					</div>
+            </div>
 
-				</form>
+						<?php if ($this->session->flashdata('resetvfeedback')){ ?>
+              <span class ="good-login" id="prompt-message">
+								<div class="loader"></div> <?php echo $this->session->flashdata('resetvfeedback'); ?> You are now being redirected to the sign in page.
+              </span>
+						<?php } ?>
 
-				<hr>
+						<?php if ($this->session->flashdata('resetvfail')){ ?>
+              <span class ="error-login" id="prompt-message">
+								<?php echo $this->session->flashdata('resetvfail'); ?>
+              </span>
+            <?php } ?>
 
-				<div class="table-legend">
-					<p> <strong> <span class="dot-style">&middot;</span>&nbsp;Note: </strong>&nbsp;If you cannot remember your email address too. Kindly contact us through this number: 887-8888
-					</p>
-				</div>
+          </div>
+
+        </form>
 
       </div>
-
-      <br><br>
 
     </div>
 
   </div>
 
+  </div>
+
+  <div class="row">
+
+    <footer class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+
+      <br><hr class="forgot-hr">
+
+			<p class="footer-note text-center"> This website serves as the Community Relationship Management System of the Parkwood Greens Executive Village located in Pasig, Manila.
+        For more inquiries, please contact our administrator through this number: 576-4263 </p>
+
+      <p class="footer-note-1 text-center"> &copy; 2017 Parkwood Greens </p><br><br>
+
+    </footer>
+
+  </div>
+
 </div>
+
+</form>

@@ -70,7 +70,7 @@
 
   <div class="row">
 
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    <footer class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
       <br><hr class="forgot-hr">
 
@@ -79,7 +79,7 @@
 
       <p class="footer-note-1 text-center"> &copy; 2017 Parkwood Greens </p><br><br>
 
-    </div>
+    </footer>
 
   </div>
 

@@ -1,64 +1,88 @@
-<br>
+<div class="login-content">
 
-<div class="user-deact">
+  <div class="header text-center">
+    <br>
+    <h2> Parkwood Greens Executive Village CRM </h2>
+    <hr class="row-hr">
+    <br>
+  </div>
+
+  <div class="header-1 text-center">
+    <h2> Welcome to Parkwood Greens! </h2>
+    <span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span>
+  </div>
+
+  <form action="<?php echo site_url()?>login/reset_emailvalidation" method="POST">
 
   <div class="row">
 
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 nopadding">
 
-			<?php if ($this->session->flashdata('resetfeedback')){ ?>
-				<div class="success-message text-center" id="prompt-message">
-					<h3> Hello, User. </h3>
-					<p> <?php echo $this->session->flashdata('resetfeedback'); ?>  </p><br>
-					<button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-				</div>
-				<br>
-			<?php } ?>
+      <div class="login-form">
 
-			<?php if ($this->session->flashdata('resetfail')){ ?>
-				<div class="error-message text-center" id="prompt-message">
-					<h3> Hello, User. </h3>
-					<p> <?php echo $this->session->flashdata('resetfail'); ?>  </p><br>
-					<button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-				</div>
-				<br>
-			<?php } ?>
+        <form>
 
-      <div class="announcement-message">
+          <div class="form-group">
 
-        <h4>Forgot your password?</h4><hr>
+            <h4> Forgot your Password?  </h4><br>
 
-				<p>Enter your email address</p>
+            <div class="form-group">
+              <p> Enter your email address </p>
+              <input type="text" name="email" class="form-control" id="user-name" required>
+            </div><!-- /input-group -->
 
-				<form action="<?php echo site_url()?>login/reset_emailvalidation" method="POST">
+            <br>
 
-					<input type="email" class="form-control" name="email" id="sel1" required>
+            <button type="submit" class="btn btn-custom-4">Submit</button>
 
-					<br><br>
+            <div class="mobile-links">
 
-					<div class="action-buttons text-right">
+              <a class="forgot-password-1" href="<?php echo base_url(); ?>login/signout">Back to Sign In</a>
 
-						<a href="<?php echo base_url(); ?>login/signout"><button type="button" class="back-button btn btn-custom-1">Back to Sign In</button></a>
+              <a href="#" class="sign-in" onclick="$(this).closest('form').submit()">Submit</a>
 
-						<button type="submit" class="reset-password btn btn-custom">Submit</button>
+            </div>
 
-					</div>
+            <span class="forgot-password"><a href="<?php echo base_url(); ?>login/signout"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> &nbsp;Back to Sign In</a></span>
 
-				</form>
+            <?php if ($this->session->flashdata('resetfeedback')){ ?>
+              <span class ="good-login" id="prompt-message">
+                 Hello, user! <?php echo $this->session->flashdata('resetfeedback'); ?> Thank you!
+              </span>
+            <?php } ?>
 
-				<hr>
+            <?php if ($this->session->flashdata('resetfail')){ ?>
+              <span class ="error-login" id="prompt-message">
+                Hello, user! <?php echo $this->session->flashdata('resetfail'); ?> Thank you!
+              </span>
+            <?php } ?>
 
-				<div class="table-legend">
-					<p> <strong> <span class="dot-style">&middot;</span>&nbsp;Note: </strong>&nbsp;If you cannot remember your email address too. Kindly contact us through this number: 887-8888
-					</p>
-				</div>
+          </div>
+
+        </form>
 
       </div>
-
-      <br><br>
 
     </div>
 
   </div>
 
+  </div>
+
+  <div class="row">
+
+    <footer class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+
+      <br><hr class="forgot-hr">
+
+      <p class="footer-note text-center"> If you cannot remember your email address too. Kindly contact us through this number: 576-4263 </p>
+
+      <p class="footer-note-1 text-center"> &copy; 2017 Parkwood Greens </p><br><br>
+
+    </footer>
+
+  </div>
+
 </div>
+
+</form>

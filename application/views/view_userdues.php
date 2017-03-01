@@ -31,17 +31,15 @@
 
             <p> Note:
               Always pay before the cutoff date in order to avoid any problems regarding your monthly dues. If you have any problems with the information we provided here,
-              create a ticket regarding some problems about your monthly dues through the button below this message. <br><br>
+              create a ticket regarding some problems about your monthly dues through the button near the form.
             </p>
-
-            <a href="<?php echo base_url(); ?>user_ticketing/requests_complaints"><button type="button" class="btn btn-custom-4">+ Create a Ticket</button></a>
-            <br><br>
 
         </div>
 
         <br>
 
         <div class="information">
+          <a href="<?php echo base_url(); ?>user_ticketing/requests_complaints"><button type="button" class="create-ticket"><span class="add-sign">+</span><span class="add-word">Create Ticket</span></button></a>
             <div class="form-group">
               <h4> Billing Information </h4>
             <br>
