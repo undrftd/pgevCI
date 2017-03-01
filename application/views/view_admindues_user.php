@@ -177,7 +177,33 @@
 
     <div class="portlet-body">
 
-      <div class="row text-center">
+      <div class="row">
+
+        <ul class="dues-buttons">
+          <li id="not-important">
+            Actions
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#start-modal">
+            Start Billing </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url();?>admin_dues/viewrates">
+            Edit Rates </a>
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#clear-modal">
+            Clear Records </a>
+          </li>
+          <li class="dropdown">
+            <span class="glyphicon glyphicon-option-vertical dropdown-toggle" aria-hidden="true" type="button" data-toggle="dropdown"></span>
+            <ul class="dropdown-menu pull-right">
+              <li><a href="#" data-toggle="modal" data-target="#start-modal">Start Billing</a></li>
+              <li><a href="<?php echo base_url();?>admin_dues/viewrates">Edit Rates</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#clear-modal">Clear Records</a></li>
+            </ul>
+          </li>
+        </ul>
 
       </div>
 

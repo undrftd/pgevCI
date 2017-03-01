@@ -11,6 +11,29 @@
     border: 0;
   }
 
+  .dues-buttons li:nth-child(-n+4) {
+    display: none;
+  }
+
+  .dues-buttons .dropdown-menu li {
+    display: block;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+    list-style-type: none;
+  }
+
+  .dues-buttons .dropdown-menu li:first-child {
+    font-weight: inherit;;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .dues-buttons li:nth-child(5) {
+    display: inline-block;
+  }
+
   .loader {
     display: none;
   }

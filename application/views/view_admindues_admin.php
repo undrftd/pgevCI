@@ -173,26 +173,36 @@
 
     <div class="portlet-body">
 
-      <div class="row text-center">
+      <div class="row">
 
-        <div class="dues-buttons">
-
-          <div class="col-xs-12 col-sm-4 col-md-4">
-            <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#start-modal">Start Billing</button>
-          </div>
-
-          <div class="col-xs-12 col-sm-4 col-md-4">
-            <a href="<?php echo base_url();?>admin_dues/viewrates"> <button type="button" class="btn btn-custom-4">Edit Rates</button> </a>
-          </div>
-
-          <div class="col-xs-12 col-sm-4 col-md-4">
-            <button type="button" class="btn btn-custom-4" data-toggle="modal" data-target="#clear-modal">Clear Records</button>
-          </div>
-
-        </div>
+        <ul class="dues-buttons">
+          <li id="not-important">
+            Actions
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#start-modal">
+            Start Billing </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url();?>admin_dues/viewrates">
+            Edit Rates </a>
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#clear-modal">
+            Clear Records </a>
+          </li>
+          <li class="dropdown">
+            <span class="glyphicon glyphicon-option-vertical dropdown-toggle" aria-hidden="true" type="button" data-toggle="dropdown"></span>
+            <ul class="dropdown-menu pull-right">
+              <li><a href="#" data-toggle="modal" data-target="#start-modal">Start Billing</a></li>
+              <li><a href="<?php echo base_url();?>admin_dues/viewrates">Edit Rates</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#clear-modal">Clear Records</a></li>
+            </ul>
+          </li>
+        </ul>
 
       </div>
-      </br>
+
       <div class="tab-content">
 
         <div class="tab-pane fade in active" id="portlet_tab1">
