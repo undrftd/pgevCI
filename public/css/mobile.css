@@ -5,7 +5,7 @@
      margin: 0 !important;
   }
 
-  .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .loader, .header, .login-content .btn-custom-4, .forgot-password {
+  .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .header, .login-content .btn-custom-4, .forgot-password, .information-other {
     display: none;
   }
 
@@ -15,33 +15,49 @@
     font-weight: 400;
   }
 
+  .modal-content p {
+    font-size: 0.90em;
+    font-family: 'Roboto';
+    font-weight: 400;
+    text-align: justify;
+  }
+
   .form-group h4, .admin-message h4, .announcement-message h4, .modal-content h4, .tab-content h4 {
     font-family: 'Roboto';
     font-size: 16px;
-}
+  }
 
   #sel1, #user-name, #user-password, #sum, #datetimepicker4, #confirm-password, #user-message {
     font-family: 'Roboto';
     font-size: 12px;
     border: 1px solid #e1e1e1;
-}
+  }
 
   #sel1:focus, #user-name:focus, #user-password:focus, #sum:focus, #user-message:focus {
     border: 1px solid #27ae60;
-}
+  }
 
-.information, .information-1, .information-add {
+  .information, .information-1, .information-add {
     padding: 20px;
-    -webkit-box-shadow: 0px 2px 0px 0px #e6e6e6;
-    -moz-box-shadow: 0px 2px 0px 0px #e6e6e6;
-    box-shadow: 0px 2px 0px 0px #e6e6e6;
     border: 1px solid #e6e6e6;
-}
+    box-shadow: none;
+  }
 
-.information:hover, .information-1:hover {
-  border: 1px solid #cccccc;
-  box-shadow: none;
-}
+  .information:hover, .information-1:hover {
+    border: 1px solid #cccccc;
+  }
+
+  .view-icon {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    bottom: -26px;
+    right: 50%;
+    margin-right: -30px;
+    padding: 8px 15px;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+  }
 
   .user-account {
     display: block;
@@ -312,7 +328,7 @@ p {
   text-align: justify;
 }
 
-.footer-note, .login-form, .success-message p, .activity-bar p, .modal-content p {
+.footer-note, .login-form, .success-message p, .activity-bar p {
   text-align: center;
 }
 

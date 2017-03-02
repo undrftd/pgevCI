@@ -236,6 +236,7 @@
             <p> Status </p>
             <select name ="status" class="form-control" id="sel1">
               <option value ="<?php echo $result->status;?>" selected hidden> <?php if($result->status == 1) { echo "Work in Progress"; } else if($result->status == 0) { echo "Closed"; } else { echo "Set Status"; } ?></option>
+              <option></option>
               <option value ="1">Work in Progress</option>
               <option value="0">Closed</option>
             </select>
@@ -252,15 +253,37 @@
 
             <p class="help-block">Exclusively for CCTV Retrieval Request</p>
 
+            <span class="view-icon"><a href="#" onclick="openNav()"><i class="material-icons md-24 gray400">arrow_forward</i></a></span>
+
+        </div>
+
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+            <h4> Ticket Details </h4>
+            <hr>
+            <a href="#" data-toggle="modal" data-target="#view-message">Message</a>
+            <hr>
+            <a href="<?php echo site_url() . "admin_ticketing/download_attachment/" . $result->ticketid; ?>">Download file</a>
+            <hr>
+            <a onclick="myFunction()">Remarks</a>
+            <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long." required></textarea>
+            <p class="error"><?php echo form_error('content'); ?> </p>
+            <a href="#" class="save-link" onclick="$(this).closest('form').submit()">Save changes</a>
+            <hr>
+          </div>
+          <span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
         </div>
 
       </div>
+
+      <br>
 
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-4 nopadding">
 
-      <div class="information">
+      <div class="information-other">
 
         <div class="form-group">
 
