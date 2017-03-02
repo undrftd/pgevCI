@@ -192,7 +192,7 @@
             Clear Records </a>
           </li>
           <li class="dropdown">
-            <span class="glyphicon glyphicon-option-vertical dropdown-toggle" aria-hidden="true" type="button" data-toggle="dropdown"></span>
+            <span class="glyphicon glyphicon-option-horizontal dropdown-toggle" aria-hidden="true" type="button" data-toggle="dropdown"></span>
             <ul class="dropdown-menu pull-right">
               <li><a href="#" data-toggle="modal" data-target="#start-modal">Start Billing</a></li>
               <li><a href="<?php echo base_url();?>admin_dues/viewrates">Edit Rates</a></li>

@@ -2,9 +2,11 @@
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-  <span class="dropdown sign-out">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?>
-
+    <span class="dropdown sign-out">
+    <span class="mobile-title">Parkwood Greens</span>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    <span class="user-account"><i class="material-icons md-26 gray400">more_vert</i></span>
+    <span class="main-title"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></span>
       <?php
         $notif = $count + $reserve + $forms;
 
@@ -63,7 +65,7 @@
   </span>
 
   <hr class="colored-hr">
-  <br><br>
+  <br>
 
   <div class="header-style">
     <h1> Ticketing</h1>
@@ -210,5 +212,7 @@
     </div>
 
   </div>
+
+  </aside>
 
 </div>

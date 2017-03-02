@@ -59,6 +59,43 @@
 
        		<div id="contents"><?= $contents ?></div>
 
+					<footer class="mobile-nav">
+
+						<ul>
+							<li>
+								<a href="<?php echo site_url("admin_ticketing/new_tickets"); ?>">Ticketing
+									<?php
+	 				          if ($count >= 1) {
+	 				            echo "<span class='badge'>$count</span>";
+	 				          }
+	 				          ?>
+								</a>
+							</li>
+							<li> <a href="<?php echo site_url("admin_announcements/announcements");	?>">Announcements</a></li>
+							<li>
+								<a href="<?php echo site_url("admin_reservation/court_one"); ?>">Reservation
+								 <?php
+					          if ($reserve >= 1) {
+					            echo "<span class='badge'>$reserve</span>";
+					          }
+					          ?>
+								</a>
+							</li>
+							<li> <a href="<?php echo site_url("admin_forms/car_sticker"); ?>">Online Applications</a>
+								<?php
+				          if ($forms >= 1) {
+				            echo "<span class='badge'>$forms</span>";
+				          }
+				          ?>
+							</li>
+							<a href="<?php echo site_url("admin_dues/homeowner"); ?>"><li> Dues </li></a>
+							<li> <a href="<?php echo site_url("admin_accounts/homeowner"); ?>">Accounts</a> </li>
+							<li> <a href="<?php echo site_url("admin_statistics"); ?>">Statistics</a> </li>
+							<li> <a href="<?php echo site_url("admin_audit/logs");?>">Audit Trail</a> </li>
+						</ul>
+
+					</footer>
+
        	 	<div id="footer">
        	 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 						<script type="text/javascript" src="<?php echo base_url('/public/js/main.js'); ?>"></script>

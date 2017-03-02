@@ -3,14 +3,14 @@
 class Admin_Forms extends MY_Controller {
 
     function __construct()
-    {   
+    {
       parent::__construct();
 
       $session_admin = $this->session->userdata('isAdmin');
       $session_deact = $this->session->userdata('status');
       $session_data = $this->model_accounts->checksession();
       $session_username = $this->session->userdata('username');
-      
+
       $method = $this->router->fetch_method();
 
       if(($session_admin == FALSE) && $method != 'login')
@@ -29,7 +29,7 @@ class Admin_Forms extends MY_Controller {
           redirect('login/signout');
       }
     }
-    
+
     function car_sticker()
 	{
         //header('Refresh: 30');
@@ -55,11 +55,12 @@ class Admin_Forms extends MY_Controller {
         $this->pagination->initialize($config);
         $data['carstickerlinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
         $data['countnew'] = $this->model_ticketing->count_newtickets();
         $data['reserve'] = $this->model_reservation->count_allnewreserve();
         $data['forms'] = $this->model_forms->count_allnewforms();
-		$data['carsticker'] = $this->model_forms->get_carsticker($config['per_page'], $this->uri->segment(3));
-		$data['countsticker'] = $this->model_forms->count_downloadedsticker();
+		    $data['carsticker'] = $this->model_forms->get_carsticker($config['per_page'], $this->uri->segment(3));
+		    $data['countsticker'] = $this->model_forms->count_downloadedsticker();
         $data['countpermit'] = $this->model_forms->count_downloadedpermit();
         $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
 		$this->template->load('admin_template', 'view_adminforms_carsticker', $data);
@@ -90,6 +91,7 @@ class Admin_Forms extends MY_Controller {
         $this->pagination->initialize($config);
         $data['workpermitlinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
         $data['countnew'] = $this->model_ticketing->count_newtickets();
         $data['reserve'] = $this->model_reservation->count_allnewreserve();
         $data['forms'] = $this->model_forms->count_allnewforms();
@@ -125,6 +127,7 @@ class Admin_Forms extends MY_Controller {
         $this->pagination->initialize($config);
         $data['renovationlinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_ticketing->count_newtickets();
         $data['countnew'] = $this->model_ticketing->count_newtickets();
         $data['reserve'] = $this->model_reservation->count_allnewreserve();
         $data['forms'] = $this->model_forms->count_allnewforms();
@@ -281,8 +284,8 @@ class Admin_Forms extends MY_Controller {
             $this->model_forms->set_cardownloadstatus($formid);
             $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
             $result = $query->row();
-          
-         
+
+
             $real = realpath(APPPATH);
             $path = $real . '/uploads/' . $result->filename;
             $data = file_get_contents($path);
