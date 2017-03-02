@@ -65,7 +65,7 @@
   </span>
 
   <hr class="colored-hr">
-  <br><br>
+  <br>
 
   <div class="header-style">
     <h1> Reservations for the Clubhouse</h1>

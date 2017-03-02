@@ -21,7 +21,7 @@
     </span>
 
     <hr class="colored-hr">
-    <br><br>
+    <br>
 
     <div class="header-style">
       <h1> Homeowner's Association Forms </h1>

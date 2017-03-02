@@ -20,7 +20,7 @@
   </span>
 
   <hr class="colored-hr">
-  <br><br>
+  <br>
 
     <div class="row">
 

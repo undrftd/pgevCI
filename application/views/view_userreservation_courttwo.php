@@ -21,7 +21,7 @@
   </span>
 
   <hr class="colored-hr">
-  <br><br>
+  <br>
 
   <div class="header-style">
     <h1> Reservations for Court Two</h1>

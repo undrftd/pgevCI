@@ -65,7 +65,7 @@
     </span>
 
   <hr class="colored-hr">
-  <br><br>
+  <br>
 
   <div class="modal fade" id="clear-modal" role="dialog">
 
