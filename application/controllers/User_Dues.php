@@ -33,8 +33,9 @@ class User_Dues extends MY_Controller {
 
   function index()
   {
+    $data['count'] = $this->model_tracking_user->count_activetickets();
   	$data['rate'] = $this->model_dues_user->get_rate();
- 	$this->template->load('user_template', 'view_userdues', $data);
+ 	  $this->template->load('user_template', 'view_userdues', $data);
   }
 
 }

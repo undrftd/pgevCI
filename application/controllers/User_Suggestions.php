@@ -33,7 +33,8 @@ class User_Suggestions extends MY_Controller {
     
     function index()
     {
-        $this->template->load('user_template','view_usersuggestions'); 
+        $data['count'] = $this->model_tracking_user->count_activetickets();
+        $this->template->load('user_template','view_usersuggestions', $data); 
     }
    
     function send_email()

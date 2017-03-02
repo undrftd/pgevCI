@@ -33,17 +33,20 @@ class User_Forms extends MY_Controller {
     
 	function car_sticker()
 	{
-		$this->template->load('user_template', 'view_userforms_carsticker');	
+    $data['count'] = $this->model_tracking_user->count_activetickets();
+		$this->template->load('user_template', 'view_userforms_carsticker', $data);	
 	}
 
 	function work_permit()
 	{
-		$this->template->load('user_template', 'view_userforms_workpermit');
+    $data['count'] = $this->model_tracking_user->count_activetickets();
+		$this->template->load('user_template', 'view_userforms_workpermit', $data);
 	}
 
 	function renovation()
 	{
-		$this->template->load('user_template', 'view_userforms_renovation');
+    $data['count'] = $this->model_tracking_user->count_activetickets();
+		$this->template->load('user_template', 'view_userforms_renovation', $data);
 	}
 
 	function download($filename) 

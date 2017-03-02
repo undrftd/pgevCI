@@ -33,6 +33,7 @@ class User_Reservation extends MY_Controller {
 
 	function court_one()
 	{
+        $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getcourtone_defaultavailability();
 		$this->template->load('user_template', 'view_userreservation_courtone', $data);
@@ -44,6 +45,7 @@ class User_Reservation extends MY_Controller {
 
 	    if(isset($searchquery) and !empty($searchquery))
 	    {
+            $data['count'] = $this->model_tracking_user->count_activetickets();
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourtone_availability($searchquery);
 			$this->template->load('user_template', 'view_userreservation_courtone', $data);
@@ -56,6 +58,7 @@ class User_Reservation extends MY_Controller {
 
 	function court_two()
 	{
+        $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getcourttwo_defaultavailability();
 		$this->template->load('user_template', 'view_userreservation_courttwo', $data);
@@ -67,6 +70,7 @@ class User_Reservation extends MY_Controller {
 
 	    if(isset($searchquery) and !empty($searchquery))
 	    {
+            $data['count'] = $this->model_tracking_user->count_activetickets();
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourttwo_availability($searchquery);
 			$this->template->load('user_template', 'view_userreservation_courttwo', $data);
@@ -79,6 +83,7 @@ class User_Reservation extends MY_Controller {
 
 	function clubhouse()
 	{
+        $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getclubhouse_defaultavailability();
 		$this->template->load('user_template', 'view_userreservation_clubhouse', $data);
@@ -90,6 +95,7 @@ class User_Reservation extends MY_Controller {
 
 	    if(isset($searchquery) and !empty($searchquery))
 	    {
+            $data['count'] = $this->model_tracking_user->count_activetickets();
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getclubhouse_availability($searchquery);
 			$this->template->load('user_template', 'view_userreservation_clubhouse', $data);
@@ -102,7 +108,8 @@ class User_Reservation extends MY_Controller {
 
 	function add_reservation_courtone()
 	{
-		$this->template->load('user_template', 'view_userreservation_addcourtone');
+        $data['count'] = $this->model_tracking_user->count_activetickets();
+		$this->template->load('user_template', 'view_userreservation_addcourtone', $data);
 	}
 
 	function create_reservation_courtone()
@@ -113,7 +120,8 @@ class User_Reservation extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->template->load('user_template', 'view_userreservation_addcourtone');
+            $data['count'] = $this->model_tracking_user->count_activetickets();
+            $this->template->load('user_template', 'view_userreservation_addcourtone', $data);
         }
         else
         {   
@@ -127,7 +135,8 @@ class User_Reservation extends MY_Controller {
 
 	function add_reservation_courttwo()
 	{
-		$this->template->load('user_template', 'view_userreservation_addcourttwo');
+        $data['count'] = $this->model_tracking_user->count_activetickets();
+		$this->template->load('user_template', 'view_userreservation_addcourttwo', $data);
 	}
 
 	function create_reservation_courttwo()
@@ -138,7 +147,8 @@ class User_Reservation extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->template->load('user_template', 'view_userreservation_addcourttwo');
+            $data['count'] = $this->model_tracking_user->count_activetickets();
+            $this->template->load('user_template', 'view_userreservation_addcourttwo', $data);
         }
         else
         {   
@@ -152,7 +162,8 @@ class User_Reservation extends MY_Controller {
 
 	function add_reservation_clubhouse()
 	{
-		$this->template->load('user_template', 'view_userreservation_addclubhouse');
+        $data['count'] = $this->model_tracking_user->count_activetickets();
+		$this->template->load('user_template', 'view_userreservation_addclubhouse', $data);
 	}
 
 	function create_reservation_clubhouse()
@@ -164,7 +175,8 @@ class User_Reservation extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->template->load('user_template', 'view_userreservation_addclubhouse');
+            $data['count'] = $this->model_tracking_user->count_activetickets();
+            $this->template->load('user_template', 'view_userreservation_addclubhouse', $data);
         }
         else
         {   
@@ -200,6 +212,7 @@ class User_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['courtonelinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['myreserve'] = $this->model_reservation_user->getmyreservation_courtone($config['per_page'], $this->uri->segment(3));
 		$this->template->load('user_template', 'view_userreservation_reservation_courtone', $data);
 	}
@@ -228,6 +241,7 @@ class User_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['courttwolinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['myreserve'] = $this->model_reservation_user->getmyreservation_courttwo($config['per_page'], $this->uri->segment(3));
 		$this->template->load('user_template', 'view_userreservation_reservation_courttwo', $data);
 	}
@@ -256,6 +270,7 @@ class User_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['clubhouselinks'] = $this->pagination->create_links();
 
+        $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['myreserve'] = $this->model_reservation_user->getmyreservation_clubhouse($config['per_page'], $this->uri->segment(3));
 		$this->template->load('user_template', 'view_userreservation_reservation_clubhouse', $data);
 	}
