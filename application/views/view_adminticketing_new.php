@@ -212,6 +212,6 @@
 
   </div>
 
-  </aside>
-
+  <br><br>
+  
 </div>

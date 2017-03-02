@@ -94,6 +94,7 @@
     background-color: hsl(0, 0%, 99%);
     border-top: 1px solid hsl(0, 0%, 93%);
     overflow-x: scroll;
+    z-index: 9999;
   }
 
   .mobile-nav ul {
