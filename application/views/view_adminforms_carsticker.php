@@ -8,7 +8,7 @@
     <span class="user-account"><i class="material-icons md-26 gray400">more_vert</i></span>
     <span class="main-title"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></span>
       <?php
-        $notif = $count + $reserve + $forms;
+        $notif = $countnew + $reserve + $forms;
 
         if ($notif >= 1) {
           echo "<span class='badge'>$notif</span>";

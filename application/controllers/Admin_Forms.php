@@ -59,8 +59,8 @@ class Admin_Forms extends MY_Controller {
         $data['countnew'] = $this->model_ticketing->count_newtickets();
         $data['reserve'] = $this->model_reservation->count_allnewreserve();
         $data['forms'] = $this->model_forms->count_allnewforms();
-		    $data['carsticker'] = $this->model_forms->get_carsticker($config['per_page'], $this->uri->segment(3));
-		    $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+	    $data['carsticker'] = $this->model_forms->get_carsticker($config['per_page'], $this->uri->segment(3));
+	    $data['countsticker'] = $this->model_forms->count_downloadedsticker();
         $data['countpermit'] = $this->model_forms->count_downloadedpermit();
         $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
 		$this->template->load('admin_template', 'view_adminforms_carsticker', $data);
