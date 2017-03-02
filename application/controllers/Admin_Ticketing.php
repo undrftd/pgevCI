@@ -211,7 +211,7 @@ class Admin_Ticketing extends MY_Controller {
             if($this->model_ticketing->is_attachment($ticketid))
             {
                 $real = realpath(APPPATH);
-                $path = $real . '/uploads/' . $this->model_ticketing->get_attachmentname($ticketid);
+                $path = $real . '/ticket_uploads/' . $this->model_ticketing->get_attachmentname($ticketid);
                 $data = file_get_contents($path);
                 $name = $this->model_ticketing->get_attachmentname($ticketid);
 

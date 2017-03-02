@@ -59,7 +59,7 @@ class User_Ticketing extends MY_Controller {
         	if ($_FILES && $_FILES['file']['name'] !== "")
         	{
                 $real = realpath(APPPATH);
-		        $config['upload_path']          = $real . '/uploads/';
+		        $config['upload_path']          = $real . '/ticket_uploads/';
 		        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
 		        $config['max_size']             = '52428800';
 		        $config['max_width']            = 1920;
@@ -112,7 +112,7 @@ class User_Ticketing extends MY_Controller {
         	if ($_FILES && $_FILES['file']['name'] !== "")
         	{
 			$real = realpath(APPPATH);
-		        $config['upload_path']          = $real . '/uploads/';
+		        $config['upload_path']          = $real . '/ticket_uploads/';
 		        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
 		        $config['max_size']             = '52428800';
 		        $config['max_width']            = 1920;
@@ -165,7 +165,7 @@ class User_Ticketing extends MY_Controller {
         	if ($_FILES && $_FILES['file']['name'] !== "")
         	{
 			$real = realpath(APPPATH);
-		        $config['upload_path']          = $real . '/uploads/';
+		        $config['upload_path']          = $real . '/ticket_uploads/';
 		        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
 		        $config['max_size']             = '52428800';
 		        $config['max_width']            = 1920;
