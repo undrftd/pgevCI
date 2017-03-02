@@ -64,7 +64,7 @@
   </span>
 
   <hr class="colored-hr">
-  <br><br>
+  <br>
 
   <div class="modal fade" id="delete-modal" role="dialog">
 
@@ -94,7 +94,7 @@
 
   <div class="header-style">
     <h1> Announcements </h1>
-  </div>
+  </div><br>
 
   <div class="portlet nopadding">
 
