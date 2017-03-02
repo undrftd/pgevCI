@@ -103,7 +103,7 @@
                   <button name ="upload" type="submit" class="btn btn-custom">Send</button></a>
 
                 </div>
-
+                <br><br>
               </div>
 
             <?php echo form_close(); ?>

@@ -799,7 +799,7 @@ hr.colored-hr-1 {
   padding-left: 15px;
 }
 
-#page-content-wrapper .archive-part a:hover > hr{
+#page-content-wrapper .archive-part a:hover > hr {
   border-color: #27ae60;
 }
 
@@ -1282,8 +1282,6 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
   display: none;
 }
 
-
-
 .overlay {
   height: 100%;
   width: 0;
@@ -1342,9 +1340,6 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
   right: 15px;
   font-size: 30px;
 }
-
-
-
 
 /*end form*/
 

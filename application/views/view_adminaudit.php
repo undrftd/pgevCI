@@ -102,6 +102,6 @@
 
   <center><?php echo $auditlinks; ?></center>
 
-  <br>
+  <br><br>
 
 </div>

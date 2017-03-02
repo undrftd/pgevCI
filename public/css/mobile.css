@@ -5,13 +5,43 @@
      margin: 0 !important;
   }
 
-  .sign-out .dropdown-toggle .badge {
+  .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .loader, .header, .login-content .btn-custom-4, .forgot-password {
     display: none;
   }
 
-  .activity-heading, .activity-bar {
-    display: none;
+  .announcement-message p, .admin-message p, .court-message p, .announcement-message .date-posted, #page-content-wrapper .archive-part a, .form-group .help-block {
+    font-size: 0.90em;
+    font-family: 'Roboto';
+    font-weight: 400;
   }
+
+  .form-group h4, .admin-message h4, .announcement-message h4, .modal-content h4, .tab-content h4 {
+    font-family: 'Roboto';
+    font-size: 16px;
+}
+
+  #sel1, #user-name, #user-password, #sum, #datetimepicker4, #confirm-password, #user-message {
+    font-family: 'Roboto';
+    font-size: 12px;
+    border: 1px solid #e1e1e1;
+}
+
+  #sel1:focus, #user-name:focus, #user-password:focus, #sum:focus, #user-message:focus {
+    border: 1px solid #27ae60;
+}
+
+.information, .information-1, .information-add {
+    padding: 20px;
+    -webkit-box-shadow: 0px 2px 0px 0px #e6e6e6;
+    -moz-box-shadow: 0px 2px 0px 0px #e6e6e6;
+    box-shadow: 0px 2px 0px 0px #e6e6e6;
+    border: 1px solid #e6e6e6;
+}
+
+.information:hover, .information-1:hover {
+  border: 1px solid #cccccc;
+  box-shadow: none;
+}
 
   .user-account {
     display: block;
@@ -33,16 +63,13 @@
     float: none;
   }
 
-  .main-title {
-    display: none;
-  }
-
   .sign-out .mobile-title {
     color: #27ae60;
     text-transform: none;
     font-weight: 300;
     letter-spacing: 0;
     font-size: 14px;
+    font-family: 'Rubik', sans-serif;
   }
 
   .mobile-nav {
@@ -63,10 +90,6 @@
     white-space: nowrap;
     width: 750px;
     position: relative;
-  }
-
-  #menu-toggle {
-    display: none;
   }
 
   .mobile-nav li {
@@ -155,10 +178,6 @@
     display: inline-block;
   }
 
-  .loader {
-    display: none;
-  }
-
   .login-form {
     margin: 10px 0;
     padding: 20px 25px;
@@ -194,10 +213,6 @@
   .login-content #user-name, .login-content #user-password {
     font-size: 13px;
     height: 45px;
-  }
-
-  .header, .login-content .btn-custom-4, .forgot-password {
-    display: none;
   }
 
   .footer-note, .footer-note-1 {

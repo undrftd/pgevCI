@@ -112,6 +112,8 @@
 
                   </div>
 
+                  <br>
+
               </div>
 
               <div class="box-wrap clearfix"></div>
