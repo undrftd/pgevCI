@@ -59,8 +59,20 @@
            </ul>
          </div>
 
-
        		<div id="contents"><?= $contents ?></div>
+
+					<footer class="mobile-nav">
+						<ul>
+							<a href="<?php echo site_url("user_home"); ?>"><li> Home </li></a>
+							<li> <a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a> </li>
+							<li> <a href="<?php echo site_url("user_ticketing"); ?>">+ Ticket</a> </li>
+							<li> <a href="<?php echo site_url("user_tracking/recent"); ?>">Track Tickets</a> </li>
+							<a href="<?php echo site_url("user_reservation/court_one"); ?>"><li> Reservations </li></a>
+							<li> <a href="<?php echo site_url("user_forms/car_sticker"); ?>">Online Applications</a> </li>
+							<li> <a href="<?php echo site_url("user_dues");	?>">Dues</a> </li>
+							<li> <a href="<?php echo site_url("user_suggestions"); ?>">Suggestions</a> </li>
+						</ul>
+					</footer>
 
        	 	<div id="footer">
        	 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
