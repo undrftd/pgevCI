@@ -88,7 +88,7 @@
 				          }
 				          ?>
 							</li>
-							<a href="<?php echo site_url("admin_dues/homeowner"); ?>"><li> Dues </li></a>
+							<li> <a href="<?php echo site_url("admin_dues/homeowner"); ?>">Dues</a> </li>
 							<li> <a href="<?php echo site_url("admin_accounts/homeowner"); ?>">Accounts</a> </li>
 							<li> <a href="<?php echo site_url("admin_statistics"); ?>">Statistics</a> </li>
 							<li> <a href="<?php echo site_url("admin_audit/logs");?>">Audit Trail</a> </li>

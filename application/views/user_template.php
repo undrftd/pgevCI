@@ -75,7 +75,7 @@
 							</li>
 							<li><a href="#" onclick="openNav()">+ Ticket</a></li>
 							<li><a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a> </li>
-							<a href="<?php echo site_url("user_reservation/court_one"); ?>"><li> Reservations </li></a>
+							<li> <a href="<?php echo site_url("user_reservation/court_one"); ?>">Reservations</a> </li>
 							<li><a href="<?php echo site_url("user_forms/car_sticker"); ?>">Online Applications</a> </li>
 							<li>
 								<a href="<?php echo site_url("user_dues");	?>">Dues
