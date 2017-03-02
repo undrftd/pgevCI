@@ -63,7 +63,7 @@
 
 					<footer class="mobile-nav">
 						<ul>
-							<a href="<?php echo site_url("user_home"); ?>"><li> Home </li></a>
+							<li><a href="<?php echo site_url("user_home"); ?>">Home</a></li>
 							<li>
 								<a href="<?php echo site_url("user_tracking/recent"); ?>">Track Tickets
 								<?php
@@ -107,8 +107,8 @@
 							<hr>
 							<a onclick="myFunction()">Emergency Ticket</a>
 							<hr>
+							<span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
 						</div>
-						<span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
 					</div>
 
        	 	<div id="footer">
