@@ -79,15 +79,17 @@
 							<li><a href="<?php echo site_url("user_forms/car_sticker"); ?>">Online Applications</a> </li>
 							<li>
 								<a href="<?php echo site_url("user_dues");	?>">Dues
-									<?php
-					            if(($this->session->userdata('arrears') >  0 && $this->session->userdata('monthly_dues') == 0)
-					            || ($this->session->userdata('arrears') > 0 && $this->session->userdata('monthly_dues') > 0 )
-					            || ($this->session->userdata('arrears') == 0 && $this->session->userdata('monthly_dues') > 0 ))
-					            {
-					              $rates = ($this->session->userdata('arrears') + $this->session->userdata('monthly_dues')) / ($rate->securityfee + $rate->assocfee);
-												echo "<span class='badge'>$rates</span>";
-					            }
- 									?>
+								<?php
+						            if(($this->session->userdata('arrears') >  0 || $this->session->userdata('monthly_dues') > 0))
+						            {
+										echo "<span class='badge'>1</span>";
+						            }
+						            else
+						            {
+						            	echo "<span class='badge'>0</span>";
+						            }
+ 								?>
+
 								</a>
 							</li>
 							<li> <a href="<?php echo site_url("user_suggestions"); ?>">Suggestions</a> </li>

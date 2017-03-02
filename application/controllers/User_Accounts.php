@@ -33,7 +33,8 @@ class User_Accounts extends MY_Controller {
 
     function index()
     {
-        $this->template->load('user_template', 'view_useraccounts');
+        $data['count'] = $this->model_tracking_user->count_activetickets();
+        $this->template->load('user_template', 'view_useraccounts', $data);
     }
 
     function alpha_dash_space($str)
@@ -61,7 +62,8 @@ class User_Accounts extends MY_Controller {
 
       if ($this->form_validation->run() == FALSE)
       {
-          $this->template->load('user_template', 'view_useraccounts');
+          $data['count'] = $this->model_tracking_user->count_activetickets();
+          $this->template->load('user_template', 'view_useraccounts', $data);
       }
       else
       {

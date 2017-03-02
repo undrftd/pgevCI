@@ -32,11 +32,13 @@ class User_Ticketing extends MY_Controller {
     
 	function index()
 	{
-		$this->template->load('user_template', 'view_userticketing');
+		$data['count'] = $this->model_tracking_user->count_activetickets();
+		$this->template->load('user_template', 'view_userticketing', $data);
 	}
 
 	function requests_complaints()
 	{
+		$data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['ticket'] = $this->model_ticketing_user->get_ticketid();
 		$this->template->load('user_template', 'view_userrequestscomplaints', $data);
 	}
@@ -89,6 +91,7 @@ class User_Ticketing extends MY_Controller {
 
 	function cctv_retrieval()
 	{
+		$data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['ticket'] = $this->model_ticketing_user->get_ticketid();
 		$this->template->load('user_template', 'view_usercctvretrieval', $data);
 	}
@@ -141,6 +144,7 @@ class User_Ticketing extends MY_Controller {
 
 	function emergency_ticket()
 	{
+		$data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['ticket'] = $this->model_ticketing_user->get_ticketid();
 		$this->template->load('user_template', 'view_useremergencyticket', $data);
 	}
