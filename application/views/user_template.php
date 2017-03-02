@@ -64,15 +64,50 @@
 					<footer class="mobile-nav">
 						<ul>
 							<a href="<?php echo site_url("user_home"); ?>"><li> Home </li></a>
+							<li>
+								<a href="<?php echo site_url("user_tracking/recent"); ?>">Track Tickets
+								<?php
+									if ($count >= 1) {
+										echo "<span class='badge'>$count</span>";
+									}
+									?>
+								</a>
+							</li>
+							<li class="dropup"><a href="#" onclick="openNav()">+ Ticket</a></li>
 							<li> <a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a> </li>
-							<li> <a href="<?php echo site_url("user_ticketing"); ?>">+ Ticket</a> </li>
-							<li> <a href="<?php echo site_url("user_tracking/recent"); ?>">Track Tickets</a> </li>
 							<a href="<?php echo site_url("user_reservation/court_one"); ?>"><li> Reservations </li></a>
 							<li> <a href="<?php echo site_url("user_forms/car_sticker"); ?>">Online Applications</a> </li>
-							<li> <a href="<?php echo site_url("user_dues");	?>">Dues</a> </li>
+							<li>
+								<a href="<?php echo site_url("user_dues");	?>">Dues
+									<?php
+					            if(($this->session->userdata('arrears') >  0 && $this->session->userdata('monthly_dues') == 0)
+					            || ($this->session->userdata('arrears') > 0 && $this->session->userdata('monthly_dues') > 0 )
+					            || ($this->session->userdata('arrears') == 0 && $this->session->userdata('monthly_dues') > 0 ))
+					            {
+					              $rates = ($this->session->userdata('arrears') + $this->session->userdata('monthly_dues')) / ($rate->securityfee + $rate->assocfee);
+												echo "<span class='badge'>$rates</span>";
+					            }
+ 									?>
+								</a>
+							</li>
 							<li> <a href="<?php echo site_url("user_suggestions"); ?>">Suggestions</a> </li>
 						</ul>
 					</footer>
+
+					<div id="myNav" class="overlay">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<div class="overlay-content">
+							<h4> Create a Ticket </h4>
+							<hr>
+							<a href="<?php echo site_url(); ?>user_ticketing/requests_complaints">Request and Complaints</a>
+							<hr>
+							<a href="<?php echo site_url(); ?>user_ticketing/cctv_retrieval">CCTV Retrieval Request</a>
+							<hr>
+							<a onclick="myFunction()">Emergency Ticket</a>
+							<hr>
+						</div>
+						<span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
+					</div>
 
        	 	<div id="footer">
        	 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -13,6 +13,14 @@ $(document).ready(function(){
     });
 });
 
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+
 $(document).ready(function(){
   $("select[name=status]").change(function(){
       var remarks = $(this).val();

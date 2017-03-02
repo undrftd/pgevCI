@@ -1282,6 +1282,70 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
   display: none;
 }
 
+
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  opacity: 1;
+  overflow: hidden;
+  transition: all 450ms cubic-bezier(0.5, 1.05, 0.5, 1.1);
+  color: #696969;
+}
+
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: left;
+}
+
+.overlay a {
+  padding: 15px 10px 15px 15px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #696969;
+  display: block;
+  transition: 0.3s;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.overlay h4 {
+  padding: 15px 10px 15px 15px;
+  font-size: 14px;
+  color: #696969;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-left: 5px solid #27ae60;
+}
+
+.overlay-footer {
+  position: absolute;
+  bottom: 30px;
+  left: 15px;
+  color: #27ae60;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+}
+
+
+
+
 /*end form*/
 
 .badge {
@@ -1314,6 +1378,10 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
 .dropdown a {
   font-weight: 700;
   font-size: 12px;
+}
+
+.dropdown-menu {
+  z-index: 9999;
 }
 
 #menu-toggle {

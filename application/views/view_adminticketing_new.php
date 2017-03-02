@@ -2,7 +2,7 @@
 
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
-    <span class="dropdown sign-out">
+  <span class="dropdown sign-out">
     <span class="mobile-title">Parkwood Greens</span>
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
     <span class="user-account"><i class="material-icons md-26 gray400">more_vert</i></span>
@@ -18,7 +18,6 @@
         }
 
       ?>
-
     </a>
     <ul class="dropdown-menu pull-right">
       <li class="dropdown-header"><strong><a>Activities</a></strong></li>
