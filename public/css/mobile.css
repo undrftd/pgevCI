@@ -90,7 +90,7 @@
 
   .mobile-nav {
     display: block;
-    padding: 22px;
+    padding: 25px;
     background-color: hsl(0, 0%, 99%);
     border-top: 1px solid hsl(0, 0%, 93%);
     overflow-x: scroll;
