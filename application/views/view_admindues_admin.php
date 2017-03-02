@@ -3,64 +3,66 @@
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
   <span class="dropdown sign-out">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?>
+  <span class="mobile-title">Parkwood Greens</span>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+  <span class="user-account"><i class="material-icons md-26 gray400">more_vert</i></span>
+  <span class="main-title"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></span>
+    <?php
+      $notif = $count + $reserve + $forms;
 
-      <?php
-        $notif = $count + $reserve + $forms;
+      if ($notif >= 1) {
+        echo "<span class='badge'>$notif</span>";
+      }
+      else {
+        echo "";
+      }
 
-        if ($notif >= 1) {
-          echo "<span class='badge'>$notif</span>";
+    ?>
+
+  </a>
+      <ul class="dropdown-menu pull-right">
+    <li class="dropdown-header"><strong><a>Activities</a></strong></li>
+    <li><a href="<?php echo base_url("admin_announcements/post_announcements"); ?> ">Post an Announcement</a></li>
+    <li><a href="<?php echo base_url("admin_ticketing/new_tickets"); ?>">Tickets
+      <span class="a-links">
+        <?php
+        if ($count >= 1) {
+          echo $count;
         }
         else {
           echo "";
         }
-
-      ?>
-
-    </a>
-    <ul class="dropdown-menu pull-right">
-      <li class="dropdown-header"><strong><a>Activities</a></strong></li>
-      <li><a href="<?php echo base_url("admin_announcements/post_announcements"); ?> ">Post an Announcement</a></li>
-      <li><a href="<?php echo base_url("admin_ticketing/new_tickets"); ?>">Tickets
-        <span class="a-links">
-          <?php
-          if ($count >= 1) {
-            echo $count;
-          }
-          else {
-            echo "";
-          }
-          ?>
-        </span>
-      </a></li>
-      <li><a href="<?php echo base_url("admin_reservation/court_one"); ?>">Reservations
-        <span class="a-links">
-          <?php
-          if ($reserve >= 1) {
-            echo $reserve;
-          }
-          else {
-            echo "";
-          }
-          ?>
-        </span> </a></li>
-      <li><a href="<?php echo base_url("admin_forms/car_sticker"); ?>">Online Application
-        <span class="a-links">
-          <?php
-          if ($forms >= 1) {
-            echo $forms;
-          }
-          else {
-            echo "";
-          }
-          ?>
-        </span> </a></li>
-      <li role="separator" class="divider"></li>
-      <li class="dropdown-header"><strong><a>Account</a></strong></li>
-      <li><a href="<?php echo base_url("admin_profile/"); ?>" style="display: block;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp; Edit Account</a></li>
-      <li><a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a></li>
-    </ul>
-  </span>
+        ?>
+      </span>
+    </a></li>
+    <li><a href="<?php echo base_url("admin_reservation/court_one"); ?>">Reservations
+      <span class="a-links">
+        <?php
+        if ($reserve >= 1) {
+          echo $reserve;
+        }
+        else {
+          echo "";
+        }
+        ?>
+      </span> </a></li>
+    <li><a href="<?php echo base_url("admin_forms/car_sticker"); ?>">Online Application
+      <span class="a-links">
+        <?php
+        if ($forms >= 1) {
+          echo $forms;
+        }
+        else {
+          echo "";
+        }
+        ?>
+      </span> </a></li>
+    <li role="separator" class="divider"></li>
+    <li class="dropdown-header"><strong><a>Account</a></strong></li>
+    <li><a href="<?php echo base_url("admin_profile/"); ?>" style="display: block;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp; Edit Account</a></li>
+    <li><a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a></li>
+      </ul>
+    </span>
 
   <hr class="colored-hr">
   <br><br>
