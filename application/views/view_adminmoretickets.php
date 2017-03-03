@@ -5,7 +5,7 @@
   <span class="dropdown sign-out">
     <span class="mobile-title">Parkwood Greens</span>
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-    <span class="user-account"><i class="material-icons md-26 gray400">more_vert</i></span>
+    <span class="user-account"><i class="material-icons md-26 gray400">account_circle</i></span>
     <span class="main-title"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></span>
       <?php
         $notif = $count + $reserve + $forms;
@@ -236,7 +236,6 @@
             <p> Status </p>
             <select name ="status" class="form-control" id="sel1">
               <option value ="<?php echo $result->status;?>" selected hidden> <?php if($result->status == 1) { echo "Work in Progress"; } else if($result->status == 0) { echo "Closed"; } else { echo "Set Status"; } ?></option>
-              <option></option>
               <option value ="1">Work in Progress</option>
               <option value="0">Closed</option>
             </select>
@@ -253,7 +252,7 @@
 
             <p class="help-block">Exclusively for CCTV Retrieval Request</p>
 
-            <span class="view-icon"><a href="#" onclick="openNav()"><i class="material-icons md-24 gray400">arrow_forward</i></a></span>
+            <span class="view-icon"><a href="#" onclick="openNav()">View More</a></span>
 
         </div>
 

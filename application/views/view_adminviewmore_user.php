@@ -4,7 +4,7 @@
   <span class="dropdown sign-out">
     <span class="mobile-title">Parkwood Greens</span>
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-    <span class="user-account"><i class="material-icons md-26 gray400">more_vert</i></span>
+    <span class="user-account"><i class="material-icons md-26 gray400">account_circle</i></span>
     <span class="main-title"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></span>
       <?php
         $notif = $count + $reserve + $forms;

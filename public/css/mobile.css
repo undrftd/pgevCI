@@ -51,12 +51,16 @@
     display: block;
     cursor: pointer;
     position: absolute;
-    bottom: -26px;
+    bottom: -20px;
     right: 50%;
-    margin-right: -30px;
-    padding: 8px 15px;
+    margin-right: -50px;
+    padding: 10px 17px;
     background-color: #f2f2f2;
     border: 1px solid #f2f2f2;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    border-radius: 30px;
   }
 
   .user-account {
@@ -81,11 +85,10 @@
 
   .sign-out .mobile-title {
     color: #27ae60;
-    text-transform: none;
-    font-weight: 300;
+    text-transform: uppercase;
+    font-weight: 700;
     letter-spacing: 0;
-    font-size: 14px;
-    font-family: 'Rubik', sans-serif;
+    font-size: 12px;
   }
 
   .mobile-nav {
