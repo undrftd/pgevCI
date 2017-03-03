@@ -7,6 +7,7 @@ class Admin_Export extends CI_Controller {
     {   
       parent::__construct();
 
+      $this->load->model('model_accounts');
       $session_admin = $this->session->userdata('isAdmin');
       $session_deact = $this->session->userdata('status');
       $session_data = $this->model_accounts->checksession();
@@ -52,14 +53,14 @@ class Admin_Export extends CI_Controller {
   $allData = $query->result_array();  // this will return all data into array
   $dataToExports = [];
   foreach ($allData as $data) {
-   $arrangeData['Time'] = date("m/d/Y g:i A", $data['timestamp']);
-   $arrangeData['User ID'] = $data['session_id'];
-   $arrangeData['Full Name'] = $data['fullname'];
-   $arrangeData['Page Accessed'] = $data['request_uri'];
+   $arrangeData['Time,'] = date("m/d/Y g:i A", $data['timestamp']) . ",";
+   $arrangeData['User ID,'] = $data['session_id'] . ",";
+   $arrangeData['Full Name,'] = $data['fullname'] . ",";
+   $arrangeData['Page Accessed,'] = $data['request_uri'] . ",";
    $dataToExports[] = $arrangeData;
   }
   // set header
-  $filename = "AuditLog.xls";
+  $filename = "AuditLog.csv";
                 header("Content-Type: application/vnd.ms-excel");
                 header("Content-Disposition: attachment; filename=\"$filename\"");
   $this->exportExcelData($dataToExports);
