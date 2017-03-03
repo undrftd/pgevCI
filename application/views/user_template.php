@@ -63,8 +63,8 @@
 
 					<footer class="mobile-nav">
 						<ul>
-							<li class="active"><a href="<?php echo site_url("user_home"); ?>">Home</a></li>
-							<li>
+							<li class="<?php if($this->uri->segment('1') == 'user_home') { echo 'active'; } ?>"><a href="<?php echo site_url("user_home"); ?>">Home</a></li>
+							<li class="<?php if($this->uri->segment('1') == 'user_tracking') { echo 'active'; } ?>">
 								<a href="<?php echo site_url("user_tracking/recent"); ?>">Tracking
 								<?php
 									if ($count >= 1) {
@@ -74,7 +74,7 @@
 								</a>
 							</li>
 							<li><a href="#" onclick="openNav()">+ Ticket</a></li>
-							<li class="dues-badge">
+							<li class="dues-badge <?php if($this->uri->segment('1') == 'user_dues') { echo 'active'; } ?>">
 								<a href="<?php echo site_url("user_dues");	?>">Dues
 								<?php
 												if(($this->session->userdata('arrears') >  0 || $this->session->userdata('monthly_dues') > 0))
@@ -114,6 +114,8 @@
 							<h4> <?php echo $this->session->firstname ;?> <?php echo $this->session->lastname ;?> </h4>
 							<hr>
 							<a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a>
+							<hr>
+							<a href="<?php echo site_url("user_ticketing"); ?>" class="<?php if($this->uri->segment('1') == 'user_ticketing') {echo 'active'; } ?>">Create a Ticket</a>
 							<hr>
 							<a href="<?php echo site_url("user_reservation/court_one"); ?>">Reservations</a>
 							<hr>
