@@ -60,7 +60,7 @@ class MY_Form_validation extends CI_Form_validation{
 
         if($reservedate == date("m/d/Y") && date("g") >= '4')
         {
-          $this->set_message('max_time', 'You can only reserve amenities until 4:00 PM only.');
+          $this->set_message('max_time', 'You can only reserve amenities for today until 4:00 PM only.');
 
           return FALSE;
         }
