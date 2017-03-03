@@ -19,10 +19,15 @@ class User_Deact extends MY_Controller {
           $this->session->set_flashdata('message', 'You need to login to access this location' );
           redirect('admin_ticketing/new_tickets');
       }
-      elseif(($session_deact != 'deact') && $method != 'login')
+      elseif(($session_deact != 'deact') && $method != 'login' && $session_admin == TRUE)
       {
           $this->session->set_flashdata( 'message', 'You need to login to access this location' );
-          redirect('user_deact');
+          redirect('admin_ticketing/new_tickets');
+      }
+      elseif(($session_deact != 'deact') && $method != 'login' && $session_admin == FALSE)
+      {
+          $this->session->set_flashdata( 'message', 'You need to login to access this location' );
+          redirect('user_home');
       }
     }
 
