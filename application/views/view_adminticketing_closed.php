@@ -68,7 +68,7 @@
 
   <div class="header-style">
     <h1> Ticketing</h1>
-  </div><br>
+  </div>
 
   <div class="portlet nopadding">
 
@@ -214,6 +214,6 @@
 
   </div>
 
-  <br><br>
+  <br><br><br><br>
 
 </div>

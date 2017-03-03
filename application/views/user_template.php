@@ -79,17 +79,17 @@
 								<?php
 												if(($this->session->userdata('arrears') >  0 || $this->session->userdata('monthly_dues') > 0))
 												{
-										echo "<span class='badge'>1</span>";
+													echo "<span class='badge'>1</span>";
 												}
 												else
 												{
-													echo "<span class='badge'>0</span>";
+													echo "";
 												}
 								?>
 
 								</a>
 							</li>
-							<li> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a> </li>
+							<li class="<?php if($this->uri->segment('1') == 'user_announcements') { echo 'active'; } else if($this->uri->segment('1') == 'user_ticketing') {echo 'active'; } else if($this->uri->segment('1') == 'user_reservation') { echo 'active'; } else if($this->uri->segment('1') == 'user_forms') { echo 'active'; } else if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } else if($this->uri->segment('1') == 'user_accounts') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a> </li>
 						</ul>
 					</footer>
 
@@ -111,7 +111,14 @@
 					<div id="myNav1" class="overlay">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
 						<div class="overlay-content">
-							<h4> <?php echo $this->session->firstname ;?> <?php echo $this->session->lastname ;?> </h4>
+							<h4>
+								<?php echo $this->session->firstname ;?> <?php echo $this->session->lastname ;?>
+								<span>Homeowner</span>
+								<div class="account-actions">
+									<span> <a href="<?php echo base_url("user_accounts/"); ?>" style="display: block;">Edit Account &nbsp; <span class="dot-style">&#8226;</span> &nbsp;</a> </span>
+									<span> <a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a> </span>
+								</div>
+							</h4>
 							<hr>
 							<a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a>
 							<hr>

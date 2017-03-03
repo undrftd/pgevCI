@@ -265,8 +265,8 @@
             <hr>
             <a href="<?php echo site_url() . "admin_ticketing/download_attachment/" . $result->ticketid; ?>">Download file</a>
             <hr>
-            <a onclick="myFunction()">Remarks</a>
-            <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long." required></textarea>
+            <a onclick="myFunction()">Remarks</a><br>
+            <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long."></textarea>
             <p class="error"><?php echo form_error('content'); ?> </p>
             <a href="#" class="save-link" onclick="$(this).closest('form').submit()">Save changes</a>
             <hr>

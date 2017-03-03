@@ -62,17 +62,16 @@
 					<footer class="mobile-nav">
 
 						<ul>
-							<li>
-								<a href="<?php echo site_url("admin_ticketing/new_tickets"); ?>">Ticketing
+							<li class="<?php if($this->uri->segment(1) == 'admin_ticketing') { echo 'active'; } ?>">
+								<a href="<?php echo site_url("admin_ticketing/new_tickets"); ?>">Tickets
 									<?php
-	 				          if ($count >= 1) {
-	 				            echo "<span class='badge'>$count</span>";
-	 				          }
-	 				          ?>
+										if ($count >= 1) {
+										echo "<span class='badge'>$count</span>";
+										}
+	 				        ?>
 								</a>
 							</li>
-							<li> <a href="<?php echo site_url("admin_announcements/announcements");	?>">Announcements</a></li>
-							<li>
+							<li class="reserve-badge <?php if($this->uri->segment(1) == 'admin_reservation') { echo 'active'; } ?>">
 								<a href="<?php echo site_url("admin_reservation/court_one"); ?>">Reservation
 								 <?php
 					          if ($reserve >= 1) {
@@ -81,20 +80,44 @@
 					          ?>
 								</a>
 							</li>
-							<li> <a href="<?php echo site_url("admin_forms/car_sticker"); ?>">Online Applications</a>
+							<li class="forms-badge <?php if($this->uri->segment(1) == 'admin_forms') { echo 'active'; } ?>">
+								<a href="<?php echo site_url("admin_forms/car_sticker"); ?>">Online Applications</a>
 								<?php
-				          if ($forms >= 1) {
-				            echo "<span class='badge'>$forms</span>";
-				          }
+									if ($forms >= 1) {
+								 		echo "<span class='badge'>$forms</span>";
+							 		}
 				          ?>
 							</li>
-							<li> <a href="<?php echo site_url("admin_dues/homeowner"); ?>">Dues</a> </li>
-							<li> <a href="<?php echo site_url("admin_accounts/homeowner"); ?>">Accounts</a> </li>
-							<li> <a href="<?php echo site_url("admin_statistics"); ?>">Statistics</a> </li>
-							<li> <a href="<?php echo site_url("admin_audit/logs");?>">Audit Trail</a> </li>
+							<li class="forms-badge <?php if($this->uri->segment(1) == 'admin_announcements') { echo 'active'; } else if($this->uri->segment(1) == 'admin_announcements') { echo 'active'; } else if($this->uri->segment(1) == 'admin_dues') { echo 'active'; } else if($this->uri->segment(1) == 'admin_accounts') { echo 'active'; } else if($this->uri->segment(1) == 'admin_statistics') { echo 'active'; } else if($this->uri->segment(1) == 'admin_audit') { echo 'active'; } else if($this->uri->segment(1) == 'admin_profile') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a> </li>
 						</ul>
 
 					</footer>
+
+					<div id="myNav1" class="overlay">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+						<div class="overlay-content">
+							<h4>
+								<?php echo $this->session->firstname ;?> <?php echo $this->session->lastname ;?>
+								<span>Administrator</span>
+								<div class="account-actions">
+									<span> <a href="<?php echo base_url("admin_profile/"); ?>" style="display: block;">Edit Account &nbsp; <span class="dot-style">&#8226;</span> &nbsp;</a> </span>
+									<span> <a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a> </span>
+								</div>
+							</h4>
+							<hr>
+							<a href="<?php echo site_url("admin_announcements/announcements");	?>">Announcements</a>
+							<hr>
+							<a href="<?php echo site_url("admin_dues/homeowner"); ?>">Dues</a>
+							<hr>
+							<a href="<?php echo site_url("admin_accounts/homeowner"); ?>">Accounts</a>
+							<hr>
+							<a href="<?php echo site_url("admin_statistics"); ?>">Statistics</a>
+							<hr>
+							<a href="<?php echo site_url("admin_audit/logs");?>">Audit Trail</a>
+							<hr>
+							<span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
+						</div>
+					</div>
 
        	 	<div id="footer">
        	 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -5,11 +5,11 @@
      margin: 0 !important;
   }
 
-  .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .header, .login-content .btn-custom-4, .forgot-password, .information-other {
+  .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .header, .login-content .btn-custom-4, .forgot-password, .information-other, .sign-out .dropdown-toggle {
     display: none;
   }
 
-  .announcement-message p, .admin-message p, .court-message p, .announcement-message .date-posted, #page-content-wrapper .archive-part a, .form-group .help-block {
+  .announcement-message p, .admin-message p, .court-message p, .announcement-message .date-posted, #page-content-wrapper .archive-part a, .form-group .help-block, .information-add a {
     font-size: 0.90em;
     font-family: 'Roboto';
     font-weight: 400;
@@ -45,6 +45,11 @@
 
   .information:hover, .information-1:hover {
     border: 1px solid #cccccc;
+  }
+
+  .information-add {
+    height: 150px;
+    margin-bottom: 15px;
   }
 
   .view-icon {
@@ -88,6 +93,12 @@
     font-weight: 700;
     letter-spacing: 0;
     font-size: 12px;
+  }
+
+  .create-ticket {
+    padding: 20px 35px 20px 30px;
+    font-size: 16px;
+    top: -35px;
   }
 
   .mobile-nav {
@@ -140,7 +151,7 @@
   .mobile-nav li:nth-child(1) .badge {
     position: absolute;
     top: 1px;
-    left: 45px;
+    left: 33px;
   }
 
   .mobile-nav li:nth-child(2) .badge {
@@ -149,22 +160,26 @@
     left: 41px;
   }
 
-  .mobile-nav li:nth-child(3) .badge {
+  .mobile-nav li.reserve-badge:nth-child(2) .badge {
     position: absolute;
     top: 1px;
     left: 59px;
   }
 
-  .mobile-nav li:nth-child(4) .badge {
+  .mobile-nav li.forms-badge:nth-child(3) .badge {
     position: absolute;
     top: 1px;
-    left: 99px;
+    left: 104px;
   }
 
   .mobile-nav li.dues-badge:nth-child(4) .badge {
     position: absolute;
     top: 1px;
     left: 20px;
+  }
+
+  .overlay {
+    display: block;
   }
 
   .court-message .form-group {
