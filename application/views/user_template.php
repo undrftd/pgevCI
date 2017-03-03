@@ -127,6 +127,8 @@
 							<hr>
 							<a href="<?php echo site_url("user_reservation/court_one"); ?>">Reservations</a>
 							<hr>
+							<a href="<?php echo base_url("user_reservation/reservations_courtone"); ?>">My Reservation</a>
+							<hr>
 							<a href="<?php echo site_url("user_forms/car_sticker"); ?>">Online Applications</a>
 							<hr>
 							<a href="<?php echo site_url("user_suggestions"); ?>">Suggestions</a>
