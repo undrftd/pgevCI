@@ -1,8 +1,8 @@
 <?php
 
 class MY_Form_validation extends CI_Form_validation{
-    
-    function edit_unique($value, $params)  
+
+    function edit_unique($value, $params)
     {
     	$CI =& get_instance();
     	$CI->load->database();
@@ -16,8 +16,8 @@ class MY_Form_validation extends CI_Form_validation{
     	if ($query->row() && $query->row()->userid != $current_id)
     	{
         	return FALSE;
-    	} 
-    	else 
+    	}
+    	else
     	{
         	return TRUE;
     	}
@@ -42,15 +42,28 @@ class MY_Form_validation extends CI_Form_validation{
     function no_olddate()
     {
         $reservedate = $this->CI->input->post('datepick');
-        
+
         if($reservedate < date("m/d/Y"))
         {
-        $this->set_message('no_olddate', 'You can only pick the current date onwards.');
+            $this->set_message('no_olddate', 'You can only pick the current date onwards.');
 
             return FALSE;
         }
 
         return TRUE;
+    }
+
+    function max_time()
+    {
+        $reservedate = $this->CI->input->post('datepick');
+        $reservetime = $this->CI->input->post('reservestart');
+
+        if($reservedate == date("m/d/Y") && date("g") >= '4')
+        {
+          $this->set_message('max_time', 'You can only reserve amenities until 4:00 PM only.');
+
+          return FALSE;
+        }
     }
 
     function min_fourhours()
@@ -89,11 +102,11 @@ class MY_Form_validation extends CI_Form_validation{
                 $result->reservation_start++;
             }
         }
-        
+
 
         for($i = $reservestart; $i < $reserveend; $i++)
         {
-            if($checkstart->num_rows() > 0 || $tdX[$i] == 1) 
+            if($checkstart->num_rows() > 0 || $tdX[$i] == 1)
             {
                 $this->set_message('unique_reserve_courtone', 'This time schedule is already booked.');
 
@@ -124,10 +137,10 @@ class MY_Form_validation extends CI_Form_validation{
                 $result->reservation_start++;
             }
         }
-        
+
         for($i = $reservestart; $i < $reserveend; $i++)
         {
-            if($checkstart->num_rows() > 0 || $tdX[$i] == 1) 
+            if($checkstart->num_rows() > 0 || $tdX[$i] == 1)
             {
                 $this->set_message('unique_reserve_courttwo', 'This time schedule is already booked.');
 
@@ -158,10 +171,10 @@ class MY_Form_validation extends CI_Form_validation{
                 $result->reservation_start++;
             }
         }
-        
+
         for($i = $reservestart; $i < $reserveend; $i++)
         {
-            if($checkstart->num_rows() > 0 || $tdX[$i] == 1) 
+            if($checkstart->num_rows() > 0 || $tdX[$i] == 1)
             {
                 $this->set_message('unique_reserve_clubhouse', 'This time schedule is already booked.');
 

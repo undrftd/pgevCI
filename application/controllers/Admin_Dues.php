@@ -3,14 +3,14 @@
 class Admin_Dues extends MY_Controller{
 
     function __construct()
-    {   
+    {
       parent::__construct();
 
       $session_admin = $this->session->userdata('isAdmin');
       $session_deact = $this->session->userdata('status');
       $session_data = $this->model_accounts->checksession();
       $session_username = $this->session->userdata('username');
-      
+
       $method = $this->router->fetch_method();
 
       if(($session_admin == FALSE) && $method != 'login')
@@ -29,10 +29,10 @@ class Admin_Dues extends MY_Controller{
           redirect('login/signout');
       }
     }
-    
+
 	function homeowner()
     {
-    	$config['base_url'] = site_url('admin_dues/homeowner');
+    	  $config['base_url'] = site_url('admin_dues/homeowner');
         $config['total_rows'] = $this->model_dues->count_user();
         $config['per_page'] =  20;
         $config['num_links'] = 5;
@@ -243,6 +243,9 @@ class Admin_Dues extends MY_Controller{
             $this->model_dues->cleardues_user($userid);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s monthly dues.');
 
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['view'] = $this->model_dues->viewmore_user($userid);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
@@ -261,6 +264,9 @@ class Admin_Dues extends MY_Controller{
             $this->model_dues->cleararrears_user($userid);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s arrears. ');
 
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['view'] = $this->model_dues->viewmore_user($userid);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
@@ -279,6 +285,9 @@ class Admin_Dues extends MY_Controller{
             $this->model_dues->cleardues_admin($userid);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s monthly dues.');
 
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['view'] = $this->model_dues->viewmore_admin($userid);
             $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
         }
@@ -297,6 +306,9 @@ class Admin_Dues extends MY_Controller{
             $this->model_dues->cleararrears_admin($userid);
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s arrears. ');
 
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
             $data['view'] = $this->model_dues->viewmore_admin($userid);
             $this->template->load('admin_template', 'view_adminmoredues_admin', $data);
         }
@@ -407,7 +419,7 @@ class Admin_Dues extends MY_Controller{
     {
         $this->usertracking->track_this();
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-        
+
         $this->form_validation->set_message('num_only', '{field} may only contain numbers and periods.');
         $this->form_validation->set_rules('securityfee', 'Security Fee', 'trim|required|callback_num_only');
         $this->form_validation->set_rules('assocfee', 'Association Fee', 'trim|required|callback_num_only');

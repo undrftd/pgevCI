@@ -3,7 +3,7 @@
 class User_Reservation extends MY_Controller {
 
 	function __construct()
-    {   
+    {
       parent::__construct();
 
       $session_admin = $this->session->userdata('isAdmin');
@@ -115,7 +115,7 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_courtone()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
-		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
+		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate|max_time');
         $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courtone|hourselection');
 
         if ($this->form_validation->run() == FALSE)
@@ -124,7 +124,7 @@ class User_Reservation extends MY_Controller {
             $this->template->load('user_template', 'view_userreservation_addcourtone', $data);
         }
         else
-        {   
+        {
             if($query = $this->model_reservation_user->create_reservation_courtone())
             {
                 $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court One. Please wait for the administrators to accept your reservation.');
@@ -142,7 +142,7 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_courttwo()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
-		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
+		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate|max_time');
         $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courttwo|hourselection');
 
         if ($this->form_validation->run() == FALSE)
@@ -151,7 +151,7 @@ class User_Reservation extends MY_Controller {
             $this->template->load('user_template', 'view_userreservation_addcourttwo', $data);
         }
         else
-        {   
+        {
             if($query = $this->model_reservation_user->create_reservation_courttwo())
             {
                 $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for Basketball Court Two. Please wait for the administrators to accept your reservation.');
@@ -179,7 +179,7 @@ class User_Reservation extends MY_Controller {
             $this->template->load('user_template', 'view_userreservation_addclubhouse', $data);
         }
         else
-        {   
+        {
             if($query = $this->model_reservation_user->create_reservation_clubhouse())
             {
                 $this->session->set_flashdata('reservefeedback', 'You have successfully reserved a date for the Clubhouse. Please wait for the administrators to accept your reservation.');

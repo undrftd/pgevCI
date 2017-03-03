@@ -117,7 +117,7 @@ class Login extends CI_Controller
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  
+
   <body style="overflow-x: hidden;">
 
   <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
@@ -256,8 +256,8 @@ class Login extends CI_Controller
             {
                 $this->session->set_flashdata('resetfail', 'Unable to proceed to the password resetting process. Please make sure the reset link has not expired yet or the link is from the email.');
                 $this->template->load('template','view_resetpassword');
-            } 
-        }  
+            }
+        }
     }
 
     function reset_password_validation()
