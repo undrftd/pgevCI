@@ -5,6 +5,10 @@
      margin: 0 !important;
   }
 
+  .login-form:hover {
+    box-shadow: none;
+  }
+
   .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .header, .login-content .btn-custom-4, .forgot-password, .information-other, .sign-out .dropdown-toggle {
     display: none;
   }
@@ -96,14 +100,14 @@
   }
 
   .create-ticket {
-    padding: 20px 35px 20px 30px;
+    padding: 20px 35px 22px 30px;
     font-size: 16px;
     top: -35px;
   }
 
   .mobile-nav {
     display: block;
-    padding: 25px 15px 25px 10px;
+    padding: 25px 15px 25px 7px;
     background-color: hsl(0, 0%, 99%);
     border-top: 1px solid hsl(0, 0%, 93%);
     overflow: hidden;

@@ -73,7 +73,7 @@
 									?>
 								</a>
 							</li>
-							<li><a href="#" onclick="openNav()">+ Ticket</a></li>
+							<li class="<?php if($this->uri->segment('1') == 'user_ticketing') {echo 'active'; }?>"><a href="#" onclick="openNav()">+ Ticket</a></li>
 							<li class="dues-badge <?php if($this->uri->segment('1') == 'user_dues') { echo 'active'; } ?>">
 								<a href="<?php echo site_url("user_dues");	?>">Dues
 								<?php
@@ -89,14 +89,17 @@
 
 								</a>
 							</li>
-							<li class="<?php if($this->uri->segment('1') == 'user_announcements') { echo 'active'; } else if($this->uri->segment('1') == 'user_ticketing') {echo 'active'; } else if($this->uri->segment('1') == 'user_reservation') { echo 'active'; } else if($this->uri->segment('1') == 'user_forms') { echo 'active'; } else if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } else if($this->uri->segment('1') == 'user_accounts') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a> </li>
+							<li class="<?php if($this->uri->segment('1') == 'user_announcements') { echo 'active'; } else if($this->uri->segment('1') == 'user_reservation') { echo 'active'; } else if($this->uri->segment('1') == 'user_forms') { echo 'active'; } else if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } else if($this->uri->segment('1') == 'user_accounts') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a> </li>
 						</ul>
 					</footer>
 
 					<div id="myNav" class="overlay">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<div class="overlay-content">
-							<h4> Create a Ticket </h4>
+							<h4>
+								Create a Ticket
+								<span class="admin-note"> The administrators could only accommodate requests and complaints until 4:30 PM. Expect the ticket to be accommodated within the next working day if you did not reach their working time. Thank you for your kind consideration. </span>
+							</h4>
 							<hr>
 							<a href="<?php echo site_url(); ?>user_ticketing/requests_complaints">Request and Complaints</a>
 							<hr>
@@ -121,8 +124,6 @@
 							</h4>
 							<hr>
 							<a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a>
-							<hr>
-							<a href="<?php echo site_url("user_ticketing"); ?>" class="<?php if($this->uri->segment('1') == 'user_ticketing') {echo 'active'; } ?>">Create a Ticket</a>
 							<hr>
 							<a href="<?php echo site_url("user_reservation/court_one"); ?>">Reservations</a>
 							<hr>

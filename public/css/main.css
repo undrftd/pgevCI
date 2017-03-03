@@ -1321,6 +1321,12 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
   text-transform: none;
 }
 
+.overlay h4 .admin-note {
+  text-align: justify;
+  padding-right: 50px;
+  line-height: 17px;
+}
+
 .overlay-footer {
   color: #27ae60;
   font-family: 'Rubik', sans-serif;

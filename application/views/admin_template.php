@@ -81,7 +81,7 @@
 								</a>
 							</li>
 							<li class="forms-badge <?php if($this->uri->segment(1) == 'admin_forms') { echo 'active'; } ?>">
-								<a href="<?php echo site_url("admin_forms/car_sticker"); ?>">Online Applications</a>
+								<a href="<?php echo site_url("admin_forms/car_sticker"); ?>">Forms</a>
 								<?php
 									if ($forms >= 1) {
 								 		echo "<span class='badge'>$forms</span>";
