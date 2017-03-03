@@ -63,9 +63,9 @@
 
 					<footer class="mobile-nav">
 						<ul>
-							<li><a href="<?php echo site_url("user_home"); ?>">Home</a></li>
+							<li class="active"><a href="<?php echo site_url("user_home"); ?>">Home</a></li>
 							<li>
-								<a href="<?php echo site_url("user_tracking/recent"); ?>">Track Tickets
+								<a href="<?php echo site_url("user_tracking/recent"); ?>">Tracking
 								<?php
 									if ($count >= 1) {
 										echo "<span class='badge'>$count</span>";
@@ -74,25 +74,22 @@
 								</a>
 							</li>
 							<li><a href="#" onclick="openNav()">+ Ticket</a></li>
-							<li><a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a> </li>
-							<li> <a href="<?php echo site_url("user_reservation/court_one"); ?>">Reservations</a> </li>
-							<li><a href="<?php echo site_url("user_forms/car_sticker"); ?>">Online Applications</a> </li>
-							<li>
+							<li class="dues-badge">
 								<a href="<?php echo site_url("user_dues");	?>">Dues
 								<?php
-						            if(($this->session->userdata('arrears') >  0 || $this->session->userdata('monthly_dues') > 0))
-						            {
+												if(($this->session->userdata('arrears') >  0 || $this->session->userdata('monthly_dues') > 0))
+												{
 										echo "<span class='badge'>1</span>";
-						            }
-						            else
-						            {
-						            	echo "<span class='badge'>0</span>";
-						            }
- 								?>
+												}
+												else
+												{
+													echo "<span class='badge'>0</span>";
+												}
+								?>
 
 								</a>
 							</li>
-							<li> <a href="<?php echo site_url("user_suggestions"); ?>">Suggestions</a> </li>
+							<li> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a> </li>
 						</ul>
 					</footer>
 
@@ -106,6 +103,23 @@
 							<a href="<?php echo site_url(); ?>user_ticketing/cctv_retrieval">CCTV Retrieval Request</a>
 							<hr>
 							<a onclick="myFunction()">Emergency Ticket</a>
+							<hr>
+							<span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
+						</div>
+					</div>
+
+					<div id="myNav1" class="overlay">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+						<div class="overlay-content">
+							<h4> <?php echo $this->session->firstname ;?> <?php echo $this->session->lastname ;?> </h4>
+							<hr>
+							<a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a>
+							<hr>
+							<a href="<?php echo site_url("user_reservation/court_one"); ?>">Reservations</a>
+							<hr>
+							<a href="<?php echo site_url("user_forms/car_sticker"); ?>">Online Applications</a>
+							<hr>
+							<a href="<?php echo site_url("user_suggestions"); ?>">Suggestions</a>
 							<hr>
 							<span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
 						</div>
