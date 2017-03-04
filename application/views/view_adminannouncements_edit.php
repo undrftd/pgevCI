@@ -84,6 +84,9 @@
 
             <div class="form-group">
 
+              <h4> Announcement Details </h4>
+              <br>
+
               <p> Announcement Title </p>
               <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo $select->post_title; ?>" pattern=".{8,}" title="Announcement Title should at least be 8 characters long." required>
               <p class="error"> <?php echo form_error('post_title');  ?>
@@ -114,8 +117,7 @@
 
       </div>
 
-      <br>
-      <br>
+      <br><br><br>
 
     </div>
 

@@ -29,6 +29,13 @@ function closeNav1() {
     document.getElementById("myNav1").style.width = "0%";
 }
 
+$('#back-to-top').on('click', function (e) {
+    e.preventDefault();
+    $('html,body').animate({
+        scrollTop: 0
+    }, 450);
+});
+
 $(document).ready(function(){
   $("select[name=status]").change(function(){
       var remarks = $(this).val();

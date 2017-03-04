@@ -3,7 +3,7 @@
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
   <span class="dropdown sign-out">
-    <span class="mobile-title">Parkwood Greens</span>
+    <span class="mobile-title"><span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span> &nbsp;&nbsp;Parkwood Greens</span>
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
       <span class="user-account"><i class="material-icons md-26 gray400">account_circle</i></span>
       <span class="main-title"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></span>

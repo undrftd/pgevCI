@@ -1,7 +1,19 @@
 @media(max-width:600px) {
 
   #page-content-wrapper {
-    padding: 15px;
+    padding: 13px 11px;
+  }
+
+  #page-content-wrapper h1 {
+     width: 100%;
+     border-left: none;
+     font-family: 'League-Gothic', sans-serif;
+     text-transform: uppercase;
+     font-size: 1em;
+     padding-bottom: 10px;
+     padding-left: 0px;
+     margin: 0 auto;
+     text-align: center;
   }
 
   input[type=text], input[type=password], input[type=email]  {
@@ -65,6 +77,34 @@
     border: 1px solid #e74c3c;
   }
 
+  .btn-custom {
+    padding: 13px;
+    font-size: 0.90em;
+    font-weight: 700;
+    border: 1px solid #27ae60;
+    -webkit-box-shadow: 0px 2px 0px 0px #219150;
+    -moz-box-shadow: 0px 2px 0px 0px #219150;
+    box-shadow: 0px 2px 0px 0px #219150;
+  }
+
+  .btn-custom-1 {
+    padding: 13px;
+    font-size: 0.90em;
+    font-weight: 700;
+    border: 1px solid #f2f2f2;
+    -webkit-box-shadow: 0px 2px 0px 0px #e1e1e1;
+    -moz-box-shadow: 0px 2px 0px 0px #e1e1e1;
+    box-shadow: 0px 2px 0px 0px #e1e1e1;
+  }
+
+  .btn-custom:hover {
+    border: 1px solid #219150;
+  }
+
+  .btn-custom-1:hover {
+    border: 1px solid #e1e1e1;
+  }
+
   .nopadding {
      padding: 0 !important;
      margin: 0 !important;
@@ -74,11 +114,11 @@
     box-shadow: none;
   }
 
-  .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .header, .login-content .btn-custom-4, .forgot-password, .information-other, .sign-out .dropdown-toggle {
+  span.sign-out, .user-note, .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .header, .login-content .btn-custom-4, .forgot-password, .information-other, .sign-out .dropdown-toggle, hr.colored-hr {
     display: none;
   }
 
-  .announcement-message p, .admin-message p, .court-message p, .announcement-message .date-posted, #page-content-wrapper .archive-part a, .form-group .help-block, .information-add a, .success-message p, .error-message p {
+  .announcement-message p, .admin-message p, .court-message p, .announcement-message .date-posted, .form-group .help-block, .information-add a, .success-message p, .error-message p {
     font-size: 0.90em;
     font-family: 'Roboto';
     font-weight: 400;
@@ -89,6 +129,10 @@
     font-family: 'Roboto';
     font-weight: 400;
     text-align: justify;
+  }
+
+  #page-content-wrapper .archive-part a p {
+    line-height: 20px;
   }
 
   .form-group h4, .admin-message h4, .announcement-message h4, .modal-content h4, .tab-content h4 {
@@ -142,32 +186,32 @@
     border-radius: 30px;
   }
 
-  .user-account {
+  .icon-pg {
     display: block;
-    position: absolute;
-    top: 5px;
+    border-bottom: 1px solid hsl(0, 0%, 93%);
+    height: 51px;
+    background-color: white;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
     right: 0;
+    z-index: 10;
   }
 
-  .sign-out {
-    float: none;
-    height: 10px;
-    padding: 10px 0 20px 0;
-    display: flex;
-    position: relative;
+  #contents {
+    margin-top: 40px;
   }
 
-  .mobile-title {
-    display: block;
-    float: none;
+  #contents #page-content-wrapper h1 {
+    font-size: 2.1em;
+    padding: 0;
   }
 
-  .sign-out .mobile-title {
+  .icon-pg span.glyphicon-tree-deciduous {
+    font-size: 1.35em;
     color: #27ae60;
-    font-weight: 700;
-    letter-spacing: 0;
-    font-size: 12px;
-  }
+}
 
   .create-ticket {
     padding: 20px 35px 22px 30px;
@@ -262,7 +306,7 @@
     border: 0;
   }
 
-  .dues-buttons li:nth-child(-n+4) {
+  .dues-buttons li:nth-child(-n+5) {
     display: none;
   }
 
@@ -276,12 +320,12 @@
   }
 
   .dues-buttons .dropdown-menu li:first-child {
-    font-weight: inherit;;
+    font-weight: inherit;
     text-transform: none;
     letter-spacing: 0;
   }
 
-  .dues-buttons li:nth-child(5) {
+  .dues-buttons li:nth-child(6) {
     display: inline-block;
   }
 

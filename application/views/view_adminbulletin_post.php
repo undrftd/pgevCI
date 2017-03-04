@@ -80,6 +80,9 @@
 
         <div class="form-group">
 
+          <h4> Bulletin Details </h4>
+          <br>
+
           <form action="<?php echo site_url() . "admin_announcements/post_bulletin_admin/" ?>" method="POST">
 
             <p>  Bulletin Title </p>
@@ -106,8 +109,7 @@
 
       </div>
 
-      <br>
-      <br>
+      <br><br><br>
 
     </div>
 

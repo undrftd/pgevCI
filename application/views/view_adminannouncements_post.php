@@ -80,6 +80,9 @@
 
         <div class="form-group">
 
+          <h4> Announcement Details </h4>
+          <br>
+
           <form action="<?php echo site_url() . "admin_announcements/post_announcements_admin/"?>" method="POST">
 
           <p>  Announcement Title </p>
@@ -107,8 +110,7 @@
 
       </div>
 
-      <br>
-      <br>
+      <br><br><br>
 
     </div>
 

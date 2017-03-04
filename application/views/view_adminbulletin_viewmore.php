@@ -86,13 +86,15 @@
 
         <br>
 
-        <hr class="row-hr">
-        <p>  Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>admin_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
-        <hr>
+        <div class="user-note">
+          <hr class="row-hr">
+          <p>  Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>admin_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
+          <hr>
+        </div>
 
       </div>
 
-      <br><br>
+      <br>
 
     </div>
 
@@ -118,10 +120,10 @@
 
       </div>
 
-      <br><br>
-
     </div>
 
   </div>
+
+  <br><br><br>
 
 </div>

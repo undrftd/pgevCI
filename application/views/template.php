@@ -27,7 +27,7 @@
 
 	<body>
 
- 		<div id="contents"><?= $contents ?></div>
+ 		<div style="margin-top: 0px;" id="contents"><?= $contents ?></div>
 
 	 	<div id="footer">
 		 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

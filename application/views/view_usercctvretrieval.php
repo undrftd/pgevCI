@@ -95,7 +95,7 @@
               <div class="user-buttons">
 
                 <input type="file" name="file" id="file" style="display: none;" multiple onchange="javascript:updateList()" />
-                <button type="button" onclick="document.getElementById('file').click();" class="btn btn-custom-1"><i class="material-icons">attach_file</i></button></a>
+                <button type="button" onclick="document.getElementById('file').click();" class="btn btn-custom-1"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> &nbsp;Attach</button></a>
                 <button type="submit" class="btn btn-custom">Send</button>
 
               </div>

@@ -3,9 +3,7 @@
   <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
 
   <span class="dropdown sign-out">
-    <span class="mobile-title">Parkwood Greens</span>
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      <span class="user-account"><i class="material-icons md-26 gray400">account_circle</i></span>
       <span class="main-title"><span class="dot-style">&#8226;</span> &nbsp;Hello, <?php echo $this->session->userdata('firstname'); ?></span>
     </a>
     <ul class="dropdown-menu pull-right">
@@ -43,13 +41,15 @@
 
         <br>
 
-        <hr class="row-hr">
-        <p> Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>user_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
-        <hr>
+        <div class="user-note">
+          <hr class="row-hr">
+          <p> Hello, <?php echo $this->session->userdata('firstname');?>. Do you want to ask/say something to the community? <span class="a-links"> <a href="<?php echo site_url(); ?>user_announcements/post_bulletin"> Post a bulletin now. </a></span> </p>
+          <hr>
+        </div>
 
       </div>
 
-      <br><br>
+      <br>
 
     </div>
 
@@ -78,5 +78,7 @@
     </div>
 
   </div>
+
+  <br><br><br>
 
 </div>
