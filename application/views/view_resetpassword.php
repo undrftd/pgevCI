@@ -47,13 +47,13 @@
 
             <?php if ($this->session->flashdata('resetfeedback')){ ?>
               <span class ="good-login" id="prompt-message">
-                 Hello, user! <?php echo $this->session->flashdata('resetfeedback'); ?> Thank you!
+                 Hello! <?php echo $this->session->flashdata('resetfeedback'); ?> Thank you!
               </span>
             <?php } ?>
 
             <?php if ($this->session->flashdata('resetfail')){ ?>
               <span class ="error-login" id="prompt-message">
-                Hello, user! <?php echo $this->session->flashdata('resetfail'); ?> Thank you!
+                Hello! <?php echo $this->session->flashdata('resetfail'); ?> Thank you!
               </span>
             <?php } ?>
 
