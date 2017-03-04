@@ -56,6 +56,11 @@
     margin-bottom: 15px;
   }
 
+  .information-1 {
+    padding: 20px;
+    margin-bottom: 0;
+  }
+
   .view-icon {
     display: block;
     cursor: pointer;
@@ -112,7 +117,7 @@
     border-top: 1px solid hsl(0, 0%, 93%);
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
-    z-index: 9999;
+    z-index: 10;
   }
 
   .mobile-nav ul {

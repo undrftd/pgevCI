@@ -1005,6 +1005,10 @@ hr.colored-hr-1 {
   background-color: #f5f5f5;
 }
 
+.modal {
+  z-index: 9999;
+}
+
 .login-form {
     padding: 50px 40px;
     background: white;
@@ -1272,7 +1276,7 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 99999;
+  z-index: 11;
   top: 0;
   left: 0;
   background-color: white;
