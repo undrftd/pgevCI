@@ -148,7 +148,7 @@ class Admin_Announcements extends MY_Controller{
       $data['count'] = $this->model_ticketing->count_newtickets();
       $data['reserve'] = $this->model_reservation->count_allnewreserve();
       $data['forms'] = $this->model_forms->count_allnewforms();
-      $this->template->load('admin_template','view_adminannouncements_post');
+      $this->template->load('admin_template','view_adminannouncements_post', $data);
     }
     else
     {
@@ -295,7 +295,7 @@ class Admin_Announcements extends MY_Controller{
       $data['count'] = $this->model_ticketing->count_newtickets();
       $data['reserve'] = $this->model_reservation->count_allnewreserve();
       $data['forms'] = $this->model_forms->count_allnewforms();
-      $this->template->load('admin_template','view_adminbulletin_post');
+      $this->template->load('admin_template','view_adminbulletin_post', $data);
     }
     else
     {
