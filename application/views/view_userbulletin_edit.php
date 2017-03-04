@@ -41,6 +41,9 @@
 
             <div class="form-group">
 
+              <h4> Bulletin Details </h4>
+              <br>
+
               <p> Bulletin Title </p>
               <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo $select->post_title; ?>" pattern=".{8,}" title="Bulletin Title should at least be 8 characters long." required>
               <p class="error"> <?php echo form_error('post_title');  ?></p>

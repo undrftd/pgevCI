@@ -37,6 +37,9 @@
 
         <div class="form-group">
 
+          <h4> Bulletin Details </h4>
+          <br>
+
           <form action="<?php echo site_url() . "user_announcements/post_bulletin_user/" ?>" method="POST">
 
             <p>  Bulletin Title </p>
