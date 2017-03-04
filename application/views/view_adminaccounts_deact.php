@@ -189,10 +189,10 @@
 
               <?php foreach($deact as $row): ?>
               <tr>
-                  <td><?php echo $row->firstname; ?></td>
-                  <td><?php echo $row->lastname; ?></td>
-                  <td><?php echo $row->username; ?></td>
-                  <td><?php echo $row->address; ?></td>
+                  <td><?php echo htmlentities($row->firstname); ?></td>
+                  <td><?php echo htmlentities($row->lastname); ?></td>
+                  <td><?php echo htmlentities($row->username); ?></td>
+                  <td><?php echo htmlentities($row->address); ?></td>
                   <td class="action-button not-important"><?php echo $row->email; ?></td>
                   <td class="action-button not-important"><?php echo $row->contactnum; ?></td>
                   <td class="action-button">
