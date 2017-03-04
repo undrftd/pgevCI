@@ -259,7 +259,9 @@
         <div id="myNav" class="overlay">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <div class="overlay-content">
-            <h4> Ticket Details </h4>
+            <div class="overlay-header">
+              <h4> Ticket Details </h4>
+            </div>
             <hr>
             <a href="#" data-toggle="modal" data-target="#view-message">Message</a>
             <hr>

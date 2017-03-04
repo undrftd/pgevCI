@@ -96,14 +96,17 @@
 					<div id="myNav1" class="overlay">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
 						<div class="overlay-content">
-							<h4>
-								<?php echo $this->session->firstname ;?> <?php echo $this->session->lastname ;?>
-								<span>Administrator</span>
-								<div class="account-actions">
-									<span> <a href="<?php echo base_url("admin_profile/"); ?>" style="display: block;">Edit Account &nbsp; <span class="dot-style">&#8226;</span> &nbsp;</a> </span>
-									<span> <a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a> </span>
-								</div>
-							</h4>
+							<div class="overlay-header">
+								<i class="material-icons md-48 gray400">account_circle</i>
+								<h4>
+									<?php echo $this->session->firstname ;?> <?php echo $this->session->lastname ;?>
+									<span>Administrator</span>
+									<div class="account-actions">
+										<span> <a href="<?php echo base_url("admin_profile/"); ?>" style="display: block;">Edit Account &nbsp; <span class="dot-style">&#8226;</span> &nbsp;</a> </span>
+										<span> <a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a> </span>
+									</div>
+								</h4>
+							</div>
 							<hr>
 							<a href="<?php echo site_url("admin_announcements/announcements");	?>">Announcements</a>
 							<hr>

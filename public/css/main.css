@@ -989,9 +989,12 @@ hr.colored-hr-1 {
 }
 
 .header-1 h2 {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1em;
-  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  color: #27ae60;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 
@@ -1307,14 +1310,17 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
 }
 
 .overlay h4 {
-  padding: 10px 10px 10px 15px;
+  padding: 10px 10px 10px 12px;
   font-size: 14px;
   color: #696969;
   text-transform: uppercase;
   font-weight: 700;
-  border-left: 5px solid #27ae60;
   display: flex;
   flex-direction: column;
+}
+
+.overlay i {
+  padding-left: 8px;
 }
 
 .overlay h4 span {
@@ -1323,6 +1329,14 @@ box-shadow: 0px 3px 15px -7px rgba(135,135,135,1);
   color: #999;
   font-weight: 300;
   text-transform: none;
+}
+
+.overlay .overlay-header {
+  border-left: 5px solid #27ae60;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 8px;
 }
 
 .overlay h4 .admin-note {

@@ -96,10 +96,12 @@
 					<div id="myNav" class="overlay">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<div class="overlay-content">
-							<h4>
-								Create a Ticket
-								<span class="admin-note"> The administrators could only accommodate requests and complaints until 4:30 PM. Expect the ticket to be accommodated within the next working day if you did not reach their working time. Thank you for your kind consideration. </span>
-							</h4>
+							<div class="overlay-header">
+								<h4>
+									Create a Ticket
+									<span class="admin-note"> The administrators could only accommodate requests and complaints until 4:30 PM. Expect the ticket to be accommodated within the next working day if you did not reach their working time. Thank you for your kind consideration. </span>
+								</h4>
+							</div>
 							<hr>
 							<a href="<?php echo site_url(); ?>user_ticketing/requests_complaints">Request and Complaints</a>
 							<hr>
@@ -114,14 +116,17 @@
 					<div id="myNav1" class="overlay">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
 						<div class="overlay-content">
-							<h4>
-								<?php echo $this->session->firstname ;?> <?php echo $this->session->lastname ;?>
-								<span>Homeowner</span>
-								<div class="account-actions">
-									<span> <a href="<?php echo base_url("user_accounts/"); ?>" style="display: block;">Edit Account &nbsp; <span class="dot-style">&#8226;</span> &nbsp;</a> </span>
-									<span> <a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a> </span>
-								</div>
-							</h4>
+							<div class="overlay-header">
+								<i class="material-icons md-48 gray400">account_circle</i>
+								<h4>
+									<?php echo $this->session->firstname ;?> <?php echo $this->session->lastname ;?>
+									<span>Homeowner</span>
+									<div class="account-actions">
+										<span> <a href="<?php echo base_url("user_accounts/"); ?>" style="display: block;">Edit Account &nbsp; <span class="dot-style">&#8226;</span> &nbsp;</a> </span>
+										<span> <a href="<?php echo base_url("login/signout/"); ?>">Sign Out</a> </span>
+									</div>
+								</h4>
+							</div>
 							<hr>
 							<a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a>
 							<hr>
