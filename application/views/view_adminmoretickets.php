@@ -103,7 +103,7 @@
             </div>
 
             <div class="modal-body">
-              <p> <?php echo $result->content; ?> </p>
+              <p> <?php echo htmlentities($result->content); ?> </p>
             </div>
 
             <div class="modal-footer">
