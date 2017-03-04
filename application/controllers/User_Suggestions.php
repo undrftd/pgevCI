@@ -40,7 +40,7 @@ class User_Suggestions extends MY_Controller {
     function send_email()
     {
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-        $this->form_validation->set_rules("message", "Message", "required|min_length[20]");
+        $this->form_validation->set_rules("message", "Message", "required|min_length[20]|xss_clean");
  
         if ($this->form_validation->run() == FALSE)
         {

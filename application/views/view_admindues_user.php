@@ -121,6 +121,33 @@
 
   </div>
 
+  <div class="modal fade" id="deact-modal" role="dialog">
+
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Deactivate Accounts</h4>
+            </div>
+
+            <br>
+
+            <div class="signin">
+                <div class="modal-body text-center">
+                    <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to deactivate all accounts with 3 months or more worth of arrears? </p><br>
+                    <a href="<?php echo base_url(); ?>admin_dues/deact_users"><button type="submit" class="btn btn-custom-1">Yes</button></a>
+                    <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+          </div>
+
+      </div>
+
+  </div>
+
   <div class="header-style">
     <h1> Homeowner's Monthly Dues </h1>
   </div><br>
@@ -197,8 +224,8 @@
             Clear Records </a>
           </li>
           <li>
-            <a href="#">
-            Deactivate Users </a>
+            <a href="#" data-toggle="modal" data-target="#deact-modal">
+            Deactivate Delinquents </a>
           </li>
           <li class="dropdown">
             <span class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="material-icons md-26 gray400">more_horiz</i></span>
@@ -206,7 +233,7 @@
               <li><a href="#" data-toggle="modal" data-target="#start-modal">Start Billing</a></li>
               <li><a href="<?php echo base_url();?>admin_dues/viewrates">Edit Rates</a></li>
               <li><a href="#" data-toggle="modal" data-target="#clear-modal">Clear Records</a></li><br>
-              <li><a href="#">Deactivate Users </a></li>
+              <li><a href="#">Deactivate Delinquents </a></li>
             </ul>
           </li>
         </ul>

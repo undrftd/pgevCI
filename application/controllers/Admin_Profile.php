@@ -64,14 +64,14 @@ class Admin_Profile extends MY_Controller{
 	        $this->form_validation->set_message('matches', 'Passwords do not match!');
 	         $this->form_validation->set_message('num_dash_par', '{field} may only contain numbers, dashes, and parentheses.');
 
-	        $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space');
-	        $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space');
-	        $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']');
-	        $this->form_validation->set_rules('password', 'Password', 'required');
-	        $this->form_validation->set_rules('passconf', 'Password', 'required|matches[password]');
-	        $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma');
-	        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email');
-	        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
+	        $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space|xss_clean');
+	        $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space|xss_clean');
+	        $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']|xss_clean');
+	        $this->form_validation->set_rules('password', 'Password', 'required|xss_clean');
+	        $this->form_validation->set_rules('passconf', 'Password', 'required|matches[password]|xss_clean');
+	        $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma|xss_clean');
+	        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|xss_clean');
+	        $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]|xss_clean');
 
 	        if ($this->form_validation->run() == FALSE)
 	        {

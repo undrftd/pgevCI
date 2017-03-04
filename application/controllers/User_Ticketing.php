@@ -47,8 +47,8 @@ class User_Ticketing extends MY_Controller {
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
-        $this->form_validation->set_rules('type', 'Type of Request or Complaint', 'required');
-        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]');
+        $this->form_validation->set_rules('type', 'Type of Request or Complaint', 'required|xss_clean');
+        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]|xss_clean');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -100,8 +100,8 @@ class User_Ticketing extends MY_Controller {
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
-        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]');
-        $this->form_validation->set_rules('datepick', 'Date', 'trim|required');
+        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]|xss_clean');
+        $this->form_validation->set_rules('datepick', 'Date', 'trim|required|xss_clean');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -153,8 +153,8 @@ class User_Ticketing extends MY_Controller {
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
-        $this->form_validation->set_rules('type', 'Type of Emergency', 'required');
-        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]');
+        $this->form_validation->set_rules('type', 'Type of Emergency', 'required|xss_clean');
+        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]|xss_clean');
 
         if ($this->form_validation->run() == FALSE)
         {

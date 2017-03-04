@@ -72,7 +72,7 @@ class Login extends CI_Controller
 
     function reset_emailvalidation()
     {
-        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|trim');
+        $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|trim|xss_clean');
         if ($this->form_validation->run())
         {
             $resetkey = md5(uniqid());
@@ -263,8 +263,8 @@ class Login extends CI_Controller
     function reset_password_validation()
     {
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-        $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
-        $this->form_validation->set_rules('confpassword', 'Confirm Password', 'required|matches[password]');
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]|xss_clean');
+        $this->form_validation->set_rules('confpassword', 'Confirm Password', 'required|matches[password]|xss_clean');
         if ($this->form_validation->run())
         {
             $this->load->model('model_accounts');

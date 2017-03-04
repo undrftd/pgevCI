@@ -115,8 +115,8 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_courtone()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
-		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate|max_time');
-        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courtone|hourselection');
+		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate|max_time|xss_clean');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courtone|hourselection|xss_clean');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -142,8 +142,8 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_courttwo()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
-		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate|max_time');
-        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courttwo|hourselection');
+		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate|max_time|xss_clean');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_courttwo|hourselection|xss_clean');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -169,9 +169,9 @@ class User_Reservation extends MY_Controller {
 	function create_reservation_clubhouse()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
-		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate');
-        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_clubhouse|hourselection|min_fourhours');
-        $this->form_validation->set_rules('reserveend', 'Reservation Start', 'required');
+		$this->form_validation->set_rules('datepick', 'Date', 'required|no_olddate|xss_clean');
+        $this->form_validation->set_rules('reservestart', 'Reservation Start', 'required|unique_reserve_clubhouse|hourselection|min_fourhours|xss_clean');
+        $this->form_validation->set_rules('reserveend', 'Reservation Start', 'required|xss_clean');
 
         if ($this->form_validation->run() == FALSE)
         {
