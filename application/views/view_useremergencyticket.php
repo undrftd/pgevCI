@@ -32,7 +32,7 @@
 
         <?php if ($this->session->flashdata('emergencysuccess')){ ?>
           <div class="success-message text-center" id="prompt-message">
-            <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3><br>
+            <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
             <p> <?php echo $this->session->flashdata('emergencysuccess'); ?></p><br>
             <p class="ticket-id"><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></p><br><br>
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>

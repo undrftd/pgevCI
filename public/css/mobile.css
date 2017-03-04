@@ -12,6 +12,55 @@
     appearance: none;
   }
 
+  .error-message, .success-message {
+    padding: 10px;
+    border-radius: 0;
+    line-height: 15px;
+  }
+
+  .success-message {
+    border: 1px solid #27ae60;
+  }
+
+  .error-message {
+    border: 1px solid #e74c3c;
+  }
+
+  .success-message h3, .error-message h3 {
+    font-size: 1.2em;
+  }
+
+  .ticket-id {
+    padding: 7px;
+    border: 1px solid #696969;
+    border-left: 5px solid #696969;
+    width: 150px;
+    margin: 0 auto;
+  }
+
+  .btn-custom-2 {
+    padding: 3px;
+    width: 100px;
+    font-size: 0.8em;
+    border: 1px solid #27ae60;
+  }
+
+  .error-message button {
+    padding: 3px;
+    width: 100px;
+    font-size: 0.8em;
+    border: 1px solid #e74c3c;
+  }
+
+  .btn-custom-2:hover {
+    border: 1px solid #27ae60;
+    box-shadow: none;
+  }
+
+  .error-message button:hover {
+    border: 1px solid #e74c3c;
+  }
+
   .nopadding {
      padding: 0 !important;
      margin: 0 !important;
@@ -25,7 +74,7 @@
     display: none;
   }
 
-  .announcement-message p, .admin-message p, .court-message p, .announcement-message .date-posted, #page-content-wrapper .archive-part a, .form-group .help-block, .information-add a {
+  .announcement-message p, .admin-message p, .court-message p, .announcement-message .date-posted, #page-content-wrapper .archive-part a, .form-group .help-block, .information-add a, .success-message p, .error-message p {
     font-size: 0.90em;
     font-family: 'Roboto';
     font-weight: 400;
@@ -57,7 +106,6 @@
     padding: 15px;
     border: 1px solid #e6e6e6;
     box-shadow: none;
-    line-height: 20px;
   }
 
   .information:hover, .information-1:hover {
