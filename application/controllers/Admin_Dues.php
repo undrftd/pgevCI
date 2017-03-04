@@ -193,6 +193,18 @@ class Admin_Dues extends MY_Controller{
         redirect('admin_dues/administrator');
     }
 
+    function deact_users()
+    {
+        $this->model_dues->deact_users();
+        redirect('admin_dues/homeowner');
+    }
+
+    function deact_admin()
+    {
+        $this->model_dues->deact_admin();
+        redirect('admin_dues/administrator');
+    }
+
     function viewdues_user($userid)
     {
         if($this->model_dues->url_check_user($userid))

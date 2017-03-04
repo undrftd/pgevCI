@@ -414,4 +414,36 @@ class Model_dues extends CI_Model {
         $update = $this->db->update('accounts',$update_record_rate);
         return $update;
     }
+
+    function deact_users()
+    {
+
+        $update_record_data = array(
+            'isActive' => '0',
+            );
+        
+        $queryrate = $this->db->select('*')->from('rate')->where('rateid', 1)->get();
+        $rateresult = $queryrate->row();
+        $arrears = ($rateresult->securityfee + $rateresult->assocfee) * 3;
+
+        $this->db->where('arrears >=', $arrears)->where('role', 0);
+        $update = $this->db->update('accounts',$update_record_data);
+        return $update;
+    }
+
+    function deact_admin()
+    {
+
+        $update_record_data = array(
+            'isActive' => '0',
+            );
+        
+        $queryrate = $this->db->select('*')->from('rate')->where('rateid', 1)->get();
+        $rateresult = $queryrate->row();
+        $arrears = ($rateresult->securityfee + $rateresult->assocfee) * 3;
+
+        $this->db->where('arrears >=', $arrears)->where('role', 1);
+        $update = $this->db->update('accounts',$update_record_data);
+        return $update;
+    }
 }
