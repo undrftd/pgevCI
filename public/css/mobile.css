@@ -1,5 +1,17 @@
 @media(max-width:600px) {
 
+  input[type=text], input[type=password], input[type=email]  {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
   .nopadding {
      padding: 0 !important;
      margin: 0 !important;
@@ -42,9 +54,10 @@
   }
 
   .information, .information-1, .information-add {
-    padding: 20px;
+    padding: 15px;
     border: 1px solid #e6e6e6;
     box-shadow: none;
+    line-height: 20px;
   }
 
   .information:hover, .information-1:hover {
