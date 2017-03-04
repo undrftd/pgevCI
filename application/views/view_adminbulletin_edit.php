@@ -88,7 +88,7 @@
               <br>
 
               <p> Bulletin Title </p>
-              <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo $select->post_title; ?>" pattern=".{8,}" title="Bulletin Title should at least be 8 characters long." required>
+              <input class="form-control" id="sel1" type="text" name="post_title" value="<?php echo htmlentities($select->post_title); ?>" pattern=".{8,}" title="Bulletin Title should at least be 8 characters long." required>
               <p class="error"> <?php echo form_error('post_title');  ?></p>
               <br>
 
@@ -98,7 +98,7 @@
               <br>
 
               <p> Current Bulletin: </p>
-              <textarea class="form-control" id="user-message" placeholder="" name="post_content" rows="15" pattern=".{20,}" title="Bulletin Content should at least be 8 characters long." required><?php echo $select->post_content; ?></textarea>
+              <textarea class="form-control" id="user-message" placeholder="" name="post_content" rows="15" pattern=".{20,}" title="Bulletin Content should at least be 8 characters long." required><?php echo htmlentities($select->post_content); ?></textarea>
               <p class="error"> <?php echo form_error('post_content');  ?>
 
               <br><br>

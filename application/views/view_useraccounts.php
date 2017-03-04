@@ -64,17 +64,17 @@
                   <br>
 
                   <p> First Name </p>
-                  <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->firstname ;?>" readonly>
+                  <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($this->session->firstname) ;?>" readonly>
                   <p></p>
                   <br>
 
                   <p> Last Name </p>
-                  <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->lastname ;?>" readonly>
+                  <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($this->session->lastname) ;?>" readonly>
                   <p></p>
                   <br>
 
                   <p> Username </p>
-                  <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->username ;?>" readonly>
+                  <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($this->session->username) ;?>" readonly>
                   <p></p>
                   <br>
 
@@ -89,17 +89,17 @@
                   <br>
 
                   <p>Email Address </p>
-                  <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo $this->session->userdata('email'); ?>">
+                  <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo htmlentities($this->session->userdata('email')); ?>">
                   <p class="error"> <?php echo form_error('email'); ?>  </p>
                   <br>
 
                   <p> Address </p>
-                  <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->address ;?>" readonly>
+                  <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($this->session->address); ?>" readonly>
                   <p></p>
                   <br>
 
                   <p>Contact Number </p>
-                  <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('contactnum'); ?>" pattern="[-0-9()]{7,}" title="Contact number should contain numbers and parentheses only, with a minimum of 7 characters." required>
+                  <input name="contactnum" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($this->session->userdata('contactnum')); ?>" pattern="[-0-9()]{7,}" title="Contact number should contain numbers and parentheses only, with a minimum of 7 characters." required>
                   <p class="error"> <?php echo form_error('contactnum'); ?> </p>
                   <br><br>
 
