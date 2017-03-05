@@ -33,6 +33,8 @@ class User_Reservation extends MY_Controller {
 
 	function court_one()
 	{
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getcourtone_defaultavailability();
@@ -45,6 +47,8 @@ class User_Reservation extends MY_Controller {
 
 	    if(isset($searchquery) and !empty($searchquery))
 	    {
+            $data['approvedreserve'] = $this->model_reservation->count_approved();
+            $data['deniedreserve'] = $this->model_reservation->count_denied();
             $data['count'] = $this->model_tracking_user->count_activetickets();
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourtone_availability($searchquery);
@@ -58,6 +62,8 @@ class User_Reservation extends MY_Controller {
 
 	function court_two()
 	{
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getcourttwo_defaultavailability();
@@ -70,6 +76,8 @@ class User_Reservation extends MY_Controller {
 
 	    if(isset($searchquery) and !empty($searchquery))
 	    {
+            $data['approvedreserve'] = $this->model_reservation->count_approved();
+            $data['deniedreserve'] = $this->model_reservation->count_denied();
             $data['count'] = $this->model_tracking_user->count_activetickets();
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getcourttwo_availability($searchquery);
@@ -83,6 +91,8 @@ class User_Reservation extends MY_Controller {
 
 	function clubhouse()
 	{
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['date'] = date("Y/m/d");
 		$data['result'] = $this->model_reservation_user->getclubhouse_defaultavailability();
@@ -95,6 +105,8 @@ class User_Reservation extends MY_Controller {
 
 	    if(isset($searchquery) and !empty($searchquery))
 	    {
+            $data['approvedreserve'] = $this->model_reservation->count_approved();
+            $data['deniedreserve'] = $this->model_reservation->count_denied();
             $data['count'] = $this->model_tracking_user->count_activetickets();
     		$data['date'] = $searchquery;
 			$data['result'] = $this->model_reservation_user->getclubhouse_availability($searchquery);
@@ -108,6 +120,8 @@ class User_Reservation extends MY_Controller {
 
 	function add_reservation_courtone()
 	{
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
 		$this->template->load('user_template', 'view_userreservation_addcourtone', $data);
 	}
@@ -120,6 +134,8 @@ class User_Reservation extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
+            $data['approvedreserve'] = $this->model_reservation->count_approved();
+            $data['deniedreserve'] = $this->model_reservation->count_denied();
             $data['count'] = $this->model_tracking_user->count_activetickets();
             $this->template->load('user_template', 'view_userreservation_addcourtone', $data);
         }
@@ -135,6 +151,8 @@ class User_Reservation extends MY_Controller {
 
 	function add_reservation_courttwo()
 	{
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
 		$this->template->load('user_template', 'view_userreservation_addcourttwo', $data);
 	}
@@ -147,6 +165,8 @@ class User_Reservation extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
+            $data['approvedreserve'] = $this->model_reservation->count_approved();
+            $data['deniedreserve'] = $this->model_reservation->count_denied();
             $data['count'] = $this->model_tracking_user->count_activetickets();
             $this->template->load('user_template', 'view_userreservation_addcourttwo', $data);
         }
@@ -162,6 +182,8 @@ class User_Reservation extends MY_Controller {
 
 	function add_reservation_clubhouse()
 	{
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
 		$this->template->load('user_template', 'view_userreservation_addclubhouse', $data);
 	}
@@ -175,6 +197,8 @@ class User_Reservation extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
+            $data['approvedreserve'] = $this->model_reservation->count_approved();
+            $data['deniedreserve'] = $this->model_reservation->count_denied();
             $data['count'] = $this->model_tracking_user->count_activetickets();
             $this->template->load('user_template', 'view_userreservation_addclubhouse', $data);
         }
@@ -212,6 +236,8 @@ class User_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['courtonelinks'] = $this->pagination->create_links();
 
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['myreserve'] = $this->model_reservation_user->getmyreservation_courtone($config['per_page'], $this->uri->segment(3));
 		$this->template->load('user_template', 'view_userreservation_reservation_courtone', $data);
@@ -241,6 +267,8 @@ class User_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['courttwolinks'] = $this->pagination->create_links();
 
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['myreserve'] = $this->model_reservation_user->getmyreservation_courttwo($config['per_page'], $this->uri->segment(3));
 		$this->template->load('user_template', 'view_userreservation_reservation_courttwo', $data);
@@ -270,6 +298,8 @@ class User_Reservation extends MY_Controller {
         $this->pagination->initialize($config);
         $data['clubhouselinks'] = $this->pagination->create_links();
 
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['myreserve'] = $this->model_reservation_user->getmyreservation_clubhouse($config['per_page'], $this->uri->segment(3));
 		$this->template->load('user_template', 'view_userreservation_reservation_clubhouse', $data);
