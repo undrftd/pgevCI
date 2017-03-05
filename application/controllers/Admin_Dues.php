@@ -32,7 +32,7 @@ class Admin_Dues extends MY_Controller{
 
 	function homeowner()
     {
-    	  $config['base_url'] = site_url('admin_dues/homeowner');
+    	$config['base_url'] = site_url('admin_dues/homeowner');
         $config['total_rows'] = $this->model_dues->count_user();
         $config['per_page'] =  20;
         $config['num_links'] = 5;
@@ -184,24 +184,31 @@ class Admin_Dues extends MY_Controller{
     {
         $this->usertracking->track_this();
         $this->model_dues->billstart_user();
+        $this->session->set_flashdata('duesfeedback', 'You have successfully billed the homeowners their respective monthly dues.');
         redirect('admin_dues/homeowner');
     }
 
     function billstart_admin()
     {
+        $this->usertracking->track_this();
         $this->model_dues->billstart_admin();
+        $this->session->set_flashdata('duesfeedback', 'You have successfully billed the administrators their respective monthly dues.');
         redirect('admin_dues/administrator');
     }
 
     function deact_users()
     {
+        $this->usertracking->track_this();
         $this->model_dues->deact_users();
+        $this->session->set_flashdata('duesfeedback', 'You have successfully deactivated all the delinquent homeowner accounts.');
         redirect('admin_dues/homeowner');
     }
 
     function deact_admin()
     {
+        $this->usertracking->track_this();
         $this->model_dues->deact_admin();
+        $this->session->set_flashdata('duesfeedback', 'You have successfully deactivated all the delinquent administrator accounts.');
         redirect('admin_dues/administrator');
     }
 
@@ -344,8 +351,8 @@ class Admin_Dues extends MY_Controller{
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
             $this->form_validation->set_message('num_only', '{field} may only contain numbers and periods.');
-            $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|callback_num_only');
-            $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|callback_num_only');
+            $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|callback_num_only|xss_clean');
+            $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|callback_num_only|xss_clean');
 
             if($this->session->userdata('duesmorefeedback'))
             {
@@ -385,8 +392,8 @@ class Admin_Dues extends MY_Controller{
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
             $this->form_validation->set_message('num_only', '{field} may only contain numbers and periods.');
-            $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|callback_num_only');
-            $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|callback_num_only');
+            $this->form_validation->set_rules('monthly_dues', 'Monthly Dues', 'trim|required|callback_num_only|xss_clean');
+            $this->form_validation->set_rules('arrears', 'Arrears', 'trim|required|callback_num_only|xss_clean');
 
             if($this->session->userdata('duesmorefeedback'))
             {
@@ -433,8 +440,8 @@ class Admin_Dues extends MY_Controller{
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
         $this->form_validation->set_message('num_only', '{field} may only contain numbers and periods.');
-        $this->form_validation->set_rules('securityfee', 'Security Fee', 'trim|required|callback_num_only');
-        $this->form_validation->set_rules('assocfee', 'Association Fee', 'trim|required|callback_num_only');
+        $this->form_validation->set_rules('securityfee', 'Security Fee', 'trim|required|callback_num_only|xss_clean');
+        $this->form_validation->set_rules('assocfee', 'Association Fee', 'trim|required|callback_num_only|xss_clean');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -460,6 +467,7 @@ class Admin_Dues extends MY_Controller{
     {
         $this->usertracking->track_this();
         $this->model_dues->clearrecords_user();
+        $this->session->set_flashdata('duesfeedback', 'You have successfully cleared all the homeowner records.');
         redirect('admin_dues/homeowner');
     }
 
@@ -467,6 +475,7 @@ class Admin_Dues extends MY_Controller{
     {
         $this->usertracking->track_this();
         $this->model_dues->clearrecords_admin();
+        $this->session->set_flashdata('duesfeedback', 'You have successfully cleared all the administrator records.');
         redirect('admin_dues/administrator');
     }
 

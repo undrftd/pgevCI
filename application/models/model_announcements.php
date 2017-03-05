@@ -101,8 +101,8 @@ class Model_announcements extends CI_Model{
   {
     $edit_ann = array(
       'userid' => $this->session->userdata('userid'),
-      'post_title' => $this->input->post('post_title'),
-      'post_content' => $this->input->post('post_content'),
+      'post_title' => $this->input->post('post_title', TRUE),
+      'post_content' => $this->input->post('post_content', TRUE),
       'post_date' =>  date('m/d/Y'),
       'post_time' => time(),
     );
@@ -136,10 +136,10 @@ class Model_announcements extends CI_Model{
   {
     $post_announncements = array(
       'userid' => $this->session->userdata('userid'),
-      'post_title' => $this->input->post('post_title'),
+      'post_title' => $this->input->post('post_title', TRUE),
       'post_date' =>  date('m/d/Y'),
       'post_time' => time(),
-      'post_content' => $this->input->post('post_content'),
+      'post_content' => $this->input->post('post_content', TRUE),
     );
 
     $post = $this->db->insert('announcements', $post_announncements);
@@ -166,8 +166,8 @@ class Model_announcements extends CI_Model{
   {
     $edit_bulletin = array(
       'userid' => $this->session->userdata('userid'),
-      'post_title' => $this->input->post('post_title'),
-      'post_content' => $this->input->post('post_content'),
+      'post_title' => $this->input->post('post_title', TRUE),
+      'post_content' => $this->input->post('post_content', TRUE),
       'post_date' =>  date('m/d/Y'),
       'post_time' => time(),
     );
@@ -199,10 +199,10 @@ class Model_announcements extends CI_Model{
   {
     $post_bulletin = array(
       'userid' => $this->session->userdata('userid'),
-      'post_title' => $this->input->post('post_title'),
+      'post_title' => $this->input->post('post_title', TRUE),
       'post_date' =>  date('m/d/Y'),
       'post_time' => time(),
-      'post_content' => $this->input->post('post_content'),
+      'post_content' => $this->input->post('post_content', TRUE),
     );
 
     $post = $this->db->insert('bulletin', $post_bulletin);

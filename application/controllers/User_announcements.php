@@ -97,8 +97,8 @@ class User_Announcements extends MY_Controller{
   function post_bulletin_user()
   {
     $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-    $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
-    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
+    $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required|xss_clean');
 
     if ($this->form_validation->run() == FALSE)
     {
@@ -255,8 +255,8 @@ class User_Announcements extends MY_Controller{
   {
     if($this->model_announcements_user->url_check_bulletin($post_id))
     {
-      $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required');
-      $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required');
+      $this->form_validation->set_rules('post_title','Bulletin Title', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('post_content', 'Bulletin Content', 'trim|required|xss_clean');
 
       if ($this->form_validation->run($post_id) == FALSE)
       {

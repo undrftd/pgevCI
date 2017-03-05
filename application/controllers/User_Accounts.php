@@ -55,10 +55,10 @@ class User_Accounts extends MY_Controller {
       $this->form_validation->set_message('num_dash_par', '{field} may only contain numbers, dashes, and parentheses.');
       $this->form_validation->set_message('matches', 'Passwords do not match!');
 
-      $this->form_validation->set_rules('password', 'Password', 'required|min_length[7]');
-      $this->form_validation->set_rules('cpassword', 'Password', 'required|matches[password]');
-      $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$userid.']');
-      $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]');
+      $this->form_validation->set_rules('password', 'Password', 'required|min_length[7]|xss_clean');
+      $this->form_validation->set_rules('cpassword', 'Password', 'required|matches[password]|xss_clean');
+      $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$userid.']|xss_clean');
+      $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]|xss_clean');
 
       if ($this->form_validation->run() == FALSE)
       {

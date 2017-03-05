@@ -445,5 +445,6 @@ class Model_dues extends CI_Model {
         $this->db->where('arrears >=', $arrears)->where('role', 1);
         $update = $this->db->update('accounts',$update_record_data);
         return $update;
+        return $this->db->affected_rows();
     }
 }

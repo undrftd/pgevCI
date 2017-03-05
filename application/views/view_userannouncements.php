@@ -98,10 +98,10 @@
 
                   <div class="information-1">
 
-                    <h4><?php echo $row->post_title ?> </h4>
+                    <h4><?php echo htmlentities($row->post_title) ?> </h4>
                     <p><small class="date-archive"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;  <?php echo date("F d, Y", strtotime($row->post_date)) . " at " . date("g:i A", $row->post_time);?></small> </p>
                     <hr>
-                    <p> <?php echo substr($row->post_content, 0, 300); if(strlen($row->post_content) > 300) {echo "..."; } else { echo ""; } ?> </p>
+                    <p> <?php echo htmlentities(substr($row->post_content, 0, 300)); if(strlen($row->post_content) > 300) {echo "..."; } else { echo ""; } ?> </p>
                     <hr>
 
                     <div class="more-link">

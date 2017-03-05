@@ -95,7 +95,7 @@
             </div>
 
             <div class="modal-body">
-              <p> <?php echo $result->content; ?> </p>
+              <p> <?php echo htmlentities($result->content); ?> </p>
             </div>
 
             <div class="modal-footer">
@@ -290,7 +290,7 @@
           <br><br>
 
           <p> Remarks </p>
-          <textarea name ="admin-remarks" class="form-control" id="user-message"  reseize="none" disabled="disabled"><?php echo $result->closed_remarks; ?></textarea>
+          <textarea name ="admin-remarks" class="form-control" id="user-message"  reseize="none" disabled="disabled"><?php echo htmlentities($result->closed_remarks); ?></textarea>
           <p class="error"><?php echo form_error('content'); ?> </p>
           <br>
 
