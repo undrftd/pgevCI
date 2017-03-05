@@ -233,7 +233,7 @@
               <li><a href="#" data-toggle="modal" data-target="#start-modal">Start Billing</a></li>
               <li><a href="<?php echo base_url();?>admin_dues/viewrates">Edit Rates</a></li>
               <li><a href="#" data-toggle="modal" data-target="#clear-modal">Clear Records</a></li><br>
-              <li><a href="#">Deactivate Delinquents </a></li>
+              <li><a href="#" data-toggle="modal" data-target="#deact-modal">Deactivate Delinquents </a></li>
             </ul>
           </li>
         </ul>
