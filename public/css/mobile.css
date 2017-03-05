@@ -133,7 +133,7 @@
     box-shadow: none;
   }
 
-  span.sign-out, .user-note, .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .header, .login-content .btn-custom-4, .forgot-password, .information-other, .sign-out .dropdown-toggle, hr.colored-hr {
+  .web-header, span.sign-out, .user-note, .sign-out .dropdown-toggle .badge, .activity-heading, .activity-bar, .main-title, #menu-toggle, .header, .login-content .btn-custom-4, .forgot-password, .information-other, .sign-out .dropdown-toggle, hr.colored-hr {
     display: none;
   }
 
@@ -342,7 +342,7 @@
   }
 
   .reserve-state span:first-child {
-    color: inherit;
+    color: #27ae60;
   }
 
   .reserve-state span:nth-child(3) {
