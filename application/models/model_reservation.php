@@ -334,9 +334,9 @@ class Model_reservation extends CI_Model {
 
     function count_approved()
     {
-    	$query = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 1)->get();
-    	$query2 = $this->db->select('*')->from('courttwo_reservation')->where('reservation_status', 1)->get();
-    	$query3 = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_status', 1)->get();
+    	$query = $this->db->select('*')->from('courtone_reservation')->where('userid', $this->session->userdata('userid'))->where('reservation_status', 1)->get();
+    	$query2 = $this->db->select('*')->from('courttwo_reservation')->where('userid', $this->session->userdata('userid'))->where('reservation_status', 1)->get();
+    	$query3 = $this->db->select('*')->from('clubhouse_reservation')->where('userid', $this->session->userdata('userid'))->where('reservation_status', 1)->get();
 
     	$result = $query->num_rows() + $query2->num_rows() + $query3->num_rows();
     	return $result;
@@ -344,9 +344,9 @@ class Model_reservation extends CI_Model {
 
     function count_denied()
     {
-    	$query = $this->db->select('*')->from('courtone_reservation')->where('reservation_status', 0)->get();
-    	$query2 = $this->db->select('*')->from('courttwo_reservation')->where('reservation_status', 0)->get();
-    	$query3 = $this->db->select('*')->from('clubhouse_reservation')->where('reservation_status', 0)->get();
+    	$query = $this->db->select('*')->from('courtone_reservation')->where('userid', $this->session->userdata('userid'))->where('reservation_status', 0)->get();
+    	$query2 = $this->db->select('*')->from('courttwo_reservation')->where('userid', $this->session->userdata('userid'))->where('reservation_status', 0)->get();
+    	$query3 = $this->db->select('*')->from('clubhouse_reservation')->where('userid', $this->session->userdata('userid'))->where('reservation_status', 0)->get();
 
     	$result = $query->num_rows() + $query2->num_rows() + $query3->num_rows();
     	return $result;
