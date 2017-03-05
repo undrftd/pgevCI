@@ -57,7 +57,7 @@
             <br>
 
             <p> Desired Reservation Start Time</p>
-              <select name="reservestart" class="form-control" id="sel1" required>
+              <select name="reservestart" class="form-control" id="sel1" required autofocus>
                 <option value= "" selected hidden>Choose your start time</option>
                 <option value= "6">6:00 PM</option>
                 <option value= "7">7:00 PM</option>
@@ -68,7 +68,7 @@
             <br>
 
             <p> Desired Reservation End Time</p>
-              <select name="reserveend" class="form-control" id="sel1" required>
+              <select name="reserveend" class="form-control" id="sel1" required autofocus>
                 <option value= "" selected hidden>Choose your end time</option>
                 <option value= "7">7:00 PM</option>
                 <option value= "8">8:00 PM</option>
@@ -76,18 +76,21 @@
                 <option value= "10">10:00 PM</option>
               </select>
             <p class="error"> <?php echo form_error('reserveend');?> </p>
-            <br>
+            <br><br>
 
           </div>
 
           <button type="submit" class="btn btn-custom-5">Add Reservation</button>
 
+          <div class="send-mobile">
+            <a href="#" onclick="$(this).closest('form').submit()">+ Add Reservation</a>
+          </div>
+
         </form>
 
       </div>
 
-      <br>
-      <br>
+      <br><br><br>
 
     </div>
 

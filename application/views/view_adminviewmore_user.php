@@ -187,9 +187,9 @@
                 <p class="error"> <?php echo form_error('role'); ?></p>
               </fieldset>
               <br><br>
-              <input class="btn btn-custom-5" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+              <input class="btn btn-custom-12" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
             </form>
-                  <button class="btn btn-custom-5" onclick="undisableField()" id="edit-button">Edit</button>
+                  <button class="btn btn-custom-12" onclick="undisableField()" id="edit-button">Edit</button>
                   <br>
                   <button type="button" class="btn btn-custom-6" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> &nbsp;Delete </button><br><br>
                   <button type="button" class="btn btn-custom-7" data-toggle="modal" data-target="#deactivate-modal"> Deactivate </button>
@@ -199,7 +199,7 @@
 
       </div>
 
-      <br><br>
+      <br><br><br>
 
     </div>
 

@@ -62,14 +62,17 @@
 
             <a href=""><button type="submit" class="btn btn-custom-5">Post</button></a>
 
+            <div class="send-mobile">
+              <a href="#" onclick="$(this).closest('form').submit()">+ Post</a>
+            </div>
+
           </form>
 
         </div>
 
       </div>
 
-      <br>
-      <br>
+      <br><br><br>
 
     </div>
 

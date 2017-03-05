@@ -64,7 +64,7 @@
 
 
               <p> Select a type of ticket: </p>
-              <select name="type" class="form-control" id="sel1" required>
+              <select name="type" class="form-control" id="sel1" autofocus required>
                   <option value="" selected hidden>Type of Emergency</option>
                   <option value="EFR">Fire</option>
                   <option value="ERB">Robbery</option>

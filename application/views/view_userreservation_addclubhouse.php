@@ -100,12 +100,15 @@
 
           <button type="submit" class="btn btn-custom-5">Add Reservation</button>
 
+          <div class="send-mobile">
+            <a href="#" onclick="$(this).closest('form').submit()">+ Add Reservation</a>
+          </div>
+
         </form>
 
       </div>
 
-      <br>
-      <br>
+      <br><br><br>
 
     </div>
 

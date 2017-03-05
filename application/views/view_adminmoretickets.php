@@ -234,7 +234,7 @@
             <br>
 
             <p> Status </p>
-            <select name ="status" class="form-control" id="sel1">
+            <select name ="status" class="form-control" id="sel1" autofocus>
               <option value ="<?php echo $result->status;?>" selected hidden> <?php if($result->status == 1) { echo "Work in Progress"; } else if($result->status == 0) { echo "Closed"; } else { echo "Set Status"; } ?></option>
               <option value ="1">Work in Progress</option>
               <option value="0">Closed</option>
@@ -252,7 +252,7 @@
 
             <p class="help-block">Exclusively for CCTV Retrieval Request</p>
 
-            <span class="view-icon"><a href="#" onclick="openNav()">View More</a></span>
+            <span class="view-icon"><a href="#" onclick="openNav()">View more details</a></span>
 
         </div>
 
@@ -318,6 +318,6 @@
 
   </div>
 
-  <br><br>
+  <br><br><br><br>
 
 </div>

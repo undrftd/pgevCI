@@ -26,6 +26,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    position: relative;
   }
 
   .error-message, .success-message {
@@ -61,6 +62,20 @@
     border: 1px solid #27ae60;
   }
 
+  .btn-custom-9 {
+    padding: 3px;
+    width: 100px;
+    font-size: 0.8em;
+    border: 1px solid #e74c3c;
+  }
+
+  .btn-custom-3 {
+    padding: 3px;
+    width: 100px;
+    font-size: 0.8em;
+    border: 1px solid #e1e1e1;
+  }
+
   .error-message button {
     padding: 3px;
     width: 100px;
@@ -79,7 +94,7 @@
 
   .btn-custom {
     padding: 13px;
-    font-size: 0.90em;
+    font-size: 0.85em;
     font-weight: 700;
     border: 1px solid #27ae60;
     -webkit-box-shadow: 0px 2px 0px 0px #219150;
@@ -89,12 +104,16 @@
 
   .btn-custom-1 {
     padding: 13px;
-    font-size: 0.90em;
+    font-size: 0.85em;
     font-weight: 700;
     border: 1px solid #f2f2f2;
     -webkit-box-shadow: 0px 2px 0px 0px #e1e1e1;
     -moz-box-shadow: 0px 2px 0px 0px #e1e1e1;
     box-shadow: 0px 2px 0px 0px #e1e1e1;
+  }
+
+  .btn-custom-5 {
+    display: none;
   }
 
   .btn-custom:hover {
@@ -118,10 +137,14 @@
     display: none;
   }
 
-  .announcement-message p, .admin-message p, .court-message p, .announcement-message .date-posted, .form-group .help-block, .information-add a, .success-message p, .error-message p {
+  .announcement-message p, .admin-message p, .court-message p, .announcement-message .date-posted, .information-add a, .success-message p, .error-message p {
     font-size: 0.90em;
     font-family: 'Roboto';
     font-weight: 400;
+  }
+
+  .form-group .help-block {
+    font-size: 0.80em;
   }
 
   .modal-content p {
@@ -133,6 +156,11 @@
 
   #page-content-wrapper .archive-part a p {
     line-height: 20px;
+  }
+
+  #page-content-wrapper .archive-part a {
+    font-family: 'Roboto';
+    font-size: 0.90em;
   }
 
   .form-group h4, .admin-message h4, .announcement-message h4, .modal-content h4, .tab-content h4 {
@@ -174,16 +202,17 @@
     display: block;
     cursor: pointer;
     position: absolute;
-    bottom: -20px;
+    bottom: -50px;
     right: 50%;
-    margin-right: -50px;
+    margin-right: -61px;
     padding: 10px 17px;
-    background-color: #f2f2f2;
-    border: 1px solid #f2f2f2;
-    font-weight: 700;
-    text-transform: uppercase;
+    background-color: #27ae60;
+    border: 1px solid #27ae60;
+    font-weight: 400;
+    text-transform: none;
     font-size: 11px;
-    border-radius: 30px;
+    border-radius: 20px;
+    color: white;
   }
 
   .icon-pg {
@@ -298,6 +327,20 @@
 
   .overlay {
     display: block;
+  }
+
+  .send-mobile {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 300;
+    color: #27ae60;
+    border-top: 1px solid #f2f2f2;
+    padding: 17px;
   }
 
   .court-message .form-group {

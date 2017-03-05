@@ -75,18 +75,21 @@
                 <option value= "10">10:00 PM</option>
               </select>
             <p class="error"> <?php echo form_error('reserveend');?> </p>
-            <br>
+            <br><br>
 
           </div>
 
           <button type="submit" class="btn btn-custom-5">Add Reservation</button>
 
+          <div class="send-mobile">
+            <a href="#" onclick="$(this).closest('form').submit()">+ Add Reservation</a>
+          </div>
+
         </form>
 
       </div>
 
-      <br>
-      <br>
+      <br><br><br>
 
     </div>
 

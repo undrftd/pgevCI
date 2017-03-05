@@ -245,6 +245,28 @@
 
             <p class="help-block">Exclusively for CCTV Retrieval Request</p>
 
+            <span class="view-icon"><a href="#" onclick="openNav()">View more details</a></span>
+
+        </div>
+
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+            <div class="overlay-header">
+              <h4> Ticket Details </h4>
+            </div>
+            <hr>
+            <a href="#" data-toggle="modal" data-target="#view-message">Message</a>
+            <hr>
+            <a href="<?php echo site_url() . "admin_ticketing/download_attachment/" . $result->ticketid; ?>">Download file</a>
+            <hr>
+            <a onclick="myFunction()">Remarks</a><br>
+            <textarea name ="admin-remarks" class="form-control" id="user-message" reseize="none" disabled="disabled" pattern=".{5,}"><?php echo $result->closed_remarks; ?></textarea>
+            <p class="error"><?php echo form_error('content'); ?> </p>
+            <a href="<?php echo site_url();?>admin_ticketing/closed_tickets" class="save-link">Back to Ticketing</a>
+            <hr>
+          </div>
+          <span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
         </div>
 
       </div>
@@ -253,7 +275,7 @@
 
     <div class="col-xs-12 col-sm-12 col-md-4 nopadding">
 
-      <div class="information">
+      <div class="information-other">
 
         <div class="form-group">
 
@@ -276,7 +298,7 @@
 
           <br>
 
-          <a href="<?php echo site_url();?>admin_ticketing/closed_tickets"><button type="button" class="btn btn-custom-5">Back to Ticketing</button>
+          <a href="<?php echo site_url();?>admin_ticketing/closed_tickets"><button type="button" class="btn btn-custom-5">Back to Ticketing</button></a>
 
           </form>
 
@@ -288,6 +310,6 @@
 
   </div>
 
-  <br>
+  <br><br><br><br><br>
 
 </div>

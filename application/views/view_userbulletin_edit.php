@@ -62,11 +62,11 @@
 
           </fieldset>
 
-              <input class="btn btn-custom-5" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+              <input class="btn btn-custom" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
 
         </form>
 
-              <button type="button" onclick="undisableField()" class="btn btn-custom-5" id="edit-button">Edit</button>
+              <button type="button" onclick="undisableField()" class="btn btn-custom" id="edit-button">Edit</button>
 
             </div>
 
@@ -74,10 +74,9 @@
 
       </div>
 
-      <br>
-      <br>
-
     </div>
+
+    <br><br>
 
   </div>
 

@@ -140,14 +140,18 @@
           <br>
 
           <button type="submit" class="btn btn-custom-5">+ &nbsp;Add user</button></a>
+
+          <div class="send-mobile">
+            <a href="#" onclick="$(this).closest('form').submit()">+ Add user</a>
+          </div>
+
           </form>
 
         </div>
 
       </div>
 
-      <br>
-      <br>
+      <br><br><br>
 
     </div>
 

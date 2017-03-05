@@ -65,7 +65,6 @@
    		<div id="contents"><?= $contents ?></div>
 
 			<footer class="mobile-nav">
-
 				<ul>
 					<li class="<?php if($this->uri->segment(1) == 'admin_ticketing') { echo 'active'; } ?>">
 						<a href="<?php echo site_url("admin_ticketing/new_tickets"); ?>">Tickets
@@ -95,7 +94,6 @@
 					</li>
 					<li class="forms-badge <?php if($this->uri->segment(1) == 'admin_announcements') { echo 'active'; } else if($this->uri->segment(1) == 'admin_announcements') { echo 'active'; } else if($this->uri->segment(1) == 'admin_dues') { echo 'active'; } else if($this->uri->segment(1) == 'admin_accounts') { echo 'active'; } else if($this->uri->segment(1) == 'admin_statistics') { echo 'active'; } else if($this->uri->segment(1) == 'admin_audit') { echo 'active'; } else if($this->uri->segment(1) == 'admin_profile') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a> </li>
 				</ul>
-
 			</footer>
 
 			<div id="myNav1" class="overlay">

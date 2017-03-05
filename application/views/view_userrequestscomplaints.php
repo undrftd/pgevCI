@@ -62,9 +62,8 @@
 
               <br>
 
-
               <p> Select a type of ticket: </p>
-              <select name ="type" class="form-control" id="sel1" required>
+              <select name ="type" class="form-control" id="sel1" autofocus required>
                 <option value="" selected hidden>Type of Request or Complaint</option>
                 <option value="RGC">Grass Cutting</option>
                 <option value="RTC">Trash Collection</option>

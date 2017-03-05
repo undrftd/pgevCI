@@ -76,13 +76,16 @@
 
           <button type="submit" class="btn btn-custom-5">Send message</button></a>
 
+          <div class="send-mobile">
+            <a href="#" onclick="$(this).closest('form').submit()">Send message</a>
+          </div>
           </form>
 
         </div>
 
       </div>
 
-      <br><br>
+      <br><br><br>
 
     </div>
 

@@ -146,18 +146,17 @@
                 <p class="error"><?php echo form_error('contactnum'); ?> </p>
                 <br>
               </fieldset>
-              <input class="btn btn-custom-5" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
+              <input class="btn btn-custom-12" type="submit" id="saveButton" value="Save Changes" style="display: none;"></a>
             </form>
-                <button class="btn btn-custom-5" onclick="undisableField()" id="edit-button">Edit</button>
+                <button class="btn btn-custom-12" onclick="undisableField()" id="edit-button">Edit</button>
         </div>
 
       </div>
 
     </div>
 
-    <br>
-    <br>
-
+    <br><br><br>
+    
   </div>
 
 </div>
