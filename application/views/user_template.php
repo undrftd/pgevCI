@@ -94,7 +94,15 @@
 
 						</a>
 					</li>
-					<li class="<?php if($this->uri->segment('1') == 'user_announcements') { echo 'active'; } else if($this->uri->segment('1') == 'post_bulletin') { echo 'active'; } else if($this->uri->segment('1') == 'user_reservation') { echo 'active'; } else if($this->uri->segment('1') == 'user_forms') { echo 'active'; } else if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } else if($this->uri->segment('1') == 'user_accounts') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a> </li>
+					<li class="notif-badge <?php if($this->uri->segment('1') == 'user_announcements') { echo 'active'; } else if($this->uri->segment('1') == 'post_bulletin') { echo 'active'; } else if($this->uri->segment('1') == 'user_reservation') { echo 'active'; } else if($this->uri->segment('1') == 'user_forms') { echo 'active'; } else if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } else if($this->uri->segment('1') == 'user_accounts') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i>
+						<?php
+							$totalreserve = $deniedreserve + $approvedreserve;
+							if ($totalreserve >= 1) {
+								echo "<span class='badge'>$totalreserve</span>";
+							}
+							?>
+						</a>
+					</li>
 				</ul>
 			</footer>
 
@@ -115,6 +123,7 @@
 					<a onclick="myFunction()">Emergency Ticket</a>
 					<hr>
 					<span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
+					<br>
 				</div>
 			</div>
 
@@ -133,20 +142,35 @@
 						</h4>
 					</div>
 					<hr>
-					<a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements</a>
+					<a href="<?php echo site_url("user_announcements/announcements"); ?>">Announcements </a>
 					<hr>
 					<a href="<?php echo base_url("user_announcements/post_bulletin"); ?>">Post a Bulletin</a>
 					<hr>
-					<a href="<?php echo site_url("user_reservation/court_one"); ?>">Reservations</a>
+					<a href="<?php echo site_url("user_reservation/court_one"); ?>">Add Reservations</a>
 					<hr>
-					<a href="<?php echo base_url("user_reservation/reservations_courtone"); ?>">My Reservation</a>
+					<a href="<?php echo base_url("user_reservation/reservations_courtone"); ?>">My Reservation
+						<span class="reserve-state">
+							<?php
+							$totalreserve = $deniedreserve + $approvedreserve;
+							if ($totalreserve >= 1) {
+								echo "<span>$totalreserve</span>";
+							}
+							else if ($approvedreserve >= 1) {
+								echo "<span>$approvedreserve</span>";
+							}
+							else if ($deniedreserve >= 1) {
+								echo "<span>$deniedreserve</span>";
+							}
+							?>
+						</span>
+					</a>
 					<hr>
 					<a href="<?php echo site_url("user_forms/car_sticker"); ?>">Online Applications</a>
 					<hr>
 					<a href="<?php echo site_url("user_suggestions"); ?>">Suggestions</a>
 					<hr>
 					<span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
-				</div>
+					<br>
 			</div>
 
    	 	<div id="footer">
