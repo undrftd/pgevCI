@@ -34,6 +34,8 @@ class User_Dues extends MY_Controller {
   function index()
   {
     $this->model_dues_user->setsession();
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
     $data['count'] = $this->model_tracking_user->count_activetickets();
   	$data['rate'] = $this->model_dues_user->get_rate();
  	  $this->template->load('user_template', 'view_userdues', $data);

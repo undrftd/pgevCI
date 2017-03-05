@@ -54,6 +54,8 @@ class User_Announcements extends MY_Controller{
     $this->pagination->initialize($config);
     $data['announcementslinks'] = $this->pagination->create_links();
 
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
     $data['count'] = $this->model_tracking_user->count_activetickets();
     $data['order'] = $this->model_announcements_user->select_announcements($config['per_page'], $this->uri->segment(3));
     $this->template->load('user_template','view_userannouncements',$data);
@@ -83,6 +85,8 @@ class User_Announcements extends MY_Controller{
     $this->pagination->initialize($config);
     $data['bulletinlinks'] = $this->pagination->create_links();
 
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
     $data['count'] = $this->model_tracking_user->count_activetickets();
     $data['order'] = $this->model_announcements_user->select_bulletin($config['per_page'], $this->uri->segment(3));;
     $this->template->load('user_template','view_userbulletin',$data);
@@ -90,6 +94,8 @@ class User_Announcements extends MY_Controller{
 
   function post_bulletin()
   {
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
     $data['count'] = $this->model_tracking_user->count_activetickets();
     $this->template->load('user_template','view_userbulletin_post', $data);
   }
@@ -102,6 +108,8 @@ class User_Announcements extends MY_Controller{
 
     if ($this->form_validation->run() == FALSE)
     {
+      $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
       $data['count'] = $this->model_tracking_user->count_activetickets();
       $this->template->load('user_template','view_userbulletin_post', $data);
     }
@@ -145,6 +153,8 @@ class User_Announcements extends MY_Controller{
       $this->pagination->initialize($config);
       $data['announcementslinks'] = $this->pagination->create_links();
 
+      $data['approvedreserve'] = $this->model_reservation->count_approved();
+      $data['deniedreserve'] = $this->model_reservation->count_denied();
       $data['count'] = $this->model_tracking_user->count_activetickets();
       $data['order'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
       $this->template->load('user_template', 'view_userannouncements', $data);
@@ -185,6 +195,8 @@ class User_Announcements extends MY_Controller{
       $this->pagination->initialize($config);
       $data['bulletinlinks'] = $this->pagination->create_links();
 
+      $data['approvedreserve'] = $this->model_reservation->count_approved();
+      $data['deniedreserve'] = $this->model_reservation->count_denied();
       $data['count'] = $this->model_tracking_user->count_activetickets();
       $data['order'] = array_slice($searchmodelquery, $this->uri->segment(3),$config['per_page']);
       $this->template->load('user_template', 'view_userbulletin', $data);
@@ -199,6 +211,8 @@ class User_Announcements extends MY_Controller{
   {
     if($this->model_announcements_user->url_check_announcements($post_id))
     {
+      $data['approvedreserve'] = $this->model_reservation->count_approved();
+      $data['deniedreserve'] = $this->model_reservation->count_denied();
       $data['count'] = $this->model_tracking_user->count_activetickets();
       $data['previous'] = $this->model_announcements_user->get_previous_announcement();
       $data['result'] = $this->model_announcements_user->viewmore_announcement($post_id);
@@ -215,6 +229,8 @@ class User_Announcements extends MY_Controller{
   {
     if($this->model_announcements_user->url_check_bulletin($post_id))
     {
+      $data['approvedreserve'] = $this->model_reservation->count_approved();
+      $data['deniedreserve'] = $this->model_reservation->count_denied();
       $data['count'] = $this->model_tracking_user->count_activetickets();
       $data['previous'] = $this->model_announcements_user->get_previous_bulletin();
       $data['result'] = $this->model_announcements_user->viewmore_bulletin($post_id);
@@ -233,6 +249,8 @@ class User_Announcements extends MY_Controller{
     {
       if($this->model_announcements_user->url_usercheck_bulletin($post_id))
       {
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
         $data['select'] = $this->model_announcements_user->get_bulletin($post_id);
         $this->template->load('user_template', 'view_userbulletin_edit', $data);
@@ -260,6 +278,8 @@ class User_Announcements extends MY_Controller{
 
       if ($this->form_validation->run($post_id) == FALSE)
       {
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
         $data['select'] = $this->model_announcements_user->get_bulletin($post_id);
         $this->template->load('user_template','view_userbulletin_edit', $data);

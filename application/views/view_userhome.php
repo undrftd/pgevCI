@@ -104,7 +104,7 @@
 
         <h4> Reservation </h4><hr>
 
-        <p> You have <?php echo $courtone + $courttwo + $clubhouse; ?> active reservation. To check whether this has been approved or not, click the button below. </p>
+        <p> You have <?php $countallreserve = $courtone + $courttwo + $clubhouse; echo $countallreserve; ?> active reservation<?php if($countallreserve > 1){ echo "s"; } else { echo ""; } ?>.  To check whether this has been approved or not, click the button below. <br> Approved: <?php echo $approvedreserve; ?> Denied: <?php echo $deniedreserve; ?></p>
         <br>
         <a href="<?php echo site_url("user_reservation/reservations_courtone"); ?>"><button type="button" class="btn btn-custom-2">View More</button></a><br><br>
 

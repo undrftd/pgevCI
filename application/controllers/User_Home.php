@@ -33,6 +33,8 @@ function __construct()
     
     function index()
     {
+      $data['approvedreserve'] = $this->model_reservation->count_approved();
+      $data['deniedreserve'] = $this->model_reservation->count_denied();
     	$data['count'] = $this->model_tracking_user->count_activetickets();
     	$data['rate'] = $this->model_dues_user->get_rate();
     	$data['latest'] = $this->model_announcements->get_latestannouncement();

@@ -32,12 +32,16 @@ class User_Ticketing extends MY_Controller {
     
 	function index()
 	{
+		$data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
 		$data['count'] = $this->model_tracking_user->count_activetickets();
 		$this->template->load('user_template', 'view_userticketing', $data);
 	}
 
 	function requests_complaints()
 	{
+		$data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
 		$data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['ticket'] = $this->model_ticketing_user->get_ticketid();
 		$this->template->load('user_template', 'view_userrequestscomplaints', $data);
@@ -52,7 +56,10 @@ class User_Ticketing extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->template->load('user_template', 'view_userrequestscomplaints');
+        	$data['approvedreserve'] = $this->model_reservation->count_approved();
+        	$data['deniedreserve'] = $this->model_reservation->count_denied();
+        	$data['count'] = $this->model_tracking_user->count_activetickets();
+            $this->template->load('user_template', 'view_userrequestscomplaints', $data);
         }
         else
         {
@@ -91,6 +98,8 @@ class User_Ticketing extends MY_Controller {
 
 	function cctv_retrieval()
 	{
+		$data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
 		$data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['ticket'] = $this->model_ticketing_user->get_ticketid();
 		$this->template->load('user_template', 'view_usercctvretrieval', $data);
@@ -105,7 +114,10 @@ class User_Ticketing extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->template->load('user_template', 'view_usercctvretrieval');
+        	$data['approvedreserve'] = $this->model_reservation->count_approved();
+        	$data['deniedreserve'] = $this->model_reservation->count_denied();
+        	$data['count'] = $this->model_tracking_user->count_activetickets();
+            $this->template->load('user_template', 'view_usercctvretrieval', $data);
         }
         else
         {
@@ -144,6 +156,8 @@ class User_Ticketing extends MY_Controller {
 
 	function emergency_ticket()
 	{
+		$data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
 		$data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['ticket'] = $this->model_ticketing_user->get_ticketid();
 		$this->template->load('user_template', 'view_useremergencyticket', $data);
@@ -158,7 +172,10 @@ class User_Ticketing extends MY_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->template->load('user_template', 'view_useremergencyticket');
+        	$data['approvedreserve'] = $this->model_reservation->count_approved();
+        	$data['deniedreserve'] = $this->model_reservation->count_denied();
+			$data['count'] = $this->model_tracking_user->count_activetickets();
+            $this->template->load('user_template', 'view_useremergencyticket', $data);
         }
         else
         {

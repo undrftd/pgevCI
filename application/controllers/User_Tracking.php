@@ -33,6 +33,8 @@ class User_Tracking extends MY_Controller {
     
 	function recent()
 	{
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
     $data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['result'] = $this->model_tracking_user->get_recenttickets();
 		$this->template->load('user_template', 'view_usertracking', $data);
@@ -61,6 +63,8 @@ class User_Tracking extends MY_Controller {
         $config['last_tagl_close'] = "</li>";
         $this->pagination->initialize($config);
     	   
+         $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['ticketlinks'] = $this->pagination->create_links();
         $data['count'] = $this->model_tracking_user->count_activetickets();
         $data['result'] = $this->model_tracking_user->get_history($config['per_page'], $this->uri->segment(3));

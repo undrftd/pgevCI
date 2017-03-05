@@ -33,6 +33,8 @@ class User_Accounts extends MY_Controller {
 
     function index()
     {
+        $data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
         $data['count'] = $this->model_tracking_user->count_activetickets();
         $this->template->load('user_template', 'view_useraccounts', $data);
     }
@@ -62,6 +64,8 @@ class User_Accounts extends MY_Controller {
 
       if ($this->form_validation->run() == FALSE)
       {
+          $data['approvedreserve'] = $this->model_reservation->count_approved();
+          $data['deniedreserve'] = $this->model_reservation->count_denied();
           $data['count'] = $this->model_tracking_user->count_activetickets();
           $this->template->load('user_template', 'view_useraccounts', $data);
       }

@@ -33,18 +33,24 @@ class User_Forms extends MY_Controller {
     
 	function car_sticker()
 	{
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
     $data['count'] = $this->model_tracking_user->count_activetickets();
 		$this->template->load('user_template', 'view_userforms_carsticker', $data);	
 	}
 
 	function work_permit()
 	{
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
     $data['count'] = $this->model_tracking_user->count_activetickets();
 		$this->template->load('user_template', 'view_userforms_workpermit', $data);
 	}
 
 	function renovation()
 	{
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
     $data['count'] = $this->model_tracking_user->count_activetickets();
 		$this->template->load('user_template', 'view_userforms_renovation', $data);
 	}
