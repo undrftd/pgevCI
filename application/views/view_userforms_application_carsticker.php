@@ -3,6 +3,31 @@
   <div class="web-header">
 
     <button type="submit" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu</button>
+    
+    <div class="modal fade" id="view-modal" role="dialog">
+
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Administrator Remarks</h4>
+            </div>
+
+            <br>
+
+            <div class="signin">
+                <div class="modal-body text-center">
+                    <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to start billing the homeowners? </p><br>
+                </div>
+            </div>
+
+          </div>
+
+      </div>
+
+  </div>
 
     <div class="overlay-header">
       <span class="icon-main">
@@ -157,6 +182,7 @@
                     <th><br>Date</th>
                     <th><br>File Name</th>
                     <th><br>Status</th>
+                    <th><br>Remarks</th>
                   </tr>
 
                   <?php foreach($myforms as $row):
@@ -166,6 +192,7 @@
                     <td><?php echo date("F d, Y", strtotime($row->date_requested)); ?> </td>
                     <td><?php echo $row->filename; ?></td>
                     <td><?php if($row->status == 2){ echo "Pending"; } else if($row->status == 1) { echo "For Resubmission"; } else { echo "Processed"; } ?> </td>
+                    <td><a href="#" data-toggle="modal" data-target="#view-modal"><button type="button" class="btn btn-custom-3"> View Remarks</button></a>
                   </tr>
                   <?php endforeach; ?> 
 
