@@ -87,7 +87,7 @@
         </li>
 
         <li>
-          <a href="<?php echo base_url(); ?>user_forms/my_applications" id="not-important">
+          <a href="<?php echo base_url(); ?>user_forms/my_carsticker" id="not-important">
           My Applications </a>
         </li>
 
@@ -97,7 +97,7 @@
           <ul class="dropdown-menu">
 						<br>
             <li><a href="<?php echo base_url(); ?>user_forms/renovation">Renovation</a></li>
-            <li><a href="<?php echo base_url(); ?>user_forms/my_applications">My Applications </a></li>
+            <li><a href="<?php echo base_url(); ?>user_forms/my_carsticker">My Applications </a></li>
           </ul>
         </li>
 
@@ -126,12 +126,14 @@
 
 			<div class="tab-content">
 
-				<div class="tab-pane fade in active" id="portlet_tab1">
+			<div class="tab-pane fade in active" id="portlet_tab1">
 
-					<div class="announcement-message">
-	          <p> If you are requesting for a Renovation Form, kindly download the form we provided and answer it before uploading below. <span class="warning-user"> Please avoid uploading multiple form requests. Doing so will place you behind the queue. </span> Kindly attach the Renovation Form you recently answered then we will contact you as soon as we have processed
-	          your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you. If it does not download after a few seconds, click <?php $filename='Renovation.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links">here</a>.</p><br>
-					</div>
+				<div class="announcement-message">
+			          <p> If you are requesting for a Renovation Form, kindly download the form we provided and answer it before uploading below. <span class="warning-user"> Please avoid uploading multiple form requests. Doing so will place you behind the queue. </span> Kindly attach the Renovation Form you recently answered then we will contact you as soon as we have processed
+			          your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you. If it does not download after a few seconds, click <?php $filename='Renovation.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links">here</a>.</p>
+
+			          <p><span class="warning-user"> Note:</span> Rename your file into "Renovation_Username.docx" for proper identification and to avoid confusion. <br> Example: Renovation_2013057857.docx </p><br>
+				</div>
 
 					<div class="court-message">
             <p> <?php $filename='Renovation.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links"> Download Renovation Form </a>

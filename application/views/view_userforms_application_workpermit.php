@@ -87,7 +87,7 @@
         </li>
 
         <li class ="active">
-          <a href="<?php echo base_url(); ?>user_forms/my_applications" id="not-important">
+          <a href="<?php echo base_url(); ?>user_forms/my_carsticker" id="not-important">
           My Applications </a>
         </li>
 
@@ -97,7 +97,7 @@
           <ul class="dropdown-menu">
             <br>
             <li><a href="<?php echo base_url(); ?>user_forms/renovation">Renovation</a></li>
-            <li><a href="<?php echo base_url(); ?>user_forms/my_applications">My Applications </a></li>
+            <li><a href="<?php echo base_url(); ?>user_forms/my_carsticker">My Applications </a></li>
           </ul>
         </li>
 
@@ -133,7 +133,7 @@
         <div class="announcement-message">
           <p> Here, you can view the status of your application forms. Kindly keep track of this table to be informed whether your request has been made. Thank you!
           </p>
-          <p> Go to: <a href="#" class="a-links">Car Sticker</a>, <a href="#" class="a-links">Work Permit</a>, <a href="#" class="a-links">Renovation</a>
+          <p> Go to: <a href="<?php echo site_url('user_forms/my_carsticker'); ?>" class="a-links">Car Sticker</a>, <a href="<?php echo site_url('user_forms/my_workpermit'); ?>" class="a-links">Work Permit</a>, <a href="<?php echo site_url('user_forms/my_renovation'); ?>" class="a-links">Renovation</a>
           </p>
         </div>
 
@@ -147,7 +147,7 @@
 
               <div class="table-responsive">
 
-                <h4> Car Sticker </h4>
+                <h4> Work Permit </h4>
 
                 <hr>
 
@@ -155,23 +155,22 @@
 
                   <tr>
                     <th><br>Date</th>
-                    <th><br>Time</th>
+                    <th><br>File Name</th>
                     <th><br>Status</th>
                   </tr>
 
-                  <?php foreach($myreserve as $row):
+                  <?php foreach($myforms as $row):
                   ?>
 
                   <tr>
-                    <td><?php echo date("F d, Y", strtotime($row->reservation_date)) ?></td>
-                    <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
-                    <td><?php if($row->reservation_status == 2) { echo "Pending"; } elseif($row->reservation_status == 0) { echo "Denied"; } else { echo "Approved"; } ?> </td>
+                    <td><?php echo date("F d, Y", strtotime($row->date_requested)); ?> </td>
+                    <td><?php echo $row->filename; ?></td>
                   </tr>
-                  <?php endforeach; ?>
+                  <?php endforeach; ?> 
 
                 </table>
                 <br><br>
-                <center><div id="pagination-link"><?php echo $courtonelinks; ?></div></center>
+                <center><div id="pagination-link"><?php echo $myformslink; ?></div></center> 
 
               </div>
 

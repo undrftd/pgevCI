@@ -5,7 +5,7 @@ class Model_forms extends CI_Model {
 	function get_carsticker($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->order_by('status', 'desc')->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->order_by("status desc, date_requested asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -19,20 +19,20 @@ class Model_forms extends CI_Model {
 
 	function count_carsticker()
 	{
-		$query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid')->get();
 		return $query->num_rows();
 	}
 
     function count_downloadedsticker()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 2)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 1)->get();
         return $query->num_rows();
     }
 
 	function get_workpermit($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->order_by('status', 'desc')->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->order_by("status desc, date_requested asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -46,20 +46,20 @@ class Model_forms extends CI_Model {
 
 	function count_workpermit()
 	{
-		$query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->order_by('status', 'desc')->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->get();
 		return $query->num_rows();
 	}
 
     function count_downloadedpermit()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 2)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 1)->get();
         return $query->num_rows();
     }
 
 	function get_renovation($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->get();
+		$query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->order_by("status desc, date_requested asc")->get();
 		
 		if($query->num_rows() > 0)
     	{
@@ -79,7 +79,7 @@ class Model_forms extends CI_Model {
 
     function count_downloadedrenovation()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 2)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 1)->get();
         return $query->num_rows();
     }
 
@@ -269,30 +269,6 @@ class Model_forms extends CI_Model {
         return $delete;
 	}
 
-	function set_cardownloadstatus($formid)
-	{
-		$status_data = array('status' => 1);
-		$this->db->where('formid', $formid);
-		$setstatus = $this->db->update('upload_carsticker', $status_data);
-		return $setstatus;
-	}
-
-	function set_workdownloadstatus($formid)
-	{
-		$status_data = array('status' => 1);
-		$this->db->where('formid', $formid);
-		$setstatus = $this->db->update('upload_workpermit', $status_data);
-		return $setstatus;
-	}
-
-	function set_renovationdownloadstatus($formid)
-	{
-		$status_data = array('status' => 1);
-		$this->db->where('formid', $formid);
-		$setstatus = $this->db->update('upload_renovation', $status_data);
-		return $setstatus;
-	}
-
     function set_carprocessedstatus($formid)
     {
         $status_data = array('status' => 0);
@@ -319,14 +295,11 @@ class Model_forms extends CI_Model {
 
     function count_allnewforms()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 2)->get();
-        $query2 = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 2)->get();
-        $query3 = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 2)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 1)->get();
+        $query2 = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 1)->get();
+        $query3 = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 1)->get();
         
         $result = $query->num_rows() + $query2->num_rows() + $query3->num_rows();
         return $result;
     }
-	
-
-
 }

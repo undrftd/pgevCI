@@ -55,6 +55,99 @@ class User_Forms extends MY_Controller {
 		$this->template->load('user_template', 'view_userforms_renovation', $data);
 	}
 
+  function my_carsticker()
+  {
+    $config['base_url'] = site_url('user_forms/my_carsticker');
+    $config['total_rows'] = $this->model_forms_user->count_mysticker();
+    $config['per_page'] =  20;
+    $config['num_links'] = 5;
+    $config['use_page_numbers'] = FALSE;
+    $config['full_tag_open'] = "<ul class='pagination'>";
+    $config['full_tag_close'] ="</ul>";
+    $config['num_tag_open'] = '<li>';
+    $config['num_tag_close'] = '</li>';
+    $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+    $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+    $config['next_tag_open'] = "<li>";
+    $config['next_tagl_close'] = "</li>";
+    $config['prev_tag_open'] = "<li>";
+    $config['prev_tagl_close'] = "</li>";
+    $config['first_tag_open'] = "<li>";
+    $config['first_tagl_close'] = "</li>";
+    $config['last_tag_open'] = "<li>";
+    $config['last_tagl_close'] = "</li>";
+    $this->pagination->initialize($config);
+    $data['myformslink'] = $this->pagination->create_links();
+
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
+    $data['count'] = $this->model_tracking_user->count_activetickets();
+    $data['myforms'] = $this->model_forms_user->get_mycarsticker($config['per_page'], $this->uri->segment(3)); 
+    $this->template->load('user_template','view_userforms_application_carsticker', $data);     
+  }
+
+  function my_workpermit()
+  {
+    $config['base_url'] = site_url('user_forms/my_workpermit');
+    $config['total_rows'] = $this->model_forms_user->count_myworkpermit();
+    $config['per_page'] =  20;
+    $config['num_links'] = 5;
+    $config['use_page_numbers'] = FALSE;
+    $config['full_tag_open'] = "<ul class='pagination'>";
+    $config['full_tag_close'] ="</ul>";
+    $config['num_tag_open'] = '<li>';
+    $config['num_tag_close'] = '</li>';
+    $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+    $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+    $config['next_tag_open'] = "<li>";
+    $config['next_tagl_close'] = "</li>";
+    $config['prev_tag_open'] = "<li>";
+    $config['prev_tagl_close'] = "</li>";
+    $config['first_tag_open'] = "<li>";
+    $config['first_tagl_close'] = "</li>";
+    $config['last_tag_open'] = "<li>";
+    $config['last_tagl_close'] = "</li>";
+    $this->pagination->initialize($config);
+    $data['myformslink'] = $this->pagination->create_links();
+
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
+    $data['count'] = $this->model_tracking_user->count_activetickets();
+    $data['myforms'] = $this->model_forms_user->get_myworkpermit($config['per_page'], $this->uri->segment(3)); 
+    $this->template->load('user_template','view_userforms_application_workpermit', $data);     
+  }  
+
+  function my_renovation()
+  {
+    $config['base_url'] = site_url('user_forms/my_renovation');
+    $config['total_rows'] = $this->model_forms_user->count_myrenovation();
+    $config['per_page'] =  20;
+    $config['num_links'] = 5;
+    $config['use_page_numbers'] = FALSE;
+    $config['full_tag_open'] = "<ul class='pagination'>";
+    $config['full_tag_close'] ="</ul>";
+    $config['num_tag_open'] = '<li>';
+    $config['num_tag_close'] = '</li>';
+    $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a>";
+    $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+    $config['next_tag_open'] = "<li>";
+    $config['next_tagl_close'] = "</li>";
+    $config['prev_tag_open'] = "<li>";
+    $config['prev_tagl_close'] = "</li>";
+    $config['first_tag_open'] = "<li>";
+    $config['first_tagl_close'] = "</li>";
+    $config['last_tag_open'] = "<li>";
+    $config['last_tagl_close'] = "</li>";
+    $this->pagination->initialize($config);
+    $data['myformslink'] = $this->pagination->create_links();
+
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
+    $data['count'] = $this->model_tracking_user->count_activetickets();
+    $data['myforms'] = $this->model_forms_user->get_myrenovation($config['per_page'], $this->uri->segment(3)); 
+    $this->template->load('user_template','view_userforms_application_workpermit', $data);     
+  }  
+
 	function download($filename) 
 	{
       $real = realpath(APPPATH);
@@ -71,8 +164,8 @@ class User_Forms extends MY_Controller {
 	    $config['upload_path']          = $real . '/uploads/';
       $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
       $config['max_size']             = '52428800';
-      $config['max_width']            = 1920;
-      $config['max_height']           = 1080;
+      $config['max_width']            = 5312;
+      $config['max_height']           = 2988;
 
       $this->load->library('upload', $config);
 
@@ -95,8 +188,8 @@ class User_Forms extends MY_Controller {
         $config['upload_path']          = $real . '/uploads/';
         $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
         $config['max_size']             = '52428800';
-        $config['max_width']            = 1920;
-        $config['max_height']           = 1080;
+        $config['max_width']            = 5312;
+        $config['max_height']           = 2988;
 
         $this->load->library('upload', $config);
 
@@ -119,8 +212,8 @@ class User_Forms extends MY_Controller {
         $config['upload_path']          = $real . '/uploads/';
         $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
         $config['max_size']             = '52428800';
-        $config['max_width']            = 1920;
-        $config['max_height']           = 1080;
+        $config['max_width']            = 5312;
+        $config['max_height']           = 2988;
 
         $this->load->library('upload', $config);
 
@@ -135,14 +228,5 @@ class User_Forms extends MY_Controller {
             $this->session->set_flashdata('renovatefail', $this->upload->display_errors());  
             redirect('user_forms/renovation');  
 	    }
-	}	    
-
-  function my_applications()
-  {
-    $data['approvedreserve'] = $this->model_reservation->count_approved();
-    $data['deniedreserve'] = $this->model_reservation->count_denied();
-    $data['count'] = $this->model_tracking_user->count_activetickets();
-    $this->template->load('user_template','view_userforms_applications', $data);        
-  }          
-
+	}	             
 }

@@ -61,17 +61,17 @@
   <br>
 
   <div class="header-style">
-    <h1> Homeowner's Association Forms </h1>
+    <h1> My Applications </h1>
   </div>
 
   <br>
 
   <div class="portlet nopadding">
 
-		<div class="portlet-title">
+    <div class="portlet-title">
 
       <ul class="nav nav-tabs">
-        <li class ="active">
+        <li>
           <a href="<?php echo base_url(); ?>user_forms/car_sticker">
           Car Sticker </a>
         </li>
@@ -86,7 +86,7 @@
           Renovation </a>
         </li>
 
-        <li>
+        <li class ="active">
           <a href="<?php echo base_url(); ?>user_forms/my_carsticker" id="not-important">
           My Applications </a>
         </li>
@@ -103,76 +103,91 @@
 
       </ul>
 
-		</div>
+    </div>
 
-		<div class="portlet-body">
+    <div class="portlet-body">
 
-		<?php if ($this->session->flashdata('carsuccess')){ ?>
-	      <div class="success-message text-center" id="prompt-message">
-	        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-	        <p> <?php echo $this->session->flashdata('carsuccess'); ?></p><br>
-	        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-	      </div>
-	    <?php } ?>
+      <?php if ($this->session->flashdata('applicationsuccess')){ ?>
+        <div class="success-message text-center" id="prompt-message">
+          <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+          <p> <?php echo $this->session->flashdata('permitsuccess'); ?></p><br>
+          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+        </div>
+      <?php } ?>
 
-	    <?php if ($this->session->flashdata('carfail')){ ?>
-	      <div class="error-message text-center" id="prompt-message">
-	        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-	        <p> <?php echo $this->session->flashdata('carfail'); ?></p><br>
-	        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-	      </div>
-	    <?php } ?>
+      <?php if ($this->session->flashdata('applicationfail')){ ?>
+        <div class="error-message text-center" id="prompt-message">
+          <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+          <p> <?php echo $this->session->flashdata('permitfail'); ?></p><br>
+          <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+        </div>
+      <?php } ?>
+      <br>
 
-			<br>
+    </div>
 
-			<div class="tab-content">
+    <div class="portlet-body">
 
-				<div class="tab-pane fade in active" id="portlet_tab1">
+      <div class="tab-content">
 
-					<div class="announcement-message">
-            <p> If you are requesting for a Car Sticker Form, kindly download the form we provided and answer it before uploading below. <span class="warning-user">Please avoid uploading multiple form requests. Doing so will place you behind the queue. </span> Kindly attach the Car Sticker Form you recently answered then we will contact you as soon as we have processed
-            your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you. If it does not download after a few seconds, click <?php $filename='Renovation.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links">here</a>.</p>
-            
-            <p><span class="warning-user"> Note:</span> Rename your file into "Car_Sticker_Username.docx" for proper identification and to avoid confusion. <br> Example: Car_Sticker_2013057857.docx </p><br>
-					</div>
+        <div class="announcement-message">
+          <p> Here, you can view the status of your application forms. Kindly keep track of this table to be informed whether your request has been made. Thank you!
+          </p>
+          <p> Go to: <a href="<?php echo site_url('user_forms/my_carsticker'); ?>" class="a-links">Car Sticker</a>, <a href="<?php echo site_url('user_forms/my_workpermit'); ?>" class="a-links">Work Permit</a>, <a href="<?php echo site_url('user_forms/my_renovation'); ?>" class="a-links">Renovation</a>
+          </p>
+        </div>
 
-          <div class="court-message">
-            <p><?php $filename='Car_Sticker.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links">Download Car Sticker Form </a>
-            </p>
-            <div class="form-group">
-              <p>Attachment Details</p>
+        <br>
 
-              <div id="fileList"></div>
-              <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg </p>
-            </div>
-          </div>
+        <div class="row">
 
-          <hr>
+          <div class="col-xs-12">
 
-          <?php echo form_open_multipart('user_forms/upload_carsticker');?>
+            <div class="tab-pane fade in active" id="portlet_tab1">
 
-            <div class="form-group">
+              <div class="table-responsive">
 
-              <div class="user-buttons">
+                <h4> Car Sticker </h4>
 
-                <input type="file" name="file" id="file" style="display: none;" multiple onchange="javascript:updateList()" />
-                <button type="button" onclick="document.getElementById('file').click();" class="btn btn-custom-1"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> &nbsp;Attach</button></a>
-                <button name ="upload" type="submit" class="btn btn-custom">Send</button></a>
+                <hr>
+
+                <table class="table table-hover">
+
+                  <tr>
+                    <th><br>Date</th>
+                    <th><br>File Name</th>
+                    <th><br>Status</th>
+                  </tr>
+
+                  <?php foreach($myforms as $row):
+                  ?>
+
+                  <tr>
+                    <td><?php echo date("F d, Y", strtotime($row->date_requested)); ?> </td>
+                    <td><?php echo $row->filename; ?></td>
+                  </tr>
+                  <?php endforeach; ?> 
+
+                </table>
+                <br><br>
+                <center><div id="pagination-link"><?php echo $myformslink; ?></div></center> 
 
               </div>
-              <br><br>
+
             </div>
 
-          <?php echo form_close(); ?>
+            <br>
+
+          </div>
 
         </div>
 
       </div>
 
-	  </div>
+    </div>
 
-    <br><br>
+    <br><br><br>
 
-	</div>
+  </div>
 
 </div>

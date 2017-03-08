@@ -281,7 +281,6 @@ class Admin_Forms extends MY_Controller {
 	{
         if($this->model_forms->url_check_carsticker($formid))
         {
-            $this->model_forms->set_cardownloadstatus($formid);
             $query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
             $result = $query->row();
 
@@ -304,7 +303,6 @@ class Admin_Forms extends MY_Controller {
 	{
         if($this->model_forms->url_check_workpermit($formid))
         {
-            $this->model_forms->set_workdownloadstatus($formid);
             $query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
             $result = $query->row();
 
@@ -326,7 +324,6 @@ class Admin_Forms extends MY_Controller {
 	{
         if($this->model_forms->url_check_workpermit($formid))
         {
-            $this->model_forms->set_renovationdownloadstatus($formid);
             $query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
             $result = $query->row();
 

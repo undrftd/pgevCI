@@ -83,7 +83,7 @@
 
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Delete</h4>
+            <h4 class="modal-title">Set as Processed</h4>
           </div>
 
           <br>
@@ -185,19 +185,19 @@
               <table class="table table-hover" id="tracking-table">
 
                 <tr>
-                    <th><br>Homeowner's Name</th>
-                    <th><br>Address</th>
-                    <th><br>Contact Number</th>
-                    <th><br>Status</th>
-                    <th><br>Action</th>
+                  <th><br>Date Submitted</th>
+                  <th><br>Homeowner's Name</th>
+                  <th><br>Contact Number</th>
+                  <th><br>Status </br>
+                  <th><br>Action</th>
                 </tr>
 
                 <?php foreach ($renovation as $row): ?>
                 <tr>
+                    <td><?php echo date("F d, Y", strtotime($row->date_requested)) ?></td>
                     <td><?php echo $row->firstname . " " . $row->lastname?></td>
-                    <td><?php echo $row->address?></td>
                     <td><?php echo $row->contactnum?></td>
-                    <td><?php if($row->status == 2){ echo "Pending"; } else if($row->status == 1) { echo "In Process"; } else { echo "Processed"; } ?></td>
+                    <td><?php if($row->status == 1){ echo "Pending"; } else { echo "Processed"; } ?></td>
                     <td class="action-button">
                       <a href="<?php echo base_url() . "admin_forms/download_renovation/" . $row->formid; ?>"><button type="button" class="btn btn-custom-2"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
                       <?php if($row->status != 0)
