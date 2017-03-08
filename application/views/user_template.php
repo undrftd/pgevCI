@@ -94,7 +94,7 @@
 
 						</a>
 					</li>
-					<li class="notif-badge <?php if($this->uri->segment('1') == 'user_announcements') { echo 'active'; } else if($this->uri->segment('1') == 'post_bulletin') { echo 'active'; } else if($this->uri->segment('1') == 'user_reservation') { echo 'active'; } else if($this->uri->segment('1') == 'user_forms') { echo 'active'; } else if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } else if($this->uri->segment('1') == 'user_accounts') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i>
+					<li class="notif-badge <?php if($this->uri->segment('1') == 'user_announcements') { echo 'active'; } else if($this->uri->segment('1') == 'post_bulletin') { echo 'active'; } else if($this->uri->segment('1') == 'user_reservation') { echo 'active'; } else if($this->uri->segment('1') == 'user_forms') { echo 'active'; } else if($this->uri->segment('1') == 'user_suggestions') { echo 'active'; } else if($this->uri->segment('1') == 'user_accounts') { echo 'active'; } else if($this->uri->segment('1') == 'user_forms/my_applications') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i>
 						<?php
 							$totalreserve = $deniedreserve + $approvedreserve;
 							if ($totalreserve >= 1) {
@@ -166,6 +166,8 @@
 					</a>
 					<hr>
 					<a href="<?php echo site_url("user_forms/car_sticker"); ?>">Online Applications</a>
+					<hr>
+					<a href="<?php echo site_url("user_forms/my_applications"); ?>">My Applications</a>
 					<hr>
 					<a href="<?php echo site_url("user_suggestions"); ?>">Suggestions</a>
 					<hr>

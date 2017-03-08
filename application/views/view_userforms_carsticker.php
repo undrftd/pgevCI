@@ -70,28 +70,38 @@
 
 		<div class="portlet-title">
 
-			<ul class="nav nav-tabs">
+      <ul class="nav nav-tabs">
+        <li class ="active">
+          <a href="<?php echo base_url(); ?>user_forms/car_sticker">
+          Car Sticker </a>
+        </li>
 
-        <li class="active">
-					<a href="<?php echo base_url(); ?>user_forms/car_sticker">
-					Car Sticker </a>
-				</li>
-
-       	<li>
-          	<a href="<?php echo base_url(); ?>user_forms/work_permit">
-         		Work Permit </a>
-       	</li>
-
-      	<li>
-        	<a href="<?php echo base_url(); ?>user_forms/renovation">
-        	Renovation </a>
-      	</li>
         <li>
-          <a href="<?php echo base_url(); ?>user_forms/my_applications">
+          <a href="<?php echo base_url(); ?>user_forms/work_permit">
+          Work Permit </a>
+        </li>
+
+        <li>
+          <a href="<?php echo base_url(); ?>user_forms/renovation" id="not-important">
+          Renovation </a>
+        </li>
+
+        <li>
+          <a href="<?php echo base_url(); ?>user_forms/my_applications" id="not-important">
           My Applications </a>
         </li>
 
-			</ul>
+        <li class="dropdown" id="dropdown-mobile">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <br>
+            <li><a href="<?php echo base_url(); ?>user_forms/renovation">Renovation</a></li>
+            <li><a href="<?php echo base_url(); ?>user_forms/my_applications">My Applications </a></li>
+          </ul>
+        </li>
+
+      </ul>
 
 		</div>
 

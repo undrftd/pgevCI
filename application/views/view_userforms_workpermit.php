@@ -82,13 +82,25 @@
           </li>
 
           <li>
-            <a href="<?php echo base_url(); ?>user_forms/renovation">
+            <a href="<?php echo base_url(); ?>user_forms/renovation" id="not-important">
             Renovation </a>
           </li>
+
           <li>
-            <a href="<?php echo base_url(); ?>user_forms/my_applications">
+            <a href="<?php echo base_url(); ?>user_forms/my_applications" id="not-important">
             My Applications </a>
-        </li>
+          </li>
+
+          <li class="dropdown" id="dropdown-mobile">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <br>
+              <li><a href="<?php echo base_url(); ?>user_forms/renovation">Renovation</a></li>
+              <li><a href="<?php echo base_url(); ?>user_forms/my_applications">My Applications </a></li>
+            </ul>
+          </li>
+
         </ul>
 
       </div>
