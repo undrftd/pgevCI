@@ -124,7 +124,7 @@
           <br>
 
           <p> Address </p>
-          <input name="address" class="form-control" id="sel1" type="text" placeholder="" pattern="[a-z,. A-Z 0-9 \-]{10,}" title="Address should contain alphanumeric characters with commas and periods, with a minimum of 10 characters." required>
+          <input name="address" class="form-control" id="sel1" type="text" placeholder="" pattern="[a-z,.# A-Z 0-9 \-]{10,}" title="Address should contain alphanumeric characters with commas and periods, with a minimum of 10 characters." required>
               <p class="error"><?php echo form_error('address'); ?></p>
           <br>
 
@@ -148,10 +148,10 @@
           <br>
           <br>
 
-          <button type="submit" class="btn btn-custom-5">+ &nbsp;Add user</button></a>
+          <button type="submit" class="btn btn-custom-5">+ &nbsp;Save</button></a>
 
           <div class="send-mobile">
-            <a href="#" onclick="$(this).closest('form').submit()">+ Add user</a>
+            <a href="#" onclick="$(this).closest('form').submit()">+ Save</a>
           </div>
 
           </form>

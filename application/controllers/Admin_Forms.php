@@ -344,50 +344,50 @@ class Admin_Forms extends MY_Controller {
         }
 	}
 
-	function delete_carsticker($formid)
+	function process_carsticker($formid)
 	{
         $this->usertracking->track_this();
         if($this->model_forms->url_check_carsticker($formid))
         {
-            $this->session->set_flashdata('cardeletesuccess', 'You have successfully deleted the car sticker form request.');
-            $this->model_forms->delete_carsticker($formid);
+            $this->session->set_flashdata('cardeletesuccess', 'You have successfully set the car sticker form request as processed.');
+            $this->model_forms->set_carprocessedstatus($formid);
             redirect('admin_forms/car_sticker');
         }
         else
         {
-            $this->session->set_flashdata('carstickerfail', 'You cannot delete a non-existent car sticker form request.');
+            $this->session->set_flashdata('carstickerfail', 'You cannot set a non-existent car sticker form request as processed.');
             redirect('admin_forms/car_sticker');
         }
 	}
 
-    function delete_workpermit($formid)
+    function process_workpermit($formid)
     {
         $this->usertracking->track_this();
         if($this->model_forms->url_check_workpermit($formid))
         {
-            $this->session->set_flashdata('workdeletesuccess', 'You have successfully deleted the work permit form request.');
-            $this->model_forms->delete_workpermit($formid);
+            $this->session->set_flashdata('workdeletesuccess', 'You have successfully set the work permit form request as processed');
+            $this->model_forms->set_workprocessedstatus($formid);
             redirect('admin_forms/work_permit');
         }
         else
         {
-            $this->session->set_flashdata('workpermitfail', 'You cannot delete a non-existent work permit form request.');
+            $this->session->set_flashdata('workpermitfail', 'You cannot set a non-existent work permit form request as processed.');
             redirect('admin_forms/work_permit');
         }
     }
 
-    function delete_renovation($formid)
+    function process_renovation($formid)
     {
         $this->usertracking->track_this();
         if($this->model_forms->url_check_renovation($formid))
         {
-            $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully deleted the renovation form request.');
-            $this->model_forms->delete_renovation($formid);
+            $this->session->set_flashdata('renovatedeletesuccess', 'You have successfully set the renovation form request as processed');
+            $this->model_forms->set_renovationprocessedstatus($formid);
             redirect('admin_forms/renovation');
         }
         else
         {
-            $this->session->set_flashdata('renovationfail', 'You cannot delete a non-existent renovation form request.');
+            $this->session->set_flashdata('renovationfail', 'You cannot set a non-existent renovation form request as processed.');
             redirect('admin_forms/renovation');
         }
     }

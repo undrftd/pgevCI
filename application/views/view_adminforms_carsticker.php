@@ -91,8 +91,7 @@
             <div class="signin">
 
               <div class="modal-body text-center">
-                  <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to remove this form request? </p><br>
-                  <p class="warning-message"> WARNING: The form request will be lost. Please check if the form has been downloaded before deleting. </p><br>
+                  <p> <?php echo $this->session->userdata('firstname');?>, are you sure you want to set this form request as processed? </p><br>
                   <a class ="deleteclass"><button type="submit" class="btn btn-custom-1">Yes</button></a>
                   <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
               </div>
@@ -198,10 +197,14 @@
                     <td><?php echo $row->firstname . " " . $row->lastname?></td>
                     <td><?php echo $row->address?></td>
                     <td><?php echo $row->contactnum?></td>
-                    <td><?php if($row->status == 1){ echo "Not Downloaded"; } else { echo "Downloaded"; } ?></td>
+                    <td><?php if($row->status == 2){ echo "Pending"; } else if($row->status == 1) { echo "In Process"; } else { echo "Processed"; } ?></td>
                     <td class="action-button">
                       <a href="<?php echo base_url() . "admin_forms/download_carsticker/" . $row->formid; ?>"><button type="button" class="btn btn-custom-2"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
-                      <button type="button" class="btn btn-custom-3" data-href="<?php echo base_url() . 'admin_forms/delete_carsticker/' . $row->formid; ?>" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  &nbsp;Delete </button>
+                      <?php if($row->status != 0)
+                      {
+                        echo '<button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_forms/process_carsticker/' . $row->formid .'" data-toggle="modal" data-target="#delete-modal"> Set as Processed </button>';
+                      }
+                      ?>
                     </td>
                 </tr>
               <?php endforeach;?>
