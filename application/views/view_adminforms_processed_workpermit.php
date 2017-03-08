@@ -112,7 +112,7 @@
             </div>
 
             <div class="modal-body">
-              <p> <?php echo htmlentities($result->content); ?> </p>
+              <p> <?php echo "123"?> </p>
             </div>
 
             <div class="modal-footer">
@@ -127,7 +127,7 @@
   </div>
 
   <div class="header-style">
-    <h1> Ticket Details </h1>
+    <h1> Application Details </h1>
   </div>
 
   <br>
@@ -136,7 +136,7 @@
 
     <div class="col-md-10 col-md-offset-1 nopadding">
 
-    <?php if ($this->session->flashdata('moreticketsuccess')){ ?>
+    <?php if ($this->session->flashdata('moreapplicationsuccess')){ ?>
       <div class="success-message text-center" id="prompt-message">
         <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
         <p> <?php echo $this->session->flashdata('moreticketsuccess'); ?> </p><br>
@@ -145,7 +145,7 @@
       </div>
     <?php } ?>
 
-    <?php if ($this->session->flashdata('moreticketfail')){ ?>
+    <?php if ($this->session->flashdata('moreapplicationfail')){ ?>
       <div class="error-message text-center" id="prompt-message">
         <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
         <p> <?php echo $this->session->flashdata('moreticketfail'); ?> </p><br>
@@ -161,97 +161,29 @@
 
       <div class="information">
 
-         <form action ="<?php echo site_url() . "admin_ticketing/save_ticket/" . $result->ticketid ?>" method="POST">
-
           <div class="form-group">
 
-            <h4> Ticket Information </h4>
+            <h4> Application Information </h4>
             <br>
-            <p> Ticket ID </p>
-            <input class="form-control" id="sel1" type="text" value="<?php echo $result->request_type . " - " . $result->ticketid; ?>" readonly>
-
-            <br>
-
             <p> Name </p>
-            <input class="form-control" id="sel1" type="text" value="<?php echo $result->firstname . " " . $result->lastname; ?>" readonly>
+            <input class="form-control" id="sel1" type="text" value="<?php echo $finisheddetails->firstname . " " . $finisheddetails->lastname; ?>" readonly>
 
             <br>
 
             <p> Contact Number </p>
-            <input class="form-control" id="sel1" type="text" value="<?php echo $result->contactnum; ?>" readonly>
+            <input class="form-control" id="sel1" type="text" value="<?php echo $finisheddetails->contactnum; ?>" readonly>
 
             <br>
 
-            <p> Type of Ticket </p>
-            <input class="form-control" id="sel1" type="text" value="<?php
-                        if($result->request_type == 'RGC')
-                        {
-                          echo "Grass Cutting";
-                        }
-                        else if($result->request_type == 'RTC')
-                        {
-                          echo "Trash Collection";
-                        }
-                         else if($result->request_type == 'RMP')
-                        {
-                          echo "Malfunctioning Post Lights";
-                        }
-                         else if($result->request_type == 'RBD')
-                        {
-                          echo "Blocked Drainage";
-                        }
-                        else if($result->request_type == 'RSC')
-                        {
-                          echo "Electrical Short Circuit";
-                        }
-                         else if($result->request_type == 'RMD')
-                        {
-                          echo "Monthly Dues";
-                        }
-                        else if($result->request_type == 'ROT')
-                        {
-                          echo "Other";
-                        }
-                        else if($result->request_type == 'CTV')
-                        {
-                          echo "CCTV Retrieval Request";
-                        }
-                         else if($result->request_type == 'EFR')
-                        {
-                          echo "Fire";
-                        }
-                        else if($result->request_type == 'ERB')
-                        {
-                          echo "Robbery";
-                        }
-                        else if($result->request_type == 'EBT')
-                        {
-                          echo "Broken House Tube";
-                        }
-                        else if($result->request_type == 'ESP')
-                        {
-                          echo "Suspicious Person";
-                        }  ?>" readonly>
+            <p> Date Requested </p>
+            <input class="form-control" id="sel1" type="text" value="<?php echo $finisheddetails->date_requested; ?>" readonly>
+            
             <br>
 
             <p> Status </p>
-            <select name ="status" class="form-control" id="sel1" autofocus>
-              <option value ="<?php echo $result->status;?>" selected hidden> <?php if($result->status == 1) { echo "Work in Progress"; } else if($result->status == 0) { echo "Closed"; } else { echo "Set Status"; } ?></option>
-              <option value ="1">Work in Progress</option>
-              <option value="0">Closed</option>
-            </select>
-
+              <input class="form-control" id="sel1" type="text" value="<?php if($finisheddetails->status == 1) { echo "For Resubmission"; } else { echo "Processed"; } ?>" readonly>
+            
             <br>
-
-            <p> Date Created </p>
-            <input class="form-control" id="sel1" type="text" value="<?php echo date("m/d/Y g:i A", $result->date_requested); ?>" readonly>
-
-            <br>
-
-            <p> Date and Time Requested </p>
-            <input class="form-control" id="sel1" type="text" value="<?php if($result->request_type == 'CTV'){ echo $result->date_cctv; } else { echo " "; } ?>" readonly="">
-
-            <p class="help-block">Exclusively for CCTV Retrieval Request</p>
 
             <span class="view-icon"><a href="#" onclick="openNav()">View more details</a></span>
 
@@ -261,17 +193,11 @@
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <div class="overlay-content">
             <div class="overlay-header">
-              <h4> Ticket Details </h4>
+              <h4> Application Details </h4>
             </div>
             <hr>
-            <a href="#" data-toggle="modal" data-target="#view-message">Homeowner Remarks</a>
-            <hr>
-            <a href="<?php echo site_url() . "admin_ticketing/download_attachment/" . $result->ticketid; ?>">Download file</a>
-            <hr>
-            <p> Remarks </p>
-            <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long."></textarea>
-            <p class="error"><?php echo form_error('content'); ?> </p>
-            <a href="#" class="save-link" onclick="$(this).closest('form').submit()">Save changes</a>
+            <a>Remarks</a><br>
+            <textarea name ="admin-remarks" class="form-control" id="user-message" ></textarea>
             <hr>
           </div>
           <span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>
@@ -289,27 +215,14 @@
 
         <div class="form-group">
 
-          <p> Homeowner Remarks </p>
-          <button type="button" class="btn btn-custom-6" data-toggle="modal" data-target="#view-message">View</button>
-
-          <br><br>
-
-          <p> Attachment (<?php if($result->attachment != NULL) { echo "1";} else {echo "0"; } ?>) </p>
-          <a href="<?php echo site_url() . "admin_ticketing/download_attachment/" . $result->ticketid; ?>"><button type="button" class="btn btn-custom-11"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
-
-          <br><br>
-
           <p> Remarks </p>
-          <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long." required></textarea>
-          <p class="error"><?php echo form_error('content'); ?> </p>
+          <textarea name ="admin-remarks" class="form-control" id="user-message" disabled><?php echo $finisheddetails->remarks; ?></textarea>
 
           <br><hr>
 
           <br>
-
-          <button type="submit" class="btn btn-custom-5">Save changes</button>
-
-          </form>
+  
+          <a href="<?php echo site_url("admin_forms/work_permit"); ?>"> <button type="button" class="btn btn-custom-5">Back to Application Requests</button>
 
         </div>
 
@@ -322,3 +235,5 @@
   <br><br><br><br>
 
 </div>
+
+

@@ -197,12 +197,16 @@
                     <td><?php echo date("F d, Y", strtotime($row->date_requested)) ?></td>
                     <td><?php echo $row->firstname . " " . $row->lastname?></td>
                     <td><?php echo $row->contactnum?></td>
-                    <td><?php if($row->status == 1){ echo "Pending"; } else { echo "Processed"; } ?></td>
+                    <td><?php if($row->status == 2){ echo "Pending"; } else if($row->status == 1) { echo "For Resubmission"; } else { echo "Processed"; } ?></td>
                     <td class="action-button">
-                      <a href="<?php echo base_url() . "admin_forms/download_carsticker/" . $row->formid; ?>"><button type="button" class="btn btn-custom-2"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
-                      <?php if($row->status != 0)
+                      <?php if($row->status == 2)
                       {
-                        echo '<button type="button" class="btn btn-custom-3" data-href="' . base_url() . 'admin_forms/process_carsticker/' . $row->formid .'" data-toggle="modal" data-target="#delete-modal"> Set as Processed </button>';
+                        echo '<a href="' . base_url() . "admin_forms/download_carsticker/" . $row->formid . '"><button type="button" class="btn btn-custom-2"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
+                        <a href="' . base_url() . "admin_forms/applicationdetails_carsticker/" . $row->formid . '"><button type="button" class="btn btn-custom-3">Set Status</button></a>';
+                      }
+                      else
+                      {
+                        echo '<a href="' . base_url() . "admin_forms/finished_forms_carsticker/" . $row->formid . '"><button type="button" class="btn btn-custom-3"> View Details </button></a>';
                       }
                       ?>
                     </td>

@@ -29,6 +29,7 @@ function closeNav1() {
     document.getElementById("myNav1").style.width = "0%";
 }
 
+
 $('#back-to-top').on('click', function (e) {
     e.preventDefault();
     $('html,body').animate({
@@ -41,6 +42,23 @@ $(document).ready(function(){
       var remarks = $(this).val();
 
       if(remarks == '0')
+      {
+          $("textarea[name=admin-remarks]").removeAttr("disabled");
+      }
+
+      else
+      {
+          $("textarea[name=admin-remarks]").attr("disabled", true);
+      }
+
+  });
+});
+
+$(document).ready(function(){
+  $("select[name=statusforms]").change(function(){
+      var remarks = $(this).val();
+
+      if(remarks == '1')
       {
           $("textarea[name=admin-remarks]").removeAttr("disabled");
       }

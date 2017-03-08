@@ -25,7 +25,7 @@ class Model_forms extends CI_Model {
 
     function count_downloadedsticker()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 2)->get();
         return $query->num_rows();
     }
 
@@ -52,7 +52,7 @@ class Model_forms extends CI_Model {
 
     function count_downloadedpermit()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 2)->get();
         return $query->num_rows();
     }
 
@@ -79,7 +79,7 @@ class Model_forms extends CI_Model {
 
     function count_downloadedrenovation()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 2)->get();
         return $query->num_rows();
     }
 
@@ -293,13 +293,67 @@ class Model_forms extends CI_Model {
         return $setstatus;
     }
 
+    function get_formdetails_carsticker($formid)
+    {
+         $query= $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('formid', $formid)->get();
+         return $query->row();
+    }
+
+    function get_formdetails_workpermit($formid)
+    {
+         $query= $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('formid', $formid)->get();
+         return $query->row();
+    }
+
+    function get_formdetails_renovation($formid)
+    {
+         $query= $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('formid', $formid)->get();
+         return $query->row();
+    }
+
     function count_allnewforms()
     {
-        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 1)->get();
-        $query2 = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 1)->get();
-        $query3 = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->join('upload_carsticker', 'accounts.userid = upload_carsticker.userid' )->where('status', 2)->get();
+        $query2 = $this->db->select('*')->from('accounts')->join('upload_workpermit', 'accounts.userid = upload_workpermit.userid' )->where('status', 2)->get();
+        $query3 = $this->db->select('*')->from('accounts')->join('upload_renovation', 'accounts.userid = upload_renovation.userid' )->where('status', 2)->get();
         
         $result = $query->num_rows() + $query2->num_rows() + $query3->num_rows();
         return $result;
+    }
+
+    function save_application_carsticker($formid)
+    {
+        $save_app_data = array(
+            'status' => $this->input->post('statusforms'),
+            'remarks' => $this->input->post('admin-remarks')
+        );
+
+        $this->db->where('formid', $formid);
+        $update = $this->db->update('upload_carsticker', $save_app_data);
+        return $update;
+    }
+
+    function save_application_workpermit($formid)
+    {
+        $save_app_data = array(
+            'status' => $this->input->post('statusforms'),
+            'remarks' => $this->input->post('admin-remarks')
+        );
+
+        $this->db->where('formid', $formid);
+        $update = $this->db->update('upload_workpermit', $save_app_data);
+        return $update;
+    }
+
+    function save_application_renovation($formid)
+    {
+        $save_app_data = array(
+            'status' => $this->input->post('statusforms'),
+            'remarks' => $this->input->post('admin-remarks')
+        );
+
+        $this->db->where('formid', $formid);
+        $update = $this->db->update('upload_renovation', $save_app_data);
+        return $update;
     }
 }

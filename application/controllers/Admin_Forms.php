@@ -138,6 +138,202 @@ class Admin_Forms extends MY_Controller {
 		$this->template->load('admin_template', 'view_adminforms_renovation', $data);
 	}
 
+    function finished_forms_carsticker($formid)
+    {
+        if($this->model_forms->url_check_carsticker($formid))
+        {
+            $data['countnew'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
+            $data['count'] = $this->model_forms->count_renovation();
+            $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+            $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+            $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
+
+            $data['finisheddetails'] = $this->model_forms->get_formdetails_carsticker($formid);
+
+            $this->template->load('admin_template', 'view_adminforms_processed_carsticker', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('carstickerfail', 'You cannot view a non-existent car sticker form request.');
+            redirect('admin_forms/car_sticker');
+        }
+        
+    }
+
+    function finished_forms_workpermit($formid)
+    {
+        if($this->model_forms->url_check_workpermit($formid))
+        {
+            $data['countnew'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
+            $data['count'] = $this->model_forms->count_renovation();
+            $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+            $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+            $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
+
+            $data['finisheddetails'] = $this->model_forms->get_formdetails_workpermit($formid);
+
+            $this->template->load('admin_template', 'view_adminforms_processed_workpermit', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('workpermitfail', 'You cannot view a non-existent work permit form request.');
+            redirect('admin_forms/work_permit');
+        }
+        
+    }
+
+    function finished_forms_renovation($formid)
+    {
+        if($this->model_forms->url_check_renovation($formid))
+        {
+            $data['countnew'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
+            $data['count'] = $this->model_forms->count_renovation();
+            $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+            $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+            $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
+
+            $data['finisheddetails'] = $this->model_forms->get_formdetails_renovation($formid);
+
+            $this->template->load('admin_template', 'view_adminforms_processed_renovation', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('renovationfail', 'You cannot view a non-existent work permit form request.');
+            redirect('admin_forms/renovation');
+        }
+        
+    }
+
+
+    function applicationdetails_carsticker($formid)
+    {
+        if($this->model_forms->url_check_carsticker($formid))
+        {
+            $data['countnew'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
+            $data['count'] = $this->model_forms->count_renovation();
+            $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+            $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+            $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
+
+            $data['carstickerdetails'] = $this->model_forms->get_formdetails_carsticker($formid);
+            $this->template->load('admin_template', 'view_adminmoreforms_carsticker', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('carstickerfail', 'You cannot update a non-existent car sticker form request.');
+            redirect('admin_forms/car_sticker');
+        }
+    }
+
+    function save_application_carsticker($formid)
+    {
+        $this->usertracking->track_this();
+        $this->model_forms->save_application_carsticker($formid);
+
+        $data['countnew'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
+        $data['count'] = $this->model_forms->count_renovation();
+        $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+        $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+        $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
+        $data['carstickerdetails'] = $this->model_forms->get_formdetails_carsticker($formid);
+
+        $this->session->set_flashdata('moreapplicationsuccess', 'You have successfully updated the application\'s status.');
+        $this->template->load('admin_template', 'view_adminmoreforms_carsticker', $data);
+        $this->output->set_header('refresh:2; url=' . site_url() . "admin_forms/car_sticker");
+    }
+
+    function applicationdetails_workpermit($formid)
+    {
+        if($this->model_forms->url_check_workpermit($formid))
+        {
+            $data['countnew'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
+            $data['count'] = $this->model_forms->count_renovation();
+            $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+            $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+            $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
+
+            $data['workpermitdetails'] = $this->model_forms->get_formdetails_workpermit($formid);
+            $this->template->load('admin_template', 'view_adminmoreforms_workpermit', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('workpermitfail', 'You cannot update a non-existent work permit form request.');
+            redirect('admin_forms/work_permit');
+        }
+    }
+
+    function save_application_workpermit($formid)
+    {
+        $this->usertracking->track_this();
+        $this->model_forms->save_application_workpermit($formid);
+
+        $data['countnew'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
+        $data['count'] = $this->model_forms->count_renovation();
+        $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+        $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+        $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
+        $data['workpermitdetails'] = $this->model_forms->get_formdetails_workpermit($formid);
+
+        $this->session->set_flashdata('moreapplicationsuccess', 'You have successfully updated the application\'s status.');
+        $this->template->load('admin_template', 'view_adminmoreforms_workpermit', $data);
+        $this->output->set_header('refresh:2; url=' . site_url() . "admin_forms/work_permit");
+    }
+
+    function applicationdetails_renovation($formid)
+    {
+        if($this->model_forms->url_check_renovation($formid))
+        {
+            $data['countnew'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
+            $data['count'] = $this->model_forms->count_renovation();
+            $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+            $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+            $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
+
+            $data['renovationdetails'] = $this->model_forms->get_formdetails_renovation($formid);
+            $this->template->load('admin_template', 'view_adminmoreforms_renovation', $data);
+        }
+        else
+        {
+            $this->session->set_flashdata('renovationfail', 'You cannot update a non-existent renovation form request.');
+            redirect('admin_forms/renovation');
+        }
+    }
+
+    function save_application_renovation($formid)
+    {
+        $this->usertracking->track_this();
+        $this->model_forms->save_application_renovation($formid);
+
+        $data['countnew'] = $this->model_ticketing->count_newtickets();
+        $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        $data['forms'] = $this->model_forms->count_allnewforms();
+        $data['count'] = $this->model_forms->count_renovation();
+        $data['countsticker'] = $this->model_forms->count_downloadedsticker();
+        $data['countpermit'] = $this->model_forms->count_downloadedpermit();
+        $data['countrenovation'] = $this->model_forms->count_downloadedrenovation();
+        $data['renovationdetails'] = $this->model_forms->get_formdetails_workpermit($formid);
+
+        $this->session->set_flashdata('moreapplicationsuccess', 'You have successfully updated the application\'s status.');
+        $this->template->load('admin_template', 'view_adminmoreforms_renovation', $data);
+        $this->output->set_header('refresh:2; url=' . site_url() . "admin_forms/renovation");
+    }
+
     function search_carsticker()
     {
         $searchquery = $this->input->get('search', TRUE);
