@@ -67,26 +67,26 @@ class User_Forms extends MY_Controller {
 
 	function upload_carsticker()
 	{
-        $real = realpath(APPPATH);
-		    $config['upload_path']          = $real . '/uploads/';
-        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
-        $config['max_size']             = '52428800';
-        $config['max_width']            = 1920;
-        $config['max_height']           = 1080;
+      $real = realpath(APPPATH);
+	    $config['upload_path']          = $real . '/uploads/';
+      $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
+      $config['max_size']             = '52428800';
+      $config['max_width']            = 1920;
+      $config['max_height']           = 1080;
 
-        $this->load->library('upload', $config);
+      $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('file'))
-        {
-        	$this->model_forms_user->upload_carsticker();
-        	$this->session->set_flashdata('carsuccess', 'File has been successfully uploaded. For the mean time, please wait for the forms to be processed by the admin.');          
-        	redirect('user_forms/car_sticker');
-        }
-        else
-        {
-            $this->session->set_flashdata('carfail', $this->upload->display_errors());  
-            redirect('user_forms/car_sticker');
-	    }
+      if ($this->upload->do_upload('file'))
+      {
+      	$this->model_forms_user->upload_carsticker();
+      	$this->session->set_flashdata('carsuccess', 'File has been successfully uploaded. For the mean time, please wait for the forms to be processed by the admin.');          
+      	redirect('user_forms/car_sticker');
+      }
+      else
+      {
+          $this->session->set_flashdata('carfail', $this->upload->display_errors());  
+          redirect('user_forms/car_sticker');
+    }
 	}	      
 
 	function upload_workpermit()
@@ -135,6 +135,14 @@ class User_Forms extends MY_Controller {
             $this->session->set_flashdata('renovatefail', $this->upload->display_errors());  
             redirect('user_forms/renovation');  
 	    }
-	}	              
+	}	    
+
+  function my_applications()
+  {
+    $data['approvedreserve'] = $this->model_reservation->count_approved();
+    $data['deniedreserve'] = $this->model_reservation->count_denied();
+    $data['count'] = $this->model_tracking_user->count_activetickets();
+    $this->template->load('user_template','view_userforms_applications', $data);        
+  }          
 
 }

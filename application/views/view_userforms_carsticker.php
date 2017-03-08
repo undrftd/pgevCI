@@ -86,6 +86,10 @@
         	<a href="<?php echo base_url(); ?>user_forms/renovation">
         	Renovation </a>
       	</li>
+        <li>
+          <a href="<?php echo base_url(); ?>user_forms/my_applications">
+          My Applications </a>
+        </li>
 
 			</ul>
 

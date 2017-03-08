@@ -192,17 +192,9 @@
                         {
                           echo "Trash Collection";
                         }
-                        else if($result->request_type == 'RPC')
-                        {
-                          echo "Pest Control";
-                        }
                          else if($result->request_type == 'RMP')
                         {
                           echo "Malfunctioning Post Lights";
-                        }
-                        else if($result->request_type == 'RPL')
-                        {
-                          echo "Water Pipeline Leakages";
                         }
                          else if($result->request_type == 'RBD')
                         {

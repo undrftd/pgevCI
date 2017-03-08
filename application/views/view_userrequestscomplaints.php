@@ -104,9 +104,7 @@
                 <option value="" selected hidden>Type of Request or Complaint</option>
                 <option value="RGC">Grass Cutting</option>
                 <option value="RTC">Trash Collection</option>
-                <option value="RPC">Pest Control</option>
                 <option value="RMP">Malfunctioning Post Lights</option>
-                <option value="RPL">Water Pipeline Leakages</option>
                 <option value="RBD">Blocked Drainage</option>
                 <option value="RSC">Electrical Short Circuit</option>
                 <option value="RMD">Monthly Dues</option>

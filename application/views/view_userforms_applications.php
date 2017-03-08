@@ -76,7 +76,7 @@
             Car Sticker </a>
           </li>
 
-          <li class ="active">
+          <li>
             <a href="<?php echo base_url(); ?>user_forms/work_permit">
             Work Permit </a>
           </li>
@@ -85,7 +85,7 @@
             <a href="<?php echo base_url(); ?>user_forms/renovation">
             Renovation </a>
           </li>
-          <li>
+          <li class ="active">
             <a href="<?php echo base_url(); ?>user_forms/my_applications">
             My Applications </a>
         </li>
@@ -95,64 +95,23 @@
 
       <div class="portlet-body">
 
-        <?php if ($this->session->flashdata('permitsuccess')){ ?>
-		      <div class="success-message text-center" id="prompt-message">
-		        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-		        <p> <?php echo $this->session->flashdata('permitsuccess'); ?></p><br>
-		        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-		      </div>
-		    <?php } ?>
+        <?php if ($this->session->flashdata('applicationsuccess')){ ?>
+          <div class="success-message text-center" id="prompt-message">
+            <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+            <p> <?php echo $this->session->flashdata('permitsuccess'); ?></p><br>
+            <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+          </div>
+        <?php } ?>
 
-		    <?php if ($this->session->flashdata('permitfail')){ ?>
-		      <div class="error-message text-center" id="prompt-message">
-		        <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-		        <p> <?php echo $this->session->flashdata('permitfail'); ?></p><br>
-		        <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
-		      </div>
-		    <?php } ?>
+        <?php if ($this->session->flashdata('applicationfail')){ ?>
+          <div class="error-message text-center" id="prompt-message">
+            <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
+            <p> <?php echo $this->session->flashdata('permitfail'); ?></p><br>
+            <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
+          </div>
+        <?php } ?>
         <br>
 
-        <div class="tab-content">
-
-          <div class="tab-pane fade in active" id="portlet_tab1">
-            <div class="announcement-message">
-              <p> If you are requesting for a Work Permit Form, kindly download the form we provided and answer it before uploading below. <span class="warning-user"> Please avoid uploading multiple form requests. Doing so will place you behind the queue. </span> Kindly attach the Work Permit Form you recently answered then we will contact you as soon as we have processed
-                your request. The pick-up location will be at the Parkwood Greens Executive Village Administration building located at Phase 2. Thank you. If it does not download after a few seconds, click <?php $filename='Renovation.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links">here</a>.</p><br>
-            </div>
-
-            <div class="court-message">
-              <p> <?php $filename='Work_Permit.docx'; ?> <a href="<?php echo base_url(); ?>user_forms/download/<?php echo $filename; ?>" class="a-links"> Download Work Permit Form </a>
-              </p>
-              <div class="form-group">
-                <p>Attachment Details</p>
-
-                <div id="fileList"></div>
-                <p class="help-block">Formats accepted: .doc, .docx, .pdf, .png, .jpg </p>
-              </div>
-            </div>
-
-            <hr>
-
-            <?php echo form_open_multipart('user_forms/upload_workpermit');?>
-
-              <div class="form-group">
-
-                <div class="user-buttons">
-
-                  <input type="file" name="file" id="file" style="display: none;" multiple onchange="javascript:updateList()" />
-                  <button type="button" onclick="document.getElementById('file').click();" class="btn btn-custom-1"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> &nbsp;Attach</button></a>
-                  <button name ="upload" type="submit" class="btn btn-custom">Send</button></a>
-
-                </div>
-                <br><br>
-              </div>
-
-            <?php echo form_close(); ?>
-
-
-          </div>
-
-        </div>
 
       </div>
 
