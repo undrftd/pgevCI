@@ -204,7 +204,7 @@ class Admin_Forms extends MY_Controller {
         }
         else
         {
-            $this->session->set_flashdata('renovationfail', 'You cannot view a non-existent work permit form request.');
+            $this->session->set_flashdata('renovationfail', 'You cannot view a non-existent renovation form request.');
             redirect('admin_forms/renovation');
         }
         

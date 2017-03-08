@@ -175,6 +175,11 @@
 
             <br>
 
+            <p> File Name </p>
+            <input class="form-control" id="sel1" type="text" value="<?php echo $finisheddetails->filename; ?>" readonly>
+
+            <br>
+
             <p> Date Requested </p>
             <input class="form-control" id="sel1" type="text" value="<?php echo $finisheddetails->date_requested; ?>" readonly>
             

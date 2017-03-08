@@ -58,7 +58,7 @@ $(document).ready(function(){
   $("select[name=statusforms]").change(function(){
       var remarks = $(this).val();
 
-      if(remarks == '1')
+      if(remarks == '1'|| '0')
       {
           $("textarea[name=admin-remarks]").removeAttr("disabled");
       }

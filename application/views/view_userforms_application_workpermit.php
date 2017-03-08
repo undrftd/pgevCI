@@ -165,7 +165,7 @@
                   <tr>
                     <td><?php echo date("F d, Y", strtotime($row->date_requested)); ?> </td>
                     <td><?php echo $row->filename; ?></td>
-                    <td><?php if($row->status == 1) { echo "Pending"; } else { echo "Processed"; } ?> </td>
+                    <td><?php if($row->status == 2){ echo "Pending"; } else if($row->status == 1) { echo "For Resubmission"; } else { echo "Processed"; } ?></td>
                   </tr>
                   <?php endforeach; ?> 
 

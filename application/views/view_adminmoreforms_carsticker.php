@@ -126,6 +126,11 @@
 
             <br>
 
+            <p> File Name </p>
+            <input class="form-control" id="sel1" type="text" value="<?php echo $carstickerdetails->filename; ?>" readonly>
+
+            <br>
+
             <p> Date Requested </p>
             <input class="form-control" id="sel1" type="text" value="<?php echo date("F d, Y", strtotime($carstickerdetails->date_requested)); ?>" readonly>
             
@@ -152,7 +157,7 @@
             </div>
             <hr>
             <a>Remarks</a><br>
-            <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible after changing the status of a ticket to Closed." reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long." ></textarea>
+            <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Kindly include the details regarding the action taken. Example: Ready for Pick-up" reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long." ></textarea>
             <p class="error"><?php echo form_error('admin-remarks'); ?> </p>
             <a href="#" class="save-link" onclick="$(this).closest('form').submit()">Save changes</a>
             <hr>
@@ -173,7 +178,7 @@
         <div class="form-group">
 
           <p> Remarks </p>
-          <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Note: This is only accessible if an application needs to be resubmitted." reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long." required></textarea>
+          <textarea name ="admin-remarks" class="form-control" id="user-message" placeholder="Kindly include the details regarding the action taken. Example: Ready for Pick-up" reseize="none" disabled="disabled" pattern=".{5,}" title="Remarks should at least be 5 characters long." required></textarea>
           <p class="error"><?php echo form_error('admin-remarks'); ?> </p>
 
           <br><hr>
