@@ -201,7 +201,7 @@
                     <td class="action-button">
                       <?php if($row->status == 2)
                       {
-                        echo '<a href="' . base_url() . "admin_forms/download_carsticker/" . $row->formid . '"><button type="button" class="btn btn-custom-2"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
+                        echo '<a href="' . base_url() . "admin_forms/download_workpermit/" . $row->formid . '"><button type="button" class="btn btn-custom-2"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
                         <a href="' . base_url() . "admin_forms/applicationdetails_workpermit/" . $row->formid . '"><button type="button" class="btn btn-custom-3">Set Status</button></a>';
                       }
                       else
