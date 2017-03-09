@@ -92,7 +92,12 @@
 					 		}
 		          ?>
 					</li>
-					<li class="forms-badge <?php if($this->uri->segment(1) == 'admin_announcements') { echo 'active'; } else if($this->uri->segment(1) == 'admin_announcements') { echo 'active'; } else if($this->uri->segment(1) == 'admin_dues') { echo 'active'; } else if($this->uri->segment(1) == 'admin_accounts') { echo 'active'; } else if($this->uri->segment(1) == 'admin_statistics') { echo 'active'; } else if($this->uri->segment(1) == 'admin_audit') { echo 'active'; } else if($this->uri->segment(1) == 'admin_profile') { echo 'active'; }?>"> <a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a> </li>
+					<li class="<?php if($this->uri->segment(1) == 'admin_announcements') { echo 'active'; } else if($this->uri->segment(1) == 'admin_announcements') { echo 'active'; }
+						else if($this->uri->segment(1) == 'admin_dues') { echo 'active'; } else if($this->uri->segment(1) == 'admin_accounts') { echo 'active'; }
+						else if($this->uri->segment(1) == 'admin_statistics') { echo 'active'; } else if($this->uri->segment(1) == 'admin_audit') { echo 'active'; }
+						else if($this->uri->segment(1) == 'admin_profile') { echo 'active'; }?>">
+						<a href="#" onclick="openNav1()"><i class="material-icons">menu</i></a>
+					</li>
 				</ul>
 			</footer>
 
