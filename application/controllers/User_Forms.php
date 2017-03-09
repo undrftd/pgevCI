@@ -228,5 +228,13 @@ class User_Forms extends MY_Controller {
             $this->session->set_flashdata('renovatefail', $this->upload->display_errors());  
             redirect('user_forms/renovation');  
 	    }
-	}	             
+	}	 
+
+  function ajax_show($formid)
+  {
+    $data = $this->model_forms_user->get_car_id($formid);
+
+    echo json_encode($data);
+  }            
 }
+

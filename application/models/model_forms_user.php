@@ -83,5 +83,20 @@ class Model_forms_user extends CI_Model {
     	}
 	}
 
+	function get_car_id($formid)
+	{
+		$query = $this->db->from('upload_carsticker')->where('formid', $formid)->get();
+		
+		if($query->num_rows() > 0)
+    	{
+    		return $query->row();
+    	}
+    	else
+    	{
+    		return $query->row();
+    	}
+	}
+
+
 }
 
