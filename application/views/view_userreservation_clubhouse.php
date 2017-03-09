@@ -153,8 +153,7 @@
           <div class="col-xs-12 nopadding">
 
             <div class="court-message">
-              <p> Note: Clubhouse is located at Parkwood Greens Executive Village Phase 1 while Court 2 is located at Phase 2. Both of these courts can be reserved for your own private use
-                from Mondays to Sundays, 6:00 PM until 10:00 PM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if a day is available, kindly use the search bar below and check the table.
+              <p> Note: Clubhouse is located at Parkwood Greens Executive Village Phase 1. This can be utilized from Mondays to Sundays, 10:00 AM until 1:00 AM. To <strong>inquire</strong>, kindly click the add a reservation button above. To <strong>check</strong> if a day is available, kindly use the search bar below and check the table.
                 Also, your reservations can be viewed below through the tab, My Reservation.
               </p>
             </div>

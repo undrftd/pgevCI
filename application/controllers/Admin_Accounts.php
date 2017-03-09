@@ -310,14 +310,14 @@ class Admin_Accounts extends MY_Controller {
 
     }
 
-    function viewmore_user($username)
+    function viewmore_user($userid)
     {
-        if($this->model_accounts->url_check_user($username))
+        if($this->model_accounts->url_check_user($userid))
         {
             $data['count'] = $this->model_ticketing->count_newtickets();
             $data['reserve'] = $this->model_reservation->count_allnewreserve();
             $data['forms'] = $this->model_forms->count_allnewforms();
-            $data['view'] = $this->model_accounts->viewmore_user($username);
+            $data['view'] = $this->model_accounts->viewmore_user($userid);
             $this->template->load('admin_template', 'view_adminviewmore_user', $data);
         }
         else
@@ -327,16 +327,16 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function viewmore_admin($username)
+    function viewmore_admin($userid)
     {
-        if($this->model_accounts->url_check_admin($username))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            if($username != $this->session->userdata('username'))
+            if($userid != $this->session->userdata('userid'))
             {
                 $data['count'] = $this->model_ticketing->count_newtickets();
                 $data['reserve'] = $this->model_reservation->count_allnewreserve();
                 $data['forms'] = $this->model_forms->count_allnewforms();
-                $data['view'] = $this->model_accounts->viewmore_admin($username);
+                $data['view'] = $this->model_accounts->viewmore_admin($userid);
                 $this->template->load('admin_template', 'view_adminviewmore_admin', $data);
             }
             else
@@ -351,14 +351,14 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function viewmore_deact($username)
+    function viewmore_deact($userid)
     {
-        if($this->model_accounts->url_check_deact($username))
+        if($this->model_accounts->url_check_deact($userid))
         {
             $data['count'] = $this->model_ticketing->count_newtickets();
             $data['reserve'] = $this->model_reservation->count_allnewreserve();
             $data['forms'] = $this->model_forms->count_allnewforms();
-            $data['view'] = $this->model_accounts->viewmore_deact($username);
+            $data['view'] = $this->model_accounts->viewmore_deact($userid);
             $this->template->load('admin_template', 'view_adminviewmore_deact', $data);
         }
         else
@@ -368,13 +368,13 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function accdelete_user($username)
+    function accdelete_user($userid)
     {
         $this->usertracking->track_this();
-        if($this->model_accounts->url_check_user($username))
+        if($this->model_accounts->url_check_user($userid))
         {
             $this->session->set_flashdata('accountsfeedback', 'You have successfully deleted the account.');
-            $this->model_accounts->acc_delete($username);
+            $this->model_accounts->acc_delete($userid);
             redirect('admin_accounts/homeowner');
         }
         else
@@ -384,15 +384,15 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function accdelete_admin($username)
+    function accdelete_admin($userid)
     {
         $this->usertracking->track_this();
-        if($this->model_accounts->url_check_admin($username))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            if($username != $this->session->userdata('username'))
+            if($userid != $this->session->userdata('userid'))
             {
                 $this->session->set_flashdata('accountsfeedback', 'You have successfully deleted the account.');
-                $this->model_accounts->acc_delete($username);
+                $this->model_accounts->acc_delete($userid);
                 redirect('admin_accounts/administrator');
             }
             else
@@ -408,13 +408,13 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function accdelete_deact($username)
+    function accdelete_deact($userid)
     {
         $this->usertracking->track_this();
-        if($this->model_accounts->url_check_deact($username))
+        if($this->model_accounts->url_check_deact($userid))
         {
             $this->session->set_flashdata('accountsfeedback', 'You have successfully deleted the account.');
-            $this->model_accounts->acc_delete($username);
+            $this->model_accounts->acc_delete($userid);
             redirect('admin_accounts/deactivated');
         }
         else
@@ -424,10 +424,10 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function accupdate_user($username)
+    function accupdate_user($userid)
     {
         $this->usertracking->track_this();
-        if($this->model_accounts->url_check_user($username))
+        if($this->model_accounts->url_check_user($userid))
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
             $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -436,9 +436,9 @@ class Admin_Accounts extends MY_Controller {
 
             $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space|xss_clean');
             $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space|xss_clean');
-            $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|edit_unique[accounts.username.'.$username.']|xss_clean');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|edit_unique[accounts.username.'.$userid.']|xss_clean');
             $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma|xss_clean');
-            $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$username.']|xss_clean');
+            $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$userid.']|xss_clean');
             $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]|xss_clean');
             $this->form_validation->set_rules('role', 'Role', 'required|xss_clean');
 
@@ -447,12 +447,12 @@ class Admin_Accounts extends MY_Controller {
                 $data['count'] = $this->model_ticketing->count_newtickets();
                 $data['reserve'] = $this->model_reservation->count_allnewreserve();
                 $data['forms'] = $this->model_forms->count_allnewforms();
-                $data['view'] = $this->model_accounts->viewmore_user($username);
+                $data['view'] = $this->model_accounts->viewmore_user($userid);
                 $this->template->load('admin_template', 'view_adminviewmore_user', $data);
             }
             else
             {
-                if($query = $this->model_accounts->acc_update($username))
+                if($query = $this->model_accounts->acc_update($userid))
                  {
                     $this->session->set_flashdata('accountsfeedback', 'You have successfully updated the account.');
                     redirect('admin_accounts/homeowner');
@@ -466,12 +466,12 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function accupdate_admin($username)
+    function accupdate_admin($userid)
     {
         $this->usertracking->track_this();
-        if($this->model_accounts->url_check_admin($username))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            if($username != $this->session->userdata('username'))
+            if($userid != $this->session->userdata('userid'))
             {
                 $this->form_validation->set_error_delimiters('<div class="error">','</div>');
                 $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -480,9 +480,9 @@ class Admin_Accounts extends MY_Controller {
 
                 $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space|xss_clean');
                 $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space|xss_clean');
-                $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|edit_unique[accounts.username.'.$username.']|xss_clean');
+                $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|edit_unique[accounts.username.'.$userid.']|xss_clean');
                 $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma|xss_clean');
-                $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$username.']|xss_clean');
+                $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$userid.']|xss_clean');
                 $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]|xss_clean');
                 $this->form_validation->set_rules('role', 'Role', 'required|xss_clean');
 
@@ -491,12 +491,12 @@ class Admin_Accounts extends MY_Controller {
                     $data['count'] = $this->model_ticketing->count_newtickets();
                     $data['reserve'] = $this->model_reservation->count_allnewreserve();
                     $data['forms'] = $this->model_forms->count_allnewforms();
-                    $data['view'] = $this->model_accounts->viewmore_admin($username);
+                    $data['view'] = $this->model_accounts->viewmore_admin($userid);
                     $this->template->load('admin_template', 'view_adminviewmore_admin', $data);
                 }
                 else
                 {
-                    if($query = $this->model_accounts->acc_update($username))
+                    if($query = $this->model_accounts->acc_update($userid))
                      {
                         $this->session->set_flashdata('accountsfeedback', 'You have successfully updated the account.');
                         redirect('admin_accounts/administrator');
@@ -514,10 +514,10 @@ class Admin_Accounts extends MY_Controller {
             redirect('admin_accounts/administrator');
         }
     }
-    function accupdate_deact($username)
+    function accupdate_deact($userid)
     {
         $this->usertracking->track_this();
-        if($this->model_accounts->url_check_deact($username))
+        if($this->model_accounts->url_check_deact($userid))
         {
             $this->form_validation->set_error_delimiters('<div class="error">','</div>');
             $this->form_validation->set_message('is_unique', '{field} already exists!');
@@ -526,7 +526,7 @@ class Admin_Accounts extends MY_Controller {
 
             $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space|xss_clean');
             $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space|xss_clean');
-            $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|edit_unique[accounts.username.'.$username.']|xss_clean');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|edit_unique[accounts.username.'.$userid.']|xss_clean');
             $this->form_validation->set_rules('address', 'Address', 'required|xss_clean');
             $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|is_unique[accounts.email]|xss_clean');
             $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]|xss_clean');
@@ -537,12 +537,12 @@ class Admin_Accounts extends MY_Controller {
                 $data['count'] = $this->model_ticketing->count_newtickets();
                 $data['reserve'] = $this->model_reservation->count_allnewreserve();
                 $data['forms'] = $this->model_forms->count_allnewforms();
-                $data['view'] = $this->model_accounts->viewmore_deact($username);
+                $data['view'] = $this->model_accounts->viewmore_deact($userid);
                 $this->template->load('admin_template', 'view_adminviewmore_deact', $data);
             }
             else
             {
-                if($query = $this->model_accounts->acc_update($username))
+                if($query = $this->model_accounts->acc_update($userid))
                  {
                     $this->session->set_flashdata('accountsfeedback', 'You have successfully updated the account.');
                     redirect('admin_accounts/deactivated');
@@ -556,12 +556,12 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-	function accdeact_user($username)
+	function accdeact_user($userid)
     {
         $this->usertracking->track_this();
-        if($this->model_accounts->url_check_user($username))
+        if($this->model_accounts->url_check_user($userid))
         {
-            $this->model_accounts->acc_deact($username);
+            $this->model_accounts->acc_deact($userid);
             $this->session->set_flashdata('accountsfeedback', 'You have successfully deactivated the account.');
             redirect('admin_accounts/homeowner');
         }
@@ -572,14 +572,14 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function accdeact_admin($username)
+    function accdeact_admin($userid)
     {
         $this->usertracking->track_this();
-        if($this->model_accounts->url_check_admin($username))
+        if($this->model_accounts->url_check_admin($userid))
         {
-            if($username != $this->session->userdata('username'))
+            if($userid != $this->session->userdata('userid'))
             {
-                $this->model_accounts->acc_deact($username);
+                $this->model_accounts->acc_deact($userid);
                 $this->session->set_flashdata('accountsfeedback', 'You have successfully deactivated the account.');
                 redirect('admin_accounts/administrator');
             }
@@ -596,13 +596,13 @@ class Admin_Accounts extends MY_Controller {
         }
     }
 
-    function acc_reactivate($username)
+    function acc_reactivate($userid)
     {
         $this->usertracking->track_this();
-        if($this->model_accounts->url_check_deact($username))
+        if($this->model_accounts->url_check_deact($userid))
         {
             $this->session->set_flashdata('accountsfeedback', 'You have successfully reactivated the account.');
-            $this->model_accounts->acc_reactivate($username);
+            $this->model_accounts->acc_reactivate($userid);
             redirect('admin_accounts/deactivated');
         }
         else

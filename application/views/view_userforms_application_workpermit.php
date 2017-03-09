@@ -205,7 +205,7 @@ function show(id)
     dataType: "JSON",
     success: function(data)
     {
-       if(data.remark != "")
+       if(!data.remarks)
       {
         $("#remarksinput").html("Application Pending. Please wait for your application to be processed.");
 

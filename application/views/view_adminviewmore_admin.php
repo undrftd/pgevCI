@@ -160,7 +160,7 @@
         <form action="<?php echo base_url() ."admin_accounts/accupdate_admin/" . $view->userid ;?>" method="POST">
           <fieldset id="myFieldset" disabled>
           <div class="form-group">
-            <h4> User Credentials </h4>
+            <h4> User Credentials <small class="admin-fields"> All fields are required </small> </h4>
                 <br>
                 <p> First Name </p>
                 <input name ="firstname" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($view->firstname); ?>" pattern="[a-z A-Z]{2,30}" title="First Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
