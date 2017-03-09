@@ -205,11 +205,18 @@ function show(id)
     dataType: "JSON",
     success: function(data)
     {
-      console.log(data);
+      if(data.remark != "")
+      {
+        $("#remarksinput").html("Application Pending. Please wait for your application to be processed.");
+
+        $('#view-modal').modal('show'); // show bootstrap modal when complete loaded
+      }
+      else
+      {
         $("#remarksinput").html(data.remarks);
 
         $('#view-modal').modal('show'); // show bootstrap modal when complete loaded
-
+      }
     },
     error: function (jqXHR, textStatus, errorThrown)
     {
