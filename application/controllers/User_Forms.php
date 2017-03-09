@@ -166,6 +166,7 @@ class User_Forms extends MY_Controller {
       $config['max_size']             = '52428800';
       $config['max_width']            = 5312;
       $config['max_height']           = 2988;
+      $config['file_name'] = "Car_Sticker_" . $this->session->userdata('username');
 
       $this->load->library('upload', $config);
 
@@ -190,6 +191,7 @@ class User_Forms extends MY_Controller {
         $config['max_size']             = '52428800';
         $config['max_width']            = 5312;
         $config['max_height']           = 2988;
+        $config['file_name'] = "Work_Permit" . $this->session->userdata('username');
 
         $this->load->library('upload', $config);
 
@@ -214,6 +216,7 @@ class User_Forms extends MY_Controller {
         $config['max_size']             = '52428800';
         $config['max_width']            = 5312;
         $config['max_height']           = 2988;
+        $config['file_name'] = "Renovation_" . $this->session->userdata('username');
 
         $this->load->library('upload', $config);
 
