@@ -153,8 +153,10 @@ $(function () {
 });
 
 $(function () {
+  var dateToday = new Date();
     $('#datetimepicker2').datetimepicker({
-      format: 'MM/DD/YYYY'
+      format: 'MM/DD/YYYY',
+      minDate: dateToday,
     });
     $('#datetimepicker2').datetimepicker('showClear', true);
 });

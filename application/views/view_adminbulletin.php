@@ -198,6 +198,7 @@
                       if ($row->userid !== $this->session->userdata('userid'))
                       {
                         echo "<a href='" . site_url() . "admin_announcements/viewmore_bulletin/" . $row->post_id ."'><p>Read More</p></a>";
+                        echo "<a data-href='" . site_url() . "admin_announcements/delete_bulletin/" . $row->post_id . "' data-toggle='modal' data-target='#delete-modal'><p><i class='material-icons'>delete</i></p></a>";
                       }
                       else
                       {

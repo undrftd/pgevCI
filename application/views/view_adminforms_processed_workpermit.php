@@ -127,7 +127,7 @@
   </div>
 
   <div class="header-style">
-    <h1> Application Details </h1>
+    <h1> Application Details - Work Permit</h1>
   </div>
 
   <br>
@@ -201,6 +201,9 @@
               <h4> Application Details </h4>
             </div>
             <hr>
+            <a href="<?php echo site_url() . "admin_forms/download_workpermit/" . $finisheddetails->formid ; ?>">Download file</a>
+            <hr>
+            <h4>
             <a>Remarks</a><br>
             <textarea name ="admin-remarks" class="form-control" id="user-message" ></textarea>
             <hr>
@@ -219,6 +222,11 @@
       <div class="information-other">
 
         <div class="form-group">
+          
+          <p> Attachment </p>
+          <a href="<?php echo site_url() . "admin_forms/download_workpermit/" . $finisheddetails->formid ; ?>"><button type="button" class="btn btn-custom-11"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>  &nbsp;Download</button></a>
+
+          <br><hr> 
 
           <p> Remarks </p>
           <textarea name ="admin-remarks" class="form-control" id="user-message" disabled><?php echo $finisheddetails->remarks; ?></textarea>

@@ -145,7 +145,7 @@ class User_Forms extends MY_Controller {
     $data['deniedreserve'] = $this->model_reservation->count_denied();
     $data['count'] = $this->model_tracking_user->count_activetickets();
     $data['myforms'] = $this->model_forms_user->get_myrenovation($config['per_page'], $this->uri->segment(3)); 
-    $this->template->load('user_template','view_userforms_application_workpermit', $data);     
+    $this->template->load('user_template','view_userforms_application_renovation', $data);     
   }  
 
 	function download($filename) 
@@ -230,11 +230,25 @@ class User_Forms extends MY_Controller {
 	    }
 	}	 
 
-  function ajax_show($formid)
+  function ajax_show_car($formid)
   {
     $data = $this->model_forms_user->get_car_id($formid);
 
     echo json_encode($data);
-  }            
+  }  
+
+  function ajax_show_workpermit($formid)
+  {
+    $data = $this->model_forms_user->get_workpermit_id($formid);
+
+    echo json_encode($data);
+  }   
+
+  function ajax_show_renovation($formid)
+  {
+    $data = $this->model_forms_user->get_renovation_id($formid);
+
+    echo json_encode($data);
+  }           
 }
 

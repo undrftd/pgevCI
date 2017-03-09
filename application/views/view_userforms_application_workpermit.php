@@ -157,6 +157,7 @@
                     <th><br>Date</th>
                     <th><br>File Name</th>
                     <th><br>Status</th>
+                    <th><br>Remarks</th>
                   </tr>
 
                   <?php foreach($myforms as $row):
@@ -165,7 +166,8 @@
                   <tr>
                     <td><?php echo date("F d, Y", strtotime($row->date_requested)); ?> </td>
                     <td><?php echo $row->filename; ?></td>
-                    <td><?php if($row->status == 2){ echo "Pending"; } else if($row->status == 1) { echo "For Resubmission"; } else { echo "Processed"; } ?></td>
+                    <td><?php if($row->status == 2){ echo "Pending"; } else if($row->status == 1) { echo "For Resubmission"; } else { echo "Processed"; } ?> </td>
+                    <td><button type="button" onclick="show(<?php echo $row->formid;?>)" data-toggle="modal" data-target="#view-modal" class="btn btn-custom-3"> View Remarks</button></a>
                   </tr>
                   <?php endforeach; ?> 
 
@@ -192,3 +194,54 @@
   </div>
 
 </div>
+
+<script type="text/javascript">
+function show(id)
+{
+  //Ajax Load data from ajax
+  $.ajax({
+    url : "<?php echo site_url('user_forms/ajax_show_workpermit')?>/" + id,
+    type: "GET",
+    dataType: "JSON",
+    success: function(data)
+    {
+      console.log(data);
+        $("#remarksinput").html(data.remarks);
+
+        $('#view-modal').modal('show'); // show bootstrap modal when complete loaded
+
+    },
+    error: function (jqXHR, textStatus, errorThrown)
+    {
+        alert('Error get data from ajax');
+    }
+    });
+}
+
+
+</script>
+
+<div class="modal fade" id="view-modal" role="dialog">
+
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Administrator Remarks</h4>
+            </div>
+
+            <br>
+
+            <div class="signin">
+                <div class="modal-body text-center">
+                    <p><span id="remarksinput"></span></p>
+                </div>
+            </div>
+
+          </div>
+
+      </div>
+
+  </div>

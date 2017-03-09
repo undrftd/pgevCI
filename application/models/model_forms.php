@@ -227,47 +227,47 @@ class Model_forms extends CI_Model {
         }
     }
 
-	function delete_carsticker($formid)
-	{
-		$query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
-        $result = $query->row();
+	// function delete_carsticker($formid)
+	// {
+	// 	$query = $this->db->select('*')->where('formid', $formid)->get('upload_carsticker',1);
+ //        $result = $query->row();
 
-        $real = realpath(APPPATH);
-        $path = $real . '/uploads/' . $result->filename;
-        unlink($path);
+ //        $real = realpath(APPPATH);
+ //        $path = $real . '/uploads/' . $result->filename;
+ //        unlink($path);
 		
-		$this->db->where('formid', $formid);
-        $delete = $this->db->delete('upload_carsticker');
-        return $delete;
-	}
+	// 	$this->db->where('formid', $formid);
+ //        $delete = $this->db->delete('upload_carsticker');
+ //        return $delete;
+	// }
 
-	function delete_workpermit($formid)
-	{
-		$query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
-        $result = $query->row();
+	// function delete_workpermit($formid)
+	// {
+	// 	$query = $this->db->select('*')->where('formid', $formid)->get('upload_workpermit',1);
+ //        $result = $query->row();
 
-        $real = realpath(APPPATH);
-        $path = $real . '/uploads/' . $result->filename;
-        unlink($path);
+ //        $real = realpath(APPPATH);
+ //        $path = $real . '/uploads/' . $result->filename;
+ //        unlink($path);
 		
-		$this->db->where('formid', $formid);
-        $delete = $this->db->delete('upload_workpermit');
-        return $delete;
-	}
+	// 	$this->db->where('formid', $formid);
+ //        $delete = $this->db->delete('upload_workpermit');
+ //        return $delete;
+	// }
 
-	function delete_renovation($formid)
-	{
-		$query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
-        $result = $query->row();
+	// function delete_renovation($formid)
+	// {
+	// 	$query = $this->db->select('*')->where('formid', $formid)->get('upload_renovation',1);
+ //        $result = $query->row();
 
-        $real = realpath(APPPATH);
-        $path = $real . '/uploads/' . $result->filename;
-        unlink($path);
+ //        $real = realpath(APPPATH);
+ //        $path = $real . '/uploads/' . $result->filename;
+ //        unlink($path);
 		
-		$this->db->where('formid', $formid);
-        $delete = $this->db->delete('upload_renovation');
-        return $delete;
-	}
+	// 	$this->db->where('formid', $formid);
+ //        $delete = $this->db->delete('upload_renovation');
+ //        return $delete;
+	// }
 
     function set_carprocessedstatus($formid)
     {
