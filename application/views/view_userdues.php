@@ -85,7 +85,7 @@
               <h4> Billing Information </h4>
             <br>
             <p> Name </p>
-            <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname'); ?>" readonly>
+            <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('middlename') . " " . $this->session->userdata('lastname'); ?>" readonly>
             <br>
 
             <p> Address </p>

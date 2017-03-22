@@ -125,6 +125,7 @@
             <table class="table table-hover" id="tracking-table">
 
               <tr>
+                <th><br>Priority</th>
                 <th><br>Ticket ID</th>
                 <th><br>Type of Request</th>
                 <th><br>Homeowner's Name</th>
@@ -135,6 +136,7 @@
 
               <?php foreach($result as $row): ?>
               <tr>
+                  <td><?php if($row->request_type == 'EFR' || $row->request_type == 'ERB' || $row->request_type == 'ESP' || $row->request_type == 'EBT') { echo "1"; } else { echo "2"; } ?> </td>
                   <td><?php echo $row->request_type . "-" .$row->ticketid; ?></td>
                   <td><?php
                         if($row->request_type == 'RGC')
@@ -194,7 +196,7 @@
                           echo "Suspicious Person";
                         }  ?>
                   </td>
-                  <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
+                  <td><?php echo $row->firstname . " " . $row->middlename . " " . $row->lastname; ?></td>
                   <td><?php echo date("m/d/Y g:i A", $row->date_requested); ?></td>
                   <td><?php if($row->homeowner_feedback == 1) { echo "Request Unfinished"; } else { echo "Request Finished"; } ?></td>
                   <td class="action-button">

@@ -173,7 +173,7 @@
             <br>
 
             <p> Name </p>
-            <input class="form-control" id="sel1" type="text" value="<?php echo $result->firstname . " " . $result->lastname; ?>" readonly>
+            <input class="form-control" id="sel1" type="text" value="<?php echo $result->firstname . " " . $result->middlename . " " . $result->lastname; ?>" readonly>
 
             <br>
 

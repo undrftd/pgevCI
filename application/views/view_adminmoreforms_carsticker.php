@@ -117,7 +117,7 @@
             <h4> Application Information </h4>
             <br>
             <p> Name </p>
-            <input class="form-control" id="sel1" type="text" value="<?php echo $carstickerdetails->firstname . " " . $carstickerdetails->lastname; ?>" readonly>
+            <input class="form-control" id="sel1" type="text" value="<?php echo $carstickerdetails->firstname . " " . $carstickerdetails->middlename . " " . $carstickerdetails->lastname; ?>" readonly>
 
             <br>
 

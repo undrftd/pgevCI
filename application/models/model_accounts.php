@@ -42,6 +42,7 @@ class Model_accounts extends CI_Model {
                 'password' => $this->input->post('password'),
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
+                'middlename' => $result->middlename,
                 'email' => $result->email,
                 'address' => $result->address,
                 'monthly_dues' => $result->monthly_dues,
@@ -74,6 +75,7 @@ class Model_accounts extends CI_Model {
                 'password' => $this->input->post('password'),
                 'firstname' => $result->firstname,
                 'lastname' => $result->lastname,
+                'middlename' => $result->middlename,
                 'email' => $result->email,
                 'address' => $result->address,
                 'monthly_dues' => $result->monthly_dues,
@@ -237,6 +239,7 @@ class Model_accounts extends CI_Model {
         $new_account_insert_data = array(
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
+            'middlename' => $this->input->post('middlename'),
             'username' => $this->input->post('username'),
             'password' => $this->bcrypt->hash_password($this->input->post('password')),
             'address' => $this->input->post('address'),
@@ -438,6 +441,7 @@ class Model_accounts extends CI_Model {
          $account_update_data = array(
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
+            'middlename' => $this->input->post('middlename'),
             'username' => $this->input->post('username'),
             'address' => $this->input->post('address'),
             'email' => $this->input->post('email'),
@@ -478,6 +482,7 @@ class Model_accounts extends CI_Model {
          $account_update_data = array(
             'firstname' => $this->input->post('firstname'),
             'lastname' => $this->input->post('lastname'),
+            'middlename' => $this->input->post('middlename'),
             'username' => $this->input->post('username'),
             'password' => $this->bcrypt->hash_password($this->input->post('password')),
             'address' => $this->input->post('address'),

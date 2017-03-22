@@ -125,6 +125,11 @@
                 <p class="error"><?php echo form_error('lastname'); ?></p>
                 <br>
 
+                <p> Middle Name </p>
+                <input name="middlename" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('middlename');?>" pattern="[a-z A-Z ]{2,30}" title="Middle Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
+                <p class="error"><?php echo form_error('middlemname'); ?></p>
+                <br>
+
                 <p> User ID </p>
                 <input name="username" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('username');?>" pattern="[0-9]{8,12}" title="Username must include a minimum of 8 numbers only." required>
                 <p class="error"><?php echo form_error('username'); ?></p>

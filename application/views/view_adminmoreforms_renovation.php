@@ -117,7 +117,7 @@
             <h4> Application Information </h4>
             <br>
             <p> Name </p>
-            <input class="form-control" id="sel1" type="text" value="<?php echo $renovationdetails->firstname . " " . $renovationdetails->lastname; ?>" readonly>
+            <input class="form-control" id="sel1" type="text" value="<?php echo $renovationdetails->firstname . " " . $renovationdetails->middlename . " " . $renovationdetails->lastname; ?>" readonly>
 
             <br>
 

@@ -263,7 +263,7 @@
             <table class="table table-hover" id="tracking-table">
 
               <tr>
-                  <th><br>Homeowner's Name</th>
+                  <th><br>Administrator's Name</th>
                   <th class="not-important"><br>Address</th>
                   <th><br>Monthly Dues</th>
                   <th><br>Arrears</th>
@@ -274,7 +274,7 @@
 
               <?php foreach ($admin as $row):?>
               <tr>
-                  <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
+                  <td><?php echo $row->firstname . " " . $row->middlename . " " .  $row->lastname; ?></td>
                   <td class="not-important"><?php echo $row->address; ?></td>
                   <td><?php echo "₱" . " " . $row->monthly_dues; ?></td>
                   <td><?php echo "₱" . " " . $row->arrears; ?></td>

@@ -187,8 +187,7 @@
             <table class="table table-hover" id="tracking-table">
 
               <tr>
-                  <th><br>First Name</th>
-                  <th><br>Last Name</th>
+                  <th><br>Full Name</th>
                   <th><br>User ID</th>
                   <th><br>Address</th>
                   <th class="not-important"><br>E-mail Address</th>
@@ -198,8 +197,7 @@
 
               <?php foreach($admin as $row): ?>
               <tr>
-                  <td><?php echo htmlentities($row->firstname); ?></td>
-                  <td><?php echo htmlentities($row->lastname); ?></td>
+                  <td><?php echo htmlentities($row->firstname . " " . $row->middlename . " " . $row->lastname); ?></td>
                   <td><?php echo htmlentities($row->username); ?></td>
                   <td><?php echo htmlentities($row->address); ?></td>
                   <td class="action-button not-important"><?php echo $row->email; ?></td>

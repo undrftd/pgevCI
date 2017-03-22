@@ -89,7 +89,7 @@
 
         <h4> <?php echo $result->post_title; ?> </h4>
         <p><small class="date-archive"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;  <?php echo date("F d, Y", strtotime($result->post_date)) . " at " . date("g:i A", $result->post_time);?></small> </p>
-        <p class="date-posted"> <?php echo $result->firstname . " " . $result->lastname; ?> said </p>
+        <p class="date-posted"> <?php echo $result->firstname . " " . $result->middlename . " " . $result->lastname; ?> said </p>
         <hr>
         <p> <?php echo $result->post_content;  ?> </p>
 

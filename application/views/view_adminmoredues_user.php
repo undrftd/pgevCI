@@ -175,7 +175,7 @@
             <h4> Billing Information </h4>
                 <br>
                 <p> Homeowner's Name </p>
-                <input disabled name ="firstname" class="form-control" id="sel1"type="text" placeholder="" value="<?php echo $view->firstname . " " . $view->lastname ?>">
+                <input disabled name ="firstname" class="form-control" id="sel1"type="text" placeholder="" value="<?php echo $view->firstname . " " . $view->middlename . " " . $view->lastname ?>">
                 <p class="error"><?php echo form_error('firstname'); ?> </p>
                 <br>
                 <p> Address </p>

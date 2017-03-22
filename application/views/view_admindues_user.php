@@ -278,7 +278,7 @@
 
               <?php foreach ($users as $row):?>
               <tr>
-                  <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
+                  <td><?php echo $row->firstname . " " . $row->middlename . " " . $row->lastname; ?></td>
                   <td class="not-important"><?php echo $row->address; ?></td>
                   <td ><?php echo "₱ " . $row->monthly_dues; ?></td>
                   <td ><?php echo "₱ ". $row->arrears; ?></td>

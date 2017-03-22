@@ -283,7 +283,7 @@
 
                 <tr>
                     <th><br>Date</th>
-                    <th><br>Homeowner Name</th>
+                    <th><br>Homeowner's Name</th>
                     <th><br>Time</th>
                     <th><br>Status</th>
                     <th><br>Action</th>
@@ -292,7 +292,7 @@
                 <?php foreach($myreserve as $row):?>
                 <tr>
                     <td><?php echo date("F d, Y", strtotime($row->reservation_date)); ?></td>
-                    <td><?php echo $row->firstname . " " . $row->lastname; ?></td>
+                    <td><?php echo $row->firstname . " " . $row->middlename . " " . $row->lastname; ?></td>
                     <td><?php echo $row->reservation_start . ":00 PM - " . $row->reservation_end . ":00 PM";?> </td>
                     <td><?php if($row->reservation_status == 2) { echo "Pending"; } else if($row->reservation_status == 1) { echo "Approved"; } else { echo "Denied"; } ?> </td>
                     <td class="action-button">

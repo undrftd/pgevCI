@@ -96,7 +96,7 @@
           <h4> Suggestions Box </h4><br>
 
           <p> Name </p>
-          <input name ="fullname" class="form-control" id="sel1" type="text" placeholder="" value= "<?php echo $this->session->userdata('firstname') . " " .$this->session->userdata('lastname') ;?>" readonly>
+          <input name ="fullname" class="form-control" id="sel1" type="text" placeholder="" value= "<?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('middlename') . " " . $this->session->userdata('lastname') ;?>" readonly>
           <br>
           <p> Email Address </p>
           <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo $this->session->userdata('email');?>" readonly>

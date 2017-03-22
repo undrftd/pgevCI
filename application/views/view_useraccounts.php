@@ -110,6 +110,11 @@
                   <p></p>
                   <br>
 
+                  <p> Middle Name </p>
+                  <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($this->session->middlename) ;?>" readonly>
+                  <p></p>
+                  <br>
+
                   <p> User ID </p>
                   <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($this->session->username) ;?>" readonly>
                   <p></p>

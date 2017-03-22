@@ -195,7 +195,7 @@
                 <?php foreach ($carsticker as $row): ?>
                 <tr>
                     <td><?php echo date("F d, Y", strtotime($row->date_requested)) ?></td>
-                    <td><?php echo $row->firstname . " " . $row->lastname?></td>
+                    <td><?php echo $row->firstname . " " . $row->middlename . " " . $row->lastname?></td>
                     <td><?php echo $row->contactnum?></td>
                     <td><?php if($row->status == 2){ echo "Pending"; } else if($row->status == 1) { echo "For Resubmission"; } else { echo "Processed"; } ?></td>
                     <td class="action-button">
