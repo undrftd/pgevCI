@@ -155,7 +155,16 @@
   </div>
 
   <div class="header-style nopadding">
-    <h1> Homeowner's Monthly Dues </h1>
+    <h1> Administrator's Monthly Dues
+      <span class="dropdown">
+        <a class="dropdown-toggle sort-button" type="button" data-toggle="dropdown"> Filter list <span class="caret"></span> </a>
+        <ul class="dropdown-menu">
+          <li><a href="#" data-toggle="modal" data-target="#start-modal">Paid dues</a></li>
+          <li><a href="<?php echo base_url();?>admin_dues/viewrates">Unpaid dues</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#clear-modal">All dues</a></li>
+        </ul>
+      </span>
+    </h1>
   </div><br>
 
   <div class="portlet nopadding">
