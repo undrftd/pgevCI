@@ -189,7 +189,7 @@
               <tr>
                   <th><br>First Name</th>
                   <th><br>Last Name</th>
-                  <th><br>Username</th>
+                  <th><br>User ID</th>
                   <th><br>Address</th>
                   <th class="not-important"><br>E-mail Address</th>
                   <th class="not-important"><br>Contact Number</th>

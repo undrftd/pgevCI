@@ -110,7 +110,7 @@
               <p class="error"><?php echo form_error('lastname'); ?></p>
           <br>
 
-          <p> Username </p>
+          <p> User ID </p>
           <input name="username" class="form-control" id="sel1" type="text" placeholder="Must contain numbers only" pattern="[0-9]{8,12}" title="Username must include a minimum of 8 and a maximum of 12 numbers only." required>
               <p class="error"><?php echo form_error('username'); ?></p>
           <br>

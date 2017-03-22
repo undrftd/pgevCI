@@ -110,7 +110,7 @@
                   <p></p>
                   <br>
 
-                  <p> Username </p>
+                  <p> User ID </p>
                   <input class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($this->session->username) ;?>" readonly>
                   <p></p>
                   <br>

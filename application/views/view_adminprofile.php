@@ -125,7 +125,7 @@
                 <p class="error"><?php echo form_error('lastname'); ?></p>
                 <br>
 
-                <p> Username </p>
+                <p> User ID </p>
                 <input name="username" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo $this->session->userdata('username');?>" pattern="[0-9]{8,12}" title="Username must include a minimum of 8 numbers only." required>
                 <p class="error"><?php echo form_error('username'); ?></p>
                 <br>
