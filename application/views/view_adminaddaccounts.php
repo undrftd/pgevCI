@@ -116,7 +116,7 @@
           <br>
 
           <p> Birthdate * </p>
-          <input name="birthdate" class="form-control" id="sel1" type="date" placeholder="" pattern="[a-z A-Z ]{2,30}" title="Middle Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
+          <input name="birthdate" class="form-control" id="sel1" type="date" placeholder="" required>
               <p class="error"><?php echo form_error('middlemname'); ?></p>
           <br>
 

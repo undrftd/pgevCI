@@ -39,6 +39,20 @@ class MY_Form_validation extends CI_Form_validation{
         return TRUE;
     }
 
+    function birthvalidate()
+    {
+        $birthdate = $this->CI->input->post('birthdate');
+
+        if(($birthdate >= date("Y-m-d")) || strlen($birthdate) > 10)
+        {
+            $this->set_message('birthvalidate', 'Your birthdate is invalid.');
+
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
     function no_olddate()
     {
         $reservedate = $this->CI->input->post('datepick');

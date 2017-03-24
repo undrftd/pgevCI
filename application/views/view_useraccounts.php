@@ -116,8 +116,8 @@
                   <br>
 
                   <p> Birthdate </p>
-                  <input name="birthdate" class="form-control" id="sel1" type="date" placeholder="" pattern="[a-z A-Z ]{2,30}" title="Middle Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
-                  <p class="error"><?php echo form_error('middlemname'); ?></p>
+                  <input name="birthdate" class="form-control" id="sel1" type="date" placeholder="" value="<?php echo $this->session->userdata('birthdate'); ?>"  pattern="[a-z A-Z ]{2,30}" title="Middle Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
+                  <p class="error"><?php echo form_error('birthdate'); ?></p>
                   <br>
 
                   <p> User ID </p>
@@ -138,6 +138,11 @@
                   <p>Email Address </p>
                   <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo htmlentities($this->session->userdata('email')); ?>">
                   <p class="error"> <?php echo form_error('email'); ?>  </p>
+                  <?php if(!empty($message)){ ?>
+                  <p class="error"> 
+                     <div class="error"><?php echo $message; ?></div>
+                  </p>
+                <?php } ?>
                   <br>
 
                   <p> Address </p>

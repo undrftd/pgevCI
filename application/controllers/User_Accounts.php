@@ -49,6 +49,17 @@ class User_Accounts extends MY_Controller {
         return ( ! preg_match("/^([-0-9()])+$/i", $str)) ? FALSE : TRUE;
     }
 
+    function validEmail($email)
+    {
+        // Check the formatting is correct
+        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+        return FALSE;
+        }
+        // Next check the domain is real.
+        $domain = explode("@", $email, 2);
+        return checkdnsrr($domain[1]); // returns TRUE/FALSE;
+    }
+
     function update_useraccount($userid)
     {
       $this->form_validation->set_error_delimiters('<div class="error">','</div>');
@@ -59,6 +70,7 @@ class User_Accounts extends MY_Controller {
 
       $this->form_validation->set_rules('password', 'Password', 'required|min_length[7]|xss_clean');
       $this->form_validation->set_rules('cpassword', 'Password', 'required|matches[password]|xss_clean');
+      $this->form_validation->set_rules('birthdate', 'Birthdate', 'required|birthvalidate|xss_clean');
       $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$userid.']|xss_clean');
       $this->form_validation->set_rules('contactnum', 'Contact Number', 'required|callback_num_dash_par|min_length[7]|xss_clean');
 
@@ -67,6 +79,14 @@ class User_Accounts extends MY_Controller {
           $data['approvedreserve'] = $this->model_reservation->count_approved();
           $data['deniedreserve'] = $this->model_reservation->count_denied();
           $data['count'] = $this->model_tracking_user->count_activetickets();
+          $this->template->load('user_template', 'view_useraccounts', $data);
+      }
+      elseif ($this->validemail($this->input->post('email')) == FALSE)
+      {
+          $data['approvedreserve'] = $this->model_reservation->count_approved();
+          $data['deniedreserve'] = $this->model_reservation->count_denied();
+          $data['count'] = $this->model_tracking_user->count_activetickets();
+          $data['message'] = 'This email is invalid.';
           $this->template->load('user_template', 'view_useraccounts', $data);
       }
       else

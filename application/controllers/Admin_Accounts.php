@@ -146,14 +146,15 @@ class Admin_Accounts extends MY_Controller {
         return ( !preg_match('/^[a-z,. 0-9 \-]+$/i',$str)) ? FALSE : TRUE;
     }
 
-    function validEmail($email){
-    // Check the formatting is correct
-    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
-    return FALSE;
-    }
-    // Next check the domain is real.
-    $domain = explode("@", $email, 2);
-    return checkdnsrr($domain[1]); // returns TRUE/FALSE;
+    function validEmail($email)
+    {
+        // Check the formatting is correct
+        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+        return FALSE;
+        }
+        // Next check the domain is real.
+        $domain = explode("@", $email, 2);
+        return checkdnsrr($domain[1]); // returns TRUE/FALSE;
     }
 
 	function createuser()
@@ -168,6 +169,7 @@ class Admin_Accounts extends MY_Controller {
         $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space|xss_clean');
         $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space|xss_clean');
         $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|is_unique[accounts.username]|xss_clean');
+        $this->form_validation->set_rules('birthdate', 'Birthdate', 'required|birthvalidate|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
         $this->form_validation->set_rules('confpassword', 'Confirm Password', 'required|matches[password]|xss_clean');
         $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma|xss_clean');
@@ -454,6 +456,7 @@ class Admin_Accounts extends MY_Controller {
 
             $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space|xss_clean');
             $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space|xss_clean');
+            $this->form_validation->set_rules('birthdate', 'Birthdate', 'required|birthvalidate|xss_clean');
             $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|edit_unique[accounts.username.'.$userid.']|xss_clean');
             $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma|xss_clean');
             $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$userid.']|xss_clean');
@@ -465,6 +468,15 @@ class Admin_Accounts extends MY_Controller {
                 $data['count'] = $this->model_ticketing->count_newtickets();
                 $data['reserve'] = $this->model_reservation->count_allnewreserve();
                 $data['forms'] = $this->model_forms->count_allnewforms();
+                $data['view'] = $this->model_accounts->viewmore_user($userid);
+                $this->template->load('admin_template', 'view_adminviewmore_user', $data);
+            }
+            elseif ($this->validemail($this->input->post('email')) == FALSE)
+            {
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
+                $data['message'] = 'This email is invalid.';
                 $data['view'] = $this->model_accounts->viewmore_user($userid);
                 $this->template->load('admin_template', 'view_adminviewmore_user', $data);
             }
@@ -498,6 +510,7 @@ class Admin_Accounts extends MY_Controller {
 
                 $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space|xss_clean');
                 $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space|xss_clean');
+                $this->form_validation->set_rules('birthdate', 'Birthdate', 'required|birthvalidate|xss_clean');
                 $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|edit_unique[accounts.username.'.$userid.']|xss_clean');
                 $this->form_validation->set_rules('address', 'Address', 'required|callback_alpha_comma|xss_clean');
                 $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|edit_unique[accounts.email.'.$userid.']|xss_clean');
@@ -509,6 +522,15 @@ class Admin_Accounts extends MY_Controller {
                     $data['count'] = $this->model_ticketing->count_newtickets();
                     $data['reserve'] = $this->model_reservation->count_allnewreserve();
                     $data['forms'] = $this->model_forms->count_allnewforms();
+                    $data['view'] = $this->model_accounts->viewmore_admin($userid);
+                    $this->template->load('admin_template', 'view_adminviewmore_admin', $data);
+                }
+                elseif ($this->validemail($this->input->post('email')) == FALSE)
+                {
+                    $data['count'] = $this->model_ticketing->count_newtickets();
+                    $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                    $data['forms'] = $this->model_forms->count_allnewforms();
+                    $data['message'] = 'This email is invalid.';
                     $data['view'] = $this->model_accounts->viewmore_admin($userid);
                     $this->template->load('admin_template', 'view_adminviewmore_admin', $data);
                 }
@@ -544,6 +566,7 @@ class Admin_Accounts extends MY_Controller {
 
             $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space|xss_clean');
             $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space|xss_clean');
+            $this->form_validation->set_rules('birthdate', 'Birthdate', 'required|birthvalidate|xss_clean');
             $this->form_validation->set_rules('username', 'Username', 'trim|required|numeric|min_length[8]|edit_unique[accounts.username.'.$userid.']|xss_clean');
             $this->form_validation->set_rules('address', 'Address', 'required|xss_clean');
             $this->form_validation->set_rules('email', 'E-mail Address', 'required|valid_email|is_unique[accounts.email]|xss_clean');
@@ -555,6 +578,15 @@ class Admin_Accounts extends MY_Controller {
                 $data['count'] = $this->model_ticketing->count_newtickets();
                 $data['reserve'] = $this->model_reservation->count_allnewreserve();
                 $data['forms'] = $this->model_forms->count_allnewforms();
+                $data['view'] = $this->model_accounts->viewmore_deact($userid);
+                $this->template->load('admin_template', 'view_adminviewmore_deact', $data);
+            }
+            elseif ($this->validemail($this->input->post('email')) == FALSE)
+            {
+                $data['count'] = $this->model_ticketing->count_newtickets();
+                $data['reserve'] = $this->model_reservation->count_allnewreserve();
+                $data['forms'] = $this->model_forms->count_allnewforms();
+                $data['message'] = 'This email is invalid.';
                 $data['view'] = $this->model_accounts->viewmore_deact($userid);
                 $this->template->load('admin_template', 'view_adminviewmore_deact', $data);
             }

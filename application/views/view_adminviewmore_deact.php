@@ -171,7 +171,7 @@
                 <br>
 
                 <p> Birthdate </p>
-                <input name="birthdate" class="form-control" id="sel1" type="date" placeholder="" value="<?php echo htmlentities($view->birthdate); ?>" pattern="[a-z A-Z ]{2,30}" title="Middle Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
+                <input name="birthdate" class="form-control" id="sel1" type="date" placeholder="" value="<?php echo htmlentities($view->birthdate); ?>"  required>
                 <p class="error"><?php echo form_error('middlemname'); ?></p>
                 <br>
 
@@ -188,6 +188,11 @@
                 <p> E-mail Address </p>
                 <input name="email" class="form-control" id="sel1" type="email" placeholder="" value="<?php echo htmlentities($view->email); ?>" required>
                 <p class="error"><?php echo form_error('email'); ?> </p>
+                <?php if(!empty($message)){ ?>
+                  <p class="error"> 
+                     <div class="error"><?php echo $message; ?></div>
+                  </p>
+                <?php } ?>
                 <br>
 
                 <p> Contact Number </p>

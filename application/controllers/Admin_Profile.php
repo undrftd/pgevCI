@@ -53,6 +53,17 @@ class Admin_Profile extends MY_Controller{
         return ( !preg_match('/^[a-z,. 0-9 \-]+$/i',$str)) ? FALSE : TRUE;
     }
 
+    function validEmail($email)
+    {
+        // Check the formatting is correct
+        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+        return FALSE;
+        }
+        // Next check the domain is real.
+        $domain = explode("@", $email, 2);
+        return checkdnsrr($domain[1]); // returns TRUE/FALSE;
+    }
+
 	function update_account($userid)
 	{
 		$this->usertracking->track_this();
@@ -66,6 +77,7 @@ class Admin_Profile extends MY_Controller{
 
 	        $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_alpha_dash_space|xss_clean');
 	        $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_alpha_dash_space|xss_clean');
+	        $this->form_validation->set_rules('birthdate', 'Birthdate', 'required|birthvalidate|xss_clean');
 	        $this->form_validation->set_rules('username', 'Username', 'trim|required|edit_unique[accounts.username.'.$userid.']|xss_clean');
 	        $this->form_validation->set_rules('password', 'Password', 'required|xss_clean');
 	        $this->form_validation->set_rules('passconf', 'Password', 'required|matches[password]|xss_clean');
@@ -78,6 +90,14 @@ class Admin_Profile extends MY_Controller{
 	        	$data['count'] = $this->model_ticketing->count_newtickets();
     			$data['reserve'] = $this->model_reservation->count_allnewreserve();
     			$data['forms'] = $this->model_forms->count_allnewforms();
+	        	$this->template->load('admin_template', 'view_adminprofile', $data);
+	        }
+	        elseif ($this->validemail($this->input->post('email')) == FALSE)
+	        {
+	            $data['count'] = $this->model_ticketing->count_newtickets();
+	            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+	            $data['forms'] = $this->model_forms->count_allnewforms();
+	            $data['message'] = 'This email is invalid.';
 	        	$this->template->load('admin_template', 'view_adminprofile', $data);
 	        }
 	        else

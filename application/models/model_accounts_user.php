@@ -19,12 +19,14 @@ class Model_accounts_user extends CI_Model {
   {
        $account_update_data = array(
           'password' => $this->bcrypt->hash_password($this->input->post('password')),
+          'birthdate' => $this->input->post('birthdate'),
           'email' => $this->input->post('email'),
           'contactnum' => $this->input->post('contactnum'),
       );
 
        $password_update_data = array(
           'password' => $this->input->post('password'),
+          'birthdate' => $this->input->post('birthdate'),
           'email' => $this->input->post('email'),
           'contactnum' => $this->input->post('contactnum'),
       );
