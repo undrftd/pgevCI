@@ -155,13 +155,13 @@
   </div>
 
   <div class="header-style nopadding">
-    <h1> Administrator's Monthly Dues
+    <h1> Administrator's Monthly Dues <?php if($this->uri->segment(2) == 'paid_admin') { echo "- Paid"; } else if($this->uri->segment(2) == 'unpaid_admin') { echo "- Unpaid"; } else { echo " "; } ?>
       <span class="dropdown">
         <a class="dropdown-toggle sort-button" type="button" data-toggle="dropdown"> Filter list <span class="caret"></span> </a>
         <ul class="dropdown-menu">
-          <li><a href="#" data-toggle="modal" data-target="#start-modal">Paid dues</a></li>
-          <li><a href="<?php echo base_url();?>admin_dues/viewrates">Unpaid dues</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#clear-modal">All dues</a></li>
+          <li><a href="<?php echo site_url('admin_dues/administrator'); ?>">All Accounts</a></li>
+          <li><a href="<?php echo site_url('admin_dues/paid_admin'); ?>">Paid Accounts</a></li>
+          <li><a href="<?php echo site_url('admin_dues/unpaid_admin'); ?>">Unpaid Accounts</a></li>
         </ul>
       </span>
     </h1>

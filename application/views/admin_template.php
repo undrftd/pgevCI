@@ -53,6 +53,9 @@
               <a href="<?php echo site_url("admin_statistics"); ?>" class="<?php if($this->uri->segment(1) == 'admin_statistics') { echo 'active'; } ?>">Statistics</a>
           </li>
           <li>
+              <a href="<?php echo site_url("admin_ticketlog/logs");?>" class="<?php if($this->uri->segment(1) == 'admin_ticketlog') { echo 'active'; } ?>"> Ticket Log</a>
+          </li>
+          <li>
               <a href="<?php echo site_url("admin_audit/logs");?>" class="<?php if($this->uri->segment(1) == 'admin_audit') { echo 'active'; } ?>"> Audit Trail</a>
           </li>
         </ul>
@@ -124,6 +127,8 @@
 					<hr>
 					<a href="<?php echo site_url("admin_statistics"); ?>">Statistics</a>
 					<hr>
+              		<a href="<?php echo site_url("admin_ticketlog/logs");?>"> Ticket Log</a>
+              		<hr>
 					<a href="<?php echo site_url("admin_audit/logs");?>">Audit Trail</a>
 					<hr>
 					<span class="overlay-footer"> &copy; 2017 Parkwood Greens </span>

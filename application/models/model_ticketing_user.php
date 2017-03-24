@@ -11,9 +11,17 @@ class Model_ticketing_user extends CI_Model {
             'content' => $this->input->post('content'),
             'date_requested' => time()
         );
+
+        $postlog_data = array(
+            'userid' => $this->session->userdata('userid'),
+            'request_type' => $this->input->post('type'),
+            'date_requested' => time()
+        );
         //$this->db->set('date', 'NOW()', FALSE);
         $insert = $this->db->insert('tickets', $postrequest_data);
+        $insertlog = $this->db->insert('ticketlog', $postlog_data);
         return $insert;
+        return $insertlog;
 	}	
 
     function send_cctv()
@@ -26,9 +34,18 @@ class Model_ticketing_user extends CI_Model {
             'date_requested' => time(),
             'date_cctv' => $this->input->post('datepick')
         );
+
+        $postlog_data = array(
+            'userid' => $this->session->userdata('userid'),
+            'request_type' => $this->input->post('type'),
+            'date_requested' => time()
+        );
+
         //$this->db->set('date', 'NOW()', FALSE);
         $insert = $this->db->insert('tickets', $postrequest_data);
+        $insertlog = $this->db->insert('ticketlog', $postlog_data);
         return $insert;
+        return $insertlog;
     }   
 
 	function get_ticketid()

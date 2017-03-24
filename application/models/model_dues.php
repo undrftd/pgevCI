@@ -150,7 +150,7 @@ class Model_dues extends CI_Model {
 
     function billstart_user()
     {
-        $query = $this->db->select('*')->from('accounts')->where('role', 0)->where('isActive', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->where('role', 0)->get();
         $ratequery = $this->db->select('*')->where('rateid',1)->get('rate', 1);
         $rateresult = $ratequery->row();
         
@@ -174,18 +174,18 @@ class Model_dues extends CI_Model {
 
             if($row->arrears == 0 && $row->monthly_dues == 0)
             {
-                $this->db->where('role', 0)->where('isActive', 1)->where('userid', $row->userid);
+                $this->db->where('role', 0)->where('userid', $row->userid);
                 $this->db->update('accounts',$data);
             }
             else if ($row->monthly_dues == 0 && $row->arrears >0) 
             {
-                $this->db->where('role', 0)->where('isActive', 1)->where('userid', $row->userid);
+                $this->db->where('role', 0)->where('userid', $row->userid);
                 $this->db->update('accounts',$data2);
             }
             else if(($row->arrears == 0 && $row->monthly_dues > 0) || ($row->arrears > 0 && $row->monthly_dues > 0))
             {  
 
-                $this->db->where('role', 0)->where('isActive', 1)->where('userid', $row->userid);
+                $this->db->where('role', 0)->where('userid', $row->userid);
                 $this->db->update('accounts',$data3); 
             }
 
@@ -194,7 +194,7 @@ class Model_dues extends CI_Model {
 
     function billstart_admin()
     {
-        $query = $this->db->select('*')->from('accounts')->where('role', 1)->where('isActive', 1)->get();
+        $query = $this->db->select('*')->from('accounts')->where('role', 1)->get();
         $ratequery = $this->db->select('*')->where('rateid',1)->get('rate', 1);
         $rateresult = $ratequery->row();
         
@@ -218,17 +218,17 @@ class Model_dues extends CI_Model {
 
             if($row->arrears == 0 && $row->monthly_dues == 0)
             {
-                $this->db->where('role', 1)->where('isActive', 1)->where('userid', $row->userid);
+                $this->db->where('role', 1)->where('userid', $row->userid);
                 $this->db->update('accounts',$data);
             }
             else if ($row->monthly_dues == 0 && $row->arrears >0) 
             {
-                $this->db->where('role', 1)->where('isActive', 1)->where('userid', $row->userid);
+                $this->db->where('role', 1)->where('userid', $row->userid);
                 $this->db->update('accounts',$data2);
             }
             else if(($row->arrears == 0 && $row->monthly_dues > 0) || ($row->arrears > 0 && $row->monthly_dues > 0))
             {  
-                $this->db->where('role', 1)->where('isActive', 1)->where('userid', $row->userid);
+                $this->db->where('role', 1)->where('userid', $row->userid);
                 $this->db->update('accounts',$data3); 
             }
 
@@ -398,7 +398,7 @@ class Model_dues extends CI_Model {
             'arrears' => '0',
             );
 
-        $this->db->where('role', 0)->where('isActive', 1);
+        $this->db->where('role', 0);
         $update = $this->db->update('accounts',$update_record_rate);
         return $update;
     }
@@ -410,7 +410,7 @@ class Model_dues extends CI_Model {
             'arrears' => '0',
             );
 
-        $this->db->where('role', 1)->where('isActive', 1);
+        $this->db->where('role', 1);
         $update = $this->db->update('accounts',$update_record_rate);
         return $update;
     }
@@ -446,5 +446,89 @@ class Model_dues extends CI_Model {
         $update = $this->db->update('accounts',$update_record_data);
         return $update;
         return $this->db->affected_rows();
+    }
+
+    function filter_paid($limit, $offset)
+    {
+        $this->db->limit($limit, $offset);
+        $accounts = $this->db->select('*')->from('accounts')->where('monthly_dues', 0)->where('arrears', 0)->where('role', 0)->get(); 
+
+        if($accounts->num_rows() > 0)
+        {
+            return $accounts->result();
+        }
+        else
+        {
+            return $accounts->result();
+        }
+    }
+
+    function count_paid()
+    {
+        $query = $this->db->select('*')->from('accounts')->where('monthly_dues', 0)->where('arrears', 0)->where('role', 0)->get();   
+        return $query->num_rows();
+    }
+
+    function filter_unpaid($limit, $offset)
+    {
+        $this->db->limit($limit, $offset);
+        $accounts = $this->db->select('*')->from('accounts')->where("role = 0 AND (arrears > 0 OR monthly_dues > 0)")->get(); 
+
+        if($accounts->num_rows() > 0)
+        {
+            return $accounts->result();
+        }
+        else
+        {
+            return $accounts->result();
+        }
+    }
+
+    function count_unpaid()
+    {
+        $query = $this->db->select('*')->from('accounts')->where("role = 0 AND (arrears > 0 OR monthly_dues > 0)")->get();   
+        return $query->num_rows();
+    }
+
+    function filter_paidadmin($limit, $offset)
+    {
+        $this->db->limit($limit, $offset);
+        $accounts = $this->db->select('*')->from('accounts')->where('monthly_dues', 0)->where('arrears', 0)->where('role', 1)->get(); 
+
+        if($accounts->num_rows() > 0)
+        {
+            return $accounts->result();
+        }
+        else
+        {
+            return $accounts->result();
+        }
+    }
+
+    function count_paidadmin()
+    {
+        $query = $this->db->select('*')->from('accounts')->where('monthly_dues', 0)->where('arrears', 0)->where('role', 1)->get();   
+        return $query->num_rows();
+    }
+
+    function filter_unpaidadmin($limit, $offset)
+    {
+        $this->db->limit($limit, $offset);
+        $accounts = $this->db->select('*')->from('accounts')->where("role = 1 AND (arrears > 0 OR monthly_dues > 0)")->get(); 
+
+        if($accounts->num_rows() > 0)
+        {
+            return $accounts->result();
+        }
+        else
+        {
+            return $accounts->result();
+        }
+    }
+
+    function count_unpaidadmin()
+    {
+        $query = $this->db->select('*')->from('accounts')->where("role = 1 AND (arrears > 0 OR monthly_dues > 0)")->get();   
+        return $query->num_rows();
     }
 }

@@ -65,4 +65,22 @@ class Admin_Export extends CI_Controller {
                 header("Content-Disposition: attachment; filename=\"$filename\"");
   $this->exportExcelData($dataToExports);
  }
+
+ public function exportDataTicket()
+ {
+  $query = $this->db->select('*')->from('accounts')->join('ticketlog', 'accounts.userid = ticketlog.userid' )->get();
+  $allData = $query->result_array();  // this will return all data into array
+  $dataToExports = [];
+  foreach ($allData as $data) {
+   $arrangeData['Ticket ID,'] = $data['request_type'] . "-" . $data['ticketid'] . ",";
+   $arrangeData['Homeowner\'s Name,'] = $data['firstname'] . " " . $data['lastname'] . ",";
+   $arrangeData['Date Requested,'] = date("m/d/Y g:i A", $data['date_requested']) . ",";
+   $dataToExports[] = $arrangeData;
+  }
+  // set header
+  $filename = "AuditLog.csv";
+                header("Content-Type: application/vnd.ms-excel");
+                header("Content-Disposition: attachment; filename=\"$filename\"");
+  $this->exportExcelData($dataToExports);
+ }
 }
