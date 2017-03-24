@@ -184,6 +184,7 @@ class Admin_Dues extends MY_Controller{
     {
         $this->usertracking->track_this();
         $this->model_dues->billstart_user();
+        $this->model_dues->isunpaid_user();
 
         $emails = $this->model_accounts->getemail_user();
 
@@ -210,6 +211,7 @@ class Admin_Dues extends MY_Controller{
     {
         $this->usertracking->track_this();
         $this->model_dues->billstart_admin();
+        $this->model_dues->isunpaid_admin();
 
         $emails = $this->model_accounts->getemail_admin();
 

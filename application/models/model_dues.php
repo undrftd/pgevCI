@@ -532,4 +532,55 @@ class Model_dues extends CI_Model {
         return $query->num_rows();
     }
 
+    function isunpaid_user()
+    {
+        $query = $this->db->select('*')->from('accounts')->where('role', 0)->get();
+        $ratequery = $this->db->select('*')->where('rateid',1)->get('rate', 1);
+        $result = $query->result();
+        $rate = $ratequery->row();
+
+        foreach($result as $row)
+        {
+            if(($row->arrears >  0 && $row->monthly_dues == 0) || ($row->arrears > 0 && $row->monthly_dues > 0 ) || ($row->arrears == 0 && $row->monthly_dues > 0 ))
+            {
+                if((($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee)) >= 3)
+                {
+                    $this->load->library('email');
+                    $this->email->from("pgevadmin@parkwoodgreens.com");
+                    $this->email->to($row->email);
+                    $this->email->set_header('Header1', 'NAME');
+                    $this->email->subject("Deactivation Notice");
+                    $this->email->message("You have 3 months worth of unpaid dues. Please pay immediately to avoid account deactivation.");
+                    
+                    $this->email->send(); 
+                }
+            }
+        } 
+    }
+
+    function isunpaid_admin()
+    {
+        $query = $this->db->select('*')->from('accounts')->where('role', 1)->get();
+        $ratequery = $this->db->select('*')->where('rateid',1)->get('rate', 1);
+        $result = $query->result();
+        $rate = $ratequery->row();
+
+        foreach($result as $row)
+        {
+            if(($row->arrears >  0 && $row->monthly_dues == 0) || ($row->arrears > 0 && $row->monthly_dues > 0 ) || ($row->arrears == 0 && $row->monthly_dues > 0 ))
+            {
+                if((($row->arrears + $row->monthly_dues) / ($rate->securityfee + $rate->assocfee)) >= 3)
+                {
+                    $this->load->library('email');
+                    $this->email->from("pgevadmin@parkwoodgreens.com");
+                    $this->email->to($row->email);
+                    $this->email->set_header('Header1', 'NAME');
+                    $this->email->subject("Deactivation Notice");
+                    $this->email->message("You have 3 months worth of unpaid dues. Please pay immediately to avoid account deactivation.");
+                    
+                    $this->email->send(); 
+                }
+            }
+        } 
+    }
 }
