@@ -146,6 +146,16 @@ class Admin_Accounts extends MY_Controller {
         return ( !preg_match('/^[a-z,. 0-9 \-]+$/i',$str)) ? FALSE : TRUE;
     }
 
+    function validEmail($email){
+    // Check the formatting is correct
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+    return FALSE;
+    }
+    // Next check the domain is real.
+    $domain = explode("@", $email, 2);
+    return checkdnsrr($domain[1]); // returns TRUE/FALSE;
+    }
+
 	function createuser()
     {
         $this->usertracking->track_this();
@@ -170,6 +180,14 @@ class Admin_Accounts extends MY_Controller {
             $data['count'] = $this->model_ticketing->count_newtickets();
             $data['reserve'] = $this->model_reservation->count_allnewreserve();
             $data['forms'] = $this->model_forms->count_allnewforms();
+            $this->template->load('admin_template', 'view_adminaddaccounts', $data);
+        }
+        elseif ($this->validemail($this->input->post('email')) == FALSE)
+        {
+            $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['reserve'] = $this->model_reservation->count_allnewreserve();
+            $data['forms'] = $this->model_forms->count_allnewforms();
+            $data['message'] = 'This email is invalid.';
             $this->template->load('admin_template', 'view_adminaddaccounts', $data);
         }
         else

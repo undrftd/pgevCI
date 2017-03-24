@@ -143,6 +143,11 @@
           <p> E-mail Address * </p>
           <input name="email" class="form-control" id="sel1" type="email" placeholder="e.g. someone@gmail.com" required>
             <p class="error"><?php echo form_error('email'); ?> </p>
+            <?php if(!empty($message)){ ?>
+              <p class="error"> 
+                 <div class="error"><?php echo $message; ?></div>
+              </p>
+            <?php } ?>
           <br>
 
           <p> Contact Number * </p>
