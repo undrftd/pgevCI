@@ -531,4 +531,5 @@ class Model_dues extends CI_Model {
         $query = $this->db->select('*')->from('accounts')->where("role = 1 AND (arrears > 0 OR monthly_dues > 0)")->get();   
         return $query->num_rows();
     }
+
 }

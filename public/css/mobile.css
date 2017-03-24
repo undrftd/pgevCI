@@ -373,7 +373,7 @@
     border: 0;
   }
 
-  .dues-buttons li:nth-child(-n+5) {
+  .dues-buttons li:nth-child(-n+6) {
     display: none;
   }
 
@@ -392,7 +392,7 @@
     letter-spacing: 0;
   }
 
-  .dues-buttons li:nth-child(6) {
+  .dues-buttons li:nth-child(7) {
     display: inline-block;
   }
 

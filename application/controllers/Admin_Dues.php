@@ -184,6 +184,24 @@ class Admin_Dues extends MY_Controller{
     {
         $this->usertracking->track_this();
         $this->model_dues->billstart_user();
+
+        $emails = $this->model_accounts->getemail_user();
+
+
+        foreach($emails as $row)
+        {
+            if($row['email'])
+            {
+                $this->email->from("pgevadmin@parkwoodgreens.com");
+                $this->email->to($row['email']);
+                $this->email->set_header('Header1', 'NAME');
+                $this->email->subject("Monthly Dues Alert");
+                $this->email->message("Your dues for the month has already been billed. You may go to the administration office for your payment. Thank you very much.");
+                
+                $this->email->send();
+            }
+        }
+
         $this->session->set_flashdata('duesfeedback', 'You have successfully billed the homeowners their respective monthly dues.');
         redirect('admin_dues/homeowner');
     }
@@ -192,6 +210,24 @@ class Admin_Dues extends MY_Controller{
     {
         $this->usertracking->track_this();
         $this->model_dues->billstart_admin();
+
+        $emails = $this->model_accounts->getemail_admin();
+
+
+        foreach($emails as $row)
+        {
+            if($row['email'])
+            {
+                $this->email->from("pgevadmin@parkwoodgreens.com");
+                $this->email->to($row['email']);
+                $this->email->set_header('Header1', 'NAME');
+                $this->email->subject("Monthly Dues Alert");
+                $this->email->message("Your dues for the month has already been billed. You may go to the administration office for your payment. Thank you very much.");
+                
+                $this->email->send();
+            }
+        }
+
         $this->session->set_flashdata('duesfeedback', 'You have successfully billed the administrators their respective monthly dues.');
         redirect('admin_dues/administrator');
     }
@@ -260,12 +296,28 @@ class Admin_Dues extends MY_Controller{
         if($this->model_dues->url_check_user($userid))
         {
             $this->model_dues->cleardues_user($userid);
+
+            $emails = $this->model_accounts->getsingle_mail($userid);
+            foreach($emails as $row)
+            {
+                if($row['email'])
+                {
+                    $this->email->from("pgevadmin@parkwoodgreens.com");
+                    $this->email->to($row['email']);
+                    $this->email->set_header('Header1', 'NAME');
+                    $this->email->subject("Monthly Dues Payment");
+                    $this->email->message("Your monthly dues payment has already been received. Thank you very much for supporting our community.");
+                    
+                    $this->email->send();
+                }
+            }
+
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s monthly dues.');
 
             $data['count'] = $this->model_ticketing->count_newtickets();
+            $data['view'] = $this->model_dues->viewmore_user($userid);
             $data['reserve'] = $this->model_reservation->count_allnewreserve();
             $data['forms'] = $this->model_forms->count_allnewforms();
-            $data['view'] = $this->model_dues->viewmore_user($userid);
             $this->template->load('admin_template', 'view_adminmoredues_user', $data);
         }
         else
@@ -281,6 +333,22 @@ class Admin_Dues extends MY_Controller{
         if($this->model_dues->url_check_user($userid))
         {
             $this->model_dues->cleararrears_user($userid);
+
+            $emails = $this->model_accounts->getsingle_mail($userid);
+            foreach($emails as $row)
+            {
+                if($row['email'])
+                {
+                    $this->email->from("pgevadmin@parkwoodgreens.com");
+                    $this->email->to($row['email']);
+                    $this->email->set_header('Header1', 'NAME');
+                    $this->email->subject("Arrears Payment");
+                    $this->email->message("Your arrears payment has already been received. Thank you very much for supporting our community.");
+                    
+                    $this->email->send();
+                }
+            }
+
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s arrears. ');
 
             $data['count'] = $this->model_ticketing->count_newtickets();
@@ -302,6 +370,22 @@ class Admin_Dues extends MY_Controller{
         if($this->model_dues->url_check_admin($userid))
         {
             $this->model_dues->cleardues_admin($userid);
+
+            $emails = $this->model_accounts->getsingle_mail($userid);
+            foreach($emails as $row)
+            {
+                if($row['email'])
+                {
+                    $this->email->from("pgevadmin@parkwoodgreens.com");
+                    $this->email->to($row['email']);
+                    $this->email->set_header('Header1', 'NAME');
+                    $this->email->subject("Monthly Dues Payment");
+                    $this->email->message("Your monthly dues payment has already been received. Thank you very much for supporting our community.");
+                    
+                    $this->email->send();
+                }
+            }
+
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s monthly dues.');
 
             $data['count'] = $this->model_ticketing->count_newtickets();
@@ -323,6 +407,21 @@ class Admin_Dues extends MY_Controller{
         if($this->model_dues->url_check_admin($userid))
         {
             $this->model_dues->cleararrears_admin($userid);
+
+            $emails = $this->model_accounts->getsingle_mail($userid);
+            foreach($emails as $row)
+            {
+                if($row['email'])
+                {
+                    $this->email->from("pgevadmin@parkwoodgreens.com");
+                    $this->email->to($row['email']);
+                    $this->email->set_header('Header1', 'NAME');
+                    $this->email->subject("Arrears Payment");
+                    $this->email->message("Your arrears payment has already been received. Thank you very much for supporting our community.");
+                    
+                    $this->email->send();
+                }
+            }
             $this->session->set_flashdata('duesmorefeedback', 'You have successfully cleared the user\'s arrears. ');
 
             $data['count'] = $this->model_ticketing->count_newtickets();
@@ -453,6 +552,20 @@ class Admin_Dues extends MY_Controller{
         }
         else
         {
+            $emails = $this->model_accounts->getall_mail();
+            foreach($emails as $row)
+            {
+                if($row['email'])
+                {
+                    $this->email->from("pgevadmin@parkwoodgreens.com");
+                    $this->email->to($row['email']);
+                    $this->email->set_header('Header1', 'NAME');
+                    $this->email->subject("Monthly Dues Rate Update");
+                    $this->email->message("The monthly dues rate for our community has already been changed. Please contact the administrators for further clarifications and questions.");
+                    $this->email->send();
+                }
+            }
+
             $data['count'] = $this->model_ticketing->count_newtickets();
             $data['reserve'] = $this->model_reservation->count_allnewreserve();
             $data['forms'] = $this->model_forms->count_allnewforms();

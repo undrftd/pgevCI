@@ -251,7 +251,6 @@ class User_Ticketing extends MY_Controller {
 		        if ($this->upload->do_upload('file'))
 		        {
 					$this->model_ticketing_user->send_ticket();
-					$this->load->library("email");
             
 		            $this->email->from("pgevadmin@parkwoodgreens.com");
 		            $this->email->to("parkwoodexecutive@gmail.com");
@@ -273,7 +272,6 @@ class User_Ticketing extends MY_Controller {
 			 else
 			 {
 			 	$this->load->library('upload');
-			 	$this->load->library("email");
             
 	            $this->email->from("pgevadmin@parkwoodgreens.com");
 	            $this->email->to("parkwoodexecutive@gmail.com");

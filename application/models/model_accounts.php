@@ -521,7 +521,8 @@ class Model_accounts extends CI_Model {
 
     function acc_deact($userid)
     {
-        $account_deact_data = array('isActive' => 0);
+        $date = date("m/d/Y", now());
+        $account_deact_data = array('isActive' => 0, 'date_deactivated' => $date);
         $this->db->where('userid', $userid);
         $deact = $this->db->update('accounts', $account_deact_data);
         return $deact;
@@ -529,17 +530,40 @@ class Model_accounts extends CI_Model {
 
     function acc_reactivate($userid)
     {
-        $account_react_data = array('isActive' => 1);
+        $account_react_data = array('isActive' => 1, 'date_deactivated' => "");
         $this->db->where('userid', $userid);
         $reactivate = $this->db->update('accounts', $account_react_data);
         return $reactivate;
     }
 
-     function checksession()
+    function checksession()
     {
         $query = $this->db->select('*')->from('accounts')->where('userid', $this->session->userdata('userid'))->get();
 
         return $query->row();
     }
 
+    function getemail_user()
+    {
+        $query = $this->db->select('email')->from('accounts')->where('role', 0)->get();
+        return $query->result_array();
+    }
+
+    function getemail_admin()
+    {
+        $query = $this->db->select('email')->from('accounts')->where('role', 1)->get();
+        return $query->result_array();
+    }
+
+    function getsingle_mail($userid)
+    {
+        $query = $this->db->select('email')->from('accounts')->where('userid', $userid)->get();
+        return $query->result_array();
+    }
+
+    function getall_mail()
+    {
+        $query = $this->db->select('email')->from('accounts')->get();
+        return $query->result_array();
+    }
 }
