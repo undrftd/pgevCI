@@ -135,6 +135,11 @@
                 <p class="error"><?php echo form_error('username'); ?></p>
                 <br>
 
+                <p> Birthdate </p>
+                <input name="birthdate" class="form-control" id="sel1" type="date" placeholder="" pattern="[a-z A-Z ]{2,30}" title="Middle Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
+                <p class="error"><?php echo form_error('middlemname'); ?></p>
+                <br>
+
                 <p> Password </p>
                 <input data-toggle="password" data-placement="after" name="password" class="form-control" id="user-password" type="password" placeholder="" value="<?php echo $this->session->userdata('password');?>" pattern=".{8,}" title="Password should at least be 8 characters long." required>
                 <p class="error"><?php echo form_error('password'); ?></p>

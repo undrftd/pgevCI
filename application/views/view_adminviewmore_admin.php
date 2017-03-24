@@ -182,6 +182,11 @@
                 <p class="error"><?php echo form_error('username'); ?></p>
                 <br>
 
+                <p> Birthdate </p>
+                <input name="birthdate" class="form-control" id="sel1" type="date" placeholder="" pattern="[a-z A-Z ]{2,30}" title="Middle Name must include a minimum of 2 and a maximum of 30 alphabetical characters only." required>
+                <p class="error"><?php echo form_error('middlemname'); ?></p>
+                <br>
+
                 <p> Address </p>
                 <input name="address" class="form-control" id="sel1" type="text" placeholder="" value="<?php echo htmlentities($view->address); ?>" pattern="[a-z A-Z,.# 0-9 \-]{10,}" title="Address should contain alphanumeric characters with commas and periods, with a minimum of 10 characters." required>
                 <p class="error"><?php echo form_error('address'); ?></p>
