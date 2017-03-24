@@ -184,25 +184,37 @@
                         {
                           echo "Trash Collection";
                         }
-                         else if($result->request_type == 'RMP')
+                        else if($result->request_type == 'RPC')
+                        {
+                          echo "Pest Control";
+                        }
+                         else if($result->request_type == 'CMP')
                         {
                           echo "Malfunctioning Post Lights";
                         }
-                         else if($result->request_type == 'RBD')
+                        else if($result->request_type == 'CPL')
+                        {
+                          echo "Water Pipeline Leakages";
+                        }
+                         else if($result->request_type == 'CBD')
                         {
                           echo "Blocked Drainage";
                         }
-                        else if($result->request_type == 'RSC')
+                        else if($result->request_type == 'CSC')
                         {
                           echo "Electrical Short Circuit";
                         }
-                         else if($result->request_type == 'RMD')
+                         else if($result->request_type == 'CMD')
                         {
                           echo "Monthly Dues";
                         }
                         else if($result->request_type == 'ROT')
                         {
-                          echo "Other";
+                          echo "Other Request";
+                        }
+                        else if($result->request_type == 'COT')
+                        {
+                          echo "Other Complaint";
                         }
                         else if($result->request_type == 'CTV')
                         {
@@ -223,6 +235,10 @@
                         else if($result->request_type == 'ESP')
                         {
                           echo "Suspicious Person";
+                        }
+                        else if($result->request_type == 'EOT')
+                        {
+                          echo "Other Emergency";
                         }  ?>" readonly>
             <br>
 

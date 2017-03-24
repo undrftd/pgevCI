@@ -38,20 +38,29 @@ class User_Ticketing extends MY_Controller {
 		$this->template->load('user_template', 'view_userticketing', $data);
 	}
 
-	function requests_complaints()
+	function requests()
 	{
 		$data['approvedreserve'] = $this->model_reservation->count_approved();
         $data['deniedreserve'] = $this->model_reservation->count_denied();
 		$data['count'] = $this->model_tracking_user->count_activetickets();
 		$data['ticket'] = $this->model_ticketing_user->get_ticketid();
-		$this->template->load('user_template', 'view_userrequestscomplaints', $data);
+		$this->template->load('user_template', 'view_userrequests', $data);
 	}
 
-	function send_requestcomplaint()
+	function complaints()
+	{
+		$data['approvedreserve'] = $this->model_reservation->count_approved();
+        $data['deniedreserve'] = $this->model_reservation->count_denied();
+		$data['count'] = $this->model_tracking_user->count_activetickets();
+		$data['ticket'] = $this->model_ticketing_user->get_ticketid();
+		$this->template->load('user_template', 'view_usercomplaints', $data);
+	}
+
+	function send_request()
 	{
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 
-        $this->form_validation->set_rules('type', 'Type of Request or Complaint', 'required|xss_clean');
+        $this->form_validation->set_rules('type', 'Type of Request', 'required|xss_clean');
         $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]|xss_clean');
 
         if ($this->form_validation->run() == FALSE)
@@ -77,21 +86,70 @@ class User_Ticketing extends MY_Controller {
 		        if ($this->upload->do_upload('file'))
 		        {
 					$this->model_ticketing_user->send_ticket();
-		        	$this->session->set_flashdata('requestsuccess', 'Your request/complaint has been successfully submitted. The Ticket ID for this request is indicated below.');
-		        	redirect('user_ticketing/requests_complaints');
+		        	$this->session->set_flashdata('requestsuccess', 'Your request has been successfully submitted. The Ticket ID for this request is indicated below.');
+		        	redirect('user_ticketing/requests');
 		        }
 		        else
 		        {
 		            $this->session->set_flashdata('requestfail', $this->upload->display_errors());
-		            redirect('user_ticketing/requests_complaints');
+		            redirect('user_ticketing/requests');
 			    }
 			 }
 			 else
 			 {
 				$this->load->library('upload');
-			 	$this->session->set_flashdata('requestsuccess', 'Your request/complaint has been successfully submitted. The Ticket ID for this request is indicated below.');
+			 	$this->session->set_flashdata('requestsuccess', 'Your request has been successfully submitted. The Ticket ID for this request is indicated below.');
 			 	$this->model_ticketing_user->send_ticket();
-			    redirect('user_ticketing/requests_complaints');
+			    redirect('user_ticketing/requests');
+			 }
+		}
+	}
+
+	function send_complaint()
+	{
+		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
+
+        $this->form_validation->set_rules('type', 'Type of Complaint', 'required|xss_clean');
+        $this->form_validation->set_rules('content', 'Message', 'trim|required|min_length[10]|xss_clean');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+        	$data['approvedreserve'] = $this->model_reservation->count_approved();
+        	$data['deniedreserve'] = $this->model_reservation->count_denied();
+        	$data['count'] = $this->model_tracking_user->count_activetickets();
+            $this->template->load('user_template', 'view_usercomplaints', $data);
+        }
+        else
+        {
+        	if ($_FILES && $_FILES['file']['name'] !== "")
+        	{
+                $real = realpath(APPPATH);
+		        $config['upload_path']          = $real . '/ticket_uploads/';
+		        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
+		        $config['max_size']             = '52428800';
+		        $config['max_width']            = 1920;
+		        $config['max_height']           = 1080;
+
+		        $this->load->library('upload', $config);
+
+		        if ($this->upload->do_upload('file'))
+		        {
+					$this->model_ticketing_user->send_ticket();
+		        	$this->session->set_flashdata('requestsuccess', 'Your complaint has been successfully submitted. The Ticket ID for this complaint is indicated below.');
+		        	redirect('user_ticketing/complaints');
+		        }
+		        else
+		        {
+		            $this->session->set_flashdata('requestfail', $this->upload->display_errors());
+		            redirect('user_ticketing/complaints');
+			    }
+			 }
+			 else
+			 {
+				$this->load->library('upload');
+			 	$this->session->set_flashdata('requestsuccess', 'Your request has been successfully submitted. The Ticket ID for this complaint is indicated below.');
+			 	$this->model_ticketing_user->send_ticket();
+			    redirect('user_ticketing/complaints');
 			 }
 		}
 	}
@@ -181,7 +239,7 @@ class User_Ticketing extends MY_Controller {
         {
         	if ($_FILES && $_FILES['file']['name'] !== "")
         	{
-			$real = realpath(APPPATH);
+				$real = realpath(APPPATH);
 		        $config['upload_path']          = $real . '/ticket_uploads/';
 		        $config['allowed_types']        = 'doc|docx|jpg|pdf|png';
 		        $config['max_size']             = '52428800';
@@ -193,6 +251,16 @@ class User_Ticketing extends MY_Controller {
 		        if ($this->upload->do_upload('file'))
 		        {
 					$this->model_ticketing_user->send_ticket();
+					$this->load->library("email");
+            
+		            $this->email->from("pgevadmin@parkwoodgreens.com");
+		            $this->email->to("parkwoodexecutive@gmail.com");
+		            $this->email->set_header('Header1', 'NAME');
+		            $this->email->subject("Emergency Ticket Alert -" . " " . $this->session->userdata('firstname') . " " . $this->session->userdata('lastname') . " " . "(" . $this->session->userdata('email') . ")");
+		            $this->email->message("An Emergency Ticket has been raised. Please address this ticket immediately.");
+		            
+		            $this->email->send();
+
 		        	$this->session->set_flashdata('emergencysuccess', 'Your emergency ticket has been successfully submitted. The Ticket ID for this request is indicated below.');
 		        	redirect('user_ticketing/emergency_ticket');
 		        }
@@ -205,6 +273,16 @@ class User_Ticketing extends MY_Controller {
 			 else
 			 {
 			 	$this->load->library('upload');
+			 	$this->load->library("email");
+            
+	            $this->email->from("pgevadmin@parkwoodgreens.com");
+	            $this->email->to("parkwoodexecutive@gmail.com");
+	            $this->email->set_header('Header1', 'NAME');
+	            $this->email->subject("Emergency Ticket Alert -" . " " . $this->session->userdata('firstname') . " " . $this->session->userdata('lastname') . " " . "(" . $this->session->userdata('email') . ")");
+	            $this->email->message("An Emergency Ticket has been raised. Please address this ticket immediately.");
+	            
+	            $this->email->send();
+
 			 	$this->session->set_flashdata('emergencysuccess', 'Your emergency ticket has been successfully submitted. The Ticket ID for this request is indicated below.');
 			 	$this->model_ticketing_user->send_ticket();
 			    redirect('user_ticketing/emergency_ticket');

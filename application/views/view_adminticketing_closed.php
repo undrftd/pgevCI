@@ -158,29 +158,33 @@
                         {
                           echo "Pest Control";
                         }
-                         else if($row->request_type == 'RMP')
+                         else if($row->request_type == 'CMP')
                         {
                           echo "Malfunctioning Post Lights";
                         }
-                        else if($row->request_type == 'RPL')
+                        else if($row->request_type == 'CPL')
                         {
                           echo "Water Pipeline Leakages";
                         }
-                         else if($row->request_type == 'RBD')
+                         else if($row->request_type == 'CBD')
                         {
                           echo "Blocked Drainage";
                         }
-                        else if($row->request_type == 'RSC')
+                        else if($row->request_type == 'CSC')
                         {
                           echo "Electrical Short Circuit";
                         }
-                         else if($row->request_type == 'RMD')
+                         else if($row->request_type == 'CMD')
                         {
                           echo "Monthly Dues";
                         }
                         else if($row->request_type == 'ROT')
                         {
-                          echo "Other";
+                          echo "Other Request";
+                        }
+                        else if($row->request_type == 'COT')
+                        {
+                          echo "Other Complaint";
                         }
                         else if($row->request_type == 'CTV')
                         {
@@ -201,6 +205,10 @@
                         else if($row->request_type == 'ESP')
                         {
                           echo "Suspicious Person";
+                        }
+                        else if($row->request_type == 'EOT')
+                        {
+                          echo "Other Emergency";
                         }  ?>
                   </td>
                   <td><?php echo $row->firstname . " " . $row->middlename . " " . $row->lastname; ?></td>

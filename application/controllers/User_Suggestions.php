@@ -54,6 +54,9 @@ class User_Suggestions extends MY_Controller {
         }
         else
         {
+            $data['approvedreserve'] = $this->model_reservation->count_approved();
+            $data['deniedreserve'] = $this->model_reservation->count_denied();
+            $data['count'] = $this->model_tracking_user->count_activetickets();
             $this->session->set_flashdata('suggestfeedback', 'Your suggestion has been successfully submitted. Thank you for your time and concern in our community.');
           
             $this->load->library("email");
@@ -65,7 +68,7 @@ class User_Suggestions extends MY_Controller {
             $emaildata = $this->email->message(set_value("message"));
             
             $this->email->send();
-            $this->template->load('user_template','view_usersuggestions'); 
+            $this->template->load('user_template','view_usersuggestions', $data); 
         }
     }
 }

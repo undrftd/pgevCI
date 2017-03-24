@@ -64,22 +64,22 @@
       <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 nopadding">
 
         <div class="header-style">
-          <h1> Emergency Ticket </h1>
+          <h1> Requests </h1>
         </div>
 
-        <?php if ($this->session->flashdata('emergencysuccess')){ ?>
+        <?php if ($this->session->flashdata('requestsuccess')){ ?>
           <div class="success-message text-center" id="prompt-message">
             <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-            <p> <?php echo $this->session->flashdata('emergencysuccess'); ?></p><br>
+            <p> <?php echo $this->session->flashdata('requestsuccess'); ?></p><br>
             <p class="ticket-id"><?php echo $ticket->request_type ."-" . $ticket->ticketid; ?></p><br><br>
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
           </div>
         <?php } ?>
 
-        <?php if ($this->session->flashdata('emergencyfail')){ ?>
+        <?php if ($this->session->flashdata('requestfail')){ ?>
           <div class="error-message text-center" id="prompt-message">
             <h3> Hello, <?php echo $this->session->userdata('firstname');?>.</h3>
-            <p> <?php echo $this->session->flashdata('emergencyfail'); ?></p><br>
+            <p> <?php echo $this->session->flashdata('requestfail'); ?></p><br>
             <button type="button" class="btn btn-custom-2" id="close-button">Dismiss</button><br><br>
           </div>
         <?php } ?>
@@ -88,7 +88,7 @@
 
         <div class="information">
 
-          <form action="<?php echo site_url(); ?>user_ticketing/send_emergency" method="POST" enctype="multipart/form-data">
+          <form action="<?php echo site_url();?>user_ticketing/send_request" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
 
@@ -99,23 +99,22 @@
 
               <br>
 
-
               <p> Select a type of ticket: </p>
-              <select name="type" class="form-control" id="sel1" autofocus required>
-                  <option value="" selected hidden>Type of Emergency</option>
-                  <option value="EFR">Fire</option>
-                  <option value="ERB">Robbery</option>
-                  <option value="EBT">Broken House Tube</option>
-                  <option value="ESP">Suspicious Person</option>
-                  <option value="EOT">Other</option>
+              <select name ="type" class="form-control" id="sel1" autofocus required>
+                <option value="" selected hidden>Type of Request</option>
+                <option value="RGC">Grass Cutting</option>
+                <option value="RTC">Trash Collection</option>
+                <option value="ROT">Other</option>
               </select>
               <p class="error"><?php echo form_error('type'); ?> </p>
 
-            </div><br>
+            </div>
+
+            <br>
 
             <div class="form-group">
               <p> Message </p>
-              <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly explain your emergency..." rows="15" reseize="none" required></textarea>
+              <textarea name ="content" class="form-control" id="user-message" placeholder="Kindly elaborate your request in the community..." rows="15" reseize="none" required></textarea>
               <p class="error"><?php echo form_error('content'); ?> </p>
             </div>
 

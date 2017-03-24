@@ -83,8 +83,8 @@
 
               <div class="ticket-type text-center">
                   <h4> Requests </h4><hr>
-                  <p> This option is for requests which can be found on this list: Grass Cutting, Trash Collection, Pest Control </p><br>
-                  <a href ="<?php echo site_url(); ?>user_ticketing/requests_complaints"><button type="button" class="btn btn-custom-2" id="close-button">+ Create</button></a><br><br>
+                  <p> This option is for requests which can be found on this list: Grass Cutting and Trash Collection </p><br>
+                  <a href ="<?php echo site_url(); ?>user_ticketing/requests"><button type="button" class="btn btn-custom-2" id="close-button">+ Create</button></a><br><br>
               </div>
               </a>
 
@@ -95,7 +95,7 @@
               <div class="ticket-type text-center">
                   <h4> Complaints </h4><hr>
                   <p> This option is for complaints which can be found on this list: Malfunctioning Post Lights, Water Leakages, Blocked Drainage, Electrical Short Circuit, and Monthly Dues. </p><br>
-                  <a href ="<?php echo site_url(); ?>user_ticketing/requests_complaints"><button type="button" class="btn btn-custom-2" id="close-button">+ Create</button></a><br><br>
+                  <a href ="<?php echo site_url(); ?>user_ticketing/complaints"><button type="button" class="btn btn-custom-2" id="close-button">+ Create</button></a><br><br>
               </div>
               </a>
 

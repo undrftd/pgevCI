@@ -153,29 +153,33 @@
                         {
                           echo "Pest Control";
                         }
-                         else if($row->request_type == 'RMP')
+                         else if($row->request_type == 'CMP')
                         {
                           echo "Malfunctioning Post Lights";
                         }
-                        else if($row->request_type == 'RPL')
+                        else if($row->request_type == 'CPL')
                         {
                           echo "Water Pipeline Leakages";
                         }
-                         else if($row->request_type == 'RBD')
+                         else if($row->request_type == 'CBD')
                         {
                           echo "Blocked Drainage";
                         }
-                        else if($row->request_type == 'RSC')
+                        else if($row->request_type == 'CSC')
                         {
                           echo "Electrical Short Circuit";
                         }
-                         else if($row->request_type == 'RMD')
+                         else if($row->request_type == 'CMD')
                         {
                           echo "Monthly Dues";
                         }
                         else if($row->request_type == 'ROT')
                         {
-                          echo "Other";
+                          echo "Other Request";
+                        }
+                        else if($row->request_type == 'COT')
+                        {
+                          echo "Other Complaint";
                         }
                         else if($row->request_type == 'CTV')
                         {
@@ -196,8 +200,12 @@
                         else if($row->request_type == 'ESP')
                         {
                           echo "Suspicious Person";
+                        }
+                        else if($row->request_type == 'EOT')
+                        {
+                          echo "Other Emergency";
                         }  ?>
-              </td>
+                  </td>
               <td><?php if($row->status == 0) { echo "Resolved"; } else if($row->status == 1){ echo "Work in Progress"; } else if($row->status == 2){ echo "Unaddressed";}  ?></td>
               <td><?php if($row->homeowner_feedback == 0) { echo "Finished"; } else if($row->homeowner_feedback == 0 && $row->status == 0) { echo "Closed - No Action Needed"; }else if($row->homeowner_feedback != 0 && $row->status == 0) { echo "Closed by Administrators"; }else { echo "<button type='button' class='btn btn-custom-3' data-href='".base_url()."user_tracking/set_finished_recent/".$row->ticketid."' data-toggle='modal' data-target='#delete-modal'>Set as Finished</button>"; } ?></td>
           </tr>

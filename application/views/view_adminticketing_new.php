@@ -75,8 +75,17 @@
   <hr class="colored-hr">
   <br>
 
-  <div class="header-style">
-    <h1> Ticketing</h1>
+  <div class="header-style nopadding">
+    <h1> Ticketing  <?php if($this->uri->segment(2) == 'newtickets_priorityone') { echo "- Priority 1"; } else if($this->uri->segment(2) == 'newtickets_prioritytwo') { echo "- Priority 2"; } else { echo " "; } ?>
+      <span class="dropdown">
+        <a class="dropdown-toggle sort-button" type="button" data-toggle="dropdown"> Filter list <span class="caret"></span> </a>
+        <ul class="dropdown-menu">
+          <li><a href="<?php echo site_url('admin_ticketing/new_tickets'); ?>">All Tickets</a></li>
+          <li><a href="<?php echo site_url('admin_ticketing/newtickets_priorityone'); ?>">Priority 1</a></li>
+          <li><a href="<?php echo site_url('admin_ticketing/newtickets_prioritytwo'); ?>">Priority 2</a></li>
+        </ul>
+      </span>
+    </h1>
   </div><br>
 
   <div class="portlet nopadding">
@@ -143,7 +152,7 @@
 
               <?php foreach($result as $row): ?>
               <tr>
-                  <td><?php if($row->request_type == 'EFR' || $row->request_type == 'ERB' || $row->request_type == 'ESP' || $row->request_type == 'EBT') { echo "1"; } else { echo "2"; } ?> </td>
+                  <td><?php if($row->request_type == 'EFR' || $row->request_type == 'ERB' || $row->request_type == 'ESP' || $row->request_type == 'EBT' || $row->request_type == 'EOT') { echo "1"; } else { echo "2"; } ?> </td>
                   <td><?php echo $row->request_type . "-" .$row->ticketid; ?></td>
                   <td><?php
                         if($row->request_type == 'RGC')
@@ -158,29 +167,33 @@
                         {
                           echo "Pest Control";
                         }
-                         else if($row->request_type == 'RMP')
+                         else if($row->request_type == 'CMP')
                         {
                           echo "Malfunctioning Post Lights";
                         }
-                        else if($row->request_type == 'RPL')
+                        else if($row->request_type == 'CPL')
                         {
                           echo "Water Pipeline Leakages";
                         }
-                         else if($row->request_type == 'RBD')
+                         else if($row->request_type == 'CBD')
                         {
                           echo "Blocked Drainage";
                         }
-                        else if($row->request_type == 'RSC')
+                        else if($row->request_type == 'CSC')
                         {
                           echo "Electrical Short Circuit";
                         }
-                         else if($row->request_type == 'RMD')
+                         else if($row->request_type == 'CMD')
                         {
                           echo "Monthly Dues";
                         }
                         else if($row->request_type == 'ROT')
                         {
-                          echo "Other";
+                          echo "Other Request";
+                        }
+                        else if($row->request_type == 'COT')
+                        {
+                          echo "Other Complaint";
                         }
                         else if($row->request_type == 'CTV')
                         {
@@ -201,13 +214,17 @@
                         else if($row->request_type == 'ESP')
                         {
                           echo "Suspicious Person";
+                        }
+                        else if($row->request_type == 'EOT')
+                        {
+                          echo "Other Emergency";
                         }  ?>
                   </td>
                   <td><?php echo $row->firstname . " " . $row->middlename . " " . $row->lastname; ?></td>
                   <td><?php echo date("m/d/Y g:i A", $row->date_requested); ?></td>
                   <td class="action-button">
                     <a href="<?php echo site_url() . "admin_ticketing/ticketdetails/" . $row->ticketid; ?>">
-                    <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP') { echo "btn btn-custom-9"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
+                    <button type="button" class="<?php if($row->request_type == 'EFR' || $row->request_type == 'ERB'|| $row->request_type == 'EBT' || $row->request_type == 'ESP' || $row->request_type == 'EOT') { echo "btn btn-custom-9"; } else { echo "btn btn-custom-2"; } ?> ">Open</button></a>
                   </td>
               </tr>
             <?php endforeach; ?>

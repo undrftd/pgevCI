@@ -5,7 +5,7 @@ class Model_ticketing extends CI_Model {
 	function get_newtickets($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' ) desc, date_requested asc")->where('status', 2)->get();
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' || request_type='EOT') desc, date_requested asc")->where('status', 2)->get();
 
 		if($query->num_rows() > 0)
 		{
@@ -26,7 +26,7 @@ class Model_ticketing extends CI_Model {
 	function get_progresstickets($limit, $offset)
 	{
 		$this->db->limit($limit, $offset);
-		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' ) desc, date_requested asc")->where('status', 1)->get();
+		$query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->order_by("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' || request_type='EOT') desc, date_requested asc")->where('status', 1)->get();
 
 		if($query->num_rows() > 0)
 		{
@@ -84,6 +84,94 @@ class Model_ticketing extends CI_Model {
   {
     $query = $this->db->select('*')->from('ticketlog')->get();
     return $query->num_rows(); 
+  }
+
+  function getnew_priorityone($limit, $offset)
+  {
+    $this->db->limit($limit, $offset);
+    $query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' || request_type='EOT' )")->where('status', 2)->order_by('date_requested asc')->get();
+
+    if($query->num_rows() > 0)
+    {
+      return $query->result();
+    }
+    else
+    {
+      return $query->result();
+    }
+  }
+
+  function countnew_priorityone()
+  {
+    $query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' || request_type='EOT' )")->where('status', 2)->order_by('date_requested asc')->get();
+
+    return $query->num_rows();
+  }
+
+  function getnew_prioritytwo($limit, $offset)
+  {
+    $this->db->limit($limit, $offset);
+    $query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where("(request_type!='EFR' && request_type!='ERB' && request_type!='EBT' && request_type!='ESP' && request_type!='EOT' )")->where('status', 2)->order_by('date_requested asc')->get();
+
+    if($query->num_rows() > 0)
+    {
+      return $query->result();
+    }
+    else
+    {
+      return $query->result();
+    }
+  }
+
+  function countnew_prioritytwo()
+  {
+    $query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where("(request_type!='EFR' || request_type!='ERB' || request_type!='EBT' || request_type!='ESP' || request_type!='EOT' )")->where('status', 2)->order_by('date_requested asc')->get();
+
+    return $query->num_rows();
+  }
+
+  function getprogress_priorityone($limit, $offset)
+  {
+    $this->db->limit($limit, $offset);
+    $query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' || request_type='EOT' )")->where('status', 1)->order_by('date_requested asc')->get();
+
+    if($query->num_rows() > 0)
+    {
+      return $query->result();
+    }
+    else
+    {
+      return $query->result();
+    }
+  }
+
+  function countprogress_priorityone()
+  {
+    $query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where("(request_type='EFR' || request_type='ERB' || request_type='EBT' || request_type='ESP' || request_type='EOT' )")->where('status', 1)->order_by('date_requested asc')->get();
+
+    return $query->num_rows();
+  }
+
+  function getprogress_prioritytwo($limit, $offset)
+  {
+    $this->db->limit($limit, $offset);
+    $query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where("(request_type!='EFR' && request_type!='ERB' && request_type!='EBT' && request_type!='ESP' && request_type!='EOT' )")->where('status', 1)->order_by('date_requested asc')->get();
+
+    if($query->num_rows() > 0)
+    {
+      return $query->result();
+    }
+    else
+    {
+      return $query->result();
+    }
+  }
+
+  function countprogress_prioritytwo()
+  {
+    $query = $this->db->select('*')->from('accounts')->join('tickets', 'accounts.userid = tickets.userid' )->where("(request_type!='EFR' || request_type!='ERB' || request_type!='EBT' || request_type!='ESP' || request_type!='EOT' )")->where('status', 1)->order_by('date_requested asc')->get();
+
+    return $query->num_rows();
   }
 
   function countclosed_search($searchquery)
