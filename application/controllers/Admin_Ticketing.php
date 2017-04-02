@@ -15,12 +15,12 @@ class Admin_Ticketing extends MY_Controller {
 
       if(($session_admin == FALSE) && $method != 'login')
       {
-          $this->session->set_flashdata( 'message', 'You need to login to access this location' );
+          $this->session->set_flashdata('message', 'You need to login to access this location' );
           redirect('user_home');
       }
       elseif(($session_deact == 'deact') && $method != 'login')
       {
-          $this->session->set_flashdata( 'message', 'You need to login to access this location' );
+          $this->session->set_flashdata('message', 'You need to login to access this location' );
           redirect('admin_deact');
       }
 

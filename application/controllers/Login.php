@@ -23,8 +23,9 @@ class Login extends CI_Controller
         $isAdmin = $this->model_accounts->check_role();
         $isUser = $this->model_accounts->check_user();
         $isActive = $this->model_accounts->check_active();
+        $isUnverified = $this->model_accounts->check_unverified();
 
-        if($valid && $isAdmin && $isActive) // Active Admin
+        if(($valid && $isAdmin && $isActive) && $isUnverified == FALSE) // Active Admin
         {
             $data = array(
                 'is_logged_in' => true
@@ -32,7 +33,7 @@ class Login extends CI_Controller
             $this->session->set_userdata($data);
             redirect('admin_ticketing/new_tickets');
         }
-        else if($valid && $isActive && $isUser)  // Active User
+        else if(($valid && $isActive && $isUser) && $isUnverified == FALSE)  // Active User
         {
             $data = array(
                 'is_logged_in' => true
@@ -40,7 +41,7 @@ class Login extends CI_Controller
             $this->session->set_userdata($data);
             redirect('user_home');
         }
-        else if(($valid && $isAdmin) && $isActive == false)  //Deactivated Admin
+        else if(($valid && $isAdmin) && $isActive == false && $isUnverified == FALSE)  //Deactivated Admin
         {
             $data = array(
                 'is_logged_in' => true,
@@ -49,7 +50,7 @@ class Login extends CI_Controller
             $this->session->set_userdata($data);
             redirect('admin_deact');
         }
-        else if($valid && ($isActive && $isAdmin) == false) //Deactivated User
+        else if($valid && ($isActive && $isAdmin) == false  && $isUnverified == FALSE) //Deactivated User
         {
             $data = array(
                 'is_logged_in' => true,
@@ -62,6 +63,15 @@ class Login extends CI_Controller
         {
             $data['message'] = "Sorry, the username and password you entered did not match our records. Please double-check and try again. ";
             $this->template->load('template', 'view_login', $data);
+        }
+        else if($isUnverified)
+        {
+            $data = array(
+                'is_logged_in' => true,
+                'status' => 'unverified',
+            );
+            $this->session->set_userdata($data);
+            redirect('unverified');
         }
     }
 
@@ -278,6 +288,34 @@ class Login extends CI_Controller
         else
         {
             $this->template->load('template', 'view_resetpasswordverification');
+        }
+    }
+
+    function email_verification()
+    {
+        $emailkey = $this->uri->segment(3);
+
+        if(!$emailkey)
+        {
+            $data['message'] = 'Unable to proceed email verification process. Please make sure the verification link has not expired yet or the link is from the email.';
+            $this->template->load('template','view_verified', $data);
+        }
+        else
+        {
+            $this->load->model('model_accounts');
+
+            if($this->model_accounts->checkemail_key($emailkey) == 1)
+            {
+                $this->model_accounts->verify_email();
+                $data['message'] = 'You have successfully verified your email. You are currently being redirected to the login page.';
+                $this->template->load('template', 'view_verified', $data);
+                $this->output->set_header('refresh:3; url=' . site_url() . "login/");
+            }
+            else
+            {
+                $data['message'] = 'Unable to proceed email verification process. Please make sure the verification link has not expired yet or the link is from the email.';
+                $this->template->load('template','view_verified', $data);
+            }
         }
     }
 

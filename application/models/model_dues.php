@@ -550,7 +550,7 @@ class Model_dues extends CI_Model {
                     $this->email->to($row->email);
                     $this->email->set_header('Header1', 'NAME');
                     $this->email->subject("Deactivation Notice");
-                    $this->email->message("You have 3 months worth of unpaid dues. Please pay immediately to avoid account deactivation.");
+                    $this->email->message("You have 3 months or more worth of unpaid dues. Please pay immediately to avoid account deactivation.");
                     
                     $this->email->send(); 
                 }

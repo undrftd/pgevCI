@@ -23,6 +23,10 @@ class Admin_Accounts extends MY_Controller {
           $this->session->set_flashdata( 'message', 'You need to login to access this location' );
           redirect('admin_deact');
       }
+      else
+      {
+          redirect('unverified');
+      }
 
       if($session_data->username != $session_username)
       {
@@ -184,14 +188,14 @@ class Admin_Accounts extends MY_Controller {
             $data['forms'] = $this->model_forms->count_allnewforms();
             $this->template->load('admin_template', 'view_adminaddaccounts', $data);
         }
-        elseif ($this->validemail($this->input->post('email')) == FALSE)
-        {
-            $data['count'] = $this->model_ticketing->count_newtickets();
-            $data['reserve'] = $this->model_reservation->count_allnewreserve();
-            $data['forms'] = $this->model_forms->count_allnewforms();
-            $data['message'] = 'This email is invalid.';
-            $this->template->load('admin_template', 'view_adminaddaccounts', $data);
-        }
+        // elseif ($this->validemail($this->input->post('email')) == FALSE)
+        // {
+        //     $data['count'] = $this->model_ticketing->count_newtickets();
+        //     $data['reserve'] = $this->model_reservation->count_allnewreserve();
+        //     $data['forms'] = $this->model_forms->count_allnewforms();
+        //     $data['message'] = 'This email is invalid.';
+        //     $this->template->load('admin_template', 'view_adminaddaccounts', $data);
+        // }
         else
         {
             if($query = $this->model_accounts->create_account())

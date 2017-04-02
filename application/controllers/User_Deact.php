@@ -29,6 +29,10 @@ class User_Deact extends MY_Controller {
           $this->session->set_flashdata( 'message', 'You need to login to access this location' );
           redirect('user_home');
       }
+      else
+      {
+          redirect('unverified');
+      }
     }
 
     function index()

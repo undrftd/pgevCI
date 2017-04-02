@@ -27,7 +27,7 @@
             <h4> Please enter your credentials  </h4><br>
 
             <div class="form-group">
-              <p> Username </p>
+              <p> User ID </p>
               <input type="text" name="username" class="form-control" id="user-name">
             </div><!-- /input-group -->
 

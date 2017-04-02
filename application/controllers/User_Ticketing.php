@@ -23,7 +23,11 @@ class User_Ticketing extends MY_Controller {
           $this->session->set_flashdata( 'message', 'You need to login to access this location' );
           redirect('user_deact');
       }
-
+      else
+      {
+          redirect('unverified');
+      }
+      
       if($session_data->username != $session_username)
       {
           redirect('login/signout');
