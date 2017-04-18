@@ -23,6 +23,11 @@ class Admin_Statistics extends MY_Controller {
           $this->session->set_flashdata( 'message', 'You need to login to access this location' );
           redirect('admin_deact');
       }
+      elseif($session_deact == 'unverified' && $method != 'login')
+      {
+        redirect('unverified');
+      } 
+      
       if($session_data->username != $session_username)
       {
           redirect('login/signout');
